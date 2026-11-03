@@ -1,0 +1,7 @@
+build/
+dist/
+jniLibs/
+keystore/
+*.apk
+*.jks
+*.keystore

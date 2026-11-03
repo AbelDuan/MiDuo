@@ -1,0 +1,10 @@
+id=abel_dockhook
+name=桌面Dock定制
+author=AbelDuan
+description=HyperOS 桌面 Dock 定制：左右侧停靠（默认右侧）、竖排、柔光玻璃背景、搜索栏与状态栏胶囊跟随。
+minApiVersion=100
+targetApiVersion=102
+staticScope=true
+version=0.1.0
+versionCode=100
+scope=com.miui.home
