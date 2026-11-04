@@ -59,9 +59,10 @@ public class MainActivity extends Activity {
         desc.setPadding(0, dp(8), 0, dp(16));
         root.addView(desc);
 
-        etSb = addRow(root, "系统状态栏高度 (dp，0=完全隐藏)", KEY_SB);
-        etPull = addRow(root, "下拉边界 (dp，顶部多少以内可下拉)", KEY_PULL);
-        etDots = addRow(root, "三点菜单背景条高度 (dp，0=系统默认)", KEY_DOTS);
+        etSb = addRow(root, "系统状态栏高度 (dp，0=完全隐藏)", KEY_SB, 0);
+        etAppTop = addRow(root, "应用顶部避让 (dp：-1=跟随系统，0=内容顶格，>0=留白高度。读 insets 的 App 走系统下发；读 status_bar_height 的 App 需在 LSPosed 里勾选本模块作用域)", KEY_APPTOP, -1);
+        etPull = addRow(root, "下拉边界 (dp，顶部多少以内可下拉)", KEY_PULL, 12);
+        etDots = addRow(root, "三点菜单背景条高度 (dp，0=系统默认)", KEY_DOTS, 0);
         try {
             etDots.setText(String.valueOf(
                     Settings.Global.getInt(getContentResolver(), KEY_DOTS, 0)));
@@ -100,7 +101,7 @@ public class MainActivity extends Activity {
         setContentView(root);
     }
 
-    private EditText addRow(LinearLayout parent, String label, String key) {
+    private EditText addRow(LinearLayout parent, String label, String key, int def) {
         TextView tv = new TextView(this);
         tv.setText(label);
         tv.setTextSize(16);
@@ -110,9 +111,9 @@ public class MainActivity extends Activity {
         EditText et = new EditText(this);
         et.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED);
         et.setGravity(Gravity.START);
-        int cur = 0;
+        int cur = def;
         try {
-            cur = Settings.Global.getInt(getContentResolver(), key, 0);
+            cur = Settings.Global.getInt(getContentResolver(), key, def);
         } catch (Throwable ignored) {
         }
         et.setText(String.valueOf(cur));
@@ -145,7 +146,7 @@ public class MainActivity extends Activity {
         int hdr = 0;
         int dots = parseInt(etDots);
         int pull = parseInt(etPull);
-        int appTop = parseInt(etAppTop);
+        int appTop = parseSigned(etAppTop);
         Intent i = new Intent(ACTION_SET);
         i.putExtra("sbDp", sb);
         i.putExtra("hdrDp", hdr);

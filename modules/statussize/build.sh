@@ -45,6 +45,7 @@ echo "== 5/6 组包 =="
 cp -f "$OUT/base.apk" "$OUT/app-unsigned.apk"
 (cd "$OUT/dex" && zip -q -X "$OUT/app-unsigned.apk" classes.dex)
 (cd "$WORK/res" && zip -q -X -r "$OUT/app-unsigned.apk" META-INF)
+(cd "$WORK/res" && zip -q -X -r "$OUT/app-unsigned.apk" assets)
 "$ZIPALIGN" -f -p 4 "$OUT/app-unsigned.apk" "$OUT/app-aligned.apk"
 
 echo "== 6/6 签名 =="
