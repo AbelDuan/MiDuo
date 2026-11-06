@@ -384,6 +384,7 @@ final class T {
             this.b = new LinearLayout[strArr.length];
             this.c = new TextView[strArr.length];
             for (int i = 0; i < strArr.length; i++) {
+                final int iFinal = i;
                 LinearLayout c2 = dev.duo.hookprobe.T.c(context);
                 c2.setGravity(17);
                 if (iArr != null) {
@@ -398,7 +399,7 @@ final class T {
                 c2.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.T$e$$ExternalSyntheticLambda0
                     @Override // android.view.View.OnClickListener
                     public final void onClick(View view) {
-                        intConsumer.accept(i);
+                        intConsumer.accept(iFinal);
                     }
                 });
                 c2.setContentDescription(strArr[i]);
@@ -635,21 +636,20 @@ final class T {
                     public final Object apply(Object obj) {
                         Object a2;
                         Class<?> cls2 = obj.getClass();
-                        a2 = dev.duo.hookprobe.T.a((Class<?>) cls2);
+                        a2 = dev.duo.hookprobe.T.f.a(cls2);
                         return a2;
                     }
                 });
+
                 try {
-                } catch (ReflectiveOperationException e) {
-                    y.put(cellSignalStrength.getClass(), cellSignalStrength.getClass());
-                    Log.w("MiDuoUi", "MIUI signal level read failed for " + cellSignalStrength.getClass().getName(), e);
-                }
-                if (computeIfAbsent instanceof Method) {
-                    i = ((Integer) ((Method) computeIfAbsent).invoke(cellSignalStrength, null)).intValue();
-                } else {
-                    if (computeIfAbsent instanceof Field) {
+                    if (computeIfAbsent instanceof Method) {
+                        i = ((Integer) ((Method) computeIfAbsent).invoke(cellSignalStrength, null)).intValue();
+                    } else if (computeIfAbsent instanceof Field) {
                         i = ((Field) computeIfAbsent).getInt(cellSignalStrength);
+                    } else {
+                        i = -1;
                     }
+                } catch (ReflectiveOperationException e2) {
                     i = -1;
                 }
                 if (i < 0) {
