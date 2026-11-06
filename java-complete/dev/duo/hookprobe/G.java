@@ -206,14 +206,22 @@ public final class G extends XposedModule {
                 hook(declaredMethod).intercept(new XposedInterface.Hooker() { // from class: dev.duo.hookprobe.G$$ExternalSyntheticLambda11
                     public final Object intercept(XposedInterface.Chain chain) {
                         Object a2;
-                        a2 = G.a(chain);
+                        try {
+                            a2 = G.a(chain);
+                        } catch (Throwable th) {
+                            throw new RuntimeException(th);
+                        }
                         return a2;
                     }
                 });
                 hook(declaredMethod2).intercept(new XposedInterface.Hooker() { // from class: dev.duo.hookprobe.G$$ExternalSyntheticLambda12
                     public final Object intercept(XposedInterface.Chain chain) {
                         Object b2;
-                        b2 = G.b(chain);
+                        try {
+                            b2 = G.b(chain);
+                        } catch (Throwable th) {
+                            throw new RuntimeException(th);
+                        }
                         return b2;
                     }
                 });
@@ -231,7 +239,11 @@ public final class G extends XposedModule {
                         hook(method).intercept(new XposedInterface.Hooker() { // from class: dev.duo.hookprobe.G$$ExternalSyntheticLambda13
                             public final Object intercept(XposedInterface.Chain chain) {
                                 Object a2;
-                                a2 = G.a(method, cls3, chain);
+                                try {
+                                    a2 = G.a(method, cls3, chain);
+                                } catch (Throwable th) {
+                                    throw new RuntimeException(th);
+                                }
                                 return a2;
                             }
                         });
@@ -239,7 +251,11 @@ public final class G extends XposedModule {
                     hook(cls4.getDeclaredMethod("onAttachedToWindow", null)).intercept(new XposedInterface.Hooker() { // from class: dev.duo.hookprobe.G$$ExternalSyntheticLambda14
                         public final Object intercept(XposedInterface.Chain chain) {
                             Object c;
-                            c = G.c(chain);
+                            try {
+                                c = G.c(chain);
+                            } catch (Throwable th) {
+                                throw new RuntimeException(th);
+                            }
                             return c;
                         }
                     });
@@ -252,7 +268,11 @@ public final class G extends XposedModule {
                     hook(Class.forName("com.android.systemui.controlcenter.phone.widget.ControlCenterFakeStatusIcons", false, packageLoadedParam.getDefaultClassLoader()).getDeclaredMethod("onAttachedToWindow", null)).intercept(new XposedInterface.Hooker() { // from class: dev.duo.hookprobe.G$$ExternalSyntheticLambda15
                         public final Object intercept(XposedInterface.Chain chain) {
                             Object d;
-                            d = G.d(chain);
+                            try {
+                                d = G.d(chain);
+                            } catch (Throwable th) {
+                                throw new RuntimeException(th);
+                            }
                             return d;
                         }
                     });
@@ -267,7 +287,11 @@ public final class G extends XposedModule {
                         hook(cls5.getDeclaredMethod(strArr[i3], null)).intercept(new XposedInterface.Hooker() { // from class: dev.duo.hookprobe.G$$ExternalSyntheticLambda16
                             public final Object intercept(XposedInterface.Chain chain) {
                                 Object e;
-                                e = dev.duo.hookprobe.G.this.e(chain);
+                                try {
+                                    e = dev.duo.hookprobe.G.this.e(chain);
+                                } catch (Throwable th) {
+                                    throw new RuntimeException(th);
+                                }
                                 return e;
                             }
                         });
@@ -332,7 +356,11 @@ public final class G extends XposedModule {
             hook(Resources.class.getDeclaredMethod("getDimensionPixelSize", Integer.TYPE)).intercept(new XposedInterface.Hooker() { // from class: dev.duo.hookprobe.G$$ExternalSyntheticLambda2
                 public final Object intercept(XposedInterface.Chain chain) {
                     Object a2;
-                    a2 = dev.duo.hookprobe.G.this.a(sparseArray, field, method2, method, chain);
+                    try {
+                        a2 = dev.duo.hookprobe.G.this.a(sparseArray, field, method2, method, chain);
+                    } catch (Throwable th) {
+                        throw new RuntimeException(th);
+                    }
                     return a2;
                 }
             });
@@ -348,7 +376,11 @@ public final class G extends XposedModule {
             hook(q2.a.getDeclaredMethod("readFromParcel", Parcel.class)).intercept(new XposedInterface.Hooker() { // from class: dev.duo.hookprobe.G$$ExternalSyntheticLambda1
                 public final Object intercept(XposedInterface.Chain chain) {
                     Object a2;
-                    a2 = dev.duo.hookprobe.G.this.a(q2, chain);
+                    try {
+                        a2 = dev.duo.hookprobe.G.this.a(q2, chain);
+                    } catch (Throwable th) {
+                        throw new RuntimeException(th);
+                    }
                     return a2;
                 }
             });
@@ -383,7 +415,11 @@ public final class G extends XposedModule {
             hook(AssetManager.class.getDeclaredMethod("getResourceValue", cls, cls, TypedValue.class, Boolean.TYPE)).intercept(new XposedInterface.Hooker() { // from class: dev.duo.hookprobe.G$$ExternalSyntheticLambda5
                 public final Object intercept(XposedInterface.Chain chain) {
                     Object a2;
-                    a2 = dev.duo.hookprobe.G.this.a(sparseArray, chain);
+                    try {
+                        a2 = dev.duo.hookprobe.G.this.a(sparseArray, chain);
+                    } catch (Throwable th) {
+                        throw new RuntimeException(th);
+                    }
                     return a2;
                 }
             });
@@ -463,7 +499,11 @@ public final class G extends XposedModule {
         hook(cls.getDeclaredMethod("setBlurRadius", cls2)).intercept(new XposedInterface.Hooker() { // from class: dev.duo.hookprobe.G$$ExternalSyntheticLambda4
             public final Object intercept(XposedInterface.Chain chain) {
                 Object a2;
-                a2 = G.a(declaredField, aVar, chain);
+                try {
+                    a2 = G.a(declaredField, aVar, chain);
+                } catch (Throwable th) {
+                    throw new RuntimeException(th);
+                }
                 return a2;
             }
         });
@@ -613,7 +653,11 @@ public final class G extends XposedModule {
                     @Override // java.util.function.BooleanSupplier
                     public final boolean getAsBoolean() {
                         boolean b2;
-                        b2 = G.b(sharedPreferences2, str);
+                        try {
+                            b2 = G.b(sharedPreferences2, str);
+                        } catch (Throwable th) {
+                            throw new RuntimeException(th);
+                        }
                         return b2;
                     }
                 }, new IntSupplier() { // from class: dev.duo.hookprobe.G$$ExternalSyntheticLambda7
@@ -666,7 +710,11 @@ public final class G extends XposedModule {
                 @Override // java.util.function.BooleanSupplier
                 public final boolean getAsBoolean() {
                     boolean g;
-                    g = G.g();
+                    try {
+                        g = G.g();
+                    } catch (Throwable th) {
+                        throw new RuntimeException(th);
+                    }
                     return g;
                 }
             });
@@ -677,14 +725,22 @@ public final class G extends XposedModule {
                         @Override // java.util.function.BooleanSupplier
                         public final boolean getAsBoolean() {
                             boolean a2;
-                            a2 = G.a(remotePreferences);
+                            try {
+                                a2 = G.a(remotePreferences);
+                            } catch (Throwable th) {
+                                throw new RuntimeException(th);
+                            }
                             return a2;
                         }
                     }, new IntSupplier() { // from class: dev.duo.hookprobe.G$$ExternalSyntheticLambda10
                         @Override // java.util.function.IntSupplier
                         public final int getAsInt() {
                             int b2;
-                            b2 = G.b(remotePreferences);
+                            try {
+                                b2 = G.b(remotePreferences);
+                            } catch (Throwable th) {
+                                throw new RuntimeException(th);
+                            }
                             return b2;
                         }
                     });
