@@ -209,10 +209,6 @@ public final class BugCaptureService extends Service {
             msg = this.c == null ? "\u6293\u53d6\u4e5b\u4f10\uff1a" + e3.getMessage() : this.c;
             Log.w("DuoBugCapture", "\u6293\u53d6\u4e5b\u4f10\uff1a" + msg, e3);
             b();
-        } catch (InterruptedException e4) {
-            Thread.currentThread().interrupt();
-            msg = "\u7b49\u5f75\u65e5\u5f75\u9005\u51f5\u4f10\u4e6b\u4f10";
-            Log.w("DuoBugCapture", msg, e4);
         } finally {
             if (bufferedOutputStream != null) {
                 try {
