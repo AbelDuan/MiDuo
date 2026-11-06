@@ -662,7 +662,7 @@ public final class G extends XposedModule {
             final SharedPreferences remotePreferences = getRemotePreferences("duo_top");
             long uptimeMillis2 = SystemClock.uptimeMillis() - uptimeMillis;
             this.e = remotePreferences;
-            h.a(this, classLoader, remotePreferences, new BooleanSupplier() { // from class: dev.duo.hookprobe.G$$ExternalSyntheticLambda8
+            dev.duo.hookprobe.h.a(this, classLoader, remotePreferences, new BooleanSupplier() { // from class: dev.duo.hookprobe.G$$ExternalSyntheticLambda8
                 @Override // java.util.function.BooleanSupplier
                 public final boolean getAsBoolean() {
                     boolean g;

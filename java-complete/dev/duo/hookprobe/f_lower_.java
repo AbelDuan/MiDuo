@@ -1130,7 +1130,7 @@ final class f {
             a5.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda32
                 @Override // android.view.View.OnClickListener
                 public final void onClick(View view) {
-                    f.a(editText, i12, view);
+                    dev.duo.hookprobe.f.a(editText, i12, view);
                 }
             });
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i5, a(38.0f), f2);
@@ -1304,7 +1304,7 @@ final class f {
         c2.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda35
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                f.a(a5, a4, view);
+                dev.duo.hookprobe.f.a(a5, a4, view);
             }
         });
         return a2;
@@ -1725,7 +1725,7 @@ final class f {
         c2.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda15
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
-                f.a(view, a4, view2);
+                dev.duo.hookprobe.f.a(view, a4, view2);
             }
         });
         return a2;

@@ -215,7 +215,7 @@ public final class BugCaptureService extends Service {
                 try {
                     j.a(bufferedInputStream);
                     b("抓取中：请去复现，完成后结束抓取");
-                    if (j.a(bufferedInputStream, bufferedOutputStream, 16773120 - r4.length)) {
+                    if (dev.duo.hookprobe.j.a(bufferedInputStream, bufferedOutputStream, 16773120 - r4.length)) {
                         this.c = "日志已达到 16 MiB 上限";
                     }
                     if (this.c == null) {
