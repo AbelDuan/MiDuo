@@ -9032,7 +9032,7 @@ public final class b extends XposedModule {
             if (!arrayList.remove(this.d) && arrayList.size() >= 12) {
                 return -1;
             }
-            return dev.duo.hookprobe.J.a((((this.m - (((int[]) dev.duo.workspaceprobe.b.this.P5.get(Integer.valueOf(dev.duo.workspaceprobe.b.this.G1))) == null ? 0 : r1[1])) - dev.duo.workspaceprobe.b.this.G1()) - 20.0f) + ((View) k_v.j.getParent()).getScrollY() + 75.0f, dev.duo.workspaceprobe.b.g0, arrayList.size() + 1);
+            return dev.duo.hookprobe.J.a((((this.m - (((int[]) dev.duo.workspaceprobe.b.this.P5.get(Integer.valueOf(dev.duo.workspaceprobe.b.this.G1))) == null ? 0 : ((int[]) dev.duo.workspaceprobe.b.this.P5.get(Integer.valueOf(dev.duo.workspaceprobe.b.this.G1)))[1])) - dev.duo.workspaceprobe.b.this.G1()) - 20.0f) + ((View) k_v.j.getParent()).getScrollY() + 75.0f, dev.duo.workspaceprobe.b.g0, arrayList.size() + 1);
         }
 
         private void a(int i) {

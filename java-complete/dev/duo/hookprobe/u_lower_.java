@@ -532,7 +532,6 @@ final class u {
                         c0025u.a(iBinder2, this.y, false, this.A, this.B, this.H);
                     } catch (Exception e2) {
                         Exception exc = e2;
-                        Exception exc = e;
                         c0025u.O = exc;
                         Log.e("MiDuoFold", "结束目标订阅失败", exc);
                         a(iBinder2, -1);
