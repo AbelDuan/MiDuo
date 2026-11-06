@@ -230,7 +230,7 @@ public final class b extends XposedModule {
     private static Field g = null;
     private static final int g0 = 150;
     private static Method h = null;
-    private static final int h0 = 30;
+    private static final int h0_v = 30;
     private static Method i = null;
     private static final int i0 = 424;
     private static final int j_v= 3;
@@ -528,7 +528,7 @@ public final class b extends XposedModule {
     private final Set<Integer> q2;
     private SurfaceControl q3;
     private float q4;
-    private Process q5;
+    private java.lang.Process q5;
     private final Object q6;
     private final ThreadLocal<Integer> r2;
     private ClassLoader r3;
@@ -4105,7 +4105,7 @@ public final class b extends XposedModule {
                 dev.duo.workspaceprobe.b.this.S4 = true;
             }
             if ("android.intent.action.SCREEN_OFF".equals(intent.getAction()) || "android.intent.action.CONFIGURATION_CHANGED".equals(intent.getAction())) {
-                final b bVar = dev.duo.workspaceprobe.b.this;
+                b bVar= dev.duo.workspaceprobe.b.this;
                 bVar.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$q$$ExternalSyntheticLambda0
                     @Override // java.lang.Runnable
                     public final void run() {
@@ -4160,7 +4160,7 @@ public final class b extends XposedModule {
         @Override // android.hardware.display.DisplayManager.DisplayListener
         public void onDisplayAdded(int i) {
             if (i == 0) {
-                final b bVar = dev.duo.workspaceprobe.b.this;
+                b bVar= dev.duo.workspaceprobe.b.this;
                 bVar.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$s$$ExternalSyntheticLambda1
                     @Override // java.lang.Runnable
                     public final void run() {
@@ -4173,7 +4173,7 @@ public final class b extends XposedModule {
         @Override // android.hardware.display.DisplayManager.DisplayListener
         public void onDisplayChanged(int i) {
             if (i == 0) {
-                final b bVar = dev.duo.workspaceprobe.b.this;
+                b bVar= dev.duo.workspaceprobe.b.this;
                 bVar.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$s$$ExternalSyntheticLambda2
                     @Override // java.lang.Runnable
                     public final void run() {
@@ -4186,7 +4186,7 @@ public final class b extends XposedModule {
         @Override // android.hardware.display.DisplayManager.DisplayListener
         public void onDisplayRemoved(int i) {
             if (i == 0) {
-                final b bVar = dev.duo.workspaceprobe.b.this;
+                b bVar= dev.duo.workspaceprobe.b.this;
                 bVar.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$s$$ExternalSyntheticLambda0
                     @Override // java.lang.Runnable
                     public final void run() {
@@ -6131,7 +6131,7 @@ public final class b extends XposedModule {
         try {
             Bundle call = this.i4.getContentResolver().call(Uri.parse("content://com.lsposed.miduo.config"), "statusStyles", (String) null, (Bundle) null);
             if (call != null && call.containsKey("cellular") && call.containsKey("thin") && call.containsKey("percentTop")) {
-                final boolean z2 = call.getBoolean("cellular");
+                boolean z2= call.getBoolean("cellular");
                 final boolean z3 = call.getBoolean("thin");
                 final boolean z4 = call.getBoolean("percentTop");
                 final int[] intArray = call.getIntArray("dy");
@@ -6218,7 +6218,7 @@ public final class b extends XposedModule {
             Bundle call = this.i4.getContentResolver().call(Uri.parse("content://com.lsposed.miduo.config"), "workbench", (String) null, (Bundle) null);
             String str = "on";
             if (call != null && call.containsKey("on")) {
-                final boolean z2 = call.getBoolean("on");
+                boolean z2= call.getBoolean("on");
                 this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda180
                     @Override // java.lang.Runnable
                     public final void run() {
@@ -6689,7 +6689,7 @@ public final class b extends XposedModule {
         }
         this.r5 = true;
         this.o5 = false;
-        Process process = this.q5;
+        java.lang.Process process = this.q5;
         if (process != null) {
             process.destroy();
         }
@@ -6715,7 +6715,7 @@ public final class b extends XposedModule {
             return;
         }
         final int i2 = this.C2_v;
-        final int i3 = this.B2;
+        int i3= this.B2;
         final int a2 = a(i2);
         final String str = this.E2;
         final List<int[]> a3 = a(i0Var, str, a2);
@@ -7073,7 +7073,7 @@ public final class b extends XposedModule {
                         if (method2.getParameterTypes().length > 0) {
                             str2 = str3;
                             if (method2.getParameterTypes()[0] == ActivityManager.RunningTaskInfo.class) {
-                                final boolean z2 = cls10 == cls92 && method2.getName().equals("onTaskAppeared");
+                                boolean z2= cls10 == cls92 && method2.getName().equals("onTaskAppeared");
                                 hook(method2).intercept(new XposedInterface.Hooker() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda194
                                     public final Object intercept(XposedInterface.Chain chain) {
                                         Object a2;
@@ -7688,7 +7688,7 @@ public final class b extends XposedModule {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public /* synthetic */ void f0() {
-        final boolean z2;
+        boolean z2;
         try {
             String str = null;
             Bundle call = this.i4.getContentResolver().call(Uri.parse("content://com.lsposed.miduo.config"), "railCustom", (String) null, (Bundle) null);
@@ -7742,7 +7742,7 @@ public final class b extends XposedModule {
         try {
             Bundle call = this.i4.getContentResolver().call(Uri.parse("content://com.lsposed.miduo.config"), "notificationIcons", (String) null, (Bundle) null);
             if (call != null && call.containsKey("on")) {
-                final boolean z2 = call.getBoolean("on");
+                boolean z2= call.getBoolean("on");
                 this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda205
                     @Override // java.lang.Runnable
                     public final void run() {
@@ -7763,7 +7763,7 @@ public final class b extends XposedModule {
         if (a2 == null || !a2.containsKey("on")) {
             return;
         }
-        final boolean z2 = a2.getBoolean("on");
+        boolean z2= a2.getBoolean("on");
         this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda184
             @Override // java.lang.Runnable
             public final void run() {
@@ -7777,7 +7777,7 @@ public final class b extends XposedModule {
         try {
             Bundle call = this.i4.getContentResolver().call(Uri.parse("content://com.lsposed.miduo.config"), "searchButton", (String) null, (Bundle) null);
             if (call != null && call.containsKey("on")) {
-                final boolean z2 = call.getBoolean("on");
+                boolean z2= call.getBoolean("on");
                 this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda185
                     @Override // java.lang.Runnable
                     public final void run() {
@@ -7955,7 +7955,7 @@ public final class b extends XposedModule {
     public /* synthetic */ Object q(XposedInterface.Chain chain) throws Throwable {
         Object proceed = chain.proceed();
         if (((Integer) chain.getArg(0)).intValue() == 0 && ((Integer) chain.getArg(1)).intValue() == 1) {
-            final boolean z2 = ((Integer) chain.getArg(2)).intValue() == 0;
+            boolean z2= ((Integer) chain.getArg(2)).intValue() == 0;
             this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda3
                 @Override // java.lang.Runnable
                 public final void run() {
@@ -8617,7 +8617,7 @@ public final class b extends XposedModule {
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ Object k(XposedInterface.Chain chain) throws Throwable {
         Object proceed = chain.proceed();
-        final boolean z2 = (((Configuration) chain.getArg(0)).uiMode & 48) == 32;
+        boolean z2= (((Configuration) chain.getArg(0)).uiMode & 48) == 32;
         this.x4.a(z2);
         this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda25
             @Override // java.lang.Runnable
@@ -9399,7 +9399,7 @@ public final class b extends XposedModule {
             return;
         }
         final Bundle bundle = new Bundle();
-        final boolean z2 = this.k2;
+        boolean z2= this.k2;
         final boolean C02 = C0();
         bundle.putLong("token", this.L2);
         bundle.putString("page", this.E2);
@@ -9410,7 +9410,7 @@ public final class b extends XposedModule {
         final String str = this.D2;
         final String str2 = this.E2;
         final int i2 = this.V2;
-        final int i3 = this.B2;
+        int i3= this.B2;
         final int i4 = this.G1;
         final long j2 = this.L2;
         final long j3 = this.M2;
@@ -9696,7 +9696,7 @@ public final class b extends XposedModule {
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void t(final int i2) {
         Bundle call;
-        final Boolean bool = null;
+        Boolean bool = null;
         try {
             call = this.i4.getContentResolver().call(Uri.parse("content://com.lsposed.miduo.config"), "standbyClock", (String) null, (Bundle) null);
         } catch (RuntimeException e2) {
@@ -10071,7 +10071,7 @@ public final class b extends XposedModule {
         for (Method method : cls3.getDeclaredMethods()) {
             if (method.getName().equals("setImeWindowStatus")) {
                 Class<?>[] parameterTypes = method.getParameterTypes();
-                final int i3 = 1;
+                int i3= 1;
                 while (true) {
                     if (i3 >= parameterTypes.length) {
                         i3 = -1;
@@ -10517,7 +10517,7 @@ public final class b extends XposedModule {
             str = componentName.getPackageName();
         }
         final String str2 = str;
-        final boolean z2 = (packageName.isEmpty() || str2.isEmpty() || "com.miui.home".equals(packageName) || "com.miui.home".equals(str2) || rect2 == null || rect2.width() != O || rect2.height() != P) ? false : true;
+        boolean z2= (packageName.isEmpty() || str2.isEmpty() || "com.miui.home".equals(packageName) || "com.miui.home".equals(str2) || rect2 == null || rect2.width() != O || rect2.height() != P) ? false : true;
         final ActivityManager.RunningTaskInfo runningTaskInfo3 = z2 ? runningTaskInfo : null;
         this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda186
             @Override // java.lang.Runnable
@@ -11110,7 +11110,7 @@ public final class b extends XposedModule {
     }
 
     private void e(K k2) {
-        final b bVar = this;
+        b bVar= this;
         String[] strArr = bVar.S5;
         ArrayList<J> arrayList = k2.e;
         int size = arrayList.size();
@@ -12208,7 +12208,7 @@ public final class b extends XposedModule {
                 c = cls.getField("displayId");
             }
             ComponentName componentName = runningTaskInfo.topActivity;
-            final boolean z2 = true;
+            boolean z2= true;
             boolean z3 = componentName != null && "com.miui.home".equals(componentName.getPackageName()) && "com.miui.home.launcher.Launcher".equals(componentName.getClassName());
             boolean z4 = dev.duo.workspaceprobe.c.getInt(runningTaskInfo) == 0 && componentName != null && dev.duo.workspaceprobe.d.getBoolean(runningTaskInfo);
             if (!z3 && !z4) {
@@ -12625,9 +12625,9 @@ public final class b extends XposedModule {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public /* synthetic */ void e(final Object obj) {
-        final Process process;
+        final java.lang.Process process;
         final Exception e2;
-        final InterruptedException e3 = null;
+        InterruptedException e3= null;
         try {
             String str = this.i4.getPackageManager().getApplicationInfo(dev.duo.icons.g.a, 0).sourceDir;
             ProcessBuilder processBuilder = new ProcessBuilder("/system/bin/app_process", "/system/bin", "--nice-name=MiDuoTentLease", "dev.duo.workspaceprobe.StandbyRouteLease");
@@ -13396,7 +13396,7 @@ public final class b extends XposedModule {
             return;
         }
         try {
-            final K i3 = i();
+            K i3= i();
             this.R0.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda210
                 @Override // java.lang.Runnable
                 public final void run() {
@@ -13546,7 +13546,7 @@ public final class b extends XposedModule {
             final Method method2 = cls3.getMethod("getFlags", null);
             final Method method3 = cls3.getMethod("getEndAbsBounds", null);
             final Method method4 = cls3.getMethod("getEndDisplayId", null);
-            final int i3 = cls2.getField("FLAG_IN_TASK_WITH_EMBEDDED_ACTIVITY").getInt(null) | cls2.getField("FLAG_FILLS_TASK").getInt(null);
+            int i3= cls2.getField("FLAG_IN_TASK_WITH_EMBEDDED_ACTIVITY").getInt(null) | cls2.getField("FLAG_FILLS_TASK").getInt(null);
             hook(cls.getDeclaredMethod("updateTranslateAnimationIfNeeded", cls2, Animation.class, cls3)).intercept(new XposedInterface.Hooker() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda4
                 public final Object intercept(XposedInterface.Chain chain) {
                     Object a2;
@@ -14316,7 +14316,7 @@ public final class b extends XposedModule {
                     return;
                 }
                 final int i2 = this.B2;
-                final int i3 = this.G1;
+                int i3= this.G1;
                 final long j2 = this.M2;
                 final long j3 = this.L2;
                 this.P2 = true;
@@ -14748,7 +14748,7 @@ public final class b extends XposedModule {
 
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ Object a(Field[] fieldArr, Field field, XposedInterface.Chain chain) throws Throwable {
-        final boolean z2 = false;
+        boolean z2= false;
         for (Field field2 : fieldArr) {
             z2 |= field2.getBoolean(chain.getArg(0));
         }
@@ -14807,7 +14807,7 @@ public final class b extends XposedModule {
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ Object a(int i2, XposedInterface.Chain chain) throws Throwable {
         int intValue = ((Integer) chain.getArg(0)).intValue();
-        final boolean z2 = (((Integer) chain.getArg(i2)).intValue() & 2) != 0;
+        boolean z2= (((Integer) chain.getArg(i2)).intValue() & 2) != 0;
         if (intValue == 0) {
             this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda67
                 @Override // java.lang.Runnable
@@ -15890,7 +15890,7 @@ public final class b extends XposedModule {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public /* synthetic */ void a(Process process, Object obj) {
+    public /* synthetic */ void a(java.lang.Process process, Object obj) {
         this.q5 = process;
         if (this.p5 == obj && !this.r5 && this.s5 != null && J1() && this.l5 && this.m5) {
             try {
@@ -16529,7 +16529,7 @@ public final class b extends XposedModule {
         int i2;
         Iterator it;
         String packageName;
-        final boolean z2;
+        boolean z2;
         try {
             HashSet hashSet = new HashSet();
             StringBuilder sb = new StringBuilder();
