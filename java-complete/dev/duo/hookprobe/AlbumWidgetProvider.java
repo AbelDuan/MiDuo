@@ -75,7 +75,7 @@ public final class AlbumWidgetProvider extends AppWidgetProvider {
     public void onDeleted(Context context, int[] iArr) {
         SharedPreferences.Editor edit = context.getSharedPreferences(d, 0).edit();
         for (int i : iArr) {
-            c.a(context, i);
+            dev.duo.hookprobe.c.a(context, i);
             edit.remove(a(i));
         }
         edit.apply();
@@ -150,7 +150,7 @@ public final class AlbumWidgetProvider extends AppWidgetProvider {
                 for (int i2 : iArr) {
                     a(context, appWidgetManager, i2);
                 }
-                if (b.b(context)) {
+                if (dev.duo.hookprobe.b.b(context)) {
                     AlbumPageJob.a(context, iArr);
                 }
             }
@@ -167,13 +167,13 @@ public final class AlbumWidgetProvider extends AppWidgetProvider {
 
     private static void a(Context context, AppWidgetManager appWidgetManager, int i) {
         Bitmap bitmap;
-        String a2 = d.a(i);
+        String a2 = dev.duo.hookprobe.d.a(i);
         Bundle appWidgetOptions = appWidgetManager.getAppWidgetOptions(i);
         if (!a2.equals(appWidgetOptions.getString("miuiEditUri"))) {
             appWidgetOptions.putString("miuiEditUri", a2);
             appWidgetManager.updateAppWidgetOptions(i, appWidgetOptions);
         }
-        Bitmap c2 = c.c(context, i);
+        Bitmap c2 = dev.duo.hookprobe.c.c(context, i);
         if (c2 == null && c.b(context, i)) {
             Log.w(b, "cannot decode photo for widget " + i);
             return;

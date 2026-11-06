@@ -124,6 +124,7 @@ final class r {
             arrayList.add(new a("Root 权限", i2, "已允许"));
             String str8 = context.getApplicationInfo().sourceDir;
             if (split[2].trim().isEmpty()) {
+                Throwable ex = null;
                 arrayList.add(new a("LSPosed 登记的安装包", 2, "读不到 LSPosed 配置（/data/adb/lspd/config/modules_config.db）"));
                 str5 = null;
             } else {

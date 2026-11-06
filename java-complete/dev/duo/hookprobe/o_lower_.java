@@ -264,6 +264,7 @@ final class o {
 
     boolean r(boolean z) {
         synchronized (o.class) {
+            Throwable ex = null;
             boolean contains = this.a.contains("_global/standbyClock");
             boolean z2 = this.a.getBoolean("_global/standbyClock", false);
             i = true;

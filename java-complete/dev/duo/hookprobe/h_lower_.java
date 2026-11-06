@@ -72,7 +72,7 @@ final class h {
             xposedModule.hook(SurfaceView.class.getDeclaredMethod("setFrame", cls, cls, cls, cls)).intercept(new XposedInterface.Hooker() { // from class: dev.duo.hookprobe.h$$ExternalSyntheticLambda1
                 public final Object intercept(XposedInterface.Chain chain) {
                     Object a;
-                    a = h.a(h.this, chain);
+                    a = h.this.a(chain);
                     return a;
                 }
             });
@@ -80,7 +80,7 @@ final class h {
             Log.i(k, "READY SurfaceView layout; short-video containers required");
         } catch (ReflectiveOperationException | RuntimeException e) {
             c0015h.g = true;
-            Log.w(k, "not installed: required layout feature unavailable", ex);
+            Log.w(k, "not installed: required layout feature unavailable", e);
         }
     }
 
@@ -116,7 +116,7 @@ final class h {
                     if (objArr == null) {
                     }
                 } catch (RuntimeException e2) {
-                    ex = e2;
+                    th = e2;
                     Throwable th2 = e;
                     i = c0015h2.j + 1;
                     c0015h2.j = i;
