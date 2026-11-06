@@ -144,3 +144,60 @@ build.ps1               改 smali 后重新打包 100% 可靠
 120/121 文件编译通过、409 class 产出，出包走 smali。
 
 考虑到目标还包括**装机验证**（已阻塞 14 轮），而这一步完全依赖设备连接，建议先确认设备状态。
+
+---
+
+## 本轮新增：JavaParser AST 工具（已验证可用）
+
+### 工具位置
+
+```
+C:\Users\Abel\hyperduo-toolchain\gradle-9.8.2\lib\javaparser-core-3.27.1.jar
+source-pipeline\ast-scope-analyze.java    分析器
+source-pipeline\ast-fix-attempt.java     改写尝试（本轮失败，保留备查）
+```
+
+### 分析结果（成功）
+
+对 `b.java`（17,051 行）解析成功：
+
+```
+CLASSES: 64
+NameExpr(value): 11116  ClassOrInterfaceType(type): 5067
+NAMES_BOTH_FIELD_AND_TYPE: 37
+  -> [b0, c0, A, B, C, D, E, F, H, I, J, K, L, d0, M, N, O, P, Q,
+      R, S, T, U, V, W, X, Y, Z, a, b, c, e0, f0, g0, h0, i0, a0]
+```
+
+这 37 个名字**同时**是字段名和类型名，是 733 个错误的根源。
+
+### 改写尝试（失败）
+
+给 37 个字段加 `_v`，只改 `NameExpr`（值位置）+ `this.<field>`：
+
+```
+RENAME_FIELDS: 37
+NameExpr rewritten: 124
+this.<field> rewritten: 211
+```
+
+结果：错误 **733 -> 904**（变差）。
+
+**原因**：`cu.toString()` 会重新格式化整个文件，且改写遗漏了**已有的** `_v` 字段引用（前几轮加的那些），造成新的不一致。
+
+### 下一轮的正确做法
+
+需要**保留原始行号/格式**的编辑，而不是 `cu.toString()` 全量重写：
+
+1. 用 JavaParser 只做**位置查询**：找出每个 `NameExpr` 的行号/列号
+2. 用这些位置信息**原地编辑**原始文本（按行号 + 列偏移替换）
+3. 这样既利用 AST 的精确性，又保留原始格式与已有的 `_v` 命名
+
+## 结论
+
+第 14 轮确认了：
+- JavaParser 能解析这个 17,051 行的文件（这是之前不敢确定的）
+- 37 个冲突名已精确定位
+- 全量 AST 重写会破坏已有修正，需要位置级原地编辑
+
+下一轮应实现"AST 定位 + 文本原地编辑"的方案。
