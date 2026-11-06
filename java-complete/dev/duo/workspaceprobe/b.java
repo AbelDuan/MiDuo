@@ -6723,7 +6723,7 @@ public final class b extends XposedModule {
         if (a3.size() < 2) {
             return;
         }
-        b(i2, new Runnable() { public void run() { } }, new Consumer() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda158
+        b(i2, new M() { public int a(SurfaceControl sc) throws ReflectiveOperationException { return 0; } }, new Consumer() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda158
             @Override // java.util.function.Consumer
             public final void accept(Object obj) {
                 dev.duo.workspaceprobe.b.this.a(a3, i3, str, i2, a2, (Integer) obj);
@@ -9421,7 +9421,7 @@ public final class b extends XposedModule {
         final long j4 = this.H1;
         this.P2 = true;
         D0();
-        b(i4, new Runnable() { public void run() { } }, new Consumer() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda35
+        b(i4, new M() { public int a(SurfaceControl sc) throws ReflectiveOperationException { return 0; } }, new Consumer() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda35
             @Override // java.util.function.Consumer
             public final void accept(Object obj) {
                 dev.duo.workspaceprobe.b.this.a(j2, j3, i3, i4, j4, str, str2, z2, bundle, C02, i2, (Integer) obj);
