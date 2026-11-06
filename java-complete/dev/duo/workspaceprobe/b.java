@@ -5855,7 +5855,7 @@ public final class b extends XposedModule {
             S s2 = k2.g;
             if (s2 != null) {
                 s2.setVisibility(this.Z3 ? 0 : 8);
-                k2.g.b = !this.I2.isEmpty();
+                k2.g.b_v = !this.I2.isEmpty();
                 k2.g.invalidate();
             }
         }
@@ -6253,7 +6253,7 @@ public final class b extends XposedModule {
         while (i2 < size) {
             Object obj = arrayList.get(i2);
             i2++;
-            U u3 = ((K) obj).r;
+            U u3 = ((K) obj).r_v;
             if (u3 != null) {
                 u3.setVisibility(this.H3 ? 0 : 8);
             }
@@ -8152,7 +8152,7 @@ public final class b extends XposedModule {
         while (i2 < size) {
             Object obj = arrayList.get(i2);
             i2++;
-            c0 c0Var = ((K) obj).k;
+            c0 c0Var = ((K) obj).k_v;
             if (c0Var != null && c0Var.c != z2) {
                 c0Var.a(z2);
             }
@@ -9946,7 +9946,7 @@ public final class b extends XposedModule {
         while (i2 < size) {
             Object obj = arrayList.get(i2);
             i2++;
-            c(((K) obj).q);
+            c(((K) obj).q_v);
         }
     }
 
@@ -12325,7 +12325,7 @@ public final class b extends XposedModule {
             });
             a(k2, k2.g, 1037.0f, 1496, 48, 48, 0.0f);
             k2.g.setVisibility(this.Z3 ? 0 : 8);
-            k2.g.b = !this.I2.isEmpty();
+            k2.g.b_v = !this.I2.isEmpty();
             FrameLayout w2 = w(1);
             int i2 = 0;
             while (true) {
@@ -12397,7 +12397,7 @@ public final class b extends XposedModule {
                 }));
                 R r2 = new R("decor_content", k2.c, 963.0f, 0, 205, 1712, 0, 0.0f, 40);
                 k2.b_v = r2;
-                transaction.reparent(r2.b_v, k2.a).setPosition(k2.b_v.b, 0.0f, 0.0f).setCrop(k2.b_v.b, new Rect(0, 0, 205, 1712)).setLayer(k2.b_v.b, 1).setVisibility(k2.b_v.b, true);
+                transaction.reparent(r2.b_v, k2.a).setPosition(k2.b_v.b_v, 0.0f, 0.0f).setCrop(k2.b_v.b_v, new Rect(0, 0, 205, 1712)).setLayer(k2.b_v.b_v, 1).setVisibility(k2.b_v.b_v, true);
                 transaction.apply();
                 transaction.close();
                 e(k2);
