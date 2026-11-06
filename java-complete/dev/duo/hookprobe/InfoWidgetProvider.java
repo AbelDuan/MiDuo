@@ -173,11 +173,11 @@ public class InfoWidgetProvider extends AppWidgetProvider {
                 } else if (iArr[i5].length == 0) {
                     str = str3;
                 } else {
-                    Bitmap a2 = z.a(d[i5], i5 % 2 == i4 ? true : z, bundleArr[i5 / 2]);
+                    Bitmap a2 = dev.duo.hookprobe.z.a(d[i5], i5 % 2 == i4, bundleArr[i5 / 2]);
                     try {
                         int[] iArr2 = iArr[i5];
                         int length = iArr2.length;
-                        for (int r13 = z; r13 < length; r13++) {
+                        for (int r13 = 0; r13 < length; r13++) {
                             int i6 = iArr2[r13];
                             Bundle appWidgetOptions = appWidgetManager.getAppWidgetOptions(i6);
                             boolean z5 = appWidgetOptions.getBoolean(str3, z);

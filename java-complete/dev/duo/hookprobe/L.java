@@ -95,7 +95,7 @@ final class L {
         if (str == null || "_global/rotationSuggest".equals(str) || "_global/rotationPortraitRight".equals(str) || "_global/rotationLandscapeRight".equals(str)) {
             c.getContentResolver().notifyChange(f, null);
         }
-        if (!o.i && (str == null || "_global/standbyClock".equals(str) || "_global/master".equals(str))) {
+        if (!dev.duo.hookprobe.o.i && (str == null || "_global/standbyClock".equals(str) || "_global/master".equals(str))) {
             c.getContentResolver().notifyChange(g, null);
         }
         if (str == null || "_global/notificationIcons".equals(str)) {
