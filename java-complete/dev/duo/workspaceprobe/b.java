@@ -12890,7 +12890,7 @@ public final class b extends XposedModule {
         }
         int u2 = u(i2);
         boolean z2 = Color.luminance(u2) <= 0.45f ? true : false;
-        int i3 = z2 != 0 ? -1 : -13618632;
+        int i3 = z2 ? -1 : -13618632;
         int i4 = z2 ? 0 : 1;
         if (k2.w_v == i4 && k2.x_v == u2) {
             return;
@@ -12938,11 +12938,11 @@ public final class b extends XposedModule {
             U u3 = k2.r_v;
             if (u3 != null) {
                 Paint paint = u3.a;
-                if (z2 == 0) {
+                if (!z2) {
                     i3 = -14737372;
                 }
                 paint.setColor(i3);
-                k2.s_v.a(z2 == 0 ? 2 : 0);
+                k2.s_v.a(z2 ? 0 : 2);
                 k2.r_v.invalidate();
             }
             k2.w_v = i4;
@@ -14599,9 +14599,9 @@ public final class b extends XposedModule {
                 while (i3 < copy.getHeight()) {
                     for (int i4 = i2; i4 < copy.getWidth(); i4++) {
                         if ((copy.getPixel(i4, i3) >>> 24) == 255) {
-                            j3 += (r1 >> w_v) & 255;
-                            j4 += (r1 >> 8) & 255;
-                            j5 += r1 & 255;
+                            j3 += (copy.getPixel(i4, i3) >> w_v) & 255;
+                            j4 += (copy.getPixel(i4, i3) >> 8) & 255;
+                            j5 += copy.getPixel(i4, i3) & 255;
                             j2++;
                         }
                     }
