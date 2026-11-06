@@ -78,7 +78,7 @@ final class n implements WorkspaceShell.Events, WorkspaceHost.Actions {
     static final int k = 32;
     static final int l = 120;
     private static final int m = 16777218;
-    private static final int n = 60;
+    private static final int n_v = 60;
     private static final int o = 460;
     private static final long p = 320;
     private static final long q = 180;
