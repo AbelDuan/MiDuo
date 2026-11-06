@@ -40,7 +40,11 @@ final class K {
             xposedModule.hook(declaredMethod).intercept(new XposedInterface.Hooker() { // from class: dev.duo.hookprobe.K$$ExternalSyntheticLambda0
                 public final Object intercept(XposedInterface.Chain chain) {
                     Object a7;
-                    a7 = K.a(declaredMethod3, a2, a3, a4, a5, a6, declaredMethod2, chain);
+                    try {
+                        a7 = K.a(declaredMethod3, a2, a3, a4, a5, a6, declaredMethod2, chain);
+                    } catch (Throwable th) {
+                        throw new RuntimeException(th);
+                    }
                     return a7;
                 }
             });
@@ -71,7 +75,11 @@ final class K {
             xposedModule.hook(cls.getDeclaredMethod("isLandscapeForWideFoldCompat", Configuration.class)).intercept(new XposedInterface.Hooker() { // from class: dev.duo.hookprobe.K$$ExternalSyntheticLambda1
                 public final Object intercept(XposedInterface.Chain chain) {
                     Object a13;
-                    a13 = K.a(a2, a7, a5, a3, a4, a8, a9, a10, a6, a12, a11, declaredMethod, chain);
+                    try {
+                        a13 = K.a(a2, a7, a5, a3, a4, a8, a9, a10, a6, a12, a11, declaredMethod, chain);
+                    } catch (Throwable th) {
+                        throw new RuntimeException(th);
+                    }
                     return a13;
                 }
             });
