@@ -249,45 +249,48 @@ public final class BugCaptureActivity extends Activity {
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public /* synthetic */ void a(final String str, String str2, String[] strArr, final Context context) {
+    public /* synthetic */ void a(String str, String str2, String[] strArr, final Context context) {
         Process start;
         ByteArrayOutputStream byteArrayOutputStream;
         InputStream inputStream;
+        String msg = str;
         try {
             start = new ProcessBuilder("su", "-c", str2).redirectErrorStream(true).start();
             byteArrayOutputStream = new ByteArrayOutputStream();
             inputStream = start.getInputStream();
-        } catch (IOException | InterruptedException | RuntimeException e) {
-            String str3 = "常驻记录操作失败：" + e.getMessage();
+        } catch (IOException | RuntimeException e) {
             if (e instanceof InterruptedException) {
                 Thread.currentThread().interrupt();
             }
-            str = str3;
+            msg = "\u542f\u52a8\u5931\u8d25\uff1a" + e.getMessage();
+            start = null;
+            byteArrayOutputStream = null;
+            inputStream = null;
         }
         try {
-            j.a(inputStream, byteArrayOutputStream, 8192L);
-            if (inputStream != null) {
+            if (inputStream != null && byteArrayOutputStream != null && start != null) {
+                j.a(inputStream, byteArrayOutputStream, 8192L);
                 inputStream.close();
-            }
-            if (start.waitFor(20L, TimeUnit.SECONDS)) {
-                String byteArrayOutputStream2 = byteArrayOutputStream.toString("UTF-8");
-                boolean z = false;
-                for (String str4 : strArr) {
-                    z |= byteArrayOutputStream2.contains(str4);
+                if (start.waitFor(20L, TimeUnit.SECONDS)) {
+                    String out = byteArrayOutputStream.toString("UTF-8");
+                    boolean z = false;
+                    for (String str4 : strArr) {
+                        z |= out.contains(str4);
+                    }
+                    if (!z) {
+                        msg = "\u672a\u533f\u540c\uff1a" + (out.trim().isEmpty() ? "\u65e0\u8f93\u51f8" : out);
+                    }
+                } else {
+                    start.destroyForcibly();
+                    msg = "\u8d85\u65f7";
                 }
-                if (!z) {
-                    str = "常驻记录操作失败：" + (byteArrayOutputStream2.trim().isEmpty() ? "没有结果" : byteArrayOutputStream2.trim());
-                }
-            } else {
-                start.destroyForcibly();
-                str = "操作超时";
             }
-            if (str != null) {
-                runOnUiThread(new Runnable() { // from class: dev.duo.hookprobe.BugCaptureActivity$$ExternalSyntheticLambda0
-                    @Override // java.lang.Runnable
+            if (msg != null) {
+                final String fmsg = msg;
+                runOnUiThread(new Runnable() {
+                    @Override
                     public final void run() {
-                        BugCaptureActivity.b(context, str);
+                        BugCaptureActivity.b(context, fmsg);
                     }
                 });
             }
@@ -299,44 +302,47 @@ public final class BugCaptureActivity extends Activity {
                     th.addSuppressed(th2);
                 }
             }
-            throw th;
+            throw new RuntimeException(th);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void a(File file, final Context context, Uri uri) {
-        final String str;
+        String msg;
         FileInputStream fileInputStream;
         try {
             fileInputStream = new FileInputStream(file);
         } catch (IOException | RuntimeException e) {
-            str = "导出失败：" + e.getMessage();
+            msg = "\u6253\u5f00\u5931\u8d85\uff1a" + e.getMessage();
+            fileInputStream = null;
         }
         try {
             OutputStream openOutputStream = context.getContentResolver().openOutputStream(uri, "wt");
             try {
                 if (openOutputStream == null) {
-                    throw new IOException("无法打开所选位置");
+                    throw new IOException("\u8fdc\u7a76\u4e0a\u4e0b\u6587\u65e0\u6ce2\u4e94");
                 }
                 j.a(fileInputStream, openOutputStream, 16777216L);
-                str = "报告已导出";
+                msg = "\u5df2\u7ecf\u542f\u52a9";
                 openOutputStream.close();
                 fileInputStream.close();
-                runOnUiThread(new Runnable() { // from class: dev.duo.hookprobe.BugCaptureActivity$$ExternalSyntheticLambda9
-                    @Override // java.lang.Runnable
+                final String fmsg = msg;
+                runOnUiThread(new Runnable() {
+                    @Override
                     public final void run() {
-                        BugCaptureActivity.a(context, str);
+                        BugCaptureActivity.a(context, fmsg);
                     }
                 });
             } finally {
             }
         } catch (Throwable th) {
             try {
-                fileInputStream.close();
+                if (fileInputStream != null) {
+                    fileInputStream.close();
+                }
             } catch (Throwable th2) {
                 th.addSuppressed(th2);
             }
-            throw th;
+            throw new RuntimeException(th);
         }
     }
 
