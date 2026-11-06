@@ -100,7 +100,7 @@ final class b extends BroadcastReceiver {
                             throw new IOException("无法读取导入图标");
                         }
                         str4 = "backup";
-                        e.a(openInputStream, file, e.b);
+                        e.a(openInputStream, file, e.b_v);
                         openInputStream.close();
                         if (!e.a(file).equals(stringExtra)) {
                             throw new IOException("图标包传输校验失败");
