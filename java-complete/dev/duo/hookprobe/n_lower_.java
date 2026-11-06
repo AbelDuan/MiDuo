@@ -221,18 +221,18 @@ final class n {
                     a(arrayList, classLoader, "com.android.server.wm.AppCompatAspectRatioOverrides", "shouldUseSplitScreenAspectRatio");
                     Log.i(a, "READY position hook, deoptimized " + a(xposedModule, arrayList));
                 } catch (Throwable th) {
-                    th = th;
+
                     i3 = 2;
                     i2 = i3;
                     Log.e(a, i2 != 0 ? "position hook NOT installed, native position kept" : "position hooks installed=" + i2 + "/2, deoptimize list incomplete", th);
                 }
             } catch (Throwable th2) {
-                th = th2;
+                throw th2;
                 i2 = 1;
                 Log.e(a, i2 != 0 ? "position hook NOT installed, native position kept" : "position hooks installed=" + i2 + "/2, deoptimize list incomplete", th);
             }
         } catch (Throwable th3) {
-            th = th3;
+            throw th3;
         }
     }
 
@@ -330,7 +330,7 @@ final class n {
                     }
                     cls = cls.getSuperclass();
                 } catch (Throwable th) {
-                    th = th;
+
                     Log.e(a, "host hook installed=" + i2 + "/2, embedded pages keep their own answer", th);
                     return;
                 }
@@ -368,7 +368,7 @@ final class n {
                     i3++;
                     z2 = false;
                 } catch (Throwable th2) {
-                    th = th2;
+                    throw th2;
                     i2 = i4;
                     Log.e(a, "host hook installed=" + i2 + "/2, embedded pages keep their own answer", th);
                     return;
@@ -381,7 +381,7 @@ final class n {
             a(arrayList, classLoader, "com.android.server.wm.DesktopAppCompatAspectRatioPolicy", "hasMinAspectRatioOverride");
             Log.i(a, "READY host hook=" + i4 + "/2, deoptimized " + a(xposedModule, arrayList));
         } catch (Throwable th3) {
-            th = th3;
+            throw th3;
             i2 = 0;
         }
     }
@@ -966,7 +966,7 @@ final class n {
                 try {
                     str = (String) field2.get(obj);
                 } catch (Throwable th) {
-                    th = th;
+
                     if (a("positionError", 3)) {
                         Log.e(a, "position owner unreadable, native kept", th);
                     }
@@ -980,7 +980,7 @@ final class n {
                 }
             }
         } catch (Throwable th2) {
-            th = th2;
+            throw th2;
             obj = null;
         }
         ThreadLocal<Boolean> threadLocal2 = r;

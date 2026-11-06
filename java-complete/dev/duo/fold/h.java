@@ -111,7 +111,7 @@ final class h {
                                     i7 = i3 + 1;
                                     i5 = i2;
                                 } catch (Throwable th) {
-                                    th = th;
+
                                     Throwable th2 = th;
                                     try {
                                         transaction.close();

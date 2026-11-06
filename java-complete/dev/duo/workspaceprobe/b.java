@@ -5791,7 +5791,7 @@ public final class b extends XposedModule {
                                                 if (r2 == 0) {
                                                 }
                                             } catch (Throwable th2) {
-                                                th = th2;
+                                                throw th2;
                                                 r2 = "DuoKeyguard";
                                                 int i6 = this.v3;
                                                 this.v3 = i6 + 1;
@@ -5801,9 +5801,9 @@ public final class b extends XposedModule {
                                             R r42 = this.N6;
                                             position.setCrop(surfaceControl3, new Rect(0, 0, r42.f, r42.g)).setAlpha(this.N6.b, f4).setVisibility(this.N6.b, z2).apply();
                                         } catch (Throwable th3) {
-                                            th = th3;
+                                            throw th3;
                                             r2 = "DuoKeyguard";
-                                            th = th;
+
                                             try {
                                                 transaction2.close();
                                                 throw th;
@@ -5815,15 +5815,15 @@ public final class b extends XposedModule {
                                         SurfaceControl.Transaction position2 = transaction.reparent(this.N6.b, surfaceControl2).setLayer(this.N6.b, 1000000).setPosition(this.N6.b, c4, d3);
                                         SurfaceControl surfaceControl32 = this.N6.b;
                                     } catch (Throwable th5) {
-                                        th = th5;
+                                        throw th5;
                                         r2 = "DuoKeyguard";
-                                        th = th;
+
                                         transaction2.close();
                                         throw th;
                                     }
                                     transaction2 = transaction;
                                 } catch (Throwable th6) {
-                                    th = th6;
+                                    throw th6;
                                     transaction2 = transaction;
                                 }
                                 z2 = true;
@@ -5836,7 +5836,7 @@ public final class b extends XposedModule {
                 }
             }
         } catch (Throwable th7) {
-            th = th7;
+            throw th7;
             r2 = "DuoKeyguard";
         }
     }
@@ -6722,7 +6722,7 @@ public final class b extends XposedModule {
         if (a3.size() < 2) {
             return;
         }
-        b(i2, new b$$ExternalSyntheticLambda34(), new Consumer() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda158
+        b(i2, new Runnable() { public void run() { } }, new Consumer() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda158
             @Override // java.util.function.Consumer
             public final void accept(Object obj) {
                 dev.duo.workspaceprobe.b.this.a(a3, i3, str, i2, a2, (Integer) obj);
@@ -7003,7 +7003,7 @@ public final class b extends XposedModule {
                             }
                         });
                     } catch (Throwable th) {
-                        th = th;
+
                         Log.w("DuoRail", "Letterbox creation colour unavailable; MIUI colour kept", th);
                         Class<?> cls9 = Class.forName("com.android.wm.shell.compatui.letterbox.state.LetterboxTaskListenerAdapter", false, defaultClassLoader);
                         final Method declaredMethod6 = cls9.getDeclaredMethod("onTaskInfoChanged", ActivityManager.RunningTaskInfo.class);
@@ -7047,7 +7047,7 @@ public final class b extends XposedModule {
                         Log.w(str, "Home-only Shell background hooks ready; fix defaults off");
                     }
                 } catch (Throwable th2) {
-                    th = th2;
+                    throw th2;
                     method = declaredMethod5;
                 }
                 Class<?> cls92 = Class.forName("com.android.wm.shell.compatui.letterbox.state.LetterboxTaskListenerAdapter", false, defaultClassLoader);
@@ -7401,7 +7401,7 @@ public final class b extends XposedModule {
                     i2++;
                     z2 |= a(this.G0.get((Integer) obj), (SurfaceControl) null);
                 } catch (Throwable th2) {
-                    th = th2;
+                    throw th2;
                     Log.w("DuoRail", "Rail poll failed", th);
                     if (this.i4 != null) {
                     }
@@ -7411,7 +7411,7 @@ public final class b extends XposedModule {
             }
         } catch (Throwable th3) {
             z2 = false;
-            th = th3;
+            throw th3;
         }
         if (this.i4 != null || !z2) {
             P();
@@ -7594,7 +7594,7 @@ public final class b extends XposedModule {
                             try {
                                 socket.close();
                             } catch (Throwable th4) {
-                                th = th4;
+                                throw th4;
                                 this.m6 = null;
                                 final long j3 = this.o6;
                                 int i5 = i2 + 1;
@@ -7638,7 +7638,7 @@ public final class b extends XposedModule {
                 }
             } catch (Throwable th7) {
                 i2 = i3;
-                th = th7;
+                throw th7;
             }
             i3 = i5;
         }
@@ -9417,7 +9417,7 @@ public final class b extends XposedModule {
         final long j4 = this.H1;
         this.P2 = true;
         D0();
-        b(i4, new b$$ExternalSyntheticLambda34(), new Consumer() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda35
+        b(i4, new Runnable() { public void run() { } }, new Consumer() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda35
             @Override // java.util.function.Consumer
             public final void accept(Object obj) {
                 dev.duo.workspaceprobe.b.this.a(j2, j3, i3, i4, j4, str, str2, z2, bundle, C02, i2, (Integer) obj);
@@ -9550,21 +9550,21 @@ public final class b extends XposedModule {
                     this.s2 = true;
                     str = "DuoRail";
                 } catch (Throwable th) {
-                    th = th;
+
                     str = "DuoRail";
                 }
             } catch (Throwable th2) {
-                th = th2;
+                throw th2;
                 str = "DuoRail";
             }
         } catch (Throwable th3) {
-            th = th3;
+            throw th3;
             str = "DuoRail";
         }
         try {
             Log.w(str, "Strip letterbox hooks ready");
         } catch (Throwable th4) {
-            th = th4;
+            throw th4;
             Log.w(str, "Strip letterbox unavailable; MIUI board kept", th);
         }
     }
@@ -10615,7 +10615,7 @@ public final class b extends XposedModule {
             return;
         }
         this.N0.remove(str);
-        this.A1.post(new b$$ExternalSyntheticLambda99(this));
+        this.A1.post(new Runnable() { public void run() { } });
         if (this.J0.b(str, a3, a2)) {
             this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda100
                 @Override // java.lang.Runnable
@@ -11217,7 +11217,7 @@ public final class b extends XposedModule {
         if (a3 == null) {
             return;
         }
-        this.A1.post(new b$$ExternalSyntheticLambda99(this));
+        this.A1.post(new Runnable() { public void run() { } });
         dev.duo.workspaceprobe.a.C0005a a4 = this.J0.a(str, a3, a2);
         if (a4 == null) {
             return;
@@ -12690,7 +12690,7 @@ public final class b extends XposedModule {
                         }
                     }
                 } catch (Throwable th3) {
-                    th = th3;
+                    throw th3;
                     if (process != null && process.isAlive()) {
                         process.destroy();
                         try {
@@ -12730,7 +12730,7 @@ public final class b extends XposedModule {
             process = null;
             e2 = e8;
         } catch (Throwable th4) {
-            th = th4;
+            throw th4;
             process = null;
         }
     }
@@ -12832,7 +12832,7 @@ public final class b extends XposedModule {
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ Object h(XposedInterface.Chain chain) throws Throwable {
         Object proceed = chain.proceed();
-        this.A1.post(new b$$ExternalSyntheticLambda72(this));
+        this.A1.post(new Runnable() { public void run() { } });
         return proceed;
     }
 
@@ -13185,7 +13185,7 @@ public final class b extends XposedModule {
     public /* synthetic */ Object c(XposedInterface.Chain chain) throws Throwable {
         this.J5.remove(chain.getArg(0));
         if (this.I5.remove(chain.getArg(0))) {
-            this.A1.post(new b$$ExternalSyntheticLambda72(this));
+            this.A1.post(new Runnable() { public void run() { } });
         }
         Object proceed = chain.proceed();
         this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda90
@@ -13481,14 +13481,14 @@ public final class b extends XposedModule {
                 }
                 return a2;
             } catch (Throwable th) {
-                th = th;
+
                 if (str2 != null) {
                     Log.w("DuoRail", "Duo config read failed pkg=" + str + " reason=" + str2, th);
                 }
                 return bVar;
             }
         } catch (Throwable th2) {
-            th = th2;
+            throw th2;
             bVar = null;
         }
     }
@@ -13622,7 +13622,7 @@ public final class b extends XposedModule {
             if (remove != null) {
                 Log.w("DuoRail", "Mode transition finished ms=" + (SystemClock.uptimeMillis() - remove.longValue()));
             }
-            this.A1.post(new b$$ExternalSyntheticLambda72(this));
+            this.A1.post(new Runnable() { public void run() { } });
         }
         this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda162
             @Override // java.lang.Runnable
@@ -14501,7 +14501,7 @@ public final class b extends XposedModule {
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void a(Bundle bundle) {
         a("pickState", (String) null, bundle);
-        this.A1.post(new b$$ExternalSyntheticLambda89(this));
+        this.A1.post(new Runnable() { public void run() { } });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -14612,7 +14612,7 @@ public final class b extends XposedModule {
                 hardwareBuffer.close();
                 return i5;
             } catch (Throwable th) {
-                th = th;
+
                 if (0 != 0) {
                     bitmap2.recycle();
                 }
@@ -14623,7 +14623,7 @@ public final class b extends XposedModule {
                 throw th;
             }
         } catch (Throwable th2) {
-            th = th2;
+            throw th2;
             bitmap = null;
         }
     }
@@ -14693,7 +14693,7 @@ public final class b extends XposedModule {
                     }
                     return i9;
                 } catch (Throwable th) {
-                    th = th;
+
                     bitmap2 = copy;
                     if (bitmap2 != null) {
                         bitmap2.recycle();
@@ -14707,10 +14707,10 @@ public final class b extends XposedModule {
                     throw th;
                 }
             } catch (Throwable th2) {
-                th = th2;
+                throw th2;
             }
         } catch (Throwable th3) {
-            th = th3;
+            throw th3;
             bitmap = null;
         }
     }
@@ -15196,7 +15196,7 @@ public final class b extends XposedModule {
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void a(String str, Bundle bundle) {
         a("pickState", str, bundle);
-        this.A1.post(new b$$ExternalSyntheticLambda89(this));
+        this.A1.post(new Runnable() { public void run() { } });
     }
 
     /* JADX INFO: Access modifiers changed from: private */

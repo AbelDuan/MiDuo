@@ -294,7 +294,7 @@ public final class MainActivity extends Activity {
                 if (openInputStream != null) {
                     e.a(openInputStream, file, e.a);
                     openInputStream.close();
-                    final e.b a = e.a(file, file2, str, new MainActivity$$ExternalSyntheticLambda5());
+                    final e.b a = e.a(file, file2, str, new Runnable() { public void run() { } });
                     Files.move(file2.toPath(), g().toPath(), StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE);
                     if (this.n.edit().putString("selectedTitle", a.a).putString("selectedHash", a.b).putInt("selectedCount", a.d).commit()) {
                         runOnUiThread(new Runnable() { // from class: dev.duo.icons.MainActivity$$ExternalSyntheticLambda6

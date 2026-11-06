@@ -105,12 +105,12 @@ final class b extends BroadcastReceiver {
                         if (!e.a(file).equals(stringExtra)) {
                             throw new IOException("图标包传输校验失败");
                         }
-                        e.a(file, new MainActivity$$ExternalSyntheticLambda5());
+                        e.a(file, new Runnable() { public void run() { } });
                         str3 = stringExtra2;
                     } finally {
                     }
                 } catch (Throwable th) {
-                    th = th;
+
                     resultReceiver2 = resultReceiver;
                     parcelFileDescriptor2 = null;
                     try {
@@ -138,7 +138,7 @@ final class b extends BroadcastReceiver {
             dVar = new d(Paths.get("/data/system/theme/icons", new String[0]), this.c.toPath(), fVar);
             parcelFileDescriptor = null;
         } catch (Throwable th3) {
-            th = th3;
+            throw th3;
             resultReceiver2 = resultReceiver;
             parcelFileDescriptor = null;
         }
@@ -155,7 +155,7 @@ final class b extends BroadcastReceiver {
                 try {
                     bundle.putParcelable("backupFd", parcelFileDescriptor2);
                 } catch (Throwable th4) {
-                    th = th4;
+                    throw th4;
                     resultReceiver2 = resultReceiver;
                     Log.e("DuoIcons", "限定图标操作失败", th);
                     bundle.putString("message", th.getMessage() != null ? "图标操作失败，备份仍保留" : th.getMessage());
@@ -185,7 +185,7 @@ final class b extends BroadcastReceiver {
                     }
                 }
             } catch (Throwable th5) {
-                th = th5;
+                throw th5;
                 Log.e("DuoIcons", "限定图标操作失败", th);
                 bundle.putString("message", th.getMessage() != null ? "图标操作失败，备份仍保留" : th.getMessage());
                 resultReceiver2.send(1, bundle);
@@ -194,7 +194,7 @@ final class b extends BroadcastReceiver {
                 pendingResult.finish();
             }
         } catch (Throwable th6) {
-            th = th6;
+            throw th6;
             resultReceiver2 = resultReceiver;
             parcelFileDescriptor2 = parcelFileDescriptor;
             Log.e("DuoIcons", "限定图标操作失败", th);

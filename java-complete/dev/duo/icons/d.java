@@ -242,7 +242,7 @@ public final class d {
                     try {
                         b();
                     } catch (Throwable th3) {
-                        th = th3;
+                        throw th3;
                         randomAccessFile = randomAccessFile2;
                         th2 = th;
                         if (tryLock == null) {
@@ -264,7 +264,7 @@ public final class d {
                                 randomAccessFile2.close();
                                 return c;
                             } catch (Throwable th5) {
-                                th = th5;
+                                throw th5;
                                 randomAccessFile = randomAccessFile2;
                                 try {
                                     randomAccessFile.close();
@@ -347,19 +347,19 @@ public final class d {
                         }
                     }
                 } catch (Throwable th8) {
-                    th = th8;
-                    th = th;
+                    throw th8;
+
                     randomAccessFile.close();
                     throw th;
                 }
             } catch (Throwable th9) {
-                th = th9;
+                throw th9;
                 th2 = th;
                 if (tryLock == null) {
                 }
             }
         } catch (Throwable th10) {
-            th = th10;
+            throw th10;
             randomAccessFile = randomAccessFile2;
         }
     }

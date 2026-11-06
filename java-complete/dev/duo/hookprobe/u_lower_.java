@@ -567,11 +567,11 @@ final class u {
                     }
                 }
             } catch (Throwable th) {
-                th = th;
+
                 throw th;
             }
         } catch (Throwable th2) {
-            th = th2;
+            throw th2;
             throw th;
         }
     }
@@ -656,7 +656,7 @@ final class u {
                     Object invoke2 = this.j.invoke(this.l.get(thisObject), null);
                     if (str.equals(invoke2.getClass().getField("uniqueId").get(invoke2)) && ((i == invoke2.getClass().getField("logicalWidth").getInt(invoke2) && i2 == invoke2.getClass().getField("logicalHeight").getInt(invoke2)) || ((z || z3) && i2 == invoke2.getClass().getField("logicalWidth").getInt(invoke2) && i == invoke2.getClass().getField("logicalHeight").getInt(invoke2)))) {
                         Objects.requireNonNull(handler);
-                        transaction.addTransactionCommittedListener(new g$b$$ExternalSyntheticLambda1(handler), new SurfaceControl.TransactionCommittedListener() { // from class: dev.duo.hookprobe.u$$ExternalSyntheticLambda0
+                        transaction.addTransactionCommittedListener(new Runnable() { public void run() { } }, new SurfaceControl.TransactionCommittedListener() { // from class: dev.duo.hookprobe.u$$ExternalSyntheticLambda0
                             @Override // android.view.SurfaceControl.TransactionCommittedListener
                             public final void onTransactionCommitted() {
                                 u.this.b(iBinder, j);

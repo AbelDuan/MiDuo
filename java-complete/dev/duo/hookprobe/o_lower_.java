@@ -637,7 +637,7 @@ final class o {
 
     TreeSet<String> r() {
         TreeSet<String> treeSet = new TreeSet<>();
-        Iterator<Map.Entry<String, ?>> it = this.a.getAll().entrySet().iterator();
+        Iterator<? extends Map.Entry<String, ?>> it = this.a.getAll().entrySet().iterator();
         while (it.hasNext()) {
             String key = it.next().getKey();
             int indexOf = key.indexOf(47);
@@ -707,7 +707,7 @@ final class o {
                 sb = append.append(format2).toString();
             }
             if (sb != null) {
-                Iterator<Map.Entry<String, ?>> it = all.entrySet().iterator();
+                Iterator<? extends Map.Entry<String, ?>> it = all.entrySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
@@ -733,7 +733,7 @@ final class o {
                 edit.putString("_railPalette/" + str3, sb).putString(P.s(str), str3);
             }
             if (str2 != null && !str2.equals(str3)) {
-                Iterator<Map.Entry<String, ?>> it2 = all.entrySet().iterator();
+                Iterator<? extends Map.Entry<String, ?>> it2 = all.entrySet().iterator();
                 while (true) {
                     if (it2.hasNext()) {
                         Map.Entry<String, ?> next2 = it2.next();

@@ -72,7 +72,7 @@ public final class AlbumPageJob extends JobService {
                 Log.w(b, "widget page job stopped by the system, left to the MiDuo page");
             } catch (Throwable th) {
                 z = true;
-                th = th;
+
                 if (z) {
                     jobFinished(jobParameters, false);
                     throw th;
@@ -80,7 +80,7 @@ public final class AlbumPageJob extends JobService {
                 throw th;
             }
         } catch (Throwable th2) {
-            th = th2;
+            throw th2;
             z = false;
             if (z) {
             }

@@ -68,7 +68,7 @@ public final class RootTaskRecompute {
             int[] a = a((Set<String>) linkedHashSet);
             System.out.println("recompute packages=" + a[0] + " tasks=" + a[1] + " elapsedMs=" + (SystemClock.elapsedRealtime() - elapsedRealtime));
         } catch (Throwable th) {
-            th = th;
+
             while ((th instanceof InvocationTargetException) && th.getCause() != null) {
                 th = th.getCause();
             }

@@ -2056,7 +2056,7 @@ public final class WorkspaceShell implements dev.duo.taskcore.WorkspaceSession.P
             Method method = this.setListener;
             Handler handler2 = this.main;
             Objects.requireNonNull(handler2);
-            method.invoke(newInstance2, new g$b$$ExternalSyntheticLambda1(handler2), newProxyInstance);
+            method.invoke(newInstance2, new Runnable() { public void run() { } }, newProxyInstance);
             this.host.addTask(taskBinding, (View) newInstance2);
             this.main.postDelayed(new Runnable() { // from class: dev.duo.taskcore.WorkspaceShell$$ExternalSyntheticLambda13
                 @Override // java.lang.Runnable
@@ -2538,7 +2538,7 @@ public final class WorkspaceShell implements dev.duo.taskcore.WorkspaceSession.P
                             arrayList.add(taskBinding + " vanished");
                         }
                     } catch (Throwable th2) {
-                        th = th2;
+                        throw th2;
                         str2 = str;
                         try {
                             try {
@@ -2587,7 +2587,7 @@ public final class WorkspaceShell implements dev.duo.taskcore.WorkspaceSession.P
                 }
             } catch (Throwable th4) {
                 str2 = str;
-                th = th4;
+                throw th4;
             }
         } catch (ReflectiveOperationException e3) {
             e = e3;
@@ -2757,7 +2757,7 @@ public final class WorkspaceShell implements dev.duo.taskcore.WorkspaceSession.P
                         }
                     }
                 } catch (Throwable th) {
-                    th = th;
+
                     hardwareBuffer = hardwareBuffer2;
                     if (hardwareBuffer != null) {
                         hardwareBuffer.close();
@@ -2765,7 +2765,7 @@ public final class WorkspaceShell implements dev.duo.taskcore.WorkspaceSession.P
                     throw th;
                 }
             } catch (Throwable th2) {
-                th = th2;
+                throw th2;
             }
         } catch (LinkageError | ReflectiveOperationException | RuntimeException e2) {
             e = e2;
@@ -2827,7 +2827,7 @@ public final class WorkspaceShell implements dev.duo.taskcore.WorkspaceSession.P
             e = e;
             hardwareBuffer2 = hardwareBuffer;
         } catch (Throwable th) {
-            th = th;
+
             hardwareBuffer2 = hardwareBuffer;
         }
         try {
@@ -2842,7 +2842,7 @@ public final class WorkspaceShell implements dev.duo.taskcore.WorkspaceSession.P
                     hardwareBuffer3.close();
                     return;
                 } catch (Throwable th2) {
-                    th = th2;
+                    throw th2;
                     hardwareBuffer3 = hardwareBuffer;
                     if (hardwareBuffer3 != null) {
                     }
@@ -2906,7 +2906,7 @@ public final class WorkspaceShell implements dev.duo.taskcore.WorkspaceSession.P
             hardwareBuffer3.close();
             return;
         } catch (Throwable th3) {
-            th = th3;
+            throw th3;
             if (hardwareBuffer3 != null) {
                 hardwareBuffer3.close();
             }

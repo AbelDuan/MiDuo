@@ -602,7 +602,7 @@ public final class G extends XposedModule {
             this.d = P.d(sharedPreferences2, str);
             i3 = P.b(sharedPreferences2, str, "inner");
         } catch (Throwable th2) {
-            th = th2;
+            throw th2;
             sharedPreferences = sharedPreferences2;
             i2 = 126;
         }
@@ -629,7 +629,7 @@ public final class G extends XposedModule {
         } catch (Throwable th3) {
             i2 = i4;
             i4 = i3;
-            th = th3;
+            throw th3;
             sharedPreferences = sharedPreferences2;
             Log.e(i, "CONFIG unreadable, app left untouched", th);
             i3 = i4;

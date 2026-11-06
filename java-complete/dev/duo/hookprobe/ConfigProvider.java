@@ -580,7 +580,7 @@ public final class ConfigProvider extends ContentProvider {
             if (a2 == null) {
                 return a(bundle, "LSPosed service not bound");
             }
-            Iterator<Map.Entry<String, ?>> it = new o(a2).a.getAll().entrySet().iterator();
+            Iterator<? extends Map.Entry<String, ?>> it = new o(a2).a.getAll().entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;

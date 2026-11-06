@@ -273,7 +273,7 @@ final class n implements WorkspaceShell.Events, WorkspaceHost.Actions {
                 public final void onAnimationUpdate(ValueAnimator valueAnimator) {
                     dev.duo.workspaceprobe.n.this.b(valueAnimator);
                 }
-            }, new n$$ExternalSyntheticLambda9(this));
+            }, new Runnable() { public void run() { } });
         }
     }
 
@@ -428,7 +428,7 @@ final class n implements WorkspaceShell.Events, WorkspaceHost.Actions {
             Object systemService = this.u.i4.getSystemService(cls);
             Handler handler = this.u.A1;
             Objects.requireNonNull(handler);
-            method.invoke(systemService, new g$b$$ExternalSyntheticLambda1(handler), newProxyInstance);
+            method.invoke(systemService, new Runnable() { public void run() { } }, newProxyInstance);
             this.h0 = newProxyInstance;
         } catch (ReflectiveOperationException | RuntimeException e2) {
             Log.e(a, "Device state unavailable: any display change ends the workbench", e2);
@@ -478,7 +478,7 @@ final class n implements WorkspaceShell.Events, WorkspaceHost.Actions {
             public final void onAnimationUpdate(ValueAnimator valueAnimator) {
                 dev.duo.workspaceprobe.n.this.a(geometry, f2, f3, valueAnimator);
             }
-        }, new n$$ExternalSyntheticLambda9(this));
+        }, new Runnable() { public void run() { } });
     }
 
     @Override // dev.duo.taskcore.WorkspaceHost.Actions
@@ -933,7 +933,7 @@ final class n implements WorkspaceShell.Events, WorkspaceHost.Actions {
             public final void onAnimationUpdate(ValueAnimator valueAnimator) {
                 dev.duo.workspaceprobe.n.this.a(mVar, valueAnimator);
             }
-        }, new n$$ExternalSyntheticLambda9(this));
+        }, new Runnable() { public void run() { } });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1026,7 +1026,7 @@ final class n implements WorkspaceShell.Events, WorkspaceHost.Actions {
             return;
         }
         Log.w(a, "Task " + i3 + " not taken into slot " + i2 + ": " + workspaceSession.log());
-        this.u.A1.post(new n$$ExternalSyntheticLambda44(this));
+        this.u.A1.post(new Runnable() { public void run() { } });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1523,7 +1523,7 @@ final class n implements WorkspaceShell.Events, WorkspaceHost.Actions {
             public final void onAnimationUpdate(ValueAnimator valueAnimator) {
                 dev.duo.workspaceprobe.n.this.a(valueAnimator);
             }
-        }, new n$$ExternalSyntheticLambda9(this));
+        }, new Runnable() { public void run() { } });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1796,7 +1796,7 @@ final class n implements WorkspaceShell.Events, WorkspaceHost.Actions {
         Rect rect = workspaceHost.geometry().logical;
         Rect rect2 = i2 < 0 ? rect : this.y.geometry().slots[i2];
         float min = Math.min(2.0f, this.y.geometry().slots[0].width() / 172.0f);
-        final l lVar = new l(this.u.i4, min, new n$$ExternalSyntheticLambda17(this), new Consumer() { // from class: dev.duo.workspaceprobe.n$$ExternalSyntheticLambda18
+        final l lVar = new l(this.u.i4, min, new Runnable() { public void run() { } }, new Consumer() { // from class: dev.duo.workspaceprobe.n$$ExternalSyntheticLambda18
             @Override // java.util.function.Consumer
             public final void accept(Object obj) {
                 dev.duo.workspaceprobe.n.this.a(consumer, (i) obj);
@@ -2213,7 +2213,7 @@ final class n implements WorkspaceShell.Events, WorkspaceHost.Actions {
         }
         Log.w(a, "Launched task " + i3 + " not taken: " + workspaceSession.log());
         this.w.revealTask(i3);
-        this.u.A1.post(new n$$ExternalSyntheticLambda44(this));
+        this.u.A1.post(new Runnable() { public void run() { } });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -2257,7 +2257,7 @@ final class n implements WorkspaceShell.Events, WorkspaceHost.Actions {
             }
             this.l0 = -1;
             this.m0 = null;
-            a("popup", new n$$ExternalSyntheticLambda17(this));
+            a("popup", new Runnable() { public void run() { } });
             final IBinder iBinder = this.U;
             this.U = null;
             if (iBinder != null) {
@@ -2299,9 +2299,9 @@ final class n implements WorkspaceShell.Events, WorkspaceHost.Actions {
                 }
             });
             if (this.L != null) {
-                a("stage", new n$$ExternalSyntheticLambda9(this));
+                a("stage", new Runnable() { public void run() { } });
             }
-            a("popup", new n$$ExternalSyntheticLambda17(this));
+            a("popup", new Runnable() { public void run() { } });
             final o oVar2 = this.z;
             this.z = null;
             if (oVar2 != null) {

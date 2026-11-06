@@ -1938,7 +1938,7 @@ public final class MainActivity extends Activity {
             try {
                 c0021o = new o(a2);
             } catch (Throwable th) {
-                th = th;
+
                 c0021o = null;
                 c0021o2 = c0021o;
                 valueOf = String.valueOf(th);
@@ -1977,7 +1977,7 @@ public final class MainActivity extends Activity {
                     Log.e("MiDuo", "通知中心固定配置写入失败");
                 }
             } catch (Throwable th2) {
-                th = th2;
+                throw th2;
                 c0021o2 = c0021o;
                 valueOf = String.valueOf(th);
                 HashSet hashSet22 = new HashSet();
@@ -2047,8 +2047,8 @@ public final class MainActivity extends Activity {
         }
         this.f1 = true;
         ExecutorService executorService = a;
-        executorService.execute(new MainActivity$$ExternalSyntheticLambda13(this));
-        executorService.execute(new MainActivity$$ExternalSyntheticLambda14());
+        executorService.execute(new Runnable() { public void run() { } });
+        executorService.execute(new Runnable() { public void run() { } });
     }
 
     @Override // android.app.Activity
@@ -2089,10 +2089,10 @@ public final class MainActivity extends Activity {
         if (iVar != null) {
             a(iVar);
         } else if (1 != 0) {
-            a.execute(new MainActivity$$ExternalSyntheticLambda13(this));
+            a.execute(new Runnable() { public void run() { } });
         }
         if (bundle == null && 1 != 0) {
-            a.execute(new MainActivity$$ExternalSyntheticLambda14());
+            a.execute(new Runnable() { public void run() { } });
         }
         if (iVar != null || 1 != 0) {
             this.f1 = true;
@@ -2121,7 +2121,7 @@ public final class MainActivity extends Activity {
         if (this.p == null || !this.f1) {
             return;
         }
-        a.execute(new MainActivity$$ExternalSyntheticLambda13(this));
+        a.execute(new Runnable() { public void run() { } });
     }
 
     @Override // android.app.Activity
@@ -3988,7 +3988,7 @@ public final class MainActivity extends Activity {
         if (str2 != null) {
             startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str2)));
         } else {
-            a.execute(new MainActivity$$ExternalSyntheticLambda13(this));
+            a.execute(new Runnable() { public void run() { } });
         }
     }
 

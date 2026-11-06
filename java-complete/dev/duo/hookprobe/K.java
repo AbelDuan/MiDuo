@@ -178,7 +178,7 @@ final class K {
                             }
                             configuration = configuration2;
                         } catch (Throwable th) {
-                            th = th;
+
                             configuration = configuration2;
                             if (a("outerError", 3)) {
                                 Log.e(a, "outer orientation skipped, native answer kept", th);
@@ -190,7 +190,7 @@ final class K {
                 }
             }
         } catch (Throwable th2) {
-            th = th2;
+            throw th2;
         }
         return configuration != null ? chain.proceed() : chain.proceed(new Object[]{configuration});
     }

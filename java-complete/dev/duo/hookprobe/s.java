@@ -601,12 +601,12 @@ public final class s extends XposedModule {
                                 try {
                                     this.h0.put(iBinder3, str);
                                 } catch (Throwable th) {
-                                    th = th;
+
                                     while (true) {
                                         try {
                                             throw th;
                                         } catch (Throwable th2) {
-                                            th = th2;
+                                            throw th2;
                                         }
                                     }
                                 }
@@ -666,11 +666,11 @@ public final class s extends XposedModule {
                     }
                     return 0;
                 } catch (Throwable th3) {
-                    th = th3;
+                    throw th3;
                     throw th;
                 }
             } catch (Throwable th4) {
-                th = th4;
+                throw th4;
                 throw th;
             }
         }
