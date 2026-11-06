@@ -28,7 +28,7 @@ public final class Preflight {
     private static final int d = 33171101;
     private static final String[] e = {"关键接口", "铰链数据", "Hall 数据", "距离数据"};
 
-    class a implements SensorEventListener {
+    static class SensorProbe implements SensorEventListener {
         final /* synthetic */ Object a;
         final /* synthetic */ boolean[] b;
         final /* synthetic */ Sensor[] c;
@@ -37,7 +37,7 @@ public final class Preflight {
         final /* synthetic */ int[] f;
         final /* synthetic */ CountDownLatch g;
 
-        a(Object obj, boolean[] zArr, Sensor[] sensorArr, long[] jArr, boolean[] zArr2, int[] iArr, CountDownLatch countDownLatch) {
+        SensorProbe(Object obj, boolean[] zArr, Sensor[] sensorArr, long[] jArr, boolean[] zArr2, int[] iArr, CountDownLatch countDownLatch) {
             this.a = obj;
             this.b = zArr;
             this.c = sensorArr;
@@ -140,7 +140,7 @@ public final class Preflight {
     }
 
     static JSONArray a() {
-        Throwable e = null;
+        Throwable cause = null;
         try {
             Class<?> cls = Class.forName("android.os.ServiceManager");
             String[] strArr = {"display", "device_state", "window", "activity_task"};
@@ -198,7 +198,7 @@ public final class Preflight {
             cls9.getDeclaredMethod("destroy", null);
             return a(e[0], 0, "关键接口存在，系统服务可访问；未启动动画或切换屏幕");
         } catch (Exception | LinkageError e2) {
-            e = e2;
+            cause = e2;
             if (cause.getCause() != null) {
                 cause = cause.getCause();
             }
@@ -239,7 +239,7 @@ public final class Preflight {
         CountDownLatch latch = new CountDownLatch(1);
         HandlerThread thread = new HandlerThread("MiDuoFoldCheckSensors");
         thread.start();
-        a listener = new a(lock, aborted, sensors, firstTimes, sawInvalid, validCounts, latch);
+        Preflight.SensorProbe listener = new Preflight.SensorProbe(lock, aborted, sensors, firstTimes, sawInvalid, validCounts, latch);
         String errorText = null;
         boolean ok = false;
         try {

@@ -44,7 +44,7 @@ final class e {
             handler.post(new Runnable() { // from class: dev.duo.fold.e$a$$ExternalSyntheticLambda0
                 @Override // java.lang.Runnable
                 public final void run() {
-                    e.b.this.a(i, readLong, readLong2);
+                    bVar.a(i, readLong, readLong2);
                 }
             });
             return true;

@@ -122,7 +122,7 @@ public final class i {
             return;
         }
         float f = height;
-        double min = Math.min(1.0d, Math.max(1712.0f / (r5[3] * f), 1672.0f / (a2[3] * f)));
+        double min = Math.min(1.0d, Math.max(1712.0f / (fArr[0][3] * f), 1672.0f / (a2[3] * f)));
         imageDecoder.setTargetSize(Math.max(1, (int) Math.ceil(width * min)), Math.max(1, (int) Math.ceil(height * min)));
         imageDecoder.setAllocator(1);
     }

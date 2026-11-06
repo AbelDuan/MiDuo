@@ -48,14 +48,14 @@ final class c {
         if (this.c == 0) {
             return Float.NaN;
         }
-        return this.a[((this.d + r0) - 1) % i];
+        return this.a[((this.d + this.c) - 1) % this.c];
     }
 
     long c() {
         if (this.c == 0) {
             return -1L;
         }
-        return this.b[((this.d + r0) - 1) % i];
+        return this.b[((this.d + this.c) - 1) % this.c];
     }
 
     float d(long j2) {
@@ -138,7 +138,7 @@ final class c {
         long max = Math.max(0L, j2 - this.f);
         this.f = j2;
         if (this.g > 0.0f && max <= 250) {
-            float exp = 1.0f - ((float) Math.exp((-max) / r6));
+            float exp = 1.0f - ((float) Math.exp((-max) / 200.0f));
             float f = this.e;
             float f2 = f + ((b - f) * exp);
             this.e = f2;

@@ -133,7 +133,7 @@ final class h {
                     }
                     throw new IllegalStateException("分层玻璃壁纸镜像不可用");
                 } catch (Throwable th4) {
-                    th = th4;
+                    throw th4;
                 }
             } catch (Throwable th5) {
                 this.e[i] = (SurfaceControl[]) arrayList2.toArray(new SurfaceControl[0]);

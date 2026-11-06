@@ -525,7 +525,7 @@ final class g implements AutoCloseable {
         public /* synthetic */ void a(Handler handler, final Runnable runnable, SurfaceControl.Transaction transaction) {
             try {
                 Objects.requireNonNull(handler);
-                transaction.addTransactionCommittedListener(new g$b$$ExternalSyntheticLambda1(handler), new SurfaceControl.TransactionCommittedListener() { // from class: dev.duo.fold.g$b$$ExternalSyntheticLambda2
+                transaction.addTransactionCommittedListener(new java.util.concurrent.Executor() { public void execute(Runnable r) { handler.post(r); } }, new SurfaceControl.TransactionCommittedListener() { // from class: dev.duo.fold.g$b$$ExternalSyntheticLambda2
                     @Override // android.view.SurfaceControl.TransactionCommittedListener
                     public final void onTransactionCommitted() {
                         g.b.this.a(runnable);
