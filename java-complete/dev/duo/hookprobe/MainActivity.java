@@ -106,7 +106,7 @@ public final class MainActivity extends Activity {
     private TextView H0;
     private TextView I;
     private EditText I0;
-    private SeekBar J;
+    private SeekBar J_fld;
     private Switch J0;
     private Switch K0;
     private T.e L;
@@ -250,7 +250,7 @@ public final class MainActivity extends Activity {
         protected void onSizeChanged(int i, int i2, int i3, int i4) {
             final int firstVisiblePosition = getFirstVisiblePosition();
             View childAt = getChildAt(0);
-            final int top = childAt != null ? childAt.getTop() : 0;
+            int top = childAt != null ? childAt.getTop() : 0;
             super.onSizeChanged(i, i2, i3, i4);
             if (dev.duo.hookprobe.MainActivity.this.I0 == null || !dev.duo.hookprobe.MainActivity.this.I0.hasFocus()) {
                 return;
@@ -477,17 +477,17 @@ public final class MainActivity extends Activity {
             this.f = a3;
             View view = new View(dev.duo.hookprobe.MainActivity.this);
             this.g = view;
-            dev.duo.hookprobe.c.setPadding(dev.duo.hookprobe.MainActivity.this.x, 0, dev.duo.hookprobe.MainActivity.this.x, 0);
-            dev.duo.hookprobe.c.setTag(this);
-            dev.duo.hookprobe.c.addView(c2, dev.duo.hookprobe.T.a());
+            c.setPadding(dev.duo.hookprobe.MainActivity.this.x, 0, dev.duo.hookprobe.MainActivity.this.x, 0);
+            c.setTag(this);
+            c.addView(c2, T.a());
             c2.addView(imageView, dev.duo.hookprobe.T.a(dev.duo.hookprobe.MainActivity.this, 42.0f, 42.0f));
             LinearLayout a4 = dev.duo.hookprobe.T.a((Context) dev.duo.hookprobe.MainActivity.this);
             LinearLayout c3 = dev.duo.hookprobe.T.c(dev.duo.hookprobe.MainActivity.this);
             c3.setPadding(0, dev.duo.hookprobe.MainActivity.this.a(12.0f), dev.duo.hookprobe.MainActivity.this.a(14.0f), dev.duo.hookprobe.MainActivity.this.a(12.0f));
             LinearLayout a5 = dev.duo.hookprobe.T.a((Context) dev.duo.hookprobe.MainActivity.this);
-            dev.duo.hookprobe.a.setSingleLine(true);
+            a.setSingleLine(true);
             TextUtils.TruncateAt truncateAt = TextUtils.TruncateAt.END;
-            dev.duo.hookprobe.a.setEllipsize(truncateAt);
+            a.setEllipsize(truncateAt);
             a5.addView(a);
             a2.setSingleLine(true);
             a2.setEllipsize(truncateAt);
@@ -502,11 +502,11 @@ public final class MainActivity extends Activity {
             LinearLayout.LayoutParams a6 = dev.duo.hookprobe.T.a(dev.duo.hookprobe.MainActivity.this, 13.0f, 13.0f);
             a6.leftMargin = dev.duo.hookprobe.MainActivity.this.a(8.0f);
             c3.addView(dev.duo.hookprobe.T.a(dev.duo.hookprobe.MainActivity.this, dev.duo.hookprobe.T.a(dev.duo.hookprobe.MainActivity.this, 4, T.x, 3.0f, false, 13.0f)), a6);
-            a4.addView(c3, dev.duo.hookprobe.T.a());
+            a4.addView(c3, T.a());
             view.setBackgroundColor(T.h);
             a4.addView(view, new LinearLayout.LayoutParams(-1, Math.max(1, dev.duo.hookprobe.MainActivity.this.a(0.5f))));
             LinearLayout.LayoutParams b = dev.duo.hookprobe.T.b();
-            dev.duo.hookprobe.b.leftMargin = dev.duo.hookprobe.MainActivity.this.a(12.0f);
+            b.leftMargin = dev.duo.hookprobe.MainActivity.this.a(12.0f);
             c2.addView(a4, b);
         }
     }
@@ -584,7 +584,7 @@ public final class MainActivity extends Activity {
     private int A() {
         int i2 = 0;
         if (this.p != null && this.Z0 == null) {
-            Iterator<String> it = P.o.iterator();
+            Iterator<String> it = dev.duo.hookprobe.P.o.iterator();
             while (it.hasNext()) {
                 if (!this.Y0.contains(it.next())) {
                     i2++;
@@ -598,7 +598,7 @@ public final class MainActivity extends Activity {
     public List<String> B() {
         ArrayList arrayList = new ArrayList();
         if (this.p != null && this.Z0 == null) {
-            for (String str : P.o) {
+            for (String str : dev.duo.hookprobe.P.o) {
                 if (!this.Y0.contains(str)) {
                     arrayList.add(str);
                 }
@@ -690,7 +690,7 @@ public final class MainActivity extends Activity {
         this.S = a6;
         a6.setBackground(null);
         this.S.setPadding(0, a(12.0f), 0, 0);
-        this.T = textViewArr[0];
+        this.T_fld = textViewArr[0];
         this.U = seekBarArr[0];
         TextView a7 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
         a7.setText("外屏竖屏生效；高度是隐藏状态栏后的顶部留白，单个 App 可单独调整");
@@ -782,7 +782,7 @@ public final class MainActivity extends Activity {
         TextView a2 = dev.duo.hookprobe.T.a(this, 16.0f, T.b, 600);
         a2.setText("外屏侧栏颜色");
         i2.addView(a2);
-        dev.duo.hookprobe.u.addView(i2);
+        u.addView(i2);
         T.e eVar = new dev.duo.hookprobe.T.e(this, new String[]{"白色", "黑色", "跟随系统"}, new int[]{-1, -14869217, 0}, new IntConsumer() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda84
             @Override // java.util.function.IntConsumer
             public final void accept(int i3) {
@@ -791,10 +791,10 @@ public final class MainActivity extends Activity {
         });
         this.L = eVar;
         eVar.a(false);
-        dev.duo.hookprobe.u.addView(this.L.a, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 8.0f));
+        u.addView(this.L.a, T.a(T.a(), this, 8.0f));
         TextView a3 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
         this.M = a3;
-        dev.duo.hookprobe.u.addView(a3, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
+        u.addView(a3, T.a(T.a(), this, 12.0f));
         return u;
     }
 
@@ -830,7 +830,7 @@ public final class MainActivity extends Activity {
             return;
         }
         if (this.l.compareAndSet(false, true)) {
-            dev.duo.hookprobe.b.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda85
+            b.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda85
                 @Override // java.lang.Runnable
                 public final void run() {
                     dev.duo.hookprobe.MainActivity.this.a(c0021o);
@@ -851,7 +851,7 @@ public final class MainActivity extends Activity {
         dev.duo.hookprobe.T.a(a2, 28.0f);
         a2.setGravity(1);
         a2.setPadding(a(20.0f), a(28.0f), a(20.0f), a(26.0f));
-        this.Q0.addView(a2, dev.duo.hookprobe.T.a());
+        this.Q0.addView(a2, T.a());
         float f4 = 12.0f;
         if (hVar == null) {
             f2 = 16.0f;
@@ -907,9 +907,9 @@ public final class MainActivity extends Activity {
                         f3 = 10.0f;
                         layoutParams.leftMargin = a(10.0f);
                         c2.addView(a8, layoutParams);
-                        a5.addView(c2, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 10.0f));
+                        a5.addView(c2, T.a(T.a(), this, 10.0f));
                         f4 = 12.0f;
-                        this.Q0.addView(a5, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
+                        this.Q0.addView(a5, T.a(T.a(), this, 12.0f));
                     } else {
                         f4 = 12.0f;
                         f3 = 10.0f;
@@ -925,7 +925,7 @@ public final class MainActivity extends Activity {
                     a10.setGravity(17);
                     a10.setLineSpacing(0.0f, 1.3f);
                     a10.setText(hVar.c ? "" : "");
-                    a2.addView(a10, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 10.0f));
+                    a2.addView(a10, T.a(T.a(), this, 10.0f));
                     LinearLayout a11 = dev.duo.hookprobe.T.a((Context) this);
                     dev.duo.hookprobe.T.a(a11, 24.0f);
                     a11.setPadding(a(18.0f), a(18.0f), a(18.0f), a(18.0f));
@@ -940,7 +940,7 @@ public final class MainActivity extends Activity {
                     a11.addView(c3);
                     TextView a14 = dev.duo.hookprobe.T.a(this, 13.0f, T.d, J.m);
                     a14.setText("");
-                    a11.addView(a14, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 10.0f));
+                    a11.addView(a14, T.a(T.a(), this, 10.0f));
                     TextView a15 = dev.duo.hookprobe.T.a((Context) this, "", true, 50.0f);
                     a15.setTextSize(16.0f);
                     a15.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda42
@@ -950,7 +950,7 @@ public final class MainActivity extends Activity {
                         }
                     });
                     a11.addView(a15, dev.duo.hookprobe.T.a(new LinearLayout.LayoutParams(-1, a(50.0f)), this, 14.0f));
-                    this.Q0.addView(a11, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
+                    this.Q0.addView(a11, T.a(T.a(), this, 12.0f));
                 }
                 LinearLayout c4 = dev.duo.hookprobe.T.c(this);
                 dev.duo.hookprobe.T.a(c4, 25.0f);
@@ -972,11 +972,11 @@ public final class MainActivity extends Activity {
                 a17.setLineSpacing(0.0f, 1.3f);
                 a17.setText("" + ((hVar != null || hVar.g == null) ? "" : "\n" + hVar.g));
                 a17.setPadding(a(f3), 0, a(f3), 0);
-                this.Q0.addView(a17, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, f5));
-                LinearLayout a18 = O.a(this);
+                this.Q0.addView(a17, T.a(T.a(), this, f5));
+                LinearLayout a18 = dev.duo.hookprobe.O.a(this);
                 this.R0 = a18;
-                this.Q0.addView(a18, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 20.0f));
-                this.Q0.addView(O.b(this), dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, f5));
+                this.Q0.addView(a18, T.a(T.a(), this, 20.0f));
+                this.Q0.addView(dev.duo.hookprobe.O.b(this), T.a(T.a(), this, f5));
             }
             f2 = 16.0f;
             i2 = 17;
@@ -1006,11 +1006,11 @@ public final class MainActivity extends Activity {
         a172.setLineSpacing(0.0f, 1.3f);
         a172.setText("" + ((hVar != null || hVar.g == null) ? "" : "\n" + hVar.g));
         a172.setPadding(a(f3), 0, a(f3), 0);
-        this.Q0.addView(a172, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, f52));
-        LinearLayout a182 = O.a(this);
+        this.Q0.addView(a172, T.a(T.a(), this, f52));
+        LinearLayout a182 = dev.duo.hookprobe.O.a(this);
         this.R0 = a182;
-        this.Q0.addView(a182, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 20.0f));
-        this.Q0.addView(O.b(this), dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, f52));
+        this.Q0.addView(a182, T.a(T.a(), this, 20.0f));
+        this.Q0.addView(dev.duo.hookprobe.O.b(this), T.a(T.a(), this, f52));
     }
 
     private void L() {
@@ -1021,7 +1021,7 @@ public final class MainActivity extends Activity {
         }
         this.c1 = true;
         this.H0.setEnabled(false);
-        g += (dev.duo.hookprobe.g.isEmpty() ? "" : "\n") + "已一次申请 " + B.size() + " 个作用域，请在 LSPosed 通知中批准";
+        g += (g.isEmpty() ? "" : "\n") + "已一次申请 " + B.size() + " 个作用域，请在 LSPosed 通知中批准";
         Toast.makeText(this, "已申请 " + B.size() + " 个作用域，请在 LSPosed 通知中批准", 1).show();
         R();
         try {
@@ -1071,9 +1071,9 @@ public final class MainActivity extends Activity {
                 c2.addView(eVarArr[i2].a, dev.duo.hookprobe.T.b());
             } else {
                 c2.addView(a3);
-                c2.addView(eVarArr[i2].a, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 6.0f));
+                c2.addView(eVarArr[i2].a, T.a(T.a(), this, 6.0f));
             }
-            a2.addView(c2, i2 == 0 ? dev.duo.hookprobe.T.a() : dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 10.0f));
+            a2.addView(c2, i2 == 0 ? T.a() : T.a(T.a(), this, 10.0f));
             i2++;
         }
         return a2;
@@ -1113,10 +1113,10 @@ public final class MainActivity extends Activity {
             }
         });
         this.I = textViewArr[0];
-        this.J = seekBarArr[0];
+        this.J_fld = seekBarArr[0];
         TextView a3 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
         a3.setText("全局比例只用于已开启 Duo 且未单独设置的 App；未开 Duo 的 App 可在详情页单独缩放，否则保持原样。内屏不受影响（微信内外屏一起缩）");
-        a2.addView(a3, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
+        a2.addView(a3, T.a(T.a(), this, 12.0f));
         return a2;
     }
 
@@ -1204,7 +1204,7 @@ public final class MainActivity extends Activity {
         int size = B().size();
         int A = A();
         boolean z2 = this.p != null && this.V0 && this.Z0 == null && A == 0 && !"未安装".equals(this.X0[2]);
-        boolean z3 = this.X0[1].isEmpty() || dev.duo.hookprobe.h.equals(this.X0[1]);
+        boolean z3 = this.X0[1].isEmpty() || h.equals(this.X0[1]);
         this.r0.setBackground(b((z2 && z3) ? -13326253 : -2543579));
         this.s0.setText(!z2 ? "需要处理" : z3 ? "运行正常" : "版本不对");
         this.z0.setText(this.W0);
@@ -1213,7 +1213,7 @@ public final class MainActivity extends Activity {
         this.H0.setVisibility(size == 0 ? 8 : 0);
         this.H0.setEnabled((f || this.c1) ? false : true);
         this.L0.setText(g);
-        this.L0.setVisibility(dev.duo.hookprobe.g.isEmpty() ? 8 : 0);
+        this.L0.setVisibility(g.isEmpty() ? 8 : 0);
     }
 
     private void S() {
@@ -1258,8 +1258,8 @@ public final class MainActivity extends Activity {
             dev.duo.hookprobe.T.a(this.K.get(i2), P.x[i2] == j2);
             this.K.get(i2).setEnabled(!f);
         }
-        this.J.setEnabled(!f);
-        this.J.setProgress(this.p.p() - 60);
+        this.J_fld.setEnabled(!f);
+        this.J_fld.setProgress(this.p.p() - 60);
         this.I.setText(String.valueOf(this.p.p()));
         boolean u = this.p.u();
         boolean equals = "black".equals(this.p.k());
@@ -1284,7 +1284,7 @@ public final class MainActivity extends Activity {
             r03.setChecked(o);
         }
         this.S.setVisibility(this.p.o() ? 0 : 8);
-        this.T.setText(String.valueOf(this.p.q()));
+        this.T_fld.setText(String.valueOf(this.p.q()));
         this.U.setProgress(this.p.q() - 1);
         Switch r04 = this.W;
         boolean n = this.p.n();
@@ -1436,7 +1436,7 @@ public final class MainActivity extends Activity {
         this.O = a6;
         a6.setLineSpacing(0.0f, 1.2f);
         this.O.setText("开启时自动允许锁屏显示（需 Root）；权限被关闭后可重新开启");
-        a2.addView(this.O, dev.duo.hookprobe.T.a());
+        a2.addView(this.O, T.a());
         return a2;
     }
 
@@ -1469,12 +1469,12 @@ public final class MainActivity extends Activity {
             }
         });
         i2.addView(this.C);
-        dev.duo.hookprobe.u.addView(i2);
+        u.addView(i2);
         LinearLayout c2 = dev.duo.hookprobe.T.c(this);
         this.D = a(c2, "桌面", 0.0f);
         this.E = a(c2, "外屏比例", 8.0f);
         this.F = a(c2, "侧栏", 8.0f);
-        dev.duo.hookprobe.u.addView(c2, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 14.0f));
+        u.addView(c2, T.a(T.a(), this, 14.0f));
         return u;
     }
 
@@ -1506,7 +1506,7 @@ public final class MainActivity extends Activity {
         final LinearLayout a9 = dev.duo.hookprobe.T.a((Context) this);
         String[] strArr = {"外屏桌面", "外屏应用", "内屏横屏桌面", "内屏竖屏桌面", "外屏锁屏", "内屏横屏锁屏", "内屏竖屏锁屏"};
         while (i2 < 7) {
-            a9.addView(a(i2, strArr[i2]), dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, i2 == 0 ? 2.0f : 14.0f));
+            a9.addView(a(i2, strArr[i2]), T.a(T.a(), this, i2 == 0 ? 2.0f : 14.0f));
             i2++;
         }
         a9.addView(new View(this), new LinearLayout.LayoutParams(-1, a(16.0f)));
@@ -1775,7 +1775,7 @@ public final class MainActivity extends Activity {
                 a2.addView(c2);
                 TextView a3 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
                 a3.setText("单独设置过的 App 不受影响，App 下次打开时生效");
-                a2.addView(a3, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
+                a2.addView(a3, T.a(T.a(), this, 12.0f));
                 return a2;
             }
             final int i3 = iArr[i2];
@@ -1851,7 +1851,7 @@ public final class MainActivity extends Activity {
         PackageManager packageManager = getPackageManager();
         final ArrayList arrayList = new ArrayList();
         HashSet hashSet = new HashSet();
-        Iterator<String> it = dev.duo.hookprobe.d.iterator();
+        Iterator<String> it = d.iterator();
         boolean z = false;
         int i2 = 0;
         while (it.hasNext()) {
@@ -1863,7 +1863,7 @@ public final class MainActivity extends Activity {
         }
         for (PackageInfo packageInfo : packageManager.getInstalledPackages(1)) {
             String str = packageInfo.packageName;
-            if (!dev.duo.hookprobe.d.contains(str)) {
+            if (!d.contains(str)) {
                 ApplicationInfo applicationInfo = packageInfo.applicationInfo;
                 if (applicationInfo.enabled && packageInfo.activities != null && !"system".equals(applicationInfo.processName)) {
                     ActivityInfo[] activityInfoArr = packageInfo.activities;
@@ -2089,10 +2089,10 @@ public final class MainActivity extends Activity {
         if (iVar != null) {
             a(iVar);
         } else if (1 != 0) {
-            dev.duo.hookprobe.a.execute(new MainActivity$$ExternalSyntheticLambda13(this));
+            a.execute(new MainActivity$$ExternalSyntheticLambda13(this));
         }
         if (bundle == null && 1 != 0) {
-            dev.duo.hookprobe.a.execute(new MainActivity$$ExternalSyntheticLambda14());
+            a.execute(new MainActivity$$ExternalSyntheticLambda14());
         }
         if (iVar != null || 1 != 0) {
             this.f1 = true;
@@ -2121,7 +2121,7 @@ public final class MainActivity extends Activity {
         if (this.p == null || !this.f1) {
             return;
         }
-        dev.duo.hookprobe.a.execute(new MainActivity$$ExternalSyntheticLambda13(this));
+        a.execute(new MainActivity$$ExternalSyntheticLambda13(this));
     }
 
     @Override // android.app.Activity
@@ -2206,12 +2206,12 @@ public final class MainActivity extends Activity {
         View H = H();
         View b2 = b(!mainActivity.q.e);
         if (!mainActivity.q.e) {
-            a2.addView(X, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
+            a2.addView(X, T.a(T.a(), this, 12.0f));
             a2.addView(dev.duo.hookprobe.T.a((Context) this, "常用设置"));
-            a2.addView(t, dev.duo.hookprobe.T.a());
-            a2.addView(P, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
-            a2.addView(H, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
-            a2.addView(b2, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
+            a2.addView(t, T.a());
+            a2.addView(P, T.a(T.a(), this, 12.0f));
+            a2.addView(H, T.a(T.a(), this, 12.0f));
+            a2.addView(b2, T.a(T.a(), this, 12.0f));
             a2.addView(v(), dev.duo.hookprobe.T.a(new LinearLayout.LayoutParams(-1, a(64.0f)), this, 12.0f));
             a2.addView(s(), dev.duo.hookprobe.T.a(new LinearLayout.LayoutParams(-1, a(64.0f)), this, 12.0f));
             return a(a2);
@@ -2222,7 +2222,7 @@ public final class MainActivity extends Activity {
         layoutParams.topMargin = a(14.0f);
         a3.addView(a(b2, H), layoutParams);
         a2.addView(a3, dev.duo.hookprobe.T.a(new LinearLayout.LayoutParams(-1, 0, 1.0f), this, 14.0f));
-        a2.addView(P, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 14.0f));
+        a2.addView(P, T.a(T.a(), this, 14.0f));
         a2.addView(F(), dev.duo.hookprobe.T.a(new LinearLayout.LayoutParams(-1, a(84.0f)), this, 14.0f));
         a2.addView(v(), dev.duo.hookprobe.T.a(new LinearLayout.LayoutParams(-1, a(64.0f)), this, 14.0f));
         a2.addView(s(), dev.duo.hookprobe.T.a(new LinearLayout.LayoutParams(-1, a(64.0f)), this, 14.0f));
@@ -2383,7 +2383,7 @@ public final class MainActivity extends Activity {
         MainActivity mainActivity;
         LinearLayout u = u();
         if (z) {
-            dev.duo.hookprobe.u.setPadding(a(18.0f), 0, a(18.0f), 0);
+            u.setPadding(a(18.0f), 0, a(18.0f), 0);
         }
         LinearLayout i2 = i();
         if (z) {
@@ -2399,7 +2399,7 @@ public final class MainActivity extends Activity {
         TextView a3 = dev.duo.hookprobe.T.a(this, 13.0f, T.d, 500);
         this.s0 = a3;
         i2.addView(a3);
-        dev.duo.hookprobe.u.addView(i2);
+        u.addView(i2);
         this.y0 = dev.duo.hookprobe.T.a((Context) this);
         if (!z) {
             mainActivity = this;
@@ -2452,7 +2452,7 @@ public final class MainActivity extends Activity {
         if (z) {
             mainActivity.y0.addView(new View(this), new LinearLayout.LayoutParams(-1, a(14.0f)));
         }
-        dev.duo.hookprobe.u.addView(mainActivity.y0);
+        u.addView(mainActivity.y0);
         return u;
     }
 
@@ -2543,12 +2543,12 @@ public final class MainActivity extends Activity {
         final TextView a4 = dev.duo.hookprobe.T.a(this, 13.0f, T.c, J.m);
         a4.setText("正在检查…");
         a4.setLineSpacing(a(2.0f), 1.0f);
-        a2.addView(a4, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 8.0f));
+        a2.addView(a4, T.a(T.a(), this, 8.0f));
         final LinearLayout a5 = dev.duo.hookprobe.T.a((Context) this);
         a5.setBackground(dev.duo.hookprobe.T.a(T.g, a(16.0f)));
         a5.setPadding(a(14.0f), 0, a(14.0f), 0);
         a5.setVisibility(8);
-        a2.addView(a5, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 14.0f));
+        a2.addView(a5, T.a(T.a(), this, 14.0f));
         LinearLayout c2 = dev.duo.hookprobe.T.c(this);
         c2.setGravity(8388629);
         final TextView a6 = dev.duo.hookprobe.T.a((Context) this, "取消", false, 38.0f);
@@ -2559,7 +2559,7 @@ public final class MainActivity extends Activity {
             }
         });
         c2.addView(a6);
-        a2.addView(c2, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 18.0f));
+        a2.addView(c2, T.a(T.a(), this, 18.0f));
         dialog.setContentView(scrollView);
         dialog.show();
         dialog.getWindow().setBackgroundDrawable(dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.i, a(24.0f)));
@@ -2579,7 +2579,7 @@ public final class MainActivity extends Activity {
         }
         final Set<String> set = this.Y0;
         final String str2 = this.Z0;
-        final Future<?> submit = dev.duo.hookprobe.c.submit(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda4
+        final Future<?> submit = c.submit(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda4
             @Override // java.lang.Runnable
             public final void run() {
                 dev.duo.hookprobe.MainActivity.this.a(z, str, i2, j2, set, str2, dialog, a5, a4, a6);
@@ -2685,7 +2685,7 @@ public final class MainActivity extends Activity {
                 dev.duo.hookprobe.MainActivity.this.c(view);
             }
         });
-        a5.addView(a6, dev.duo.hookprobe.T.a());
+        a5.addView(a6, T.a());
         TextView a7 = dev.duo.hookprobe.T.a((Context) this, "导入颜色配置", false, 48.0f);
         a7.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda79
             @Override // android.view.View.OnClickListener
@@ -2693,7 +2693,7 @@ public final class MainActivity extends Activity {
                 dev.duo.hookprobe.MainActivity.this.d(view);
             }
         });
-        a5.addView(a7, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 8.0f));
+        a5.addView(a7, T.a(T.a(), this, 8.0f));
         a5.setVisibility(8);
         a2.addView(a5);
         c2.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda80
@@ -2899,7 +2899,7 @@ public final class MainActivity extends Activity {
         a2.addView(j(), dev.duo.hookprobe.T.a(new LinearLayout.LayoutParams(-1, a(72.0f)), this, 12.0f));
         a2.addView(C(), dev.duo.hookprobe.T.a(new LinearLayout.LayoutParams(-1, a(64.0f)), this, 12.0f));
         a2.addView(Q(), dev.duo.hookprobe.T.a(new LinearLayout.LayoutParams(-1, a(72.0f)), this, 12.0f));
-        a2.addView(Y(), dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
+        a2.addView(Y(), T.a(T.a(), this, 12.0f));
         return a(a2);
     }
 
@@ -2916,12 +2916,12 @@ public final class MainActivity extends Activity {
         final TextView a4 = dev.duo.hookprobe.T.a(this, 13.0f, T.c, J.m);
         a4.setText("正在检查接口和传感器数据，请稍候…");
         a4.setLineSpacing(a(2.0f), 1.0f);
-        a2.addView(a4, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 8.0f));
+        a2.addView(a4, T.a(T.a(), this, 8.0f));
         final LinearLayout a5 = dev.duo.hookprobe.T.a((Context) this);
         a5.setBackground(dev.duo.hookprobe.T.a(T.g, a(16.0f)));
         a5.setPadding(a(14.0f), 0, a(14.0f), 0);
         a5.setVisibility(8);
-        a2.addView(a5, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 14.0f));
+        a2.addView(a5, T.a(T.a(), this, 14.0f));
         final LinearLayout c2 = dev.duo.hookprobe.T.c(this);
         c2.setGravity(8388629);
         final TextView a6 = dev.duo.hookprobe.T.a((Context) this, "取消", false, 38.0f);
@@ -2932,7 +2932,7 @@ public final class MainActivity extends Activity {
             }
         });
         c2.addView(a6);
-        a2.addView(c2, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 18.0f));
+        a2.addView(c2, T.a(T.a(), this, 18.0f));
         dialog.setContentView(scrollView);
         dialog.show();
         dialog.getWindow().setBackgroundDrawable(dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.i, a(24.0f)));
@@ -2944,7 +2944,7 @@ public final class MainActivity extends Activity {
         final Set<String> set = this.Y0;
         final String str = this.Z0;
         final String str2 = this.X0[2];
-        final Future<?> submit = dev.duo.hookprobe.c.submit(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda18
+        final Future<?> submit = c.submit(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda18
             @Override // java.lang.Runnable
             public final void run() {
                 dev.duo.hookprobe.MainActivity.this.a(c0021o, z, z2, set, str, str2, dialog, a5, z3, a4, a6, c2);
@@ -3022,10 +3022,10 @@ public final class MainActivity extends Activity {
         this.L0.setVisibility(8);
         a3.addView(this.L0);
         a2.addView(c2, dev.duo.hookprobe.T.a(new LinearLayout.LayoutParams(-1, a(46.0f)), this, 12.0f));
-        a2.addView(a3, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
-        a2.addView(n(), dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
-        a2.addView(E(), dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
-        a2.addView(w(), dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
+        a2.addView(a3, T.a(T.a(), this, 12.0f));
+        a2.addView(n(), T.a(T.a(), this, 12.0f));
+        a2.addView(E(), T.a(T.a(), this, 12.0f));
+        a2.addView(w(), T.a(T.a(), this, 12.0f));
         T.e eVar = new dev.duo.hookprobe.T.e(this, e, null, new IntConsumer() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda88
             @Override // java.util.function.IntConsumer
             public final void accept(int i2) {
@@ -3037,7 +3037,7 @@ public final class MainActivity extends Activity {
             textView.setTextSize(13.0f);
         }
         this.M0.a(0);
-        a2.addView(this.M0.a, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 16.0f));
+        a2.addView(this.M0.a, T.a(T.a(), this, 16.0f));
         c cVar = new c(this);
         this.P0 = cVar;
         cVar.setId(1002);
@@ -3130,7 +3130,7 @@ public final class MainActivity extends Activity {
         } else {
             Toast.makeText(this, "已保存，系统下次启动时用上", 0).show();
             T();
-            dev.duo.hookprobe.a.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda16
+            a.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda16
                 @Override // java.lang.Runnable
                 public final void run() {
                     dev.duo.hookprobe.MainActivity.this.d(z);
@@ -3154,16 +3154,16 @@ public final class MainActivity extends Activity {
         TextView g2 = g("小功能");
         g2.setPadding(a(6.0f), 0, 0, a(10.0f));
         a2.addView(g2, new LinearLayout.LayoutParams(-1, a(56.0f)));
-        a2.addView(b0(), dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
-        a2.addView(I(), dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
-        a2.addView(x(), dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
+        a2.addView(b0(), T.a(T.a(), this, 12.0f));
+        a2.addView(I(), T.a(T.a(), this, 12.0f));
+        a2.addView(x(), T.a(T.a(), this, 12.0f));
         a2.addView(O());
-        a2.addView(G(), dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
-        a2.addView(m(), dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
-        a2.addView(c0(), dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
-        a2.addView(q(), dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
-        a2.addView(W(), dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
-        a2.addView(p(), dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
+        a2.addView(G(), T.a(T.a(), this, 12.0f));
+        a2.addView(m(), T.a(T.a(), this, 12.0f));
+        a2.addView(c0(), T.a(T.a(), this, 12.0f));
+        a2.addView(q(), T.a(T.a(), this, 12.0f));
+        a2.addView(W(), T.a(T.a(), this, 12.0f));
+        a2.addView(p(), T.a(T.a(), this, 12.0f));
         return a(a2);
     }
 
@@ -3171,7 +3171,7 @@ public final class MainActivity extends Activity {
         LinearLayout a2 = dev.duo.hookprobe.T.a((Context) this);
         dev.duo.hookprobe.T.a(a2, f2);
         a2.setPadding(a(f3), a(f3), a(f3), a(f3));
-        linearLayout.addView(a2, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
+        linearLayout.addView(a2, T.a(T.a(), this, 12.0f));
         return a2;
     }
 
@@ -3217,7 +3217,7 @@ public final class MainActivity extends Activity {
         if (c0021o == null) {
             return;
         }
-        dev.duo.hookprobe.b.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda26
+        b.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda26
             @Override // java.lang.Runnable
             public final void run() {
                 dev.duo.hookprobe.MainActivity.this.a(str, c0021o);
@@ -3281,7 +3281,7 @@ public final class MainActivity extends Activity {
         a4.setText(str2);
         a4.setPadding(a(2.0f), a(8.0f), 0, 0);
         i4.addView(a4);
-        dev.duo.hookprobe.u.addView(i4);
+        u.addView(i4);
         SeekBar seekBar = new SeekBar(this);
         dev.duo.hookprobe.T.a(seekBar);
         seekBar.setMax(i3 - i2);
@@ -3291,7 +3291,7 @@ public final class MainActivity extends Activity {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, a(44.0f));
         layoutParams.leftMargin = -a(17.0f);
         layoutParams.rightMargin = -a(17.0f);
-        dev.duo.hookprobe.u.addView(seekBar, layoutParams);
+        u.addView(seekBar, layoutParams);
         textViewArr[0] = a3;
         seekBarArr[0] = seekBar;
         return u;
@@ -3308,7 +3308,7 @@ public final class MainActivity extends Activity {
     }
 
     private void g(final boolean z) {
-        dev.duo.hookprobe.c.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda21
+        c.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda21
             @Override // java.lang.Runnable
             public final void run() {
                 dev.duo.hookprobe.MainActivity.this.c(z);
@@ -3358,7 +3358,7 @@ public final class MainActivity extends Activity {
         this.P = true;
         T();
         final o c0021o = this.p;
-        dev.duo.hookprobe.c.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda76
+        c.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda76
             @Override // java.lang.Runnable
             public final void run() {
                 dev.duo.hookprobe.MainActivity.this.b(c0021o);
@@ -3753,7 +3753,7 @@ public final class MainActivity extends Activity {
         dev.duo.hookprobe.T.a(seekBar);
         seekBar.setMax(120);
         seekBar.setEnabled(false);
-        a2.addView(seekBar, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 4.0f));
+        a2.addView(seekBar, T.a(T.a(), this, 4.0f));
         this.g0[i2] = seekBar;
         this.h0[i2] = a4;
         seekBar.setOnSeekBarChangeListener(new d(a4, i2));
@@ -3839,7 +3839,7 @@ public final class MainActivity extends Activity {
         String[] strArr = iVar.i;
         this.X0 = strArr;
         this.B0.setText(strArr[0]);
-        boolean equals = dev.duo.hookprobe.h.equals(this.X0[1]);
+        boolean equals = h.equals(this.X0[1]);
         boolean equals2 = "未安装".equals(this.X0[2]);
         this.C0.setText(equals ? this.X0[1] : this.X0[1] + " · 需 " + h);
         this.C0.setTextColor(equals ? T.b : -2543579);
@@ -3973,7 +3973,7 @@ public final class MainActivity extends Activity {
             return;
         }
         textView.setEnabled(false);
-        dev.duo.hookprobe.b.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda72
+        b.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda72
             @Override // java.lang.Runnable
             public final void run() {
                 dev.duo.hookprobe.MainActivity.this.a(c0021o, textView);
@@ -3988,7 +3988,7 @@ public final class MainActivity extends Activity {
         if (str2 != null) {
             startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str2)));
         } else {
-            dev.duo.hookprobe.a.execute(new MainActivity$$ExternalSyntheticLambda13(this));
+            a.execute(new MainActivity$$ExternalSyntheticLambda13(this));
         }
     }
 
@@ -4119,7 +4119,7 @@ public final class MainActivity extends Activity {
         TextView a5 = dev.duo.hookprobe.T.a(this, 12.0f, z ? -2543579 : T.d, J.m);
         a5.setText(aVar.b);
         a5.setLineSpacing(a(2.0f), 1.0f);
-        a3.addView(a5, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 4.0f));
+        a3.addView(a5, T.a(T.a(), this, 4.0f));
         c2.addView(a3, dev.duo.hookprobe.T.b());
         return c2;
     }
@@ -4133,7 +4133,7 @@ public final class MainActivity extends Activity {
         R();
         a0();
         final o c0021o = this.p;
-        dev.duo.hookprobe.a.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda56
+        a.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda56
             @Override // java.lang.Runnable
             public final void run() {
                 dev.duo.hookprobe.MainActivity.this.a(z2, c0021o, z, list);
@@ -4272,7 +4272,7 @@ public final class MainActivity extends Activity {
         TextView a5 = dev.duo.hookprobe.T.a(this, 12.0f, aVar.c == 2 ? -2543579 : T.d, J.m);
         a5.setText(aVar.b);
         a5.setLineSpacing(a(2.0f), 1.0f);
-        a3.addView(a5, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 4.0f));
+        a3.addView(a5, T.a(T.a(), this, 4.0f));
         c2.addView(a3, dev.duo.hookprobe.T.b());
         return c2;
     }
