@@ -77,7 +77,7 @@ public final class Engine {
     private long Q;
     private long R;
     private boolean S;
-    private boolean T;
+    private boolean T_fld;
     private int U;
     private dev.duo.fold.b V;
     private boolean W;
@@ -117,8 +117,8 @@ public final class Engine {
             if (sensorEvent.sensor.getType() == 8) {
                 dev.duo.fold.Engine.this.S = true;
                 Engine engine = dev.duo.fold.Engine.this;
-                engine.T = sensorEvent.values[0] < Math.min(5.0f, engine.w.getMaximumRange());
-                if (!dev.duo.fold.Engine.this.T || dev.duo.fold.Engine.this.N == null) {
+                engine.T_fld = sensorEvent.values[0] < Math.min(5.0f, engine.w.getMaximumRange());
+                if (!dev.duo.fold.Engine.this.T_fld || dev.duo.fold.Engine.this.N == null) {
                     return;
                 }
                 dev.duo.fold.Engine.this.j();
@@ -238,7 +238,7 @@ public final class Engine {
                 dev.duo.fold.Engine.this.a(new e() { // from class: dev.duo.fold.Engine$c$$ExternalSyntheticLambda1
                     @Override // dev.duo.fold.Engine.e
                     public final void run() {
-                        Engine.c.b();
+                        dev.duo.fold.Engine.c.b();
                     }
                 });
             }
@@ -499,7 +499,7 @@ public final class Engine {
     /* JADX INFO: Access modifiers changed from: private */
     public void x() throws Exception {
         dev.duo.fold.f.State b2;
-        if (!this.z || this.P || this.x.a() || !this.S || this.T || !l() || (b2 = this.y.b(w())) == dev.duo.fold.f.State.WAITING) {
+        if (!this.z || this.P || this.x.a() || !this.S || this.T_fld || !l() || (b2 = this.y.b(w())) == dev.duo.fold.f.State.WAITING) {
             return;
         }
         float b3 = this.x.b();
@@ -1133,14 +1133,14 @@ public final class Engine {
     private void a(boolean z) throws Exception {
         FutureTask<i.a> futureTask;
         float[] a2;
-        if (c() && this.S && !this.T && a(i(), z)) {
+        if (c() && this.S && !this.T_fld && a(i(), z)) {
             boolean u = u();
             int e2 = u ? -1 : e();
             c("开始" + (z ? "合拢" : "打开") + " angle=" + this.x.b() + (e2 >= 0 ? " 应用task=" + e2 : ""));
             Bundle bundle = null;
             Bundle bundle2 = null;
             bundle = null;
-            f fVar = new f((Bundle) bundle);
+            f fVar = new f(bundle);
             this.N = fVar;
             fVar.o = w();
             f fVar2 = this.N;

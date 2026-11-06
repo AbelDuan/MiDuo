@@ -120,7 +120,7 @@ final class T {
     private static int y;
     private static int z;
 
-    class a extends ArrayAdapter<String> {
+    static class a extends ArrayAdapter<String> {
         final /* synthetic */ Activity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -132,15 +132,15 @@ final class T {
         @Override // android.widget.ArrayAdapter, android.widget.Adapter
         public View getView(int i, View view, ViewGroup viewGroup) {
             TextView a = dev.duo.hookprobe.T.a(this.a, 14.0f, dev.duo.hookprobe.T.b, 500);
-            dev.duo.hookprobe.a.setText((CharSequence) getItem(i));
-            dev.duo.hookprobe.a.setMinHeight(dev.duo.hookprobe.T.a((Context) this.a, 56.0f));
-            dev.duo.hookprobe.a.setGravity(16);
-            dev.duo.hookprobe.a.setPadding(dev.duo.hookprobe.T.a((Context) this.a, 22.0f), dev.duo.hookprobe.T.a((Context) this.a, 12.0f), dev.duo.hookprobe.T.a((Context) this.a, 22.0f), dev.duo.hookprobe.T.a((Context) this.a, 12.0f));
+            a.setText((CharSequence) getItem(i));
+            a.setMinHeight(dev.duo.hookprobe.T.a((Context) this.a, 56.0f));
+            a.setGravity(16);
+            a.setPadding(dev.duo.hookprobe.T.a((Context) this.a, 22.0f), dev.duo.hookprobe.T.a((Context) this.a, 12.0f), dev.duo.hookprobe.T.a((Context) this.a, 22.0f), dev.duo.hookprobe.T.a((Context) this.a, 12.0f));
             return a;
         }
     }
 
-    class b extends Drawable {
+    static class b extends Drawable {
         final Paint a = new Paint(1);
         final /* synthetic */ int b;
         final /* synthetic */ Context c;
@@ -198,7 +198,7 @@ final class T {
         }
     }
 
-    class c extends Drawable {
+    static class c extends Drawable {
         final Paint a = new Paint(1);
         final /* synthetic */ int b;
         final /* synthetic */ float c;
@@ -379,8 +379,8 @@ final class T {
             LinearLayout c = dev.duo.hookprobe.T.c(context);
             this.a = c;
             int a = dev.duo.hookprobe.T.a(context, 3.0f);
-            dev.duo.hookprobe.c.setPadding(a, a, a, a);
-            dev.duo.hookprobe.c.setBackground(dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.f, T.a(context, 20.0f)));
+            c.setPadding(a, a, a, a);
+            c.setBackground(dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.f, T.a(context, 20.0f)));
             this.b = new LinearLayout[strArr.length];
             this.c = new TextView[strArr.length];
             for (int i = 0; i < strArr.length; i++) {
@@ -469,10 +469,10 @@ final class T {
                     int intExtra = intent.getIntExtra("level", -1);
                     int intExtra2 = intent.getIntExtra("scale", 100);
                     if (intExtra >= 0 && intExtra2 > 0) {
-                        dev.duo.hookprobe.f.this.a = intExtra / intExtra2;
+                        f.this.a = intExtra / intExtra2;
                     }
                 }
-                dev.duo.hookprobe.f.this.invalidate();
+                f.this.invalidate();
             }
         }
 
@@ -482,8 +482,8 @@ final class T {
 
             @Override // android.telephony.TelephonyCallback.SignalStrengthsListener
             public void onSignalStrengthsChanged(SignalStrength signalStrength) {
-                dev.duo.hookprobe.f.this.b = signalStrength == null ? -1 : f.b(signalStrength);
-                dev.duo.hookprobe.f.this.invalidate();
+                f.this.b = signalStrength == null ? -1 : dev.duo.hookprobe.T.f.b(signalStrength);
+                f.this.invalidate();
             }
 
             /* synthetic */ b(f fVar, a aVar) {
@@ -564,10 +564,10 @@ final class T {
             canvas.drawPath(this.j, this.h);
             this.h.setStrokeWidth(0.0f);
             while (true) {
-                if (i4 >= dev.duo.hookprobe.x.length) {
+                if (i4 >= x.length) {
                     return;
                 }
-                double radians = Math.toRadians(r1[i4]);
+                double radians = Math.toRadians(x[i4]);
                 this.h.setColor(i4 < this.b ? i : i2);
                 canvas.drawCircle((((float) Math.cos(radians)) * n) + o, p + (n * ((float) Math.sin(radians))), 5.1029997f, this.h);
                 i4++;
@@ -634,7 +634,7 @@ final class T {
                     @Override // java.util.function.Function
                     public final Object apply(Object obj) {
                         Object a2;
-                        a2 = T.f.a((Class<?>) obj);
+                        a2 = dev.duo.hookprobe.T.a((Class<?>) obj);
                         return a2;
                     }
                 });
@@ -1015,7 +1015,7 @@ final class T {
     }
 
     static AlertDialog.Builder a(Activity activity, String str, String[] strArr, DialogInterface.OnClickListener onClickListener) {
-        return a(activity, str).setAdapter(new a(activity, R.layout.simple_list_item_1, strArr, activity), onClickListener);
+        return a(activity, str).setAdapter(new a(activity, ResIds.layout.simple_list_item_1, strArr, activity), onClickListener);
     }
 
     static void a(AlertDialog alertDialog) {
@@ -1038,7 +1038,7 @@ final class T {
                 button.setPadding(a(context, 14.0f), 0, a(context, 14.0f), 0);
             }
         }
-        TextView textView = (TextView) alertDialog.findViewById(R.id.message);
+        TextView textView = (TextView) alertDialog.findViewById(ResIds.id.message);
         if (textView != null) {
             textView.setTextColor(c);
             textView.setTextSize(14.0f);
@@ -1064,7 +1064,7 @@ final class T {
         gradientDrawable.setSize(a(context, 26.0f), a(context, 26.0f));
         r7.setThumbDrawable(new InsetDrawable((Drawable) gradientDrawable, a(context, 3.0f)));
         GradientDrawable a2 = a(0, a(context, 16.0f));
-        a2.setColor(new ColorStateList(new int[][]{new int[]{R.attr.state_checked}, new int[0]}, new int[]{k, m}));
+        a2.setColor(new ColorStateList(new int[][]{new int[]{ResIds.attr.state_checked}, new int[0]}, new int[]{k, m}));
         a2.setSize(a(context, 52.0f), a(context, 32.0f));
         r7.setTrackDrawable(a2);
         r7.setShowText(false);
@@ -1076,8 +1076,8 @@ final class T {
         Context context = seekBar.getContext();
         float a2 = a(context, 3.0f);
         LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{a(a ? 1383495296 : 779515520, a2), new ClipDrawable(a(k, a2), 8388611, 1)});
-        layerDrawable.setId(0, R.id.background);
-        layerDrawable.setId(1, R.id.progress);
+        layerDrawable.setId(0, ResIds.id.background);
+        layerDrawable.setId(1, ResIds.id.progress);
         seekBar.setProgressDrawable(layerDrawable);
         seekBar.setMinHeight(a(context, 6.0f));
         seekBar.setMaxHeight(a(context, 6.0f));
