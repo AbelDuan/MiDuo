@@ -66,8 +66,8 @@ final class g implements AutoCloseable {
             try {
                 a(this.c);
                 GLES30.glFinish();
-            } catch (Exception e) {
-                e = e;
+            } catch (Exception e2) {
+                e = e2;
             }
         }
         e = null;
@@ -147,74 +147,37 @@ final class g implements AutoCloseable {
     }
 
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x0057  */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x005c  */
-    /* JADX WARN: Type inference failed for: r5v0, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r5v3 */
-    /* JADX WARN: Type inference failed for: r5v4, types: [int] */
-    /* JADX WARN: Type inference failed for: r6v1 */
-    /* JADX WARN: Type inference failed for: r6v3, types: [int] */
-    /* JADX WARN: Type inference failed for: r6v9 */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private static int b(String str, String str2) {
-        int r6;
-        RuntimeException e;
-        int glCreateProgram = GLES30.glCreateProgram();
-        int i = 0;
+        int program = GLES30.glCreateProgram();
+        int vert = 0;
+        int frag = 0;
         try {
-            try {
-                str = a(35633, (String) str);
-            } catch (Throwable th) {
-                th = th;
+            vert = a(35633, str);
+            frag = a(35632, str2);
+            GLES30.glAttachShader(program, vert);
+            GLES30.glAttachShader(program, frag);
+            GLES30.glLinkProgram(program);
+            int[] linked = new int[1];
+            GLES30.glGetProgramiv(program, 35714, linked, 0);
+            if (linked[0] == 0) {
+                throw new IllegalStateException(GLES30.glGetProgramInfoLog(program));
             }
-            try {
-                int a2 = a(35632, str2);
-                try {
-                    GLES30.glAttachShader(glCreateProgram, str);
-                    GLES30.glAttachShader(glCreateProgram, a2);
-                    GLES30.glLinkProgram(glCreateProgram);
-                    int[] iArr = new int[1];
-                    GLES30.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
-                    if (iArr[0] == 0) {
-                        throw new IllegalStateException(GLES30.glGetProgramInfoLog(glCreateProgram));
-                    }
-                    if (str != 0) {
-                        GLES30.glDeleteShader(str);
-                    }
-                    if (a2 != 0) {
-                        GLES30.glDeleteShader(a2);
-                    }
-                    return glCreateProgram;
-                } catch (RuntimeException e2) {
-                    e = e2;
-                    GLES30.glDeleteProgram(glCreateProgram);
-                    throw e;
-                }
-            } catch (RuntimeException e3) {
-                e = e3;
-            } catch (Throwable th2) {
-                th = th2;
-                str2 = null;
-                i = str;
-                r6 = str2;
-                if (i != 0) {
-                    GLES30.glDeleteShader(i);
-                }
-                if (r6 != 0) {
-                    GLES30.glDeleteShader(r6);
-                }
-                throw th;
+            if (vert != 0) {
+                GLES30.glDeleteShader(vert);
             }
-        } catch (RuntimeException e4) {
-            e = e4;
-        } catch (Throwable th3) {
-            th = th3;
-            r6 = 0;
-            if (i != 0) {
+            if (frag != 0) {
+                GLES30.glDeleteShader(frag);
             }
-            if (r6 != 0) {
+            return program;
+        } catch (RuntimeException e) {
+            GLES30.glDeleteProgram(program);
+            throw e;
+        } catch (Throwable th) {
+            if (vert != 0) {
+                GLES30.glDeleteShader(vert);
+            }
+            if (frag != 0) {
+                GLES30.glDeleteShader(frag);
             }
             throw th;
         }
@@ -477,10 +440,10 @@ final class g implements AutoCloseable {
             }
             EGLSurface eglCreateWindowSurface = EGL14.eglCreateWindowSurface(dev.duo.fold.g.this.a, dev.duo.fold.g.this.d, this.k, new int[]{12344}, 0);
             this.l = eglCreateWindowSurface;
-            g.b(eglCreateWindowSurface != EGL14.EGL_NO_SURFACE, "eglCreateWindowSurface");
+            dev.duo.fold.g.b(eglCreateWindowSurface != EGL14.EGL_NO_SURFACE, "eglCreateWindowSurface");
             dev.duo.fold.g.this.a(this.l);
-            g.b(EGL14.eglSwapInterval(dev.duo.fold.g.this.a, 0), "eglSwapInterval");
-            this.d = g.b(3553);
+            dev.duo.fold.g.b(EGL14.eglSwapInterval(dev.duo.fold.g.this.a, 0), "eglSwapInterval");
+            this.d = dev.duo.fold.g.b(3553);
             GLES30.glTexStorage2D(3553, 32 - Integer.numberOfLeadingZeros(Math.max(this.b, this.c)), 32856, this.b, this.c);
             GLES30.glTexParameteri(3553, 10241, 9987);
             int[] iArr = new int[1];
@@ -493,7 +456,7 @@ final class g implements AutoCloseable {
                 throw new IllegalStateException("材质 FBO 不完整");
             }
             GLES30.glBindFramebuffer(36160, 0);
-            g.b("材质缓冲");
+            dev.duo.fold.g.b("材质缓冲");
             SurfaceControl.Transaction transaction = new SurfaceControl.Transaction();
             try {
                 Surfaces.a(transaction, this.i, this.a == 0 ? dev.duo.fold.g.o : dev.duo.fold.g.p);
@@ -522,7 +485,7 @@ final class g implements AutoCloseable {
                     } finally {
                     }
                 } catch (Exception e) {
-                    b = g.b((Exception) null, e);
+                    b = dev.duo.fold.g.b((Exception) null, e);
                 }
                 this.i.release();
             } else {
@@ -530,10 +493,10 @@ final class g implements AutoCloseable {
             }
             try {
                 if (this.l != EGL14.EGL_NO_SURFACE) {
-                    g.b(EGL14.eglDestroySurface(dev.duo.fold.g.this.a, this.l), "eglDestroySurface");
+                    dev.duo.fold.g.b(EGL14.eglDestroySurface(dev.duo.fold.g.this.a, this.l), "eglDestroySurface");
                 }
             } catch (Exception e2) {
-                b = g.b(b, e2);
+                b = dev.duo.fold.g.b(b, e2);
             }
             Surface surface = this.k;
             if (surface != null) {
@@ -545,7 +508,7 @@ final class g implements AutoCloseable {
                     obj.getClass().getDeclaredMethod("destroy", null).invoke(this.j, null);
                 }
             } catch (Exception e3) {
-                b = g.b(b, e3);
+                b = dev.duo.fold.g.b(b, e3);
             }
             if (b != null) {
                 throw b;

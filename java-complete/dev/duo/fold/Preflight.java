@@ -199,10 +199,10 @@ public final class Preflight {
             return a(e[0], 0, "关键接口存在，系统服务可访问；未启动动画或切换屏幕");
         } catch (Exception | LinkageError e2) {
             e = e2;
-            if (dev.duo.fold.e.getCause() != null) {
-                e = dev.duo.fold.e.getCause();
+            if (cause.getCause() != null) {
+                cause = cause.getCause();
             }
-            return a(e[0], 2, "关键接口不可用：" + e);
+            return a(e[1], 2, "关键接口不可用：" + cause);
         }
     }
 
@@ -225,125 +225,87 @@ public final class Preflight {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     static JSONArray[] a(SensorManager sensorManager) throws InterruptedException {
-        boolean z;
-        String str;
-        int r3;
-        int i;
-        String str2;
-        int r6;
-        boolean z2 = false;
-        Sensor[] sensorArr = {sensorManager.getDefaultSensor(36), sensorManager.getDefaultSensor(d, false), sensorManager.getDefaultSensor(8)};
-        int[] iArr = new int[3];
-        boolean[] zArr = new boolean[3];
-        boolean[] zArr2 = new boolean[3];
-        boolean[] zArr3 = {true};
-        Object obj = new Object();
-        CountDownLatch countDownLatch = new CountDownLatch(1);
-        HandlerThread handlerThread = new HandlerThread("MiDuoFoldCheckSensors");
-        handlerThread.start();
-        a aVar = new a(obj, zArr3, sensorArr, new long[3], zArr, iArr, countDownLatch);
+        Sensor[] sensors = {
+            sensorManager.getDefaultSensor(36),
+            sensorManager.getDefaultSensor(0x1fa269d, false),
+            sensorManager.getDefaultSensor(8)
+        };
+        int[] validCounts = new int[3];
+        long[] firstTimes = new long[3];
+        boolean[] sawInvalid = new boolean[3];
+        boolean[] registered = new boolean[3];
+        boolean[] aborted = {true};
+        Object lock = new Object();
+        CountDownLatch latch = new CountDownLatch(1);
+        HandlerThread thread = new HandlerThread("MiDuoFoldCheckSensors");
+        thread.start();
+        a listener = new a(lock, aborted, sensors, firstTimes, sawInvalid, validCounts, latch);
+        String errorText = null;
+        boolean ok = false;
         try {
-            try {
-                Handler handler = new Handler(handlerThread.getLooper());
-                int i2 = 0;
-                while (i2 < 3) {
-                    z = z2;
-                    try {
-                        Sensor sensor = sensorArr[i2];
-                        if (sensor != null) {
-                            boolean registerListener = sensorManager.registerListener(aVar, sensor, 2, handler);
-                            zArr2[i2] = registerListener;
-                            if (!registerListener) {
-                                throw new IllegalStateException(e[i2 + 1] + "无法注册监听");
-                            }
-                        }
-                        i2++;
-                        z2 = z ? 1 : 0;
-                    } catch (RuntimeException e2) {
-                        e = e2;
-                        str = dev.duo.fold.e.toString();
-                        synchronized (obj) {
-                            zArr3[z ? 1 : 0] = z;
-                        }
-                        try {
-                            sensorManager.unregisterListener(aVar);
-                            handlerThread.quitSafely();
-                            JSONArray[] jSONArrayArr = new JSONArray[3];
-                            r3 = z;
-                            while (r3 < 3) {
-                            }
-                            return jSONArrayArr;
-                        } finally {
-                        }
+            Handler handler = new Handler(thread.getLooper());
+            for (int idx = 0; idx < 3; idx++) {
+                Sensor sensor = sensors[idx];
+                if (sensor != null) {
+                    boolean bound = sensorManager.registerListener(listener, sensor, 2, handler);
+                    registered[idx] = bound;
+                    if (!bound) {
+                        throw new IllegalStateException(e[idx + 1] + "无法注册监听");
                     }
                 }
-                z = z2;
-                countDownLatch.await(2L, TimeUnit.SECONDS);
-                synchronized (obj) {
-                    zArr3[z ? 1 : 0] = z;
-                }
-                try {
-                    sensorManager.unregisterListener(aVar);
-                    str = null;
-                } finally {
-                }
-            } catch (Throwable th) {
-                th = th;
-                synchronized (obj) {
-                    zArr3[0] = false;
-                }
-                try {
-                    sensorManager.unregisterListener(aVar);
-                    throw th;
-                } finally {
-                }
             }
-        } catch (RuntimeException e3) {
-            e = e3;
-            z = false;
-        } catch (Throwable th2) {
-            th = th2;
-            synchronized (obj) {
+            latch.await(2, TimeUnit.SECONDS);
+            synchronized (lock) {
+                aborted[0] = ok;
             }
+            sensorManager.unregisterListener(listener);
+        } catch (RuntimeException ex) {
+            errorText = ex.toString();
+            synchronized (lock) {
+                aborted[0] = ok;
+            }
+            sensorManager.unregisterListener(listener);
+        } catch (Throwable th) {
+            synchronized (lock) {
+                aborted[0] = ok;
+            }
+            sensorManager.unregisterListener(listener);
+            thread.quitSafely();
+            throw th;
         }
-        handlerThread.quitSafely();
-        JSONArray[] jSONArrayArr2 = new JSONArray[3];
-        r3 = z;
-        while (r3 < 3) {
-            if (str != null) {
-                str2 = "传感器检查未完成：" + str;
-                r6 = 2;
+        thread.quitSafely();
+
+        JSONArray[] result = new JSONArray[3];
+        for (int idx = 0; idx < 3; idx++) {
+            String text;
+            int code;
+            if (errorText != null) {
+                text = "传感器检查未完成：" + errorText;
+                code = 2;
             } else {
-                Sensor sensor2 = sensorArr[r3];
-                if (sensor2 == null) {
-                    str2 = "未找到传感器";
-                    r6 = 2;
-                } else if (zArr[r3]) {
-                    str2 = "收到无效数据（格式、数值或范围异常）";
-                    r6 = 2;
+                Sensor sensor = sensors[idx];
+                if (sensor == null) {
+                    text = "未找到传感器";
+                    code = 2;
+                } else if (sawInvalid[idx]) {
+                    text = "收到无效数据（格式、数值或范围异常）";
+                    code = 2;
                 } else {
-                    int i3 = iArr[r3];
-                    if (sensor2.getReportingMode() != 0) {
-                        i = 1;
+                    int needed = sensor.getReportingMode() == 0 ? 2 : 1;
+                    if (validCounts[idx] >= needed) {
+                        text = "已读到有效的新数据，监听已结束";
+                        code = ok ? 0 : 1;
+                    } else if (sensors[idx].getReportingMode() == 1) {
+                        text = "静止时未收到新数据，暂未确认；稍微改变姿态或遮挡距离传感器后重新检查";
+                        code = 1;
                     } else {
-                        i = 2;
-                    }
-                    if (i3 >= i) {
-                        str2 = "已读到有效的新数据，监听已结束";
-                        r6 = z;
-                    } else if (sensorArr[r3].getReportingMode() == 1) {
-                        str2 = "静止时未收到新数据，暂未确认；稍微改变姿态或遮挡距离传感器后重新检查";
-                        r6 = 1;
-                    } else {
-                        str2 = "短时检查未收到足够有效的新数据";
-                        r6 = 2;
+                        text = "短时检查未收到足够有效的新数据";
+                        code = 2;
                     }
                 }
             }
-            int i4 = r3 + 1;
-            jSONArrayArr2[r3] = a(e[i4], r6, str2);
-            r3 = i4;
+            result[idx] = a(e[idx + 1], code, text);
         }
-        return jSONArrayArr2;
+        return result;
     }
 }

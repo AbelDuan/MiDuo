@@ -8,11 +8,11 @@ final class f {
     private boolean e;
     private long a = -1;
     private long b = -1;
-    private f.a c = f.a.SHUT;
+    private State c;
     private float d = Float.NaN;
     private long f = -1;
 
-    enum a {
+    enum State {
         WAITING,
         SHUT,
         OPEN,
@@ -20,6 +20,7 @@ final class f {
     }
 
     f() {
+        this.c = State.SHUT;
     }
 
     boolean a(float f, long j, long j2) {
@@ -30,7 +31,7 @@ final class f {
         this.b = j;
         float abs = Math.abs(f);
         if (abs >= h) {
-            this.c = f.a.SHUT;
+            this.c = State.SHUT;
             this.e = true;
             if (!Float.isNaN(this.d)) {
                 float f2 = this.d;
@@ -38,8 +39,8 @@ final class f {
             }
             this.d = abs;
         } else if (abs < a()) {
-            a aVar = this.c;
-            f.a aVar2 = f.a.OPEN;
+            State aVar = this.c;
+            State aVar2 = State.OPEN;
             if (aVar != aVar2) {
                 this.f = j;
             }
@@ -48,12 +49,12 @@ final class f {
         return true;
     }
 
-    a b(long j) {
+    State b(long j) {
         if (this.a < 0) {
             this.a = j;
         }
         long j2 = this.b;
-        return j2 < 0 ? j - this.a < g ? f.a.WAITING : f.a.FALLBACK : j - j2 < g ? this.c : f.a.FALLBACK;
+        return j2 < 0 ? j - this.a < g ? State.WAITING : State.FALLBACK : j - j2 < g ? this.c : State.FALLBACK;
     }
 
     long c() {
@@ -65,7 +66,7 @@ final class f {
     }
 
     void b() {
-        if (this.c != f.a.SHUT) {
+        if (this.c != State.SHUT) {
             this.e = false;
         }
     }

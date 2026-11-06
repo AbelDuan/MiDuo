@@ -26,12 +26,12 @@ final class h {
 
     Bundle a(int i, int i2, int i3) throws Exception {
         Bundle a = this.b.a(i, i2, i3);
-        if (dev.duo.fold.a.containsKey("unavailable")) {
+        if (a.containsKey("unavailable")) {
             return a;
         }
         ArrayList arrayList = new ArrayList();
-        arrayList.add((SurfaceControl) dev.duo.fold.a.getBundle("home").getParcelable("mirror"));
-        ArrayList parcelableArrayList = dev.duo.fold.a.getBundle(J.c).getParcelableArrayList("layers");
+        arrayList.add((SurfaceControl) a.getBundle("home").getParcelable("mirror"));
+        ArrayList parcelableArrayList = a.getBundle(J.c).getParcelableArrayList("layers");
         int size = parcelableArrayList.size();
         int i4 = 0;
         while (i4 < size) {
@@ -181,8 +181,8 @@ final class h {
         try {
             this.b.a(i);
             e = null;
-        } catch (Exception e) {
-            e = e;
+        } catch (Exception e0) {
+            e = e0;
         }
         for (int i2 = 0; i2 < this.c.length; i2++) {
             if (i == -1 || i == i2) {
@@ -220,10 +220,9 @@ final class h {
                                 }
                             } catch (Exception e2) {
                                 if (e == null) {
-                                    Throwable e = null;
                                     e = e2;
                                 } else {
-                                    dev.duo.fold.e.addSuppressed(e2);
+                                    e.addSuppressed(e2);
                                 }
                             }
                         } finally {

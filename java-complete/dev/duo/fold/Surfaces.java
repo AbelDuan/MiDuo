@@ -30,28 +30,28 @@ final class Surfaces {
     }
 
     static void a(SurfaceControl.Transaction transaction, SurfaceControl surfaceControl, int i) throws Exception {
-        dev.duo.fold.a.invoke(transaction, surfaceControl, Integer.valueOf(i));
+        a.invoke(transaction, surfaceControl, Integer.valueOf(i));
     }
 
     static void b(SurfaceControl.Transaction transaction, SurfaceControl surfaceControl) throws Exception {
-        dev.duo.fold.b.invoke(transaction, surfaceControl);
+        b.invoke(transaction, surfaceControl);
     }
 
     static void a(SurfaceControl.Transaction transaction, SurfaceControl surfaceControl) throws Exception {
-        dev.duo.fold.c.invoke(transaction, surfaceControl);
+        c.invoke(transaction, surfaceControl);
     }
 
     static void a(SurfaceControl.Transaction transaction, SurfaceControl surfaceControl, float f2, float f3, float f4, float f5) throws Exception {
-        dev.duo.fold.d.invoke(transaction, surfaceControl, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5));
+        d.invoke(transaction, surfaceControl, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5));
     }
 
     static SurfaceControl a(String str) throws Exception {
         SurfaceControl.Builder name = new SurfaceControl.Builder().setName(str);
-        dev.duo.fold.e.invoke(name, null);
+        e.invoke(name, null);
         return name.build();
     }
 
     static SurfaceControl a(SurfaceControl surfaceControl) throws Exception {
-        return (SurfaceControl) dev.duo.fold.f.invoke(null, surfaceControl);
+        return (SurfaceControl) f.invoke(null, surfaceControl);
     }
 }

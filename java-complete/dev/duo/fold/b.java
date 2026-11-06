@@ -19,11 +19,11 @@ final class b {
         this.d = j;
     }
 
-    boolean a(float f, f.a aVar, boolean z) {
-        return z && aVar == dev.duo.fold.f.a.OPEN && f >= this.a;
+    boolean a(float f, dev.duo.fold.f.State aVar, boolean z) {
+        return z && aVar == dev.duo.fold.f.State.OPEN && f >= this.a;
     }
 
-    boolean a(long j, long j2, f.a aVar) {
-        return aVar == f.a.OPEN && j2 >= 0 && j - j2 >= this.d;
+    boolean a(long j, long j2, dev.duo.fold.f.State aVar) {
+        return aVar == dev.duo.fold.f.State.OPEN && j2 >= 0 && j - j2 >= this.d;
     }
 }

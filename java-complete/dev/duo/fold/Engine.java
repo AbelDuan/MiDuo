@@ -238,7 +238,7 @@ public final class Engine {
                 dev.duo.fold.Engine.this.a(new e() { // from class: dev.duo.fold.Engine$c$$ExternalSyntheticLambda1
                     @Override // dev.duo.fold.Engine.e
                     public final void run() {
-                        dev.duo.fold.Engine.dev.duo.fold.c.b();
+                        dev.duo.fold.c.b();
                     }
                 });
             }
@@ -317,7 +317,7 @@ public final class Engine {
         };
         this.k = context;
         this.l = str;
-        dev.duo.fold.e eVar = new dev.duo.fold.e(handler, new e.b() { // from class: dev.duo.fold.Engine$$ExternalSyntheticLambda13
+        dev.duo.fold.e eVar = new dev.duo.fold.e(handler, new dev.duo.fold.e.b() { // from class: dev.duo.fold.Engine$$ExternalSyntheticLambda13
             @Override // dev.duo.fold.e.b
             public final void a(int i2, long j, long j2) {
                 dev.duo.fold.Engine.this.b(i2, j, j2);
@@ -421,28 +421,35 @@ public final class Engine {
     public static void main(String[] strArr) {
         Engine engine = null;
         try {
-            if (Process.myUid() != 0 || strArr.length != 1) {
-                throw new IllegalArgumentException("MiDuo root 入口参数不符");
-            }
-            Looper.prepareMainLooper();
-            Class<?> cls = Class.forName("android.app.ActivityThread");
-            Engine engine2 = new Engine((Context) cls.getMethod("getSystemContext", null).invoke(cls.getMethod("systemMain", null).invoke(null, null), null), strArr[0]);
-            try {
-                engine2.B();
-                Looper.loop();
-                System.exit(engine2.U);
-            } catch (Throwable th) {
-                th = th;
-                engine = engine2;
-                if (engine != null) {
-                    engine.a(th);
-                } else {
-                    Log.e("MiDuoFold", "引擎初始化失败", th);
+            if (Process.myUid() == 0 && strArr.length == 1) {
+                Looper.prepareMainLooper();
+                Class<?> activityThread = Class.forName("android.app.ActivityThread");
+                Object mainThread = activityThread.getMethod("systemMain", null).invoke(null, null);
+                Context context = (Context) activityThread.getMethod("getSystemContext", null).invoke(mainThread, null);
+                Engine created = new Engine(context, strArr[0]);
+                try {
+                    created.B();
+                    Looper.loop();
+                    System.exit(created.U);
+                } catch (Throwable th) {
+                    engine = created;
+                    if (engine != null) {
+                        engine.a(th);
+                    } else {
+                        Log.e("MiDuoFold", "引擎初始化失败", th);
+                    }
+                    System.exit(1);
                 }
-                System.exit(1);
+                return;
             }
+            throw new IllegalArgumentException("MiDuo root 入口参数不符");
         } catch (Throwable th2) {
-            th = th2;
+            if (engine != null) {
+                engine.a(th2);
+            } else {
+                Log.e("MiDuoFold", "引擎初始化失败", th2);
+            }
+            System.exit(1);
         }
     }
 
@@ -491,8 +498,8 @@ public final class Engine {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void x() throws Exception {
-        f.a b2;
-        if (!this.z || this.P || this.x.a() || !this.S || this.T || !l() || (b2 = this.y.b(w())) == dev.duo.fold.f.a.WAITING) {
+        dev.duo.fold.f.State b2;
+        if (!this.z || this.P || this.x.a() || !this.S || this.T || !l() || (b2 = this.y.b(w())) == dev.duo.fold.f.State.WAITING) {
             return;
         }
         float b3 = this.x.b();
@@ -503,7 +510,7 @@ public final class Engine {
             }
             if (!z && this.V.a(b3, b2, this.y.d())) {
                 a(false);
-            } else if (this.F && Float.isFinite(this.K) && b3 < this.V.b && b3 < this.K && b2 == dev.duo.fold.f.a.OPEN && ((Float.isNaN(this.L) || b3 <= this.L - f) && (this.x.a(w(), c) >= f || b3 <= this.V.b - f))) {
+            } else if (this.F && Float.isFinite(this.K) && b3 < this.V.b && b3 < this.K && b2 == dev.duo.fold.f.State.OPEN && ((Float.isNaN(this.L) || b3 <= this.L - f) && (this.x.a(w(), c) >= f || b3 <= this.V.b - f))) {
                 a(true);
             }
         }
@@ -591,7 +598,7 @@ public final class Engine {
         }
         f fVar2 = this.N;
         fVar2.t = -1L;
-        fVar2.e = fVar2.a.a(d2, a3, this.j, new Engine$$ExternalSyntheticLambda4(this), this.N.h != null);
+        fVar2.e = fVar2.a.a(d2, a3, this.j, new Runnable() { public void run() { Engine.this.z(); } }, this.N.h != null);
         f fVar3 = this.N;
         g.a aVar2 = fVar3.e;
         aVar2.m = a4;
@@ -677,7 +684,7 @@ public final class Engine {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean h() {
-        return this.z && !this.P && this.N == null && !this.F && this.y.d() && this.y.b(w()) == dev.duo.fold.f.a.SHUT && w() - this.Q >= 1000;
+        return this.z && !this.P && this.N == null && !this.F && this.y.d() && this.y.b(w()) == dev.duo.fold.f.State.SHUT && w() - this.Q >= 1000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -759,7 +766,7 @@ public final class Engine {
         }
         long w = w();
         if (l()) {
-            boolean z = this.y.b(w) == dev.duo.fold.f.a.SHUT;
+            boolean z = this.y.b(w) == dev.duo.fold.f.State.SHUT;
             float a2 = z ? 0.0f : this.x.a(w);
             if (g()) {
                 this.N.v = "已建输入但无 buffer（源或壁纸）";
@@ -774,7 +781,7 @@ public final class Engine {
     }
 
     private boolean l() throws Exception {
-        if (this.y.b(w()) != dev.duo.fold.f.a.FALLBACK) {
+        if (this.y.b(w()) != dev.duo.fold.f.State.FALLBACK) {
             return !this.J;
         }
         if (this.J) {
@@ -1130,9 +1137,9 @@ public final class Engine {
             boolean u = u();
             int e2 = u ? -1 : e();
             c("开始" + (z ? "合拢" : "打开") + " angle=" + this.x.b() + (e2 >= 0 ? " 应用task=" + e2 : ""));
-            Bundle bundle = 0;
+            Bundle bundle = null;
             Bundle bundle2 = null;
-            bundle = 0;
+            bundle = null;
             f fVar = new f(bundle);
             this.N = fVar;
             fVar.o = w();
@@ -1184,7 +1191,7 @@ public final class Engine {
                 c("分层准备耗时ms 初始化=" + (w - this.N.o) + " 取层=" + (w2 - w) + " 等解码=" + (w3 - w2) + " 解码=" + a5.g + " 上传=" + (w() - w3));
                 bundle = bundle2;
             }
-            g.a a6 = this.N.a.a(d2, a3, this.j, new Engine$$ExternalSyntheticLambda4(this), this.N.d != null);
+            g.a a6 = this.N.a.a(d2, a3, this.j, new Runnable() { public void run() { Engine.this.z(); } }, this.N.d != null);
             a6.g = z ? (7 - c(i2)) % 4 : 0;
             boolean z2 = this.N.s >= 0;
             a6.l = z2;
@@ -1218,7 +1225,7 @@ public final class Engine {
                 this.N.d = a(a7);
                 f fVar8 = this.N;
                 if (fVar8.d == null) {
-                    fVar8.d = fVar8.a.a(d2, a3, this.j, new Engine$$ExternalSyntheticLambda4(this), false);
+                    fVar8.d = fVar8.a.a(d2, a3, this.j, new Runnable() { public void run() { Engine.this.z(); } }, false);
                     g.a aVar = this.N.d;
                     aVar.g = a6.g;
                     try {
@@ -1235,7 +1242,7 @@ public final class Engine {
                 }
                 f fVar9 = this.N;
                 if (fVar9.d == null) {
-                    fVar9.d = fVar9.a.a(d2, a3, this.j, new Engine$$ExternalSyntheticLambda4(this), false);
+                    fVar9.d = fVar9.a.a(d2, a3, this.j, new Runnable() { public void run() { Engine.this.z(); } }, false);
                     f fVar10 = this.N;
                     fVar10.d.g = a6.g;
                     this.M.a(0, a6, fVar10.p);
@@ -1245,9 +1252,9 @@ public final class Engine {
                 }
             }
             f fVar12 = this.N;
-            fVar12.f = fVar12.a.a(0, this.j, new Engine$$ExternalSyntheticLambda4(this));
+            fVar12.f = fVar12.a.a(0, this.j, new Runnable() { public void run() { Engine.this.z(); } });
             f fVar13 = this.N;
-            fVar13.g = fVar13.a.a(1, this.j, new Engine$$ExternalSyntheticLambda4(this));
+            fVar13.g = fVar13.a.a(1, this.j, new Runnable() { public void run() { Engine.this.z(); } });
             this.j.postDelayed(this.b0, c);
         }
     }
@@ -1347,7 +1354,7 @@ public final class Engine {
     }
 
     private g.a a(Bundle bundle, i.a aVar) throws Exception {
-        Bundle bundle2 = bundle.getBundle(J.c);
+        Bundle bundle2 = bundle.getBundle(dev.duo.hookprobe.J.c);
         ArrayList<Rect> parcelableArrayList = bundle.getParcelableArrayList("bitmapCrops");
         if (a(bundle, false)) {
             c("本次沿用原动画：侧栏/桌面状态不适用分层");
@@ -1403,7 +1410,7 @@ public final class Engine {
     }
 
     private boolean a(Bundle bundle, boolean z) {
-        Bundle bundle2 = bundle.getBundle(J.c);
+        Bundle bundle2 = bundle.getBundle(dev.duo.hookprobe.J.c);
         if ((!z || bundle.getInt("wallpaperId") == this.N.j) && !bundle2.getBoolean("editing") && (bundle2.getInt("contentFlags") & 32) == 0) {
             return z && !Objects.equals(this.N.k, bundle.getParcelableArrayList("bitmapCrops"));
         }
@@ -1411,7 +1418,7 @@ public final class Engine {
     }
 
     private static String a(Bundle bundle, dev.duo.fold.d dVar) {
-        Bundle bundle2 = bundle.getBundle(J.c);
+        Bundle bundle2 = bundle.getBundle(dev.duo.hookprobe.J.c);
         if (dVar == null && (bundle2.getInt("width") != bundle.getInt("width") || bundle2.getInt("height") != bundle.getInt("height"))) {
             return "侧栏尺寸";
         }

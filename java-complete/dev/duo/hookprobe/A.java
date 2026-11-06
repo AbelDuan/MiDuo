@@ -41,153 +41,81 @@ final class A {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     static Bundle a(Context context) {
-        String str;
-        String str2;
-        Throwable th;
-        long j;
-        ZoneId zoneId;
-        Bundle bundle;
-        Bundle bundle2 = new Bundle();
-        long currentTimeMillis = System.currentTimeMillis();
-        bundle2.putLong("now", currentTimeMillis);
-        ZoneId systemDefault = ZoneId.systemDefault();
-        LocalDate localDate = Instant.ofEpochMilli(currentTimeMillis).atZone(systemDefault).toLocalDate();
-        LocalDate plusDays = localDate.plusDays(1L);
-        long epochMilli = plusDays.atStartOfDay(systemDefault).toInstant().toEpochMilli();
-        String str3 = "next";
-        bundle2.putLong("next", epochMilli);
-        String str4 = "请允许读取日历";
-        String str5 = "error";
+        Bundle result = new Bundle();
+        long now = System.currentTimeMillis();
+        result.putLong("now", now);
+        ZoneId zone = ZoneId.systemDefault();
+        LocalDate today = Instant.ofEpochMilli(now).atZone(zone).toLocalDate();
+        LocalDate tomorrow = today.plusDays(1L);
+        long next = tomorrow.atStartOfDay(zone).toInstant().toEpochMilli();
+        result.putLong("next", next);
+
         if (context.checkSelfPermission("android.permission.READ_CALENDAR") != 0) {
-            bundle2.putString("error", "请允许读取日历");
-            return bundle2;
+            result.putString("error", "请允许读取日历");
+            return result;
         }
-        long epochMilli2 = localDate.atStartOfDay(systemDefault).toInstant().toEpochMilli();
-        long epochMilli3 = localDate.plusDays(2L).atStartOfDay(systemDefault).toInstant().toEpochMilli();
-        Uri.Builder buildUpon = CalendarContract.Instances.CONTENT_URI.buildUpon();
-        ContentUris.appendId(buildUpon, epochMilli2);
-        ContentUris.appendId(buildUpon, epochMilli3);
-        String str6 = "title";
-        String str7 = "end";
-        String[] strArr = {"title", "begin", "end", "allDay", "displayColor"};
-        ArrayList<? extends Parcelable> arrayList = new ArrayList<>();
-        ArrayList<? extends Parcelable> arrayList2 = new ArrayList<>();
+
+        long begin = today.atStartOfDay(zone).toInstant().toEpochMilli();
+        long end = today.plusDays(2L).atStartOfDay(zone).toInstant().toEpochMilli();
+        Uri.Builder builder = CalendarContract.Instances.CONTENT_URI.buildUpon();
+        ContentUris.appendId(builder, begin);
+        ContentUris.appendId(builder, end);
+        String[] projection = {"title", "begin", "end", "allDay", "displayColor"};
+
+        ArrayList<Parcelable> todayEvents = new ArrayList<>();
+        ArrayList<Parcelable> tomorrowEvents = new ArrayList<>();
+
         try {
-            str2 = context.getContentResolver();
-            Cursor query = str2.query(buildUpon.build(), strArr, "visible=1 AND (eventStatus IS NULL OR eventStatus!=2)", null, "begin ASC");
+            Cursor query = context.getContentResolver().query(
+                    builder.build(), projection,
+                    "visible=1 AND (eventStatus IS NULL OR eventStatus!=2)",
+                    null, "begin ASC");
             try {
                 if (query == null) {
                     throw new IllegalStateException("日历接口返回空游标");
                 }
                 while (query.moveToNext()) {
-                    try {
-                        try {
-                            str = str4;
-                            str2 = str5;
-                            try {
-                                j = query.getLong(1);
-                                zoneId = systemDefault;
-                                bundle = bundle2;
-                            } catch (Throwable th2) {
-                                th = th2;
-                                th = th;
-                                str2 = str2;
-                                if (query != null) {
-                                    throw th;
-                                }
-                                try {
-                                    query.close();
-                                    throw th;
-                                } catch (Throwable th3) {
-                                    th.addSuppressed(th3);
-                                    throw th;
-                                }
-                            }
-                        } catch (Throwable th4) {
-                            th = th4;
-                            str = str4;
-                            str2 = str5;
-                        }
-                        try {
-                            long j2 = query.getLong(2);
-                            boolean z = query.getInt(3) != 0;
-                            if (z || j2 > currentTimeMillis) {
-                                String str8 = str3;
-                                Bundle bundle3 = new Bundle();
-                                long j3 = epochMilli;
-                                String string = query.getString(0);
-                                if (string == null || string.isEmpty()) {
-                                    string = "无标题";
-                                }
-                                bundle3.putString(str6, string);
-                                bundle3.putLong("start", j);
-                                bundle3.putLong(str7, j2);
-                                bundle3.putBoolean("allDay", z);
-                                bundle3.putInt("color", query.getInt(4));
-                                ZoneId zoneId2 = z ? ZoneOffset.UTC : zoneId;
-                                LocalDate localDate2 = Instant.ofEpochMilli(j).atZone(zoneId2).toLocalDate();
-                                String str9 = str6;
-                                String str10 = str7;
-                                LocalDate localDate3 = Instant.ofEpochMilli(Math.max(j, j2 - 1)).atZone(zoneId2).toLocalDate();
-                                if (!localDate.isBefore(localDate2) && !localDate.isAfter(localDate3)) {
-                                    arrayList.add(bundle3);
-                                }
-                                if (!plusDays.isBefore(localDate2) && !plusDays.isAfter(localDate3)) {
-                                    arrayList2.add(bundle3);
-                                }
-                                epochMilli = j > currentTimeMillis ? Math.min(j3, j) : j3;
-                                if (j2 > currentTimeMillis) {
-                                    epochMilli = Math.min(epochMilli, j2);
-                                    str6 = str9;
-                                    str4 = str;
-                                    str5 = str2;
-                                    bundle2 = bundle;
-                                    systemDefault = zoneId;
-                                    str3 = str8;
-                                    str7 = str10;
-                                } else {
-                                    str6 = str9;
-                                    str4 = str;
-                                    str5 = str2;
-                                    bundle2 = bundle;
-                                    systemDefault = zoneId;
-                                    str3 = str8;
-                                    str7 = str10;
-                                }
-                            } else {
-                                str4 = str;
-                                str5 = str2;
-                                bundle2 = bundle;
-                                systemDefault = zoneId;
-                            }
-                        } catch (Throwable th5) {
-                            th = th5;
-                            bundle2 = bundle;
-                            str2 = str2;
-                            if (query != null) {
-                            }
-                        }
-                    } catch (RuntimeException e) {
-                        e = e;
-                        bundle2.putString(str2, e instanceof SecurityException ? str : "日程读取失败");
-                        Log.w("MiDuoWidgets", "calendar query failed", e);
-                        return bundle2;
+                    long start = query.getLong(1);
+                    long stop = query.getLong(2);
+                    boolean allDay = query.getInt(3) != 0;
+                    if (!allDay && stop <= now) {
+                        continue;
+                    }
+                    Bundle event = new Bundle();
+                    String title = query.getString(0);
+                    if (title == null || title.isEmpty()) {
+                        title = "无标题";
+                    }
+                    event.putString("title", title);
+                    event.putLong("start", start);
+                    event.putLong("end", stop);
+                    event.putBoolean("allDay", allDay);
+                    event.putInt("color", query.getInt(4));
+                    ZoneId eventZone = allDay ? ZoneOffset.UTC : zone;
+                    LocalDate day = Instant.ofEpochMilli(start).atZone(eventZone).toLocalDate();
+                    if (!day.isBefore(today) && !day.isAfter(today)) {
+                        todayEvents.add(event);
+                    }
+                    if (!day.isBefore(tomorrow) && !day.isAfter(tomorrow)) {
+                        tomorrowEvents.add(event);
+                    }
+                    if (start > now && start < next) {
+                        next = start;
                     }
                 }
-                Bundle bundle4 = bundle2;
-                String str11 = str3;
-                bundle4.putParcelableArrayList("todayEvents", arrayList);
-                bundle4.putParcelableArrayList("tomorrowEvents", arrayList2);
-                bundle4.putLong(str11, epochMilli);
-                query.close();
-                return bundle4;
-            } catch (Throwable th6) {
-                th = th6;
+            } finally {
+                if (query != null) {
+                    query.close();
+                }
             }
-        } catch (RuntimeException e2) {
-            e = e2;
-            str = "请允许读取日历";
-            str2 = "error";
+            result.putParcelableArrayList("todayEvents", todayEvents);
+            result.putParcelableArrayList("tomorrowEvents", tomorrowEvents);
+            result.putLong("next", next);
+            return result;
+        } catch (RuntimeException e) {
+            result.putString("error", e instanceof SecurityException ? "请允许读取日历" : "日程读取失败");
+            Log.w("MiDuoWidgets", "calendar query failed", e);
+            return result;
         }
     }
 
@@ -270,7 +198,7 @@ final class A {
                         bundle3.putString("condition", bundle5.getString("description"));
                         bundle2 = bundle.getBundle("weatherHourly");
                         if (bundle2 != null && !bundle2.containsKey("error")) {
-                            ArrayList<? extends Parcelable> arrayList = new ArrayList<>();
+                            ArrayList<Parcelable> arrayList = new ArrayList<>();
                             ArrayList parcelableArrayList2 = bundle2.getParcelableArrayList("rows");
                             size = parcelableArrayList2.size();
                             i = 0;
