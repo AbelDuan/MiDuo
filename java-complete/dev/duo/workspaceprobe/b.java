@@ -5455,60 +5455,7 @@ public final class b extends XposedModule {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f2() {
-        if (!this.s1) {
-            long elapsedRealtime = SystemClock.elapsedRealtime();
-            if (this.i4 != null && elapsedRealtime - this.t1 >= 5000) {
-                this.t1 = elapsedRealtime;
-                R1();
-            }
-        }
-        boolean F2 = F();
-        boolean z2 = !F2 && d2();
-        boolean z3 = F2 || z2;
-        if (this.e1 && (!z3 || this.x1 != z2)) {
-            this.e1 = false;
-            this.b1.unregisterListener(this.d1);
-            this.f1 = -1;
-            this.g1 = Float.NaN;
-            this.Z0.a();
-        }
-        if (z3) {
-            if (this.e1) {
-                if (z2 || this.f1 == this.G1) {
-                    return;
-                }
-                this.Z0.a();
-                this.Z0.a(this.g1, SystemClock.uptimeMillis());
-                this.f1 = this.G1;
-                return;
-            }
-            if (this.b1 == null) {
-                SensorManager sensorManager = (SensorManager) this.i4.getSystemService(SensorManager.class);
-                this.b1 = sensorManager;
-                this.c1 = sensorManager.getDefaultSensor(36, false);
-                this.d1 = new C0038g();
-                if (this.c1 == null) {
-                    Log.e("DuoFoldSplit", "Non-wakeup hinge sensor unavailable");
-                }
-            }
-            if (this.c1 == null) {
-                return;
-            }
-            this.Z0.a();
-            try {
-                if (!this.b1.registerListener(this.d1, this.c1, 1, this.A1)) {
-                    this.c1 = null;
-                    Log.e("DuoFoldSplit", "Hinge sensor registration rejected");
-                } else {
-                    this.f1 = z2 ? -2 : this.G1;
-                    this.x1 = z2;
-                    this.e1 = true;
-                }
-            } catch (RuntimeException e2) {
-                this.c1 = null;
-                Log.e("DuoFoldSplit", "Hinge sensor registration failed", e2);
-            }
-        }
+        // fold-split removed: hinge sensor management disabled
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -7212,25 +7159,7 @@ public final class b extends XposedModule {
     }
 
     private boolean F() {
-        int i2;
-        if (this.r1 && this.s1 && this.h1 != null && this.S0 != null && (i2 = this.G1) >= 0 && !this.I1 && !this.L1 && !this.M1 && !this.N1) {
-            try {
-                ActivityManager.RunningTaskInfo runningTaskInfo = this.G0.get(Integer.valueOf(i2));
-                if (runningTaskInfo != null && runningTaskInfo.topActivity != null && runningTaskInfo.getClass().getField("isFocused").getBoolean(runningTaskInfo) && runningTaskInfo.getClass().getField("displayId").getInt(runningTaskInfo) == 0) {
-                    Object obj = runningTaskInfo.getClass().getField("configuration").get(runningTaskInfo);
-                    Object obj2 = obj.getClass().getField("windowConfiguration").get(obj);
-                    if (((Integer) obj2.getClass().getMethod("getActivityType", null).invoke(obj2, null)).intValue() == 1) {
-                        if (((Integer) obj2.getClass().getMethod("getWindowingMode", null).invoke(obj2, null)).intValue() == 1 && v0() && R0() && a(p0()) == 1) {
-                            return true;
-                        }
-                    }
-                }
-                return false;
-            } catch (ReflectiveOperationException e2) {
-                Log.e("DuoFoldSplit", "Listening task check failed", e2);
-            }
-        }
-        return false;
+        return false;  // fold-split removed
     }
 
     private Set<String> G() {
@@ -12121,31 +12050,7 @@ public final class b extends XposedModule {
     }
 
     private void c(ClassLoader classLoader) {
-        try {
-            Class<?> cls = Class.forName("com.android.wm.shell.sosc.SoScSplitScreenController", false, classLoader);
-            Class<?> cls2 = Class.forName("com.android.wm.shell.sosc.SoScUtilsImpl", false, classLoader);
-            Class<?> cls3 = Class.forName("com.android.wm.shell.multiplesplit.MultipleSplitUtils", false, classLoader);
-            final Method method = cls.getMethod("getRemoteCallExecutor", null);
-            final Method method2 = cls2.getMethod("getInstance", null);
-            final Method method3 = cls3.getMethod("getInstance", null);
-            Class cls4 = Integer.TYPE;
-            this.l1 = cls.getMethod("updateSplitSnapTarget", cls4, cls4, cls4, Boolean.TYPE);
-            this.m1 = cls2.getMethod("isSoScActive", null);
-            this.n1 = cls2.getMethod("isSoScSupported", null);
-            this.o1 = cls3.getMethod("isMultipleSplitActive", null);
-            this.p1 = cls3.getMethod("isMultipleSplitSupport", null);
-            this.q1 = Class.forName("com.android.wm.shell.multiplesplit.MultipleSplitUtilsImpl", false, classLoader).getMethod("dockMultipleSplitTasks", Bundle.class);
-            hook(cls.getDeclaredMethod("onInit", null)).intercept(new XposedInterface.Hooker() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda36
-                public final Object intercept(XposedInterface.Chain chain) {
-                    Object a2;
-                    a2 = dev.duo.workspaceprobe.b.this.a(method, method2, method3, chain);
-                    return a2;
-                }
-            });
-            Log.i("DuoFoldSplit", "Native split hook ready");
-        } catch (ReflectiveOperationException e2) {
-            Log.e("DuoFoldSplit", "Native split entry unavailable", e2);
-        }
+        // fold-split removed: SoSc split hook disabled
     }
 
     private boolean f() {
@@ -13123,19 +13028,7 @@ public final class b extends XposedModule {
 
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void p(int i2) {
-        ActivityManager.RunningTaskInfo runningTaskInfo;
-        try {
-            if (this.e1 && this.f1 == i2 && this.r1 && v0() && R0() && a(p0()) == 1 && (runningTaskInfo = (ActivityManager.RunningTaskInfo) this.S0.getClass().getMethod("getRunningTaskInfo", Integer.TYPE).invoke(this.S0, Integer.valueOf(i2))) != null && runningTaskInfo.getClass().getField("isFocused").getBoolean(runningTaskInfo) && runningTaskInfo.getClass().getField("displayId").getInt(runningTaskInfo) == 0) {
-                Object obj = runningTaskInfo.getClass().getField("configuration").get(runningTaskInfo);
-                Object obj2 = obj.getClass().getField("windowConfiguration").get(obj);
-                if (((Integer) obj2.getClass().getMethod("getActivityType", null).invoke(obj2, null)).intValue() == 1 && ((Integer) obj2.getClass().getMethod("getWindowingMode", null).invoke(obj2, null)).intValue() == 1 && ((Boolean) this.n1.invoke(this.i1, null)).booleanValue() && !((Boolean) this.m1.invoke(this.i1, null)).booleanValue() && !((Boolean) this.o1.invoke(this.j1, null)).booleanValue()) {
-                    this.l1.invoke(this.h1, 0, Integer.valueOf(i2), -1, Boolean.TRUE);
-                    Log.i("DuoFoldSplit", "Native split requested task=" + i2);
-                }
-            }
-        } catch (ReflectiveOperationException e2) {
-            Log.e("DuoFoldSplit", "Native split request failed", e2);
-        }
+        // fold-split removed: native split request disabled
     }
 
     private void c(h0 h0Var) {
@@ -14882,19 +14775,7 @@ public final class b extends XposedModule {
 
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void a(int i2, boolean z2, boolean z3) {
-        if (i2 != this.a1) {
-            this.a1 = i2;
-            this.Z0.a(i2);
-            Log.i("DuoFoldSplit", "Nudge level " + i2);
-        }
-        boolean z4 = this.s1;
-        this.s1 = true;
-        if (this.r1 == z2 && z4) {
-            return;
-        }
-        this.r1 = false;
-        Log.i("DuoFoldSplit", "Switch " + (z2 ? "on" : "off") + (z3 ? " (fold animation active)" : ""));
-        f2();
+        // fold-split removed: nudge/switch disabled
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -15510,50 +15391,7 @@ public final class b extends XposedModule {
     }
 
     private void a(ClassLoader classLoader) {
-        try {
-            Class<?> cls = Class.forName("com.android.wm.shell.multiplesplit.MultipleSplitTransitionHandler", false, classLoader);
-            Class<?> cls2 = Class.forName("com.android.wm.shell.multiplesplit.MultipleSplitRootTaskOrganizer", false, classLoader);
-            Class<?> cls3 = Class.forName("com.android.wm.shell.multiplesplit.MultipleSplitTransitionHandler$TransitSession", false, classLoader);
-            Class<?> cls4 = Class.forName("com.android.wm.shell.multiplesplit.MultipleSplitTransitionHandler$EnterSession", false, classLoader);
-            Class<?> cls5 = Class.forName("com.android.wm.shell.sosc.SoScUtilsImpl", false, classLoader);
-            Method method = null;
-            final Method method2 = cls2.getMethod("getDockOffset", null);
-            final Method method3 = cls5.getMethod("getTaskRootLeash", null);
-            final Method method4 = cls5.getMethod("getInstance", null);
-            final Field declaredField = cls3.getDeclaredField("mExtraTransitType");
-            final Field declaredField2 = cls4.getDeclaredField("mEnteringIndex");
-            final Field declaredField3 = cls.getDeclaredField("mOrganizer");
-            Field[] fieldArr = {declaredField, declaredField2, declaredField3};
-            for (int i2 = 0; i2 < 3; i2++) {
-                fieldArr[i2].setAccessible(true);
-            }
-            for (Method method5 : cls.getDeclaredMethods()) {
-                if (method5.getName().equals("playDockChangeAnimation")) {
-                    method = method5;
-                }
-            }
-            if (method != null) {
-                hook(method2).intercept(new XposedInterface.Hooker() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda61
-                    public final Object intercept(XposedInterface.Chain chain) {
-                        Object a2;
-                        a2 = dev.duo.workspaceprobe.b.this.a(chain);
-                        return a2;
-                    }
-                });
-                hook(method).intercept(new XposedInterface.Hooker() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda62
-                    public final Object intercept(XposedInterface.Chain chain) {
-                        Object a2;
-                        a2 = dev.duo.workspaceprobe.b.this.a(declaredField, declaredField2, method2, declaredField3, method3, method4, chain);
-                        return a2;
-                    }
-                });
-                Log.i("DuoFoldSplit", "Dock-in animation hook ready");
-                return;
-            }
-            throw new NoSuchMethodException("playDockChangeAnimation");
-        } catch (ReflectiveOperationException e2) {
-            Log.e("DuoFoldSplit", "Dock-in animation entry unavailable", e2);
-        }
+        // fold-split removed: MultipleSplit dock animation hook disabled
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -15622,23 +15460,8 @@ public final class b extends XposedModule {
 
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ Object a(Method method, Method method2, Method method3, XposedInterface.Chain chain) throws Throwable {
-        Object proceed = chain.proceed();
-        try {
-            final Object thisObject = chain.getThisObject();
-            final Executor executor = (Executor) method.invoke(thisObject, null);
-            final Object invoke = method2.invoke(null, null);
-            final Object invoke2 = method3.invoke(null, null);
-            this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda19
-                @Override // java.lang.Runnable
-                public final void run() {
-                    dev.duo.workspaceprobe.b.this.a(thisObject, executor, invoke, invoke2);
-                }
-            });
-            return proceed;
-        } catch (ReflectiveOperationException e2) {
-            Log.e("DuoFoldSplit", "Native controller capture failed", e2);
-            return proceed;
-        }
+        // fold-split removed: native controller capture disabled
+        return chain.proceed();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -15652,15 +15475,7 @@ public final class b extends XposedModule {
 
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void a(ActivityManager.RunningTaskInfo runningTaskInfo, Bundle bundle) {
-        try {
-            if (this.r1 && this.u1 && this.y1 == runningTaskInfo && !this.L1 && !this.M1 && !this.N1 && v0() && R0() && a(p0()) == 1 && ((Boolean) this.p1.invoke(this.j1, null)).booleanValue() && ((Boolean) this.m1.invoke(this.i1, null)).booleanValue() && !((Boolean) this.o1.invoke(this.j1, null)).booleanValue()) {
-                this.v4 = SystemClock.uptimeMillis();
-                this.q1.invoke(this.j1, bundle);
-                Log.i("DuoFoldSplit", "Native dock requested task=" + runningTaskInfo.taskId);
-            }
-        } catch (ReflectiveOperationException e2) {
-            Log.e("DuoFoldSplit", "Native dock request failed", e2);
-        }
+        // fold-split removed: native dock request disabled
     }
 
     private void a(SurfaceControl surfaceControl, boolean z2) {

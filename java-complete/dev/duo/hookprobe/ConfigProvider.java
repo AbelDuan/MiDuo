@@ -163,9 +163,6 @@ public final class ConfigProvider extends ContentProvider {
                 Binder.restoreCallingIdentity(clearCallingIdentity);
             }
         }
-        if ("foldStart".equals(str)) {
-            return q.a(getContext(), callingUid);
-        }
         if ("trialTick".equals(str)) {
             return a(callingUid, str2);
         }
@@ -176,7 +173,7 @@ public final class ConfigProvider extends ContentProvider {
             return a(callingUid, str, str2, bundle);
         }
         boolean z2 = "pageTones".equals(str) || "keepScreen".equals(str) || "railSidebarApps".equals(str) || "railPanelOrder".equals(str);
-        boolean z3 = "railEnabled".equals(str) || "rotationSuggest".equals(str) || "notificationIcons".equals(str) || "searchButton".equals(str) || "pickButton".equals(str) || "foldSplit".equals(str) || "standbyClock".equals(str) || "statusStyles".equals(str) || "railCustom".equals(str) || "iosNc".equals(str) || "workbench".equals(str);
+        boolean z3 = "railEnabled".equals(str) || "notificationIcons".equals(str) || "searchButton".equals(str) || "pickButton".equals(str) || "standbyClock".equals(str) || "statusStyles".equals(str) || "railCustom".equals(str) || "workbench".equals(str);
         try {
             if (z3 || z2) {
                 if (callingUid == getContext().getPackageManager().getApplicationInfo("com.android.systemui", 0).uid) {
@@ -224,24 +221,6 @@ public final class ConfigProvider extends ContentProvider {
                                 }
                             }
                             bundle2.putString("saved", sharedPreferences.getString("_global/railPanelOrder", ""));
-                        } else if ("iosNc".equals(str)) {
-                            for (Map.Entry<String, ?> entry : sharedPreferences.getAll().entrySet()) {
-                                String key = entry.getKey();
-                                Object value = entry.getValue();
-                                if (key != null && key.startsWith("ios_notification_")) {
-                                    if (value instanceof Boolean) {
-                                        bundle2.putBoolean(key, ((Boolean) value).booleanValue());
-                                    } else if (value instanceof Integer) {
-                                        bundle2.putInt(key, ((Integer) value).intValue());
-                                    } else if (value instanceof Float) {
-                                        bundle2.putFloat(key, ((Float) value).floatValue());
-                                    } else if (value instanceof Long) {
-                                        bundle2.putLong(key, ((Long) value).longValue());
-                                    } else if (value instanceof String) {
-                                        bundle2.putString(key, (String) value);
-                                    }
-                                }
-                            }
                         } else if ("standbyClock".equals(str)) {
                             bundle2.putBoolean("on", c0021o.m() && c0021o.z());
                         } else if ("notificationIcons".equals(str)) {
@@ -258,9 +237,6 @@ public final class ConfigProvider extends ContentProvider {
                             bundle2.putBoolean("sidebarKeyEnd", sharedPreferences.getBoolean("_global/railSidebarKeyEnd", false));
                         } else if ("workbench".equals(str)) {
                             bundle2.putBoolean("on", c0021o.B());
-                        } else if ("foldSplit".equals(str)) {
-                            bundle2.putBoolean("on", c0021o.g());
-                            bundle2.putInt("nudge", c0021o.f());
                         } else if ("statusStyles".equals(str)) {
                             bundle2.putBoolean("cellular", c0021o.c());
                             bundle2.putBoolean("thin", c0021o.A());
@@ -271,12 +247,6 @@ public final class ConfigProvider extends ContentProvider {
                                 iArr[i2] = c0021o.e(i2);
                             }
                             bundle2.putIntArray("dy", iArr);
-                        } else if ("rotationSuggest".equals(str)) {
-                            bundle2.putBoolean("portraitRight", c0021o.a(false));
-                            bundle2.putBoolean("landscapeRight", c0021o.a(true));
-                            if (sharedPreferences.contains("_global/rotationSuggest")) {
-                                bundle2.putBoolean("on", c0021o.x());
-                            }
                         } else if ("global".equals(str)) {
                             if (bundle != null && bundle.containsKey("px") && !c0021o.b(bundle.getInt("px"))) {
                                 return a(bundle2, "commit failed");

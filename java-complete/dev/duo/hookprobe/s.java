@@ -26,7 +26,7 @@ import java.util.concurrent.Executor;
 
 /* loaded from: C:\Users\Abel\.dsh\folk-import\projects\miduo-re\_work\dex\classes.dex */
 public final class s extends XposedModule {
-    private static final String a = "MiDuoFoldLease";
+    private static final String TAG = "MiDuoFoldLease";
     private static final String b = "dev.duo.foldanim1.CONTROL";
     static final int c = 13693511;
     static final int d = 254;
@@ -131,13 +131,13 @@ public final class s extends XposedModule {
                     z3 = false;
                 }
                 if (z3) {
-                    Log.i(a, "HOLD_BACKLIGHT panel=" + c2 + " requested=" + fArr[2] + " nits=" + fArr[3] + (z6 ? " leased" : " guard") + (z4 ? " dim=" + z : ""));
+                    Log.i(TAG, "HOLD_BACKLIGHT panel=" + c2 + " requested=" + fArr[2] + " nits=" + fArr[3] + (z6 ? " leased" : " guard") + (z4 ? " dim=" + z : ""));
                 }
                 z2 = z3;
             }
         } catch (Throwable th) {
             this.t = th;
-            Log.e(a, "backlight hook failed; passthrough", th);
+            Log.e(TAG, "backlight hook failed; passthrough", th);
         }
         if (z2) {
             return null;
@@ -157,7 +157,7 @@ public final class s extends XposedModule {
             Object invoke = this.L.invoke(chain.getThisObject(), null);
             i2 = this.j.a(str, booleanValue, (invoke == null || str == null || !str.equals(this.W.get(invoke))) ? false : true, a());
         } catch (Throwable th) {
-            Log.e(a, "config hook failed; passthrough", th);
+            Log.e(TAG, "config hook failed; passthrough", th);
         }
         if (i2 == 1) {
             return null;
@@ -188,7 +188,7 @@ public final class s extends XposedModule {
                 try {
                     it.next().unhook();
                 } catch (Throwable th2) {
-                    Log.e(a, "Unhook failed", th2);
+                    Log.e(TAG, "Unhook failed", th2);
                 }
             }
             this.k.clear();
@@ -196,7 +196,7 @@ public final class s extends XposedModule {
             if (handler != null) {
                 handler.getLooper().quitSafely();
             }
-            Log.e(a, "NOT_READY; hooks rolled back", th);
+            Log.e(TAG, "NOT_READY; hooks rolled back", th);
             log(6, a, "NOT_READY; hooks rolled back", th);
         }
     }
@@ -271,7 +271,7 @@ public final class s extends XposedModule {
             Method method = methodArr[i2];
             boolean deoptimize = deoptimize(method);
             z &= deoptimize;
-            Log.i(a, "CALLER_DEOPT method=" + method.getName() + " result=" + deoptimize);
+            Log.i(TAG, "CALLER_DEOPT method=" + method.getName() + " result=" + deoptimize);
         }
         if (z) {
             this.s = new u(classLoader);
@@ -315,7 +315,7 @@ public final class s extends XposedModule {
             this.r = handler;
             this.s.a(this, this.k, handler);
             this.o = true;
-            Log.i(a, (this.o ? "READY" : "NOT_READY_CALLER_DEOPT") + " version=" + d + " hooks=" + this.k.size() + " dormant_without_lease=true");
+            Log.i(TAG, (this.o ? "READY" : "NOT_READY_CALLER_DEOPT") + " version=" + d + " hooks=" + this.k.size() + " dormant_without_lease=true");
             return;
         }
         throw new IllegalStateException("租约调用链去优化失败");
@@ -397,12 +397,12 @@ public final class s extends XposedModule {
                     } else {
                         str = "";
                     }
-                    Log.i(a, append.append(str).toString());
+                    Log.i(TAG, append.append(str).toString());
                 }
                 z = z2;
             } catch (Throwable th) {
                 this.t = th;
-                Log.e(a, "power hook failed; passthrough", th);
+                Log.e(TAG, "power hook failed; passthrough", th);
             }
             if (z) {
                 return null;
@@ -436,7 +436,7 @@ public final class s extends XposedModule {
         String str;
         try {
         } catch (Throwable th) {
-            Log.w(a, "CONTROL_REJECTED " + th);
+            Log.w(TAG, "CONTROL_REJECTED " + th);
             if (parcel2 != null) {
                 parcel2.setDataPosition(0);
                 parcel2.setDataSize(0);
@@ -613,7 +613,7 @@ public final class s extends XposedModule {
                             }
                             boolean z2 = this.j.b(str) == null;
                             if (z2 && this.j.a(str) != null) {
-                                Log.i(a, "GUARD_DROPPED panel=" + str + " reason=new_lease");
+                                Log.i(TAG, "GUARD_DROPPED panel=" + str + " reason=new_lease");
                             }
                             final x.b a3 = this.j.a(str, iBinder, i2, i3, i4, a(), j);
                             if (a3 == null) {
@@ -646,7 +646,7 @@ public final class s extends XposedModule {
                                 transaction.close();
                             }
                             if (z2) {
-                                Log.i(a, "LEASE panel=" + str + " mode=" + i3 + " stack=" + i4 + " pid=" + i2 + " power_on=" + z + " ttl=" + x.a(j) + " rotation=" + i8 + " stack_size=" + i9 + "x" + i10);
+                                Log.i(TAG, "LEASE panel=" + str + " mode=" + i3 + " stack=" + i4 + " pid=" + i2 + " power_on=" + z + " ttl=" + x.a(j) + " rotation=" + i8 + " stack_size=" + i9 + "x" + i10);
                             }
                             b(iBinder);
                             if (z || str2 != null) {
@@ -691,11 +691,11 @@ public final class s extends XposedModule {
                         i2 = this.U.getInt(obj2);
                     }
                     if (i2 == 2) {
-                        Log.i(a, "LEASE_POWER_SKIPPED panel=" + str + " already_on_by_platform");
+                        Log.i(TAG, "LEASE_POWER_SKIPPED panel=" + str + " already_on_by_platform");
                     } else {
                         this.D.invoke(null, iBinder, 2);
                         this.j.a(bVar);
-                        Log.i(a, "LEASE_POWER_ON panel=" + str);
+                        Log.i(TAG, "LEASE_POWER_ON panel=" + str);
                     }
                 }
                 if (str2 != null) {
@@ -716,7 +716,7 @@ public final class s extends XposedModule {
                             this.N.invoke(this.T.get(obj2), Float.valueOf(fArr[0]), Float.valueOf(fArr[1]), Float.valueOf(fArr[2]), Float.valueOf(fArr[3]));
                             this.l.remove();
                             this.j.a(bVar, fArr[2]);
-                            Log.i(a, "LEASE_BACKLIGHT panel=" + str + " from=" + str2 + " value=" + fArr[2] + " floor=on");
+                            Log.i(TAG, "LEASE_BACKLIGHT panel=" + str + " from=" + str2 + " value=" + fArr[2] + " floor=on");
                         } catch (Throwable th) {
                             this.l.remove();
                             throw th;
@@ -732,7 +732,7 @@ public final class s extends XposedModule {
             while (it.hasNext()) {
                 a(it.next(), "apply_failed");
             }
-            Log.e(a, "LEASE_APPLY_FAILED panel=" + str, th2);
+            Log.e(TAG, "LEASE_APPLY_FAILED panel=" + str, th2);
         }
     }
 
@@ -763,7 +763,7 @@ public final class s extends XposedModule {
         this.Y.setInt(obj, -1);
         this.Z.set(obj, null);
         this.a0.set(obj, null);
-        Log.i(a, "LEASE_PROJECTION orientation=" + i7 + " stack=" + i3 + "x" + i4 + " display=" + rect.toShortString());
+        Log.i(TAG, "LEASE_PROJECTION orientation=" + i7 + " stack=" + i3 + "x" + i4 + " display=" + rect.toShortString());
     }
 
     private void a(x.b bVar, String str) {
@@ -772,12 +772,12 @@ public final class s extends XposedModule {
             try {
             } catch (Throwable th) {
                 this.t = th;
-                Log.e(a, "RELEASE_FAILED panel=" + bVar.a + " reason=" + str, th);
+                Log.e(TAG, "RELEASE_FAILED panel=" + bVar.a + " reason=" + str, th);
             }
             synchronized (this.P.get(this.p)) {
                 Object a2 = a(bVar.a);
                 if (a2 == null) {
-                    Log.w(a, "RELEASE_NO_DEVICE panel=" + bVar.a);
+                    Log.w(TAG, "RELEASE_NO_DEVICE panel=" + bVar.a);
                     return;
                 }
                 IBinder iBinder = (IBinder) this.J.invoke(a2, null);
@@ -809,14 +809,14 @@ public final class s extends XposedModule {
                     int intValue = num.intValue();
                     if (x.a(bVar, intValue)) {
                         this.D.invoke(null, iBinder, num);
-                        Log.i(a, "RELEASE_POWER panel=" + bVar.a + " state=" + i2 + " mode=" + intValue);
+                        Log.i(TAG, "RELEASE_POWER panel=" + bVar.a + " state=" + i2 + " mode=" + intValue);
                     } else {
-                        Log.i(a, "RELEASE_POWER_SKIPPED panel=" + bVar.a + " state=" + i2 + " already_on held_on=" + bVar.j);
+                        Log.i(TAG, "RELEASE_POWER_SKIPPED panel=" + bVar.a + " state=" + i2 + " already_on held_on=" + bVar.j);
                     }
                 }
                 x.a a3 = this.j.a(bVar, a());
                 if (a3 != null) {
-                    Log.i(a, "RELEASE_GUARD panel=" + bVar.a + " floor=" + a3.b + " ms=700 carried=" + ((!a3.e || (fArr = a3.d) == null) ? "none" : String.valueOf(fArr[2])));
+                    Log.i(TAG, "RELEASE_GUARD panel=" + bVar.a + " floor=" + a3.b + " ms=700 carried=" + ((!a3.e || (fArr = a3.d) == null) ? "none" : String.valueOf(fArr[2])));
                     b();
                 } else {
                     float[] fArr2 = bVar.k;
@@ -834,7 +834,7 @@ public final class s extends XposedModule {
                         }
                     }
                 }
-                Log.i(a, "RELEASED panel=" + bVar.a + " reason=" + str + " held_ms=" + (a() - bVar.f));
+                Log.i(TAG, "RELEASED panel=" + bVar.a + " reason=" + str + " held_ms=" + (a() - bVar.f));
             }
         }
     }
@@ -894,17 +894,17 @@ public final class s extends XposedModule {
                         this.N.invoke(obj, Float.valueOf(fArr[0]), Float.valueOf(fArr[1]), Float.valueOf(fArr[2]), Float.valueOf(fArr[3]));
                     }
                     this.l.remove();
-                    Log.i(a, "GUARD_END panel=" + aVar.a + " replay=" + fArr[2]);
+                    Log.i(TAG, "GUARD_END panel=" + aVar.a + " replay=" + fArr[2]);
                     return;
                 } catch (Throwable th) {
                     this.l.remove();
                     throw th;
                 }
             }
-            Log.i(a, "GUARD_END panel=" + aVar.a + " replay=none");
+            Log.i(TAG, "GUARD_END panel=" + aVar.a + " replay=none");
         } catch (Throwable th2) {
             this.t = th2;
-            Log.e(a, "GUARD_END_FAILED panel=" + aVar.a, th2);
+            Log.e(TAG, "GUARD_END_FAILED panel=" + aVar.a, th2);
         }
     }
 }

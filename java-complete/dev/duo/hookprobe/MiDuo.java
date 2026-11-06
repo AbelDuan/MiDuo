@@ -117,7 +117,7 @@ public final class MiDuo extends XposedModule {
                 t.b(getModuleApplicationInfo().sourceDir);
                 if (this.e) {
                     t.e(this.b);
-                    q.a(this, packageLoadedParam.getDefaultClassLoader());
+                    // q.a(...) removed: fold engine start (fold-split feature removed)
                 }
             } catch (Exception e) {
                 Log.e("MiDuoFold", "就绪观察启动失败", e);

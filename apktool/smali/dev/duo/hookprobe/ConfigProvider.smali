@@ -1728,9 +1728,15 @@
 
     move-result-object v0
 
-    invoke-static {v0, v5}, Ldev/duo/hookprobe/q;->a(Landroid/content/Context;I)Landroid/os/Bundle;
-
-    move-result-object v0
+    # fold-split removed: engine start disabled
+    new-instance v0, Landroid/os/Bundle;
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+    const-string v2, "ok"
+    const/4 v3, 0x0
+    invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+    const-string v2, "error"
+    const-string v3, "fold-split removed"
+    invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     return-object v0
 

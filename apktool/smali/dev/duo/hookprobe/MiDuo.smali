@@ -468,7 +468,7 @@
 
     move-result-object p1
 
-    invoke-static {p0, p1}, Ldev/duo/hookprobe/q;->a(Lio/github/libxposed/api/XposedModule;Ljava/lang/ClassLoader;)V
+    # fold-split removed: q (fold engine starter) no longer registered
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 

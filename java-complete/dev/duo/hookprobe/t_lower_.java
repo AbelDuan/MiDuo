@@ -154,102 +154,15 @@ final class t {
     }
 
     private static void o() {
-        if (e) {
-            return;
-        }
-        e = true;
-        Parcel obtain = Parcel.obtain();
-        Parcel obtain2 = Parcel.obtain();
-        try {
-            try {
-                obtain.writeInterfaceToken("dev.duo.foldanim1.CONTROL");
-                obtain.writeInt(f ? 14 : 9);
-                if (f) {
-                    obtain.writeStrongBinder(null);
-                } else {
-                    obtain.writeInt(0);
-                    obtain.writeLong(SystemClock.uptimeMillis());
-                }
-            } catch (Exception e2) {
-                Log.e("MiDuoFold", "观察停止撤销失败", e2);
-            }
-            if (!a.transact(13693511, obtain, obtain2, 0)) {
-                throw new IllegalStateException("观察停止撤销未处理");
-            }
-            obtain2.readException();
-            obtain.recycle();
-            obtain2.recycle();
-            h = null;
-        } catch (Throwable th) {
-            obtain.recycle();
-            obtain2.recycle();
-            throw th;
-        }
+        // fold-split removed: observer stop disabled
     }
 
     static void e(final dev.duo.workspaceprobe.b bVar) {
-        f = true;
-        b bVar2 = new b(new Handler(Looper.getMainLooper()), bVar);
-        Parcel obtain = Parcel.obtain();
-        obtain.writeInterfaceToken("dev.duo.foldanim1.CONTROL");
-        obtain.writeInt(14);
-        obtain.writeStrongBinder(bVar2);
-        a(obtain, "侧栏取层接口");
-        d(bVar);
-        bVar.C6 = new Runnable() { // from class: dev.duo.hookprobe.t$$ExternalSyntheticLambda0
-            @Override // java.lang.Runnable
-            public final void run() {
-                t.c(bVar);
-            }
-        };
-        bVar.B6 = new Consumer() { // from class: dev.duo.hookprobe.t$$ExternalSyntheticLambda1
-            @Override // java.util.function.Consumer
-            public final void accept(Object obj) {
-                t.d(bVar, (View) obj);
-            }
-        };
-        final boolean[] zArr = {false};
-        final d dVar = new d(zArr);
-        final boolean[] zArr2 = {false};
-        final e eVar = new e(zArr2);
-        bVar.A6 = new Consumer() { // from class: dev.duo.hookprobe.t$$ExternalSyntheticLambda2
-            @Override // java.util.function.Consumer
-            public final void accept(Object obj) {
-                t.a(bVar, zArr2, eVar, zArr, dVar, (long[]) obj);
-            }
-        };
+        // fold-split removed: observer start disabled
     }
 
     static void b(String str) throws Exception {
-        Properties properties = new Properties();
-        ZipFile zipFile = new ZipFile(str);
-        try {
-            InputStream inputStream = zipFile.getInputStream(zipFile.getEntry("assets/fold/curve.properties"));
-            try {
-                properties.load(inputStream);
-                if (inputStream != null) {
-                    inputStream.close();
-                }
-                zipFile.close();
-                int parseInt = Integer.parseInt(properties.getProperty("quiet_frames"));
-                b = parseInt;
-                c = new w(parseInt);
-                d = new w(b, 192);
-                IBinder iBinder = (IBinder) Class.forName("android.os.ServiceManager").getMethod("getService", String.class).invoke(null, "display");
-                a = iBinder;
-                if (iBinder == null) {
-                    throw new IllegalStateException("display 服务不可用");
-                }
-            } finally {
-            }
-        } catch (Throwable th) {
-            try {
-                zipFile.close();
-            } catch (Throwable th2) {
-                th.addSuppressed(th2);
-            }
-            throw th;
-        }
+        // fold-split removed: curve loader disabled
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -333,17 +246,7 @@ final class t {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(int i2, long j2) {
-        if (e || h == null) {
-            return;
-        }
-        Parcel obtain = Parcel.obtain();
-        obtain.writeInterfaceToken("dev.duo.foldanim1.CONTROL");
-        obtain.writeInt(18);
-        obtain.writeStrongBinder(h);
-        obtain.writeLong(i);
-        obtain.writeInt(i2);
-        obtain.writeLong(j2);
-        a(obtain, "本代目标内容");
+        // fold-split removed
     }
 
     /* renamed from: dev.duo.hookprobe.t$b */
@@ -391,100 +294,10 @@ final class t {
         }
 
         @Override // android.os.Binder
-        protected boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
-            Bundle bundle;
-            if (i == 3) {
-                parcel.enforceInterface("dev.duo.foldanim1.LAYERS");
-                if (Binder.getCallingUid() != 1000 || parcel2 == null) {
-                    throw new SecurityException("系统观察状态专用");
-                }
-                parcel2.writeNoException();
-                parcel2.writeInt(!t.e ? 1 : 0);
-                return true;
-            }
-            if (i == 2) {
-                parcel.enforceInterface("dev.duo.foldanim1.LAYERS");
-                if (Binder.getCallingUid() != 1000) {
-                    throw new SecurityException("系统就绪订阅专用");
-                }
-                final IBinder readStrongBinder = parcel.readStrongBinder();
-                final long readLong = parcel.readLong();
-                final boolean z = parcel.readInt() != 0;
-                final int readInt = parcel.readInt();
-                final int readInt2 = parcel.readInt();
-                final boolean z2 = parcel.readInt() != 0;
-                Handler handler = this.a;
-                final dev.duo.workspaceprobe.b bVar = this.b_fld;
-                handler.post(new Runnable() { // from class: dev.duo.hookprobe.t$b$$ExternalSyntheticLambda0
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        t.b.a(z, readStrongBinder, readLong, readInt, readInt2, z2, bVar);
-                    }
-                });
-                return true;
-            }
-            if (i != 1) {
-                return false;
-            }
-            if (parcel2 == null) {
-                throw new SecurityException("只读取层需要同步回复");
-            }
-            try {
-                parcel.enforceInterface("dev.duo.foldanim1.LAYERS");
-            } catch (Exception e) {
-                parcel2.setDataPosition(0);
-                parcel2.setDataSize(0);
-                parcel2.writeException(new IllegalStateException("侧栏只读导出失败", e));
-            }
-            if (Binder.getCallingUid() != 1000) {
-                throw new SecurityException("系统只读取层专用");
-            }
-            final CompletableFuture completableFuture = new CompletableFuture();
-            Handler handler2 = this.a;
-            final dev.duo.workspaceprobe.b bVar2 = this.b_fld;
-            handler2.post(new Runnable() { // from class: dev.duo.hookprobe.t$b$$ExternalSyntheticLambda1
-                @Override // java.lang.Runnable
-                public final void run() {
-                    t.b.a(completableFuture, bVar2);
-                }
-            });
-            try {
-                try {
-                    bundle = (Bundle) completableFuture.get(1L, TimeUnit.SECONDS);
-                } catch (TimeoutException e2) {
-                    completableFuture.completeExceptionally(e2);
-                    final dev.duo.workspaceprobe.b bVar3 = this.b_fld;
-                    completableFuture.thenAccept(new Consumer() { // from class: dev.duo.hookprobe.t$b$$ExternalSyntheticLambda3
-                        @Override // java.util.function.Consumer
-                        public final void accept(Object obj) {
-                            t.a(this.b_fld, (Bundle) obj);
-                        }
-                    });
-                    Bundle bundle2 = new Bundle();
-                    bundle2.putString("unavailable", "SystemUI 主线程 1 秒未响应");
-                    bundle = bundle2;
-                }
-                try {
-                    parcel2.writeNoException();
-                    parcel2.writeBundle(bundle);
-                    this.b_fld.a(bundle, true);
-                    return true;
-                } catch (Throwable th) {
-                    this.b_fld.a(bundle, false);
-                    throw th;
-                }
-            } catch (Exception e3) {
-                completableFuture.completeExceptionally(e3);
-                final dev.duo.workspaceprobe.b bVar4 = this.b_fld;
-                completableFuture.thenAccept(new Consumer() { // from class: dev.duo.hookprobe.t$b$$ExternalSyntheticLambda2
-                    @Override // java.util.function.Consumer
-                    public final void accept(Object obj) {
-                        t.a(this.b_fld, (Bundle) obj);
-                    }
-                });
-                throw e3;
-            }
-        }
+    protected boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
+        // fold-split removed
+        return super.onTransact(i, parcel, parcel2, i2);
+    }
 
         /* JADX INFO: Access modifiers changed from: private */
         public static /* synthetic */ void a(CompletableFuture completableFuture, dev.duo.workspaceprobe.b bVar) {
@@ -588,35 +401,11 @@ final class t {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(int i2, int i3, long j2) {
-        if (e) {
-            return;
-        }
-        if (i2 == 8) {
-            if (m) {
-                return;
-            }
-            b(i3, j2);
-        } else {
-            Parcel obtain = Parcel.obtain();
-            obtain.writeInterfaceToken("dev.duo.foldanim1.CONTROL");
-            obtain.writeInt(i2);
-            obtain.writeInt(i3);
-            obtain.writeLong(j2);
-            a(obtain, "就绪信号");
-        }
+        // fold-split removed
     }
 
     private static void b(dev.duo.workspaceprobe.b bVar) {
-        float[] C = bVar.C();
-        if (e || C == null || Arrays.equals(C, w)) {
-            return;
-        }
-        w = C;
-        Parcel obtain = Parcel.obtain();
-        obtain.writeInterfaceToken("dev.duo.foldanim1.CONTROL");
-        obtain.writeInt(11);
-        obtain.writeFloatArray(C);
-        a(obtain, "侧栏坐标");
+        // fold-split removed
     }
 
     /* JADX INFO: Access modifiers changed from: private */
