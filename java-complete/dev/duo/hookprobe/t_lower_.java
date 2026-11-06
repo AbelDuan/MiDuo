@@ -349,11 +349,11 @@ final class t {
     /* renamed from: dev.duo.hookprobe.t$b */
     static class b extends Binder {
         final /* synthetic */ Handler a;
-        final /* synthetic */ dev.duo.workspaceprobe.b b;
+        final /* synthetic */ dev.duo.workspaceprobe.b b_fld;
 
         b(Handler handler, dev.duo.workspaceprobe.b bVar) {
             this.a = handler;
-            this.b_v = bVar;
+            this.b_fld = bVar;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -363,7 +363,7 @@ final class t {
             }
             if (!z) {
                 if (t.h == iBinder && t.i == j) {
-                    Log.i("MiDuoFold", "TARGET_WAIT_END gen=" + j + " samples=" + t.o + " paintChanges=" + t.p + " rejected=" + t.q + " last=" + t.u + " flags=0x" + Long.toHexString(t.s) + " at=" + t.t + " panelSince=" + t.j + " gate=" + t.c.a());
+                    Log.i("MiDuoFold", "TARGET_WAIT_END gen=" + j + " samples=" + t.o + " paintChanges=" + t.p + " rejected=" + t.q + " last=" + t.u + " flags=0x" + Long.toHexString(t.s_v) + " at=" + t.t_v + " panelSince=" + t.j + " gate=" + t.c.a());
                     IBinder unused = t.h = null;
                     return;
                 }
@@ -375,8 +375,8 @@ final class t {
             int unused5 = t.l = i2;
             boolean unused6 = t.m = z2;
             int unused7 = t.o = t.p = t.q = 0;
-            long unused8 = t.r = -1L;
-            long unused9 = t.s = t.t = 0L;
+            long unused8 = t.r_v = -1L;
+            long unused9 = t.s_v = t.t_v = 0L;
             String unused10 = t.u = "尚无样本";
             if (!z2) {
                 bVar.A6.accept(bVar.z());
