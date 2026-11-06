@@ -4030,7 +4030,7 @@ public final class MainActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void a(boolean z, String str, int i2, long j2, Set set, String str2, final Dialog dialog, final LinearLayout linearLayout, final TextView textView, final TextView textView2) {
-        final List<C.a> a2 = C.a(this, z, str, i2, j2, set, str2);
+        final List<dev.duo.hookprobe.C.a> a2 = dev.duo.hookprobe.C.a(this, z, str, i2, j2, set, str2);
         this.m.post(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda22
             @Override // java.lang.Runnable
             public final void run() {
