@@ -13410,7 +13410,7 @@ public final class b extends XposedModule {
             this.R0.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda211
                 @Override // java.lang.Runnable
                 public final void run() {
-                    dev.duo.workspaceprobe.b.this.c = false;
+                    l2.c = false;
                 }
             });
             Log.w("DuoRail", "App rail decor late build failed task=" + i2, th);
