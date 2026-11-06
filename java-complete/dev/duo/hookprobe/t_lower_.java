@@ -414,7 +414,7 @@ final class t {
                 final int readInt2 = parcel.readInt();
                 final boolean z2 = parcel.readInt() != 0;
                 Handler handler = this.a;
-                final dev.duo.workspaceprobe.b bVar = this.b_v;
+                final dev.duo.workspaceprobe.b bVar = this.b_fld;
                 handler.post(new Runnable() { // from class: dev.duo.hookprobe.t$b$$ExternalSyntheticLambda0
                     @Override // java.lang.Runnable
                     public final void run() {
@@ -441,7 +441,7 @@ final class t {
             }
             final CompletableFuture completableFuture = new CompletableFuture();
             Handler handler2 = this.a;
-            final dev.duo.workspaceprobe.b bVar2 = this.b_v;
+            final dev.duo.workspaceprobe.b bVar2 = this.b_fld;
             handler2.post(new Runnable() { // from class: dev.duo.hookprobe.t$b$$ExternalSyntheticLambda1
                 @Override // java.lang.Runnable
                 public final void run() {
@@ -453,11 +453,11 @@ final class t {
                     bundle = (Bundle) completableFuture.get(1L, TimeUnit.SECONDS);
                 } catch (TimeoutException e2) {
                     completableFuture.completeExceptionally(e2);
-                    final dev.duo.workspaceprobe.b bVar3 = this.b_v;
+                    final dev.duo.workspaceprobe.b bVar3 = this.b_fld;
                     completableFuture.thenAccept(new Consumer() { // from class: dev.duo.hookprobe.t$b$$ExternalSyntheticLambda3
                         @Override // java.util.function.Consumer
                         public final void accept(Object obj) {
-                            t.a(dev.duo.workspaceprobe.b.this, (Bundle) obj);
+                            t.a(this.b_fld, (Bundle) obj);
                         }
                     });
                     Bundle bundle2 = new Bundle();
@@ -467,19 +467,19 @@ final class t {
                 try {
                     parcel2.writeNoException();
                     parcel2.writeBundle(bundle);
-                    this.b_v.a(bundle, true);
+                    this.b_fld.a(bundle, true);
                     return true;
                 } catch (Throwable th) {
-                    this.b_v.a(bundle, false);
+                    this.b_fld.a(bundle, false);
                     throw th;
                 }
             } catch (Exception e3) {
                 completableFuture.completeExceptionally(e3);
-                final dev.duo.workspaceprobe.b bVar4 = this.b_v;
+                final dev.duo.workspaceprobe.b bVar4 = this.b_fld;
                 completableFuture.thenAccept(new Consumer() { // from class: dev.duo.hookprobe.t$b$$ExternalSyntheticLambda2
                     @Override // java.util.function.Consumer
                     public final void accept(Object obj) {
-                        t.a(dev.duo.workspaceprobe.b.this, (Bundle) obj);
+                        t.a(this.b_fld, (Bundle) obj);
                     }
                 });
                 throw e3;
@@ -557,14 +557,14 @@ final class t {
         view.getViewTreeObserver().addOnDrawListener(new ViewTreeObserver.OnDrawListener() { // from class: dev.duo.hookprobe.t$$ExternalSyntheticLambda4
             @Override // android.view.ViewTreeObserver.OnDrawListener
             public final void onDraw() {
-                t.c(dev.duo.workspaceprobe.b.this, view);
+                t.c(this.b_fld, view);
             }
         });
         view.addOnAttachStateChangeListener(new c(bVar));
         view.addOnLayoutChangeListener(new View.OnLayoutChangeListener() { // from class: dev.duo.hookprobe.t$$ExternalSyntheticLambda5
             @Override // android.view.View.OnLayoutChangeListener
             public final void onLayoutChange(View view2, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
-                t.a(dev.duo.workspaceprobe.b.this, view2, i2, i3, i4, i5, i6, i7, i8, i9);
+                t.a(this.b_fld, view2, i2, i3, i4, i5, i6, i7, i8, i9);
             }
         });
         b(bVar, view);
