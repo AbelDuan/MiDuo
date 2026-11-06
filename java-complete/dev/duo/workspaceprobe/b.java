@@ -8849,8 +8849,9 @@ public final class b extends XposedModule {
                 if (f >= h[0] && f <= r4 + h[2]) {
                     float f2 = this.m;
                     if (f2 >= h[1] && f2 <= r6 + h[3]) {
-                        this.a.g.getLocationOnScreen(new int[2]);
-                        return dev.duo.hookprobe.J.a(this.l_v - r0_v[0], this.m - r0_v[1], this.a.g.getWidth() / 3.0f, ((View) this.b_v.getParent()).getHeight(), 3, this.a.o_v.size());
+                        int[] r0 = new int[2];
+                        this.a.g.getLocationOnScreen(r0);
+                        return dev.duo.hookprobe.J.a(this.l_v - r0[0], this.m - r0[1], this.a.g.getWidth() / 3.0f, ((View) this.b_v.getParent()).getHeight(), 3, this.a.o_v.size());
                     }
                 }
             }
@@ -8988,7 +8989,7 @@ public final class b extends XposedModule {
         /* JADX INFO: Access modifiers changed from: private */
         public /* synthetic */ void b(final View view, final float f) {
             view.getLocationOnScreen(new int[2]);
-            this.o_v.animate().x(r0_v[0]).y(r0_v[1]).scaleX(1.0f).scaleY(1.0f).alpha(1.0f).setDuration(200L).setInterpolator(dev.duo.workspaceprobe.b.J).withEndAction(new Runnable() { // from class: dev.duo.workspaceprobe.b$W$$ExternalSyntheticLambda2
+            this.o_v.animate().x(r0[0]).y(r0[1]).scaleX(1.0f).scaleY(1.0f).alpha(1.0f).setDuration(200L).setInterpolator(dev.duo.workspaceprobe.b.J).withEndAction(new Runnable() { // from class: dev.duo.workspaceprobe.b$W$$ExternalSyntheticLambda2
                 @Override // java.lang.Runnable
                 public final void run() {
                     dev.duo.workspaceprobe.b.W.this.a(view, f);
