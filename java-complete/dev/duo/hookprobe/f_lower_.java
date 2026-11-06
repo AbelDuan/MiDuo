@@ -1520,10 +1520,11 @@ final class f {
             a3.setSingleLine(false);
             final List<String> list2 = list;
             final String[] strArr2 = strArr;
+            final int iFinal = i;
             a3.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda27
                 @Override // android.view.View.OnClickListener
                 public final void onClick(View view) {
-                    f.this.a(strArr2, i, list2, a3, view);
+                    f.this.a(strArr2, iFinal, list2, a3, view);
                 }
             });
             a2.addView(a3, T.a(T.a(), this.a, 8.0f));
