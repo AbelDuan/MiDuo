@@ -72,7 +72,11 @@ final class h {
             xposedModule.hook(SurfaceView.class.getDeclaredMethod("setFrame", cls, cls, cls, cls)).intercept(new XposedInterface.Hooker() { // from class: dev.duo.hookprobe.h$$ExternalSyntheticLambda1
                 public final Object intercept(XposedInterface.Chain chain) {
                     Object a;
-                    a = dev.duo.hookprobe.h.a(c0015h, chain);
+                    try {
+                        a = dev.duo.hookprobe.h.a(c0015h, chain);
+                    } catch (Throwable th) {
+                        throw new RuntimeException(th);
+                    }
                     return a;
                 }
             });
@@ -125,9 +129,6 @@ final class h {
                     if (objArr == null) {
                     }
                 }
-            } catch (ReflectiveOperationException e3) {
-                Throwable th = e3;
-                c0015h2 = c0015h;
             } catch (RuntimeException e4) {
                 Throwable th = e4;
                 c0015h2 = c0015h;
