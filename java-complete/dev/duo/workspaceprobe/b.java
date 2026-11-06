@@ -11232,7 +11232,7 @@ public final class b extends XposedModule {
             this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda138
                 @Override // java.lang.Runnable
                 public final void run() {
-                    dev.duo.workspaceprobe.b.this.n(str);
+                    dev.duo.workspaceprobe.b.this.d(str);
                 }
             });
         }
