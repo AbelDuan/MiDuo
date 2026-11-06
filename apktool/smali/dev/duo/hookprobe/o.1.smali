@@ -84,7 +84,7 @@
 .end method
 
 .method constructor <init>(Lio/github/libxposed/service/XposedService;)V
-    .locals 1
+    .locals 2
 
     .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -96,9 +96,23 @@
 
     move-result-object p1
 
+    # fallback: if LSPosed returns null, use an in-memory SharedPreferences
+    if-eqz p1, :cond_fallback
+
+    :goto_store
     iput-object p1, p0, Ldev/duo/hookprobe/o;->a:Landroid/content/SharedPreferences;
 
     return-void
+
+    :cond_fallback
+    new-instance v1, Ldev/duo/hookprobe/MemPrefs;
+
+    invoke-direct {v1}, Ldev/duo/hookprobe/MemPrefs;-><init>()V
+
+    move-object p1, v1
+
+    goto :goto_store
+
 .end method
 
 .method private a(Ljava/util/Map;Ljava/util/Map;)Z

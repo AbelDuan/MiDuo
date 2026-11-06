@@ -1,4 +1,10 @@
-minApiVersion=102
+id=miduo
+name=MiDuo
+author=MiDuo
+description=HyperOS foldable enhancement (license removed)
+version=1.0.415
+versionCode=415
+minApiVersion=100
 targetApiVersion=102
 staticScope=false
-autoHotReload=false
+autoHotReload=true

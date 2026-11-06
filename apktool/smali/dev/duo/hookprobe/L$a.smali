@@ -49,6 +49,17 @@
 
     move-result-object v0
 
+    if-eqz v0, :cond_mem
+
+    goto :goto_listen
+
+    :cond_mem
+    new-instance v0, Ldev/duo/hookprobe/MemPrefs;
+
+    invoke-direct {v0}, Ldev/duo/hookprobe/MemPrefs;-><init>()V
+
+    :goto_listen
+
     sget-object v1, Ldev/duo/hookprobe/L;->p:Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;
 
     invoke-interface {v0, v1}, Landroid/content/SharedPreferences;->registerOnSharedPreferenceChangeListener(Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;)V

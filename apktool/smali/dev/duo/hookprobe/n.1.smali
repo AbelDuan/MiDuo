@@ -4179,7 +4179,7 @@
 
     check-cast v4, Ljava/lang/String;
 
-    const/4 v0, 0x1
+    # (removed) const/4 v0, 0x1 - clobbered the monitor lock held in v0
 
 
     const/4 v5, 0x1
