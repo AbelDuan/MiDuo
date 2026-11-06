@@ -415,7 +415,7 @@ public final class WorkspaceHost {
             }
             float[] matrixFor = this.geometry.matrixFor(rect2);
             transaction.setScale(item.motion, matrixFor[0], matrixFor[0]).setPosition(item.motion, matrixFor[1], matrixFor[2]).setCrop(item.motion, this.geometry.logical).setLayer(item.motion, i);
-            C0132Tx.corner(transaction, item.motion, CORNER / matrixFor[0]);
+            WindowCropTx.corner(transaction, item.motion, CORNER / matrixFor[0]);
             item.shown.set(rect);
         }
     }

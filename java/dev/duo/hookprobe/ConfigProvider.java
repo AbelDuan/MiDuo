@@ -50,23 +50,23 @@ public final class ConfigProvider extends ContentProvider {
                     if ((!z2 && !z) || str2 == null || !str2.matches("[A-Za-z][A-Za-z0-9_]*(\\.[A-Za-z0-9_]+)+")) {
                         throw new SecurityException("picker start requires owner or SystemUI");
                     }
-                    XposedService m970a = C0056L.m970a(1000L);
+                    XposedService m970a = ConfigBroadcastHub.m970a(1000L);
                     if (m970a == null) {
                         return m843a(new Bundle(), "LSPosed service not bound");
                     }
-                    C0113o c0113o = new C0113o(m970a);
+                    ConfigStore c0113o = new ConfigStore(m970a);
                     if (!c0113o.m1838m() || !c0113o.m1827i(str2)) {
                         return m843a(new Bundle(), "Duo 已关闭");
                     }
-                    C0049F.m853a(getContext(), str2);
+                    ColorPickSession.m853a(getContext(), str2);
                 }
                 if (bundle != null && bundle.getBoolean("end")) {
                     if (!z && !z2) {
                         throw new SecurityException("cannot end picker");
                     }
-                    C0049F.m852a(getContext(), bundle.getLong("token"));
+                    ColorPickSession.m852a(getContext(), bundle.getLong("token"));
                 }
-                Bundle m851a = C0049F.m851a(str2);
+                Bundle m851a = ColorPickSession.m851a(str2);
                 if (!z && !z2) {
                     m851a.remove("package");
                 }
@@ -75,10 +75,10 @@ public final class ConfigProvider extends ContentProvider {
             if (str2 == null || !str2.matches("[A-Za-z][A-Za-z0-9_]*(\\.[A-Za-z0-9_]+)+")) {
                 throw new IllegalArgumentException("invalid package");
             }
-            synchronized (C0049F.class) {
-                synchronized (C0113o.class) {
+            synchronized (ColorPickSession.class) {
+                synchronized (ConfigStore.class) {
                     Bundle bundle2 = new Bundle();
-                    Bundle m851a2 = C0049F.m851a(str2);
+                    Bundle m851a2 = ColorPickSession.m851a(str2);
                     if (bundle != null && m851a2.getBoolean("active") && m851a2.getLong("token") == bundle.getLong("token")) {
                         if (((PowerManager) getContext().getSystemService(PowerManager.class)).isInteractive() && !((KeyguardManager) getContext().getSystemService(KeyguardManager.class)).isKeyguardLocked()) {
                             String string = bundle.getString("page", "");
@@ -90,11 +90,11 @@ public final class ConfigProvider extends ContentProvider {
                             if ((i2 >>> 24) != 255) {
                                 return m843a(bundle2, "invalid colour");
                             }
-                            XposedService m970a2 = C0056L.m970a(1000L);
+                            XposedService m970a2 = ConfigBroadcastHub.m970a(1000L);
                             if (m970a2 == null) {
                                 return m843a(bundle2, "LSPosed service not bound");
                             }
-                            C0113o c0113o2 = new C0113o(m970a2);
+                            ConfigStore c0113o2 = new ConfigStore(m970a2);
                             if (c0113o2.m1838m() && c0113o2.m1827i(str2)) {
                                 if (c0113o2.f1684a.getLong(str2 + "/pageColors/_revision", 0L) != bundle.getLong("revision")) {
                                     return m843a(bundle2, "配置已变化，请重新取色");
@@ -122,7 +122,7 @@ public final class ConfigProvider extends ContentProvider {
                                         str3 = null;
                                     }
                                     try {
-                                        m1773a.putString("share", C0043B.m774a(c0113o2, str2, str3).toString());
+                                        m1773a.putString("share", LicenseClient.m774a(c0113o2, str2, str3).toString());
                                     } catch (JSONException e2) {
                                         Log.w("MiDuoTones", "page colours not shared: " + e2);
                                     }
@@ -141,14 +141,8 @@ public final class ConfigProvider extends ContentProvider {
         }
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Removed duplicated region for block: B:318:0x06ef A[Catch: all -> 0x0772, TryCatch #1 {all -> 0x0772, blocks: (B:82:0x0141, B:84:0x0147, B:86:0x014e, B:91:0x0167, B:93:0x016d, B:95:0x0173, B:97:0x017a, B:99:0x0180, B:100:0x0187, B:102:0x018e, B:104:0x0184, B:105:0x0193, B:107:0x019d, B:111:0x01ad, B:113:0x01b3, B:115:0x01cd, B:117:0x01d2, B:118:0x01db, B:122:0x01e7, B:124:0x01ed, B:126:0x0207, B:128:0x020c, B:129:0x0215, B:131:0x021d, B:132:0x0229, B:134:0x022f, B:137:0x0241, B:140:0x024a, B:169:0x024e, B:143:0x0258, B:166:0x025c, B:146:0x0266, B:163:0x026a, B:149:0x0274, B:160:0x0278, B:152:0x0282, B:155:0x0286, B:176:0x028c, B:179:0x0298, B:181:0x029e, B:184:0x02a7, B:186:0x02ac, B:188:0x02b2, B:189:0x02bb, B:191:0x02c1, B:192:0x02ca, B:194:0x02d2, B:195:0x02db, B:197:0x02e3, B:198:0x031c, B:200:0x0324, B:201:0x032d, B:203:0x0335, B:204:0x0347, B:206:0x034f, B:208:0x0372, B:210:0x037b, B:211:0x0382, B:213:0x0388, B:215:0x03a4, B:216:0x03ad, B:220:0x03bd, B:222:0x03c3, B:224:0x03cd, B:226:0x03d2, B:227:0x03ef, B:229:0x03f7, B:230:0x042f, B:232:0x0435, B:236:0x0489, B:240:0x0494, B:242:0x04a5, B:247:0x04b3, B:250:0x04ba, B:252:0x04c1, B:255:0x04c8, B:257:0x04d0, B:260:0x04d9, B:262:0x04f2, B:264:0x04fa, B:265:0x0509, B:268:0x0530, B:270:0x0501, B:272:0x0535, B:275:0x053f, B:277:0x0546, B:280:0x0552, B:282:0x0558, B:285:0x055f, B:287:0x0567, B:290:0x0570, B:292:0x05a7, B:294:0x05ae, B:295:0x0575, B:297:0x057c, B:299:0x0583, B:301:0x0589, B:304:0x0590, B:305:0x05b9, B:307:0x05c0, B:308:0x05c8, B:311:0x0607, B:312:0x060a, B:313:0x0755, B:315:0x060e, B:318:0x06ef, B:320:0x06f5, B:322:0x06fa, B:324:0x073c, B:325:0x0617, B:327:0x061f, B:329:0x0637, B:333:0x064c, B:335:0x0653, B:337:0x0663, B:339:0x066b, B:341:0x0672, B:342:0x0644, B:343:0x067b, B:345:0x0685, B:349:0x068d, B:352:0x0694, B:354:0x069c, B:355:0x06af, B:357:0x06b6, B:358:0x06d2, B:360:0x06d9, B:362:0x06a3, B:363:0x06e5, B:366:0x05cc, B:369:0x05d6, B:372:0x05e0, B:375:0x05e8, B:378:0x05f2, B:381:0x05fc, B:384:0x076b), top: B:81:0x0141 }] */
-    /* JADX WARN: Removed duplicated region for block: B:324:0x073c A[Catch: all -> 0x0772, TryCatch #1 {all -> 0x0772, blocks: (B:82:0x0141, B:84:0x0147, B:86:0x014e, B:91:0x0167, B:93:0x016d, B:95:0x0173, B:97:0x017a, B:99:0x0180, B:100:0x0187, B:102:0x018e, B:104:0x0184, B:105:0x0193, B:107:0x019d, B:111:0x01ad, B:113:0x01b3, B:115:0x01cd, B:117:0x01d2, B:118:0x01db, B:122:0x01e7, B:124:0x01ed, B:126:0x0207, B:128:0x020c, B:129:0x0215, B:131:0x021d, B:132:0x0229, B:134:0x022f, B:137:0x0241, B:140:0x024a, B:169:0x024e, B:143:0x0258, B:166:0x025c, B:146:0x0266, B:163:0x026a, B:149:0x0274, B:160:0x0278, B:152:0x0282, B:155:0x0286, B:176:0x028c, B:179:0x0298, B:181:0x029e, B:184:0x02a7, B:186:0x02ac, B:188:0x02b2, B:189:0x02bb, B:191:0x02c1, B:192:0x02ca, B:194:0x02d2, B:195:0x02db, B:197:0x02e3, B:198:0x031c, B:200:0x0324, B:201:0x032d, B:203:0x0335, B:204:0x0347, B:206:0x034f, B:208:0x0372, B:210:0x037b, B:211:0x0382, B:213:0x0388, B:215:0x03a4, B:216:0x03ad, B:220:0x03bd, B:222:0x03c3, B:224:0x03cd, B:226:0x03d2, B:227:0x03ef, B:229:0x03f7, B:230:0x042f, B:232:0x0435, B:236:0x0489, B:240:0x0494, B:242:0x04a5, B:247:0x04b3, B:250:0x04ba, B:252:0x04c1, B:255:0x04c8, B:257:0x04d0, B:260:0x04d9, B:262:0x04f2, B:264:0x04fa, B:265:0x0509, B:268:0x0530, B:270:0x0501, B:272:0x0535, B:275:0x053f, B:277:0x0546, B:280:0x0552, B:282:0x0558, B:285:0x055f, B:287:0x0567, B:290:0x0570, B:292:0x05a7, B:294:0x05ae, B:295:0x0575, B:297:0x057c, B:299:0x0583, B:301:0x0589, B:304:0x0590, B:305:0x05b9, B:307:0x05c0, B:308:0x05c8, B:311:0x0607, B:312:0x060a, B:313:0x0755, B:315:0x060e, B:318:0x06ef, B:320:0x06f5, B:322:0x06fa, B:324:0x073c, B:325:0x0617, B:327:0x061f, B:329:0x0637, B:333:0x064c, B:335:0x0653, B:337:0x0663, B:339:0x066b, B:341:0x0672, B:342:0x0644, B:343:0x067b, B:345:0x0685, B:349:0x068d, B:352:0x0694, B:354:0x069c, B:355:0x06af, B:357:0x06b6, B:358:0x06d2, B:360:0x06d9, B:362:0x06a3, B:363:0x06e5, B:366:0x05cc, B:369:0x05d6, B:372:0x05e0, B:375:0x05e8, B:378:0x05f2, B:381:0x05fc, B:384:0x076b), top: B:81:0x0141 }] */
-    /* JADX WARN: Removed duplicated region for block: B:84:0x0147 A[Catch: all -> 0x0772, TryCatch #1 {all -> 0x0772, blocks: (B:82:0x0141, B:84:0x0147, B:86:0x014e, B:91:0x0167, B:93:0x016d, B:95:0x0173, B:97:0x017a, B:99:0x0180, B:100:0x0187, B:102:0x018e, B:104:0x0184, B:105:0x0193, B:107:0x019d, B:111:0x01ad, B:113:0x01b3, B:115:0x01cd, B:117:0x01d2, B:118:0x01db, B:122:0x01e7, B:124:0x01ed, B:126:0x0207, B:128:0x020c, B:129:0x0215, B:131:0x021d, B:132:0x0229, B:134:0x022f, B:137:0x0241, B:140:0x024a, B:169:0x024e, B:143:0x0258, B:166:0x025c, B:146:0x0266, B:163:0x026a, B:149:0x0274, B:160:0x0278, B:152:0x0282, B:155:0x0286, B:176:0x028c, B:179:0x0298, B:181:0x029e, B:184:0x02a7, B:186:0x02ac, B:188:0x02b2, B:189:0x02bb, B:191:0x02c1, B:192:0x02ca, B:194:0x02d2, B:195:0x02db, B:197:0x02e3, B:198:0x031c, B:200:0x0324, B:201:0x032d, B:203:0x0335, B:204:0x0347, B:206:0x034f, B:208:0x0372, B:210:0x037b, B:211:0x0382, B:213:0x0388, B:215:0x03a4, B:216:0x03ad, B:220:0x03bd, B:222:0x03c3, B:224:0x03cd, B:226:0x03d2, B:227:0x03ef, B:229:0x03f7, B:230:0x042f, B:232:0x0435, B:236:0x0489, B:240:0x0494, B:242:0x04a5, B:247:0x04b3, B:250:0x04ba, B:252:0x04c1, B:255:0x04c8, B:257:0x04d0, B:260:0x04d9, B:262:0x04f2, B:264:0x04fa, B:265:0x0509, B:268:0x0530, B:270:0x0501, B:272:0x0535, B:275:0x053f, B:277:0x0546, B:280:0x0552, B:282:0x0558, B:285:0x055f, B:287:0x0567, B:290:0x0570, B:292:0x05a7, B:294:0x05ae, B:295:0x0575, B:297:0x057c, B:299:0x0583, B:301:0x0589, B:304:0x0590, B:305:0x05b9, B:307:0x05c0, B:308:0x05c8, B:311:0x0607, B:312:0x060a, B:313:0x0755, B:315:0x060e, B:318:0x06ef, B:320:0x06f5, B:322:0x06fa, B:324:0x073c, B:325:0x0617, B:327:0x061f, B:329:0x0637, B:333:0x064c, B:335:0x0653, B:337:0x0663, B:339:0x066b, B:341:0x0672, B:342:0x0644, B:343:0x067b, B:345:0x0685, B:349:0x068d, B:352:0x0694, B:354:0x069c, B:355:0x06af, B:357:0x06b6, B:358:0x06d2, B:360:0x06d9, B:362:0x06a3, B:363:0x06e5, B:366:0x05cc, B:369:0x05d6, B:372:0x05e0, B:375:0x05e8, B:378:0x05f2, B:381:0x05fc, B:384:0x076b), top: B:81:0x0141 }] */
-    /* JADX WARN: Removed duplicated region for block: B:86:0x014e A[Catch: all -> 0x0772, TRY_LEAVE, TryCatch #1 {all -> 0x0772, blocks: (B:82:0x0141, B:84:0x0147, B:86:0x014e, B:91:0x0167, B:93:0x016d, B:95:0x0173, B:97:0x017a, B:99:0x0180, B:100:0x0187, B:102:0x018e, B:104:0x0184, B:105:0x0193, B:107:0x019d, B:111:0x01ad, B:113:0x01b3, B:115:0x01cd, B:117:0x01d2, B:118:0x01db, B:122:0x01e7, B:124:0x01ed, B:126:0x0207, B:128:0x020c, B:129:0x0215, B:131:0x021d, B:132:0x0229, B:134:0x022f, B:137:0x0241, B:140:0x024a, B:169:0x024e, B:143:0x0258, B:166:0x025c, B:146:0x0266, B:163:0x026a, B:149:0x0274, B:160:0x0278, B:152:0x0282, B:155:0x0286, B:176:0x028c, B:179:0x0298, B:181:0x029e, B:184:0x02a7, B:186:0x02ac, B:188:0x02b2, B:189:0x02bb, B:191:0x02c1, B:192:0x02ca, B:194:0x02d2, B:195:0x02db, B:197:0x02e3, B:198:0x031c, B:200:0x0324, B:201:0x032d, B:203:0x0335, B:204:0x0347, B:206:0x034f, B:208:0x0372, B:210:0x037b, B:211:0x0382, B:213:0x0388, B:215:0x03a4, B:216:0x03ad, B:220:0x03bd, B:222:0x03c3, B:224:0x03cd, B:226:0x03d2, B:227:0x03ef, B:229:0x03f7, B:230:0x042f, B:232:0x0435, B:236:0x0489, B:240:0x0494, B:242:0x04a5, B:247:0x04b3, B:250:0x04ba, B:252:0x04c1, B:255:0x04c8, B:257:0x04d0, B:260:0x04d9, B:262:0x04f2, B:264:0x04fa, B:265:0x0509, B:268:0x0530, B:270:0x0501, B:272:0x0535, B:275:0x053f, B:277:0x0546, B:280:0x0552, B:282:0x0558, B:285:0x055f, B:287:0x0567, B:290:0x0570, B:292:0x05a7, B:294:0x05ae, B:295:0x0575, B:297:0x057c, B:299:0x0583, B:301:0x0589, B:304:0x0590, B:305:0x05b9, B:307:0x05c0, B:308:0x05c8, B:311:0x0607, B:312:0x060a, B:313:0x0755, B:315:0x060e, B:318:0x06ef, B:320:0x06f5, B:322:0x06fa, B:324:0x073c, B:325:0x0617, B:327:0x061f, B:329:0x0637, B:333:0x064c, B:335:0x0653, B:337:0x0663, B:339:0x066b, B:341:0x0672, B:342:0x0644, B:343:0x067b, B:345:0x0685, B:349:0x068d, B:352:0x0694, B:354:0x069c, B:355:0x06af, B:357:0x06b6, B:358:0x06d2, B:360:0x06d9, B:362:0x06a3, B:363:0x06e5, B:366:0x05cc, B:369:0x05d6, B:372:0x05e0, B:375:0x05e8, B:378:0x05f2, B:381:0x05fc, B:384:0x076b), top: B:81:0x0141 }] */
     @Override // android.content.ContentProvider
     /*
-        Code decompiled incorrectly, please refer to instructions dump.
     */
     public Bundle call(String str, String str2, Bundle bundle) {
         boolean z;
@@ -164,7 +158,7 @@ public final class ConfigProvider extends ContentProvider {
             long clearCallingIdentity = Binder.clearCallingIdentity();
             try {
                 try {
-                    return C0095V.m1507a(getContext());
+                    return BundleJson.m1507a(getContext());
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                     throw new IllegalStateException("天气接口验证等待中断", e);
@@ -174,7 +168,7 @@ public final class ConfigProvider extends ContentProvider {
             }
         }
         if ("foldStart".equals(str)) {
-            return C0115q.m1888a(getContext(), callingUid);
+            return FoldEngineLauncher.m1888a(getContext(), callingUid);
         }
         if ("trialTick".equals(str)) {
             return m841a(callingUid, str2);
@@ -195,11 +189,11 @@ public final class ConfigProvider extends ContentProvider {
                         throw new SecurityException("shell or root only (SystemUI: rail reads, pageTones, keepScreen, railSidebarApps and railPanelOrder only)");
                     }
                     bundle2 = new Bundle();
-                    m970a = C0056L.m970a((!z3 || z2) ? 1000L : 5000L);
+                    m970a = ConfigBroadcastHub.m970a((!z3 || z2) ? 1000L : 5000L);
                     if (m970a != null) {
                         return m843a(bundle2, "LSPosed service not bound (module enabled in LSPosed?)");
                     }
-                    C0113o c0113o = new C0113o(m970a);
+                    ConfigStore c0113o = new ConfigStore(m970a);
                     SharedPreferences sharedPreferences = c0113o.f1684a;
                     if ("keepScreen".equals(str)) {
                         if (bundle != null && bundle.containsKey("set")) {
@@ -222,14 +216,14 @@ public final class ConfigProvider extends ContentProvider {
                         boolean z4 = z2;
                         if ("railSidebarApps".equals(str)) {
                             if (bundle != null && bundle.containsKey("set")) {
-                                if (!sharedPreferences.edit().putString("_global/railSidebarApps", C0054J.m945b(C0054J.m958f(bundle.getString("set")))).commit()) {
+                                if (!sharedPreferences.edit().putString("_global/railSidebarApps", RailCodec.m945b(RailCodec.m958f(bundle.getString("set")))).commit()) {
                                     return m843a(bundle2, "commit failed");
                                 }
                             }
                             bundle2.putString("saved", sharedPreferences.getString("_global/railSidebarApps", ""));
                         } else if ("railPanelOrder".equals(str)) {
                             if (bundle != null && bundle.containsKey("set")) {
-                                if (!sharedPreferences.edit().putString("_global/railPanelOrder", C0054J.m935a(C0054J.m956e(bundle.getString("set")))).commit()) {
+                                if (!sharedPreferences.edit().putString("_global/railPanelOrder", RailCodec.m935a(RailCodec.m956e(bundle.getString("set")))).commit()) {
                                     return m843a(bundle2, "commit failed");
                                 }
                             }
@@ -261,7 +255,7 @@ public final class ConfigProvider extends ContentProvider {
                         } else if ("pickButton".equals(str)) {
                             bundle2.putBoolean("on", c0113o.m1859t());
                         } else if ("railCustom".equals(str)) {
-                            bundle2.putString("layout", sharedPreferences.getString("_global/railCustom", C0054J.f924g));
+                            bundle2.putString("layout", sharedPreferences.getString("_global/railCustom", RailCodec.f924g));
                             bundle2.putString("sidebarApps", sharedPreferences.getString("_global/railSidebarApps", ""));
                             bundle2.putString("panelOrder", sharedPreferences.getString("_global/railPanelOrder", ""));
                             bundle2.putBoolean("sidebarFreeform", sharedPreferences.getBoolean("_global/railSidebarFreeform", true));
@@ -275,7 +269,7 @@ public final class ConfigProvider extends ContentProvider {
                             bundle2.putBoolean("cellular", c0113o.m1796c());
                             bundle2.putBoolean("thin", c0113o.m1770A());
                             bundle2.putBoolean("percentTop", c0113o.m1856s());
-                            int length = C0071P.f1164e0.length;
+                            int length = ConfigKeys.f1164e0.length;
                             int[] iArr = new int[length];
                             for (int i2 = 0; i2 < length; i2++) {
                                 iArr[i2] = c0113o.m1807e(i2);
@@ -306,11 +300,11 @@ public final class ConfigProvider extends ContentProvider {
                                     if (z3) {
                                         bundle2.putBoolean("enabled", c0113o.m1838m() && c0113o.m1827i(str2));
                                         bundle2.putBoolean("innerNativeBar", c0113o.m1833k(str2));
-                                        bundle2.putInt("hiddenTop", C0071P.m1231c(c0113o.f1684a, str2));
-                                        boolean m1217a = (bundle == null || !bundle.containsKey("railNight")) ? C0071P.m1217a(getContext()) : bundle.getBoolean("railNight");
+                                        bundle2.putInt("hiddenTop", ConfigKeys.m1231c(c0113o.f1684a, str2));
+                                        boolean m1217a = (bundle == null || !bundle.containsKey("railNight")) ? ConfigKeys.m1217a(getContext()) : bundle.getBoolean("railNight");
                                         bundle2.putString("railColor", c0113o.m1795c(str2, m1217a));
                                         bundle2.putBoolean("railBlack", c0113o.m1793b(str2, m1217a));
-                                        bundle2.putInt("railBackground", C0071P.m1225b(sharedPreferences, str2, m1217a));
+                                        bundle2.putInt("railBackground", ConfigKeys.m1225b(sharedPreferences, str2, m1217a));
                                         bundle2.putBoolean("railCustomBackground", c0113o.m1774a(str2, m1217a) != null);
                                     } else if (!"railpalette".equals(str)) {
                                         SharedPreferences.Editor edit2 = sharedPreferences.edit();
@@ -369,8 +363,8 @@ public final class ConfigProvider extends ContentProvider {
                                                 bundle2.putBoolean("enabled", m844a(sharedPreferences, str2));
                                                 bundle2.putInt("topSafePxInner", m839a(sharedPreferences, str2, "inner"));
                                                 bundle2.putInt("topSafePxOuter", m839a(sharedPreferences, str2, "outer"));
-                                                bundle2.putBoolean("custom", C0071P.m1219a(sharedPreferences, str2, "inner"));
-                                                bundle2.putString("railColor", C0071P.m1237d(sharedPreferences, str2, C0071P.m1217a(getContext())));
+                                                bundle2.putBoolean("custom", ConfigKeys.m1219a(sharedPreferences, str2, "inner"));
+                                                bundle2.putString("railColor", ConfigKeys.m1237d(sharedPreferences, str2, ConfigKeys.m1217a(getContext())));
                                                 if (!"get".equals(str)) {
                                                     bundle2.putString("apply", "force-stop and reopen " + str2);
                                                     break;
@@ -380,12 +374,12 @@ public final class ConfigProvider extends ContentProvider {
                                                 if (bundle != null && bundle.containsKey("px")) {
                                                     Object obj = bundle.get("px");
                                                     int intValue = obj instanceof Integer ? ((Integer) obj).intValue() : Integer.parseInt(String.valueOf(obj).trim());
-                                                    int m1210a = C0071P.m1210a(intValue);
+                                                    int m1210a = ConfigKeys.m1210a(intValue);
                                                     if (m1210a != intValue) {
                                                         bundle2.putString("clamped", intValue + " -> " + m1210a);
                                                     }
                                                     for (String str3 : m845a(bundle)) {
-                                                        edit2.putInt(C0071P.m1215a(str2, str3), m1210a);
+                                                        edit2.putInt(ConfigKeys.m1215a(str2, str3), m1210a);
                                                     }
                                                     if (edit2 == null) {
                                                         break;
@@ -394,8 +388,8 @@ public final class ConfigProvider extends ContentProvider {
                                                     bundle2.putBoolean("enabled", m844a(sharedPreferences, str2));
                                                     bundle2.putInt("topSafePxInner", m839a(sharedPreferences, str2, "inner"));
                                                     bundle2.putInt("topSafePxOuter", m839a(sharedPreferences, str2, "outer"));
-                                                    bundle2.putBoolean("custom", C0071P.m1219a(sharedPreferences, str2, "inner"));
-                                                    bundle2.putString("railColor", C0071P.m1237d(sharedPreferences, str2, C0071P.m1217a(getContext())));
+                                                    bundle2.putBoolean("custom", ConfigKeys.m1219a(sharedPreferences, str2, "inner"));
+                                                    bundle2.putString("railColor", ConfigKeys.m1237d(sharedPreferences, str2, ConfigKeys.m1217a(getContext())));
                                                     if (!"get".equals(str)) {
                                                     }
                                                 }
@@ -411,8 +405,8 @@ public final class ConfigProvider extends ContentProvider {
                                                 bundle2.putBoolean("enabled", m844a(sharedPreferences, str2));
                                                 bundle2.putInt("topSafePxInner", m839a(sharedPreferences, str2, "inner"));
                                                 bundle2.putInt("topSafePxOuter", m839a(sharedPreferences, str2, "outer"));
-                                                bundle2.putBoolean("custom", C0071P.m1219a(sharedPreferences, str2, "inner"));
-                                                bundle2.putString("railColor", C0071P.m1237d(sharedPreferences, str2, C0071P.m1217a(getContext())));
+                                                bundle2.putBoolean("custom", ConfigKeys.m1219a(sharedPreferences, str2, "inner"));
+                                                bundle2.putString("railColor", ConfigKeys.m1237d(sharedPreferences, str2, ConfigKeys.m1217a(getContext())));
                                                 if (!"get".equals(str)) {
                                                 }
                                                 break;
@@ -425,44 +419,44 @@ public final class ConfigProvider extends ContentProvider {
                                                 if (!"white".equals(trim) && !"black".equals(trim)) {
                                                     return m843a(bundle2, "color must be white or black");
                                                 }
-                                                edit2.putString(C0071P.m1258q(str2), trim);
+                                                edit2.putString(ConfigKeys.m1258q(str2), trim);
                                                 if (edit2 == null) {
                                                 }
                                                 bundle2.putString("package", str2);
                                                 bundle2.putBoolean("enabled", m844a(sharedPreferences, str2));
                                                 bundle2.putInt("topSafePxInner", m839a(sharedPreferences, str2, "inner"));
                                                 bundle2.putInt("topSafePxOuter", m839a(sharedPreferences, str2, "outer"));
-                                                bundle2.putBoolean("custom", C0071P.m1219a(sharedPreferences, str2, "inner"));
-                                                bundle2.putString("railColor", C0071P.m1237d(sharedPreferences, str2, C0071P.m1217a(getContext())));
+                                                bundle2.putBoolean("custom", ConfigKeys.m1219a(sharedPreferences, str2, "inner"));
+                                                bundle2.putString("railColor", ConfigKeys.m1237d(sharedPreferences, str2, ConfigKeys.m1217a(getContext())));
                                                 if (!"get".equals(str)) {
                                                 }
                                                 break;
                                             case 4:
-                                                if (C0071P.f1171i.contains(str2)) {
+                                                if (ConfigKeys.f1171i.contains(str2)) {
                                                     return m843a(bundle2, "该应用固定不启用 Duo：" + str2);
                                                 }
-                                                edit2.putBoolean(C0071P.m1243f(str2), true);
+                                                edit2.putBoolean(ConfigKeys.m1243f(str2), true);
                                                 if (edit2 == null) {
                                                 }
                                                 bundle2.putString("package", str2);
                                                 bundle2.putBoolean("enabled", m844a(sharedPreferences, str2));
                                                 bundle2.putInt("topSafePxInner", m839a(sharedPreferences, str2, "inner"));
                                                 bundle2.putInt("topSafePxOuter", m839a(sharedPreferences, str2, "outer"));
-                                                bundle2.putBoolean("custom", C0071P.m1219a(sharedPreferences, str2, "inner"));
-                                                bundle2.putString("railColor", C0071P.m1237d(sharedPreferences, str2, C0071P.m1217a(getContext())));
+                                                bundle2.putBoolean("custom", ConfigKeys.m1219a(sharedPreferences, str2, "inner"));
+                                                bundle2.putString("railColor", ConfigKeys.m1237d(sharedPreferences, str2, ConfigKeys.m1217a(getContext())));
                                                 if (!"get".equals(str)) {
                                                 }
                                                 break;
                                             case 5:
-                                                edit2.putBoolean(C0071P.m1243f(str2), false);
+                                                edit2.putBoolean(ConfigKeys.m1243f(str2), false);
                                                 if (edit2 == null) {
                                                 }
                                                 bundle2.putString("package", str2);
                                                 bundle2.putBoolean("enabled", m844a(sharedPreferences, str2));
                                                 bundle2.putInt("topSafePxInner", m839a(sharedPreferences, str2, "inner"));
                                                 bundle2.putInt("topSafePxOuter", m839a(sharedPreferences, str2, "outer"));
-                                                bundle2.putBoolean("custom", C0071P.m1219a(sharedPreferences, str2, "inner"));
-                                                bundle2.putString("railColor", C0071P.m1237d(sharedPreferences, str2, C0071P.m1217a(getContext())));
+                                                bundle2.putBoolean("custom", ConfigKeys.m1219a(sharedPreferences, str2, "inner"));
+                                                bundle2.putString("railColor", ConfigKeys.m1237d(sharedPreferences, str2, ConfigKeys.m1217a(getContext())));
                                                 if (!"get".equals(str)) {
                                                 }
                                                 break;
@@ -475,7 +469,7 @@ public final class ConfigProvider extends ContentProvider {
                                         }
                                         if (!bundle.containsKey("copyFrom")) {
                                             if (bundle.containsKey("light") && bundle.containsKey("dark")) {
-                                                m1780a = c0113o.m1780a(str2, C0071P.m1257p(bundle.getString("light")), C0071P.m1257p(bundle.getString("dark")));
+                                                m1780a = c0113o.m1780a(str2, ConfigKeys.m1257p(bundle.getString("light")), ConfigKeys.m1257p(bundle.getString("dark")));
                                             }
                                             return m843a(bundle2, "light and dark required; use - for default");
                                         }
@@ -490,7 +484,7 @@ public final class ConfigProvider extends ContentProvider {
                                         if (!m1780a) {
                                             return m843a(bundle2, "palette save failed or source has no palette");
                                         }
-                                        bundle2.putString("palette", C0071P.m1249i(sharedPreferences, str2));
+                                        bundle2.putString("palette", ConfigKeys.m1249i(sharedPreferences, str2));
                                     }
                                 }
                                 return m843a(bundle2, "--arg must be a package name");
@@ -499,7 +493,7 @@ public final class ConfigProvider extends ContentProvider {
                             Iterator<String> it = c0113o.m1854r().iterator();
                             while (it.hasNext()) {
                                 String next = it.next();
-                                sb.append(next).append(" enabled=").append(m844a(sharedPreferences, next)).append(" railColor=").append(C0071P.m1237d(sharedPreferences, next, C0071P.m1217a(getContext()))).append(" topSafePxInner=").append(m839a(sharedPreferences, next, "inner")).append(" topSafePxOuter=").append(m839a(sharedPreferences, next, "outer")).append(C0071P.m1219a(sharedPreferences, next, "inner") ? "" : "(default)").append('\n');
+                                sb.append(next).append(" enabled=").append(m844a(sharedPreferences, next)).append(" railColor=").append(ConfigKeys.m1237d(sharedPreferences, next, ConfigKeys.m1217a(getContext()))).append(" topSafePxInner=").append(m839a(sharedPreferences, next, "inner")).append(" topSafePxOuter=").append(m839a(sharedPreferences, next, "outer")).append(ConfigKeys.m1219a(sharedPreferences, next, "inner") ? "" : "(default)").append('\n');
                             }
                             bundle2.putString("apps", sb.toString().trim());
                         }
@@ -507,7 +501,7 @@ public final class ConfigProvider extends ContentProvider {
                     return bundle2;
                 }
             }
-            m970a = C0056L.m970a((!z3 || z2) ? 1000L : 5000L);
+            m970a = ConfigBroadcastHub.m970a((!z3 || z2) ? 1000L : 5000L);
             if (m970a != null) {
             }
         } catch (Throwable th) {
@@ -536,7 +530,7 @@ public final class ConfigProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
-        C0056L.m972a(getContext());
+        ConfigBroadcastHub.m972a(getContext());
         return true;
     }
 
@@ -555,19 +549,19 @@ public final class ConfigProvider extends ContentProvider {
         if (i == 1000) {
             Bundle bundle = new Bundle();
             try {
-                XposedService m970a = C0056L.m970a(5000L);
+                XposedService m970a = ConfigBroadcastHub.m970a(5000L);
                 if (m970a == null) {
                     return m843a(bundle, "LSPosed service not bound");
                 }
-                SharedPreferences sharedPreferences = new C0113o(m970a).f1684a;
-                synchronized (C0043B.class) {
+                SharedPreferences sharedPreferences = new ConfigStore(m970a).f1684a;
+                synchronized (LicenseClient.class) {
                     int i2 = sharedPreferences.getInt("_global/trialUsedSec", 0);
                     int max = Math.max(i2, Integer.parseInt(str));
                     if (max != i2 && !sharedPreferences.edit().putInt("_global/trialUsedSec", max).commit()) {
                         return m843a(bundle, "commit failed");
                     }
                     if (max != i2) {
-                        C0043B.m786b(max);
+                        LicenseClient.m786b(max);
                     }
                     bundle.putInt("trialUsedSec", max);
                     bundle.putString("token", sharedPreferences.getString("_global/licenseToken", null));
@@ -584,11 +578,11 @@ public final class ConfigProvider extends ContentProvider {
     private Bundle m840a(int i) {
         if (i == 1000) {
             Bundle bundle = new Bundle();
-            XposedService m970a = C0056L.m970a(5000L);
+            XposedService m970a = ConfigBroadcastHub.m970a(5000L);
             if (m970a == null) {
                 return m843a(bundle, "LSPosed service not bound");
             }
-            Iterator<Map.Entry<String, ?>> it = new C0113o(m970a).f1684a.getAll().entrySet().iterator();
+            Iterator<Map.Entry<String, ?>> it = new ConfigStore(m970a).f1684a.getAll().entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -597,23 +591,23 @@ public final class ConfigProvider extends ContentProvider {
                 String key = next.getKey();
                 Object value = next.getValue();
                 if (key.endsWith("/enabled") && !key.startsWith("_") && (value instanceof Boolean)) {
-                    bundle.putBoolean(key, !C0071P.f1171i.contains(key.substring(0, key.length() + (-8))) && ((Boolean) value).booleanValue());
-                } else if (("_global/master".equals(key) || C0071P.m1251j(key) || C0071P.m1255n(key)) && (value instanceof Boolean)) {
+                    bundle.putBoolean(key, !ConfigKeys.f1171i.contains(key.substring(0, key.length() + (-8))) && ((Boolean) value).booleanValue());
+                } else if (("_global/master".equals(key) || ConfigKeys.m1251j(key) || ConfigKeys.m1255n(key)) && (value instanceof Boolean)) {
                     bundle.putBoolean(key, ((Boolean) value).booleanValue());
                 } else if ("_global/licenseToken".equals(key) && (value instanceof String)) {
                     bundle.putString(key, (String) value);
-                } else if (C0071P.m1262u(key) && (value instanceof Integer)) {
+                } else if (ConfigKeys.m1262u(key) && (value instanceof Integer)) {
                     bundle.putInt(key, ((Integer) value).intValue());
-                } else if (C0071P.m1248h(key) || "_global/nonDuoOuterTopPx".equals(key)) {
+                } else if (ConfigKeys.m1248h(key) || "_global/nonDuoOuterTopPx".equals(key)) {
                     if (value instanceof Integer) {
                         bundle.putInt(key, ((Integer) value).intValue());
                     }
                 }
             }
-            bundle.putBoolean("_global/master", new C0113o(m970a).m1838m());
-            Iterator<String> it2 = C0071P.f1173j.iterator();
+            bundle.putBoolean("_global/master", new ConfigStore(m970a).m1838m());
+            Iterator<String> it2 = ConfigKeys.f1173j.iterator();
             while (it2.hasNext()) {
-                String m1243f = C0071P.m1243f(it2.next());
+                String m1243f = ConfigKeys.m1243f(it2.next());
                 if (!bundle.containsKey(m1243f)) {
                     bundle.putBoolean(m1243f, true);
                 }
@@ -625,19 +619,19 @@ public final class ConfigProvider extends ContentProvider {
 
     /* renamed from: a */
     private static boolean m844a(SharedPreferences sharedPreferences, String str) {
-        return !C0071P.f1171i.contains(str) && sharedPreferences.getBoolean(C0071P.m1243f(str), C0071P.m1242e(str));
+        return !ConfigKeys.f1171i.contains(str) && sharedPreferences.getBoolean(ConfigKeys.m1243f(str), ConfigKeys.m1242e(str));
     }
 
     /* renamed from: a */
     private static int m839a(SharedPreferences sharedPreferences, String str, String str2) {
-        return C0071P.m1224b(sharedPreferences, str, str2);
+        return ConfigKeys.m1224b(sharedPreferences, str, str2);
     }
 
     /* renamed from: a */
     private static String[] m845a(Bundle bundle) {
         String string = bundle == null ? null : bundle.getString("side");
         if (!"inner".equals(string) && !"outer".equals(string)) {
-            return C0071P.f1189t;
+            return ConfigKeys.f1189t;
         }
         return new String[]{string};
     }

@@ -49,11 +49,11 @@ import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-import dev.duo.hookprobe.C0044C;
-import dev.duo.hookprobe.C0087T;
-import dev.duo.hookprobe.C0116r;
+import dev.duo.hookprobe.AppInventory;
+import dev.duo.hookprobe.UiKit;
+import dev.duo.hookprobe.Diagnostics;
 import dev.duo.hookprobe.MainActivity;
-import dev.duo.icons.C0131g;
+import dev.duo.icons.IconConst;
 import io.github.libxposed.service.XposedService;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -178,7 +178,7 @@ public final class MainActivity extends Activity {
     private Switch f989K0;
 
     /* renamed from: L */
-    private C0087T.e f990L;
+    private UiKit.e f990L;
 
     /* renamed from: L0 */
     private TextView f991L0;
@@ -187,7 +187,7 @@ public final class MainActivity extends Activity {
     private TextView f992M;
 
     /* renamed from: M0 */
-    private C0087T.e f993M0;
+    private UiKit.e f993M0;
 
     /* renamed from: N */
     private Switch f994N;
@@ -286,19 +286,19 @@ public final class MainActivity extends Activity {
     private boolean f1025c1;
 
     /* renamed from: d0 */
-    private C0087T.e f1026d0;
+    private UiKit.e f1026d0;
 
     /* renamed from: d1 */
     private final Runnable f1027d1;
 
     /* renamed from: e0 */
-    private C0087T.e f1028e0;
+    private UiKit.e f1028e0;
 
     /* renamed from: e1 */
     private C0066i f1029e1;
 
     /* renamed from: f0 */
-    private C0087T.e f1030f0;
+    private UiKit.e f1030f0;
 
     /* renamed from: f1 */
     private boolean f1031f1;
@@ -337,19 +337,19 @@ public final class MainActivity extends Activity {
     private View f1044m0;
 
     /* renamed from: n0 */
-    private C0087T.e f1046n0;
+    private UiKit.e f1046n0;
 
     /* renamed from: o0 */
-    private C0087T.e f1048o0;
+    private UiKit.e f1048o0;
 
     /* renamed from: p */
-    private C0113o f1049p;
+    private ConfigStore f1049p;
 
     /* renamed from: p0 */
     private float f1050p0;
 
     /* renamed from: q */
-    private C0087T.d f1051q;
+    private UiKit.d f1051q;
 
     /* renamed from: q0 */
     private ValueAnimator f1052q0;
@@ -584,7 +584,7 @@ public final class MainActivity extends Activity {
             }
             String str2 = (MainActivity.this.f1049p.m1792b(str, "inner") || MainActivity.this.f1049p.m1792b(str, "outer")) ? MainActivity.this.f1049p.m1808e(str, "inner") == MainActivity.this.f1049p.m1808e(str, "outer") ? "高度 " + MainActivity.this.f1049p.m1808e(str, "inner") + "px" : "内屏 " + MainActivity.this.f1049p.m1808e(str, "inner") + " / 外屏 " + MainActivity.this.f1049p.m1808e(str, "outer") : "高度跟随全局";
             String m1848p = MainActivity.this.f1049p.m1848p(str);
-            return str2 + " · " + (m1848p == null ? "侧栏跟随全局" : "black".equals(m1848p) ? "侧栏黑色" : "侧栏白色") + (((C0071P.f1183o.contains(str) || C0071P.f1185p.contains(str)) && MainActivity.this.f1019Z0 == null && !MainActivity.this.f1017Y0.contains(str)) ? " · 等待授权" : "");
+            return str2 + " · " + (m1848p == null ? "侧栏跟随全局" : "black".equals(m1848p) ? "侧栏黑色" : "侧栏白色") + (((ConfigKeys.f1183o.contains(str) || ConfigKeys.f1185p.contains(str)) && MainActivity.this.f1019Z0 == null && !MainActivity.this.f1017Y0.contains(str)) ? " · 等待授权" : "");
         }
 
         @Override // android.widget.Adapter
@@ -610,7 +610,7 @@ public final class MainActivity extends Activity {
             boolean z2 = i == MainActivity.this.f1047o.size() - 1;
             float m1004a = MainActivity.this.m1004a(24.0f);
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColor((MainActivity.this.f1057t && c0064g.f1082a.equals(MainActivity.this.f1061v)) ? C0087T.f1379w : C0087T.f1359i);
+            gradientDrawable.setColor((MainActivity.this.f1057t && c0064g.f1082a.equals(MainActivity.this.f1061v)) ? UiKit.f1379w : UiKit.f1359i);
             float f = z ? m1004a : 0.0f;
             float f2 = z ? m1004a : 0.0f;
             float f3 = z ? m1004a : 0.0f;
@@ -631,10 +631,10 @@ public final class MainActivity extends Activity {
             if (c0064g.f1085d) {
                 c0067j.f1108e.setText(c0064g.f1086e);
                 c0067j.f1109f.setText("不可用");
-                GradientDrawable m1404a = C0087T.m1404a(0, MainActivity.this.m1004a(11.0f));
+                GradientDrawable m1404a = UiKit.m1404a(0, MainActivity.this.m1004a(11.0f));
                 m1404a.setStroke(Math.max(1, MainActivity.this.m1004a(1.0f)), 1198945920);
                 c0067j.f1109f.setBackground(m1404a);
-                c0067j.f1109f.setTextColor(C0087T.f1351e);
+                c0067j.f1109f.setTextColor(UiKit.f1351e);
                 c0067j.f1109f.setVisibility(0);
                 return c0067j.f1104a;
             }
@@ -642,12 +642,12 @@ public final class MainActivity extends Activity {
             c0067j.f1108e.setText(MainActivity.this.f1049p == null ? c0064g.f1082a : m1191a(c0064g.f1082a, z3));
             boolean z4 = MainActivity.this.f1049p != null && MainActivity.this.m1072b(c0064g.f1082a);
             c0067j.f1109f.setText(!z3 ? "关" : z4 ? "单独" : "开");
-            GradientDrawable m1404a2 = C0087T.m1404a((!z3 || z4) ? 0 : C0087T.f1353f, MainActivity.this.m1004a(11.0f));
+            GradientDrawable m1404a2 = UiKit.m1404a((!z3 || z4) ? 0 : UiKit.f1353f, MainActivity.this.m1004a(11.0f));
             if (!z3 || z4) {
-                m1404a2.setStroke(Math.max(1, MainActivity.this.m1004a(1.0f)), z3 ? (C0087T.f1345b & 16777215) | (-1946157056) : 1198945920);
+                m1404a2.setStroke(Math.max(1, MainActivity.this.m1004a(1.0f)), z3 ? (UiKit.f1345b & 16777215) | (-1946157056) : 1198945920);
             }
             c0067j.f1109f.setBackground(m1404a2);
-            c0067j.f1109f.setTextColor(z3 ? C0087T.f1345b : C0087T.f1351e);
+            c0067j.f1109f.setTextColor(z3 ? UiKit.f1345b : UiKit.f1351e);
             c0067j.f1109f.setVisibility(MainActivity.this.f1049p == null ? 8 : 0);
             return c0067j.f1104a;
         }
@@ -715,7 +715,7 @@ public final class MainActivity extends Activity {
         List<C0064g> f1094a;
 
         /* renamed from: b */
-        C0113o f1095b;
+        ConfigStore f1095b;
 
         /* renamed from: c */
         C0065h f1096c;
@@ -739,7 +739,7 @@ public final class MainActivity extends Activity {
         String[] f1102i;
 
         /* renamed from: j */
-        C0116r.a f1103j;
+        Diagnostics.a f1103j;
 
         private C0066i() {
         }
@@ -774,28 +774,28 @@ public final class MainActivity extends Activity {
         final View f1110g;
 
         C0067j() {
-            LinearLayout m1430c = C0087T.m1430c(MainActivity.this);
+            LinearLayout m1430c = UiKit.m1430c(MainActivity.this);
             this.f1104a = m1430c;
-            LinearLayout m1430c2 = C0087T.m1430c(MainActivity.this);
+            LinearLayout m1430c2 = UiKit.m1430c(MainActivity.this);
             this.f1105b = m1430c2;
             ImageView imageView = new ImageView(MainActivity.this);
             this.f1106c = imageView;
-            TextView m1413a = C0087T.m1413a(MainActivity.this, 16.0f, C0087T.f1345b, 600);
+            TextView m1413a = UiKit.m1413a(MainActivity.this, 16.0f, UiKit.f1345b, 600);
             this.f1107d = m1413a;
-            TextView m1413a2 = C0087T.m1413a(MainActivity.this, 12.0f, C0087T.f1349d, C0054J.f930m);
+            TextView m1413a2 = UiKit.m1413a(MainActivity.this, 12.0f, UiKit.f1349d, RailCodec.f930m);
             this.f1108e = m1413a2;
-            TextView m1413a3 = C0087T.m1413a(MainActivity.this, 11.0f, C0087T.f1345b, 600);
+            TextView m1413a3 = UiKit.m1413a(MainActivity.this, 11.0f, UiKit.f1345b, 600);
             this.f1109f = m1413a3;
             View view = new View(MainActivity.this);
             this.f1110g = view;
             m1430c.setPadding(MainActivity.this.f1065x, 0, MainActivity.this.f1065x, 0);
             m1430c.setTag(this);
-            m1430c.addView(m1430c2, C0087T.m1408a());
-            m1430c2.addView(imageView, C0087T.m1409a(MainActivity.this, 42.0f, 42.0f));
-            LinearLayout m1411a = C0087T.m1411a((Context) MainActivity.this);
-            LinearLayout m1430c3 = C0087T.m1430c(MainActivity.this);
+            m1430c.addView(m1430c2, UiKit.m1408a());
+            m1430c2.addView(imageView, UiKit.m1409a(MainActivity.this, 42.0f, 42.0f));
+            LinearLayout m1411a = UiKit.m1411a((Context) MainActivity.this);
+            LinearLayout m1430c3 = UiKit.m1430c(MainActivity.this);
             m1430c3.setPadding(0, MainActivity.this.m1004a(12.0f), MainActivity.this.m1004a(14.0f), MainActivity.this.m1004a(12.0f));
-            LinearLayout m1411a2 = C0087T.m1411a((Context) MainActivity.this);
+            LinearLayout m1411a2 = UiKit.m1411a((Context) MainActivity.this);
             m1413a.setSingleLine(true);
             TextUtils.TruncateAt truncateAt = TextUtils.TruncateAt.END;
             m1413a.setEllipsize(truncateAt);
@@ -804,19 +804,19 @@ public final class MainActivity extends Activity {
             m1413a2.setEllipsize(truncateAt);
             m1413a2.setPadding(0, MainActivity.this.m1004a(4.0f), 0, 0);
             m1411a2.addView(m1413a2);
-            m1430c3.addView(m1411a2, C0087T.m1428b());
+            m1430c3.addView(m1411a2, UiKit.m1428b());
             m1413a3.setGravity(17);
             m1413a3.setPadding(MainActivity.this.m1004a(9.0f), 0, MainActivity.this.m1004a(9.0f), 0);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, MainActivity.this.m1004a(22.0f));
             layoutParams.leftMargin = MainActivity.this.m1004a(8.0f);
             m1430c3.addView(m1413a3, layoutParams);
-            LinearLayout.LayoutParams m1409a = C0087T.m1409a(MainActivity.this, 13.0f, 13.0f);
+            LinearLayout.LayoutParams m1409a = UiKit.m1409a(MainActivity.this, 13.0f, 13.0f);
             m1409a.leftMargin = MainActivity.this.m1004a(8.0f);
-            m1430c3.addView(C0087T.m1407a(MainActivity.this, C0087T.m1403a(MainActivity.this, 4, C0087T.f1380x, 3.0f, false, 13.0f)), m1409a);
-            m1411a.addView(m1430c3, C0087T.m1408a());
-            view.setBackgroundColor(C0087T.f1357h);
+            m1430c3.addView(UiKit.m1407a(MainActivity.this, UiKit.m1403a(MainActivity.this, 4, UiKit.f1380x, 3.0f, false, 13.0f)), m1409a);
+            m1411a.addView(m1430c3, UiKit.m1408a());
+            view.setBackgroundColor(UiKit.f1357h);
             m1411a.addView(view, new LinearLayout.LayoutParams(-1, Math.max(1, MainActivity.this.m1004a(0.5f))));
-            LinearLayout.LayoutParams m1428b = C0087T.m1428b();
+            LinearLayout.LayoutParams m1428b = UiKit.m1428b();
             m1428b.leftMargin = MainActivity.this.m1004a(12.0f);
             m1430c2.addView(m1411a, m1428b);
         }
@@ -844,7 +844,7 @@ public final class MainActivity extends Activity {
         @Override // android.view.View
         protected void onDraw(Canvas canvas) {
             Canvas canvas2;
-            float m1399a = C0087T.m1399a(getContext(), 8.0f);
+            float m1399a = UiKit.m1399a(getContext(), 8.0f);
             float f = m1399a / 2.0f;
             RectF rectF = new RectF(f, f, getWidth() - f, getHeight() - f);
             this.f1112a.setStyle(Paint.Style.STROKE);
@@ -852,7 +852,7 @@ public final class MainActivity extends Activity {
             this.f1112a.setStrokeCap(Paint.Cap.ROUND);
             this.f1112a.setColor(695629440);
             canvas.drawOval(rectF, this.f1112a);
-            this.f1112a.setColor(C0087T.f1345b);
+            this.f1112a.setColor(UiKit.f1345b);
             float f2 = this.f1113b;
             if (f2 > 0.0f) {
                 canvas2 = canvas;
@@ -865,25 +865,25 @@ public final class MainActivity extends Activity {
             Paint paint = this.f1112a;
             Typeface typeface = Typeface.DEFAULT;
             paint.setTypeface(Typeface.create(typeface, 800, false));
-            this.f1112a.setTextSize(C0087T.m1399a(getContext(), 42.0f));
-            canvas2.drawText(String.valueOf(this.f1114c), getWidth() / 2.0f, (getHeight() / 2.0f) + C0087T.m1399a(getContext(), 6.0f), this.f1112a);
-            this.f1112a.setColor(C0087T.f1349d);
+            this.f1112a.setTextSize(UiKit.m1399a(getContext(), 42.0f));
+            canvas2.drawText(String.valueOf(this.f1114c), getWidth() / 2.0f, (getHeight() / 2.0f) + UiKit.m1399a(getContext(), 6.0f), this.f1112a);
+            this.f1112a.setColor(UiKit.f1349d);
             this.f1112a.setTypeface(Typeface.create(typeface, 600, false));
-            this.f1112a.setTextSize(C0087T.m1399a(getContext(), 12.0f));
-            canvas2.drawText("分钟剩余", getWidth() / 2.0f, (getHeight() / 2.0f) + C0087T.m1399a(getContext(), 26.0f), this.f1112a);
+            this.f1112a.setTextSize(UiKit.m1399a(getContext(), 12.0f));
+            canvas2.drawText("分钟剩余", getWidth() / 2.0f, (getHeight() / 2.0f) + UiKit.m1399a(getContext(), 26.0f), this.f1112a);
         }
     }
 
     static {
-        HashSet hashSet = new HashSet(Arrays.asList("android", "com.miui.home", "com.miui.personalassistant", "com.android.systemui", C0131g.f1963a, "dev.duo.workspaceprobe"));
+        HashSet hashSet = new HashSet(Arrays.asList("android", "com.miui.home", "com.miui.personalassistant", "com.android.systemui", IconConst.f1963a, "dev.duo.workspaceprobe"));
         f960d = hashSet;
-        hashSet.addAll(C0071P.f1171i);
+        hashSet.addAll(ConfigKeys.f1171i);
         f961e = new String[]{"全部", "已开", "单独设置", "未开"};
         f963g = "";
     }
 
     public MainActivity() {
-        String[] strArr = C0071P.f1164e0;
+        String[] strArr = ConfigKeys.f1164e0;
         this.f1032g0 = new SeekBar[strArr.length];
         this.f1034h0 = new TextView[strArr.length];
         this.f1036i0 = new Runnable[strArr.length];
@@ -903,7 +903,7 @@ public final class MainActivity extends Activity {
     private int m979A() {
         int i = 0;
         if (this.f1049p != null && this.f1019Z0 == null) {
-            Iterator<String> it = C0071P.f1183o.iterator();
+            Iterator<String> it = ConfigKeys.f1183o.iterator();
             while (it.hasNext()) {
                 if (!this.f1017Y0.contains(it.next())) {
                     i++;
@@ -918,12 +918,12 @@ public final class MainActivity extends Activity {
     public List<String> m980B() {
         ArrayList arrayList = new ArrayList();
         if (this.f1049p != null && this.f1019Z0 == null) {
-            for (String str : C0071P.f1183o) {
+            for (String str : ConfigKeys.f1183o) {
                 if (!this.f1017Y0.contains(str)) {
                     arrayList.add(str);
                 }
             }
-            for (String str2 : C0071P.f1185p) {
+            for (String str2 : ConfigKeys.f1185p) {
                 if (!this.f1017Y0.contains(str2)) {
                     arrayList.add(str2);
                 }
@@ -934,21 +934,21 @@ public final class MainActivity extends Activity {
 
     /* renamed from: C */
     private View m981C() {
-        LinearLayout m1430c = C0087T.m1430c(this);
-        C0087T.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
+        LinearLayout m1430c = UiKit.m1430c(this);
+        UiKit.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
         m1430c.setPadding(m1004a(18.0f), 0, m1004a(16.0f), 0);
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        TextView m1413a = C0087T.m1413a(this, 15.0f, C0087T.f1345b, 600);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        TextView m1413a = UiKit.m1413a(this, 15.0f, UiKit.f1345b, 600);
         m1413a.setText("通知图标");
         m1411a.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         m1413a2.setText("在时间模块下方显示通知 App 图标，点那一块打开通知中心；关掉后两样都没有");
         m1413a2.setPadding(0, m1004a(3.0f), 0, 0);
         m1411a.addView(m1413a2);
-        m1430c.addView(m1411a, C0087T.m1428b());
+        m1430c.addView(m1411a, UiKit.m1428b());
         Switch r1 = new Switch(this);
         this.f1012W = r1;
-        C0087T.m1422a(r1);
+        UiKit.m1422a(r1);
         this.f1012W.setContentDescription("通知图标");
         this.f1012W.setEnabled(false);
         this.f1012W.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda27
@@ -969,22 +969,22 @@ public final class MainActivity extends Activity {
 
     /* renamed from: E */
     private View m982E() {
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        C0087T.m1418a(m1411a, this.f1051q.f1398e ? 26.0f : 28.0f);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        UiKit.m1418a(m1411a, this.f1051q.f1398e ? 26.0f : 28.0f);
         m1411a.setPadding(m1004a(18.0f), m1004a(12.0f), m1004a(16.0f), m1004a(12.0f));
-        LinearLayout m1430c = C0087T.m1430c(this);
-        LinearLayout m1411a2 = C0087T.m1411a((Context) this);
-        TextView m1413a = C0087T.m1413a(this, 15.0f, C0087T.f1345b, 600);
+        LinearLayout m1430c = UiKit.m1430c(this);
+        LinearLayout m1411a2 = UiKit.m1411a((Context) this);
+        TextView m1413a = UiKit.m1413a(this, 15.0f, UiKit.f1345b, 600);
         m1413a.setText("外屏非 Duo 顶栏");
         m1411a2.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         m1413a2.setText("开启后隐藏未开启 Duo 的 App 原生状态栏；单独设置过的 App 优先");
         m1413a2.setPadding(0, m1004a(3.0f), m1004a(8.0f), 0);
         m1411a2.addView(m1413a2);
-        m1430c.addView(m1411a2, C0087T.m1428b());
+        m1430c.addView(m1411a2, UiKit.m1428b());
         Switch r2 = new Switch(this);
         this.f1002R = r2;
-        C0087T.m1422a(r2);
+        UiKit.m1422a(r2);
         this.f1002R.setContentDescription("隐藏外屏非 Duo 原生状态栏");
         this.f1002R.setEnabled(false);
         this.f1002R.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda91
@@ -1014,7 +1014,7 @@ public final class MainActivity extends Activity {
         this.f1004S.setPadding(0, m1004a(12.0f), 0, 0);
         this.f1006T = textViewArr[0];
         this.f1008U = seekBarArr[0];
-        TextView m1413a3 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a3 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         m1413a3.setText("外屏竖屏生效；高度是隐藏状态栏后的顶部留白，单个 App 可单独调整");
         this.f1004S.addView(m1413a3);
         this.f1004S.setVisibility(8);
@@ -1024,19 +1024,19 @@ public final class MainActivity extends Activity {
 
     /* renamed from: F */
     private View m983F() {
-        LinearLayout m1430c = C0087T.m1430c(this);
-        C0087T.m1418a(m1430c, 26.0f);
+        LinearLayout m1430c = UiKit.m1430c(this);
+        UiKit.m1418a(m1430c, 26.0f);
         m1430c.setPadding(m1004a(20.0f), 0, m1004a(12.0f), 0);
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        TextView m1413a = C0087T.m1413a(this, 15.0f, C0087T.f1345b, 600);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        TextView m1413a = UiKit.m1413a(this, 15.0f, UiKit.f1345b, 600);
         m1413a.setText("App 概览");
         m1411a.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         this.f1058t0 = m1413a2;
         m1413a2.setPadding(0, m1004a(4.0f), 0, 0);
         m1411a.addView(this.f1058t0);
         m1430c.addView(m1411a, new LinearLayout.LayoutParams(m1004a(112.0f), -2));
-        LinearLayout m1430c2 = C0087T.m1430c(this);
+        LinearLayout m1430c2 = UiKit.m1430c(this);
         this.f1060u0 = m1016a(m1430c2, "已开 Duo", 0.0f);
         this.f1062v0 = m1016a(m1430c2, "单独设置", 8.0f);
         TextView m1016a = m1016a(m1430c2, "未开", 8.0f);
@@ -1047,10 +1047,10 @@ public final class MainActivity extends Activity {
             textView.setTextSize(18.0f);
             textView.setFontFeatureSettings("tnum");
         }
-        m1430c.addView(m1430c2, C0087T.m1428b());
-        TextView m1415a = C0087T.m1415a((Context) this, "管理 App", true, 40.0f);
+        m1430c.addView(m1430c2, UiKit.m1428b());
+        TextView m1415a = UiKit.m1415a((Context) this, "管理 App", true, 40.0f);
         m1415a.setTextSize(13.0f);
-        m1415a.setCompoundDrawablesRelativeWithIntrinsicBounds((Drawable) null, (Drawable) null, C0087T.m1403a(this, 4, C0087T.f1371o, 3.0f, false, 12.0f), (Drawable) null);
+        m1415a.setCompoundDrawablesRelativeWithIntrinsicBounds((Drawable) null, (Drawable) null, UiKit.m1403a(this, 4, UiKit.f1371o, 3.0f, false, 12.0f), (Drawable) null);
         m1415a.setCompoundDrawablePadding(m1004a(4.0f));
         m1415a.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda33
             @Override // android.view.View.OnClickListener
@@ -1066,22 +1066,22 @@ public final class MainActivity extends Activity {
 
     /* renamed from: G */
     private View m984G() {
-        LinearLayout m1430c = C0087T.m1430c(this);
-        C0087T.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
+        LinearLayout m1430c = UiKit.m1430c(this);
+        UiKit.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
         m1430c.setPadding(m1004a(18.0f), 0, m1004a(16.0f), 0);
         m1430c.setMinimumHeight(m1004a(76.0f));
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        TextView m1413a = C0087T.m1413a(this, 15.0f, C0087T.f1345b, 600);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        TextView m1413a = UiKit.m1413a(this, 15.0f, UiKit.f1345b, 600);
         m1413a.setText("取色按钮");
         m1411a.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         m1413a2.setText("取色按钮贴在 App 侧栏搜索键的头顶，在哪个 App 点它就给哪个 App 取色");
         m1413a2.setPadding(0, m1004a(3.0f), 0, 0);
         m1411a.addView(m1413a2);
-        m1430c.addView(m1411a, C0087T.m1428b());
+        m1430c.addView(m1411a, UiKit.m1428b());
         Switch r1 = new Switch(this);
         this.f1016Y = r1;
-        C0087T.m1422a(r1);
+        UiKit.m1422a(r1);
         this.f1016Y.setContentDescription("取色按钮");
         this.f1016Y.setEnabled(false);
         this.f1016Y.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda49
@@ -1104,11 +1104,11 @@ public final class MainActivity extends Activity {
     private LinearLayout m985H() {
         LinearLayout m1175u = m1175u();
         LinearLayout m1121i = m1121i();
-        TextView m1413a = C0087T.m1413a(this, 16.0f, C0087T.f1345b, 600);
+        TextView m1413a = UiKit.m1413a(this, 16.0f, UiKit.f1345b, 600);
         m1413a.setText("外屏侧栏颜色");
         m1121i.addView(m1413a);
         m1175u.addView(m1121i);
-        C0087T.e eVar = new C0087T.e(this, new String[]{"白色", "黑色", "跟随系统"}, new int[]{-1, -14869217, 0}, new IntConsumer() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda84
+        UiKit.e eVar = new UiKit.e(this, new String[]{"白色", "黑色", "跟随系统"}, new int[]{-1, -14869217, 0}, new IntConsumer() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda84
             @Override // java.util.function.IntConsumer
             public final void accept(int i) {
                 MainActivity.this.m1130j(i);
@@ -1116,31 +1116,31 @@ public final class MainActivity extends Activity {
         });
         this.f990L = eVar;
         eVar.m1442a(false);
-        m1175u.addView(this.f990L.f1407a, C0087T.m1410a(C0087T.m1408a(), this, 8.0f));
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        m1175u.addView(this.f990L.f1407a, UiKit.m1410a(UiKit.m1408a(), this, 8.0f));
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         this.f992M = m1413a2;
-        m1175u.addView(m1413a2, C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
+        m1175u.addView(m1413a2, UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
         return m1175u;
     }
 
     /* renamed from: I */
     private View m986I() {
-        LinearLayout m1430c = C0087T.m1430c(this);
-        C0087T.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
+        LinearLayout m1430c = UiKit.m1430c(this);
+        UiKit.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
         m1430c.setPadding(m1004a(18.0f), 0, m1004a(16.0f), 0);
         m1430c.setMinimumHeight(m1004a(76.0f));
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        TextView m1413a = C0087T.m1413a(this, 15.0f, C0087T.f1345b, 600);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        TextView m1413a = UiKit.m1413a(this, 15.0f, UiKit.f1345b, 600);
         m1413a.setText("外屏 App 内侧栏自定义");
         m1411a.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         m1413a2.setText("外屏 App 模式右侧 6 格：拖入返回、主页等动作，自己的 App 或 dock");
         m1413a2.setPadding(0, m1004a(3.0f), 0, 0);
         m1411a.addView(m1413a2);
-        m1430c.addView(m1411a, C0087T.m1428b());
-        LinearLayout.LayoutParams m1409a = C0087T.m1409a(this, 14.0f, 14.0f);
+        m1430c.addView(m1411a, UiKit.m1428b());
+        LinearLayout.LayoutParams m1409a = UiKit.m1409a(this, 14.0f, 14.0f);
         m1409a.leftMargin = m1004a(8.0f);
-        m1430c.addView(C0087T.m1407a(this, C0087T.m1403a(this, 4, C0087T.f1349d, 3.0f, false, 14.0f)), m1409a);
+        m1430c.addView(UiKit.m1407a(this, UiKit.m1403a(this, 4, UiKit.f1349d, 3.0f, false, 14.0f)), m1409a);
         m1430c.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda10
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
@@ -1152,7 +1152,7 @@ public final class MainActivity extends Activity {
 
     /* renamed from: J */
     private void m987J() {
-        final C0113o c0113o = this.f1049p;
+        final ConfigStore c0113o = this.f1049p;
         if (c0113o == null) {
             return;
         }
@@ -1175,11 +1175,11 @@ public final class MainActivity extends Activity {
         float f2;
         this.f1001Q0.removeAllViews();
         final C0065h c0065h = this.f1005S0;
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        C0087T.m1418a(m1411a, 28.0f);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        UiKit.m1418a(m1411a, 28.0f);
         m1411a.setGravity(1);
         m1411a.setPadding(m1004a(20.0f), m1004a(28.0f), m1004a(20.0f), m1004a(26.0f));
-        this.f1001Q0.addView(m1411a, C0087T.m1408a());
+        this.f1001Q0.addView(m1411a, UiKit.m1408a());
         float f3 = 12.0f;
         if (c0065h == null) {
             f = 16.0f;
@@ -1189,41 +1189,41 @@ public final class MainActivity extends Activity {
             if (!c0065h.f1087a) {
                 if (c0065h.f1088b) {
                     FrameLayout frameLayout = new FrameLayout(this);
-                    frameLayout.setBackground(C0087T.m1406a(C0087T.f1374r, C0087T.f1375s));
+                    frameLayout.setBackground(UiKit.m1406a(UiKit.f1374r, UiKit.f1375s));
                     frameLayout.setElevation(m1004a(6.0f));
                     i = 17;
-                    frameLayout.addView(C0087T.m1407a(this, C0087T.m1403a(this, 6, C0087T.f1378v, 2.6f, false, 30.0f)), new FrameLayout.LayoutParams(m1004a(30.0f), m1004a(30.0f), 17));
-                    m1411a.addView(frameLayout, C0087T.m1409a(this, 64.0f, 64.0f));
-                    TextView m1413a = C0087T.m1413a(this, 22.0f, C0087T.f1345b, 800);
+                    frameLayout.addView(UiKit.m1407a(this, UiKit.m1403a(this, 6, UiKit.f1378v, 2.6f, false, 30.0f)), new FrameLayout.LayoutParams(m1004a(30.0f), m1004a(30.0f), 17));
+                    m1411a.addView(frameLayout, UiKit.m1409a(this, 64.0f, 64.0f));
+                    TextView m1413a = UiKit.m1413a(this, 22.0f, UiKit.f1345b, 800);
                     m1413a.setText("已买断，永久使用");
-                    m1411a.addView(m1413a, C0087T.m1410a(C0087T.m1429c(), this, 16.0f));
-                    TextView m1413a2 = C0087T.m1413a(this, 13.0f, C0087T.f1349d, C0054J.f930m);
+                    m1411a.addView(m1413a, UiKit.m1410a(UiKit.m1429c(), this, 16.0f));
+                    TextView m1413a2 = UiKit.m1413a(this, 13.0f, UiKit.f1349d, RailCodec.f930m);
                     m1413a2.setText("绑定在这台手机上");
-                    m1411a.addView(m1413a2, C0087T.m1410a(C0087T.m1429c(), this, 8.0f));
+                    m1411a.addView(m1413a2, UiKit.m1410a(UiKit.m1429c(), this, 8.0f));
                     if (c0065h.f1090d != null) {
-                        LinearLayout m1411a2 = C0087T.m1411a((Context) this);
-                        C0087T.m1418a(m1411a2, 24.0f);
+                        LinearLayout m1411a2 = UiKit.m1411a((Context) this);
+                        UiKit.m1418a(m1411a2, 24.0f);
                         m1411a2.setPadding(m1004a(18.0f), m1004a(16.0f), m1004a(16.0f), m1004a(16.0f));
-                        TextView m1413a3 = C0087T.m1413a(this, 13.0f, C0087T.f1347c, 600);
+                        TextView m1413a3 = UiKit.m1413a(this, 13.0f, UiKit.f1347c, 600);
                         m1413a3.setText("授权码 · 换手机时要用，请保存好");
                         m1411a2.addView(m1413a3);
-                        LinearLayout m1430c = C0087T.m1430c(this);
-                        m1430c.setBackground(C0087T.m1404a(C0087T.f1355g, m1004a(16.0f)));
+                        LinearLayout m1430c = UiKit.m1430c(this);
+                        m1430c.setBackground(UiKit.m1404a(UiKit.f1355g, m1004a(16.0f)));
                         m1430c.setPadding(m1004a(14.0f), m1004a(8.0f), m1004a(6.0f), m1004a(8.0f));
-                        TextView m1413a4 = C0087T.m1413a(this, 16.0f, C0087T.f1345b, 700);
+                        TextView m1413a4 = UiKit.m1413a(this, 16.0f, UiKit.f1345b, 700);
                         m1413a4.setText(c0065h.f1090d);
                         m1413a4.setSingleLine(true);
                         m1413a4.setEllipsize(TextUtils.TruncateAt.END);
                         m1413a4.setLetterSpacing(0.04f);
                         m1413a4.setTextIsSelectable(true);
-                        m1430c.addView(m1413a4, C0087T.m1428b());
-                        TextView m1415a = C0087T.m1415a((Context) this, this.f1007T0 ? "已复制" : "复制", true, 34.0f);
+                        m1430c.addView(m1413a4, UiKit.m1428b());
+                        TextView m1415a = UiKit.m1415a((Context) this, this.f1007T0 ? "已复制" : "复制", true, 34.0f);
                         m1415a.setTextSize(13.0f);
                         m1415a.setMinWidth(m1004a(72.0f));
-                        m1415a.setBackground(C0087T.m1404a(this.f1007T0 ? -13326253 : C0087T.f1369n, m1004a(17.0f)));
-                        m1415a.setTextColor(this.f1007T0 ? -1 : C0087T.f1371o);
+                        m1415a.setBackground(UiKit.m1404a(this.f1007T0 ? -13326253 : UiKit.f1369n, m1004a(17.0f)));
+                        m1415a.setTextColor(this.f1007T0 ? -1 : UiKit.f1371o);
                         boolean z = this.f1007T0;
-                        m1415a.setCompoundDrawablesRelativeWithIntrinsicBounds(C0087T.m1403a(this, z ? 6 : 9, z ? -1 : C0087T.f1371o, 2.4f, false, 13.0f), (Drawable) null, (Drawable) null, (Drawable) null);
+                        m1415a.setCompoundDrawablesRelativeWithIntrinsicBounds(UiKit.m1403a(this, z ? 6 : 9, z ? -1 : UiKit.f1371o, 2.4f, false, 13.0f), (Drawable) null, (Drawable) null, (Drawable) null);
                         m1415a.setCompoundDrawablePadding(m1004a(5.0f));
                         m1415a.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda41
                             @Override // android.view.View.OnClickListener
@@ -1235,9 +1235,9 @@ public final class MainActivity extends Activity {
                         f2 = 10.0f;
                         layoutParams.leftMargin = m1004a(10.0f);
                         m1430c.addView(m1415a, layoutParams);
-                        m1411a2.addView(m1430c, C0087T.m1410a(C0087T.m1408a(), this, 10.0f));
+                        m1411a2.addView(m1430c, UiKit.m1410a(UiKit.m1408a(), this, 10.0f));
                         f3 = 12.0f;
-                        this.f1001Q0.addView(m1411a2, C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
+                        this.f1001Q0.addView(m1411a2, UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
                     } else {
                         f3 = 12.0f;
                         f2 = 10.0f;
@@ -1245,31 +1245,31 @@ public final class MainActivity extends Activity {
                 } else {
                     i = 17;
                     f2 = 10.0f;
-                    m1411a.addView(new C0068k(this, c0065h.f1092f, c0065h.f1091e), C0087T.m1409a(this, 140.0f, 140.0f));
-                    TextView m1413a5 = C0087T.m1413a(this, 20.0f, C0087T.f1345b, 800);
+                    m1411a.addView(new C0068k(this, c0065h.f1092f, c0065h.f1091e), UiKit.m1409a(this, 140.0f, 140.0f));
+                    TextView m1413a5 = UiKit.m1413a(this, 20.0f, UiKit.f1345b, 800);
                     m1413a5.setText(c0065h.f1089c ? "免费试用中" : "试用已结束");
-                    m1411a.addView(m1413a5, C0087T.m1410a(C0087T.m1429c(), this, 14.0f));
-                    TextView m1413a6 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+                    m1411a.addView(m1413a5, UiKit.m1410a(UiKit.m1429c(), this, 14.0f));
+                    TextView m1413a6 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
                     m1413a6.setGravity(17);
                     m1413a6.setLineSpacing(0.0f, 1.3f);
                     m1413a6.setText(c0065h.f1089c ? "只算亮屏且 MiDuo 开着的时间。用完后在下次熄屏时停用，桌面、侧栏、外屏比例恢复小米原装。" : "MiDuo 已停用，桌面、侧栏、外屏比例为小米原装；购买后可继续使用。");
-                    m1411a.addView(m1413a6, C0087T.m1410a(C0087T.m1408a(), this, 10.0f));
-                    LinearLayout m1411a3 = C0087T.m1411a((Context) this);
-                    C0087T.m1418a(m1411a3, 24.0f);
+                    m1411a.addView(m1413a6, UiKit.m1410a(UiKit.m1408a(), this, 10.0f));
+                    LinearLayout m1411a3 = UiKit.m1411a((Context) this);
+                    UiKit.m1418a(m1411a3, 24.0f);
                     m1411a3.setPadding(m1004a(18.0f), m1004a(18.0f), m1004a(18.0f), m1004a(18.0f));
-                    LinearLayout m1430c2 = C0087T.m1430c(this);
+                    LinearLayout m1430c2 = UiKit.m1430c(this);
                     m1430c2.setGravity(80);
-                    TextView m1413a7 = C0087T.m1413a(this, 17.0f, C0087T.f1345b, 700);
+                    TextView m1413a7 = UiKit.m1413a(this, 17.0f, UiKit.f1345b, 700);
                     m1413a7.setText("永久买断");
-                    m1430c2.addView(m1413a7, C0087T.m1428b());
-                    TextView m1413a8 = C0087T.m1413a(this, 24.0f, C0087T.f1345b, 800);
+                    m1430c2.addView(m1413a7, UiKit.m1428b());
+                    TextView m1413a8 = UiKit.m1413a(this, 24.0f, UiKit.f1345b, 800);
                     m1413a8.setText("¥49.9");
                     m1430c2.addView(m1413a8);
                     m1411a3.addView(m1430c2);
-                    TextView m1413a9 = C0087T.m1413a(this, 13.0f, C0087T.f1349d, C0054J.f930m);
+                    TextView m1413a9 = UiKit.m1413a(this, 13.0f, UiKit.f1349d, RailCodec.f930m);
                     m1413a9.setText("一次付费，这台手机永久使用；每年可换机 2 次。");
-                    m1411a3.addView(m1413a9, C0087T.m1410a(C0087T.m1408a(), this, 10.0f));
-                    TextView m1415a2 = C0087T.m1415a((Context) this, "立即购买", true, 50.0f);
+                    m1411a3.addView(m1413a9, UiKit.m1410a(UiKit.m1408a(), this, 10.0f));
+                    TextView m1415a2 = UiKit.m1415a((Context) this, "立即购买", true, 50.0f);
                     m1415a2.setTextSize(16.0f);
                     m1415a2.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda42
                         @Override // android.view.View.OnClickListener
@@ -1277,15 +1277,15 @@ public final class MainActivity extends Activity {
                             MainActivity.this.m1172s(view);
                         }
                     });
-                    m1411a3.addView(m1415a2, C0087T.m1410a(new LinearLayout.LayoutParams(-1, m1004a(50.0f)), this, 14.0f));
-                    this.f1001Q0.addView(m1411a3, C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
+                    m1411a3.addView(m1415a2, UiKit.m1410a(new LinearLayout.LayoutParams(-1, m1004a(50.0f)), this, 14.0f));
+                    this.f1001Q0.addView(m1411a3, UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
                 }
-                LinearLayout m1430c3 = C0087T.m1430c(this);
-                C0087T.m1418a(m1430c3, 25.0f);
+                LinearLayout m1430c3 = UiKit.m1430c(this);
+                UiKit.m1418a(m1430c3, 25.0f);
                 m1430c3.setGravity(i);
                 float f4 = f3;
-                m1430c3.addView(C0087T.m1407a(this, C0087T.m1403a(this, 2, C0087T.f1345b, 2.2f, false, 17.0f)), C0087T.m1409a(this, 17.0f, 17.0f));
-                TextView m1413a10 = C0087T.m1413a(this, 15.0f, C0087T.f1345b, 600);
+                m1430c3.addView(UiKit.m1407a(this, UiKit.m1403a(this, 2, UiKit.f1345b, 2.2f, false, 17.0f)), UiKit.m1409a(this, 17.0f, 17.0f));
+                TextView m1413a10 = UiKit.m1413a(this, 15.0f, UiKit.f1345b, 600);
                 m1413a10.setText("输入授权码");
                 m1413a10.setPadding(m1004a(8.0f), 0, 0, 0);
                 m1430c3.addView(m1413a10);
@@ -1295,31 +1295,31 @@ public final class MainActivity extends Activity {
                         MainActivity.this.m1174t(view);
                     }
                 });
-                this.f1001Q0.addView(m1430c3, C0087T.m1410a(new LinearLayout.LayoutParams(-1, m1004a(50.0f)), this, f4));
-                TextView m1413a11 = C0087T.m1413a(this, f4, C0087T.f1349d, C0054J.f930m);
+                this.f1001Q0.addView(m1430c3, UiKit.m1410a(new LinearLayout.LayoutParams(-1, m1004a(50.0f)), this, f4));
+                TextView m1413a11 = UiKit.m1413a(this, f4, UiKit.f1349d, RailCodec.f930m);
                 m1413a11.setLineSpacing(0.0f, 1.3f);
                 m1413a11.setText("在另一台手机买过的，输入授权码即可在这台手机使用；是否已授权以本页和首页显示为准。" + ((c0065h != null || c0065h.f1093g == null) ? "" : "\n" + c0065h.f1093g));
                 m1413a11.setPadding(m1004a(f2), 0, m1004a(f2), 0);
-                this.f1001Q0.addView(m1413a11, C0087T.m1410a(C0087T.m1408a(), this, f4));
-                LinearLayout m1200a = C0070O.m1200a(this);
+                this.f1001Q0.addView(m1413a11, UiKit.m1410a(UiKit.m1408a(), this, f4));
+                LinearLayout m1200a = MtzIconImportDialog.m1200a(this);
                 this.f1003R0 = m1200a;
-                this.f1001Q0.addView(m1200a, C0087T.m1410a(C0087T.m1408a(), this, 20.0f));
-                this.f1001Q0.addView(C0070O.m1206b(this), C0087T.m1410a(C0087T.m1408a(), this, f4));
+                this.f1001Q0.addView(m1200a, UiKit.m1410a(UiKit.m1408a(), this, 20.0f));
+                this.f1001Q0.addView(MtzIconImportDialog.m1206b(this), UiKit.m1410a(UiKit.m1408a(), this, f4));
             }
             f = 16.0f;
             i = 17;
             f2 = 10.0f;
         }
-        TextView m1413a12 = C0087T.m1413a(this, f, C0087T.f1347c, 600);
+        TextView m1413a12 = UiKit.m1413a(this, f, UiKit.f1347c, 600);
         m1413a12.setGravity(i);
         m1413a12.setText(c0065h == null ? "正在读取授权…" : "系统框架还没加载 MiDuo，暂时不能试用和购买。LSPosed 里启用 MiDuo 后，系统框架要到手机下次开机才加载");
         m1411a.addView(m1413a12);
-        LinearLayout m1430c32 = C0087T.m1430c(this);
-        C0087T.m1418a(m1430c32, 25.0f);
+        LinearLayout m1430c32 = UiKit.m1430c(this);
+        UiKit.m1418a(m1430c32, 25.0f);
         m1430c32.setGravity(i);
         float f42 = f3;
-        m1430c32.addView(C0087T.m1407a(this, C0087T.m1403a(this, 2, C0087T.f1345b, 2.2f, false, 17.0f)), C0087T.m1409a(this, 17.0f, 17.0f));
-        TextView m1413a102 = C0087T.m1413a(this, 15.0f, C0087T.f1345b, 600);
+        m1430c32.addView(UiKit.m1407a(this, UiKit.m1403a(this, 2, UiKit.f1345b, 2.2f, false, 17.0f)), UiKit.m1409a(this, 17.0f, 17.0f));
+        TextView m1413a102 = UiKit.m1413a(this, 15.0f, UiKit.f1345b, 600);
         m1413a102.setText("输入授权码");
         m1413a102.setPadding(m1004a(8.0f), 0, 0, 0);
         m1430c32.addView(m1413a102);
@@ -1329,21 +1329,21 @@ public final class MainActivity extends Activity {
                 MainActivity.this.m1174t(view);
             }
         });
-        this.f1001Q0.addView(m1430c32, C0087T.m1410a(new LinearLayout.LayoutParams(-1, m1004a(50.0f)), this, f42));
-        TextView m1413a112 = C0087T.m1413a(this, f42, C0087T.f1349d, C0054J.f930m);
+        this.f1001Q0.addView(m1430c32, UiKit.m1410a(new LinearLayout.LayoutParams(-1, m1004a(50.0f)), this, f42));
+        TextView m1413a112 = UiKit.m1413a(this, f42, UiKit.f1349d, RailCodec.f930m);
         m1413a112.setLineSpacing(0.0f, 1.3f);
         m1413a112.setText("在另一台手机买过的，输入授权码即可在这台手机使用；是否已授权以本页和首页显示为准。" + ((c0065h != null || c0065h.f1093g == null) ? "" : "\n" + c0065h.f1093g));
         m1413a112.setPadding(m1004a(f2), 0, m1004a(f2), 0);
-        this.f1001Q0.addView(m1413a112, C0087T.m1410a(C0087T.m1408a(), this, f42));
-        LinearLayout m1200a2 = C0070O.m1200a(this);
+        this.f1001Q0.addView(m1413a112, UiKit.m1410a(UiKit.m1408a(), this, f42));
+        LinearLayout m1200a2 = MtzIconImportDialog.m1200a(this);
         this.f1003R0 = m1200a2;
-        this.f1001Q0.addView(m1200a2, C0087T.m1410a(C0087T.m1408a(), this, 20.0f));
-        this.f1001Q0.addView(C0070O.m1206b(this), C0087T.m1410a(C0087T.m1408a(), this, f42));
+        this.f1001Q0.addView(m1200a2, UiKit.m1410a(UiKit.m1408a(), this, 20.0f));
+        this.f1001Q0.addView(MtzIconImportDialog.m1206b(this), UiKit.m1410a(UiKit.m1408a(), this, f42));
     }
 
     /* renamed from: L */
     private void m989L() {
-        XposedService m975c = C0056L.m975c();
+        XposedService m975c = ConfigBroadcastHub.m975c();
         List<String> m980B = m980B();
         if (m975c == null || m980B.isEmpty() || this.f1025c1) {
             return;
@@ -1364,21 +1364,21 @@ public final class MainActivity extends Activity {
 
     /* renamed from: M */
     private View m990M() {
-        LinearLayout m1430c = C0087T.m1430c(this);
-        C0087T.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
+        LinearLayout m1430c = UiKit.m1430c(this);
+        UiKit.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
         m1430c.setPadding(m1004a(18.0f), 0, m1004a(16.0f), 0);
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        TextView m1413a = C0087T.m1413a(this, 15.0f, C0087T.f1345b, 600);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        TextView m1413a = UiKit.m1413a(this, 15.0f, UiKit.f1345b, 600);
         m1413a.setText("旋转建议按钮");
         m1411a.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         m1413a2.setText("关闭自动旋转时，转动手机可点按钮旋转屏幕");
         m1413a2.setPadding(0, m1004a(3.0f), 0, 0);
         m1411a.addView(m1413a2);
-        m1430c.addView(m1411a, C0087T.m1428b());
+        m1430c.addView(m1411a, UiKit.m1428b());
         Switch r1 = new Switch(this);
         this.f1000Q = r1;
-        C0087T.m1422a(r1);
+        UiKit.m1422a(r1);
         this.f1000Q.setContentDescription("旋转建议按钮");
         this.f1000Q.setEnabled(false);
         this.f1000Q.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda31
@@ -1399,19 +1399,19 @@ public final class MainActivity extends Activity {
 
     /* renamed from: N */
     private View m991N() {
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        C0087T.m1418a(m1411a, this.f1051q.f1398e ? 26.0f : 28.0f);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        UiKit.m1418a(m1411a, this.f1051q.f1398e ? 26.0f : 28.0f);
         m1411a.setPadding(m1004a(16.0f), m1004a(14.0f), m1004a(16.0f), m1004a(14.0f));
         int i = 0;
         boolean z = this.f1051q.f1396c >= 600;
         String[] strArr = {"左下", "右下"};
-        this.f1046n0 = new C0087T.e(this, strArr, null, new IntConsumer() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda11
+        this.f1046n0 = new UiKit.e(this, strArr, null, new IntConsumer() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda11
             @Override // java.util.function.IntConsumer
             public final void accept(int i2) {
                 MainActivity.this.m1117h(i2);
             }
         });
-        this.f1048o0 = new C0087T.e(this, strArr, null, new IntConsumer() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda12
+        this.f1048o0 = new UiKit.e(this, strArr, null, new IntConsumer() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda12
             @Override // java.util.function.IntConsumer
             public final void accept(int i2) {
                 MainActivity.this.m1124i(i2);
@@ -1419,20 +1419,20 @@ public final class MainActivity extends Activity {
         });
         this.f1046n0.m1442a(false);
         this.f1048o0.m1442a(false);
-        C0087T.e[] eVarArr = {this.f1046n0, this.f1048o0};
+        UiKit.e[] eVarArr = {this.f1046n0, this.f1048o0};
         String[] strArr2 = {"竖屏", "横屏"};
         while (i < 2) {
-            LinearLayout m1430c = z ? C0087T.m1430c(this) : C0087T.m1411a((Context) this);
-            TextView m1413a = C0087T.m1413a(this, 13.0f, C0087T.f1347c, 600);
+            LinearLayout m1430c = z ? UiKit.m1430c(this) : UiKit.m1411a((Context) this);
+            TextView m1413a = UiKit.m1413a(this, 13.0f, UiKit.f1347c, 600);
             m1413a.setText(strArr2[i]);
             if (z) {
                 m1430c.addView(m1413a, new LinearLayout.LayoutParams(m1004a(44.0f), -2));
-                m1430c.addView(eVarArr[i].f1407a, C0087T.m1428b());
+                m1430c.addView(eVarArr[i].f1407a, UiKit.m1428b());
             } else {
                 m1430c.addView(m1413a);
-                m1430c.addView(eVarArr[i].f1407a, C0087T.m1410a(C0087T.m1408a(), this, 6.0f));
+                m1430c.addView(eVarArr[i].f1407a, UiKit.m1410a(UiKit.m1408a(), this, 6.0f));
             }
-            m1411a.addView(m1430c, i == 0 ? C0087T.m1408a() : C0087T.m1410a(C0087T.m1408a(), this, 10.0f));
+            m1411a.addView(m1430c, i == 0 ? UiKit.m1408a() : UiKit.m1410a(UiKit.m1408a(), this, 10.0f));
             i++;
         }
         return m1411a;
@@ -1475,29 +1475,29 @@ public final class MainActivity extends Activity {
         });
         this.f984I = textViewArr[0];
         this.f986J = seekBarArr[0];
-        TextView m1413a = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         m1413a.setText("全局比例只用于已开启 Duo 且未单独设置的 App；未开 Duo 的 App 可在详情页单独缩放，否则保持原样。内屏不受影响（微信内外屏一起缩）");
-        m1014a.addView(m1413a, C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
+        m1014a.addView(m1413a, UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
         return m1014a;
     }
 
     /* renamed from: Q */
     private View m994Q() {
-        LinearLayout m1430c = C0087T.m1430c(this);
-        C0087T.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
+        LinearLayout m1430c = UiKit.m1430c(this);
+        UiKit.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
         m1430c.setPadding(m1004a(18.0f), 0, m1004a(16.0f), 0);
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        TextView m1413a = C0087T.m1413a(this, 15.0f, C0087T.f1345b, 600);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        TextView m1413a = UiKit.m1413a(this, 15.0f, UiKit.f1345b, 600);
         m1413a.setText("搜索按钮");
         m1411a.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         m1413a2.setText("在内外屏桌面和应用侧栏显示右下角圆形搜索按钮");
         m1413a2.setPadding(0, m1004a(3.0f), 0, 0);
         m1411a.addView(m1413a2);
-        m1430c.addView(m1411a, C0087T.m1428b());
+        m1430c.addView(m1411a, UiKit.m1428b());
         Switch r1 = new Switch(this);
         this.f1014X = r1;
-        C0087T.m1422a(r1);
+        UiKit.m1422a(r1);
         this.f1014X.setContentDescription("搜索按钮");
         this.f1014X.setEnabled(false);
         this.f1014X.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda46
@@ -1521,15 +1521,15 @@ public final class MainActivity extends Activity {
     public void m995R() {
         int i;
         int i2;
-        C0113o c0113o = this.f1049p;
+        ConfigStore c0113o = this.f1049p;
         boolean z = c0113o == null || c0113o.m1838m();
         this.f1023b1 = true;
         Switch r3 = this.f987J0;
-        C0113o c0113o2 = this.f1049p;
+        ConfigStore c0113o2 = this.f1049p;
         r3.setChecked(c0113o2 != null && c0113o2.m1775a());
         Switch r32 = this.f989K0;
         if (r32 != null) {
-            C0113o c0113o3 = this.f1049p;
+            ConfigStore c0113o3 = this.f1049p;
             r32.setChecked(c0113o3 != null && c0113o3.m1801d());
             this.f989K0.setEnabled((this.f1049p == null || f962f) ? false : true);
         }
@@ -1542,13 +1542,13 @@ public final class MainActivity extends Activity {
         this.f970B.setVisibility(str == null ? 8 : 0);
         FrameLayout frameLayout = this.f1069z;
         if (z && str == null) {
-            i = C0087T.f1374r;
-            i2 = C0087T.f1375s;
+            i = UiKit.f1374r;
+            i2 = UiKit.f1375s;
         } else {
-            i = C0087T.f1376t;
-            i2 = C0087T.f1377u;
+            i = UiKit.f1376t;
+            i2 = UiKit.f1377u;
         }
-        frameLayout.setBackground(C0087T.m1406a(i, i2));
+        frameLayout.setBackground(UiKit.m1406a(i, i2));
         this.f1069z.setElevation((z && str == null) ? m1004a(4.0f) : 0.0f);
         String str2 = "原装";
         this.f974D.setText(this.f1049p == null ? "—" : z ? "4×6" : "原装");
@@ -1588,13 +1588,13 @@ public final class MainActivity extends Activity {
         int top = childAt != null ? childAt.getTop() : 0;
         String str = this.f1061v;
         if (str == null) {
-            TextView m1413a = C0087T.m1413a(this, 15.0f, C0087T.f1349d, 500);
+            TextView m1413a = UiKit.m1413a(this, 15.0f, UiKit.f1349d, 500);
             m1413a.setText("选择左侧的 App 查看设置");
             this.f1059u.addView(m1413a, new FrameLayout.LayoutParams(-2, -2, 17));
             mainActivity = this;
         } else {
             mainActivity = this;
-            mainActivity.f1059u.addView(new C0104f(mainActivity, str, this.f1063w, null, true, 0, this.f1051q.m1438d(), 0, this.f1051q.m1436b(), new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda90
+            mainActivity.f1059u.addView(new AppSettingsPanel(mainActivity, str, this.f1063w, null, true, 0, this.f1051q.m1438d(), 0, this.f1051q.m1436b(), new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda90
                 @Override // java.lang.Runnable
                 public final void run() {
                     MainActivity.this.m1159o();
@@ -1610,7 +1610,7 @@ public final class MainActivity extends Activity {
 
     /* renamed from: T */
     private void m997T() {
-        C0113o c0113o = this.f1049p;
+        ConfigStore c0113o = this.f1049p;
         if (c0113o == null) {
             this.f980G.setText("—");
             return;
@@ -1620,7 +1620,7 @@ public final class MainActivity extends Activity {
         this.f982H.setProgress(m1829j - 1);
         this.f980G.setText(String.valueOf(m1829j));
         for (int i = 0; i < this.f988K.size(); i++) {
-            C0087T.m1423a(this.f988K.get(i), C0071P.f1193x[i] == m1829j);
+            UiKit.m1423a(this.f988K.get(i), ConfigKeys.f1193x[i] == m1829j);
             this.f988K.get(i).setEnabled(!f962f);
         }
         this.f986J.setEnabled(!f962f);
@@ -1723,23 +1723,23 @@ public final class MainActivity extends Activity {
 
     /* renamed from: W */
     private View m1000W() {
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        C0087T.m1418a(m1411a, this.f1051q.f1398e ? 26.0f : 28.0f);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        UiKit.m1418a(m1411a, this.f1051q.f1398e ? 26.0f : 28.0f);
         m1411a.setPadding(m1004a(18.0f), m1004a(6.0f), m1004a(16.0f), m1004a(12.0f));
-        LinearLayout m1430c = C0087T.m1430c(this);
+        LinearLayout m1430c = UiKit.m1430c(this);
         m1430c.setMinimumHeight(m1004a(76.0f));
-        LinearLayout m1411a2 = C0087T.m1411a((Context) this);
-        TextView m1413a = C0087T.m1413a(this, 15.0f, C0087T.f1345b, 600);
+        LinearLayout m1411a2 = UiKit.m1411a((Context) this);
+        TextView m1413a = UiKit.m1413a(this, 15.0f, UiKit.f1345b, 600);
         m1413a.setText("帐篷钟面");
         m1411a2.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         m1413a2.setText("锁屏摆成帐篷姿势时，在外屏显示常亮钟面");
         m1413a2.setPadding(0, m1004a(3.0f), 0, 0);
         m1411a2.addView(m1413a2);
-        m1430c.addView(m1411a2, C0087T.m1428b());
+        m1430c.addView(m1411a2, UiKit.m1428b());
         Switch r2 = new Switch(this);
         this.f994N = r2;
-        C0087T.m1422a(r2);
+        UiKit.m1422a(r2);
         this.f994N.setContentDescription("帐篷钟面");
         this.f994N.setEnabled(false);
         this.f994N.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda51
@@ -1756,11 +1756,11 @@ public final class MainActivity extends Activity {
             }
         });
         m1411a.addView(m1430c);
-        TextView m1413a3 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a3 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         this.f996O = m1413a3;
         m1413a3.setLineSpacing(0.0f, 1.2f);
         this.f996O.setText("开启时自动允许锁屏显示（需 Root）；权限被关闭后可重新开启");
-        m1411a.addView(this.f996O, C0087T.m1408a());
+        m1411a.addView(this.f996O, UiKit.m1408a());
         return m1411a;
     }
 
@@ -1770,21 +1770,21 @@ public final class MainActivity extends Activity {
         LinearLayout m1121i = m1121i();
         FrameLayout frameLayout = new FrameLayout(this);
         this.f1069z = frameLayout;
-        frameLayout.addView(C0087T.m1407a(this, C0087T.m1403a(this, 7, C0087T.f1378v, 2.4f, false, 20.0f)), new FrameLayout.LayoutParams(m1004a(20.0f), m1004a(20.0f), 17));
-        m1121i.addView(this.f1069z, C0087T.m1409a(this, 44.0f, 44.0f));
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
+        frameLayout.addView(UiKit.m1407a(this, UiKit.m1403a(this, 7, UiKit.f1378v, 2.4f, false, 20.0f)), new FrameLayout.LayoutParams(m1004a(20.0f), m1004a(20.0f), 17));
+        m1121i.addView(this.f1069z, UiKit.m1409a(this, 44.0f, 44.0f));
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
         m1411a.setPadding(m1004a(12.0f), 0, m1004a(8.0f), 0);
-        TextView m1413a = C0087T.m1413a(this, 18.0f, C0087T.f1345b, 700);
+        TextView m1413a = UiKit.m1413a(this, 18.0f, UiKit.f1345b, 700);
         this.f968A = m1413a;
         m1411a.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, C0087T.f1347c, C0054J.f930m);
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, UiKit.f1347c, RailCodec.f930m);
         this.f970B = m1413a2;
         m1413a2.setPadding(0, m1004a(4.0f), 0, 0);
         m1411a.addView(this.f970B);
-        m1121i.addView(m1411a, C0087T.m1428b());
+        m1121i.addView(m1411a, UiKit.m1428b());
         Switch r2 = new Switch(this);
         this.f972C = r2;
-        C0087T.m1422a(r2);
+        UiKit.m1422a(r2);
         this.f972C.setContentDescription("MiDuo 总开关");
         this.f972C.setEnabled(false);
         this.f972C.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda0
@@ -1795,44 +1795,44 @@ public final class MainActivity extends Activity {
         });
         m1121i.addView(this.f972C);
         m1175u.addView(m1121i);
-        LinearLayout m1430c = C0087T.m1430c(this);
+        LinearLayout m1430c = UiKit.m1430c(this);
         this.f974D = m1016a(m1430c, "桌面", 0.0f);
         this.f976E = m1016a(m1430c, "外屏比例", 8.0f);
         this.f978F = m1016a(m1430c, "侧栏", 8.0f);
-        m1175u.addView(m1430c, C0087T.m1410a(C0087T.m1408a(), this, 14.0f));
+        m1175u.addView(m1430c, UiKit.m1410a(UiKit.m1408a(), this, 14.0f));
         return m1175u;
     }
 
     /* renamed from: Y */
     private View m1002Y() {
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        C0087T.m1418a(m1411a, this.f1051q.f1398e ? 26.0f : 28.0f);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        UiKit.m1418a(m1411a, this.f1051q.f1398e ? 26.0f : 28.0f);
         int i = 0;
         m1411a.setPadding(m1004a(18.0f), 0, m1004a(16.0f), 0);
-        LinearLayout m1430c = C0087T.m1430c(this);
+        LinearLayout m1430c = UiKit.m1430c(this);
         m1430c.setGravity(16);
         m1430c.setMinimumHeight(m1004a(64.0f));
-        LinearLayout m1411a2 = C0087T.m1411a((Context) this);
-        TextView m1413a = C0087T.m1413a(this, 15.0f, C0087T.f1345b, 600);
+        LinearLayout m1411a2 = UiKit.m1411a((Context) this);
+        TextView m1413a = UiKit.m1413a(this, 15.0f, UiKit.f1345b, 600);
         m1413a.setText("时钟模块位置");
         m1411a2.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         m1413a2.setText("时间、电量环和通知图标一起上下移动");
         m1413a2.setPadding(0, m1004a(3.0f), 0, 0);
         m1411a2.addView(m1413a2);
-        m1430c.addView(m1411a2, C0087T.m1428b());
-        TextView m1413a3 = C0087T.m1413a(this, 13.0f, C0087T.f1349d, 500);
+        m1430c.addView(m1411a2, UiKit.m1428b());
+        TextView m1413a3 = UiKit.m1413a(this, 13.0f, UiKit.f1349d, 500);
         this.f1038j0 = m1413a3;
         m1430c.addView(m1413a3);
-        final ImageView m1407a = C0087T.m1407a(this, C0087T.m1403a(this, 5, C0087T.f1351e, 2.6f, false, 14.0f));
-        LinearLayout.LayoutParams m1409a = C0087T.m1409a(this, 14.0f, 14.0f);
+        final ImageView m1407a = UiKit.m1407a(this, UiKit.m1403a(this, 5, UiKit.f1351e, 2.6f, false, 14.0f));
+        LinearLayout.LayoutParams m1409a = UiKit.m1409a(this, 14.0f, 14.0f);
         m1409a.leftMargin = m1004a(10.0f);
         m1430c.addView(m1407a, m1409a);
         m1411a.addView(m1430c);
-        final LinearLayout m1411a3 = C0087T.m1411a((Context) this);
+        final LinearLayout m1411a3 = UiKit.m1411a((Context) this);
         String[] strArr = {"外屏桌面", "外屏应用", "内屏横屏桌面", "内屏竖屏桌面", "外屏锁屏", "内屏横屏锁屏", "内屏竖屏锁屏"};
         while (i < 7) {
-            m1411a3.addView(m1008a(i, strArr[i]), C0087T.m1410a(C0087T.m1408a(), this, i == 0 ? 2.0f : 14.0f));
+            m1411a3.addView(m1008a(i, strArr[i]), UiKit.m1410a(UiKit.m1408a(), this, i == 0 ? 2.0f : 14.0f));
             i++;
         }
         m1411a3.addView(new View(this), new LinearLayout.LayoutParams(-1, m1004a(16.0f)));
@@ -1886,22 +1886,22 @@ public final class MainActivity extends Activity {
 
     /* renamed from: b0 */
     private View m1073b0() {
-        LinearLayout m1430c = C0087T.m1430c(this);
-        C0087T.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
+        LinearLayout m1430c = UiKit.m1430c(this);
+        UiKit.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
         m1430c.setPadding(m1004a(18.0f), 0, m1004a(16.0f), 0);
         m1430c.setMinimumHeight(m1004a(76.0f));
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        TextView m1413a = C0087T.m1413a(this, 15.0f, C0087T.f1345b, 600);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        TextView m1413a = UiKit.m1413a(this, 15.0f, UiKit.f1345b, 600);
         m1413a.setText("小组件");
         m1411a.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         m1413a2.setText("预览 MiDuo 的桌面小组件，添加到桌面或换照片");
         m1413a2.setPadding(0, m1004a(3.0f), 0, 0);
         m1411a.addView(m1413a2);
-        m1430c.addView(m1411a, C0087T.m1428b());
-        LinearLayout.LayoutParams m1409a = C0087T.m1409a(this, 14.0f, 14.0f);
+        m1430c.addView(m1411a, UiKit.m1428b());
+        LinearLayout.LayoutParams m1409a = UiKit.m1409a(this, 14.0f, 14.0f);
         m1409a.leftMargin = m1004a(8.0f);
-        m1430c.addView(C0087T.m1407a(this, C0087T.m1403a(this, 4, C0087T.f1349d, 3.0f, false, 14.0f)), m1409a);
+        m1430c.addView(UiKit.m1407a(this, UiKit.m1403a(this, 4, UiKit.f1349d, 3.0f, false, 14.0f)), m1409a);
         m1430c.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda77
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
@@ -1913,22 +1913,22 @@ public final class MainActivity extends Activity {
 
     /* renamed from: c0 */
     private View m1085c0() {
-        LinearLayout m1430c = C0087T.m1430c(this);
-        C0087T.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
+        LinearLayout m1430c = UiKit.m1430c(this);
+        UiKit.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
         m1430c.setPadding(m1004a(18.0f), 0, m1004a(16.0f), 0);
         m1430c.setMinimumHeight(m1004a(76.0f));
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        TextView m1413a = C0087T.m1413a(this, 15.0f, C0087T.f1345b, 600);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        TextView m1413a = UiKit.m1413a(this, 15.0f, UiKit.f1345b, 600);
         m1413a.setText("工作台");
         m1411a.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         m1413a2.setText("内屏横放时，在全屏 App 右下角按住再往里拉，进入工作台。关闭后右下角不再响应，正在显示的工作台会退出、当前大窗 App 回到全屏；小米原生分屏不受影响");
         m1413a2.setPadding(0, m1004a(3.0f), 0, 0);
         m1411a.addView(m1413a2);
-        m1430c.addView(m1411a, C0087T.m1428b());
+        m1430c.addView(m1411a, UiKit.m1428b());
         Switch r1 = new Switch(this);
         this.f1024c0 = r1;
-        C0087T.m1422a(r1);
+        UiKit.m1422a(r1);
         this.f1024c0.setContentDescription("工作台");
         this.f1024c0.setEnabled(false);
         this.f1024c0.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda38
@@ -1957,16 +1957,16 @@ public final class MainActivity extends Activity {
 
     /* renamed from: p */
     private View m1162p() {
-        LinearLayout m1430c = C0087T.m1430c(this);
-        C0087T.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
+        LinearLayout m1430c = UiKit.m1430c(this);
+        UiKit.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
         m1430c.setPadding(m1004a(18.0f), 0, m1004a(16.0f), 0);
         m1430c.setMinimumHeight(m1004a(76.0f));
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        TextView m1413a = C0087T.m1413a(this, 15.0f, C0087T.f1345b, 600);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        TextView m1413a = UiKit.m1413a(this, 15.0f, UiKit.f1345b, 600);
         m1413a.setText("开合动画（实验性）");
         m1411a.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
-        String m2004a = C0120v.m2004a(this);
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
+        String m2004a = DeviceGate.m2004a(this);
         this.f1035h1 = m2004a;
         if (m2004a == null) {
             m2004a = "切换后要等系统下次启动才用上";
@@ -1974,10 +1974,10 @@ public final class MainActivity extends Activity {
         m1413a2.setText(m2004a);
         m1413a2.setPadding(0, m1004a(3.0f), 0, 0);
         m1411a.addView(m1413a2);
-        m1430c.addView(m1411a, C0087T.m1428b());
+        m1430c.addView(m1411a, UiKit.m1428b());
         Switch r1 = new Switch(this);
         this.f1020a0 = r1;
-        C0087T.m1422a(r1);
+        UiKit.m1422a(r1);
         this.f1020a0.setContentDescription("开合动画（实验性）");
         this.f1020a0.setEnabled(false);
         this.f1020a0.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda36
@@ -1998,25 +1998,25 @@ public final class MainActivity extends Activity {
 
     /* renamed from: q */
     private View m1165q() {
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        C0087T.m1418a(m1411a, this.f1051q.f1398e ? 26.0f : 28.0f);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        UiKit.m1418a(m1411a, this.f1051q.f1398e ? 26.0f : 28.0f);
         m1411a.setPadding(m1004a(18.0f), 0, m1004a(16.0f), 0);
-        LinearLayout m1430c = C0087T.m1430c(this);
+        LinearLayout m1430c = UiKit.m1430c(this);
         m1430c.setGravity(16);
         m1430c.setMinimumHeight(m1004a(76.0f));
-        LinearLayout m1411a2 = C0087T.m1411a((Context) this);
-        TextView m1413a = C0087T.m1413a(this, 15.0f, C0087T.f1345b, 600);
+        LinearLayout m1411a2 = UiKit.m1411a((Context) this);
+        TextView m1413a = UiKit.m1413a(this, 15.0f, UiKit.f1345b, 600);
         m1413a.setText("轻折分屏");
         m1411a2.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         this.f1033g1 = m1413a2;
         m1413a2.setText(f966j);
         m1413a2.setPadding(0, m1004a(3.0f), 0, 0);
         m1411a2.addView(m1413a2);
-        m1430c.addView(m1411a2, C0087T.m1428b());
+        m1430c.addView(m1411a2, UiKit.m1428b());
         Switch r1 = new Switch(this);
         this.f1018Z = r1;
-        C0087T.m1422a(r1);
+        UiKit.m1422a(r1);
         this.f1018Z.setContentDescription("轻折分屏");
         this.f1018Z.setEnabled(false);
         this.f1018Z.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda6
@@ -2026,16 +2026,16 @@ public final class MainActivity extends Activity {
             }
         });
         m1430c.addView(this.f1018Z);
-        final ImageView m1407a = C0087T.m1407a(this, C0087T.m1403a(this, 5, C0087T.f1351e, 2.6f, false, 14.0f));
-        LinearLayout.LayoutParams m1409a = C0087T.m1409a(this, 14.0f, 14.0f);
+        final ImageView m1407a = UiKit.m1407a(this, UiKit.m1403a(this, 5, UiKit.f1351e, 2.6f, false, 14.0f));
+        LinearLayout.LayoutParams m1409a = UiKit.m1409a(this, 14.0f, 14.0f);
         m1409a.leftMargin = m1004a(10.0f);
         m1430c.addView(m1407a, m1409a);
         m1411a.addView(m1430c);
-        final LinearLayout m1411a3 = C0087T.m1411a((Context) this);
-        TextView m1413a3 = C0087T.m1413a(this, 13.0f, C0087T.f1347c, 600);
+        final LinearLayout m1411a3 = UiKit.m1411a((Context) this);
+        TextView m1413a3 = UiKit.m1413a(this, 13.0f, UiKit.f1347c, 600);
         m1413a3.setText("轻折灵敏度");
-        m1411a3.addView(m1413a3, C0087T.m1410a(C0087T.m1408a(), this, 2.0f));
-        C0087T.e eVar = new C0087T.e(this, new String[]{"灵敏", "标准", "稳定"}, null, new IntConsumer() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda7
+        m1411a3.addView(m1413a3, UiKit.m1410a(UiKit.m1408a(), this, 2.0f));
+        UiKit.e eVar = new UiKit.e(this, new String[]{"灵敏", "标准", "稳定"}, null, new IntConsumer() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda7
             @Override // java.util.function.IntConsumer
             public final void accept(int i) {
                 MainActivity.this.m1136k(i);
@@ -2043,10 +2043,10 @@ public final class MainActivity extends Activity {
         });
         this.f1030f0 = eVar;
         eVar.m1442a(false);
-        m1411a3.addView(this.f1030f0.f1407a, C0087T.m1410a(C0087T.m1408a(), this, 10.0f));
-        TextView m1413a4 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        m1411a3.addView(this.f1030f0.f1407a, UiKit.m1410a(UiKit.m1408a(), this, 10.0f));
+        TextView m1413a4 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         m1413a4.setText("灵敏：轻轻一折就触发；稳定：要折得更深、更快，不容易误触。容易误触就选稳定，不好触发就选灵敏");
-        m1411a3.addView(m1413a4, C0087T.m1410a(C0087T.m1408a(), this, 10.0f));
+        m1411a3.addView(m1413a4, UiKit.m1410a(UiKit.m1408a(), this, 10.0f));
         m1411a3.addView(new View(this), new LinearLayout.LayoutParams(-1, m1004a(16.0f)));
         m1411a3.setVisibility(8);
         m1411a.addView(m1411a3);
@@ -2103,19 +2103,19 @@ public final class MainActivity extends Activity {
 
     /* renamed from: s */
     private View m1171s() {
-        LinearLayout m1430c = C0087T.m1430c(this);
-        C0087T.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
+        LinearLayout m1430c = UiKit.m1430c(this);
+        UiKit.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
         m1430c.setPadding(m1004a(18.0f), 0, m1004a(16.0f), 0);
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        TextView m1413a = C0087T.m1413a(this, 15.0f, C0087T.f1345b, 600);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        TextView m1413a = UiKit.m1413a(this, 15.0f, UiKit.f1345b, 600);
         m1413a.setText("使用说明");
         m1411a.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         m1413a2.setText("安装要求、注意事项和免责声明");
         m1413a2.setPadding(0, m1004a(3.0f), 0, 0);
         m1411a.addView(m1413a2);
-        m1430c.addView(m1411a, C0087T.m1428b());
-        m1430c.addView(C0087T.m1407a(this, C0087T.m1403a(this, 4, C0087T.f1351e, 2.6f, false, 14.0f)), C0087T.m1409a(this, 14.0f, 14.0f));
+        m1430c.addView(m1411a, UiKit.m1428b());
+        m1430c.addView(UiKit.m1407a(this, UiKit.m1403a(this, 4, UiKit.f1351e, 2.6f, false, 14.0f)), UiKit.m1409a(this, 14.0f, 14.0f));
         m1430c.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda59
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
@@ -2137,19 +2137,19 @@ public final class MainActivity extends Activity {
         });
         this.f980G = textViewArr[0];
         this.f982H = seekBarArr[0];
-        LinearLayout m1430c = C0087T.m1430c(this);
+        LinearLayout m1430c = UiKit.m1430c(this);
         int i = 0;
         while (true) {
-            int[] iArr = C0071P.f1193x;
+            int[] iArr = ConfigKeys.f1193x;
             if (i >= iArr.length) {
                 m1014a.addView(m1430c);
-                TextView m1413a = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+                TextView m1413a = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
                 m1413a.setText("单独设置过的 App 不受影响，App 下次打开时生效");
-                m1014a.addView(m1413a, C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
+                m1014a.addView(m1413a, UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
                 return m1014a;
             }
             final int i2 = iArr[i];
-            TextView m1415a = C0087T.m1415a((Context) this, i2 + "px", false, 36.0f);
+            TextView m1415a = UiKit.m1415a((Context) this, i2 + "px", false, 36.0f);
             m1415a.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda82
                 @Override // android.view.View.OnClickListener
                 public final void onClick(View view) {
@@ -2168,8 +2168,8 @@ public final class MainActivity extends Activity {
 
     /* renamed from: u */
     private LinearLayout m1175u() {
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        C0087T.m1418a(m1411a, this.f1051q.f1398e ? 26.0f : 28.0f);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        UiKit.m1418a(m1411a, this.f1051q.f1398e ? 26.0f : 28.0f);
         m1411a.setPadding(m1004a(18.0f), m1004a(18.0f), m1004a(18.0f), m1004a(18.0f));
         return m1411a;
     }
@@ -2205,17 +2205,12 @@ public final class MainActivity extends Activity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:102:0x0173 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:88:0x0197  */
-    /* JADX WARN: Removed duplicated region for block: B:91:0x0200  */
-    /* JADX WARN: Removed duplicated region for block: B:97:0x01af  */
     /* renamed from: z */
     /*
-        Code decompiled incorrectly, please refer to instructions dump.
     */
     public void m1185z() {
-        C0113o c0113o;
-        final C0113o c0113o2;
+        ConfigStore c0113o;
+        final ConfigStore c0113o2;
         String valueOf;
         String valueOf2;
         PackageManager packageManager = getPackageManager();
@@ -2266,7 +2261,7 @@ public final class MainActivity extends Activity {
                 return m1007a;
             }
         });
-        for (String str2 : C0071P.f1171i) {
+        for (String str2 : ConfigKeys.f1171i) {
             try {
                 ApplicationInfo applicationInfo2 = packageManager.getApplicationInfo(str2, 0);
                 C0064g c0064g2 = new C0064g();
@@ -2280,7 +2275,7 @@ public final class MainActivity extends Activity {
             } catch (PackageManager.NameNotFoundException e2) {
             }
         }
-        for (String str3 : C0071P.f1173j) {
+        for (String str3 : ConfigKeys.f1173j) {
             if (!hashSet.contains(str3)) {
                 try {
                     ApplicationInfo applicationInfo3 = packageManager.getApplicationInfo(str3, 0);
@@ -2302,11 +2297,11 @@ public final class MainActivity extends Activity {
             }
         });
         boolean z2 = !m1123i("debug.duo.master").isEmpty();
-        XposedService m970a = C0056L.m970a(8000L);
+        XposedService m970a = ConfigBroadcastHub.m970a(8000L);
         C0058a c0058a = null;
         if (m970a != null) {
             try {
-                c0113o = new C0113o(m970a);
+                c0113o = new ConfigStore(m970a);
             } catch (Throwable th) {
                 th = th;
                 c0113o = null;
@@ -2330,7 +2325,7 @@ public final class MainActivity extends Activity {
                 c0066i.f1102i = new String[]{Build.VERSION.INCREMENTAL, m1019a(packageManager, "com.miui.home"), m1019a(packageManager, "com.miui.personalassistant"), m1019a(packageManager, getPackageName())};
                 if (c0113o2 != null) {
                 }
-                c0066i.f1103j = C0116r.m1896a(z);
+                c0066i.f1103j = Diagnostics.m1896a(z);
                 this.f1043m.post(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda65
                     @Override // java.lang.Runnable
                     public final void run() {
@@ -2369,7 +2364,7 @@ public final class MainActivity extends Activity {
                 if (c0113o2 != null) {
                     z = true;
                 }
-                c0066i2.f1103j = C0116r.m1896a(z);
+                c0066i2.f1103j = Diagnostics.m1896a(z);
                 this.f1043m.post(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda65
                     @Override // java.lang.Runnable
                     public final void run() {
@@ -2402,7 +2397,7 @@ public final class MainActivity extends Activity {
         if (c0113o2 != null && c0113o2.m1809e()) {
             z = true;
         }
-        c0066i22.f1103j = C0116r.m1896a(z);
+        c0066i22.f1103j = Diagnostics.m1896a(z);
         this.f1043m.post(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda65
             @Override // java.lang.Runnable
             public final void run() {
@@ -2425,8 +2420,8 @@ public final class MainActivity extends Activity {
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        C0056L.m976d();
-        C0087T.d dVar = new C0087T.d(this);
+        ConfigBroadcastHub.m976d();
+        UiKit.d dVar = new UiKit.d(this);
         this.f1051q = dVar;
         this.f1057t = dVar.f1398e;
         this.f1053r[0] = m1093e();
@@ -2459,19 +2454,19 @@ public final class MainActivity extends Activity {
         C0066i c0066i = (C0066i) getLastNonConfigurationInstance();
         if (c0066i != null) {
             m1040a(c0066i);
-        } else if (C0123y.m2041a((Context) this)) {
+        } else if (FirstRunGuide.m2041a((Context) this)) {
             f957a.execute(new MainActivity$$ExternalSyntheticLambda13(this));
         }
-        if (bundle == null && C0123y.m2041a((Context) this)) {
+        if (bundle == null && FirstRunGuide.m2041a((Context) this)) {
             f957a.execute(new MainActivity$$ExternalSyntheticLambda14());
         }
-        if (c0066i != null || C0123y.m2041a((Context) this)) {
+        if (c0066i != null || FirstRunGuide.m2041a((Context) this)) {
             this.f1031f1 = true;
         }
         if (this.f1057t) {
             m996S();
         }
-        C0123y.m2042b((Activity) this);
+        FirstRunGuide.m2042b((Activity) this);
     }
 
     @Override // android.app.Activity
@@ -2512,15 +2507,15 @@ public final class MainActivity extends Activity {
 
     /* renamed from: c */
     private TextView m1074c(String str) {
-        LinearLayout m1430c = C0087T.m1430c(this);
+        LinearLayout m1430c = UiKit.m1430c(this);
         m1430c.setPadding(0, m1004a(10.0f), 0, 0);
-        TextView m1413a = C0087T.m1413a(this, 13.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a = UiKit.m1413a(this, 13.0f, UiKit.f1349d, RailCodec.f930m);
         m1413a.setText(str);
         m1430c.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 13.0f, C0087T.f1345b, 500);
+        TextView m1413a2 = UiKit.m1413a(this, 13.0f, UiKit.f1345b, 500);
         m1413a2.setGravity(8388613);
         m1413a2.setPadding(m1004a(16.0f), 0, 0, 0);
-        m1430c.addView(m1413a2, C0087T.m1428b());
+        m1430c.addView(m1413a2, UiKit.m1428b());
         this.f1068y0.addView(m1430c);
         return m1413a2;
     }
@@ -2544,17 +2539,17 @@ public final class MainActivity extends Activity {
     /* renamed from: e */
     private View m1093e() {
         MainActivity mainActivity;
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        LinearLayout m1430c = C0087T.m1430c(this);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        LinearLayout m1430c = UiKit.m1430c(this);
         if (this.f1051q.f1398e) {
             mainActivity = this;
         } else {
             m1430c.setPadding(m1004a(6.0f), 0, m1004a(6.0f) + this.f1051q.m1437c(), m1004a(4.0f));
             FrameLayout frameLayout = new FrameLayout(this);
-            C0087T.m1418a(frameLayout, 14.0f);
+            UiKit.m1418a(frameLayout, 14.0f);
             mainActivity = this;
-            frameLayout.addView(C0087T.m1407a(this, C0087T.m1403a(mainActivity, 10, C0087T.f1345b, 0.0f, true, 26.0f)), new FrameLayout.LayoutParams(m1004a(26.0f), m1004a(26.0f), 17));
-            m1430c.addView(frameLayout, C0087T.m1409a(this, 46.0f, 46.0f));
+            frameLayout.addView(UiKit.m1407a(this, UiKit.m1403a(mainActivity, 10, UiKit.f1345b, 0.0f, true, 26.0f)), new FrameLayout.LayoutParams(m1004a(26.0f), m1004a(26.0f), 17));
+            m1430c.addView(frameLayout, UiKit.m1409a(this, 46.0f, 46.0f));
         }
         TextView m1108g = m1108g("MiDuo");
         if (mainActivity.f1051q.f1398e) {
@@ -2562,10 +2557,10 @@ public final class MainActivity extends Activity {
         } else {
             m1108g.setPadding(m1004a(12.0f), 0, 0, 0);
         }
-        m1430c.addView(m1108g, C0087T.m1428b());
-        LinearLayout m1430c2 = C0087T.m1430c(this);
+        m1430c.addView(m1108g, UiKit.m1428b());
+        LinearLayout m1430c2 = UiKit.m1430c(this);
         mainActivity.f1067y = m1430c2;
-        C0087T.m1418a(m1430c2, 16.0f);
+        UiKit.m1418a(m1430c2, 16.0f);
         mainActivity.f1067y.setPadding(m1004a(7.0f), 0, m1004a(12.0f), 0);
         mainActivity.f1067y.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda45
             @Override // android.view.View.OnClickListener
@@ -2581,26 +2576,26 @@ public final class MainActivity extends Activity {
         View m985H = m985H();
         View m1060b = m1060b(!mainActivity.f1051q.f1398e);
         if (!mainActivity.f1051q.f1398e) {
-            m1411a.addView(m1001X, C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
-            m1411a.addView(C0087T.m1414a((Context) this, "常用设置"));
-            m1411a.addView(m1173t, C0087T.m1408a());
-            m1411a.addView(m993P, C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
-            m1411a.addView(m985H, C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
-            m1411a.addView(m1060b, C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
-            m1411a.addView(m1177v(), C0087T.m1410a(new LinearLayout.LayoutParams(-1, m1004a(64.0f)), this, 12.0f));
-            m1411a.addView(m1171s(), C0087T.m1410a(new LinearLayout.LayoutParams(-1, m1004a(64.0f)), this, 12.0f));
+            m1411a.addView(m1001X, UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
+            m1411a.addView(UiKit.m1414a((Context) this, "常用设置"));
+            m1411a.addView(m1173t, UiKit.m1408a());
+            m1411a.addView(m993P, UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
+            m1411a.addView(m985H, UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
+            m1411a.addView(m1060b, UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
+            m1411a.addView(m1177v(), UiKit.m1410a(new LinearLayout.LayoutParams(-1, m1004a(64.0f)), this, 12.0f));
+            m1411a.addView(m1171s(), UiKit.m1410a(new LinearLayout.LayoutParams(-1, m1004a(64.0f)), this, 12.0f));
             return m1015a(m1411a);
         }
-        LinearLayout m1411a2 = C0087T.m1411a((Context) this);
+        LinearLayout m1411a2 = UiKit.m1411a((Context) this);
         m1411a2.addView(m1012a(m1001X, m1173t), new LinearLayout.LayoutParams(-1, 0, 1.0f));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 0, 1.0f);
         layoutParams.topMargin = m1004a(14.0f);
         m1411a2.addView(m1012a(m1060b, m985H), layoutParams);
-        m1411a.addView(m1411a2, C0087T.m1410a(new LinearLayout.LayoutParams(-1, 0, 1.0f), this, 14.0f));
-        m1411a.addView(m993P, C0087T.m1410a(C0087T.m1408a(), this, 14.0f));
-        m1411a.addView(m983F(), C0087T.m1410a(new LinearLayout.LayoutParams(-1, m1004a(84.0f)), this, 14.0f));
-        m1411a.addView(m1177v(), C0087T.m1410a(new LinearLayout.LayoutParams(-1, m1004a(64.0f)), this, 14.0f));
-        m1411a.addView(m1171s(), C0087T.m1410a(new LinearLayout.LayoutParams(-1, m1004a(64.0f)), this, 14.0f));
+        m1411a.addView(m1411a2, UiKit.m1410a(new LinearLayout.LayoutParams(-1, 0, 1.0f), this, 14.0f));
+        m1411a.addView(m993P, UiKit.m1410a(UiKit.m1408a(), this, 14.0f));
+        m1411a.addView(m983F(), UiKit.m1410a(new LinearLayout.LayoutParams(-1, m1004a(84.0f)), this, 14.0f));
+        m1411a.addView(m1177v(), UiKit.m1410a(new LinearLayout.LayoutParams(-1, m1004a(64.0f)), this, 14.0f));
+        m1411a.addView(m1171s(), UiKit.m1410a(new LinearLayout.LayoutParams(-1, m1004a(64.0f)), this, 14.0f));
         ScrollView m1015a = m1015a(m1411a);
         m1015a.setFillViewport(true);
         return m1015a;
@@ -2616,7 +2611,7 @@ public final class MainActivity extends Activity {
 
     /* renamed from: g */
     private TextView m1108g(String str) {
-        TextView m1413a = C0087T.m1413a(this, 32.0f, C0087T.f1345b, 800);
+        TextView m1413a = UiKit.m1413a(this, 32.0f, UiKit.f1345b, 800);
         m1413a.setText(str);
         m1413a.setLetterSpacing(-0.02f);
         return m1413a;
@@ -2629,7 +2624,7 @@ public final class MainActivity extends Activity {
 
     /* renamed from: i */
     private LinearLayout m1121i() {
-        LinearLayout m1430c = C0087T.m1430c(this);
+        LinearLayout m1430c = UiKit.m1430c(this);
         m1430c.setMinimumHeight(m1004a(44.0f));
         return m1430c;
     }
@@ -2704,19 +2699,19 @@ public final class MainActivity extends Activity {
 
     /* renamed from: v */
     private View m1177v() {
-        LinearLayout m1430c = C0087T.m1430c(this);
-        C0087T.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
+        LinearLayout m1430c = UiKit.m1430c(this);
+        UiKit.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
         m1430c.setPadding(m1004a(18.0f), 0, m1004a(16.0f), 0);
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        TextView m1413a = C0087T.m1413a(this, 15.0f, C0087T.f1345b, 600);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        TextView m1413a = UiKit.m1413a(this, 15.0f, UiKit.f1345b, 600);
         m1413a.setText("图标");
         m1411a.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         m1413a2.setText("从 MTZ 导入图标，或恢复原备份");
         m1413a2.setPadding(0, m1004a(3.0f), 0, 0);
         m1411a.addView(m1413a2);
-        m1430c.addView(m1411a, C0087T.m1428b());
-        m1430c.addView(C0087T.m1407a(this, C0087T.m1403a(this, 4, C0087T.f1351e, 2.6f, false, 14.0f)), C0087T.m1409a(this, 14.0f, 14.0f));
+        m1430c.addView(m1411a, UiKit.m1428b());
+        m1430c.addView(UiKit.m1407a(this, UiKit.m1403a(this, 4, UiKit.f1351e, 2.6f, false, 14.0f)), UiKit.m1409a(this, 14.0f, 14.0f));
         m1430c.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda23
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
@@ -2728,21 +2723,21 @@ public final class MainActivity extends Activity {
 
     /* renamed from: w */
     private View m1179w() {
-        LinearLayout m1430c = C0087T.m1430c(this);
-        C0087T.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
+        LinearLayout m1430c = UiKit.m1430c(this);
+        UiKit.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
         m1430c.setPadding(m1004a(18.0f), m1004a(12.0f), m1004a(16.0f), m1004a(12.0f));
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        TextView m1413a = C0087T.m1413a(this, 15.0f, C0087T.f1345b, 600);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        TextView m1413a = UiKit.m1413a(this, 15.0f, UiKit.f1345b, 600);
         m1413a.setText("内屏原生顶栏");
         m1411a.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         m1413a2.setText("开启后内屏显示小米原厂顶栏（时间、电量、通知），往下拉交给系统；每个 App 可在详情里单独设置");
         m1413a2.setPadding(0, m1004a(3.0f), m1004a(8.0f), 0);
         m1411a.addView(m1413a2);
-        m1430c.addView(m1411a, C0087T.m1428b());
+        m1430c.addView(m1411a, UiKit.m1428b());
         Switch r1 = new Switch(this);
         this.f1010V = r1;
-        C0087T.m1422a(r1);
+        UiKit.m1422a(r1);
         this.f1010V.setContentDescription("内屏原生顶栏");
         this.f1010V.setEnabled(false);
         this.f1010V.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda61
@@ -2763,22 +2758,22 @@ public final class MainActivity extends Activity {
 
     /* renamed from: x */
     private View m1181x() {
-        LinearLayout m1430c = C0087T.m1430c(this);
-        C0087T.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
+        LinearLayout m1430c = UiKit.m1430c(this);
+        UiKit.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
         m1430c.setPadding(m1004a(18.0f), 0, m1004a(16.0f), 0);
         m1430c.setMinimumHeight(m1004a(76.0f));
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        TextView m1413a = C0087T.m1413a(this, 15.0f, C0087T.f1345b, 600);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        TextView m1413a = UiKit.m1413a(this, 15.0f, UiKit.f1345b, 600);
         m1413a.setText("iOS 风格通知中心");
         m1411a.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         m1413a2.setText("下拉通知时的圆角面板、横条、清除按钮和底部偏移");
         m1413a2.setPadding(0, m1004a(3.0f), 0, 0);
         m1411a.addView(m1413a2);
-        m1430c.addView(m1411a, C0087T.m1428b());
-        LinearLayout.LayoutParams m1409a = C0087T.m1409a(this, 14.0f, 14.0f);
+        m1430c.addView(m1411a, UiKit.m1428b());
+        LinearLayout.LayoutParams m1409a = UiKit.m1409a(this, 14.0f, 14.0f);
         m1409a.leftMargin = m1004a(8.0f);
-        m1430c.addView(C0087T.m1407a(this, C0087T.m1403a(this, 4, C0087T.f1349d, 3.0f, false, 14.0f)), m1409a);
+        m1430c.addView(UiKit.m1407a(this, UiKit.m1403a(this, 4, UiKit.f1349d, 3.0f, false, 14.0f)), m1409a);
         m1430c.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda44
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
@@ -2807,22 +2802,22 @@ public final class MainActivity extends Activity {
         }
         View view = new View(this);
         this.f1054r0 = view;
-        m1121i.addView(view, C0087T.m1409a(this, 7.0f, 7.0f));
-        TextView m1413a = C0087T.m1413a(this, 15.0f, C0087T.f1345b, 600);
+        m1121i.addView(view, UiKit.m1409a(this, 7.0f, 7.0f));
+        TextView m1413a = UiKit.m1413a(this, 15.0f, UiKit.f1345b, 600);
         m1413a.setText("诊断信息");
         m1413a.setPadding(m1004a(10.0f), 0, 0, 0);
-        m1121i.addView(m1413a, C0087T.m1428b());
-        TextView m1413a2 = C0087T.m1413a(this, 13.0f, C0087T.f1349d, 500);
+        m1121i.addView(m1413a, UiKit.m1428b());
+        TextView m1413a2 = UiKit.m1413a(this, 13.0f, UiKit.f1349d, 500);
         this.f1056s0 = m1413a2;
         m1121i.addView(m1413a2);
         m1175u.addView(m1121i);
-        this.f1068y0 = C0087T.m1411a((Context) this);
+        this.f1068y0 = UiKit.m1411a((Context) this);
         if (!z) {
             mainActivity = this;
         } else {
             mainActivity = this;
-            mainActivity.f1066x0 = C0087T.m1407a(this, C0087T.m1403a(mainActivity, 5, C0087T.f1351e, 2.6f, false, 14.0f));
-            LinearLayout.LayoutParams m1409a = C0087T.m1409a(this, 14.0f, 14.0f);
+            mainActivity.f1066x0 = UiKit.m1407a(this, UiKit.m1403a(mainActivity, 5, UiKit.f1351e, 2.6f, false, 14.0f));
+            LinearLayout.LayoutParams m1409a = UiKit.m1409a(this, 14.0f, 14.0f);
             m1409a.leftMargin = m1004a(10.0f);
             m1121i.addView(mainActivity.f1066x0, m1409a);
             m1121i.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda69
@@ -2834,7 +2829,7 @@ public final class MainActivity extends Activity {
             mainActivity.f1068y0.setVisibility(8);
         }
         View view2 = new View(this);
-        view2.setBackgroundColor(C0087T.f1357h);
+        view2.setBackgroundColor(UiKit.f1357h);
         mainActivity.f1068y0.addView(view2, new LinearLayout.LayoutParams(-1, Math.max(1, m1004a(0.5f))));
         mainActivity.f1070z0 = m1074c("LSPosed");
         mainActivity.f969A0 = m1074c("作用域");
@@ -2843,12 +2838,12 @@ public final class MainActivity extends Activity {
         mainActivity.f975D0 = m1074c("智能助理");
         mainActivity.f977E0 = m1074c("MiDuo");
         mainActivity.f979F0 = m1074c("开合动画");
-        TextView m1413a3 = C0087T.m1413a(this, 12.0f, -2543579, 500);
+        TextView m1413a3 = UiKit.m1413a(this, 12.0f, -2543579, 500);
         mainActivity.f981G0 = m1413a3;
         m1413a3.setPadding(0, m1004a(10.0f), 0, 0);
         mainActivity.f981G0.setVisibility(8);
         mainActivity.f1068y0.addView(mainActivity.f981G0);
-        TextView m1415a = C0087T.m1415a((Context) this, "", false, 40.0f);
+        TextView m1415a = UiKit.m1415a((Context) this, "", false, 40.0f);
         mainActivity.f983H0 = m1415a;
         m1415a.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda70
             @Override // android.view.View.OnClickListener
@@ -2856,15 +2851,15 @@ public final class MainActivity extends Activity {
                 MainActivity.this.m1110g(view3);
             }
         });
-        mainActivity.f1068y0.addView(mainActivity.f983H0, C0087T.m1410a(new LinearLayout.LayoutParams(-1, m1004a(40.0f)), this, 10.0f));
-        TextView m1415a2 = C0087T.m1415a((Context) this, "Bug 抓取与导出", false, 40.0f);
+        mainActivity.f1068y0.addView(mainActivity.f983H0, UiKit.m1410a(new LinearLayout.LayoutParams(-1, m1004a(40.0f)), this, 10.0f));
+        TextView m1415a2 = UiKit.m1415a((Context) this, "Bug 抓取与导出", false, 40.0f);
         m1415a2.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda71
             @Override // android.view.View.OnClickListener
             public final void onClick(View view3) {
                 MainActivity.this.m1118h(view3);
             }
         });
-        mainActivity.f1068y0.addView(m1415a2, C0087T.m1410a(new LinearLayout.LayoutParams(-1, m1004a(40.0f)), this, 8.0f));
+        mainActivity.f1068y0.addView(m1415a2, UiKit.m1410a(new LinearLayout.LayoutParams(-1, m1004a(40.0f)), this, 8.0f));
         if (z) {
             mainActivity.f1068y0.addView(new View(this), new LinearLayout.LayoutParams(-1, m1004a(14.0f)));
         }
@@ -2874,21 +2869,21 @@ public final class MainActivity extends Activity {
 
     /* renamed from: j */
     private View m1129j() {
-        LinearLayout m1430c = C0087T.m1430c(this);
-        C0087T.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
+        LinearLayout m1430c = UiKit.m1430c(this);
+        UiKit.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
         m1430c.setPadding(m1004a(18.0f), 0, m1004a(16.0f), 0);
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        TextView m1413a = C0087T.m1413a(this, 15.0f, C0087T.f1345b, 600);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        TextView m1413a = UiKit.m1413a(this, 15.0f, UiKit.f1345b, 600);
         m1413a.setText("5G 新样式");
         m1411a.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         m1413a2.setText("用流量时圆环中间显示信号格，缺口处写网络类型");
         m1413a2.setPadding(0, m1004a(3.0f), 0, 0);
         m1411a.addView(m1413a2);
-        m1430c.addView(m1411a, C0087T.m1428b());
+        m1430c.addView(m1411a, UiKit.m1428b());
         Switch r1 = new Switch(this);
         this.f1022b0 = r1;
-        C0087T.m1422a(r1);
+        UiKit.m1422a(r1);
         this.f1022b0.setContentDescription("5G 新样式");
         this.f1022b0.setEnabled(false);
         this.f1022b0.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda29
@@ -2924,7 +2919,7 @@ public final class MainActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: m */
     public void m1148m(int i) {
-        C0113o c0113o = this.f1049p;
+        ConfigStore c0113o = this.f1049p;
         if (c0113o == null || c0113o.m1797c(i)) {
             return;
         }
@@ -2957,24 +2952,24 @@ public final class MainActivity extends Activity {
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(1);
         ScrollView scrollView = new ScrollView(this);
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
         m1411a.setPadding(m1004a(22.0f), m1004a(22.0f), m1004a(22.0f), m1004a(18.0f));
         scrollView.addView(m1411a);
-        TextView m1413a = C0087T.m1413a(this, 20.0f, C0087T.f1345b, 700);
+        TextView m1413a = UiKit.m1413a(this, 20.0f, UiKit.f1345b, 700);
         m1413a.setText("打开前检查");
         m1411a.addView(m1413a);
-        final TextView m1413a2 = C0087T.m1413a(this, 13.0f, C0087T.f1347c, C0054J.f930m);
+        final TextView m1413a2 = UiKit.m1413a(this, 13.0f, UiKit.f1347c, RailCodec.f930m);
         m1413a2.setText("正在检查…");
         m1413a2.setLineSpacing(m1004a(2.0f), 1.0f);
-        m1411a.addView(m1413a2, C0087T.m1410a(C0087T.m1408a(), this, 8.0f));
-        final LinearLayout m1411a2 = C0087T.m1411a((Context) this);
-        m1411a2.setBackground(C0087T.m1404a(C0087T.f1355g, m1004a(16.0f)));
+        m1411a.addView(m1413a2, UiKit.m1410a(UiKit.m1408a(), this, 8.0f));
+        final LinearLayout m1411a2 = UiKit.m1411a((Context) this);
+        m1411a2.setBackground(UiKit.m1404a(UiKit.f1355g, m1004a(16.0f)));
         m1411a2.setPadding(m1004a(14.0f), 0, m1004a(14.0f), 0);
         m1411a2.setVisibility(8);
-        m1411a.addView(m1411a2, C0087T.m1410a(C0087T.m1408a(), this, 14.0f));
-        LinearLayout m1430c = C0087T.m1430c(this);
+        m1411a.addView(m1411a2, UiKit.m1410a(UiKit.m1408a(), this, 14.0f));
+        LinearLayout m1430c = UiKit.m1430c(this);
         m1430c.setGravity(8388629);
-        final TextView m1415a = C0087T.m1415a((Context) this, "取消", false, 38.0f);
+        final TextView m1415a = UiKit.m1415a((Context) this, "取消", false, 38.0f);
         m1415a.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda3
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
@@ -2982,12 +2977,12 @@ public final class MainActivity extends Activity {
             }
         });
         m1430c.addView(m1415a);
-        m1411a.addView(m1430c, C0087T.m1410a(C0087T.m1408a(), this, 18.0f));
+        m1411a.addView(m1430c, UiKit.m1410a(UiKit.m1408a(), this, 18.0f));
         dialog.setContentView(scrollView);
         dialog.show();
-        dialog.getWindow().setBackgroundDrawable(C0087T.m1404a(C0087T.f1359i, m1004a(24.0f)));
+        dialog.getWindow().setBackgroundDrawable(UiKit.m1404a(UiKit.f1359i, m1004a(24.0f)));
         dialog.getWindow().setLayout(Math.min(getResources().getDisplayMetrics().widthPixels - m1004a(32.0f), m1004a(560.0f)), -2);
-        XposedService m975c = C0056L.m975c();
+        XposedService m975c = ConfigBroadcastHub.m975c();
         final boolean z = (this.f1049p == null || m975c == null) ? false : true;
         if (!z) {
             j = 0;
@@ -3025,7 +3020,7 @@ public final class MainActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: f */
     public /* synthetic */ void m1104f(CompoundButton compoundButton, boolean z) {
-        C0113o c0113o;
+        ConfigStore c0113o;
         if (this.f1023b1 || (c0113o = this.f1049p) == null) {
             return;
         }
@@ -3099,35 +3094,35 @@ public final class MainActivity extends Activity {
 
     /* renamed from: m */
     private View m1147m() {
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        C0087T.m1418a(m1411a, this.f1051q.f1398e ? 26.0f : 28.0f);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        UiKit.m1418a(m1411a, this.f1051q.f1398e ? 26.0f : 28.0f);
         m1411a.setPadding(m1004a(18.0f), m1004a(6.0f), m1004a(18.0f), m1004a(6.0f));
-        LinearLayout m1430c = C0087T.m1430c(this);
+        LinearLayout m1430c = UiKit.m1430c(this);
         m1430c.setMinimumHeight(m1004a(76.0f));
-        TextView m1413a = C0087T.m1413a(this, 15.0f, C0087T.f1345b, 600);
+        TextView m1413a = UiKit.m1413a(this, 15.0f, UiKit.f1345b, 600);
         m1413a.setText("颜色配置");
-        m1430c.addView(m1413a, C0087T.m1428b());
-        final ImageView m1407a = C0087T.m1407a(this, C0087T.m1403a(this, 5, C0087T.f1349d, 3.0f, false, 12.0f));
-        m1430c.addView(m1407a, C0087T.m1409a(this, 12.0f, 12.0f));
+        m1430c.addView(m1413a, UiKit.m1428b());
+        final ImageView m1407a = UiKit.m1407a(this, UiKit.m1403a(this, 5, UiKit.f1349d, 3.0f, false, 12.0f));
+        m1430c.addView(m1407a, UiKit.m1409a(this, 12.0f, 12.0f));
         m1411a.addView(m1430c);
-        final LinearLayout m1411a2 = C0087T.m1411a((Context) this);
+        final LinearLayout m1411a2 = UiKit.m1411a((Context) this);
         m1411a2.setPadding(0, 0, 0, m1004a(12.0f));
-        TextView m1415a = C0087T.m1415a((Context) this, "导出全部 App 颜色配置", false, 48.0f);
+        TextView m1415a = UiKit.m1415a((Context) this, "导出全部 App 颜色配置", false, 48.0f);
         m1415a.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda78
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
                 MainActivity.this.m1079c(view);
             }
         });
-        m1411a2.addView(m1415a, C0087T.m1408a());
-        TextView m1415a2 = C0087T.m1415a((Context) this, "导入颜色配置", false, 48.0f);
+        m1411a2.addView(m1415a, UiKit.m1408a());
+        TextView m1415a2 = UiKit.m1415a((Context) this, "导入颜色配置", false, 48.0f);
         m1415a2.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda79
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
                 MainActivity.this.m1089d(view);
             }
         });
-        m1411a2.addView(m1415a2, C0087T.m1410a(C0087T.m1408a(), this, 8.0f));
+        m1411a2.addView(m1415a2, UiKit.m1410a(UiKit.m1408a(), this, 8.0f));
         m1411a2.setVisibility(8);
         m1411a.addView(m1411a2);
         m1430c.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda80
@@ -3163,7 +3158,7 @@ public final class MainActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: h */
     public /* synthetic */ void m1119h(CompoundButton compoundButton, boolean z) {
-        C0113o c0113o;
+        ConfigStore c0113o;
         if (this.f1023b1 || (c0113o = this.f1049p) == null) {
             return;
         }
@@ -3197,22 +3192,22 @@ public final class MainActivity extends Activity {
 
     /* renamed from: n */
     private View m1154n() {
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        C0087T.m1418a(m1411a, this.f1051q.f1398e ? 26.0f : 28.0f);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        UiKit.m1418a(m1411a, this.f1051q.f1398e ? 26.0f : 28.0f);
         m1411a.setPadding(m1004a(18.0f), m1004a(12.0f), m1004a(16.0f), m1004a(12.0f));
-        LinearLayout m1430c = C0087T.m1430c(this);
-        LinearLayout m1411a2 = C0087T.m1411a((Context) this);
-        TextView m1413a = C0087T.m1413a(this, 15.0f, C0087T.f1345b, 600);
+        LinearLayout m1430c = UiKit.m1430c(this);
+        LinearLayout m1411a2 = UiKit.m1411a((Context) this);
+        TextView m1413a = UiKit.m1413a(this, 15.0f, UiKit.f1345b, 600);
         m1413a.setText("新应用默认开 Duo");
         m1411a2.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         m1413a2.setText("只影响还没单独设过的应用。打开时会把它们打开；关掉后，已经打开的不变");
         m1413a2.setPadding(0, m1004a(3.0f), m1004a(8.0f), 0);
         m1411a2.addView(m1413a2);
-        m1430c.addView(m1411a2, C0087T.m1428b());
+        m1430c.addView(m1411a2, UiKit.m1428b());
         Switch r2 = new Switch(this);
         this.f989K0 = r2;
-        C0087T.m1422a(r2);
+        UiKit.m1422a(r2);
         this.f989K0.setContentDescription("新应用默认开 Duo");
         this.f989K0.setEnabled(false);
         this.f989K0.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda34
@@ -3236,7 +3231,7 @@ public final class MainActivity extends Activity {
     /* renamed from: o */
     public void m1159o() {
         int i;
-        C0113o c0113o;
+        ConfigStore c0113o;
         String lowerCase = this.f985I0.getText().toString().trim().toLowerCase(Locale.ROOT);
         this.f1047o.clear();
         ArrayList arrayList = new ArrayList();
@@ -3320,30 +3315,30 @@ public final class MainActivity extends Activity {
 
     /* renamed from: g */
     private View m1107g() {
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
         TextView m1108g = m1108g("UI");
         m1108g.setPadding(m1004a(6.0f), 0, 0, m1004a(10.0f));
         m1411a.addView(m1108g, new LinearLayout.LayoutParams(-1, m1004a(56.0f)));
-        C0087T.e eVar = new C0087T.e(this, new String[]{"细", "粗"}, null, new IntConsumer() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda57
+        UiKit.e eVar = new UiKit.e(this, new String[]{"细", "粗"}, null, new IntConsumer() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda57
             @Override // java.util.function.IntConsumer
             public final void accept(int i) {
                 MainActivity.this.m1095e(i);
             }
         });
         this.f1026d0 = eVar;
-        m1411a.addView(m1011a("时钟线条", "圆环、时间和数字一起变粗或变细", eVar), C0087T.m1410a(new LinearLayout.LayoutParams(-1, m1004a(64.0f)), this, 12.0f));
-        C0087T.e eVar2 = new C0087T.e(this, new String[]{"下方", "顶部"}, null, new IntConsumer() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda58
+        m1411a.addView(m1011a("时钟线条", "圆环、时间和数字一起变粗或变细", eVar), UiKit.m1410a(new LinearLayout.LayoutParams(-1, m1004a(64.0f)), this, 12.0f));
+        UiKit.e eVar2 = new UiKit.e(this, new String[]{"下方", "顶部"}, null, new IntConsumer() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda58
             @Override // java.util.function.IntConsumer
             public final void accept(int i) {
                 MainActivity.this.m1102f(i);
             }
         });
         this.f1028e0 = eVar2;
-        m1411a.addView(m1011a("电量百分比位置", "系统电量百分比打开时，显示在圆环下方或顶部", eVar2), C0087T.m1410a(new LinearLayout.LayoutParams(-1, m1004a(72.0f)), this, 12.0f));
-        m1411a.addView(m1129j(), C0087T.m1410a(new LinearLayout.LayoutParams(-1, m1004a(72.0f)), this, 12.0f));
-        m1411a.addView(m981C(), C0087T.m1410a(new LinearLayout.LayoutParams(-1, m1004a(64.0f)), this, 12.0f));
-        m1411a.addView(m994Q(), C0087T.m1410a(new LinearLayout.LayoutParams(-1, m1004a(72.0f)), this, 12.0f));
-        m1411a.addView(m1002Y(), C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
+        m1411a.addView(m1011a("电量百分比位置", "系统电量百分比打开时，显示在圆环下方或顶部", eVar2), UiKit.m1410a(new LinearLayout.LayoutParams(-1, m1004a(72.0f)), this, 12.0f));
+        m1411a.addView(m1129j(), UiKit.m1410a(new LinearLayout.LayoutParams(-1, m1004a(72.0f)), this, 12.0f));
+        m1411a.addView(m981C(), UiKit.m1410a(new LinearLayout.LayoutParams(-1, m1004a(64.0f)), this, 12.0f));
+        m1411a.addView(m994Q(), UiKit.m1410a(new LinearLayout.LayoutParams(-1, m1004a(72.0f)), this, 12.0f));
+        m1411a.addView(m1002Y(), UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
         return m1015a(m1411a);
     }
 
@@ -3352,24 +3347,24 @@ public final class MainActivity extends Activity {
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(1);
         ScrollView scrollView = new ScrollView(this);
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
         m1411a.setPadding(m1004a(22.0f), m1004a(22.0f), m1004a(22.0f), m1004a(18.0f));
         scrollView.addView(m1411a);
-        TextView m1413a = C0087T.m1413a(this, 20.0f, C0087T.f1345b, 700);
+        TextView m1413a = UiKit.m1413a(this, 20.0f, UiKit.f1345b, 700);
         m1413a.setText("开合动画检查");
         m1411a.addView(m1413a);
-        final TextView m1413a2 = C0087T.m1413a(this, 13.0f, C0087T.f1347c, C0054J.f930m);
+        final TextView m1413a2 = UiKit.m1413a(this, 13.0f, UiKit.f1347c, RailCodec.f930m);
         m1413a2.setText("正在检查接口和传感器数据，请稍候…");
         m1413a2.setLineSpacing(m1004a(2.0f), 1.0f);
-        m1411a.addView(m1413a2, C0087T.m1410a(C0087T.m1408a(), this, 8.0f));
-        final LinearLayout m1411a2 = C0087T.m1411a((Context) this);
-        m1411a2.setBackground(C0087T.m1404a(C0087T.f1355g, m1004a(16.0f)));
+        m1411a.addView(m1413a2, UiKit.m1410a(UiKit.m1408a(), this, 8.0f));
+        final LinearLayout m1411a2 = UiKit.m1411a((Context) this);
+        m1411a2.setBackground(UiKit.m1404a(UiKit.f1355g, m1004a(16.0f)));
         m1411a2.setPadding(m1004a(14.0f), 0, m1004a(14.0f), 0);
         m1411a2.setVisibility(8);
-        m1411a.addView(m1411a2, C0087T.m1410a(C0087T.m1408a(), this, 14.0f));
-        final LinearLayout m1430c = C0087T.m1430c(this);
+        m1411a.addView(m1411a2, UiKit.m1410a(UiKit.m1408a(), this, 14.0f));
+        final LinearLayout m1430c = UiKit.m1430c(this);
         m1430c.setGravity(8388629);
-        final TextView m1415a = C0087T.m1415a((Context) this, "取消", false, 38.0f);
+        final TextView m1415a = UiKit.m1415a((Context) this, "取消", false, 38.0f);
         m1415a.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda17
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
@@ -3377,12 +3372,12 @@ public final class MainActivity extends Activity {
             }
         });
         m1430c.addView(m1415a);
-        m1411a.addView(m1430c, C0087T.m1410a(C0087T.m1408a(), this, 18.0f));
+        m1411a.addView(m1430c, UiKit.m1410a(UiKit.m1408a(), this, 18.0f));
         dialog.setContentView(scrollView);
         dialog.show();
-        dialog.getWindow().setBackgroundDrawable(C0087T.m1404a(C0087T.f1359i, m1004a(24.0f)));
+        dialog.getWindow().setBackgroundDrawable(UiKit.m1404a(UiKit.f1359i, m1004a(24.0f)));
         dialog.getWindow().setLayout(Math.min(getResources().getDisplayMetrics().widthPixels - m1004a(32.0f), m1004a(560.0f)), -2);
-        final C0113o c0113o = this.f1049p;
+        final ConfigStore c0113o = this.f1049p;
         final boolean z = this.f1011V0;
         final boolean z2 = this.f1009U0;
         final boolean z3 = c0113o.m1838m() && z && z2;
@@ -3406,14 +3401,14 @@ public final class MainActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: a */
     public int m1004a(float f) {
-        return C0087T.m1399a(this, f);
+        return UiKit.m1399a(this, f);
     }
 
     /* renamed from: d */
     private View m1086d() {
-        C0087T.d dVar = this.f1051q;
+        UiKit.d dVar = this.f1051q;
         this.f1065x = dVar.m1432a(dVar.m1439e());
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
         m1411a.setPadding(this.f1065x, this.f1051q.m1438d(), this.f1065x, m1004a(12.0f));
         TextView m1108g = m1108g("App");
         if (!this.f1051q.f1398e) {
@@ -3424,16 +3419,16 @@ public final class MainActivity extends Activity {
             m1108g.setGravity(16);
             m1411a.addView(m1108g, new LinearLayout.LayoutParams(-1, m1004a(40.0f)));
         }
-        LinearLayout m1430c = C0087T.m1430c(this);
-        C0087T.m1418a(m1430c, 23.0f);
+        LinearLayout m1430c = UiKit.m1430c(this);
+        UiKit.m1418a(m1430c, 23.0f);
         m1430c.setPadding(m1004a(16.0f), 0, m1004a(16.0f), 0);
-        m1430c.addView(C0087T.m1407a(this, C0087T.m1403a(this, 8, C0087T.f1349d, 2.4f, false, 17.0f)), C0087T.m1409a(this, 17.0f, 17.0f));
+        m1430c.addView(UiKit.m1407a(this, UiKit.m1403a(this, 8, UiKit.f1349d, 2.4f, false, 17.0f)), UiKit.m1409a(this, 17.0f, 17.0f));
         EditText editText = new EditText(this);
         this.f985I0 = editText;
         editText.setId(1004);
         this.f985I0.setHint("搜索 App 名称或包名");
-        this.f985I0.setHintTextColor(C0087T.f1349d);
-        this.f985I0.setTextColor(C0087T.f1345b);
+        this.f985I0.setHintTextColor(UiKit.f1349d);
+        this.f985I0.setTextColor(UiKit.f1345b);
         this.f985I0.setTextSize(15.0f);
         this.f985I0.setSingleLine(true);
         C0058a c0058a = null;
@@ -3441,17 +3436,17 @@ public final class MainActivity extends Activity {
         this.f985I0.setPadding(m1004a(10.0f), 0, 0, 0);
         this.f985I0.addTextChangedListener(new C0059b());
         m1430c.addView(this.f985I0, new LinearLayout.LayoutParams(0, -1, 1.0f));
-        LinearLayout m1411a2 = C0087T.m1411a((Context) this);
-        C0087T.m1418a(m1411a2, 24.0f);
+        LinearLayout m1411a2 = UiKit.m1411a((Context) this);
+        UiKit.m1418a(m1411a2, 24.0f);
         m1411a2.setPadding(m1004a(18.0f), 0, m1004a(14.0f), 0);
-        LinearLayout m1430c2 = C0087T.m1430c(this);
+        LinearLayout m1430c2 = UiKit.m1430c(this);
         m1430c2.setMinimumHeight(m1004a(58.0f));
-        TextView m1413a = C0087T.m1413a(this, 16.0f, C0087T.f1345b, 600);
+        TextView m1413a = UiKit.m1413a(this, 16.0f, UiKit.f1345b, 600);
         m1413a.setText("全部 App 开启 Duo");
-        m1430c2.addView(m1413a, C0087T.m1428b());
+        m1430c2.addView(m1413a, UiKit.m1428b());
         Switch r13 = new Switch(this);
         this.f987J0 = r13;
-        C0087T.m1422a(r13);
+        UiKit.m1422a(r13);
         this.f987J0.setContentDescription("全部 App 开启 Duo");
         this.f987J0.setEnabled(false);
         this.f987J0.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda87
@@ -3462,18 +3457,18 @@ public final class MainActivity extends Activity {
         });
         m1430c2.addView(this.f987J0);
         m1411a2.addView(m1430c2);
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, C0087T.f1347c, C0054J.f930m);
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, UiKit.f1347c, RailCodec.f930m);
         this.f991L0 = m1413a2;
         m1413a2.setLineSpacing(0.0f, 1.3f);
         this.f991L0.setPadding(0, 0, 0, m1004a(14.0f));
         this.f991L0.setVisibility(8);
         m1411a2.addView(this.f991L0);
-        m1411a.addView(m1430c, C0087T.m1410a(new LinearLayout.LayoutParams(-1, m1004a(46.0f)), this, 12.0f));
-        m1411a.addView(m1411a2, C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
-        m1411a.addView(m1154n(), C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
-        m1411a.addView(m982E(), C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
-        m1411a.addView(m1179w(), C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
-        C0087T.e eVar = new C0087T.e(this, f961e, null, new IntConsumer() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda88
+        m1411a.addView(m1430c, UiKit.m1410a(new LinearLayout.LayoutParams(-1, m1004a(46.0f)), this, 12.0f));
+        m1411a.addView(m1411a2, UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
+        m1411a.addView(m1154n(), UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
+        m1411a.addView(m982E(), UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
+        m1411a.addView(m1179w(), UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
+        UiKit.e eVar = new UiKit.e(this, f961e, null, new IntConsumer() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda88
             @Override // java.util.function.IntConsumer
             public final void accept(int i) {
                 MainActivity.this.m1088d(i);
@@ -3484,7 +3479,7 @@ public final class MainActivity extends Activity {
             textView.setTextSize(13.0f);
         }
         this.f993M0.m1441a(0);
-        m1411a.addView(this.f993M0.f1407a, C0087T.m1410a(C0087T.m1408a(), this, 16.0f));
+        m1411a.addView(this.f993M0.f1407a, UiKit.m1410a(UiKit.m1408a(), this, 16.0f));
         C0060c c0060c = new C0060c(this);
         this.f999P0 = c0060c;
         c0060c.setId(1002);
@@ -3506,7 +3501,7 @@ public final class MainActivity extends Activity {
         if (!this.f1057t) {
             return this.f999P0;
         }
-        LinearLayout m1430c3 = C0087T.m1430c(this);
+        LinearLayout m1430c3 = UiKit.m1430c(this);
         m1430c3.setGravity(48);
         m1430c3.addView(this.f999P0, new LinearLayout.LayoutParams(m1004a(316.0f), -1));
         this.f1059u = new FrameLayout(this);
@@ -3521,7 +3516,7 @@ public final class MainActivity extends Activity {
         ScrollView scrollView = new ScrollView(this);
         scrollView.setClipToPadding(false);
         scrollView.setVerticalScrollBarEnabled(false);
-        C0087T.d dVar = this.f1051q;
+        UiKit.d dVar = this.f1051q;
         int m1432a = dVar.m1432a(dVar.m1439e());
         linearLayout.setPadding(m1432a, this.f1051q.m1438d(), m1432a, this.f1051q.m1436b());
         scrollView.addView(linearLayout);
@@ -3542,7 +3537,7 @@ public final class MainActivity extends Activity {
         if (z) {
             ArrayList arrayList = new ArrayList();
             for (C0064g c0064g : this.f1045n) {
-                if (!c0064g.f1085d && !C0071P.f1175k.contains(c0064g.f1082a) && this.f1049p.m1839m(c0064g.f1082a)) {
+                if (!c0064g.f1085d && !ConfigKeys.f1175k.contains(c0064g.f1082a) && this.f1049p.m1839m(c0064g.f1082a)) {
                     arrayList.add(c0064g);
                 }
             }
@@ -3604,29 +3599,29 @@ public final class MainActivity extends Activity {
 
     /* renamed from: h */
     private View m1114h() {
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
         TextView m1108g = m1108g("小功能");
         m1108g.setPadding(m1004a(6.0f), 0, 0, m1004a(10.0f));
         m1411a.addView(m1108g, new LinearLayout.LayoutParams(-1, m1004a(56.0f)));
-        m1411a.addView(m1073b0(), C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
-        m1411a.addView(m986I(), C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
-        m1411a.addView(m1181x(), C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
+        m1411a.addView(m1073b0(), UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
+        m1411a.addView(m986I(), UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
+        m1411a.addView(m1181x(), UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
         m1411a.addView(m992O());
-        m1411a.addView(m984G(), C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
-        m1411a.addView(m1147m(), C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
-        m1411a.addView(m1085c0(), C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
-        m1411a.addView(m1165q(), C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
-        m1411a.addView(m1000W(), C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
-        m1411a.addView(m1162p(), C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
+        m1411a.addView(m984G(), UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
+        m1411a.addView(m1147m(), UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
+        m1411a.addView(m1085c0(), UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
+        m1411a.addView(m1165q(), UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
+        m1411a.addView(m1000W(), UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
+        m1411a.addView(m1162p(), UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
         return m1015a(m1411a);
     }
 
     /* renamed from: a */
     private LinearLayout m1013a(LinearLayout linearLayout, float f, float f2) {
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        C0087T.m1418a(m1411a, f);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        UiKit.m1418a(m1411a, f);
         m1411a.setPadding(m1004a(f2), m1004a(f2), m1004a(f2), m1004a(f2));
-        linearLayout.addView(m1411a, C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
+        linearLayout.addView(m1411a, UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
         return m1411a;
     }
 
@@ -3656,11 +3651,11 @@ public final class MainActivity extends Activity {
 
     /* renamed from: f */
     private View m1100f() {
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
         TextView m1108g = m1108g("授权");
         m1108g.setPadding(m1004a(6.0f), 0, 0, m1004a(10.0f));
         m1411a.addView(m1108g, new LinearLayout.LayoutParams(-1, m1004a(56.0f)));
-        LinearLayout m1411a2 = C0087T.m1411a((Context) this);
+        LinearLayout m1411a2 = UiKit.m1411a((Context) this);
         this.f1001Q0 = m1411a2;
         m1411a.addView(m1411a2);
         return m1015a(m1411a);
@@ -3668,7 +3663,7 @@ public final class MainActivity extends Activity {
 
     /* renamed from: a */
     private LinearLayout m1012a(View view, View view2) {
-        LinearLayout m1430c = C0087T.m1430c(this);
+        LinearLayout m1430c = UiKit.m1430c(this);
         m1430c.setBaselineAligned(false);
         m1430c.addView(view, new LinearLayout.LayoutParams(0, -1, 1.0f));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1, 1.0f);
@@ -3688,12 +3683,12 @@ public final class MainActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: j */
     public /* synthetic */ void m1131j(View view) {
-        C0123y.m2035a((Activity) this);
+        FirstRunGuide.m2035a((Activity) this);
     }
 
     /* renamed from: j */
     private void m1133j(final String str) {
-        final C0113o c0113o = this.f1049p;
+        final ConfigStore c0113o = this.f1049p;
         if (c0113o == null) {
             return;
         }
@@ -3715,9 +3710,9 @@ public final class MainActivity extends Activity {
     }
 
     /* renamed from: c */
-    private C0065h m1075c(C0113o c0113o) {
+    private C0065h m1075c(ConfigStore c0113o) {
         C0065h c0065h = new C0065h();
-        String m772a = C0043B.m772a();
+        String m772a = LicenseClient.m772a();
         if (m772a.isEmpty()) {
             c0065h.f1087a = true;
             return c0065h;
@@ -3727,15 +3722,15 @@ public final class MainActivity extends Activity {
         try {
             String string = sharedPreferences.getString("order", null);
             if (string != null) {
-                JSONObject m777a = C0043B.m777a(string, m772a);
+                JSONObject m777a = LicenseClient.m777a(string, m772a);
                 if ("paid".equals(m777a.optString("status"))) {
-                    C0043B.m782a(sharedPreferences2, m772a, m777a.getJSONObject("license"));
+                    LicenseClient.m782a(sharedPreferences2, m772a, m777a.getJSONObject("license"));
                     sharedPreferences.edit().remove("order").apply();
                 } else if (m777a.has("error")) {
                     sharedPreferences.edit().remove("order").apply();
                 }
             }
-            JSONObject jSONObject = C0043B.m773a(sharedPreferences2, m772a).getJSONObject("license");
+            JSONObject jSONObject = LicenseClient.m773a(sharedPreferences2, m772a).getJSONObject("license");
             if ("active".equals(jSONObject.getString("state"))) {
                 sharedPreferences.edit().putString("key", jSONObject.getString("license_key")).apply();
             }
@@ -3744,7 +3739,7 @@ public final class MainActivity extends Activity {
             c0065h.f1093g = "未连上授权服务器，显示的是本机记录";
         }
         int min = Math.min(1800, sharedPreferences2.getInt("_global/trialUsedSec", 0));
-        if (C0107i.m1705a(sharedPreferences2.getString("_global/licenseToken", null), m772a)) {
+        if (LicenseCrypto.m1705a(sharedPreferences2.getString("_global/licenseToken", null), m772a)) {
             c0065h.f1088b = true;
             c0065h.f1090d = sharedPreferences.getString("key", null);
         } else {
@@ -3796,19 +3791,19 @@ public final class MainActivity extends Activity {
     private LinearLayout m1014a(String str, String str2, int i, int i2, TextView[] textViewArr, SeekBar[] seekBarArr, IntConsumer intConsumer) {
         LinearLayout m1175u = m1175u();
         LinearLayout m1121i = m1121i();
-        TextView m1413a = C0087T.m1413a(this, 16.0f, C0087T.f1345b, 600);
+        TextView m1413a = UiKit.m1413a(this, 16.0f, UiKit.f1345b, 600);
         m1413a.setText(str);
-        m1121i.addView(m1413a, C0087T.m1428b());
-        TextView m1413a2 = C0087T.m1413a(this, 26.0f, C0087T.f1345b, 800);
+        m1121i.addView(m1413a, UiKit.m1428b());
+        TextView m1413a2 = UiKit.m1413a(this, 26.0f, UiKit.f1345b, 800);
         m1413a2.setFontFeatureSettings("tnum");
         m1121i.addView(m1413a2);
-        TextView m1413a3 = C0087T.m1413a(this, 14.0f, C0087T.f1347c, 600);
+        TextView m1413a3 = UiKit.m1413a(this, 14.0f, UiKit.f1347c, 600);
         m1413a3.setText(str2);
         m1413a3.setPadding(m1004a(2.0f), m1004a(8.0f), 0, 0);
         m1121i.addView(m1413a3);
         m1175u.addView(m1121i);
         SeekBar seekBar = new SeekBar(this);
-        C0087T.m1420a(seekBar);
+        UiKit.m1420a(seekBar);
         seekBar.setMax(i2 - i);
         seekBar.setEnabled(false);
         seekBar.setContentDescription(str);
@@ -3888,7 +3883,7 @@ public final class MainActivity extends Activity {
         }
         this.f998P = true;
         m997T();
-        final C0113o c0113o = this.f1049p;
+        final ConfigStore c0113o = this.f1049p;
         f959c.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda76
             @Override // java.lang.Runnable
             public final void run() {
@@ -4028,7 +4023,7 @@ public final class MainActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: e */
     public /* synthetic */ void m1099e(boolean z) {
-        XposedService m975c = C0056L.m975c();
+        XposedService m975c = ConfigBroadcastHub.m975c();
         if (m975c != null) {
             try {
                 this.f1017Y0 = new HashSet(m975c.getScope());
@@ -4066,19 +4061,19 @@ public final class MainActivity extends Activity {
     }
 
     /* renamed from: a */
-    private View m1011a(String str, String str2, C0087T.e eVar) {
-        LinearLayout m1430c = C0087T.m1430c(this);
-        C0087T.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
+    private View m1011a(String str, String str2, UiKit.e eVar) {
+        LinearLayout m1430c = UiKit.m1430c(this);
+        UiKit.m1418a(m1430c, this.f1051q.f1398e ? 26.0f : 28.0f);
         m1430c.setPadding(m1004a(18.0f), 0, m1004a(16.0f), 0);
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        TextView m1413a = C0087T.m1413a(this, 15.0f, C0087T.f1345b, 600);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        TextView m1413a = UiKit.m1413a(this, 15.0f, UiKit.f1345b, 600);
         m1413a.setText(str);
         m1411a.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         m1413a2.setText(str2);
         m1413a2.setPadding(0, m1004a(3.0f), 0, 0);
         m1411a.addView(m1413a2);
-        m1430c.addView(m1411a, C0087T.m1428b());
+        m1430c.addView(m1411a, UiKit.m1428b());
         eVar.m1442a(false);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(m1004a(124.0f), -2);
         layoutParams.leftMargin = m1004a(12.0f);
@@ -4091,7 +4086,7 @@ public final class MainActivity extends Activity {
     public /* synthetic */ void m1084c(boolean z) {
         String str;
         final String str2;
-        C0113o c0113o = this.f1049p;
+        ConfigStore c0113o = this.f1049p;
         boolean z2 = c0113o != null && c0113o.m1825h(z) && c0113o.m1838m() == z;
         if (!z2) {
             str = "";
@@ -4172,16 +4167,16 @@ public final class MainActivity extends Activity {
 
     /* renamed from: a */
     private TextView m1016a(LinearLayout linearLayout, String str, float f) {
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        m1411a.setBackground(C0087T.m1404a(C0087T.f1355g, m1004a(16.0f)));
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        m1411a.setBackground(UiKit.m1404a(UiKit.f1355g, m1004a(16.0f)));
         m1411a.setPadding(m1004a(12.0f), m1004a(10.0f), m1004a(12.0f), m1004a(10.0f));
-        TextView m1413a = C0087T.m1413a(this, 11.0f, C0087T.f1347c, C0054J.f930m);
+        TextView m1413a = UiKit.m1413a(this, 11.0f, UiKit.f1347c, RailCodec.f930m);
         m1413a.setText(str);
         m1411a.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 15.0f, C0087T.f1345b, 700);
+        TextView m1413a2 = UiKit.m1413a(this, 15.0f, UiKit.f1345b, 700);
         m1413a2.setPadding(0, m1004a(4.0f), 0, 0);
         m1411a.addView(m1413a2);
-        LinearLayout.LayoutParams m1428b = C0087T.m1428b();
+        LinearLayout.LayoutParams m1428b = UiKit.m1428b();
         m1428b.leftMargin = m1004a(f);
         linearLayout.addView(m1411a, m1428b);
         return m1413a2;
@@ -4200,9 +4195,9 @@ public final class MainActivity extends Activity {
     }
 
     /* renamed from: c */
-    private void m1083c(C0116r.a aVar) {
+    private void m1083c(Diagnostics.a aVar) {
         this.f979F0.setText(aVar.f1713b);
-        this.f979F0.setTextColor(m1005a(aVar.f1714c, C0087T.f1345b));
+        this.f979F0.setTextColor(m1005a(aVar.f1714c, UiKit.f1345b));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -4218,7 +4213,7 @@ public final class MainActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: l */
     public void m1143l(int i) {
-        C0113o c0113o = this.f1049p;
+        ConfigStore c0113o = this.f1049p;
         if (c0113o == null) {
             return;
         }
@@ -4233,7 +4228,7 @@ public final class MainActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: b */
-    public /* synthetic */ void m1068b(C0113o c0113o) {
+    public /* synthetic */ void m1068b(ConfigStore c0113o) {
         final String str;
         try {
             try {
@@ -4307,19 +4302,19 @@ public final class MainActivity extends Activity {
 
     /* renamed from: a */
     private View m1008a(int i, String str) {
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        LinearLayout m1430c = C0087T.m1430c(this);
-        TextView m1413a = C0087T.m1413a(this, 13.0f, C0087T.f1347c, 600);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        LinearLayout m1430c = UiKit.m1430c(this);
+        TextView m1413a = UiKit.m1413a(this, 13.0f, UiKit.f1347c, 600);
         m1413a.setText(str);
-        m1430c.addView(m1413a, C0087T.m1428b());
-        TextView m1413a2 = C0087T.m1413a(this, 13.0f, C0087T.f1349d, 500);
+        m1430c.addView(m1413a, UiKit.m1428b());
+        TextView m1413a2 = UiKit.m1413a(this, 13.0f, UiKit.f1349d, 500);
         m1430c.addView(m1413a2);
         m1411a.addView(m1430c);
         SeekBar seekBar = new SeekBar(this);
-        C0087T.m1420a(seekBar);
+        UiKit.m1420a(seekBar);
         seekBar.setMax(120);
         seekBar.setEnabled(false);
-        m1411a.addView(seekBar, C0087T.m1410a(C0087T.m1408a(), this, 4.0f));
+        m1411a.addView(seekBar, UiKit.m1410a(UiKit.m1408a(), this, 4.0f));
         this.f1032g0[i] = seekBar;
         this.f1034h0[i] = m1413a2;
         seekBar.setOnSeekBarChangeListener(new C0061d(m1413a2, i));
@@ -4328,7 +4323,7 @@ public final class MainActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: b */
-    public /* synthetic */ void m1069b(C0116r.a aVar) {
+    public /* synthetic */ void m1069b(Diagnostics.a aVar) {
         if (isDestroyed()) {
             return;
         }
@@ -4364,7 +4359,7 @@ public final class MainActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: a */
-    public /* synthetic */ void m1041a(C0066i c0066i, C0113o c0113o, List list) {
+    public /* synthetic */ void m1041a(C0066i c0066i, ConfigStore c0113o, List list) {
         if (isDestroyed()) {
             return;
         }
@@ -4380,7 +4375,7 @@ public final class MainActivity extends Activity {
             Iterator it = list.iterator();
             while (it.hasNext()) {
                 C0064g c0064g = (C0064g) it.next();
-                if (!c0064g.f1085d && !C0071P.f1175k.contains(c0064g.f1082a) && c0113o.m1839m(c0064g.f1082a)) {
+                if (!c0064g.f1085d && !ConfigKeys.f1175k.contains(c0064g.f1082a) && c0113o.m1839m(c0064g.f1082a)) {
                     arrayList.add(c0064g);
                 }
             }
@@ -4416,9 +4411,9 @@ public final class MainActivity extends Activity {
         boolean equals = f964h.equals(this.f1015X0[1]);
         boolean equals2 = "未安装".equals(this.f1015X0[2]);
         this.f973C0.setText(equals ? this.f1015X0[1] : this.f1015X0[1] + " · 需 " + f964h);
-        this.f973C0.setTextColor(equals ? C0087T.f1345b : -2543579);
+        this.f973C0.setTextColor(equals ? UiKit.f1345b : -2543579);
         this.f975D0.setText(this.f1015X0[2]);
-        this.f975D0.setTextColor(equals2 ? -2543579 : C0087T.f1345b);
+        this.f975D0.setTextColor(equals2 ? -2543579 : UiKit.f1345b);
         this.f981G0.setText("小米桌面的版本与 MiDuo 适配的版本不同，桌面相关功能可能出错。请用下方 Bug 抓取导出报告，再到“授权”页联系作者。");
         this.f981G0.setVisibility(equals ? 8 : 0);
         this.f977E0.setText(this.f1015X0[3]);
@@ -4448,7 +4443,7 @@ public final class MainActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: d */
     public /* synthetic */ void m1092d(boolean z) {
-        final C0116r.a m1896a = C0116r.m1896a(z);
+        final Diagnostics.a m1896a = Diagnostics.m1896a(z);
         this.f1043m.post(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda1
             @Override // java.lang.Runnable
             public final void run() {
@@ -4459,7 +4454,7 @@ public final class MainActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: a */
-    public /* synthetic */ void m1043a(final C0113o c0113o) {
+    public /* synthetic */ void m1043a(final ConfigStore c0113o) {
         try {
             final C0065h m1075c = m1075c(c0113o);
             this.f1041l.set(false);
@@ -4484,7 +4479,7 @@ public final class MainActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: a */
-    public /* synthetic */ void m1045a(C0113o c0113o, C0065h c0065h) {
+    public /* synthetic */ void m1045a(ConfigStore c0113o, C0065h c0065h) {
         if (isDestroyed()) {
             return;
         }
@@ -4523,16 +4518,16 @@ public final class MainActivity extends Activity {
         } else {
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(1);
-            gradientDrawable.setColor(C0087T.f1369n);
+            gradientDrawable.setColor(UiKit.f1369n);
             FrameLayout frameLayout = new FrameLayout(this);
             frameLayout.setBackground(gradientDrawable);
             mainActivity = this;
-            frameLayout.addView(C0087T.m1407a(this, C0087T.m1403a(mainActivity, 6, C0087T.f1371o, 3.0f, false, 12.0f)), new FrameLayout.LayoutParams(m1004a(12.0f), m1004a(12.0f), 17));
-            LinearLayout.LayoutParams m1409a = C0087T.m1409a(this, 18.0f, 18.0f);
+            frameLayout.addView(UiKit.m1407a(this, UiKit.m1403a(mainActivity, 6, UiKit.f1371o, 3.0f, false, 12.0f)), new FrameLayout.LayoutParams(m1004a(12.0f), m1004a(12.0f), 17));
+            LinearLayout.LayoutParams m1409a = UiKit.m1409a(this, 18.0f, 18.0f);
             m1409a.rightMargin = m1004a(6.0f);
             mainActivity.f1067y.addView(frameLayout, m1409a);
         }
-        TextView m1413a = C0087T.m1413a(this, 13.0f, C0087T.f1345b, 600);
+        TextView m1413a = UiKit.m1413a(this, 13.0f, UiKit.f1345b, 600);
         if (c0065h == null || c0065h.f1087a) {
             str = "授权";
         } else if (c0065h.f1088b) {
@@ -4550,7 +4545,7 @@ public final class MainActivity extends Activity {
 
     /* renamed from: a */
     private void m1036a(final TextView textView) {
-        final C0113o c0113o = this.f1049p;
+        final ConfigStore c0113o = this.f1049p;
         if (c0113o == null) {
             return;
         }
@@ -4565,14 +4560,14 @@ public final class MainActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: a */
-    public /* synthetic */ void m1044a(C0113o c0113o, final TextView textView) {
+    public /* synthetic */ void m1044a(ConfigStore c0113o, final TextView textView) {
         final String str;
         final String str2 = null;
         try {
-            String m772a = C0043B.m772a();
-            JSONObject m775a = C0043B.m775a(m772a);
+            String m772a = LicenseClient.m772a();
+            JSONObject m775a = LicenseClient.m775a(m772a);
             if (m775a.has("license")) {
-                C0043B.m782a(c0113o.f1684a, m772a, m775a.getJSONObject("license"));
+                LicenseClient.m782a(c0113o.f1684a, m772a, m775a.getJSONObject("license"));
                 str = "这台手机已经买过，授权已恢复";
             } else if (m775a.has("error")) {
                 str = "下单失败：" + m775a.optString("message", m775a.getString("error"));
@@ -4612,14 +4607,14 @@ public final class MainActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: a */
-    public /* synthetic */ void m1047a(String str, C0113o c0113o) {
+    public /* synthetic */ void m1047a(String str, ConfigStore c0113o) {
         final String str2;
         try {
-            String m772a = C0043B.m772a();
-            JSONObject m785b = C0043B.m785b(m772a, str);
+            String m772a = LicenseClient.m772a();
+            JSONObject m785b = LicenseClient.m785b(m772a, str);
             String optString = m785b.optString("error", "");
             if (optString.isEmpty()) {
-                C0043B.m782a(c0113o.f1684a, m772a, m785b.getJSONObject("license"));
+                LicenseClient.m782a(c0113o.f1684a, m772a, m785b.getJSONObject("license"));
                 str2 = "授权已恢复";
             } else if ("license_not_found".equals(optString)) {
                 str2 = "授权码不对，请检查后再试";
@@ -4678,7 +4673,7 @@ public final class MainActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: a */
     public /* synthetic */ void m1052a(boolean z, String str, int i, long j, Set set, String str2, final Dialog dialog, final LinearLayout linearLayout, final TextView textView, final TextView textView2) {
-        final List<C0044C.a> m821a = C0044C.m821a(this, z, str, i, j, set, str2);
+        final List<AppInventory.a> m821a = AppInventory.m821a(this, z, str, i, j, set, str2);
         this.f1043m.post(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda22
             @Override // java.lang.Runnable
             public final void run() {
@@ -4696,13 +4691,13 @@ public final class MainActivity extends Activity {
         Iterator it = list.iterator();
         int i = 0;
         while (it.hasNext()) {
-            C0044C.a aVar = (C0044C.a) it.next();
+            AppInventory.a aVar = (AppInventory.a) it.next();
             if (aVar.f811c == 2) {
                 i++;
             }
             if (linearLayout.getChildCount() > 0) {
                 View view = new View(this);
-                view.setBackgroundColor(C0087T.f1357h);
+                view.setBackgroundColor(UiKit.f1357h);
                 linearLayout.addView(view, new LinearLayout.LayoutParams(-1, Math.max(1, m1004a(0.5f))));
             }
             linearLayout.addView(m1009a(aVar));
@@ -4712,13 +4707,13 @@ public final class MainActivity extends Activity {
             textView.setText("有 " + i + " 项没通过，没有打开。按红字处理好后再点一次开关。");
             textView.setTextColor(-2543579);
             textView2.setText("知道了");
-            C0087T.m1423a(textView2, true);
+            UiKit.m1423a(textView2, true);
             return;
         }
         Iterator it2 = list.iterator();
         int i2 = 0;
         while (it2.hasNext()) {
-            if (((C0044C.a) it2.next()).f811c == 1) {
+            if (((AppInventory.a) it2.next()).f811c == 1) {
                 i2++;
             }
         }
@@ -4732,7 +4727,7 @@ public final class MainActivity extends Activity {
                 }
             });
             textView2.setText("知道了");
-            C0087T.m1423a(textView2, true);
+            UiKit.m1423a(textView2, true);
         } else {
             textView2.setEnabled(false);
             dialog.setOnDismissListener(null);
@@ -4750,28 +4745,28 @@ public final class MainActivity extends Activity {
     }
 
     /* renamed from: a */
-    private View m1009a(C0044C.a aVar) {
+    private View m1009a(AppInventory.a aVar) {
         int i = aVar.f811c;
         boolean z = i == 2;
         boolean z2 = i == 1;
-        LinearLayout m1430c = C0087T.m1430c(this);
+        LinearLayout m1430c = UiKit.m1430c(this);
         m1430c.setGravity(48);
         m1430c.setPadding(0, m1004a(12.0f), 0, m1004a(12.0f));
         View view = new View(this);
         view.setBackground(m1058b(z ? -2543579 : z2 ? -878336 : -13326253));
-        LinearLayout.LayoutParams m1409a = C0087T.m1409a(this, 7.0f, 7.0f);
+        LinearLayout.LayoutParams m1409a = UiKit.m1409a(this, 7.0f, 7.0f);
         m1409a.topMargin = m1004a(5.0f);
         m1409a.rightMargin = m1004a(12.0f);
         m1430c.addView(view, m1409a);
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        TextView m1413a = C0087T.m1413a(this, 14.0f, z ? -2543579 : C0087T.f1345b, 500);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        TextView m1413a = UiKit.m1413a(this, 14.0f, z ? -2543579 : UiKit.f1345b, 500);
         m1413a.setText(aVar.f809a);
         m1411a.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, z ? -2543579 : C0087T.f1349d, C0054J.f930m);
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, z ? -2543579 : UiKit.f1349d, RailCodec.f930m);
         m1413a2.setText(aVar.f810b);
         m1413a2.setLineSpacing(m1004a(2.0f), 1.0f);
-        m1411a.addView(m1413a2, C0087T.m1410a(C0087T.m1408a(), this, 4.0f));
-        m1430c.addView(m1411a, C0087T.m1428b());
+        m1411a.addView(m1413a2, UiKit.m1410a(UiKit.m1408a(), this, 4.0f));
+        m1430c.addView(m1411a, UiKit.m1428b());
         return m1430c;
     }
 
@@ -4784,7 +4779,7 @@ public final class MainActivity extends Activity {
         f963g = "正在" + (z ? "开启" : "关闭") + " 0/" + list.size();
         m995R();
         m1056a0();
-        final C0113o c0113o = this.f1049p;
+        final ConfigStore c0113o = this.f1049p;
         f957a.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda56
             @Override // java.lang.Runnable
             public final void run() {
@@ -4795,7 +4790,7 @@ public final class MainActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: a */
-    public /* synthetic */ void m1051a(boolean z, C0113o c0113o, final boolean z2, List list) {
+    public /* synthetic */ void m1051a(boolean z, ConfigStore c0113o, final boolean z2, List list) {
         if (z) {
             try {
                 if (!c0113o.m1794b(z2)) {
@@ -4847,8 +4842,8 @@ public final class MainActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: a */
-    public /* synthetic */ void m1046a(C0113o c0113o, boolean z, boolean z2, Set set, String str, String str2, final Dialog dialog, final LinearLayout linearLayout, final boolean z3, final TextView textView, final TextView textView2, final LinearLayout linearLayout2) {
-        final List<C0116r.a> m1899a = C0116r.m1899a(this, c0113o, z, z2, set, str, str2);
+    public /* synthetic */ void m1046a(ConfigStore c0113o, boolean z, boolean z2, Set set, String str, String str2, final Dialog dialog, final LinearLayout linearLayout, final boolean z3, final TextView textView, final TextView textView2, final LinearLayout linearLayout2) {
+        final List<Diagnostics.a> m1899a = Diagnostics.m1899a(this, c0113o, z, z2, set, str, str2);
         this.f1043m.post(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda66
             @Override // java.lang.Runnable
             public final void run() {
@@ -4868,7 +4863,7 @@ public final class MainActivity extends Activity {
         int i = 0;
         int i2 = 0;
         while (it.hasNext()) {
-            C0116r.a aVar = (C0116r.a) it.next();
+            Diagnostics.a aVar = (Diagnostics.a) it.next();
             int i3 = aVar.f1714c;
             if (i3 == 2) {
                 i++;
@@ -4878,7 +4873,7 @@ public final class MainActivity extends Activity {
             }
             if (linearLayout.getChildCount() > 0) {
                 View view = new View(this);
-                view.setBackgroundColor(C0087T.f1357h);
+                view.setBackgroundColor(UiKit.f1357h);
                 linearLayout.addView(view, new LinearLayout.LayoutParams(-1, Math.max(1, m1004a(0.5f))));
             }
             linearLayout.addView(m1010a(aVar));
@@ -4887,7 +4882,7 @@ public final class MainActivity extends Activity {
         if (!z) {
             textView.setText("MiDuo 总开关没有运行，暂时不能打开开合动画。");
             textView2.setText("知道了");
-            C0087T.m1423a(textView2, true);
+            UiKit.m1423a(textView2, true);
             return;
         }
         if (i > 0) {
@@ -4898,38 +4893,38 @@ public final class MainActivity extends Activity {
             str = "全部通过。打开后系统下次启动时用上。";
         }
         textView.setText(str);
-        View m1415a = C0087T.m1415a((Context) this, (i > 0 || i2 > 0) ? "仍然打开" : "打开", true, 38.0f);
+        View m1415a = UiKit.m1415a((Context) this, (i > 0 || i2 > 0) ? "仍然打开" : "打开", true, 38.0f);
         m1415a.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda15
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
                 MainActivity.this.m1062b(dialog, view2);
             }
         });
-        LinearLayout.LayoutParams m1429c = C0087T.m1429c();
+        LinearLayout.LayoutParams m1429c = UiKit.m1429c();
         m1429c.leftMargin = m1004a(10.0f);
         linearLayout2.addView(m1415a, m1429c);
     }
 
     /* renamed from: a */
-    private View m1010a(C0116r.a aVar) {
-        LinearLayout m1430c = C0087T.m1430c(this);
+    private View m1010a(Diagnostics.a aVar) {
+        LinearLayout m1430c = UiKit.m1430c(this);
         m1430c.setGravity(48);
         m1430c.setPadding(0, m1004a(12.0f), 0, m1004a(12.0f));
         View view = new View(this);
         view.setBackground(m1058b(m1005a(aVar.f1714c, -13326253)));
-        LinearLayout.LayoutParams m1409a = C0087T.m1409a(this, 7.0f, 7.0f);
+        LinearLayout.LayoutParams m1409a = UiKit.m1409a(this, 7.0f, 7.0f);
         m1409a.topMargin = m1004a(5.0f);
         m1409a.rightMargin = m1004a(12.0f);
         m1430c.addView(view, m1409a);
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        TextView m1413a = C0087T.m1413a(this, 14.0f, C0087T.f1345b, 500);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        TextView m1413a = UiKit.m1413a(this, 14.0f, UiKit.f1345b, 500);
         m1413a.setText(aVar.f1712a);
         m1411a.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, aVar.f1714c == 2 ? -2543579 : C0087T.f1349d, C0054J.f930m);
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, aVar.f1714c == 2 ? -2543579 : UiKit.f1349d, RailCodec.f930m);
         m1413a2.setText(aVar.f1713b);
         m1413a2.setLineSpacing(m1004a(2.0f), 1.0f);
-        m1411a.addView(m1413a2, C0087T.m1410a(C0087T.m1408a(), this, 4.0f));
-        m1430c.addView(m1411a, C0087T.m1428b());
+        m1411a.addView(m1413a2, UiKit.m1410a(UiKit.m1408a(), this, 4.0f));
+        m1430c.addView(m1411a, UiKit.m1428b());
         return m1430c;
     }
 

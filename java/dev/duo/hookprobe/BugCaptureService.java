@@ -230,15 +230,15 @@ public final class BugCaptureService extends Service {
                 if (this.f798c != null) {
                     throw new IOException(this.f798c);
                 }
-                this.f797b = new ProcessBuilder("su", "-c", C0108j.m1706a()).redirectErrorStream(true).start();
+                this.f797b = new ProcessBuilder("su", "-c", RootCaptureProtocol.m1706a()).redirectErrorStream(true).start();
                 if (this.f798c != null) {
                     m809b();
                 }
                 BufferedInputStream bufferedInputStream = new BufferedInputStream(this.f797b.getInputStream());
                 try {
-                    C0108j.m1708a(bufferedInputStream);
+                    RootCaptureProtocol.m1708a(bufferedInputStream);
                     m810b("抓取中：请去复现，完成后结束抓取");
-                    if (C0108j.m1709a(bufferedInputStream, bufferedOutputStream, 16773120 - r4.length)) {
+                    if (RootCaptureProtocol.m1709a(bufferedInputStream, bufferedOutputStream, 16773120 - r4.length)) {
                         this.f798c = "日志已达到 16 MiB 上限";
                     }
                     if (this.f798c == null) {
@@ -327,7 +327,7 @@ public final class BugCaptureService extends Service {
     /* renamed from: c */
     private String m811c() {
         StringBuilder append = new StringBuilder("MiDuo 问题复现日志\n开始时间=").append(new Date()).append("\n设备=").append(Build.MANUFACTURER).append(' ').append(Build.MODEL).append("\nROM=").append(Build.FINGERPRINT).append("\nAndroid SDK=").append(Build.VERSION.SDK_INT).append("\n资源配置=").append(getResources().getConfiguration()).append('\n');
-        append.append("MiDuo构建标识=").append(C0110l.f1643a).append('\n');
+        append.append("MiDuo构建标识=").append(BuildConst.f1643a).append('\n');
         String[] strArr = {getPackageName(), "com.ss.android.ugc.aweme", "com.miui.home", "com.miui.personalassistant", "com.android.systemui", "com.miui.gallery", "com.miui.securitycenter", "com.android.quicksearchbox"};
         for (int i = 0; i < 8; i++) {
             String str = strArr[i];
@@ -338,19 +338,19 @@ public final class BugCaptureService extends Service {
                 append.append(str).append("=未安装\n");
             }
         }
-        XposedService m975c = C0056L.m975c();
+        XposedService m975c = ConfigBroadcastHub.m975c();
         if (m975c == null) {
             append.append("MiDuo配置=LSPosed未连接\n");
         } else {
             try {
-                SharedPreferences sharedPreferences = new C0113o(m975c).f1684a;
-                append.append("MiDuo master=").append(C0071P.m1229b(sharedPreferences)).append(" awemeDuo=").append(sharedPreferences.getBoolean(C0071P.m1243f("com.ss.android.ugc.aweme"), C0071P.m1242e("com.ss.android.ugc.aweme"))).append(" hiddenTops=").append(C0071P.m1231c(sharedPreferences, "com.ss.android.ugc.aweme")).append(" innerNativeBar=").append(C0071P.m1239d(sharedPreferences, "com.ss.android.ugc.aweme")).append(" outerScale=").append(C0071P.m1245g(sharedPreferences, "com.ss.android.ugc.aweme")).append('\n');
+                SharedPreferences sharedPreferences = new ConfigStore(m975c).f1684a;
+                append.append("MiDuo master=").append(ConfigKeys.m1229b(sharedPreferences)).append(" awemeDuo=").append(sharedPreferences.getBoolean(ConfigKeys.m1243f("com.ss.android.ugc.aweme"), ConfigKeys.m1242e("com.ss.android.ugc.aweme"))).append(" hiddenTops=").append(ConfigKeys.m1231c(sharedPreferences, "com.ss.android.ugc.aweme")).append(" innerNativeBar=").append(ConfigKeys.m1239d(sharedPreferences, "com.ss.android.ugc.aweme")).append(" outerScale=").append(ConfigKeys.m1245g(sharedPreferences, "com.ss.android.ugc.aweme")).append('\n');
                 String[] strArr2 = {"outer", "inner"};
                 for (int i2 = 0; i2 < 2; i2++) {
                     String str2 = strArr2[i2];
-                    append.append("抖音 ").append(str2).append(" topPx=").append(C0071P.m1224b(sharedPreferences, "com.ss.android.ugc.aweme", str2)).append(" fit=").append(sharedPreferences.getBoolean(C0071P.m1214a(str2), true)).append('\n');
+                    append.append("抖音 ").append(str2).append(" topPx=").append(ConfigKeys.m1224b(sharedPreferences, "com.ss.android.ugc.aweme", str2)).append(" fit=").append(sharedPreferences.getBoolean(ConfigKeys.m1214a(str2), true)).append('\n');
                 }
-                append.append("抖音 nonDuoOuterPx=").append(C0071P.m1240e(sharedPreferences, "com.ss.android.ugc.aweme")).append('\n');
+                append.append("抖音 nonDuoOuterPx=").append(ConfigKeys.m1240e(sharedPreferences, "com.ss.android.ugc.aweme")).append('\n');
                 TreeMap treeMap = new TreeMap();
                 for (Map.Entry<String, ?> entry : sharedPreferences.getAll().entrySet()) {
                     String key = entry.getKey();

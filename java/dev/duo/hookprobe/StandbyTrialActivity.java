@@ -81,48 +81,24 @@ public final class StandbyTrialActivity extends Activity {
         /* renamed from: c */
         private final RectF f1316c;
 
-        /* JADX WARN: Removed duplicated region for block: B:8:0x0040  */
         /*
-            Code decompiled incorrectly, please refer to instructions dump.
         */
         C0086c(Context context) {
             super(context);
-            Bitmap bitmap;
-            this.f1315b = new Paint(3);
-            this.f1316c = new RectF(0.0f, 0.0f, 678.0f, 466.0f);
-            IOException iOException = null;
-            try {
-                InputStream open = context.getAssets().open("analog-cardinal-dark-dial.png");
-                try {
-                    bitmap = BitmapFactory.decodeStream(open);
-                    if (open != null) {
-                        try {
-                            open.close();
-                        } catch (IOException e) {
-                            e = e;
-                            iOException = e;
-                            if (bitmap == null) {
-                            }
-                            this.f1314a = bitmap;
-                            this.f1315b.setTypeface(Typeface.create(Typeface.DEFAULT, 500, false));
-                        }
-                    }
-                } finally {
-                }
-            } catch (IOException e2) {
-                e = e2;
-                bitmap = null;
-                iOException = e;
-                if (bitmap == null) {
-                }
-                this.f1314a = bitmap;
-                this.f1315b.setTypeface(Typeface.create(Typeface.DEFAULT, 500, false));
-            }
-            if (bitmap == null) {
-                Log.w("DuoStandby", "Trial clock dial unavailable, drawing without it", iOException);
-            }
-            this.f1314a = bitmap;
-            this.f1315b.setTypeface(Typeface.create(Typeface.DEFAULT, 500, false));
+        Bitmap bitmap = null;
+        IOException failure = null;
+        this.f1315b = new Paint(3);
+        this.f1316c = new RectF(0.0f, 0.0f, 678.0f, 466.0f);
+        try (InputStream in = context.getAssets().open("analog-cardinal-dark-dial.png")) {
+            bitmap = BitmapFactory.decodeStream(in);
+        } catch (IOException e) {
+            failure = e;
+        }
+        if (bitmap == null) {
+            Log.w("DuoStandby", "Trial clock dial unavailable, drawing without it", failure);
+        }
+        this.f1314a = bitmap;
+        this.f1315b.setTypeface(Typeface.create(Typeface.DEFAULT, 500, false));
         }
 
         /* renamed from: a */

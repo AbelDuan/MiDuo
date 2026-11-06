@@ -44,7 +44,7 @@ public final class StageProvider extends ContentProvider {
         }
         List<String> pathSegments = uri.getPathSegments();
         SharedPreferences sharedPreferences = getContext().getSharedPreferences("state", 0);
-        if (C0131g.f1965c.equals(uri.getAuthority()) && pathSegments.size() == 2 && pathSegments.get(0).equals("stage") && uri.getQuery() == null && uri.getFragment() == null && pathSegments.get(1).equals(sharedPreferences.getString("nonce", "")) && System.currentTimeMillis() - sharedPreferences.getLong("nonceAt", 0L) <= 120000) {
+        if (IconConst.f1965c.equals(uri.getAuthority()) && pathSegments.size() == 2 && pathSegments.get(0).equals("stage") && uri.getQuery() == null && uri.getFragment() == null && pathSegments.get(1).equals(sharedPreferences.getString("nonce", "")) && System.currentTimeMillis() - sharedPreferences.getLong("nonceAt", 0L) <= 120000) {
             return ParcelFileDescriptor.open(new File(getContext().getFilesDir(), "selected.zip"), 268435456);
         }
         throw new SecurityException("图标包授权已过期");

@@ -1302,12 +1302,7 @@ public final class WorkspaceSession {
         resume(str, null);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00b1  */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x00ba  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00d3 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00b4  */
     /*
-        Code decompiled incorrectly, please refer to instructions dump.
     */
     private void resume(String str, Object obj) {
         TaskBinding prepare;

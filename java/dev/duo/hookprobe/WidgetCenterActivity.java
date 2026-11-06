@@ -24,8 +24,8 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-import dev.duo.hookprobe.C0087T;
-import dev.duo.hookprobe.C0100b;
+import dev.duo.hookprobe.UiKit;
+import dev.duo.hookprobe.LauncherDbWriter;
 import dev.duo.workspaceprobe.b.R;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -41,7 +41,7 @@ public final class WidgetCenterActivity extends Activity {
     private static final int f1504f = 132;
 
     /* renamed from: a */
-    private C0087T.d f1505a;
+    private UiKit.d f1505a;
 
     /* renamed from: b */
     private LinearLayout f1506b;
@@ -50,22 +50,22 @@ public final class WidgetCenterActivity extends Activity {
     private boolean f1507c;
 
     /* renamed from: d */
-    private final C0100b.d f1508d = new C0096a();
+    private final LauncherDbWriter.d f1508d = new C0096a();
 
     /* renamed from: dev.duo.hookprobe.WidgetCenterActivity$a */
-    class C0096a implements C0100b.d {
+    class C0096a implements LauncherDbWriter.d {
         C0096a() {
         }
 
-        @Override // dev.duo.hookprobe.C0100b.d
+        @Override // dev.duo.hookprobe.LauncherDbWriter.d
         /* renamed from: a */
         public void mo771a(String str) {
             WidgetCenterActivity.this.m1539c(str);
         }
 
-        @Override // dev.duo.hookprobe.C0100b.d
+        @Override // dev.duo.hookprobe.LauncherDbWriter.d
         /* renamed from: a */
-        public void mo770a(C0100b.c cVar, Exception exc) {
+        public void mo770a(LauncherDbWriter.c cVar, Exception exc) {
             WidgetCenterActivity.this.m1523a(cVar, exc);
         }
     }
@@ -114,7 +114,7 @@ public final class WidgetCenterActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: c, reason: merged with bridge method [inline-methods] */
     public void m1514a(int i) {
-        if (C0100b.m1569a(this, i, this.f1508d)) {
+        if (LauncherDbWriter.m1569a(this, i, this.f1508d)) {
             return;
         }
         m1544g();
@@ -142,8 +142,8 @@ public final class WidgetCenterActivity extends Activity {
 
     /* renamed from: f */
     private C0098c m1543f() throws Exception {
-        String m1563a = C0100b.m1563a();
-        LinkedHashMap<Integer, Long> linkedHashMap = C0100b.m1561a(this, m1563a).f1539a;
+        String m1563a = LauncherDbWriter.m1563a();
+        LinkedHashMap<Integer, Long> linkedHashMap = LauncherDbWriter.m1561a(this, m1563a).f1539a;
         int size = linkedHashMap.size();
         int[] iArr = new int[size];
         Iterator<Integer> it = linkedHashMap.keySet().iterator();
@@ -159,18 +159,18 @@ public final class WidgetCenterActivity extends Activity {
                 iArr[0] = intExtra;
             }
         }
-        return new C0098c(iArr, linkedHashMap, C0100b.m1572b(m1563a) ? C0100b.m1573c(m1563a) : -1L);
+        return new C0098c(iArr, linkedHashMap, LauncherDbWriter.m1572b(m1563a) ? LauncherDbWriter.m1573c(m1563a) : -1L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: g */
     public void m1544g() {
-        String m1563a = C0100b.m1563a();
-        C0100b.c cVar = new C0100b.c();
+        String m1563a = LauncherDbWriter.m1563a();
+        LauncherDbWriter.c cVar = new LauncherDbWriter.c();
         try {
-            final boolean m1572b = C0100b.m1572b(m1563a);
-            C0100b.a m1561a = m1572b ? C0100b.m1561a(this, m1563a) : null;
-            long m1573c = C0100b.m1573c(m1563a);
+            final boolean m1572b = LauncherDbWriter.m1572b(m1563a);
+            LauncherDbWriter.a m1561a = m1572b ? LauncherDbWriter.m1561a(this, m1563a) : null;
+            long m1573c = LauncherDbWriter.m1573c(m1563a);
             if (m1572b && m1537b(m1561a, m1573c)) {
                 return;
             }
@@ -186,7 +186,7 @@ public final class WidgetCenterActivity extends Activity {
             cVar.m1577a("读取桌面数据", (String) null);
             final boolean m1529a = m1529a();
             if (m1529a && m1572b) {
-                C0100b.m1566a(this, m1561a.f1541c);
+                LauncherDbWriter.m1566a(this, m1561a.f1541c);
             }
             runOnUiThread(new Runnable() { // from class: dev.duo.hookprobe.WidgetCenterActivity$$ExternalSyntheticLambda5
                 @Override // java.lang.Runnable
@@ -204,8 +204,8 @@ public final class WidgetCenterActivity extends Activity {
 
     /* renamed from: h */
     private View m1545h() {
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        C0087T.m1418a(m1411a, m1531b());
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        UiKit.m1418a(m1411a, m1531b());
         m1411a.setPadding(m1509a(16.0f), m1509a(6.0f), m1509a(16.0f), m1509a(6.0f));
         int i = 0;
         while (true) {
@@ -215,13 +215,13 @@ public final class WidgetCenterActivity extends Activity {
             }
             if (i > 0) {
                 View view = new View(this);
-                view.setBackgroundColor(C0087T.f1357h);
+                view.setBackgroundColor(UiKit.f1357h);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, Math.max(1, m1509a(0.5f)));
                 layoutParams.leftMargin = m1509a(50.0f);
                 m1411a.addView(view, layoutParams);
             }
             String[] strArr2 = strArr[i];
-            m1411a.addView(m1512a(strArr2[0], strArr2[1]), C0087T.m1408a());
+            m1411a.addView(m1512a(strArr2[0], strArr2[1]), UiKit.m1408a());
             i++;
         }
     }
@@ -229,29 +229,29 @@ public final class WidgetCenterActivity extends Activity {
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f1505a = new C0087T.d(this);
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        C0087T.d dVar = this.f1505a;
+        this.f1505a = new UiKit.d(this);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        UiKit.d dVar = this.f1505a;
         int m1432a = dVar.m1432a(dVar.m1439e());
         m1411a.setPadding(m1432a, this.f1505a.m1438d(), m1432a, this.f1505a.m1436b());
-        m1411a.addView(m1511a(this, this.f1505a, "小组件", "MiDuo 做的桌面小组件都在这里"), C0087T.m1408a());
-        LinearLayout m1411a2 = C0087T.m1411a((Context) this);
+        m1411a.addView(m1511a(this, this.f1505a, "小组件", "MiDuo 做的桌面小组件都在这里"), UiKit.m1408a());
+        LinearLayout m1411a2 = UiKit.m1411a((Context) this);
         this.f1506b = m1411a2;
-        C0087T.m1418a(m1411a2, m1531b());
+        UiKit.m1418a(m1411a2, m1531b());
         this.f1506b.setPadding(m1509a(14.0f), m1509a(14.0f), m1509a(14.0f), m1509a(14.0f));
         View m1545h = m1545h();
         if (this.f1505a.f1396c >= 600) {
-            LinearLayout m1430c = C0087T.m1430c(this);
+            LinearLayout m1430c = UiKit.m1430c(this);
             m1430c.setGravity(48);
             m1430c.setBaselineAligned(false);
             m1430c.addView(m1532b("我的小组件", this.f1506b), new LinearLayout.LayoutParams(0, -1, 1.0f));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1, 1.0f);
             layoutParams.leftMargin = m1509a(12.0f);
             m1430c.addView(m1532b("信息组件", m1545h), layoutParams);
-            m1411a.addView(m1430c, C0087T.m1408a());
+            m1411a.addView(m1430c, UiKit.m1408a());
         } else {
-            m1411a.addView(m1532b("我的小组件", this.f1506b), C0087T.m1408a());
-            m1411a.addView(m1532b("信息组件", m1545h), C0087T.m1408a());
+            m1411a.addView(m1532b("我的小组件", this.f1506b), UiKit.m1408a());
+            m1411a.addView(m1532b("信息组件", m1545h), UiKit.m1408a());
         }
         ScrollView scrollView = new ScrollView(this);
         scrollView.setClipToPadding(false);
@@ -296,18 +296,18 @@ public final class WidgetCenterActivity extends Activity {
 
     /* renamed from: a */
     private int m1509a(float f) {
-        return C0087T.m1399a(this, f);
+        return UiKit.m1399a(this, f);
     }
 
     /* renamed from: a */
-    static View m1511a(final Activity activity, C0087T.d dVar, String str, String str2) {
-        LinearLayout m1430c = C0087T.m1430c(activity);
-        int m1399a = C0087T.m1399a((Context) activity, 4.0f);
+    static View m1511a(final Activity activity, UiKit.d dVar, String str, String str2) {
+        LinearLayout m1430c = UiKit.m1430c(activity);
+        int m1399a = UiKit.m1399a((Context) activity, 4.0f);
         m1430c.setPadding(m1399a, 0, dVar.m1437c() + m1399a, 0);
         FrameLayout frameLayout = new FrameLayout(activity);
-        frameLayout.setBackground(C0087T.m1404a(C0087T.f1353f, C0087T.m1399a((Context) activity, 20.0f)));
-        int m1399a2 = C0087T.m1399a((Context) activity, 18.0f);
-        frameLayout.addView(C0087T.m1407a(activity, C0087T.m1403a(activity, 3, C0087T.f1345b, 2.4f, false, 18.0f)), new FrameLayout.LayoutParams(m1399a2, m1399a2, 17));
+        frameLayout.setBackground(UiKit.m1404a(UiKit.f1353f, UiKit.m1399a((Context) activity, 20.0f)));
+        int m1399a2 = UiKit.m1399a((Context) activity, 18.0f);
+        frameLayout.addView(UiKit.m1407a(activity, UiKit.m1403a(activity, 3, UiKit.f1345b, 2.4f, false, 18.0f)), new FrameLayout.LayoutParams(m1399a2, m1399a2, 17));
         frameLayout.setContentDescription("返回");
         frameLayout.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.WidgetCenterActivity$$ExternalSyntheticLambda11
             @Override // android.view.View.OnClickListener
@@ -315,18 +315,18 @@ public final class WidgetCenterActivity extends Activity {
                 activity.finish();
             }
         });
-        m1430c.addView(frameLayout, C0087T.m1409a(activity, 40.0f, 40.0f));
-        LinearLayout m1411a = C0087T.m1411a((Context) activity);
-        m1411a.setPadding(C0087T.m1399a((Context) activity, 12.0f), 0, 0, 0);
-        TextView m1413a = C0087T.m1413a(activity, 22.0f, C0087T.f1345b, 800);
+        m1430c.addView(frameLayout, UiKit.m1409a(activity, 40.0f, 40.0f));
+        LinearLayout m1411a = UiKit.m1411a((Context) activity);
+        m1411a.setPadding(UiKit.m1399a((Context) activity, 12.0f), 0, 0, 0);
+        TextView m1413a = UiKit.m1413a(activity, 22.0f, UiKit.f1345b, 800);
         m1413a.setText(str);
         m1413a.setLetterSpacing(-0.01f);
         m1411a.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(activity, 12.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a2 = UiKit.m1413a(activity, 12.0f, UiKit.f1349d, RailCodec.f930m);
         m1413a2.setText(str2);
-        m1413a2.setPadding(0, C0087T.m1399a((Context) activity, 3.0f), 0, 0);
+        m1413a2.setPadding(0, UiKit.m1399a((Context) activity, 3.0f), 0, 0);
         m1411a.addView(m1413a2);
-        m1430c.addView(m1411a, C0087T.m1428b());
+        m1430c.addView(m1411a, UiKit.m1428b());
         return m1430c;
     }
 
@@ -343,14 +343,14 @@ public final class WidgetCenterActivity extends Activity {
 
     /* renamed from: b */
     private View m1532b(String str, View view) {
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        m1411a.addView(C0087T.m1414a((Context) this, str), C0087T.m1408a());
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        m1411a.addView(UiKit.m1414a((Context) this, str), UiKit.m1408a());
         m1411a.addView(view, new LinearLayout.LayoutParams(-1, 0, 1.0f));
         return m1411a;
     }
 
     /* renamed from: b */
-    private boolean m1537b(C0100b.a aVar, long j) {
+    private boolean m1537b(LauncherDbWriter.a aVar, long j) {
         Integer num;
         if (!aVar.f1539a.isEmpty() || j < 0 || (num = aVar.f1540b.get(Long.valueOf(j))) == null || num.intValue() == 0) {
             return false;
@@ -370,7 +370,7 @@ public final class WidgetCenterActivity extends Activity {
     private void m1535b(C0098c c0098c, Bitmap[] bitmapArr) {
         this.f1506b.removeAllViews();
         if (c0098c.f1512a.length == 0) {
-            this.f1506b.addView(m1510a(0, (Bitmap) null, 0, false), C0087T.m1408a());
+            this.f1506b.addView(m1510a(0, (Bitmap) null, 0, false), UiKit.m1408a());
         }
         int i = 0;
         while (true) {
@@ -381,7 +381,7 @@ public final class WidgetCenterActivity extends Activity {
             boolean z = c0098c.f1514c >= 0 && c0098c.f1513b.get(Integer.valueOf(iArr[i])).longValue() == c0098c.f1514c;
             LinearLayout linearLayout = this.f1506b;
             int[] iArr2 = c0098c.f1512a;
-            linearLayout.addView(m1510a(iArr2[i], bitmapArr[i], iArr2.length, z), C0087T.m1410a(C0087T.m1408a(), this, i == 0 ? 0.0f : 14.0f));
+            linearLayout.addView(m1510a(iArr2[i], bitmapArr[i], iArr2.length, z), UiKit.m1410a(UiKit.m1408a(), this, i == 0 ? 0.0f : 14.0f));
             i++;
         }
     }
@@ -399,7 +399,7 @@ public final class WidgetCenterActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: a */
-    public void m1523a(C0100b.c cVar, Exception exc) {
+    public void m1523a(LauncherDbWriter.c cVar, Exception exc) {
         Log.w("MiDuoAlbum", "widget page not set\n" + cVar.m1575a(), exc);
         final String m1575a = cVar.m1575a();
         runOnUiThread(new Runnable() { // from class: dev.duo.hookprobe.WidgetCenterActivity$$ExternalSyntheticLambda0
@@ -447,7 +447,7 @@ public final class WidgetCenterActivity extends Activity {
     }
 
     /* renamed from: a */
-    private static boolean m1530a(C0100b.a aVar, long j) {
+    private static boolean m1530a(LauncherDbWriter.a aVar, long j) {
         if (j < 0 || !aVar.f1541c.contains(Long.valueOf(j))) {
             return false;
         }
@@ -459,7 +459,7 @@ public final class WidgetCenterActivity extends Activity {
     static boolean m1529a() {
         String str = "--user " + (Process.myUid() / 100000) + " dev.duo.hookprobe 10017";
         try {
-            C0057M.m977a("cmd appops get " + str + " | grep -q ': allow' || cmd appops set " + str + " allow");
+            RootShell.m977a("cmd appops get " + str + " | grep -q ': allow' || cmd appops set " + str + " allow");
             return true;
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
@@ -503,7 +503,7 @@ public final class WidgetCenterActivity extends Activity {
                     m1519a(m1543f);
                     return;
                 } else {
-                    bitmapArr[i] = C0101c.m1587e(context, iArr[i]);
+                    bitmapArr[i] = AlbumImageStore.m1587e(context, iArr[i]);
                     i++;
                 }
             }
@@ -526,7 +526,7 @@ public final class WidgetCenterActivity extends Activity {
 
     /* renamed from: a */
     private void m1519a(C0098c c0098c) {
-        if (C0100b.m1571b(this) && c0098c.f1512a.length != 0 && C0100b.m1568a(this) && c0098c.f1513b.get(Integer.valueOf(c0098c.f1512a[0])).longValue() != c0098c.f1514c) {
+        if (LauncherDbWriter.m1571b(this) && c0098c.f1512a.length != 0 && LauncherDbWriter.m1568a(this) && c0098c.f1513b.get(Integer.valueOf(c0098c.f1512a[0])).longValue() != c0098c.f1514c) {
             m1539c("相册已放好，正在设为桌面第 1 页，桌面会重开一次");
             m1514a(c0098c.f1512a[0]);
         }
@@ -537,15 +537,15 @@ public final class WidgetCenterActivity extends Activity {
         String str;
         boolean z2 = i != 0;
         int m1509a = (m1509a(132.0f) * 1328) / 854;
-        LinearLayout m1430c = C0087T.m1430c(this);
+        LinearLayout m1430c = UiKit.m1430c(this);
         m1430c.setGravity(48);
         m1430c.addView(m1513a(bitmap), new LinearLayout.LayoutParams(m1509a(132.0f), m1509a));
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
         m1411a.setPadding(m1509a(14.0f), m1509a(4.0f), 0, 0);
-        TextView m1413a = C0087T.m1413a(this, 17.0f, C0087T.f1345b, 700);
+        TextView m1413a = UiKit.m1413a(this, 17.0f, UiKit.f1345b, 700);
         m1413a.setText("相册");
         m1411a.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         if (z2) {
             str = "4×6 · 桌面上有 " + i2 + " 个" + (z ? " · 在第 1 页" : "");
         } else {
@@ -554,40 +554,40 @@ public final class WidgetCenterActivity extends Activity {
         m1413a2.setText(str);
         m1413a2.setPadding(0, m1509a(4.0f), 0, 0);
         m1411a.addView(m1413a2);
-        TextView m1413a3 = C0087T.m1413a(this, 12.0f, C0087T.f1347c, C0054J.f930m);
+        TextView m1413a3 = UiKit.m1413a(this, 12.0f, UiKit.f1347c, RailCodec.f930m);
         m1413a3.setText("用小米相册选图，在 MiDuo 里裁切，内外屏都铺满一页");
         m1413a3.setLineSpacing(0.0f, 1.25f);
         m1413a3.setPadding(0, m1509a(10.0f), 0, 0);
         m1411a.addView(m1413a3);
         m1411a.addView(new View(this), new LinearLayout.LayoutParams(-1, 0, 1.0f));
         if (z2) {
-            TextView m1415a = C0087T.m1415a((Context) this, bitmap == null ? "选择照片" : "换照片", true, 40.0f);
+            TextView m1415a = UiKit.m1415a((Context) this, bitmap == null ? "选择照片" : "换照片", true, 40.0f);
             m1415a.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.WidgetCenterActivity$$ExternalSyntheticLambda1
                 @Override // android.view.View.OnClickListener
                 public final void onClick(View view) {
                     WidgetCenterActivity.this.m1515a(i, view);
                 }
             });
-            m1411a.addView(m1415a, C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
+            m1411a.addView(m1415a, UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
             if (!z) {
-                TextView m1415a2 = C0087T.m1415a((Context) this, "设为第 1 页", false, 40.0f);
+                TextView m1415a2 = UiKit.m1415a((Context) this, "设为第 1 页", false, 40.0f);
                 m1415a2.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.WidgetCenterActivity$$ExternalSyntheticLambda2
                     @Override // android.view.View.OnClickListener
                     public final void onClick(View view) {
                         WidgetCenterActivity.this.m1534b(i, view);
                     }
                 });
-                m1411a.addView(m1415a2, C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
+                m1411a.addView(m1415a2, UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
             }
         } else {
-            TextView m1415a3 = C0087T.m1415a((Context) this, "添加相册", true, 40.0f);
+            TextView m1415a3 = UiKit.m1415a((Context) this, "添加相册", true, 40.0f);
             m1415a3.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.WidgetCenterActivity$$ExternalSyntheticLambda3
                 @Override // android.view.View.OnClickListener
                 public final void onClick(View view) {
                     WidgetCenterActivity.this.m1518a(view);
                 }
             });
-            m1411a.addView(m1415a3, C0087T.m1410a(C0087T.m1408a(), this, 12.0f));
+            m1411a.addView(m1415a3, UiKit.m1410a(UiKit.m1408a(), this, 12.0f));
         }
         m1430c.addView(m1411a, new LinearLayout.LayoutParams(0, m1509a, 1.0f));
         return m1430c;
@@ -596,7 +596,7 @@ public final class WidgetCenterActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: a */
     public /* synthetic */ void m1515a(int i, View view) {
-        startActivity(new Intent(this, (Class<?>) AlbumWidgetConfigureActivity.class).setData(Uri.parse(C0102d.m1590a(i))));
+        startActivity(new Intent(this, (Class<?>) AlbumWidgetConfigureActivity.class).setData(Uri.parse(DeepLinks.m1590a(i))));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -630,24 +630,24 @@ public final class WidgetCenterActivity extends Activity {
 
     /* renamed from: a */
     private View m1512a(final String str, String str2) {
-        LinearLayout m1430c = C0087T.m1430c(this);
+        LinearLayout m1430c = UiKit.m1430c(this);
         m1430c.setMinimumHeight(m1509a(68.0f));
-        TextView m1413a = C0087T.m1413a(this, 15.0f, C0087T.f1378v, 700);
+        TextView m1413a = UiKit.m1413a(this, 15.0f, UiKit.f1378v, 700);
         m1413a.setText(str.substring(0, 1));
         m1413a.setGravity(17);
-        m1413a.setBackground(C0087T.m1406a(C0087T.f1376t, C0087T.f1377u));
-        m1430c.addView(m1413a, C0087T.m1409a(this, 38.0f, 38.0f));
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
+        m1413a.setBackground(UiKit.m1406a(UiKit.f1376t, UiKit.f1377u));
+        m1430c.addView(m1413a, UiKit.m1409a(this, 38.0f, 38.0f));
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
         m1411a.setPadding(m1509a(12.0f), 0, m1509a(8.0f), 0);
-        TextView m1413a2 = C0087T.m1413a(this, 15.0f, C0087T.f1345b, 600);
+        TextView m1413a2 = UiKit.m1413a(this, 15.0f, UiKit.f1345b, 600);
         m1413a2.setText(str);
         m1411a.addView(m1413a2);
-        TextView m1413a3 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a3 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         m1413a3.setText(str2);
         m1413a3.setPadding(0, m1509a(3.0f), 0, 0);
         m1411a.addView(m1413a3);
-        m1430c.addView(m1411a, C0087T.m1428b());
-        TextView m1413a4 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, 500);
+        m1430c.addView(m1411a, UiKit.m1428b());
+        TextView m1413a4 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, 500);
         m1413a4.setText("预览与添加");
         m1430c.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.WidgetCenterActivity$$ExternalSyntheticLambda8
             @Override // android.view.View.OnClickListener

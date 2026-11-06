@@ -76,62 +76,54 @@ public final class Preflight {
         public void onAccuracyChanged(Sensor sensor, int i) {
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:35:0x005b, code lost:
-        
-            if (r8 <= 180.0f) goto L34;
-         */
         @Override // android.hardware.SensorEventListener
         /*
-            Code decompiled incorrectly, please refer to instructions dump.
         */
         public void onSensorChanged(SensorEvent sensorEvent) {
             synchronized (this.f617a) {
-                if (this.f618b[0]) {
-                    int i = 0;
-                    while (true) {
-                        if (i >= 3) {
-                            break;
+                if (!this.f618b[0]) {
+                    return;
+                }
+                for (int i = 0; i < 3; i++) {
+                    if (sensorEvent.sensor != this.f619c[i]) {
+                        continue;
+                    }
+                    long ts = sensorEvent.timestamp / 1000000;
+                    long now = SystemClock.elapsedRealtime();
+                    long[] seen = this.f620d;
+                    if (ts <= seen[i] || ts > now || now - ts >= 1000) {
+                        return;
+                    }
+                    seen[i] = ts;
+                    int idx = (i == 1) ? 3 : 0;
+                    float[] vals = sensorEvent.values;
+                    if (vals.length > idx && Float.isFinite(vals[idx])) {
+                        float v = vals[idx];
+                        boolean valid = true;
+                        if (i == 0) {
+                            valid = v >= 0.0f && v <= 180.0f;
                         }
-                        if (sensorEvent.sensor == this.f619c[i]) {
-                            long j = sensorEvent.timestamp / 1000000;
-                            long elapsedRealtime = SystemClock.elapsedRealtime();
-                            long[] jArr = this.f620d;
-                            if (j > jArr[i] && j <= elapsedRealtime && elapsedRealtime - j < 1000) {
-                                jArr[i] = j;
-                                int i2 = i == 1 ? 3 : 0;
-                                float[] fArr = sensorEvent.values;
-                                if (fArr.length > i2 && Float.isFinite(fArr[i2])) {
-                                    if (i == 0) {
-                                        float f = sensorEvent.values[i2];
-                                        if (f >= 0.0f) {
-                                        }
-                                    }
-                                    if (i == 2) {
-                                        float f2 = sensorEvent.values[i2];
-                                        if (f2 >= 0.0f) {
-                                            if (f2 > sensorEvent.sensor.getMaximumRange()) {
-                                            }
-                                        }
-                                    }
-                                    int[] iArr = this.f622f;
-                                    iArr[i] = iArr[i] + 1;
-                                }
-                                this.f621e[i] = true;
-                            }
+                        if (i == 2) {
+                            valid = v >= 0.0f && v <= sensorEvent.sensor.getMaximumRange();
+                        }
+                        if (valid) {
+                            int[] counts = this.f622f;
+                            counts[i] = counts[i] + 1;
                             return;
                         }
-                        i++;
                     }
-                    for (int i3 = 0; i3 < 3; i3++) {
-                        Sensor sensor = this.f619c[i3];
-                        if (sensor != null && !this.f621e[i3]) {
-                            if (this.f622f[i3] < (sensor.getReportingMode() == 0 ? 2 : 1)) {
-                                return;
-                            }
+                    this.f621e[i] = true;
+                    return;
+                }
+                for (int i3 = 0; i3 < 3; i3++) {
+                    Sensor sensor = this.f619c[i3];
+                    if (sensor != null && !this.f621e[i3]) {
+                        if (this.f622f[i3] < (sensor.getReportingMode() == 0 ? 2 : 1)) {
+                            return;
                         }
                     }
-                    this.f623g.countDown();
                 }
+                this.f623g.countDown();
             }
         }
     }
@@ -232,24 +224,8 @@ public final class Preflight {
         }
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x00b9  */
-    /* JADX WARN: Removed duplicated region for block: B:86:0x011a A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r16v7 */
-    /* JADX WARN: Type inference failed for: r16v8 */
-    /* JADX WARN: Type inference failed for: r3v1 */
-    /* JADX WARN: Type inference failed for: r3v2, types: [int] */
-    /* JADX WARN: Type inference failed for: r3v3 */
-    /* JADX WARN: Type inference failed for: r6v10 */
-    /* JADX WARN: Type inference failed for: r6v3 */
-    /* JADX WARN: Type inference failed for: r6v4 */
-    /* JADX WARN: Type inference failed for: r6v5 */
-    /* JADX WARN: Type inference failed for: r6v6 */
-    /* JADX WARN: Type inference failed for: r6v7 */
-    /* JADX WARN: Type inference failed for: r6v8, types: [int] */
     /* renamed from: a */
     /*
-        Code decompiled incorrectly, please refer to instructions dump.
     */
     static JSONArray[] m634a(SensorManager sensorManager) throws InterruptedException {
         boolean z;

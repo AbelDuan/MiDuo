@@ -51,7 +51,7 @@ import android.widget.ScrollView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-import dev.duo.hookprobe.C0087T;
+import dev.duo.hookprobe.UiKit;
 import dev.duo.hookprobe.RailCustomActivity;
 import dev.duo.taskcore.WorkspaceProtocol;
 import io.github.libxposed.service.XposedService;
@@ -89,7 +89,7 @@ public final class RailCustomActivity extends Activity {
     private static final int f1214e = 4;
 
     /* renamed from: f */
-    private static final String[] f1215f = C0054J.f925h;
+    private static final String[] f1215f = RailCodec.f925h;
 
     /* renamed from: g */
     private static final String[] f1216g = {"返回", "主页", "最近任务", "截屏", "手电筒", "息屏", "静音", "旋转锁定", "录屏", "热点", "深色模式", "自动亮度", "定位", "护眼模式", "微信", "支付宝", "蓝牙", "飞行模式", "省电模式", "投屏", "互传", "常亮", "计算器", "翻译", "上个应用"};
@@ -149,10 +149,10 @@ public final class RailCustomActivity extends Activity {
     private LinearLayout f1245x;
 
     /* renamed from: y */
-    private C0087T.d f1246y;
+    private UiKit.d f1246y;
 
     /* renamed from: z */
-    private C0113o f1247z;
+    private ConfigStore f1247z;
 
     /* renamed from: k */
     private final Handler f1232k = new Handler(Looper.getMainLooper());
@@ -219,19 +219,19 @@ public final class RailCustomActivity extends Activity {
         @Override // android.widget.Adapter
         public View getView(int i, View view, ViewGroup viewGroup) {
             C0078f c0078f = (C0078f) this.f1248a.get(i);
-            LinearLayout m1430c = C0087T.m1430c(RailCustomActivity.this);
+            LinearLayout m1430c = UiKit.m1430c(RailCustomActivity.this);
             m1430c.setMinimumHeight(RailCustomActivity.this.m1266a(56.0f));
             m1430c.setPadding(RailCustomActivity.this.m1266a(8.0f), RailCustomActivity.this.m1266a(8.0f), RailCustomActivity.this.m1266a(8.0f), RailCustomActivity.this.m1266a(8.0f));
-            m1430c.addView(C0087T.m1407a(RailCustomActivity.this, c0078f.f1271c), C0087T.m1409a(RailCustomActivity.this, 30.0f, 30.0f));
-            TextView m1413a = C0087T.m1413a(RailCustomActivity.this, 15.0f, C0087T.f1345b, 500);
+            m1430c.addView(UiKit.m1407a(RailCustomActivity.this, c0078f.f1271c), UiKit.m1409a(RailCustomActivity.this, 30.0f, 30.0f));
+            TextView m1413a = UiKit.m1413a(RailCustomActivity.this, 15.0f, UiKit.f1345b, 500);
             m1413a.setText(c0078f.f1270b);
             m1413a.setSingleLine(true);
             m1413a.setEllipsize(TextUtils.TruncateAt.END);
-            LinearLayout.LayoutParams m1428b = C0087T.m1428b();
+            LinearLayout.LayoutParams m1428b = UiKit.m1428b();
             m1428b.leftMargin = RailCustomActivity.this.m1266a(12.0f);
             m1430c.addView(m1413a, m1428b);
             if (this.f1249b.test(c0078f.f1269a)) {
-                TextView m1413a2 = C0087T.m1413a(RailCustomActivity.this, 12.0f, -13326253, 600);
+                TextView m1413a2 = UiKit.m1413a(RailCustomActivity.this, 12.0f, -13326253, 600);
                 m1413a2.setText("已添加");
                 m1430c.addView(m1413a2);
             }
@@ -411,19 +411,19 @@ public final class RailCustomActivity extends Activity {
             RectF rectF = new RectF(f2, f2, width - f2, f - f2);
             this.f1267d.setShader(null);
             this.f1267d.setStyle(Paint.Style.FILL);
-            this.f1267d.setColor(C0087T.f1343a ? 855638016 : 335544320);
+            this.f1267d.setColor(UiKit.f1343a ? 855638016 : 335544320);
             RectF rectF2 = new RectF(rectF.left, rectF.top + RailCustomActivity.this.m1266a(1.6f), rectF.right, rectF.bottom + RailCustomActivity.this.m1266a(1.6f));
             float f3 = this.f1266c;
             canvas.drawRoundRect(rectF2, f3, f3, this.f1267d);
             Paint paint = this.f1267d;
-            boolean z = C0087T.f1343a;
+            boolean z = UiKit.f1343a;
             paint.setShader(new LinearGradient(0.0f, 0.0f, 0.0f, f, z ? -11908528 : -1, z ? -14474454 : -1578513, Shader.TileMode.CLAMP));
             float f4 = this.f1266c;
             canvas.drawRoundRect(rectF, f4, f4, this.f1267d);
             this.f1267d.setShader(null);
             this.f1267d.setStyle(Paint.Style.STROKE);
             this.f1267d.setStrokeWidth(max);
-            this.f1267d.setColor(C0087T.f1343a ? 1090519039 : 520093696);
+            this.f1267d.setColor(UiKit.f1343a ? 1090519039 : 520093696);
             float f5 = this.f1266c;
             canvas.drawRoundRect(rectF, f5, f5, this.f1267d);
             canvas.restore();
@@ -477,13 +477,13 @@ public final class RailCustomActivity extends Activity {
             float width = getWidth();
             float height = getHeight();
             this.f1290a.setStyle(Paint.Style.FILL);
-            this.f1290a.setColor(C0087T.f1343a ? isPressed() ? -10855838 : -231065024 : isPressed() ? -1710614 : -218103809);
+            this.f1290a.setColor(UiKit.f1343a ? isPressed() ? -10855838 : -231065024 : isPressed() ? -1710614 : -218103809);
             float f = width * 0.3f;
             canvas.drawRoundRect(0.0f, 0.0f, width, height, f, f, this.f1290a);
             this.f1290a.setStyle(Paint.Style.STROKE);
             this.f1290a.setStrokeCap(Paint.Cap.ROUND);
             this.f1290a.setStrokeWidth(0.08f * width);
-            this.f1290a.setColor(C0087T.f1345b);
+            this.f1290a.setColor(UiKit.f1345b);
             if (this.f1291b) {
                 float f2 = width * 0.25f;
                 float f3 = height * 0.25f;
@@ -522,8 +522,8 @@ public final class RailCustomActivity extends Activity {
                 } else if (m1375a(RailCustomActivity.this.f1223D, f, f2)) {
                     this.f1294c = false;
                 }
-                this.f1292a = C0054J.m953d(RailCustomActivity.this.f1233l);
-                this.f1293b = C0054J.m955e(RailCustomActivity.this.f1233l);
+                this.f1292a = RailCodec.m953d(RailCustomActivity.this.f1233l);
+                this.f1293b = RailCodec.m955e(RailCustomActivity.this.f1233l);
                 return true;
             }
             return false;
@@ -568,7 +568,7 @@ public final class RailCustomActivity extends Activity {
                 }
                 i++;
             }
-            String[] m949b = this.f1294c ? C0054J.m949b(RailCustomActivity.this.f1233l, (int) Math.floor(childCount)) : C0054J.m942a(RailCustomActivity.this.f1233l, Math.round(childCount));
+            String[] m949b = this.f1294c ? RailCodec.m949b(RailCustomActivity.this.f1233l, (int) Math.floor(childCount)) : RailCodec.m942a(RailCustomActivity.this.f1233l, Math.round(childCount));
             if (m949b == null || Arrays.equals(m949b, RailCustomActivity.this.f1233l)) {
                 return;
             }
@@ -580,7 +580,7 @@ public final class RailCustomActivity extends Activity {
         @Override // dev.duo.hookprobe.RailCustomActivity.C0082j.a
         /* renamed from: a */
         public void mo1376a() {
-            if (C0054J.m953d(RailCustomActivity.this.f1233l) != this.f1292a || C0054J.m955e(RailCustomActivity.this.f1233l) != this.f1293b) {
+            if (RailCodec.m953d(RailCustomActivity.this.f1233l) != this.f1292a || RailCodec.m955e(RailCustomActivity.this.f1233l) != this.f1293b) {
                 RailCustomActivity.this.m1305b();
                 RailCustomActivity.this.m1362v();
             }
@@ -615,7 +615,7 @@ public final class RailCustomActivity extends Activity {
         C0082j(Context context) {
             super(context);
             setOrientation(1);
-            this.f1296a = C0087T.m1399a(context, RailCustomActivity.f1213d);
+            this.f1296a = UiKit.m1399a(context, RailCustomActivity.f1213d);
         }
 
         @Override // android.view.ViewGroup
@@ -770,9 +770,9 @@ public final class RailCustomActivity extends Activity {
         LinearLayout linearLayout2 = null;
         for (int i = 0; i < m1277a.size(); i++) {
             if (i % 4 == 0) {
-                linearLayout2 = C0087T.m1430c(this);
+                linearLayout2 = UiKit.m1430c(this);
                 linearLayout2.setGravity(48);
-                this.f1220A.addView(linearLayout2, C0087T.m1408a());
+                this.f1220A.addView(linearLayout2, UiKit.m1408a());
             }
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, this.f1229J, 1.0f);
             layoutParams.setMargins(m1266a(3.0f), m1266a(3.0f), m1266a(3.0f), m1266a(3.0f));
@@ -799,13 +799,13 @@ public final class RailCustomActivity extends Activity {
             return;
         }
         linearLayout2.removeAllViews();
-        if (C0054J.m950c(this.f1233l)) {
-            this.f1245x.addView(m1363w(), C0087T.m1408a());
-            this.f1245x.addView(m1364x(), C0087T.m1408a());
-            TextView m1413a = C0087T.m1413a(this, 11.0f, C0087T.f1349d, C0054J.f930m);
+        if (RailCodec.m950c(this.f1233l)) {
+            this.f1245x.addView(m1363w(), UiKit.m1408a());
+            this.f1245x.addView(m1364x(), UiKit.m1408a());
+            TextView m1413a = UiKit.m1413a(this, 11.0f, UiKit.f1349d, RailCodec.f930m);
             m1413a.setText("固定在侧边栏上面，点应用移除；下面会接着显示最近用小窗打开过的应用。双开分身应用在侧栏面板里添加。四方块放到列表最后时，侧边栏占几格就显示几个应用，滑到底点四方块打开面板。");
             m1413a.setLineSpacing(0.0f, 1.2f);
-            this.f1245x.addView(m1413a, C0087T.m1410a(C0087T.m1408a(), this, 2.0f));
+            this.f1245x.addView(m1413a, UiKit.m1410a(UiKit.m1408a(), this, 2.0f));
             ArrayList arrayList = new ArrayList();
             Iterator<String> it = this.f1238q.iterator();
             while (true) {
@@ -814,9 +814,9 @@ public final class RailCustomActivity extends Activity {
                     break;
                 }
                 final String next = it.next();
-                C0078f c0078f = this.f1244w.get(C0054J.m959g(next));
-                int m960h = C0054J.m960h(next);
-                String str = c0078f == null ? C0054J.m959g(next) + "（暂不可用）" : c0078f.f1270b;
+                C0078f c0078f = this.f1244w.get(RailCodec.m959g(next));
+                int m960h = RailCodec.m960h(next);
+                String str = c0078f == null ? RailCodec.m959g(next) + "（暂不可用）" : c0078f.f1270b;
                 if (m960h != 0) {
                     str = str + "（分身）";
                 }
@@ -848,9 +848,9 @@ public final class RailCustomActivity extends Activity {
             int i = 0;
             while (i < arrayList.size()) {
                 if (i % 4 == 0) {
-                    linearLayout = C0087T.m1430c(this);
+                    linearLayout = UiKit.m1430c(this);
                     linearLayout.setGravity(48);
-                    this.f1245x.addView(linearLayout, C0087T.m1410a(C0087T.m1408a(), this, i == 0 ? 6.0f : 0.0f));
+                    this.f1245x.addView(linearLayout, UiKit.m1410a(UiKit.m1408a(), this, i == 0 ? 6.0f : 0.0f));
                 }
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, this.f1228I + m1266a(22.0f), 1.0f);
                 layoutParams.setMargins(m1266a(3.0f), m1266a(3.0f), m1266a(3.0f), m1266a(3.0f));
@@ -887,7 +887,7 @@ public final class RailCustomActivity extends Activity {
         if (this.f1247z == null) {
             m1337g("未连接 LSPosed，改动无法保存");
         } else {
-            final String m946b = C0054J.m946b(this.f1233l);
+            final String m946b = RailCodec.m946b(this.f1233l);
             MainActivity.f957a.execute(new Runnable() { // from class: dev.duo.hookprobe.RailCustomActivity$$ExternalSyntheticLambda19
                 @Override // java.lang.Runnable
                 public final void run() {
@@ -899,16 +899,16 @@ public final class RailCustomActivity extends Activity {
 
     /* renamed from: w */
     private View m1363w() {
-        LinearLayout m1430c = C0087T.m1430c(this);
+        LinearLayout m1430c = UiKit.m1430c(this);
         m1430c.setPadding(m1266a(10.0f), m1266a(18.0f), m1266a(8.0f), m1266a(8.0f));
-        TextView m1413a = C0087T.m1413a(this, 13.0f, C0087T.f1347c, 600);
+        TextView m1413a = UiKit.m1413a(this, 13.0f, UiKit.f1347c, 600);
         m1413a.setText("小窗侧边栏应用（" + this.f1238q.size() + " / 12）");
-        m1430c.addView(m1413a, C0087T.m1428b());
-        final TextView m1413a2 = C0087T.m1413a(this, 13.0f, C0087T.f1345b, 600);
+        m1430c.addView(m1413a, UiKit.m1428b());
+        final TextView m1413a2 = UiKit.m1413a(this, 13.0f, UiKit.f1345b, 600);
         m1413a2.setText(this.f1239r ? "小窗" : "全屏");
         m1430c.addView(m1413a2);
         Switch r2 = new Switch(this);
-        C0087T.m1422a(r2);
+        UiKit.m1422a(r2);
         this.f1241t = r2;
         r2.setEnabled(!this.f1226G);
         r2.setChecked(this.f1239r);
@@ -925,13 +925,13 @@ public final class RailCustomActivity extends Activity {
 
     /* renamed from: x */
     private View m1364x() {
-        LinearLayout m1430c = C0087T.m1430c(this);
+        LinearLayout m1430c = UiKit.m1430c(this);
         m1430c.setPadding(m1266a(10.0f), m1266a(4.0f), m1266a(8.0f), m1266a(4.0f));
-        TextView m1413a = C0087T.m1413a(this, 13.0f, C0087T.f1345b, 500);
+        TextView m1413a = UiKit.m1413a(this, 13.0f, UiKit.f1345b, 500);
         m1413a.setText("四方块放到列表最后");
-        m1430c.addView(m1413a, C0087T.m1428b());
+        m1430c.addView(m1413a, UiKit.m1428b());
         Switch r1 = new Switch(this);
-        C0087T.m1422a(r1);
+        UiKit.m1422a(r1);
         this.f1242u = r1;
         r1.setEnabled(!this.f1226G);
         r1.setChecked(this.f1240s);
@@ -998,18 +998,18 @@ public final class RailCustomActivity extends Activity {
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f1246y = new C0087T.d(this);
+        this.f1246y = new UiKit.d(this);
         Arrays.fill(this.f1233l, "-");
         int m1356p = m1356p();
         this.f1228I = m1356p;
         this.f1229J = m1356p + m1266a(36.0f);
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
-        C0087T.d dVar = this.f1246y;
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
+        UiKit.d dVar = this.f1246y;
         int m1432a = dVar.m1432a(dVar.m1439e());
-        C0087T.d dVar2 = this.f1246y;
+        UiKit.d dVar2 = this.f1246y;
         m1411a.setPadding(m1432a, this.f1246y.m1438d(), m1432a, dVar2.f1396c < 600 ? m1266a(92.0f) : dVar2.m1436b());
-        m1411a.addView(m1326e(), C0087T.m1408a());
-        TextView m1413a = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        m1411a.addView(m1326e(), UiKit.m1408a());
+        TextView m1413a = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         this.f1225F = m1413a;
         m1413a.setLineSpacing(0.0f, 1.25f);
         this.f1225F.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.RailCustomActivity$$ExternalSyntheticLambda28
@@ -1018,23 +1018,23 @@ public final class RailCustomActivity extends Activity {
                 RailCustomActivity.this.m1322d(view);
             }
         });
-        m1411a.addView(this.f1225F, C0087T.m1410a(C0087T.m1408a(), this, 8.0f));
-        LinearLayout m1430c = C0087T.m1430c(this);
+        m1411a.addView(this.f1225F, UiKit.m1410a(UiKit.m1408a(), this, 8.0f));
+        LinearLayout m1430c = UiKit.m1430c(this);
         m1430c.setGravity(48);
         m1430c.setPadding(0, m1266a(10.0f), 0, 0);
         m1411a.addView(m1430c, new LinearLayout.LayoutParams(-1, 0, 1.0f));
-        LinearLayout m1411a2 = C0087T.m1411a((Context) this);
+        LinearLayout m1411a2 = UiKit.m1411a((Context) this);
         m1411a2.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.RailCustomActivity$$ExternalSyntheticLambda29
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
                 RailCustomActivity.this.m1327e(view);
             }
         });
-        LinearLayout m1411a3 = C0087T.m1411a((Context) this);
+        LinearLayout m1411a3 = UiKit.m1411a((Context) this);
         this.f1245x = m1411a3;
-        m1411a2.addView(m1411a3, C0087T.m1408a());
-        m1411a2.addView(C0087T.m1414a((Context) this, "候选"), C0087T.m1408a());
-        LinearLayout m1411a4 = C0087T.m1411a((Context) this);
+        m1411a2.addView(m1411a3, UiKit.m1408a());
+        m1411a2.addView(UiKit.m1414a((Context) this, "候选"), UiKit.m1408a());
+        LinearLayout m1411a4 = UiKit.m1411a((Context) this);
         this.f1220A = m1411a4;
         m1411a4.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.RailCustomActivity$$ExternalSyntheticLambda30
             @Override // android.view.View.OnClickListener
@@ -1042,15 +1042,15 @@ public final class RailCustomActivity extends Activity {
                 RailCustomActivity.this.m1333f(view);
             }
         });
-        m1411a2.addView(this.f1220A, C0087T.m1408a());
+        m1411a2.addView(this.f1220A, UiKit.m1408a());
         ScrollView scrollView = new ScrollView(this);
         this.f1224E = scrollView;
         scrollView.setClipToPadding(false);
         this.f1224E.setVerticalScrollBarEnabled(false);
         this.f1224E.addView(m1411a2);
         m1430c.addView(this.f1224E, new LinearLayout.LayoutParams(0, -1, 1.0f));
-        LinearLayout m1411a5 = C0087T.m1411a((Context) this);
-        m1411a5.addView(C0087T.m1414a((Context) this, "侧栏预览"), C0087T.m1408a());
+        LinearLayout m1411a5 = UiKit.m1411a((Context) this);
+        m1411a5.addView(UiKit.m1414a((Context) this, "侧栏预览"), UiKit.m1408a());
         C0082j c0082j = new C0082j(this);
         this.f1221B = c0082j;
         c0082j.setGravity(1);
@@ -1104,7 +1104,7 @@ public final class RailCustomActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: b */
-    public /* synthetic */ void m1308b(C0113o c0113o, String str, List list, List list2, List list3) {
+    public /* synthetic */ void m1308b(ConfigStore c0113o, String str, List list, List list2, List list3) {
         if (isDestroyed() || isFinishing()) {
             return;
         }
@@ -1196,14 +1196,8 @@ public final class RailCustomActivity extends Activity {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x0340, code lost:
-    
-        if (r25.equals(r29.f1233l[r30 - 1]) != false) goto L75;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0347  */
     /* renamed from: d */
     /*
-        Code decompiled incorrectly, please refer to instructions dump.
     */
     private void m1321d(final int i) {
         String str;
@@ -1220,18 +1214,18 @@ public final class RailCustomActivity extends Activity {
         int i5;
         float f;
         String str7 = this.f1233l[i];
-        boolean equals = C0054J.f923f.equals(str7);
-        boolean z2 = equals && (i == 0 || !C0054J.f923f.equals(this.f1233l[i + (-1)]));
-        boolean equals2 = C0054J.f920c.equals(str7);
+        boolean equals = RailCodec.f923f.equals(str7);
+        boolean z2 = equals && (i == 0 || !RailCodec.f923f.equals(this.f1233l[i + (-1)]));
+        boolean equals2 = RailCodec.f920c.equals(str7);
         FrameLayout frameLayout2 = new FrameLayout(this);
         if (!equals2) {
-            str = C0054J.f920c;
+            str = RailCodec.f920c;
             frameLayout = frameLayout2;
             i2 = -1;
             if (equals) {
                 int i6 = 0;
                 for (int i7 = 0; i7 < i; i7++) {
-                    if (C0054J.f923f.equals(this.f1233l[i7])) {
+                    if (RailCodec.f923f.equals(this.f1233l[i7])) {
                         i6++;
                     }
                 }
@@ -1240,7 +1234,7 @@ public final class RailCustomActivity extends Activity {
                     z = true;
                 } else {
                     z = true;
-                    frameLayout.addView(new C0079g(this, 1, m1266a(999.0f), m1271a(this, C0087T.f1345b, 16.0f), null, -1, null, C0087T.f1345b, null), new FrameLayout.LayoutParams(-1, -1));
+                    frameLayout.addView(new C0079g(this, 1, m1266a(999.0f), m1271a(this, UiKit.f1345b, 16.0f), null, -1, null, UiKit.f1345b, null), new FrameLayout.LayoutParams(-1, -1));
                 }
                 frameLayout.setContentDescription((i + 1) + " Dock");
                 str5 = str7;
@@ -1249,7 +1243,7 @@ public final class RailCustomActivity extends Activity {
                 z = true;
                 if ("-".equals(str7)) {
                     str2 = "-";
-                    frameLayout.addView(new C0079g(this, 2, this.f1228I, null, null, -1, null, C0087T.f1345b, null), new FrameLayout.LayoutParams(-1, -1));
+                    frameLayout.addView(new C0079g(this, 2, this.f1228I, null, null, -1, null, UiKit.f1345b, null), new FrameLayout.LayoutParams(-1, -1));
                     frameLayout.setContentDescription((i + 1) + " 空格");
                     str5 = str7;
                 } else {
@@ -1270,26 +1264,26 @@ public final class RailCustomActivity extends Activity {
                         str4 = str9;
                     }
                     str5 = str7;
-                    frameLayout.addView(new C0079g(this, 3, i8, m1339h, str4, i3, null, C0087T.f1345b, str5), new FrameLayout.LayoutParams(-1, -1));
+                    frameLayout.addView(new C0079g(this, 3, i8, m1339h, str4, i3, null, UiKit.f1345b, str5), new FrameLayout.LayoutParams(-1, -1));
                     frameLayout.setContentDescription((i + 1) + " " + str3);
                 }
             }
         } else {
-            int m955e = C0054J.m955e(this.f1233l);
-            int m953d = C0054J.m953d(this.f1233l);
+            int m955e = RailCodec.m955e(this.f1233l);
+            int m953d = RailCodec.m953d(this.f1233l);
             frameLayout2.addView(new C0077e(i - m955e, m953d, m1266a(26.0f)), new FrameLayout.LayoutParams(-1, -1));
             if (i == (m953d / 2) + m955e) {
                 int m1266a = m1266a(999.0f);
-                int i9 = C0087T.f1345b;
+                int i9 = UiKit.f1345b;
                 i4 = m955e;
-                str = C0054J.f920c;
+                str = RailCodec.f920c;
                 frameLayout = frameLayout2;
                 str6 = "-";
                 i5 = m953d;
                 i2 = -1;
                 frameLayout.addView(new C0079g(this, 1, m1266a, null, "窗", -1, "小窗侧边栏", i9, null), new FrameLayout.LayoutParams(-1, -1));
             } else {
-                str = C0054J.f920c;
+                str = RailCodec.f920c;
                 frameLayout = frameLayout2;
                 str6 = "-";
                 i2 = -1;
@@ -1325,19 +1319,19 @@ public final class RailCustomActivity extends Activity {
             z = true;
         }
         View view = new View(this);
-        GradientDrawable m1404a = C0087T.m1404a(0, m1266a(10.0f));
-        m1404a.setStroke(m1266a(2.0f), C0087T.f1345b);
+        GradientDrawable m1404a = UiKit.m1404a(0, m1266a(10.0f));
+        m1404a.setStroke(m1266a(2.0f), UiKit.f1345b);
         view.setBackground(m1404a);
         view.setVisibility(8);
         frameLayout.addView(view, new FrameLayout.LayoutParams(i2, i2));
         frameLayout.setTag(view);
-        int m955e2 = C0054J.m955e(this.f1233l);
+        int m955e2 = RailCodec.m955e(this.f1233l);
         String str10 = str2;
         if (!str10.equals(str5) && ((!equals || z2) && (!equals2 || i == m955e2))) {
-            TextView m1413a = C0087T.m1413a(this, 14.0f, i2, 700);
+            TextView m1413a = UiKit.m1413a(this, 14.0f, i2, 700);
             m1413a.setText("−");
             m1413a.setGravity(17);
-            m1413a.setBackground(C0087T.m1404a(-2543579, m1266a(10.0f)));
+            m1413a.setBackground(UiKit.m1404a(-2543579, m1266a(10.0f)));
             m1413a.setContentDescription("删除第 " + (i + 1) + " 格");
             m1413a.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.RailCustomActivity$$ExternalSyntheticLambda7
                 @Override // android.view.View.OnClickListener
@@ -1370,7 +1364,7 @@ public final class RailCustomActivity extends Activity {
         frameLayout.setOnDragListener(m1303b(i));
         LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(i2, m1266a(f1213d));
         if (i > 0) {
-            if (!equals || !C0054J.f923f.equals(this.f1233l[i - 1])) {
+            if (!equals || !RailCodec.f923f.equals(this.f1233l[i - 1])) {
                 if (equals2) {
                 }
             }
@@ -1406,12 +1400,12 @@ public final class RailCustomActivity extends Activity {
     /* renamed from: g */
     public /* synthetic */ void m1335g() {
         XposedService xposedService;
-        final C0113o c0113o;
+        final ConfigStore c0113o;
         final String str;
         String m1822h;
-        C0113o c0113o2 = null;
+        ConfigStore c0113o2 = null;
         try {
-            xposedService = C0056L.m970a(1500L);
+            xposedService = ConfigBroadcastHub.m970a(1500L);
         } catch (Throwable th) {
             xposedService = null;
         }
@@ -1420,7 +1414,7 @@ public final class RailCustomActivity extends Activity {
             m1822h = null;
         } else {
             try {
-                C0113o c0113o3 = new C0113o(xposedService);
+                ConfigStore c0113o3 = new ConfigStore(xposedService);
                 m1822h = c0113o3.m1822h();
                 arrayList.addAll(c0113o3.m1826i());
                 c0113o2 = c0113o3;
@@ -1542,7 +1536,7 @@ public final class RailCustomActivity extends Activity {
             this.f1282g = str2;
             this.f1283h = i4;
             paint.setTextAlign(Paint.Align.CENTER);
-            this.f1286k = new DashPathEffect(new float[]{C0087T.m1399a(context, 3.4f), C0087T.m1399a(context, 2.6f)}, 0.0f);
+            this.f1286k = new DashPathEffect(new float[]{UiKit.m1399a(context, 3.4f), UiKit.m1399a(context, 2.6f)}, 0.0f);
             setWillNotDraw(false);
         }
 
@@ -1551,19 +1545,19 @@ public final class RailCustomActivity extends Activity {
             if (this.f1282g == null) {
                 return 0.0f;
             }
-            return Math.max(C0087T.m1399a(getContext(), 7.5f), Math.min(C0087T.m1399a(getContext(), 10.5f), i * 0.2f));
+            return Math.max(UiKit.m1399a(getContext(), 7.5f), Math.min(UiKit.m1399a(getContext(), 10.5f), i * 0.2f));
         }
 
         /* renamed from: b */
         private void m1374b(Canvas canvas, float f, float f2, float f3) {
             this.f1285j.setStyle(Paint.Style.FILL);
             this.f1285j.setPathEffect(null);
-            float m1399a = C0087T.m1399a(getContext(), 1.6f);
-            this.f1285j.setColor(C0087T.f1343a ? 855638016 : 268435456);
+            float m1399a = UiKit.m1399a(getContext(), 1.6f);
+            this.f1285j.setColor(UiKit.f1343a ? 855638016 : 268435456);
             float f4 = f2 + m1399a;
             float f5 = f3 / 2.0f;
-            canvas.drawCircle(f, f4, C0087T.m1399a(getContext(), 1.2f) + f5, this.f1285j);
-            this.f1285j.setColor(C0087T.f1343a ? 1207959552 : 469762048);
+            canvas.drawCircle(f, f4, UiKit.m1399a(getContext(), 1.2f) + f5, this.f1285j);
+            this.f1285j.setColor(UiKit.f1343a ? 1207959552 : 469762048);
             canvas.drawCircle(f, f4, f5, this.f1285j);
         }
 
@@ -1580,7 +1574,7 @@ public final class RailCustomActivity extends Activity {
             float m1368a = m1368a(height);
             float m1367a = m1367a(m1368a);
             float f3 = height;
-            float m1399a2 = (f3 - m1367a) - (m1367a <= 0.0f ? 0.0f : C0087T.m1399a(getContext(), 1.5f));
+            float m1399a2 = (f3 - m1367a) - (m1367a <= 0.0f ? 0.0f : UiKit.m1399a(getContext(), 1.5f));
             int m1369a = m1369a(width, m1399a2);
             float f4 = width;
             float f5 = f4 / 2.0f;
@@ -1590,25 +1584,25 @@ public final class RailCustomActivity extends Activity {
             int i = this.f1276a;
             if (i == 2) {
                 this.f1285j.setStyle(Paint.Style.STROKE);
-                this.f1285j.setStrokeWidth(Math.max(1, C0087T.m1399a(getContext(), 1.3f)));
-                this.f1285j.setColor(C0087T.f1343a ? 1308622847 : 805306368);
+                this.f1285j.setStrokeWidth(Math.max(1, UiKit.m1399a(getContext(), 1.3f)));
+                this.f1285j.setColor(UiKit.f1343a ? 1308622847 : 805306368);
                 this.f1285j.setPathEffect(this.f1286k);
                 canvas.drawCircle(f5, max, Math.max(1.0f, f7), this.f1285j);
                 this.f1285j.setPathEffect(null);
                 this.f1284i.setTypeface(Typeface.create(Typeface.DEFAULT, 0));
-                this.f1284i.setColor(C0087T.f1349d);
-                this.f1284i.setTextSize(Math.max(C0087T.m1399a(getContext(), 9.0f), f6 * 0.45f));
+                this.f1284i.setColor(UiKit.f1349d);
+                this.f1284i.setTextSize(Math.max(UiKit.m1399a(getContext(), 9.0f), f6 * 0.45f));
                 Paint.FontMetrics fontMetrics = this.f1284i.getFontMetrics();
                 canvas.drawText("+", f5, max - ((fontMetrics.ascent + fontMetrics.descent) / 2.0f), this.f1284i);
                 f = f5;
             } else if (i == 3) {
-                int max2 = Math.max(1, m1369a(width, height - C0087T.m1399a(getContext(), 2.0f)));
+                int max2 = Math.max(1, m1369a(width, height - UiKit.m1399a(getContext(), 2.0f)));
                 if (this.f1282g == null) {
                     m1399a = f5;
                     f2 = 2.0f;
                 } else {
                     f2 = 2.0f;
-                    m1399a = (max2 / 2.0f) + C0087T.m1399a(getContext(), 1.0f);
+                    m1399a = (max2 / 2.0f) + UiKit.m1399a(getContext(), 1.0f);
                 }
                 float f8 = f3 / f2;
                 float f9 = max2;
@@ -1632,10 +1626,10 @@ public final class RailCustomActivity extends Activity {
                 }
                 if (this.f1282g != null) {
                     this.f1284i.setTypeface(Typeface.create(Typeface.DEFAULT, 1));
-                    this.f1284i.setColor(C0087T.f1347c);
-                    this.f1284i.setTextSize(C0087T.m1399a(getContext(), 8.0f));
-                    float m1399a3 = m1399a + f10 + C0087T.m1399a(getContext(), 4.0f);
-                    String m1370a = m1370a(this.f1282g, this.f1284i, Math.max(C0087T.m1399a(getContext(), 8.0f), (f4 - m1399a3) - C0087T.m1399a(getContext(), 2.0f)));
+                    this.f1284i.setColor(UiKit.f1347c);
+                    this.f1284i.setTextSize(UiKit.m1399a(getContext(), 8.0f));
+                    float m1399a3 = m1399a + f10 + UiKit.m1399a(getContext(), 4.0f);
+                    String m1370a = m1370a(this.f1282g, this.f1284i, Math.max(UiKit.m1399a(getContext(), 8.0f), (f4 - m1399a3) - UiKit.m1399a(getContext(), 2.0f)));
                     Paint.FontMetrics fontMetrics2 = this.f1284i.getFontMetrics();
                     canvas.drawText(m1370a, m1399a3, f8 - ((fontMetrics2.ascent + fontMetrics2.descent) / 2.0f), this.f1284i);
                     f = f5;
@@ -1671,8 +1665,8 @@ public final class RailCustomActivity extends Activity {
             }
             this.f1284i.setTypeface(Typeface.create(Typeface.DEFAULT, 1));
             this.f1284i.setTextSize(m1368a);
-            this.f1284i.setColor(C0087T.f1347c);
-            canvas.drawText(m1370a(this.f1282g, this.f1284i, width - C0087T.m1399a(getContext(), 4.0f)), f, f3 - this.f1284i.getFontMetrics().descent, this.f1284i);
+            this.f1284i.setColor(UiKit.f1347c);
+            canvas.drawText(m1370a(this.f1282g, this.f1284i, width - UiKit.m1399a(getContext(), 4.0f)), f, f3 - this.f1284i.getFontMetrics().descent, this.f1284i);
         }
 
         /* renamed from: a */
@@ -1691,7 +1685,7 @@ public final class RailCustomActivity extends Activity {
             if (str == null) {
                 return 0.56f;
             }
-            if (C0052I.m898a(str)) {
+            if (QuickTileCatalog.m898a(str)) {
                 return 0.5f;
             }
             if ("screenrecord".equals(str) || "eyecare".equals(str)) {
@@ -1702,7 +1696,7 @@ public final class RailCustomActivity extends Activity {
 
         /* renamed from: a */
         private int m1369a(int i, float f) {
-            return Math.max(C0087T.m1399a(getContext(), 10.0f), Math.round(Math.min(this.f1277b, Math.min(i - C0087T.m1399a(getContext(), 2.0f), f))));
+            return Math.max(UiKit.m1399a(getContext(), 10.0f), Math.round(Math.min(this.f1277b, Math.min(i - UiKit.m1399a(getContext(), 2.0f), f))));
         }
 
         /* renamed from: a */
@@ -1712,7 +1706,7 @@ public final class RailCustomActivity extends Activity {
 
         /* renamed from: a */
         private void m1371a(Canvas canvas, float f, float f2, float f3) {
-            int max = Math.max(C0087T.m1399a(getContext(), 8.0f), Math.round(f3));
+            int max = Math.max(UiKit.m1399a(getContext(), 8.0f), Math.round(f3));
             float f4 = max;
             float f5 = f4 / 2.0f;
             int round = Math.round(f - f5);
@@ -1725,7 +1719,7 @@ public final class RailCustomActivity extends Activity {
             }
             if (this.f1280e >= 0) {
                 if (this.f1289n == null) {
-                    this.f1289n = C0087T.m1403a(getContext(), this.f1280e, this.f1283h, 2.1f, false, 24.0f);
+                    this.f1289n = UiKit.m1403a(getContext(), this.f1280e, this.f1283h, 2.1f, false, 24.0f);
                 }
                 this.f1289n.setBounds(round, round2, round + max, max + round2);
                 this.f1289n.draw(canvas);
@@ -1734,7 +1728,7 @@ public final class RailCustomActivity extends Activity {
             if (this.f1279d != null) {
                 this.f1284i.setTypeface(Typeface.create(Typeface.DEFAULT, 1));
                 this.f1284i.setColor(this.f1283h);
-                this.f1284i.setTextSize(Math.max(C0087T.m1399a(getContext(), 9.0f), f4 * 0.72f));
+                this.f1284i.setTextSize(Math.max(UiKit.m1399a(getContext(), 9.0f), f4 * 0.72f));
                 Paint.FontMetrics fontMetrics = this.f1284i.getFontMetrics();
                 canvas.drawText(this.f1279d, f, f2 - ((fontMetrics.ascent + fontMetrics.descent) / 2.0f), this.f1284i);
             }
@@ -1770,7 +1764,7 @@ public final class RailCustomActivity extends Activity {
             C0078f c0078f = this.f1236o.get(str.substring(4));
             return c0078f == null ? str.substring(4) : c0078f.f1270b;
         }
-        if (C0054J.f923f.equals(str)) {
+        if (RailCodec.f923f.equals(str)) {
             return "Dock";
         }
         int m1268a = m1268a(str);
@@ -1794,7 +1788,7 @@ public final class RailCustomActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: b */
     public void m1305b() {
-        System.arraycopy(C0054J.m941a(this.f1233l), 0, this.f1233l, 0, 7);
+        System.arraycopy(RailCodec.m941a(this.f1233l), 0, this.f1233l, 0, 7);
     }
 
     /* renamed from: c */
@@ -1818,11 +1812,11 @@ public final class RailCustomActivity extends Activity {
 
     /* renamed from: e */
     private View m1326e() {
-        LinearLayout m1430c = C0087T.m1430c(this);
+        LinearLayout m1430c = UiKit.m1430c(this);
         m1430c.setPadding(m1266a(4.0f), 0, m1266a(4.0f), 0);
         FrameLayout frameLayout = new FrameLayout(this);
-        frameLayout.setBackground(C0087T.m1404a(C0087T.f1353f, m1266a(20.0f)));
-        frameLayout.addView(C0087T.m1407a(this, C0087T.m1403a(this, 3, C0087T.f1345b, 2.4f, false, 18.0f)), new FrameLayout.LayoutParams(m1266a(18.0f), m1266a(18.0f), 17));
+        frameLayout.setBackground(UiKit.m1404a(UiKit.f1353f, m1266a(20.0f)));
+        frameLayout.addView(UiKit.m1407a(this, UiKit.m1403a(this, 3, UiKit.f1345b, 2.4f, false, 18.0f)), new FrameLayout.LayoutParams(m1266a(18.0f), m1266a(18.0f), 17));
         frameLayout.setContentDescription("返回");
         frameLayout.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.RailCustomActivity$$ExternalSyntheticLambda22
             @Override // android.view.View.OnClickListener
@@ -1830,18 +1824,18 @@ public final class RailCustomActivity extends Activity {
                 RailCustomActivity.this.m1315c(view);
             }
         });
-        m1430c.addView(frameLayout, C0087T.m1409a(this, f1213d, f1213d));
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
+        m1430c.addView(frameLayout, UiKit.m1409a(this, f1213d, f1213d));
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
         m1411a.setPadding(m1266a(12.0f), 0, 0, 0);
-        TextView m1413a = C0087T.m1413a(this, 22.0f, C0087T.f1345b, 800);
+        TextView m1413a = UiKit.m1413a(this, 22.0f, UiKit.f1345b, 800);
         m1413a.setText("外屏 App 内侧栏自定义");
         m1413a.setLetterSpacing(-0.01f);
         m1411a.addView(m1413a);
-        TextView m1413a2 = C0087T.m1413a(this, 12.0f, C0087T.f1349d, C0054J.f930m);
+        TextView m1413a2 = UiKit.m1413a(this, 12.0f, UiKit.f1349d, RailCodec.f930m);
         m1413a2.setText("只改外屏 App 模式的右侧栏，全局共用");
         m1413a2.setPadding(0, m1266a(3.0f), 0, 0);
         m1411a.addView(m1413a2);
-        m1430c.addView(m1411a, C0087T.m1428b());
+        m1430c.addView(m1411a, UiKit.m1428b());
         return m1430c;
     }
 
@@ -1871,21 +1865,21 @@ public final class RailCustomActivity extends Activity {
             }
             m1198a = null;
         } else {
-            if (!C0054J.f923f.equals(str) && (m1268a = m1268a(str)) >= 0) {
+            if (!RailCodec.f923f.equals(str) && (m1268a = m1268a(str)) >= 0) {
                 if (!"wechat".equals(str) && !"alipay".equals(str)) {
-                    Drawable m896a = C0052I.m896a(this, str);
+                    Drawable m896a = QuickTileCatalog.m896a(this, str);
                     if (m896a != null) {
-                        m896a.setTint(C0087T.f1345b);
+                        m896a.setTint(UiKit.f1345b);
                         m1198a = m896a;
                     } else if ("huanji".equals(str)) {
                         m1198a = m1272a(this, "com.miui.huanji");
                     } else if ("calculator".equals(str)) {
                         m1198a = m1272a(this, "com.miui.calculator");
                     } else {
-                        m1198a = "translate".equals(str) ? m1272a(this, "com.xiaomi.aiasst.vision") : m1274a(f1218i[m1268a], C0087T.f1345b);
+                        m1198a = "translate".equals(str) ? m1272a(this, "com.xiaomi.aiasst.vision") : m1274a(f1218i[m1268a], UiKit.f1345b);
                     }
                 } else {
-                    m1198a = C0069N.m1198a(str);
+                    m1198a = TrialRingDrawable.m1198a(str);
                 }
             }
             m1198a = null;
@@ -1912,7 +1906,7 @@ public final class RailCustomActivity extends Activity {
     }
 
     /* renamed from: a */
-    private void m1288a(C0113o c0113o, String str, List<C0078f> list, List<String> list2, List<C0078f> list3) {
+    private void m1288a(ConfigStore c0113o, String str, List<C0078f> list, List<String> list2, List<C0078f> list3) {
         this.f1247z = c0113o;
         this.f1239r = c0113o == null || c0113o.m1864v();
         this.f1240s = c0113o != null && c0113o.m1865w();
@@ -1966,7 +1960,6 @@ public final class RailCustomActivity extends Activity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     /* renamed from: b */
     public static void m1306b(Canvas canvas, String str, float f, float f2, float f3, Paint paint) {
         char c;
@@ -2092,16 +2085,16 @@ public final class RailCustomActivity extends Activity {
 
     /* renamed from: e */
     private String[] m1330e(String str) {
-        String[] m951c = C0054J.m951c(str);
+        String[] m951c = RailCodec.m951c(str);
         if (m951c == null) {
-            return C0054J.m940a();
+            return RailCodec.m940a();
         }
         for (int i = 0; i < m951c.length; i++) {
             if (m951c[i].startsWith("app:") && !this.f1236o.containsKey(m951c[i].substring(4))) {
                 m951c[i] = "-";
             }
         }
-        return C0054J.m941a(m951c);
+        return RailCodec.m941a(m951c);
     }
 
     /* renamed from: g */
@@ -2126,8 +2119,8 @@ public final class RailCustomActivity extends Activity {
             i++;
         }
         arrayList.add(new C0076d(null, "选择 App", "+", null, -1, true));
-        arrayList.add(new C0076d(C0054J.f923f, "Dock", null, m1271a(this, C0087T.f1345b, 26.0f), -1, false));
-        arrayList.add(new C0076d(C0054J.f920c, "小窗侧边栏", "窗", null, -1, false));
+        arrayList.add(new C0076d(RailCodec.f923f, "Dock", null, m1271a(this, UiKit.f1345b, 26.0f), -1, false));
+        arrayList.add(new C0076d(RailCodec.f920c, "小窗侧边栏", "窗", null, -1, false));
         for (String str2 : this.f1234m) {
             C0078f c0078f = this.f1236o.get(str2.substring(4));
             if (c0078f != null) {
@@ -2139,19 +2132,19 @@ public final class RailCustomActivity extends Activity {
 
     /* renamed from: a */
     private View m1276a(final C0076d c0076d) {
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
         m1411a.setGravity(1);
         String str = c0076d.f1258a;
         boolean z = str != null && m1312b(str);
-        C0079g c0079g = new C0079g(this, 0, this.f1228I, c0076d.f1261d, c0076d.f1260c, c0076d.f1262e, c0076d.f1259b, C0087T.f1345b, c0076d.f1258a);
+        C0079g c0079g = new C0079g(this, 0, this.f1228I, c0076d.f1261d, c0076d.f1260c, c0076d.f1262e, c0076d.f1259b, UiKit.f1345b, c0076d.f1258a);
         if (z) {
             c0079g.setAlpha(0.45f);
         }
         m1411a.addView(c0079g, new LinearLayout.LayoutParams(-1, this.f1228I + m1266a(18.0f)));
-        TextView m1413a = C0087T.m1413a(this, 9.0f, -13326253, 600);
+        TextView m1413a = UiKit.m1413a(this, 9.0f, -13326253, 600);
         m1413a.setText(z ? "已添加" : "");
         m1413a.setGravity(17);
-        m1411a.addView(m1413a, C0087T.m1410a(new LinearLayout.LayoutParams(-1, m1266a(14.0f)), this, 2.0f));
+        m1411a.addView(m1413a, UiKit.m1410a(new LinearLayout.LayoutParams(-1, m1266a(14.0f)), this, 2.0f));
         if (c0076d.f1263f) {
             m1411a.setContentDescription("选择 App");
             m1411a.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.RailCustomActivity$$ExternalSyntheticLambda38
@@ -2202,7 +2195,7 @@ public final class RailCustomActivity extends Activity {
     /* renamed from: b */
     public static Drawable m1302b(Context context, int i) {
         GradientDrawable.Orientation orientation = GradientDrawable.Orientation.TOP_BOTTOM;
-        boolean z = C0087T.f1343a;
+        boolean z = UiKit.f1343a;
         GradientDrawable gradientDrawable = new GradientDrawable(orientation, new int[]{z ? -11908528 : -1, z ? -14474454 : -1578513});
         gradientDrawable.setShape(1);
         int max = Math.max(1, Math.round(i * 0.018f));
@@ -2210,7 +2203,7 @@ public final class RailCustomActivity extends Activity {
         GradientDrawable gradientDrawable2 = new GradientDrawable();
         gradientDrawable2.setShape(1);
         gradientDrawable2.setColor(0);
-        gradientDrawable2.setStroke(max, C0087T.f1343a ? 1090519039 : 520093696);
+        gradientDrawable2.setStroke(max, UiKit.f1343a ? 1090519039 : 520093696);
         return new LayerDrawable(new Drawable[]{insetDrawable, gradientDrawable2});
     }
 
@@ -2451,7 +2444,7 @@ public final class RailCustomActivity extends Activity {
             m1337g("这个已经添加过了");
             return false;
         }
-        if (C0054J.f920c.equals(str)) {
+        if (RailCodec.f920c.equals(str)) {
             int i3 = 0;
             while (true) {
                 i2 = i + i3;
@@ -2465,10 +2458,10 @@ public final class RailCustomActivity extends Activity {
                 return false;
             }
             while (i < i2) {
-                this.f1233l[i] = C0054J.f920c;
+                this.f1233l[i] = RailCodec.f920c;
                 i++;
             }
-        } else if (C0054J.f923f.equals(str)) {
+        } else if (RailCodec.f923f.equals(str)) {
             if (i > 4) {
                 m1337g("Dock 只能从第 1~4 格开始放下（占连续 3 格）");
                 return false;
@@ -2478,7 +2471,7 @@ public final class RailCustomActivity extends Activity {
                 int i5 = i + 3;
                 if (i4 >= i5) {
                     while (i < i5) {
-                        this.f1233l[i] = C0054J.f923f;
+                        this.f1233l[i] = RailCodec.f923f;
                         i++;
                     }
                 } else {
@@ -2490,7 +2483,7 @@ public final class RailCustomActivity extends Activity {
                 }
             }
         } else {
-            if (C0054J.f920c.equals(this.f1233l[i])) {
+            if (RailCodec.f920c.equals(this.f1233l[i])) {
                 m1337g("这格被小窗侧边栏占着，先拖它的把手缩小，再放按钮");
                 return false;
             }
@@ -2498,7 +2491,7 @@ public final class RailCustomActivity extends Activity {
                 m1337g("这格已经有按钮了");
                 return false;
             }
-            if (!C0054J.m939a(str) && !C0054J.m947b(str)) {
+            if (!RailCodec.m939a(str) && !RailCodec.m947b(str)) {
                 return false;
             }
             this.f1233l[i] = str;
@@ -2516,15 +2509,15 @@ public final class RailCustomActivity extends Activity {
 
     /* renamed from: a */
     private void m1278a(int i) {
-        if (C0054J.f920c.equals(this.f1233l[i])) {
+        if (RailCodec.f920c.equals(this.f1233l[i])) {
             for (int i2 = 0; i2 < 7; i2++) {
-                if (C0054J.f920c.equals(this.f1233l[i2])) {
+                if (RailCodec.f920c.equals(this.f1233l[i2])) {
                     this.f1233l[i2] = "-";
                 }
             }
-        } else if (C0054J.f923f.equals(this.f1233l[i])) {
+        } else if (RailCodec.f923f.equals(this.f1233l[i])) {
             for (int i3 = 0; i3 < 7; i3++) {
-                if (C0054J.f923f.equals(this.f1233l[i3])) {
+                if (RailCodec.f923f.equals(this.f1233l[i3])) {
                     this.f1233l[i3] = "-";
                 }
             }
@@ -2540,20 +2533,20 @@ public final class RailCustomActivity extends Activity {
     /* renamed from: a */
     private void m1290a(String str, List<C0078f> list, Predicate<String> predicate, final Consumer<C0078f> consumer) {
         final ArrayList arrayList = new ArrayList(list);
-        LinearLayout m1411a = C0087T.m1411a((Context) this);
+        LinearLayout m1411a = UiKit.m1411a((Context) this);
         m1411a.setPadding(m1266a(20.0f), m1266a(4.0f), m1266a(20.0f), m1266a(4.0f));
         EditText editText = new EditText(this);
-        C0087T.m1419a(editText);
+        UiKit.m1419a(editText);
         editText.setHint("搜索 App");
-        m1411a.addView(editText, C0087T.m1408a());
+        m1411a.addView(editText, UiKit.m1408a());
         ListView listView = new ListView(this);
         listView.setDivider(null);
         listView.setVerticalScrollBarEnabled(false);
         listView.setBackgroundColor(0);
         C0073a c0073a = new C0073a(arrayList, predicate);
         listView.setAdapter((ListAdapter) c0073a);
-        m1411a.addView(listView, C0087T.m1410a(new LinearLayout.LayoutParams(-1, m1266a(320.0f)), this, 8.0f));
-        final AlertDialog create = C0087T.m1400a((Activity) this, str).setView(m1411a).setNegativeButton("取消", (DialogInterface.OnClickListener) null).create();
+        m1411a.addView(listView, UiKit.m1410a(new LinearLayout.LayoutParams(-1, m1266a(320.0f)), this, 8.0f));
+        final AlertDialog create = UiKit.m1400a((Activity) this, str).setView(m1411a).setNegativeButton("取消", (DialogInterface.OnClickListener) null).create();
         editText.addTextChangedListener(new C0074b(arrayList, list, c0073a));
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: dev.duo.hookprobe.RailCustomActivity$$ExternalSyntheticLambda16
             @Override // android.widget.AdapterView.OnItemClickListener
@@ -2561,7 +2554,7 @@ public final class RailCustomActivity extends Activity {
                 RailCustomActivity.m1292a(arrayList, create, consumer, adapterView, view, i, j);
             }
         });
-        C0087T.m1417a(create);
+        UiKit.m1417a(create);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -2629,7 +2622,7 @@ public final class RailCustomActivity extends Activity {
 
     /* renamed from: a */
     private View m1275a(Drawable drawable, String str, String str2) {
-        return new C0079g(this, str != null ? 2 : 0, this.f1228I, drawable, str, -1, str2, C0087T.f1345b, drawable == null ? null : "app:");
+        return new C0079g(this, str != null ? 2 : 0, this.f1228I, drawable, str, -1, str2, UiKit.f1345b, drawable == null ? null : "app:");
     }
 
     /* renamed from: a */
@@ -2745,11 +2738,11 @@ public final class RailCustomActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: a */
     public int m1266a(float f) {
-        return C0087T.m1399a(this, f);
+        return UiKit.m1399a(this, f);
     }
 
     /* renamed from: a */
     private static Drawable m1271a(Context context, int i, float f) {
-        return new C0075c(i, C0087T.m1399a(context, f));
+        return new C0075c(i, UiKit.m1399a(context, f));
     }
 }

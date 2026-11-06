@@ -144,10 +144,6 @@ public class InfoWidgetProvider extends AppWidgetProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r13v12 */
-    /* JADX WARN: Type inference failed for: r13v8 */
-    /* JADX WARN: Type inference failed for: r13v9, types: [int] */
     /* renamed from: a */
     public static /* synthetic */ void m915a(Context context, int i, BroadcastReceiver.PendingResult pendingResult) {
         Bundle bundle;
@@ -173,7 +169,7 @@ public class InfoWidgetProvider extends AppWidgetProvider {
             boolean z3 = iArr[2].length + iArr[3].length > 0;
             boolean z4 = iArr[4].length + iArr[5].length > 0;
             if (z3) {
-                bundle = C0041A.m745a(context);
+                bundle = WidgetDataSource.m745a(context);
             } else {
                 bundle = new Bundle();
             }
@@ -181,11 +177,11 @@ public class InfoWidgetProvider extends AppWidgetProvider {
             m916a(context, z2, z4, bundle.getLong("next", Long.MAX_VALUE));
             Bundle[] bundleArr = new Bundle[3];
             if (z2 && (i2 < 0 || i2 / 2 == 0)) {
-                bundleArr[0] = C0041A.m746a(context, m912a(context, "battery"));
+                bundleArr[0] = WidgetDataSource.m746a(context, m912a(context, "battery"));
             }
             bundleArr[1] = bundle;
             if (z4 && (i2 < 0 || i2 / 2 == 2)) {
-                bundleArr[2] = C0041A.m747a(m912a(context, "weather"));
+                bundleArr[2] = WidgetDataSource.m747a(m912a(context, "weather"));
             }
             int i5 = 0;
             while (i5 < f907c.length) {
@@ -194,7 +190,7 @@ public class InfoWidgetProvider extends AppWidgetProvider {
                 } else if (iArr[i5].length == 0) {
                     str = str3;
                 } else {
-                    Bitmap m2046a = C0124z.m2046a(f908d[i5], i5 % 2 == i4 ? true : z, bundleArr[i5 / 2]);
+                    Bitmap m2046a = WidgetBitmapPainter.m2046a(f908d[i5], i5 % 2 == i4 ? true : z, bundleArr[i5 / 2]);
                     try {
                         int[] iArr2 = iArr[i5];
                         int length = iArr2.length;

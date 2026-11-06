@@ -672,7 +672,6 @@ public final class WorkspaceShell implements WorkspaceSession.Platform {
         return proceed;
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
     /* renamed from: lambda$install$3$dev-duo-taskcore-WorkspaceShell, reason: not valid java name */
     /* synthetic */ Object m3381lambda$install$3$devduotaskcoreWorkspaceShell(Method method, Constructor constructor, Method method2, XposedInterface.Chain chain) throws Throwable {
         ArrayList arrayList;
@@ -1022,7 +1021,6 @@ public final class WorkspaceShell implements WorkspaceSession.Platform {
         return onHandler(method, objArr);
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     /* renamed from: lambda$install$22$dev-duo-taskcore-WorkspaceShell, reason: not valid java name */
     /* synthetic */ Object m3380lambda$install$22$devduotaskcoreWorkspaceShell(Object obj, Method method, Object[] objArr) throws Throwable {
         char c;
@@ -1198,7 +1196,6 @@ public final class WorkspaceShell implements WorkspaceSession.Platform {
         }
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
     /* renamed from: lambda$installGroupMotion$25$dev-duo-taskcore-WorkspaceShell, reason: not valid java name */
     /* synthetic */ Object m3389lambda$installGroupMotion$25$devduotaskcoreWorkspaceShell(Field field, Field field2, Class cls, XposedInterface.Chain chain) throws Throwable {
         final GroupMotion groupMotion = this.groupMotion;
@@ -1444,12 +1441,12 @@ public final class WorkspaceShell implements WorkspaceSession.Platform {
                             if (!z && !TaskInfo.class.getField("isVisible").getBoolean(runningTaskInfo)) {
                                 z2 = false;
                                 alpha.setVisibility(surfaceControl, z2);
-                                C0132Tx.windowCrop(transaction3, surfaceControl, rect.width(), rect.height());
+                                WindowCropTx.windowCrop(transaction3, surfaceControl, rect.width(), rect.height());
                                 z3 = true;
                             }
                             z2 = true;
                             alpha.setVisibility(surfaceControl, z2);
-                            C0132Tx.windowCrop(transaction3, surfaceControl, rect.width(), rect.height());
+                            WindowCropTx.windowCrop(transaction3, surfaceControl, rect.width(), rect.height());
                             z3 = true;
                         }
                     }
@@ -1841,9 +1838,6 @@ public final class WorkspaceShell implements WorkspaceSession.Platform {
         return this.geometry;
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v0 */
-    /* JADX WARN: Type inference failed for: r2v4, types: [java.lang.Object[]] */
     @Override // dev.duo.taskcore.WorkspaceSession.Platform
     public TaskBinding.Origin inspect(int i) throws WorkspaceSession.Refused {
         int i2;
@@ -2071,7 +2065,6 @@ public final class WorkspaceShell implements WorkspaceSession.Platform {
         }
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     /* renamed from: lambda$createHost$45$dev-duo-taskcore-WorkspaceShell, reason: not valid java name */
     /* synthetic */ Object m3363lambda$createHost$45$devduotaskcoreWorkspaceShell(WorkspaceSession.Done done, Handler handler, TaskBinding taskBinding, Object obj, Method method, Object[] objArr) throws Throwable {
         char c;
@@ -2313,7 +2306,6 @@ public final class WorkspaceShell implements WorkspaceSession.Platform {
         }
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     private Object onHandler(Method method, Object[] objArr) throws Throwable {
         char c;
         String name = method.getName();
@@ -2502,7 +2494,7 @@ public final class WorkspaceShell implements WorkspaceSession.Platform {
             return false;
         }
         transaction.reparent(surfaceControl, surfaceControl2).setPosition(surfaceControl, 0.0f, 0.0f).setScale(surfaceControl, 1.0f, 1.0f).setAlpha(surfaceControl, 1.0f).setVisibility(surfaceControl, true);
-        C0132Tx.windowCrop(transaction, surfaceControl, rect.width(), rect.height());
+        WindowCropTx.windowCrop(transaction, surfaceControl, rect.width(), rect.height());
         this.live.add(taskBinding);
         this.hiddenUntilAttached.remove(Integer.valueOf(taskBinding.origin.taskId));
         return true;
@@ -2530,7 +2522,7 @@ public final class WorkspaceShell implements WorkspaceSession.Platform {
                                     SurfaceControl surfaceControl2 = (SurfaceControl) this.tvcSurface.get(taskBinding.controller);
                                     if (surfaceControl != null && surfaceControl.isValid() && surfaceControl2 != null && surfaceControl2.isValid()) {
                                         transaction.reparent(surfaceControl, surfaceControl2).setPosition(surfaceControl, 0.0f, 0.0f).setScale(surfaceControl, 1.0f, 1.0f).setAlpha(surfaceControl, 1.0f).setVisibility(surfaceControl, true);
-                                        C0132Tx.windowCrop(transaction, surfaceControl, rect.width(), rect.height());
+                                        WindowCropTx.windowCrop(transaction, surfaceControl, rect.width(), rect.height());
                                     }
                                     arrayList.add(taskBinding + " surface gone");
                                 }
@@ -2783,142 +2775,62 @@ public final class WorkspaceShell implements WorkspaceSession.Platform {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Can't wrap try/catch for region: R(17:0|1|2|3|(3:36|37|(7:39|11|12|(1:14)|(1:20)|17|18))|(1:6)(1:35)|7|8|9|10|11|12|(0)|(0)|17|18|(1:(0))) */
-    /* JADX WARN: Can't wrap try/catch for region: R(7:(3:36|37|(7:39|11|12|(1:14)|(1:20)|17|18))|11|12|(0)|(0)|17|18) */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x007d, code lost:
-    
-        r0 = e;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:?, code lost:
-    
-        return;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x0081, code lost:
-    
-        r0 = e;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x008c, code lost:
-    
-        r16 = r3;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x007f, code lost:
-    
-        r0 = th;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x0086, code lost:
-    
-        r16 = r3;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:14:0x0064 A[Catch: RemoteException | LinkageError | RuntimeException -> 0x007d, all -> 0x0099, TRY_LEAVE, TryCatch #0 {RemoteException | LinkageError | RuntimeException -> 0x007d, blocks: (B:12:0x0039, B:14:0x0064), top: B:11:0x0039 }] */
-    /* JADX WARN: Removed duplicated region for block: B:20:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:24:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x009c  */
     /* renamed from: sendGroupFrame, reason: merged with bridge method [inline-methods] */
     /*
-        Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void m3396lambda$publishGroupFrame$51$devduotaskcoreWorkspaceShell(IBinder iBinder, final long j, final long j2, int[] iArr, int i, HardwareBuffer hardwareBuffer, ColorSpace colorSpace) {
-        HardwareBuffer hardwareBuffer2;
-        HardwareBuffer hardwareBuffer3;
-        ColorSpace colorSpace2;
-        int publish;
+    public void m3396lambda$publishGroupFrame$51$devduotaskcoreWorkspaceShell(IBinder iBinder, final long j, final long j2, int[] iArr, int i, HardwareBuffer hardwareBuffer, ColorSpace colorSpace, int i2) {
+        HardwareBuffer target;
+        ColorSpace sRGB;
         try {
-            colorSpace2 = ColorSpace.get(ColorSpace.Named.SRGB);
+            sRGB = ColorSpace.get(ColorSpace.Named.SRGB);
         } catch (RemoteException | LinkageError | RuntimeException e) {
-            e = e;
-            hardwareBuffer2 = hardwareBuffer;
+            closeQuietly(hardwareBuffer);
+            Log.e(TAG, "workbench image send failed", e);
+            return;
         } catch (Throwable th) {
-            th = th;
-            hardwareBuffer2 = hardwareBuffer;
+            closeQuietly(hardwareBuffer);
+            throw th;
         }
         try {
-            if (colorSpace != null) {
-                try {
-                } catch (RemoteException | LinkageError | RuntimeException e2) {
-                    e = e2;
-                    hardwareBuffer3 = hardwareBuffer;
-                    Log.e(TAG, "workbench image send failed", e);
-                    if (hardwareBuffer3 == null) {
-                    }
-                    hardwareBuffer3.close();
-                    return;
-                } catch (Throwable th2) {
-                    th = th2;
-                    hardwareBuffer3 = hardwareBuffer;
-                    if (hardwareBuffer3 != null) {
-                    }
-                    throw th;
-                }
-                if (colorSpace.getId() == colorSpace2.getId()) {
-                    hardwareBuffer3 = hardwareBuffer;
-                    colorSpace2 = colorSpace;
-                    publish = WorkspaceHome.publish(this.context, iBinder, j, j2, iArr, i, hardwareBuffer3, colorSpace2.getId(), hardwareBuffer3.getWidth(), hardwareBuffer3.getHeight(), new ResultReceiver(this.shell) { // from class: dev.duo.taskcore.WorkspaceShell.1
+            ColorSpace use = (colorSpace != null && colorSpace.getId() == sRGB.getId()) ? colorSpace : sRGB;
+            target = toSrgb(hardwareBuffer, use);
+            int publish = WorkspaceHome.publish(this.context, iBinder, j, j2, iArr, i,
+                    target, use.getId(), target.getWidth(), target.getHeight(), i2,
+                    new ResultReceiver(null) { // from class: dev.duo.taskcore.WorkspaceShell.51
                         @Override // android.os.ResultReceiver
-                        protected void onReceiveResult(int i2, Bundle bundle) {
-                            if (j == WorkspaceShell.this.imageEpoch && j2 == WorkspaceShell.this.imageFrame) {
-                                if (i2 < 0) {
-                                    Log.e(WorkspaceShell.TAG, "workbench image rejected: " + bundle);
-                                    return;
-                                }
-                                Log.i(WorkspaceShell.TAG, "workbench image " + j2 + " receiver=" + i2);
-                                if (i2 == 0 || i2 == 1) {
-                                    try {
-                                        WorkspaceShell.this.recentsChanged.invoke(WorkspaceShell.this.recents, new Object[0]);
-                                    } catch (ReflectiveOperationException e3) {
-                                        Log.e(WorkspaceShell.TAG, "workbench image refresh failed", e3);
-                                    }
+                        protected void onReceiveResult(int code, Bundle bundle) {
+                            if (j != WorkspaceShell.this.imageEpoch || j2 != WorkspaceShell.this.imageFrame) {
+                                return;
+                            }
+                            if (code < 0) {
+                                Log.e(WorkspaceShell.TAG, "workbench image rejected: " + bundle);
+                                return;
+                            }
+                            Log.i(WorkspaceShell.TAG, "workbench image " + j2 + " receiver=" + code);
+                            if (code == 0 || code == 1) {
+                                try {
+                                    WorkspaceShell.this.recentsChanged.invoke(WorkspaceShell.this.recents, new Object[0]);
+                                } catch (ReflectiveOperationException e3) {
+                                    Log.e(WorkspaceShell.TAG, "workbench image refresh failed", e3);
                                 }
                             }
                         }
                     });
-                    if (publish < 0) {
-                        Log.e(TAG, "workbench image publish rejected: " + publish);
-                    }
-                    if (hardwareBuffer3 == null) {
-                        return;
-                    }
-                    hardwareBuffer3.close();
-                    return;
-                }
-            }
-            publish = WorkspaceHome.publish(this.context, iBinder, j, j2, iArr, i, hardwareBuffer3, colorSpace2.getId(), hardwareBuffer3.getWidth(), hardwareBuffer3.getHeight(), new ResultReceiver(this.shell) { // from class: dev.duo.taskcore.WorkspaceShell.1
-                @Override // android.os.ResultReceiver
-                protected void onReceiveResult(int i2, Bundle bundle) {
-                    if (j == WorkspaceShell.this.imageEpoch && j2 == WorkspaceShell.this.imageFrame) {
-                        if (i2 < 0) {
-                            Log.e(WorkspaceShell.TAG, "workbench image rejected: " + bundle);
-                            return;
-                        }
-                        Log.i(WorkspaceShell.TAG, "workbench image " + j2 + " receiver=" + i2);
-                        if (i2 == 0 || i2 == 1) {
-                            try {
-                                WorkspaceShell.this.recentsChanged.invoke(WorkspaceShell.this.recents, new Object[0]);
-                            } catch (ReflectiveOperationException e3) {
-                                Log.e(WorkspaceShell.TAG, "workbench image refresh failed", e3);
-                            }
-                        }
-                    }
-                }
-            });
             if (publish < 0) {
+                Log.e(TAG, "workbench image publish rejected: " + publish);
             }
-            if (hardwareBuffer3 == null) {
-            }
-            hardwareBuffer3.close();
-            return;
-        } catch (Throwable th3) {
-            th = th3;
-            if (hardwareBuffer3 != null) {
-                hardwareBuffer3.close();
-            }
+            closeQuietly(target);
+        } catch (Throwable th) {
+            closeQuietly(hardwareBuffer);
             throw th;
         }
-        hardwareBuffer2 = hardwareBuffer;
-        HardwareBuffer srgb = toSrgb(hardwareBuffer2, colorSpace == null ? colorSpace2 : colorSpace);
-        hardwareBuffer2.close();
-        hardwareBuffer3 = srgb;
     }
 
+    private static void closeQuietly(HardwareBuffer buffer) {
+        if (buffer != null) {
+            buffer.close();
+        }
+    }
     private static HardwareBuffer toSrgb(HardwareBuffer hardwareBuffer, ColorSpace colorSpace) {
         int width = hardwareBuffer.getWidth();
         int height = hardwareBuffer.getHeight();
@@ -3123,17 +3035,6 @@ public final class WorkspaceShell implements WorkspaceSession.Platform {
         }
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r4v0 */
-    /* JADX WARN: Type inference failed for: r4v1, types: [boolean, int] */
-    /* JADX WARN: Type inference failed for: r4v13 */
-    /* JADX WARN: Type inference failed for: r4v2 */
-    /* JADX WARN: Type inference failed for: r4v3 */
-    /* JADX WARN: Type inference failed for: r4v4 */
-    /* JADX WARN: Type inference failed for: r4v5 */
-    /* JADX WARN: Type inference failed for: r4v6 */
-    /* JADX WARN: Type inference failed for: r4v7 */
-    /* JADX WARN: Type inference failed for: r4v8 */
     private boolean playLaunchHidden(Object obj, SurfaceControl.Transaction transaction, SurfaceControl.Transaction transaction2, Object obj2, int i) throws ReflectiveOperationException {
         Rect rect = this.geometry == null ? null : this.geometry.logical;
         int i2 = 0;
@@ -3158,7 +3059,7 @@ public final class WorkspaceShell implements WorkspaceSession.Platform {
                                 for (int i3 = i2 == true ? 1 : 0; i3 < 2; i3++) {
                                     SurfaceControl.Transaction transaction3 = transactionArr[i3];
                                     transaction3.reparent(surfaceControl, surfaceControl2).setPosition(surfaceControl, 0.0f, 0.0f).setScale(surfaceControl, 1.0f, 1.0f).setAlpha(surfaceControl, 1.0f).setVisibility(surfaceControl, true);
-                                    C0132Tx.windowCrop(transaction3, surfaceControl, rect.width(), rect.height());
+                                    WindowCropTx.windowCrop(transaction3, surfaceControl, rect.width(), rect.height());
                                 }
                                 i2 = 0;
                             }
@@ -3204,7 +3105,7 @@ public final class WorkspaceShell implements WorkspaceSession.Platform {
                                 for (int i2 = 0; i2 < 2; i2++) {
                                     SurfaceControl.Transaction transaction3 = transactionArr[i2];
                                     transaction3.reparent(surfaceControl2, surfaceControl).setPosition(surfaceControl2, 0.0f, 0.0f).setScale(surfaceControl2, 1.0f, 1.0f).setAlpha(surfaceControl2, 1.0f).setVisibility(surfaceControl2, true);
-                                    C0132Tx.windowCrop(transaction3, surfaceControl2, rect.width(), rect.height());
+                                    WindowCropTx.windowCrop(transaction3, surfaceControl2, rect.width(), rect.height());
                                 }
                             }
                         }
@@ -3317,7 +3218,7 @@ public final class WorkspaceShell implements WorkspaceSession.Platform {
         }
         Point point = (Point) this.infoPosition.get(runningTaskInfo);
         transaction.reparent(surfaceControl, surfaceControl2).setScale(surfaceControl, 1.0f, 1.0f).setPosition(surfaceControl, point.x, point.y).setCrop(surfaceControl, null).setAlpha(surfaceControl, 1.0f);
-        C0132Tx.windowCrop(transaction, surfaceControl, null);
+        WindowCropTx.windowCrop(transaction, surfaceControl, null);
         transaction.setVisibility(surfaceControl, TaskInfo.class.getField("isVisible").getBoolean(runningTaskInfo));
         Log.i(TAG, taskBinding + " returned outside our transition: leash restored to the task area");
         return true;
@@ -3511,20 +3412,7 @@ public final class WorkspaceShell implements WorkspaceSession.Platform {
         return playOverlay(obj, transaction, transaction2, obj2, num.intValue());
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:118:0x02c9, code lost:
-    
-        if (r28.giveBack != false) goto L177;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:120:0x02cf, code lost:
-    
-        if (placeIfApplied(r25, r8, r10) == false) goto L178;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:137:0x02d1, code lost:
-    
-        android.util.Log.i(dev.duo.taskcore.WorkspaceShell.TAG, r8 + " applied outside our transition: leash placed into its card");
-     */
     /*
-        Code decompiled incorrectly, please refer to instructions dump.
     */
     private boolean playPending(IBinder iBinder, Object obj, SurfaceControl.Transaction transaction, SurfaceControl.Transaction transaction2, Object obj2, Pending pending, boolean[] zArr) throws ReflectiveOperationException {
         Rect rect;
@@ -3584,9 +3472,9 @@ public final class WorkspaceShell implements WorkspaceSession.Platform {
                             i = 0;
                         } else {
                             transaction.reparent(surfaceControl, surfaceControl2).setPosition(surfaceControl, 0.0f, 0.0f).setVisibility(surfaceControl, true);
-                            C0132Tx.windowCrop(transaction, surfaceControl, rect2.width(), rect2.height());
+                            WindowCropTx.windowCrop(transaction, surfaceControl, rect2.width(), rect2.height());
                             transaction2.reparent(surfaceControl, surfaceControl2).setPosition(surfaceControl, 0.0f, 0.0f);
-                            C0132Tx.windowCrop(transaction2, surfaceControl, rect2.width(), rect2.height());
+                            WindowCropTx.windowCrop(transaction2, surfaceControl, rect2.width(), rect2.height());
                             this.live.add(taskBinding);
                             this.hiddenUntilAttached.remove(Integer.valueOf(taskBinding.origin.taskId));
                             if (taskBinding.origin.taskId == this.adoptTask) {
@@ -3613,7 +3501,7 @@ public final class WorkspaceShell implements WorkspaceSession.Platform {
                         while (i2 < 2) {
                             SurfaceControl.Transaction transaction3 = transactionArr[i2];
                             transaction3.reparent(surfaceControl, surfaceControl3).setScale(surfaceControl, 1.0f, 1.0f).setPosition(surfaceControl, point.x, point.y).setCrop(surfaceControl, null).setAlpha(surfaceControl, 1.0f);
-                            C0132Tx.windowCrop(transaction3, surfaceControl, null);
+                            WindowCropTx.windowCrop(transaction3, surfaceControl, null);
                             i2++;
                             rect2 = rect2;
                             surfaceControl3 = surfaceControl3;
@@ -3714,7 +3602,7 @@ public final class WorkspaceShell implements WorkspaceSession.Platform {
                     SurfaceControl.Transaction transaction = new SurfaceControl.Transaction();
                     try {
                         transaction.reparent(surfaceControl, surfaceControl2).setScale(surfaceControl, 1.0f, 1.0f).setPosition(surfaceControl, point.x, point.y).setCrop(surfaceControl, null).setAlpha(surfaceControl, 1.0f);
-                        C0132Tx.windowCrop(transaction, surfaceControl, null);
+                        WindowCropTx.windowCrop(transaction, surfaceControl, null);
                         transaction.setVisibility(surfaceControl, TaskInfo.class.getField("isVisible").getBoolean(runningTaskInfo));
                         transaction.apply();
                         transaction.close();

@@ -1,0 +1,78 @@
+package dev.duo.hookprobe;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
+
+/* renamed from: dev.duo.hookprobe.j */
+/* loaded from: classes.dex */
+final class RootCaptureProtocol {
+
+    /* renamed from: a */
+    static final int f1635a = 16777216;
+
+    /* renamed from: b */
+    static final int f1636b = 4096;
+
+    /* renamed from: c */
+    static final String f1637c = "MIDUO_CAPTURE_ROOT_READY";
+
+    RootCaptureProtocol() {
+    }
+
+    /* renamed from: a */
+    static void m1708a(InputStream inputStream) throws IOException {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        while (true) {
+            int read = inputStream.read();
+            if (read == -1 || read == 10) {
+                break;
+            } else {
+                if (byteArrayOutputStream.size() == 1024) {
+                    throw new IOException("Root 响应过长");
+                }
+                byteArrayOutputStream.write(read);
+            }
+        }
+        String trim = new String(byteArrayOutputStream.toByteArray(), StandardCharsets.UTF_8).trim();
+        if (!f1637c.equals(trim)) {
+            throw new IOException("Root 未就绪：" + trim);
+        }
+    }
+
+    /* renamed from: b */
+    static String m1710b() {
+        return m1707a("[ \"$(id -u)\" = 0 ] || { echo NOT_ROOT; exit 1; }\nD=/data/local/tmp/miduo-ring\nmkdir -p \"$D\" && chmod 700 \"$D\"\nif pgrep -f 'miduo-ring/ring[.]sh' >/dev/null; then echo RING_ALREADY; exit 0; fi\ncat > \"$D/ring.sh\" <<'EOS'\nD=/data/local/tmp/miduo-ring\nlogcat -b main -b system -b crash -b events -v threadtime -T 1 | grep --line-buffered -E \"^[0-9-]+ +[0-9:.]+ +[0-9]+ +[0-9]+ ([VDIWEF] (Duo|MiDuo|TaskCore)[A-Za-z0-9_]* *:|[EF] (AndroidRuntime|DEBUG|libc|ActivityManager|ActivityTaskManager|WindowManager|AppWidgetServiceImpl) *:|I (ActivityTaskManager|ActivityManager|WindowManager|AppWidgetServiceImpl|PackageManager|DEBUG|am_anr|am_crash|am_proc_start|am_kill|wm_activity_launch_time) *:)\" | {\n  i=0\n  while :; do\n    f=\"$D/ring.$((i % 4))\"\n    head -c 2097152 > \"$f\"\n    [ -s \"$f\" ] || break\n    i=$((i + 1))\n  done\n}\nEOS\nsetsid sh \"$D/ring.sh\" </dev/null >/dev/null 2>&1 &\nsleep 1\nif pgrep -f 'miduo-ring/ring[.]sh' >/dev/null; then echo RING_STARTED; else echo RING_FAILED; fi\n", 15);
+    }
+
+    /* renamed from: c */
+    static String m1711c() {
+        return m1707a("[ \"$(id -u)\" = 0 ] || { echo NOT_ROOT; exit 1; }\n# fix412 F2: find the recorder only by its own script name (the [.] keeps this script's command line from matching) and end\n# its whole process group (logcat, grep, writer). Matching the logcat command line used to hit the sh -c running this very\n# script, so the folder was never deleted, and it also killed a bug report capture in progress.\nfor p in $(pgrep -f 'miduo-ring/ring[.]sh'); do\n  g=$(cut -d' ' -f5 \"/proc/$p/stat\" 2>/dev/null)\n  if [ \"$g\" = \"$p\" ]; then kill -TERM -\"$p\" 2>/dev/null; else kill -TERM \"$p\" 2>/dev/null; fi\ndone\ni=0\nwhile pgrep -f 'miduo-ring/ring[.]sh' >/dev/null && [ \"$i\" -lt 30 ]; do sleep 0.1; i=$((i + 1)); done\nif pgrep -f 'miduo-ring/ring[.]sh' >/dev/null; then echo RING_STOP_FAILED; exit 1; fi\nrm -rf /data/local/tmp/miduo-ring\n[ -e /data/local/tmp/miduo-ring ] && { echo RING_STOP_FAILED; exit 1; }\necho RING_STOPPED\n", 15);
+    }
+
+    /* renamed from: a */
+    static boolean m1709a(InputStream inputStream, OutputStream outputStream, long j) throws IOException {
+        byte[] bArr = new byte[8192];
+        while (j > 0) {
+            int read = inputStream.read(bArr, 0, (int) Math.min(8192, j));
+            if (read == -1) {
+                return false;
+            }
+            outputStream.write(bArr, 0, read);
+            j -= read;
+        }
+        return true;
+    }
+
+    /* renamed from: a */
+    static String m1706a() {
+        return m1707a("MY=$$\nsnap() {\n  echo \"=== 状态快照：$1（$(date '+%F %T')）===\"\n  echo \"--- 进程与 MiDuo 加载核对（载入包应等于 pm path）\"\n  echo \"pm path: $(pm path dev.duo.hookprobe | head -1)\"\n  for p in com.miui.home com.android.systemui system_server com.miui.personalassistant com.android.quicksearchbox dev.duo.hookprobe MiDuoFoldEngine; do\n    pid=$(pidof $p | cut -d' ' -f1)\n    if [ -z \"$pid\" ]; then echo \"$p: 未运行\"; continue; fi\n    up=$(ps -A -o PID,ETIME | while read a b; do [ \"$a\" = \"$pid\" ] && echo $b; done)\n    apk=$(grep -m1 -o '/data/app/[^ ]*dev.duo.hookprobe[^ ]*base.apk' /proc/$pid/maps 2>/dev/null)\n    echo \"$p: pid=$pid 已运行=$up 载入包=${apk:-无映射}\"\n  done\n  echo \"--- 窗口与折叠状态\"\n  timeout 4 dumpsys window displays | head -c 60000\n  timeout 3 dumpsys device_state | head -c 6000\n  echo \"--- 显示参数\"\n  timeout 3 dumpsys display | grep -E \"DisplayDeviceInfo|mBaseDisplayInfo\" | cut -c1-220 | head -6\n  echo \"--- 任务与窗口模式（工作台/分屏成员）\"\n  timeout 5 dumpsys activity activities | grep -E \"topResumedActivity|mResumedActivity|Task\\{\" | cut -c1-220 | head -80\n  echo \"--- 图层（MiDuo / 残留图层）\"\n  timeout 4 dumpsys SurfaceFlinger --list | grep -E \"Duo|MiDuo|FloatingIcon|transition-leash|Task=|Bubbles\" | cut -c1-200 | head -80\n  echo \"图层总数=$(timeout 4 dumpsys SurfaceFlinger --list | wc -l)\"\n  echo \"--- 小组件（MiDuo / 相册提供方）\"\n  timeout 5 dumpsys appwidget | grep -E -i \"hookprobe|com.miui.gallery|Provider\\{|appWidgetId\" | cut -c1-200 | head -60\n  echo \"--- 权限与系统状态\"\n  appops get dev.duo.hookprobe 10017 2>&1 | head -2\n  appops get dev.duo.hookprobe 10020 2>&1 | head -2\n  getprop | grep -E \"debug\\.duo|persist\\.duo|ro\\.build\\.version\\.incremental|ro\\.miui\\.ui\\.version\" | head -20\n  echo \"uptime=$(uptime)\"\n  echo \"boot_id=$(cat /proc/sys/kernel/random/boot_id)\"\n  dumpsys battery | grep -E \"level|temperature|status\" | head -4\n  echo \"--- 内存（PSS，看泄漏）\"\n  for p in com.miui.home com.android.systemui dev.duo.hookprobe; do\n    echo \"[$p]\"\n    timeout 4 dumpsys meminfo $p 2>/dev/null | grep -E \"TOTAL PSS|TOTAL:|Java Heap|Native Heap\" | head -3\n  done\n  echo \"--- 崩溃/ANR/墓碑记录（dropbox 条目：时间 类型）\"\n  timeout 5 dumpsys dropbox 2>/dev/null | grep -E \"crash|anr|tombstone|wtf\" | grep -v \"Low priority\" | tail -30 | cut -c1-120\n  echo \"--- 最近崩溃/ANR 的进程与主题（dropbox 内容）\"\n  timeout 6 dumpsys dropbox --print 2>/dev/null | grep -E \"^(Process|Subject):\" | tail -20 | cut -c1-160\n}\necho \"=== 报告目录：开头状态快照 / 常驻记录（最近） / 复现期间日志 / 结尾状态快照 ===\"\nsnap 开头\necho \"=== 常驻记录（最近，可能为空） ===\"\nls -tr /data/local/tmp/miduo-ring/ring.* 2>/dev/null | head -4 | while read f; do cat \"$f\"; done | tail -c 4194304\necho \"=== 复现期间日志（所有 Duo*/MiDuo*/TaskCore* 标签 + 所有警告错误 + 系统关键 I 级） ===\"\nlogcat -b main -b system -b crash -b events -v threadtime -T 1 | grep --line-buffered -E \"^[0-9-]+ +[0-9:.]+ +[0-9]+ +[0-9]+ ([VDIWEF] (Duo|MiDuo|TaskCore)[A-Za-z0-9_]* *:|[WEF] |I (ActivityTaskManager|ActivityManager|WindowManager|AppWidgetServiceImpl|PackageManager|DEBUG|am_anr|am_crash|am_proc_start|am_kill|wm_activity_launch_time) *:)\" &\ncapture_pid=$!\nexec 3<&0\n(read -r capture_stop <&3; pkill -P $MY logcat 2>/dev/null) &\nstop_pid=$!\ntrap 'kill \"$stop_pid\" 2>/dev/null; pkill -P $MY logcat 2>/dev/null; wait 2>/dev/null' EXIT\nwait \"$capture_pid\"\necho \"=== 复现结束 ===\"\nsnap 结尾\n", 190);
+    }
+
+    /* renamed from: a */
+    private static String m1707a(String str, int i) {
+        return "[ \"$(id -u)\" = 0 ] || { echo '需要 Root 授权'; exit 1; }; echo MIDUO_CAPTURE_ROOT_READY; exec timeout " + i + " sh -c '" + str.replace("'", "'\\''") + "'";
+    }
+}

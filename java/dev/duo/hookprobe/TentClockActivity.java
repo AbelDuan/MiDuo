@@ -344,9 +344,7 @@ public final class TentClockActivity extends Activity {
         /* renamed from: k */
         private int f1496k;
 
-        /* JADX WARN: Removed duplicated region for block: B:8:0x0067  */
         /*
-            Code decompiled incorrectly, please refer to instructions dump.
         */
         C0093f(Context context) {
             super(context);
@@ -775,7 +773,7 @@ public final class TentClockActivity extends Activity {
     public boolean m1471f() {
         Display display = getDisplay();
         Display.Mode mode = display == null ? null : display.getMode();
-        if (mode != null && display.getDisplayId() == 0 && C0048E.m850a(mode.getPhysicalWidth(), mode.getPhysicalHeight())) {
+        if (mode != null && display.getDisplayId() == 0 && DimensionConst.m850a(mode.getPhysicalWidth(), mode.getPhysicalHeight())) {
             return ((KeyguardManager) getSystemService(KeyguardManager.class)).isKeyguardLocked();
         }
         if (this.f1450E) {

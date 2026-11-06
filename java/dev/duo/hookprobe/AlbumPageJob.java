@@ -66,34 +66,20 @@ public final class AlbumPageJob extends JobService {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:17:0x001f  */
-    /* JADX WARN: Removed duplicated region for block: B:19:? A[SYNTHETIC] */
     /* renamed from: a */
     /*
-        Code decompiled incorrectly, please refer to instructions dump.
     */
     public /* synthetic */ void m759a(Context context, int[] iArr, JobParameters jobParameters) {
-        boolean z;
         try {
-            C0100b.m1567a(context, iArr, AlbumWidgetProvider.m761a(context));
+            LauncherDbWriter.m1567a(context, iArr, AlbumWidgetProvider.m761a(context));
             jobFinished(jobParameters, false);
+            return;
         } catch (InterruptedException e) {
-            try {
-                Log.w(f770b, "widget page job stopped by the system, left to the MiDuo page");
-            } catch (Throwable th) {
-                z = true;
-                th = th;
-                if (z) {
-                    jobFinished(jobParameters, false);
-                    throw th;
-                }
-                throw th;
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            z = false;
-            if (z) {
-            }
+            Log.w(f770b, "widget page job stopped by the system, left to the MiDuo page");
+            return;
+        } catch (Throwable th) {
+            jobFinished(jobParameters, false);
+            throw th;
         }
     }
 }

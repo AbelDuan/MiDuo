@@ -170,7 +170,7 @@
 
     const/4 v4, 0x3
 
-    filled-new-array {v2, v3, v4, v0}, [I
+    filled-new-array {v2, v3, v4, v0, v1}, [I
 
     move-result-object v0
 
@@ -576,7 +576,7 @@
 
     const-string v4, "App"
 
-    const-string v5, ""
+    const-string v5, "\u6388\u6743"
 
     filled-new-array {v3, v4, v5, v1, v2}, [Ljava/lang/String;
 

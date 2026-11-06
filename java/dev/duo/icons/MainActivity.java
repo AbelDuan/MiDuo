@@ -18,8 +18,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import dev.duo.icons.C0125a;
-import dev.duo.icons.C0129e;
+import dev.duo.icons.IconBridgeClient;
+import dev.duo.icons.IconZipCodec;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -154,7 +154,7 @@ public final class MainActivity extends Activity {
                     String str2 = (String) obj;
                     InputStream inputStream = zipFile.getInputStream(zipFile.getEntry(str2));
                     try {
-                        byte[] m2113a = C0129e.m2113a(inputStream, 2097152L);
+                        byte[] m2113a = IconZipCodec.m2113a(inputStream, 2097152L);
                         Bitmap decodeByteArray = BitmapFactory.decodeByteArray(m2113a, 0, m2113a.length);
                         if (decodeByteArray != null) {
                             ImageView imageView = new ImageView(this);
@@ -246,7 +246,7 @@ public final class MainActivity extends Activity {
         m2060a(linearLayout, "MiDuo 图标", 28, -15260885).setTypeface(null, 1);
         m2060a(linearLayout, "从 MTZ 主题中单独更换应用图标", 15, -10655632);
         this.f1900b = m2060a(linearLayout, "模块状态：待检查", 16, -14724508);
-        m2060a(linearLayout, "主题壁纸版本：" + C0125a.m2079a(this), 13, -10655632);
+        m2060a(linearLayout, "主题壁纸版本：" + IconBridgeClient.m2079a(this), 13, -10655632);
         this.f1908j = m2059a(linearLayout, "检查模块状态", new Runnable() { // from class: dev.duo.icons.MainActivity$$ExternalSyntheticLambda0
             @Override // java.lang.Runnable
             public final void run() {
@@ -336,9 +336,9 @@ public final class MainActivity extends Activity {
             InputStream openInputStream = getContentResolver().openInputStream(uri);
             try {
                 if (openInputStream != null) {
-                    C0129e.m2112a(openInputStream, file, C0129e.f1934a);
+                    IconZipCodec.m2112a(openInputStream, file, IconZipCodec.f1934a);
                     openInputStream.close();
-                    final C0129e.b m2108a = C0129e.m2108a(file, file2, str, new MainActivity$$ExternalSyntheticLambda5());
+                    final IconZipCodec.b m2108a = IconZipCodec.m2108a(file, file2, str, new MainActivity$$ExternalSyntheticLambda5());
                     Files.move(file2.toPath(), m2076g().toPath(), StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE);
                     if (this.f1912n.edit().putString("selectedTitle", m2108a.f1955a).putString("selectedHash", m2108a.f1956b).putInt("selectedCount", m2108a.f1958d).commit()) {
                         runOnUiThread(new Runnable() { // from class: dev.duo.icons.MainActivity$$ExternalSyntheticLambda6
@@ -375,7 +375,7 @@ public final class MainActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: a */
-    public /* synthetic */ void m2065a(C0129e.b bVar) {
+    public /* synthetic */ void m2065a(IconZipCodec.b bVar) {
         this.f1909k = false;
         m2075f();
         this.f1902d.setText("导入完成：" + bVar.f1958d + " 个静态图标资源" + (bVar.f1959e > 0 ? "，跳过 " + bVar.f1959e + " 个（" + bVar.f1957c + "）" : "") + "。点击「应用图标」生效。");
@@ -399,8 +399,8 @@ public final class MainActivity extends Activity {
         this.f1909k = true;
         m2061a();
         this.f1902d.setText(str.equals("STATUS") ? "正在连接主题壁纸中的图标桥…" : str.equals("APPLY") ? "正在备份并应用图标…" : "正在恢复图标备份…");
-        new C0125a(this).m2087a(str, this.f1912n.getString("selectedTitle", "主题"), this.f1912n.getString("selectedHash", ""), new C0125a.c() { // from class: dev.duo.icons.MainActivity$$ExternalSyntheticLambda8
-            @Override // dev.duo.icons.C0125a.c
+        new IconBridgeClient(this).m2087a(str, this.f1912n.getString("selectedTitle", "主题"), this.f1912n.getString("selectedHash", ""), new IconBridgeClient.c() { // from class: dev.duo.icons.MainActivity$$ExternalSyntheticLambda8
+            @Override // dev.duo.icons.IconBridgeClient.c
             /* renamed from: a */
             public final void mo2078a(boolean z, Bundle bundle) {
                 MainActivity.this.m2068a(str, z, bundle);
@@ -432,8 +432,8 @@ public final class MainActivity extends Activity {
                 ParcelFileDescriptor.AutoCloseInputStream autoCloseInputStream = new ParcelFileDescriptor.AutoCloseInputStream(parcelFileDescriptor);
                 try {
                     File file = new File(getFilesDir(), "backup.new");
-                    C0129e.m2112a(autoCloseInputStream, file, C0129e.f1935b);
-                    if (C0129e.m2109a(file).equals(bundle.getString("backup"))) {
+                    IconZipCodec.m2112a(autoCloseInputStream, file, IconZipCodec.f1935b);
+                    if (IconZipCodec.m2109a(file).equals(bundle.getString("backup"))) {
                         Files.move(file.toPath(), new File(getFilesDir(), "backup.icons").toPath(), StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING);
                         autoCloseInputStream.close();
                     } else {
@@ -468,7 +468,7 @@ public final class MainActivity extends Activity {
         String string = bundle.getString("backup");
         String str3 = "";
         if (string != null) {
-            this.f1903e.setText("首次应用前的图标已备份到手机。" + (C0128d.f1930d.equals(string) ? "备份为系统原图标，无覆盖文件。" : ""));
+            this.f1903e.setText("首次应用前的图标已备份到手机。" + (IconPackageWriter.f1930d.equals(string) ? "备份为系统原图标，无覆盖文件。" : ""));
         }
         String string2 = bundle.getString("message", "未收到明确结果");
         if (z && str.equals("STATUS") && this.f1912n.contains("lastOperationResult")) {

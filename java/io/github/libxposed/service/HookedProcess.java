@@ -7,7 +7,6 @@ import android.os.Parcelable;
 /* loaded from: classes.dex */
 public class HookedProcess implements Parcelable {
     public static final Parcelable.Creator<HookedProcess> CREATOR = new Parcelable.Creator<HookedProcess>() { // from class: io.github.libxposed.service.HookedProcess.1
-        /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public HookedProcess createFromParcel(Parcel _aidl_source) {
             HookedProcess _aidl_out = new HookedProcess();
@@ -15,7 +14,6 @@ public class HookedProcess implements Parcelable {
             return _aidl_out;
         }
 
-        /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public HookedProcess[] newArray(int _aidl_size) {
             return new HookedProcess[_aidl_size];

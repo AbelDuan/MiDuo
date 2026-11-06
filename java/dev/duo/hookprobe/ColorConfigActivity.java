@@ -68,11 +68,11 @@ public final class ColorConfigActivity extends Activity {
     /* renamed from: b */
     public /* synthetic */ void m833b() {
         try {
-            XposedService m970a = C0056L.m970a(1500L);
+            XposedService m970a = ConfigBroadcastHub.m970a(1500L);
             if (m970a == null) {
                 throw new IOException("请先连接 LSPosed");
             }
-            String m1713a = C0111m.m1713a(new C0113o(m970a).f1684a.getAll(), getIntent().getStringExtra("pkg"));
+            String m1713a = ColorThemeCodec.m1713a(new ConfigStore(m970a).f1684a.getAll(), getIntent().getStringExtra("pkg"));
             OutputStream openOutputStream = getContentResolver().openOutputStream(this.f812a.f814a, "wt");
             try {
                 if (openOutputStream == null) {
@@ -107,9 +107,9 @@ public final class ColorConfigActivity extends Activity {
                 if (openInputStream == null) {
                     throw new IOException("无法读取所选文件");
                 }
-                String m1712a = C0111m.m1712a(openInputStream);
+                String m1712a = ColorThemeCodec.m1712a(openInputStream);
                 openInputStream.close();
-                Map<String, String> m1718c = C0111m.m1718c(m1712a);
+                Map<String, String> m1718c = ColorThemeCodec.m1718c(m1712a);
                 C0046b c0046b = this.f812a;
                 c0046b.f815b = m1718c;
                 c0046b.f816c = false;
@@ -174,10 +174,10 @@ public final class ColorConfigActivity extends Activity {
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        C0087T.m1416a((Activity) this);
+        UiKit.m1416a((Activity) this);
         FrameLayout frameLayout = new FrameLayout(this);
-        frameLayout.setBackground(C0087T.m1425b(this));
-        TextView m1413a = C0087T.m1413a(this, 15.0f, C0087T.f1347c, 500);
+        frameLayout.setBackground(UiKit.m1425b(this));
+        TextView m1413a = UiKit.m1413a(this, 15.0f, UiKit.f1347c, 500);
         m1413a.setText("正在处理颜色配置…");
         frameLayout.addView(m1413a, new FrameLayout.LayoutParams(-2, -2, 17));
         setContentView(frameLayout);
@@ -194,7 +194,7 @@ public final class ColorConfigActivity extends Activity {
             Intent type = new Intent(booleanExtra ? "android.intent.action.CREATE_DOCUMENT" : "android.intent.action.OPEN_DOCUMENT").addCategory("android.intent.category.OPENABLE").setType(booleanExtra ? "application/octet-stream" : "*/*");
             if (booleanExtra) {
                 String stringExtra = getIntent().getStringExtra("pkg");
-                type.putExtra("android.intent.extra.TITLE", (stringExtra == null ? "MiDuo-全部颜色配置" : m826a(stringExtra) + "-颜色配置").replaceAll("[\\\\/:*?\"<>|\\p{Cntrl}]", "_") + C0054J.f922e + new SimpleDateFormat("yyyyMMdd-HHmmss", Locale.ROOT).format(new Date()) + ".miduocolors");
+                type.putExtra("android.intent.extra.TITLE", (stringExtra == null ? "MiDuo-全部颜色配置" : m826a(stringExtra) + "-颜色配置").replaceAll("[\\\\/:*?\"<>|\\p{Cntrl}]", "_") + RailCodec.f922e + new SimpleDateFormat("yyyyMMdd-HHmmss", Locale.ROOT).format(new Date()) + ".miduocolors");
             }
             startActivityForResult(type, 1);
             return;
@@ -251,11 +251,11 @@ public final class ColorConfigActivity extends Activity {
         AlertDialog alertDialog = this.f813b;
         if (alertDialog == null || !alertDialog.isShowing()) {
             StringBuilder sb = new StringBuilder();
-            Iterator<String> it = C0111m.m1715a(map).iterator();
+            Iterator<String> it = ColorThemeCodec.m1715a(map).iterator();
             while (it.hasNext()) {
                 sb.append("\n• ").append(m826a(it.next()));
             }
-            final AlertDialog create = C0087T.m1400a((Activity) this, "替换颜色配置？").setMessage("将替换以下 App 的全部配色：" + ((Object) sb) + "\n\n其他 App 和其他设置保持不变。未安装 App 的配色也会保存。").setNegativeButton("取消", new DialogInterface.OnClickListener() { // from class: dev.duo.hookprobe.ColorConfigActivity$$ExternalSyntheticLambda0
+            final AlertDialog create = UiKit.m1400a((Activity) this, "替换颜色配置？").setMessage("将替换以下 App 的全部配色：" + ((Object) sb) + "\n\n其他 App 和其他设置保持不变。未安装 App 的配色也会保存。").setNegativeButton("取消", new DialogInterface.OnClickListener() { // from class: dev.duo.hookprobe.ColorConfigActivity$$ExternalSyntheticLambda0
                 @Override // android.content.DialogInterface.OnClickListener
                 public final void onClick(DialogInterface dialogInterface, int i) {
                     ColorConfigActivity.this.m831a(dialogInterface, i);
@@ -268,7 +268,7 @@ public final class ColorConfigActivity extends Activity {
                     ColorConfigActivity.this.m830a(dialogInterface);
                 }
             });
-            C0087T.m1417a(create);
+            UiKit.m1417a(create);
             create.getButton(-1).setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.ColorConfigActivity$$ExternalSyntheticLambda2
                 @Override // android.view.View.OnClickListener
                 public final void onClick(View view) {
@@ -330,13 +330,13 @@ public final class ColorConfigActivity extends Activity {
     /* renamed from: b */
     public /* synthetic */ void m835b(Map map) {
         try {
-            XposedService m970a = C0056L.m970a(1500L);
+            XposedService m970a = ConfigBroadcastHub.m970a(1500L);
             if (m970a != null) {
-                synchronized (C0049F.class) {
-                    if (new C0113o(m970a).m1785a((Map<String, String>) map)) {
-                        Bundle m851a = C0049F.m851a("");
-                        if (C0111m.m1715a((Map<String, String>) map).contains(m851a.getString("package"))) {
-                            C0049F.m852a(this, m851a.getLong("token"));
+                synchronized (ColorPickSession.class) {
+                    if (new ConfigStore(m970a).m1785a((Map<String, String>) map)) {
+                        Bundle m851a = ColorPickSession.m851a("");
+                        if (ColorThemeCodec.m1715a((Map<String, String>) map).contains(m851a.getString("package"))) {
+                            ColorPickSession.m852a(this, m851a.getLong("token"));
                         }
                     } else {
                         throw new IOException("颜色配置保存失败");

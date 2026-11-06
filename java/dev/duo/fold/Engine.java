@@ -25,12 +25,12 @@ import android.os.Process;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.Choreographer;
-import dev.duo.fold.C0036e;
-import dev.duo.fold.C0037f;
-import dev.duo.fold.C0038g;
-import dev.duo.fold.C0040i;
+import dev.duo.fold.DisplayControlBinder;
+import dev.duo.fold.FoldTexture;
+import dev.duo.fold.FoldShader;
+import dev.duo.fold.FoldSurface;
 import dev.duo.fold.Engine;
-import dev.duo.hookprobe.C0054J;
+import dev.duo.hookprobe.RailCodec;
 import dev.duo.taskcore.WorkspaceProtocol;
 import java.io.StringReader;
 import java.lang.reflect.InvocationHandler;
@@ -114,7 +114,7 @@ public final class Engine {
     private float f548L;
 
     /* renamed from: M */
-    private final C0039h f549M;
+    private final FoldRenderer f549M;
 
     /* renamed from: N */
     private C0030f f550N;
@@ -141,7 +141,7 @@ public final class Engine {
     private int f557U;
 
     /* renamed from: V */
-    private C0033b f558V;
+    private FoldConfig f558V;
 
     /* renamed from: W */
     private boolean f559W;
@@ -180,7 +180,7 @@ public final class Engine {
     private final String f570l;
 
     /* renamed from: m */
-    private final C0036e f571m;
+    private final DisplayControlBinder f571m;
 
     /* renamed from: n */
     private final Object f572n;
@@ -213,10 +213,10 @@ public final class Engine {
     private Sensor f581w;
 
     /* renamed from: x */
-    private C0034c f582x;
+    private FoldGeometry f582x;
 
     /* renamed from: y */
-    private C0037f f583y;
+    private FoldTexture f583y;
 
     /* renamed from: z */
     private boolean f584z;
@@ -440,8 +440,8 @@ public final class Engine {
         };
         this.f569k = context;
         this.f570l = str;
-        C0036e c0036e = new C0036e(handler, new C0036e.b() { // from class: dev.duo.fold.Engine$$ExternalSyntheticLambda13
-            @Override // dev.duo.fold.C0036e.b
+        DisplayControlBinder c0036e = new DisplayControlBinder(handler, new DisplayControlBinder.b() { // from class: dev.duo.fold.Engine$$ExternalSyntheticLambda13
+            @Override // dev.duo.fold.DisplayControlBinder.b
             /* renamed from: a */
             public final void mo627a(int i, long j, long j2) {
                 Engine.this.m570b(i, j, j2);
@@ -452,7 +452,7 @@ public final class Engine {
         this.f573o = m547a("device_state", "android.hardware.devicestate.IDeviceStateManager");
         Object m547a = m547a("window", WorkspaceProtocol.INTERFACE);
         this.f574p = m547a;
-        this.f549M = new C0039h(m547a, c0036e);
+        this.f549M = new FoldRenderer(m547a, c0036e);
         this.f575q = m547a("activity_task", "android.app.IActivityTaskManager");
         this.f576r = Class.forName("android.hardware.devicestate.DeviceStateManagerGlobal").getMethod("getInstance", null).invoke(null, null);
         this.f577s = (SensorManager) context.getSystemService(SensorManager.class);
@@ -471,8 +471,8 @@ public final class Engine {
     /* renamed from: B */
     private void m536B() throws Exception {
         Properties properties = new Properties();
-        properties.load(new StringReader(C0038g.m700a(this.f570l, "curve.properties")));
-        this.f558V = new C0033b(Float.parseFloat(properties.getProperty("open_angle")), Float.parseFloat(properties.getProperty("close_angle")), Float.parseFloat(properties.getProperty("reverse_degrees")), Long.parseLong(properties.getProperty("release_confirm_ms")));
+        properties.load(new StringReader(FoldShader.m700a(this.f570l, "curve.properties")));
+        this.f558V = new FoldConfig(Float.parseFloat(properties.getProperty("open_angle")), Float.parseFloat(properties.getProperty("close_angle")), Float.parseFloat(properties.getProperty("reverse_degrees")), Long.parseLong(properties.getProperty("release_confirm_ms")));
         int[] m681a = this.f571m.m681a();
         if (m681a[0] != 1 || m681a[1] != 254 || m681a[2] != 0) {
             throw new IllegalStateException("租约模块或版本不匹配");
@@ -626,8 +626,8 @@ public final class Engine {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: x */
     public void m624x() throws Exception {
-        C0037f.a m690b;
-        if (!this.f584z || this.f552P || this.f582x.m654a() || !this.f555S || this.f556T || !m607l() || (m690b = this.f583y.m690b(m623w())) == C0037f.a.WAITING) {
+        FoldTexture.a m690b;
+        if (!this.f584z || this.f552P || this.f582x.m654a() || !this.f555S || this.f556T || !m607l() || (m690b = this.f583y.m690b(m623w())) == FoldTexture.a.WAITING) {
             return;
         }
         float m656b = this.f582x.m656b();
@@ -638,7 +638,7 @@ public final class Engine {
             }
             if (!z && this.f558V.m649a(m656b, m690b, this.f583y.m693d())) {
                 m557a(false);
-            } else if (this.f542F && Float.isFinite(this.f547K) && m656b < this.f558V.f644b && m656b < this.f547K && m690b == C0037f.a.OPEN && ((Float.isNaN(this.f548L) || m656b <= this.f548L - f533f) && (this.f582x.m652a(m623w(), f530c) >= f533f || m656b <= this.f558V.f644b - f533f))) {
+            } else if (this.f542F && Float.isFinite(this.f547K) && m656b < this.f558V.f644b && m656b < this.f547K && m690b == FoldTexture.a.OPEN && ((Float.isNaN(this.f548L) || m656b <= this.f548L - f533f) && (this.f582x.m652a(m623w(), f530c) >= f533f || m656b <= this.f558V.f644b - f533f))) {
                 m557a(true);
             }
         }
@@ -653,7 +653,7 @@ public final class Engine {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: y */
     public void m625y() throws Exception {
-        C0032a c0032a;
+        FoldCurve c0032a;
         if (this.f550N == null) {
             return;
         }
@@ -663,7 +663,7 @@ public final class Engine {
             m568b();
             return;
         }
-        C0032a c0032a2 = this.f550N.f600l;
+        FoldCurve c0032a2 = this.f550N.f600l;
         if (c0032a2 != null && m683b != 2) {
             m579c("面板租约失效，交还本次动画");
             m602j();
@@ -705,15 +705,11 @@ public final class Engine {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00b2  */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x015b  */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x015e  */
     /* renamed from: f */
     /*
-        Code decompiled incorrectly, please refer to instructions dump.
     */
     public void m594f() throws Exception {
-        C0032a c0032a;
+        FoldCurve c0032a;
         Bundle m733a;
         C0030f c0030f = this.f550N;
         if (c0030f == null || (c0032a = c0030f.f600l) == null || c0030f.f608t != c0032a.f635a) {
@@ -731,7 +727,7 @@ public final class Engine {
         c0030f2.f608t = -1L;
         c0030f2.f593e = c0030f2.f589a.m721a(m584d, m538a, this.f568j, new Engine$$ExternalSyntheticLambda4(this), this.f550N.f596h != null);
         C0030f c0030f3 = this.f550N;
-        C0038g.a aVar = c0030f3.f593e;
+        FoldShader.a aVar = c0030f3.f593e;
         aVar.f728m = m680a;
         aVar.f727l = c0030f3.f607s >= 0;
         aVar.f722g = c0030f3.f600l.f640f ? (7 - m576c(m600i)) % 4 : 0;
@@ -817,7 +813,7 @@ public final class Engine {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: h */
     public boolean m598h() {
-        return this.f584z && !this.f552P && this.f550N == null && !this.f542F && this.f583y.m693d() && this.f583y.m690b(m623w()) == C0037f.a.SHUT && m623w() - this.f553Q >= 1000;
+        return this.f584z && !this.f552P && this.f550N == null && !this.f542F && this.f583y.m693d() && this.f583y.m690b(m623w()) == FoldTexture.a.SHUT && m623w() - this.f553Q >= 1000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -834,8 +830,8 @@ public final class Engine {
     /* renamed from: j */
     public void m602j() throws Exception {
         Exception e;
-        C0034c c0034c;
-        C0038g c0038g;
+        FoldGeometry c0034c;
+        FoldShader c0038g;
         this.f568j.removeCallbacks(this.f564b0);
         this.f568j.removeCallbacks(this.f566d0);
         this.f568j.removeCallbacks(this.f567e0);
@@ -885,7 +881,7 @@ public final class Engine {
         boolean equals = "local:4639175402683733248".equals(m567b(m600i()));
         this.f542F = equals;
         this.f548L = (!equals || (c0034c = this.f582x) == null) ? Float.NaN : c0034c.m656b();
-        C0037f c0037f = this.f583y;
+        FoldTexture c0037f = this.f583y;
         if (c0037f != null && !this.f542F) {
             c0037f.m691b();
         }
@@ -902,7 +898,7 @@ public final class Engine {
         }
         long m623w = m623w();
         if (m607l()) {
-            boolean z = this.f583y.m690b(m623w) == C0037f.a.SHUT;
+            boolean z = this.f583y.m690b(m623w) == FoldTexture.a.SHUT;
             float m651a = z ? 0.0f : this.f582x.m651a(m623w);
             if (m597g()) {
                 this.f550N.f610v = "已建输入但无 buffer（源或壁纸）";
@@ -918,7 +914,7 @@ public final class Engine {
 
     /* renamed from: l */
     private boolean m607l() throws Exception {
-        if (this.f583y.m690b(m623w()) != C0037f.a.FALLBACK) {
+        if (this.f583y.m690b(m623w()) != FoldTexture.a.FALLBACK) {
             return !this.f546J;
         }
         if (this.f546J) {
@@ -928,8 +924,8 @@ public final class Engine {
         m579c("Hall 数据中断，交还本次动画并等待新样本");
         boolean z = this.f544H;
         m602j();
-        this.f583y = new C0037f();
-        this.f582x = new C0034c(30.0f);
+        this.f583y = new FoldTexture();
+        this.f582x = new FoldGeometry(30.0f);
         this.f547K = Float.NaN;
         if (z != this.f544H) {
             return false;
@@ -1092,7 +1088,7 @@ public final class Engine {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: b */
     public static /* synthetic */ void m569b(int i) {
-        C0040i.a m737a = C0040i.m737a(i);
+        FoldSurface.a m737a = FoldSurface.m737a(i);
         m579c("壁纸预解码 " + (m737a.f756e == null ? new StringBuilder().append("完成 ms=").append(m737a.f758g) : new StringBuilder().append("未完成：").append(m737a.f756e)).toString());
     }
 
@@ -1122,7 +1118,7 @@ public final class Engine {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: d */
     public void m585d() throws Exception {
-        C0032a c0032a;
+        FoldCurve c0032a;
         C0030f c0030f = this.f550N;
         if (c0030f == null || (c0032a = c0030f.f600l) == null || c0030f.f607s < 0 || c0032a.f638d >= 0 || c0032a.f639e >= 0) {
             return;
@@ -1155,8 +1151,8 @@ public final class Engine {
             this.f554R = -1L;
         } else if (!this.f584z) {
             this.f542F = "local:4639175402683733248".equals(m567b(m600i()));
-            this.f583y = new C0037f();
-            this.f582x = new C0034c(30.0f);
+            this.f583y = new FoldTexture();
+            this.f582x = new FoldGeometry(30.0f);
             this.f547K = Float.NaN;
             this.f548L = Float.NaN;
             this.f584z = true;
@@ -1201,31 +1197,31 @@ public final class Engine {
     private static final class C0030f {
 
         /* renamed from: a */
-        C0038g f589a;
+        FoldShader f589a;
 
         /* renamed from: b */
-        C0038g.a f590b;
+        FoldShader.a f590b;
 
         /* renamed from: c */
-        C0038g.a f591c;
+        FoldShader.a f591c;
 
         /* renamed from: d */
-        C0038g.a f592d;
+        FoldShader.a f592d;
 
         /* renamed from: e */
-        C0038g.a f593e;
+        FoldShader.a f593e;
 
         /* renamed from: f */
-        C0038g.b f594f;
+        FoldShader.b f594f;
 
         /* renamed from: g */
-        C0038g.b f595g;
+        FoldShader.b f595g;
 
         /* renamed from: h */
-        C0035d f596h;
+        FoldEgl f596h;
 
         /* renamed from: i */
-        C0035d f597i;
+        FoldEgl f597i;
 
         /* renamed from: j */
         int f598j;
@@ -1234,7 +1230,7 @@ public final class Engine {
         ArrayList<Rect> f599k;
 
         /* renamed from: l */
-        C0032a f600l;
+        FoldCurve f600l;
 
         /* renamed from: m */
         long f601m;
@@ -1335,13 +1331,9 @@ public final class Engine {
         throw new UnsupportedOperationException(method.getName());
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r5v23 */
-    /* JADX WARN: Type inference failed for: r5v29 */
-    /* JADX WARN: Type inference failed for: r5v8, types: [dev.duo.fold.Engine$a] */
     /* renamed from: a */
     private void m557a(boolean z) throws Exception {
-        FutureTask<C0040i.a> futureTask;
+        FutureTask<FoldSurface.a> futureTask;
         float[] m680a;
         if (m581c() && this.f555S && !this.f556T && m564a(m600i(), z)) {
             boolean m621u = m621u();
@@ -1364,14 +1356,14 @@ public final class Engine {
                 futureTask = new FutureTask<>(new Callable() { // from class: dev.duo.fold.Engine$$ExternalSyntheticLambda16
                     @Override // java.util.concurrent.Callable
                     public final Object call() {
-                        C0040i.a m737a;
-                        m737a = C0040i.m737a(intValue);
+                        FoldSurface.a m737a;
+                        m737a = FoldSurface.m737a(intValue);
                         return m737a;
                     }
                 });
                 new Thread(futureTask, "MiDuoFoldWallpaper").start();
             }
-            this.f550N.f589a = new C0038g();
+            this.f550N.f589a = new FoldShader();
             C0030f c0030f3 = this.f550N;
             c0030f3.f589a.m726a(this.f570l, c0030f3.f604p);
             long m623w = m623w();
@@ -1387,7 +1379,7 @@ public final class Engine {
                     bundle2 = m733a;
                 }
                 long m623w2 = m623w();
-                C0040i.a m545a = m545a(futureTask);
+                FoldSurface.a m545a = m545a(futureTask);
                 if (m545a == null) {
                     return;
                 }
@@ -1401,7 +1393,7 @@ public final class Engine {
                 m579c("分层准备耗时ms 初始化=" + (m623w - this.f550N.f603o) + " 取层=" + (m623w2 - m623w) + " 等解码=" + (m623w3 - m623w2) + " 解码=" + m545a.f758g + " 上传=" + (m623w() - m623w3));
                 bundle = bundle2;
             }
-            C0038g.a m721a = this.f550N.f589a.m721a(m584d, m538a, this.f568j, new Engine$$ExternalSyntheticLambda4(this), this.f550N.f592d != null);
+            FoldShader.a m721a = this.f550N.f589a.m721a(m584d, m538a, this.f568j, new Engine$$ExternalSyntheticLambda4(this), this.f550N.f592d != null);
             m721a.f722g = z ? (7 - m576c(m600i)) % 4 : 0;
             boolean z2 = this.f550N.f607s >= 0;
             m721a.f727l = z2;
@@ -1428,7 +1420,7 @@ public final class Engine {
             C0030f c0030f7 = this.f550N;
             if (c0030f7.f607s >= 0) {
                 this.f549M.m736a(0, m721a, false);
-                C0040i.a m545a2 = m545a(futureTask);
+                FoldSurface.a m545a2 = m545a(futureTask);
                 if (m545a2 == null) {
                     return;
                 }
@@ -1436,7 +1428,7 @@ public final class Engine {
                 C0030f c0030f8 = this.f550N;
                 if (c0030f8.f592d == null) {
                     c0030f8.f592d = c0030f8.f589a.m721a(m584d, m538a, this.f568j, new Engine$$ExternalSyntheticLambda4(this), false);
-                    C0038g.a aVar = this.f550N.f592d;
+                    FoldShader.a aVar = this.f550N.f592d;
                     aVar.f722g = m721a.f722g;
                     try {
                         this.f549M.m736a(1, aVar, false);
@@ -1456,7 +1448,7 @@ public final class Engine {
                     C0030f c0030f10 = this.f550N;
                     c0030f10.f592d.f722g = m721a.f722g;
                     this.f549M.m736a(0, m721a, c0030f10.f604p);
-                    C0039h c0039h = this.f549M;
+                    FoldRenderer c0039h = this.f549M;
                     C0030f c0030f11 = this.f550N;
                     c0039h.m736a(1, c0030f11.f592d, c0030f11.f604p);
                 }
@@ -1484,7 +1476,7 @@ public final class Engine {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: c, reason: merged with bridge method [inline-methods] */
     public void m550a(int i, long j, long j2) throws Exception {
-        C0032a c0032a;
+        FoldCurve c0032a;
         C0030f c0030f = this.f550N;
         if (c0030f == null || (c0032a = c0030f.f600l) == null) {
             return;
@@ -1496,7 +1488,7 @@ public final class Engine {
                 c0030f2.f611w = "未获许可（已撤销）";
                 this.f568j.removeCallbacks(this.f566d0);
                 C0030f c0030f3 = this.f550N;
-                C0038g.a aVar = c0030f3.f593e;
+                FoldShader.a aVar = c0030f3.f593e;
                 if (aVar != null) {
                     c0030f3.f589a.m724a(aVar);
                     this.f550N.f593e = null;
@@ -1537,7 +1529,7 @@ public final class Engine {
     }
 
     /* renamed from: a */
-    private C0040i.a m545a(FutureTask<C0040i.a> futureTask) throws Exception {
+    private FoldSurface.a m545a(FutureTask<FoldSurface.a> futureTask) throws Exception {
         try {
             return futureTask.get(Math.max(0L, (this.f550N.f603o + 1000) - m623w()), TimeUnit.MILLISECONDS);
         } catch (TimeoutException e) {
@@ -1548,7 +1540,7 @@ public final class Engine {
     }
 
     /* renamed from: a */
-    private C0038g.a m543a(C0040i.a aVar) {
+    private FoldShader.a m543a(FoldSurface.a aVar) {
         if (aVar.f756e != null) {
             m579c("应用背景改用壁纸镜像：" + aVar.f756e);
             return null;
@@ -1559,23 +1551,23 @@ public final class Engine {
             m579c("应用背景改用壁纸镜像：壁纸超过纹理上限");
             return null;
         }
-        this.f550N.f597i = new C0035d();
+        this.f550N.f597i = new FoldEgl();
         C0030f c0030f = this.f550N;
-        C0035d c0035d = c0030f.f597i;
+        FoldEgl c0035d = c0030f.f597i;
         c0035d.f661a = aVar.f754c;
         c0035d.f662b = aVar.f755d;
         return c0030f.f589a.m722a(aVar.f753b);
     }
 
     /* renamed from: a */
-    private C0038g.a m542a(Bundle bundle, C0040i.a aVar) throws Exception {
-        Bundle bundle2 = bundle.getBundle(C0054J.f920c);
+    private FoldShader.a m542a(Bundle bundle, FoldSurface.a aVar) throws Exception {
+        Bundle bundle2 = bundle.getBundle(RailCodec.f920c);
         ArrayList<Rect> parcelableArrayList = bundle.getParcelableArrayList("bitmapCrops");
         if (m562a(bundle, false)) {
             m579c("本次沿用原动画：侧栏/桌面状态不适用分层");
             return null;
         }
-        String m548a = m548a(bundle, (C0035d) null);
+        String m548a = m548a(bundle, (FoldEgl) null);
         if (m548a != null) {
             m579c("本次沿用原动画：" + m548a);
             return null;
@@ -1604,21 +1596,21 @@ public final class Engine {
             m579c("本次沿用原动画：壁纸超过纹理上限");
             return null;
         }
-        C0038g.a m722a = this.f550N.f589a.m722a(bitmap);
+        FoldShader.a m722a = this.f550N.f589a.m722a(bitmap);
         this.f550N.f599k = parcelableArrayList;
-        C0035d c0035d = new C0035d();
+        FoldEgl c0035d = new FoldEgl();
         c0035d.f661a = aVar.f754c;
         c0035d.f662b = aVar.f755d;
-        c0035d.f663c = C0036e.m670a(bundle2.getFloatArray("coverGeometry"));
-        c0035d.f664d = C0036e.m670a(bundle2.getFloatArray("innerGeometry"));
+        c0035d.f663c = DisplayControlBinder.m670a(bundle2.getFloatArray("coverGeometry"));
+        c0035d.f664d = DisplayControlBinder.m670a(bundle2.getFloatArray("innerGeometry"));
         ArrayList parcelableArrayList2 = bundle2.getParcelableArrayList("layers");
         for (int i2 = 0; i2 < parcelableArrayList2.size(); i2++) {
             int i3 = i2 * 4;
             System.arraycopy(((Bundle) parcelableArrayList2.get(i2)).getFloatArray("coverFrame"), 0, c0035d.f665e, i3, 4);
             System.arraycopy(((Bundle) parcelableArrayList2.get(i2)).getFloatArray("innerFrame"), 0, c0035d.f666f, i3, 4);
         }
-        System.arraycopy(C0035d.f659g, 0, c0035d.f665e, 8, 4);
-        System.arraycopy(C0035d.f660h, 0, c0035d.f666f, 8, 4);
+        System.arraycopy(FoldEgl.f659g, 0, c0035d.f665e, 8, 4);
+        System.arraycopy(FoldEgl.f660h, 0, c0035d.f666f, 8, 4);
         this.f550N.f596h = c0035d;
         m579c("本次使用静态原图与透明前景分层 wallpaperId=" + this.f550N.f598j);
         return m722a;
@@ -1626,7 +1618,7 @@ public final class Engine {
 
     /* renamed from: a */
     private boolean m562a(Bundle bundle, boolean z) {
-        Bundle bundle2 = bundle.getBundle(C0054J.f920c);
+        Bundle bundle2 = bundle.getBundle(RailCodec.f920c);
         if ((!z || bundle.getInt("wallpaperId") == this.f550N.f598j) && !bundle2.getBoolean("editing") && (bundle2.getInt("contentFlags") & 32) == 0) {
             return z && !Objects.equals(this.f550N.f599k, bundle.getParcelableArrayList("bitmapCrops"));
         }
@@ -1634,12 +1626,12 @@ public final class Engine {
     }
 
     /* renamed from: a */
-    private static String m548a(Bundle bundle, C0035d c0035d) {
-        Bundle bundle2 = bundle.getBundle(C0054J.f920c);
+    private static String m548a(Bundle bundle, FoldEgl c0035d) {
+        Bundle bundle2 = bundle.getBundle(RailCodec.f920c);
         if (c0035d == null && (bundle2.getInt("width") != bundle.getInt("width") || bundle2.getInt("height") != bundle.getInt("height"))) {
             return "侧栏尺寸";
         }
-        if (!C0040i.m742a(bundle)) {
+        if (!FoldSurface.m742a(bundle)) {
             return "壁纸缩放/偏移/调暗或非 MIUI 图片窗口";
         }
         if (c0035d == null) {
@@ -1659,7 +1651,7 @@ public final class Engine {
                 }
             }
         }
-        if (Arrays.equals(c0035d.f663c, C0036e.m670a(bundle2.getFloatArray("coverGeometry"))) && Arrays.equals(c0035d.f664d, C0036e.m670a(bundle2.getFloatArray("innerGeometry")))) {
+        if (Arrays.equals(c0035d.f663c, DisplayControlBinder.m670a(bundle2.getFloatArray("coverGeometry"))) && Arrays.equals(c0035d.f664d, DisplayControlBinder.m670a(bundle2.getFloatArray("innerGeometry")))) {
             return null;
         }
         return "侧栏坐标";
@@ -1670,23 +1662,23 @@ public final class Engine {
         this.f550N.f592d.m729a();
         C0030f c0030f = this.f550N;
         if (c0030f.f600l == null) {
-            C0038g.a aVar = c0030f.f591c;
+            FoldShader.a aVar = c0030f.f591c;
             if (aVar != null) {
                 aVar.m729a();
             }
-            C0038g.a aVar2 = this.f550N.f590b;
+            FoldShader.a aVar2 = this.f550N.f590b;
             if (aVar2 != null) {
                 aVar2.m729a();
             }
         }
-        C0038g.a aVar3 = this.f550N.f593e;
+        FoldShader.a aVar3 = this.f550N.f593e;
         if (aVar3 != null && aVar3.m729a()) {
-            C0032a c0032a = this.f550N.f600l;
+            FoldCurve c0032a = this.f550N.f600l;
             if (c0032a.m645a(c0032a.f635a, j)) {
                 C0030f c0030f2 = this.f550N;
-                C0032a c0032a2 = c0030f2.f600l;
+                FoldCurve c0032a2 = c0030f2.f600l;
                 boolean z = c0032a2.f640f;
-                C0038g.a aVar4 = z ? c0030f2.f591c : c0030f2.f590b;
+                FoldShader.a aVar4 = z ? c0030f2.f591c : c0030f2.f590b;
                 if (z) {
                     c0030f2.f591c = c0030f2.f593e;
                     if (aVar4 == null) {
@@ -1707,7 +1699,7 @@ public final class Engine {
             }
         }
         C0030f c0030f3 = this.f550N;
-        C0032a c0032a3 = c0030f3.f600l;
+        FoldCurve c0032a3 = c0030f3.f600l;
         if (c0032a3 != null && c0030f3.f593e == null && c0032a3.f639e >= 0) {
             (c0032a3.f640f ? c0030f3.f591c : c0030f3.f590b).m729a();
         }
@@ -1715,14 +1707,14 @@ public final class Engine {
         if (!c0030f4.f592d.f726k) {
             return false;
         }
-        C0038g.a aVar5 = c0030f4.f591c;
+        FoldShader.a aVar5 = c0030f4.f591c;
         if (aVar5 == null && c0030f4.f590b == null) {
             return false;
         }
         if (aVar5 != null && !aVar5.f726k) {
             return false;
         }
-        C0038g.a aVar6 = c0030f4.f590b;
+        FoldShader.a aVar6 = c0030f4.f590b;
         return aVar6 == null || aVar6.f726k;
     }
 
@@ -1734,14 +1726,14 @@ public final class Engine {
             m579c("源画面首帧 开始至此_ms=" + (j - this.f550N.f603o));
         }
         C0030f c0030f2 = this.f550N;
-        c0030f2.f589a.m725a(c0030f2.f594f, c0030f2.f590b, c0030f2.f591c, c0030f2.f592d, c0030f2.f607s >= 0 ? c0030f2.f597i : c0030f2.f596h, f, C0032a.m641b(c0030f2.f601m, j), C0032a.m641b(this.f550N.f602n, j));
+        c0030f2.f589a.m725a(c0030f2.f594f, c0030f2.f590b, c0030f2.f591c, c0030f2.f592d, c0030f2.f607s >= 0 ? c0030f2.f597i : c0030f2.f596h, f, FoldCurve.m641b(c0030f2.f601m, j), FoldCurve.m641b(this.f550N.f602n, j));
         C0030f c0030f3 = this.f550N;
-        c0030f3.f589a.m725a(c0030f3.f595g, c0030f3.f590b, c0030f3.f591c, c0030f3.f592d, c0030f3.f607s >= 0 ? c0030f3.f597i : c0030f3.f596h, f, C0032a.m641b(c0030f3.f601m, j), C0032a.m641b(this.f550N.f602n, j));
+        c0030f3.f589a.m725a(c0030f3.f595g, c0030f3.f590b, c0030f3.f591c, c0030f3.f592d, c0030f3.f607s >= 0 ? c0030f3.f597i : c0030f3.f596h, f, FoldCurve.m641b(c0030f3.f601m, j), FoldCurve.m641b(this.f550N.f602n, j));
     }
 
     /* renamed from: a */
     private boolean m560a(long j, float f, boolean z) throws Exception {
-        C0032a c0032a = this.f550N.f600l;
+        FoldCurve c0032a = this.f550N.f600l;
         if (c0032a == null) {
             boolean z2 = this.f542F;
             if (z2 || !z) {
@@ -1776,7 +1768,7 @@ public final class Engine {
                         if (this.f571m.m678a("local:4639175068132267009", 2, 13640818, true, this.f542F ? "local:4639175402683733248" : null, 1500L, 0, 1168, 1712)) {
                             if (this.f571m.m678a("local:4639175402683733248", 2, 13640817, true, this.f542F ? null : "local:4639175068132267009", 1500L, 3, 2364, 1672)) {
                                 C0030f c0030f3 = this.f550N;
-                                c0030f3.f600l = new C0032a(c0030f3.f603o, this.f558V.f645c);
+                                c0030f3.f600l = new FoldCurve(c0030f3.f603o, this.f558V.f645c);
                                 this.f550N.f600l.f635a = this.f551O;
                                 this.f549M.m734a(0);
                                 m579c("本次源首帧已接管 angle=" + this.f582x.m656b());
@@ -1838,7 +1830,7 @@ public final class Engine {
     private void m558a(boolean z, float f) throws Exception {
         this.f549M.m734a(2);
         C0030f c0030f = this.f550N;
-        C0038g.a aVar = c0030f.f593e;
+        FoldShader.a aVar = c0030f.f593e;
         if (aVar != null) {
             c0030f.f589a.m724a(aVar);
             this.f550N.f593e = null;
@@ -1851,7 +1843,7 @@ public final class Engine {
         if (this.f550N.f607s >= 0) {
             this.f568j.postDelayed(this.f567e0, 600L);
         }
-        C0036e c0036e = this.f571m;
+        DisplayControlBinder c0036e = this.f571m;
         String str = z ? "local:4639175402683733248" : "local:4639175068132267009";
         int i = z ? 2364 : 1168;
         int i2 = z ? 1672 : 1712;

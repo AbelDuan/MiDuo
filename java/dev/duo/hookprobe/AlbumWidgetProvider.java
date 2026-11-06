@@ -16,7 +16,7 @@ import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.Toast;
 import dev.duo.hookprobe.AlbumWidgetProvider;
-import dev.duo.hookprobe.C0100b;
+import dev.duo.hookprobe.LauncherDbWriter;
 import dev.duo.workspaceprobe.b.R;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -43,7 +43,7 @@ public final class AlbumWidgetProvider extends AppWidgetProvider {
     private static final ExecutorService f780f = Executors.newSingleThreadExecutor();
 
     /* renamed from: dev.duo.hookprobe.AlbumWidgetProvider$a */
-    class C0042a implements C0100b.d {
+    class C0042a implements LauncherDbWriter.d {
 
         /* renamed from: a */
         final /* synthetic */ Handler f781a;
@@ -62,7 +62,7 @@ public final class AlbumWidgetProvider extends AppWidgetProvider {
             Toast.makeText(context, str, 1).show();
         }
 
-        @Override // dev.duo.hookprobe.C0100b.d
+        @Override // dev.duo.hookprobe.LauncherDbWriter.d
         /* renamed from: a */
         public void mo771a(final String str) {
             Handler handler = this.f781a;
@@ -75,16 +75,16 @@ public final class AlbumWidgetProvider extends AppWidgetProvider {
             });
         }
 
-        @Override // dev.duo.hookprobe.C0100b.d
+        @Override // dev.duo.hookprobe.LauncherDbWriter.d
         /* renamed from: a */
-        public void mo770a(C0100b.c cVar, Exception exc) {
+        public void mo770a(LauncherDbWriter.c cVar, Exception exc) {
             Log.w(AlbumWidgetProvider.f776b, "widget page not set (provider process)\n" + cVar.m1575a(), exc);
             mo771a("没能自动设为第 1 页，请打开 MiDuo 的小组件页点「设为第 1 页」");
         }
     }
 
     /* renamed from: a */
-    static C0100b.d m761a(Context context) {
+    static LauncherDbWriter.d m761a(Context context) {
         return new C0042a(new Handler(Looper.getMainLooper()), context);
     }
 
@@ -97,7 +97,7 @@ public final class AlbumWidgetProvider extends AppWidgetProvider {
     public void onDeleted(Context context, int[] iArr) {
         SharedPreferences.Editor edit = context.getSharedPreferences(f778d, 0).edit();
         for (int i : iArr) {
-            C0101c.m1579a(context, i);
+            AlbumImageStore.m1579a(context, i);
             edit.remove(m762a(i));
         }
         edit.apply();
@@ -176,7 +176,7 @@ public final class AlbumWidgetProvider extends AppWidgetProvider {
                 for (int i2 : iArr) {
                     m763a(context, appWidgetManager, i2);
                 }
-                if (C0100b.m1571b(context)) {
+                if (LauncherDbWriter.m1571b(context)) {
                     AlbumPageJob.m758a(context, iArr);
                 }
             }
@@ -195,14 +195,14 @@ public final class AlbumWidgetProvider extends AppWidgetProvider {
     /* renamed from: a */
     private static void m763a(Context context, AppWidgetManager appWidgetManager, int i) {
         Bitmap bitmap;
-        String m1590a = C0102d.m1590a(i);
+        String m1590a = DeepLinks.m1590a(i);
         Bundle appWidgetOptions = appWidgetManager.getAppWidgetOptions(i);
         if (!m1590a.equals(appWidgetOptions.getString("miuiEditUri"))) {
             appWidgetOptions.putString("miuiEditUri", m1590a);
             appWidgetManager.updateAppWidgetOptions(i, appWidgetOptions);
         }
-        Bitmap m1585c = C0101c.m1585c(context, i);
-        if (m1585c == null && C0101c.m1584b(context, i)) {
+        Bitmap m1585c = AlbumImageStore.m1585c(context, i);
+        if (m1585c == null && AlbumImageStore.m1584b(context, i)) {
             Log.w(f776b, "cannot decode photo for widget " + i);
             return;
         }
@@ -213,7 +213,7 @@ public final class AlbumWidgetProvider extends AppWidgetProvider {
         if (m1585c == null) {
             bitmap = null;
         } else {
-            bitmap = C0103e.m1593a(m1585c);
+            bitmap = BitmapRounder.m1593a(m1585c);
             m1585c.recycle();
             remoteViews.setImageViewBitmap(R.C0161id.album_image, bitmap);
             remoteViews.setViewVisibility(R.C0161id.album_placeholder, 8);

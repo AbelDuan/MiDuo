@@ -13,7 +13,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import dev.duo.hookprobe.C0087T;
+import dev.duo.hookprobe.UiKit;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -40,7 +40,7 @@ public final class AlbumCropActivity extends Activity {
     private static final ExecutorService f764k = Executors.newSingleThreadExecutor();
 
     /* renamed from: a */
-    private C0087T.d f765a;
+    private UiKit.d f765a;
 
     /* renamed from: b */
     private Bundle f766b;
@@ -49,7 +49,7 @@ public final class AlbumCropActivity extends Activity {
     private LinearLayout f767c;
 
     /* renamed from: d */
-    private C0099a f768d;
+    private AlbumCropGestureView f768d;
 
     /* renamed from: e */
     private Bitmap f769e;
@@ -70,12 +70,12 @@ public final class AlbumCropActivity extends Activity {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.f766b = bundle;
-        this.f765a = new C0087T.d(this);
-        this.f767c = C0087T.m1411a((Context) this);
-        C0087T.d dVar = this.f765a;
+        this.f765a = new UiKit.d(this);
+        this.f767c = UiKit.m1411a((Context) this);
+        UiKit.d dVar = this.f765a;
         int m1432a = dVar.m1432a(dVar.m1439e());
-        this.f767c.setPadding(m1432a, this.f765a.m1438d(), m1432a, C0087T.m1399a((Context) this, 16.0f));
-        this.f767c.addView(WidgetCenterActivity.m1511a(this, this.f765a, "裁切照片", "移动和缩放，框里就是桌面上的样子"), C0087T.m1408a());
+        this.f767c.setPadding(m1432a, this.f765a.m1438d(), m1432a, UiKit.m1399a((Context) this, 16.0f));
+        this.f767c.addView(WidgetCenterActivity.m1511a(this, this.f765a, "裁切照片", "移动和缩放，框里就是桌面上的样子"), UiKit.m1408a());
         this.f765a.f1395b.addView(this.f767c, new FrameLayout.LayoutParams(-1, -1));
         setContentView(this.f765a.f1394a);
         this.f765a.m1433a();
@@ -100,7 +100,7 @@ public final class AlbumCropActivity extends Activity {
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        C0099a c0099a = this.f768d;
+        AlbumCropGestureView c0099a = this.f768d;
         if (c0099a == null) {
             return;
         }
@@ -140,20 +140,20 @@ public final class AlbumCropActivity extends Activity {
             return;
         }
         this.f769e = bitmap;
-        this.f768d = new C0099a(this, this.f769e);
+        this.f768d = new AlbumCropGestureView(this, this.f769e);
         Bundle bundle = this.f766b;
         if (bundle != null && bundle.containsKey(f761h)) {
             this.f768d.m1555a(this.f766b.getFloat(f761h), this.f766b.getFloat(f762i), this.f766b.getFloat(f763j));
         }
-        this.f767c.addView(this.f768d, C0087T.m1410a(new LinearLayout.LayoutParams(-1, 0, 1.0f), this, 8.0f));
-        TextView m1415a = C0087T.m1415a((Context) this, "完成", true, 44.0f);
+        this.f767c.addView(this.f768d, UiKit.m1410a(new LinearLayout.LayoutParams(-1, 0, 1.0f), this, 8.0f));
+        TextView m1415a = UiKit.m1415a((Context) this, "完成", true, 44.0f);
         m1415a.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.AlbumCropActivity$$ExternalSyntheticLambda1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
                 AlbumCropActivity.this.m754a(view);
             }
         });
-        LinearLayout.LayoutParams m1410a = C0087T.m1410a(new LinearLayout.LayoutParams(C0087T.m1399a((Context) this, 200.0f), -2), this, 12.0f);
+        LinearLayout.LayoutParams m1410a = UiKit.m1410a(new LinearLayout.LayoutParams(UiKit.m1399a((Context) this, 200.0f), -2), this, 12.0f);
         m1410a.gravity = 1;
         this.f767c.addView(m1415a, m1410a);
     }
@@ -201,7 +201,7 @@ public final class AlbumCropActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: a */
     public /* synthetic */ void m750a(final Context context, final int i, Bitmap bitmap) {
-        final boolean z = AlbumWidgetProvider.m766a(context, i) && C0101c.m1581a(context, i, bitmap);
+        final boolean z = AlbumWidgetProvider.m766a(context, i) && AlbumImageStore.m1581a(context, i, bitmap);
         bitmap.recycle();
         runOnUiThread(new Runnable() { // from class: dev.duo.hookprobe.AlbumCropActivity$$ExternalSyntheticLambda4
             @Override // java.lang.Runnable

@@ -3,9 +3,9 @@ package dev.duo.workspaceprobe;
 /* compiled from: D8$$SyntheticClass */
 /* loaded from: classes.dex */
 public final /* synthetic */ class n$$ExternalSyntheticLambda17 implements Runnable {
-    public final /* synthetic */ C0155n f$0;
+    public final /* synthetic */ WorkbenchController f$0;
 
-    public /* synthetic */ n$$ExternalSyntheticLambda17(C0155n c0155n) {
+    public /* synthetic */ n$$ExternalSyntheticLambda17(WorkbenchController c0155n) {
         this.f$0 = c0155n;
     }
 

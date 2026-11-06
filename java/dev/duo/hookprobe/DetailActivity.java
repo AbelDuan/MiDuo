@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.FrameLayout;
-import dev.duo.hookprobe.C0087T;
+import dev.duo.hookprobe.UiKit;
 import java.util.function.IntConsumer;
 
 /* loaded from: classes.dex */
@@ -21,12 +21,12 @@ public final class DetailActivity extends Activity {
         String stringExtra = getIntent().getStringExtra("pkg");
         String stringExtra2 = getIntent().getStringExtra("label");
         if (stringExtra != null && stringExtra.matches("[A-Za-z][A-Za-z0-9_]*(\\.[A-Za-z0-9_]+)+") && !MainActivity.f960d.contains(stringExtra)) {
-            C0087T.d dVar = new C0087T.d(this);
+            UiKit.d dVar = new UiKit.d(this);
             if (dVar.f1396c >= 840) {
                 m849a(1, stringExtra, stringExtra2);
                 return;
             }
-            dVar.f1395b.addView(new C0104f(this, stringExtra, stringExtra2, new Runnable() { // from class: dev.duo.hookprobe.DetailActivity$$ExternalSyntheticLambda0
+            dVar.f1395b.addView(new AppSettingsPanel(this, stringExtra, stringExtra2, new Runnable() { // from class: dev.duo.hookprobe.DetailActivity$$ExternalSyntheticLambda0
                 @Override // java.lang.Runnable
                 public final void run() {
                     DetailActivity.this.finish();

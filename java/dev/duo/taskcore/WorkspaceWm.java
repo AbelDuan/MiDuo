@@ -495,10 +495,8 @@ public final class WorkspaceWm {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:129:0x0355  */
     /* renamed from: lambda$installSourceHooks$7$dev-duo-taskcore-WorkspaceWm, reason: not valid java name */
     /*
-        Code decompiled incorrectly, please refer to instructions dump.
     */
     /* synthetic */ Object m3413lambda$installSourceHooks$7$devduotaskcoreWorkspaceWm(XposedInterface.Chain chain) throws Throwable {
         boolean z;
@@ -1029,10 +1027,7 @@ public final class WorkspaceWm {
         return invoke;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:113:0x0338  */
-    /* JADX WARN: Removed duplicated region for block: B:117:0x033b  */
     /*
-        Code decompiled incorrectly, please refer to instructions dump.
     */
     private String dispatch(int i, long j, IBinder iBinder, int i2, int i3, Parcel parcel, Parcel parcel2) throws ReflectiveOperationException {
         Rect rect;
@@ -1240,7 +1235,7 @@ public final class WorkspaceWm {
                             this.reparentSurface.invoke(invoke, transaction, surfaceControl);
                             this.updateSurfacePosition.invoke(invoke, transaction);
                             transaction.setScale(surfaceControl2, 1.0f, 1.0f).setCrop(surfaceControl2, null).setAlpha(surfaceControl2, 1.0f);
-                            C0132Tx.windowCrop(transaction, surfaceControl2, null);
+                            WindowCropTx.windowCrop(transaction, surfaceControl2, null);
                             transaction.apply();
                             transaction.close();
                             Log.i(TAG, "restored task " + saved.taskId + " mode=" + snapshot.windowingMode);

@@ -1,12 +1,12 @@
 package dev.duo.hookprobe;
 
 import android.util.Log;
-import dev.duo.icons.C0127c;
-import dev.duo.icons.C0131g;
+import dev.duo.icons.ThemeManagerHooks;
+import dev.duo.icons.IconConst;
 import dev.duo.taskcore.WorkspaceProtocol;
 import dev.duo.taskcore.WorkspaceWm;
-import dev.duo.workspaceprobe.C0143b;
-import dev.duo.workspaceprobe.C0148g;
+import dev.duo.workspaceprobe.WorkspaceHooks;
+import dev.duo.workspaceprobe.LauncherOverlayProbe;
 import io.github.libxposed.api.XposedModule;
 import io.github.libxposed.api.XposedModuleInterface;
 import java.util.Arrays;
@@ -20,16 +20,16 @@ public final class MiDuo extends XposedModule {
     private static final Set<String> f1115h = new HashSet(Arrays.asList("com.miui.home", "com.android.systemui", "com.miui.personalassistant"));
 
     /* renamed from: a */
-    private final C0050G f1116a = new C0050G();
+    private final GenericProcessHooks f1116a = new GenericProcessHooks();
 
     /* renamed from: b */
-    private C0143b f1117b;
+    private WorkspaceHooks f1117b;
 
     /* renamed from: c */
-    private C0148g f1118c;
+    private LauncherOverlayProbe f1118c;
 
     /* renamed from: d */
-    private C0127c f1119d;
+    private ThemeManagerHooks f1119d;
 
     /* renamed from: e */
     private boolean f1120e;
@@ -38,7 +38,7 @@ public final class MiDuo extends XposedModule {
     private boolean f1121f;
 
     /* renamed from: g */
-    private C0117s f1122g;
+    private FoldAnimPermission f1122g;
 
     /* renamed from: a */
     private boolean m1192a() {
@@ -76,11 +76,11 @@ public final class MiDuo extends XposedModule {
     }
 
     public void onModuleLoaded(XposedModuleInterface.ModuleLoadedParam moduleLoadedParam) {
-        WorkspaceProtocol.modulePackage = C0131g.f1963a;
-        WorkspaceProtocol.buildId = C0110l.f1644b;
+        WorkspaceProtocol.modulePackage = IconConst.f1963a;
+        WorkspaceProtocol.buildId = BuildConst.f1644b;
         Log.i("DuoWorkbench", "package=1.0.415-1-05e92cb34b03 wmProtocol=0.403-fix1-1-ef7dfe872f21");
-        if (C0131g.f1964b.equals(moduleLoadedParam.getProcessName())) {
-            C0127c c0127c = new C0127c();
+        if (IconConst.f1964b.equals(moduleLoadedParam.getProcessName())) {
+            ThemeManagerHooks c0127c = new ThemeManagerHooks();
             this.f1119d = c0127c;
             c0127c.attachFramework(this, new Runnable() { // from class: dev.duo.hookprobe.MiDuo$$ExternalSyntheticLambda1
                 @Override // java.lang.Runnable
@@ -101,7 +101,7 @@ public final class MiDuo extends XposedModule {
         });
         this.f1116a.onModuleLoaded(moduleLoadedParam);
         if (!moduleLoadedParam.isSystemServer() && f1115h.contains(moduleLoadedParam.getProcessName())) {
-            C0143b c0143b = new C0143b();
+            WorkspaceHooks c0143b = new WorkspaceHooks();
             this.f1117b = c0143b;
             c0143b.attachFramework(this, new Runnable() { // from class: dev.duo.hookprobe.MiDuo$$ExternalSyntheticLambda3
                 @Override // java.lang.Runnable
@@ -113,7 +113,7 @@ public final class MiDuo extends XposedModule {
             return;
         }
         if ("com.android.quicksearchbox".equals(moduleLoadedParam.getProcessName())) {
-            C0148g c0148g = new C0148g();
+            LauncherOverlayProbe c0148g = new LauncherOverlayProbe();
             this.f1118c = c0148g;
             c0148g.attachFramework(this, new Runnable() { // from class: dev.duo.hookprobe.MiDuo$$ExternalSyntheticLambda4
                 @Override // java.lang.Runnable
@@ -127,23 +127,23 @@ public final class MiDuo extends XposedModule {
 
     public void onPackageLoaded(XposedModuleInterface.PackageLoadedParam packageLoadedParam) {
         boolean m1192a;
-        C0127c c0127c = this.f1119d;
+        ThemeManagerHooks c0127c = this.f1119d;
         if (c0127c != null) {
             c0127c.onPackageLoaded(packageLoadedParam);
             return;
         }
         this.f1116a.onPackageLoaded(packageLoadedParam);
-        C0143b c0143b = this.f1117b;
+        WorkspaceHooks c0143b = this.f1117b;
         if (c0143b != null) {
             c0143b.onPackageLoaded(packageLoadedParam);
         }
         if ((this.f1120e || this.f1121f) && packageLoadedParam.isFirstPackage() && (m1192a = m1192a())) {
             Log.i("MiDuoFold", "开合入口 package=" + packageLoadedParam.getPackageName() + " enabled=" + m1192a);
             try {
-                C0118t.m1949b(getModuleApplicationInfo().sourceDir);
+                FoldFrameObserver.m1949b(getModuleApplicationInfo().sourceDir);
                 if (this.f1120e) {
-                    C0118t.m1962e(this.f1117b);
-                    C0115q.m1891a(this, packageLoadedParam.getDefaultClassLoader());
+                    FoldFrameObserver.m1962e(this.f1117b);
+                    FoldEngineLauncher.m1891a(this, packageLoadedParam.getDefaultClassLoader());
                 }
             } catch (Exception e) {
                 Log.e("MiDuoFold", "就绪观察启动失败", e);
@@ -166,7 +166,7 @@ public final class MiDuo extends XposedModule {
             m1192a = false;
         }
         if (m1192a) {
-            C0117s c0117s = new C0117s();
+            FoldAnimPermission c0117s = new FoldAnimPermission();
             this.f1122g = c0117s;
             c0117s.attachFramework(this, new Runnable() { // from class: dev.duo.hookprobe.MiDuo$$ExternalSyntheticLambda0
                 @Override // java.lang.Runnable
