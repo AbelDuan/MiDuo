@@ -160,7 +160,7 @@
     .locals 5
 
     .line 1
-    const/4 v0, 0x4
+    const/4 v0, 0x3
 
     const/4 v1, 0x2
 
@@ -168,9 +168,9 @@
 
     const/4 v3, 0x1
 
-    const/4 v4, 0x3
+    const/4 v4, 0x2
 
-    filled-new-array {v2, v3, v4, v0, v1}, [I
+    filled-new-array {v2, v3, v4, v0}, [I
 
     move-result-object v0
 
@@ -576,9 +576,9 @@
 
     const-string v4, "App"
 
-    const-string v5, "\u6388\u6743"
+    const-string v5, ""
 
-    filled-new-array {v3, v4, v5, v1, v2}, [Ljava/lang/String;
+    filled-new-array {v3, v4, v1, v2}, [Ljava/lang/String;
 
     move-result-object v14
 
@@ -589,7 +589,7 @@
 
     const/4 v15, 0x2
 
-    filled-new-array {v7, v8, v15, v1, v2}, [I
+    filled-new-array {v7, v8, v1, v2}, [I
 
     move-result-object v16
 
