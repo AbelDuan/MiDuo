@@ -635,26 +635,25 @@ public final class G extends XposedModule {
         }
         boolean z2 = false;
         int i4 = 126;
-        SharedPreferences sharedPreferences2 = null;
+        SharedPreferences spFinal = null;
         try {
-            sharedPreferences2 = getRemotePreferences("duo_top");
-            z = sharedPreferences2.getBoolean(P.f(str), P.e(str)) && P.b(sharedPreferences2) && g();
-            this.d = P.d(sharedPreferences2, str);
-            i3 = P.b(sharedPreferences2, str, "inner");
+            spFinal = getRemotePreferences("duo_top");
+            z = spFinal.getBoolean(P.f(str), P.e(str)) && P.b(spFinal) && g();
+            this.d = P.d(spFinal, str);
+            i3 = P.b(spFinal, str, "inner");
         } catch (Throwable th2) {
             throw th2;
-            sharedPreferences = sharedPreferences2;
-            i2 = 126;
         }
         try {
-            i4 = P.b(sharedPreferences2, str, "outer");
-            if (z || P.a(sharedPreferences2, str)) {
+            i4 = P.b(spFinal, str, "outer");
+            final SharedPreferences spCap = spFinal;
+            if (z || P.a(spFinal, str)) {
                 D.a(this, classLoader, new BooleanSupplier() { // from class: dev.duo.hookprobe.G$$ExternalSyntheticLambda6
                     @Override // java.util.function.BooleanSupplier
                     public final boolean getAsBoolean() {
                         boolean b2;
                         try {
-                            b2 = G.b(sharedPreferences2, str);
+                            b2 = G.b(spCap, str);
                         } catch (Throwable th) {
                             throw new RuntimeException(th);
                         }
@@ -664,7 +663,7 @@ public final class G extends XposedModule {
                     @Override // java.util.function.IntSupplier
                     public final int getAsInt() {
                         int g;
-                        g = P.g(sharedPreferences2, str);
+                        g = P.g(spCap, str);
                         return g;
                     }
                 });
@@ -674,11 +673,8 @@ public final class G extends XposedModule {
             i2 = i4;
             i4 = i3;
             throw th3;
-            sharedPreferences = sharedPreferences2;
-            Log.e(i, "CONFIG unreadable, app left untouched", th);
-            i3 = i4;
             i4 = i2;
-            sharedPreferences2 = sharedPreferences;
+            spFinal = sharedPreferences;
             if ("com.tencent.mm".equals(str)) {
             }
             this.f = i3;
@@ -690,7 +686,7 @@ public final class G extends XposedModule {
             return;
         }
         if ("com.tencent.mm".equals(str)) {
-            a(classLoader, str, sharedPreferences2);
+            a(classLoader, str, spFinal);
         }
         this.f = i3;
         this.g = i4;
