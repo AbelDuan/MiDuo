@@ -72,7 +72,7 @@ final class T {
     static final int Q = 4;
     static final int R = 5;
     static final int S = 6;
-    static final int T = 7;
+    static final int T_v = 7;
     static final int U = 8;
     static final int V = 9;
     static final int W = 10;
@@ -380,18 +380,18 @@ final class T {
             this.a = c;
             int a = dev.duo.hookprobe.T.a(context, 3.0f);
             dev.duo.hookprobe.c.setPadding(a, a, a, a);
-            dev.duo.hookprobe.c.setBackground(dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.f, T.a(context, 20.0f)));
+            dev.duo.hookprobe.c.setBackground(dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.f, dev.duo.hookprobe.T.a(context, 20.0f)));
             this.b = new LinearLayout[strArr.length];
             this.c = new TextView[strArr.length];
             for (int i = 0; i < strArr.length; i++) {
                 LinearLayout c2 = T.c(context);
                 c2.setGravity(17);
                 if (iArr != null) {
-                    LinearLayout.LayoutParams a2 = T.a(context, 13.0f, 13.0f);
-                    a2.rightMargin = T.a(context, 6.0f);
-                    c2.addView(T.a(context, T.b(context, iArr[i])), a2);
+                    LinearLayout.LayoutParams a2 = dev.duo.hookprobe.T.a(context, 13.0f, 13.0f);
+                    a2.rightMargin = dev.duo.hookprobe.T.a(context, 6.0f);
+                    c2.addView(dev.duo.hookprobe.T.a(context, dev.duo.hookprobe.T.b(context, iArr[i])), a2);
                 }
-                TextView a3 = T.a(context, 14.0f, T.b, dev.duo.hookprobe.T.c0);
+                TextView a3 = dev.duo.hookprobe.T.a(context, 14.0f, dev.duo.hookprobe.T.b, dev.duo.hookprobe.T.c0);
                 a3.setText(strArr[i]);
                 a3.setSingleLine(true);
                 c2.addView(a3);
@@ -402,7 +402,7 @@ final class T {
                     }
                 });
                 c2.setContentDescription(strArr[i]);
-                this.a.addView(c2, new LinearLayout.LayoutParams(0, T.a(context, 36.0f), 1.0f));
+                this.a.addView(c2, new LinearLayout.LayoutParams(0, dev.duo.hookprobe.T.a(context, 36.0f), 1.0f));
                 this.b[i] = c2;
                 this.c[i] = a3;
             }
@@ -417,8 +417,8 @@ final class T {
                     return;
                 }
                 boolean z = i2 == i;
-                linearLayoutArr[i2].setBackground(z ? T.a(dev.duo.hookprobe.T.p, T.a(context, 17.0f)) : null);
-                this.b[i2].setElevation((!z || T.a) ? 0.0f : T.a(context, 1.5f));
+                linearLayoutArr[i2].setBackground(z ? dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.p, dev.duo.hookprobe.T.a(context, 17.0f)) : null);
+                this.b[i2].setElevation((!z || dev.duo.hookprobe.T.a) ? 0.0f : dev.duo.hookprobe.T.a(context, 1.5f));
                 this.b[i2].setSelected(z);
                 i2++;
             }
@@ -784,7 +784,7 @@ final class T {
 
         d(Activity activity) {
             this.j = activity;
-            T.a(activity);
+            dev.duo.hookprobe.T.a(activity);
             WindowMetrics currentWindowMetrics = activity.getWindowManager().getCurrentWindowMetrics();
             Rect bounds = currentWindowMetrics.getBounds();
             float f = activity.getResources().getDisplayMetrics().density;
@@ -841,7 +841,7 @@ final class T {
         }
 
         int b() {
-            return this.d ? dev.duo.hookprobe.T.g0 : T.a((Context) this.j, 120.0f);
+            return this.d ? dev.duo.hookprobe.T.g0 : dev.duo.hookprobe.T.a((Context) this.j, 120.0f);
         }
 
         int c() {
@@ -855,7 +855,7 @@ final class T {
             if (this.e) {
                 return Math.max(0, Math.round(dev.duo.hookprobe.T.l0) - this.g);
             }
-            return T.a(this.j, this.f ? 8.0f : 18.0f);
+            return dev.duo.hookprobe.T.a(this.j, this.f ? 8.0f : 18.0f);
         }
 
         int e() {
@@ -882,13 +882,13 @@ final class T {
             if (view != null) {
                 this.a.removeView(view);
             }
-            this.m = T.a(this.j, i, this.d ? dev.duo.hookprobe.T.f0 : 0, intConsumer);
+            this.m = dev.duo.hookprobe.T.a(this.j, i, this.d ? dev.duo.hookprobe.T.f0 : 0, intConsumer);
             if (this.d) {
                 layoutParams = new FrameLayout.LayoutParams(dev.duo.hookprobe.T.f0, -2, 8388629);
                 layoutParams.rightMargin = dev.duo.hookprobe.T.g0;
             } else {
                 layoutParams = new FrameLayout.LayoutParams(-2, -2, 81);
-                layoutParams.bottomMargin = this.f ? Math.max(0, 40 - this.h) : T.a((Context) this.j, 16.0f);
+                layoutParams.bottomMargin = this.f ? Math.max(0, 40 - this.h) : dev.duo.hookprobe.T.a((Context) this.j, 16.0f);
             }
             this.a.addView(this.m, layoutParams);
         }
@@ -897,7 +897,7 @@ final class T {
             if (this.d) {
                 return 0;
             }
-            return this.f ? dev.duo.hookprobe.T.g0 : T.a(this.j, Math.max(16.0f, (i - 640) / 2.0f));
+            return this.f ? dev.duo.hookprobe.T.g0 : dev.duo.hookprobe.T.a(this.j, Math.max(16.0f, (i - 640) / 2.0f));
         }
     }
 
