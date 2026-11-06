@@ -3093,7 +3093,7 @@ public final class b extends XposedModule {
                 if (this.a >= f0.this.b_v.length || f0.this.b_v[this.a] != this.b_v) {
                     return;
                 }
-                int b_v = signalStrength == null ? -1 : b_v.b(signalStrength);
+                int b = signalStrength == null ? -1 : dev.duo.workspaceprobe.b.b(signalStrength);
                 if (b_v == (this.a == 0 ? f0.this.a.d0 : f0.this.a.e0)) {
                     return;
                 }
@@ -3926,7 +3926,7 @@ public final class b extends XposedModule {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             String schemeSpecificPart = intent.getData() == null ? null : intent.getData().getSchemeSpecificPart();
-            if (schemeSpecificPart == null || b_v.c(schemeSpecificPart)) {
+            if (schemeSpecificPart == null || dev.duo.workspaceprobe.b.c(schemeSpecificPart)) {
                 return;
             }
             dev.duo.workspaceprobe.b.this.g(schemeSpecificPart);
@@ -3959,7 +3959,7 @@ public final class b extends XposedModule {
                 if (C0043l.this.a != this.a) {
                     return;
                 }
-                C0043l.this.d.c0 = b_v.b(telephonyDisplayInfo);
+                C0043l.this.d.c0 = dev.duo.workspaceprobe.b.b(telephonyDisplayInfo);
                 dev.duo.workspaceprobe.b.this.m1();
             }
         }
@@ -4109,7 +4109,7 @@ public final class b extends XposedModule {
                 bVar.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$q$$ExternalSyntheticLambda0
                     @Override // java.lang.Runnable
                     public final void run() {
-                        b_v.n(dev.duo.workspaceprobe.b.this);
+                        dev.duo.workspaceprobe.b.n(dev.duo.workspaceprobe.b.this);
                     }
                 });
             } else if ("android.intent.action.SCREEN_ON".equals(intent.getAction()) || "android.intent.action.USER_PRESENT".equals(intent.getAction())) {
@@ -4126,7 +4126,7 @@ public final class b extends XposedModule {
                 dev.duo.workspaceprobe.b.V(dev.duo.workspaceprobe.b.this);
                 dev.duo.workspaceprobe.b.this.x2.clear();
                 dev.duo.workspaceprobe.b.this.y2 = "";
-                dev.duo.workspaceprobe.b.this.k2 = b_v.b(context);
+                dev.duo.workspaceprobe.b.this.k2 = dev.duo.workspaceprobe.b.b(context);
                 ActivityManager.RunningTaskInfo runningTaskInfo = (ActivityManager.RunningTaskInfo) dev.duo.workspaceprobe.b.this.G0.get(Integer.valueOf(dev.duo.workspaceprobe.b.this.G1));
                 b bVar3 = dev.duo.workspaceprobe.b.this;
                 if (!bVar3.I1 && runningTaskInfo != null && (componentName = runningTaskInfo.topActivity) != null) {
@@ -5887,7 +5887,7 @@ public final class b extends XposedModule {
             @Override // java.util.Comparator
             public final int compare(Object obj, Object obj2) {
                 int a2;
-                a2 = b_v.a((StatusBarNotification) obj, (StatusBarNotification) obj2);
+                a2 = dev.duo.workspaceprobe.b.a((StatusBarNotification) obj, (StatusBarNotification) obj2);
                 return a2;
             }
         });
@@ -6417,7 +6417,7 @@ public final class b extends XposedModule {
             @Override // java.util.concurrent.ThreadFactory
             public final Thread newThread(Runnable runnable) {
                 Thread c2;
-                c2 = b_v.c(runnable);
+                c2 = dev.duo.workspaceprobe.b.c(runnable);
                 return c2;
             }
         });
@@ -6755,7 +6755,7 @@ public final class b extends XposedModule {
             executorService.execute(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda22
                 @Override // java.lang.Runnable
                 public final void run() {
-                    b_v.a(dev.duo.workspaceprobe.b.O.this);
+                    dev.duo.workspaceprobe.b.a(dev.duo.workspaceprobe.b.O.this);
                 }
             });
         } catch (RejectedExecutionException e2) {
@@ -7289,7 +7289,7 @@ public final class b extends XposedModule {
                         @Override // java.util.Comparator
                         public final int compare(Object obj, Object obj2) {
                             int a3;
-                            a3 = b_v.a(collator, (Object[]) obj, (Object[]) obj2);
+                            a3 = dev.duo.workspaceprobe.b.a(collator, (Object[]) obj, (Object[]) obj2);
                             return a3;
                         }
                     });
@@ -7316,7 +7316,7 @@ public final class b extends XposedModule {
             @Override // java.util.Comparator
             public final int compare(Object obj, Object obj2) {
                 int a3;
-                a3 = b_v.a(collator2, (Object[]) obj, (Object[]) obj2);
+                a3 = dev.duo.workspaceprobe.b.a(collator2, (Object[]) obj, (Object[]) obj2);
                 return a3;
             }
         });
@@ -10483,7 +10483,7 @@ public final class b extends XposedModule {
                 @Override // java.util.function.Predicate
                 public final boolean test(Object obj) {
                     boolean a2;
-                    a2 = b_v.a(i2, (Integer) obj);
+                    a2 = dev.duo.workspaceprobe.b.a(i2, (Integer) obj);
                     return a2;
                 }
             });
@@ -11621,7 +11621,7 @@ public final class b extends XposedModule {
             @Override // java.util.Comparator
             public final int compare(Object obj2, Object obj3) {
                 int a2;
-                a2 = b_v.a(hashMap, (String) obj2, (String) obj3);
+                a2 = dev.duo.workspaceprobe.b.a(hashMap, (String) obj2, (String) obj3);
                 return a2;
             }
         });
@@ -12866,7 +12866,7 @@ public final class b extends XposedModule {
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda13
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public final void onAnimationUpdate(ValueAnimator valueAnimator) {
-                b_v.a(surfaceControl, i2, valueAnimator);
+                dev.duo.workspaceprobe.b.a(surfaceControl, i2, valueAnimator);
             }
         });
         this.w4 = ofFloat;
@@ -14024,7 +14024,7 @@ public final class b extends XposedModule {
                 @Override // java.util.function.Function
                 public final Object apply(Object obj) {
                     Object a2;
-                    a2 = b_v.a((Class<?>) obj);
+                    a2 = dev.duo.workspaceprobe.b.a((Class<?>) obj);
                     return a2;
                 }
             });
@@ -14324,7 +14324,7 @@ public final class b extends XposedModule {
                     @Override // dev.duo.workspaceprobe.b.M
                     public final int a(SurfaceControl surfaceControl) {
                         int a2;
-                        a2 = b_v.a(rect, surfaceControl);
+                        a2 = dev.duo.workspaceprobe.b.a(rect, surfaceControl);
                         return a2;
                     }
                 }, new Consumer() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda7
@@ -15965,7 +15965,7 @@ public final class b extends XposedModule {
             @Override // android.view.View.OnTouchListener
             public final boolean onTouch(View view2, MotionEvent motionEvent) {
                 boolean a2;
-                a2 = b_v.a(view2, motionEvent);
+                a2 = dev.duo.workspaceprobe.b.a(view2, motionEvent);
                 return a2;
             }
         });
