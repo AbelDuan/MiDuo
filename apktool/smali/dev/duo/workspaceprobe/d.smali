@@ -4,11 +4,11 @@
 
 
 # static fields
-.field static final a:Ljava/lang/String; = "dev.duo.hookprobe.INFO_WIDGET_REQUEST"
+.field static final a:Ljava/lang/String; = "com.lsposed.miduo.INFO_WIDGET_REQUEST"
 
-.field private static final b:Ljava/lang/String; = "dev.duo.hookprobe.INFO_WIDGET_CHANGED"
+.field private static final b:Ljava/lang/String; = "com.lsposed.miduo.INFO_WIDGET_CHANGED"
 
-.field private static final c:Ljava/lang/String; = "dev.duo.hookprobe"
+.field private static final c:Ljava/lang/String; = "com.lsposed.miduo"
 
 .field private static final d:Landroid/os/Handler;
 
@@ -123,7 +123,7 @@
 
     new-instance v3, Landroid/content/IntentFilter;
 
-    const-string v0, "dev.duo.hookprobe.INFO_WIDGET_REQUEST"
+    const-string v0, "com.lsposed.miduo.INFO_WIDGET_REQUEST"
 
     invoke-direct {v3, v0}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
@@ -838,11 +838,11 @@
     :cond_0
     new-instance v1, Landroid/content/Intent;
 
-    const-string v2, "dev.duo.hookprobe.INFO_WIDGET_CHANGED"
+    const-string v2, "com.lsposed.miduo.INFO_WIDGET_CHANGED"
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string v2, "dev.duo.hookprobe"
+    const-string v2, "com.lsposed.miduo"
 
     const-string v3, "dev.duo.hookprobe.InfoWidgetProvider"
 

@@ -390,7 +390,7 @@
     .line 40
     new-instance v1, Landroid/content/Intent;
 
-    const-string v2, "dev.duo.hookprobe.icons.COMMAND"
+    const-string v2, "com.lsposed.miduo.icons.COMMAND"
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
@@ -432,7 +432,7 @@
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "content://dev.duo.hookprobe.icons.files/stage/"
+    const-string v1, "content://com.lsposed.miduo.icons.files/stage/"
 
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

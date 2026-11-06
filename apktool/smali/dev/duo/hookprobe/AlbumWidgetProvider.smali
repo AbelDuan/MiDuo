@@ -4,7 +4,7 @@
 
 
 # static fields
-.field private static final a:Ljava/lang/String; = "dev.duo.hookprobe.ALBUM_REFRESH"
+.field private static final a:Ljava/lang/String; = "com.lsposed.miduo.ALBUM_REFRESH"
 
 .field private static final b:Ljava/lang/String; = "MiDuoAlbum"
 
@@ -528,7 +528,7 @@
     .line 1
     new-instance v0, Landroid/content/Intent;
 
-    const-string v1, "dev.duo.hookprobe.ALBUM_REFRESH"
+    const-string v1, "com.lsposed.miduo.ALBUM_REFRESH"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
@@ -649,7 +649,7 @@
 
     move-result-object v1
 
-    const-string v3, "dev.duo.hookprobe.ALBUM_REFRESH"
+    const-string v3, "com.lsposed.miduo.ALBUM_REFRESH"
 
     invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

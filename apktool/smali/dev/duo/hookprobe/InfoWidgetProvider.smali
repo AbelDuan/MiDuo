@@ -17,9 +17,9 @@
 
 
 # static fields
-.field static final a:Ljava/lang/String; = "dev.duo.hookprobe.INFO_WIDGET_CHANGED"
+.field static final a:Ljava/lang/String; = "com.lsposed.miduo.INFO_WIDGET_CHANGED"
 
-.field static final b:Ljava/lang/String; = "dev.duo.hookprobe.INFO_WIDGET_REFRESH"
+.field static final b:Ljava/lang/String; = "com.lsposed.miduo.INFO_WIDGET_REFRESH"
 
 .field static final c:[Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
@@ -147,7 +147,7 @@
     .line 64
     new-instance v3, Landroid/content/Intent;
 
-    const-string v4, "dev.duo.hookprobe.INFO_WIDGET_REQUEST"
+    const-string v4, "com.lsposed.miduo.INFO_WIDGET_REQUEST"
 
     invoke-direct {v3, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
@@ -248,7 +248,7 @@
     .line 1
     new-instance v0, Landroid/content/Intent;
 
-    const-string v1, "dev.duo.hookprobe.INFO_WIDGET_REFRESH"
+    const-string v1, "com.lsposed.miduo.INFO_WIDGET_REFRESH"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
@@ -890,7 +890,7 @@
     .line 83
     new-instance v0, Landroid/content/Intent;
 
-    const-string v1, "dev.duo.hookprobe.INFO_WIDGET_REQUEST"
+    const-string v1, "com.lsposed.miduo.INFO_WIDGET_REQUEST"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
@@ -994,7 +994,7 @@
     move-result-object v0
 
     .line 2
-    const-string v1, "dev.duo.hookprobe.INFO_WIDGET_CHANGED"
+    const-string v1, "com.lsposed.miduo.INFO_WIDGET_CHANGED"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1025,7 +1025,7 @@
 
     .line 5
     :cond_1
-    const-string v1, "dev.duo.hookprobe.INFO_WIDGET_REFRESH"
+    const-string v1, "com.lsposed.miduo.INFO_WIDGET_REFRESH"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

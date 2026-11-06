@@ -50,7 +50,7 @@
     .locals 1
 
     .line 1
-    const-string v0, "content://dev.duo.hookprobe.config/duoState"
+    const-string v0, "content://com.lsposed.miduo.config/duoState"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -59,7 +59,7 @@
     sput-object v0, Ldev/duo/hookprobe/L;->d:Landroid/net/Uri;
 
     .line 6
-    const-string v0, "content://dev.duo.hookprobe.config/duoRail"
+    const-string v0, "content://com.lsposed.miduo.config/duoRail"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -68,7 +68,7 @@
     sput-object v0, Ldev/duo/hookprobe/L;->e:Landroid/net/Uri;
 
     .line 8
-    const-string v0, "content://dev.duo.hookprobe.config/rotationSuggest"
+    const-string v0, "content://com.lsposed.miduo.config/rotationSuggest"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -77,7 +77,7 @@
     sput-object v0, Ldev/duo/hookprobe/L;->f:Landroid/net/Uri;
 
     .line 9
-    const-string v0, "content://dev.duo.hookprobe.config/standbyClock"
+    const-string v0, "content://com.lsposed.miduo.config/standbyClock"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -86,7 +86,7 @@
     sput-object v0, Ldev/duo/hookprobe/L;->g:Landroid/net/Uri;
 
     .line 10
-    const-string v0, "content://dev.duo.hookprobe.config/notificationIcons"
+    const-string v0, "content://com.lsposed.miduo.config/notificationIcons"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -95,7 +95,7 @@
     sput-object v0, Ldev/duo/hookprobe/L;->h:Landroid/net/Uri;
 
     .line 11
-    const-string v0, "content://dev.duo.hookprobe.config/searchButton"
+    const-string v0, "content://com.lsposed.miduo.config/searchButton"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -104,7 +104,7 @@
     sput-object v0, Ldev/duo/hookprobe/L;->i:Landroid/net/Uri;
 
     .line 12
-    const-string v0, "content://dev.duo.hookprobe.config/pickButton"
+    const-string v0, "content://com.lsposed.miduo.config/pickButton"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -113,7 +113,7 @@
     sput-object v0, Ldev/duo/hookprobe/L;->j:Landroid/net/Uri;
 
     .line 13
-    const-string v0, "content://dev.duo.hookprobe.config/foldSplit"
+    const-string v0, "content://com.lsposed.miduo.config/foldSplit"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -122,7 +122,7 @@
     sput-object v0, Ldev/duo/hookprobe/L;->k:Landroid/net/Uri;
 
     .line 15
-    const-string v0, "content://dev.duo.hookprobe.config/workbench"
+    const-string v0, "content://com.lsposed.miduo.config/workbench"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -131,7 +131,7 @@
     sput-object v0, Ldev/duo/hookprobe/L;->l:Landroid/net/Uri;
 
     .line 16
-    const-string v0, "content://dev.duo.hookprobe.config/statusStyles"
+    const-string v0, "content://com.lsposed.miduo.config/statusStyles"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -140,7 +140,7 @@
     sput-object v0, Ldev/duo/hookprobe/L;->m:Landroid/net/Uri;
 
     .line 18
-    const-string v0, "content://dev.duo.hookprobe.config/railCustom"
+    const-string v0, "content://com.lsposed.miduo.config/railCustom"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -149,7 +149,7 @@
     sput-object v0, Ldev/duo/hookprobe/L;->n:Landroid/net/Uri;
 
     .line 20
-    const-string v0, "content://dev.duo.hookprobe.config/iosNc"
+    const-string v0, "content://com.lsposed.miduo.config/iosNc"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -756,7 +756,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "content://dev.duo.hookprobe.config/pageTones/"
+    const-string v2, "content://com.lsposed.miduo.config/pageTones/"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

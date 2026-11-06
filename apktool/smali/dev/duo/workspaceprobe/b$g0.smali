@@ -199,7 +199,7 @@
     :cond_1
     const-class v3, Landroid/os/ResultReceiver;
 
-    const-string v4, "dev.duo.hookprobe.awake.STOP"
+    const-string v4, "com.lsposed.miduo.awake.STOP"
 
     invoke-virtual {p2, v4, v3}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
 
@@ -216,7 +216,7 @@
 
     .line 4
     :cond_2
-    const-string v4, "dev.duo.hookprobe.awake.LIFE"
+    const-string v4, "com.lsposed.miduo.awake.LIFE"
 
     invoke-virtual {p2, v4}, Landroid/os/Bundle;->getBinder(Ljava/lang/String;)Landroid/os/IBinder;
 

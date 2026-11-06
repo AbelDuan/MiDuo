@@ -187,7 +187,7 @@
     .locals 2
 
     .line 1
-    const-string v0, "dev.duo.hookprobe"
+    const-string v0, "com.lsposed.miduo"
 
     sput-object v0, Ldev/duo/taskcore/WorkspaceProtocol;->modulePackage:Ljava/lang/String;
 

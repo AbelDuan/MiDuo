@@ -5335,7 +5335,7 @@
 
     move-result-object v3
 
-    const-string v4, "dev.duo.hookprobe.config"
+    const-string v4, "com.lsposed.miduo.config"
 
     .line 25
     invoke-virtual {v3, v4}, Landroid/content/ContentResolver;->acquireUnstableContentProviderClient(Ljava/lang/String;)Landroid/content/ContentProviderClient;

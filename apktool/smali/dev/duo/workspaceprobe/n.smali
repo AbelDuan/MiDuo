@@ -10,7 +10,7 @@
 # static fields
 .field private static final a:Ljava/lang/String; = "DuoWorkbench"
 
-.field private static final b:Ljava/lang/String; = "dev.duo.hookprobe"
+.field private static final b:Ljava/lang/String; = "com.lsposed.miduo"
 
 .field private static final c:I = 0x8c
 
@@ -1541,7 +1541,7 @@
 
     iget-object v0, v0, Ldev/duo/workspaceprobe/b;->i4:Landroid/content/Context;
 
-    const-string v5, "dev.duo.hookprobe"
+    const-string v5, "com.lsposed.miduo"
 
     invoke-static {v5}, Ljava/util/Collections;->singleton(Ljava/lang/Object;)Ljava/util/Set;
 
@@ -2439,7 +2439,7 @@
 
     .line 328
     :cond_4
-    const-string p2, "dev.duo.hookprobe"
+    const-string p2, "com.lsposed.miduo"
 
     invoke-interface {p1, p2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
@@ -8727,7 +8727,7 @@
     if-eqz p2, :cond_4
 
     .line 2
-    const-string v1, "dev.duo.hookprobe"
+    const-string v1, "com.lsposed.miduo"
 
     invoke-virtual {v1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

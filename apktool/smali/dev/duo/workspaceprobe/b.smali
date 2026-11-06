@@ -3169,7 +3169,7 @@
     .locals 4
 
     .line 1
-    const-string v0, "content://dev.duo.hookprobe.config/statusStyles"
+    const-string v0, "content://com.lsposed.miduo.config/statusStyles"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -6474,7 +6474,7 @@
         }
     .end annotation
 
-    const-string v0, "dev.duo.hookprobe"
+    const-string v0, "com.lsposed.miduo"
 
     const-string v1, "DuoRail"
 
@@ -7374,7 +7374,7 @@
 
     new-instance v2, Landroid/content/ComponentName;
 
-    const-string v4, "dev.duo.hookprobe"
+    const-string v4, "com.lsposed.miduo"
 
     const-string v5, "dev.duo.hookprobe.TentClockActivity"
 
@@ -7793,7 +7793,7 @@
 
     move-result-object v4
 
-    const-string v5, "content://dev.duo.hookprobe.config/notificationIcons"
+    const-string v5, "content://com.lsposed.miduo.config/notificationIcons"
 
     .line 28
     invoke-static {v5}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -7833,7 +7833,7 @@
 
     move-result-object v4
 
-    const-string v5, "content://dev.duo.hookprobe.config/searchButton"
+    const-string v5, "content://com.lsposed.miduo.config/searchButton"
 
     .line 38
     invoke-static {v5}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -7873,7 +7873,7 @@
 
     move-result-object v4
 
-    const-string v5, "content://dev.duo.hookprobe.config/pickButton"
+    const-string v5, "content://com.lsposed.miduo.config/pickButton"
 
     .line 48
     invoke-static {v5}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -7913,7 +7913,7 @@
 
     move-result-object v4
 
-    const-string v5, "content://dev.duo.hookprobe.config/railCustom"
+    const-string v5, "content://com.lsposed.miduo.config/railCustom"
 
     .line 58
     invoke-static {v5}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -7982,7 +7982,7 @@
 
     move-result-object v4
 
-    const-string v5, "content://dev.duo.hookprobe.config/workbench"
+    const-string v5, "content://com.lsposed.miduo.config/workbench"
 
     .line 87
     invoke-static {v5}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -8022,7 +8022,7 @@
     move-result-object v0
 
     .line 96
-    const-string v4, "content://dev.duo.hookprobe.config/pageTones"
+    const-string v4, "content://com.lsposed.miduo.config/pageTones"
 
     invoke-static {v4}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -8065,7 +8065,7 @@
 
     move-result-object v0
 
-    const-string v3, "content://dev.duo.hookprobe.config/duoRail"
+    const-string v3, "content://com.lsposed.miduo.config/duoRail"
 
     .line 113
     invoke-static {v3}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -11835,7 +11835,7 @@
     move-result-object v2
 
     .line 1920
-    const-string v3, "content://dev.duo.hookprobe.config"
+    const-string v3, "content://com.lsposed.miduo.config"
 
     invoke-static {v3}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -12758,7 +12758,7 @@
 
     move-result-object v2
 
-    const-string v3, "content://dev.duo.hookprobe.config"
+    const-string v3, "content://com.lsposed.miduo.config"
 
     invoke-static {v3}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -13215,7 +13215,7 @@
 
     move-result-object v4
 
-    const-string v6, "content://dev.duo.hookprobe.config"
+    const-string v6, "content://com.lsposed.miduo.config"
 
     .line 269
     invoke-static {v6}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -19596,7 +19596,7 @@
 
     move-result-object v1
 
-    const-string v2, "content://dev.duo.hookprobe.config"
+    const-string v2, "content://com.lsposed.miduo.config"
 
     .line 949
     invoke-static {v2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -24565,7 +24565,7 @@
 
     new-instance v1, Landroid/content/ComponentName;
 
-    const-string v2, "dev.duo.hookprobe"
+    const-string v2, "com.lsposed.miduo"
 
     const-string v3, "dev.duo.hookprobe.TentClockActivity"
 
@@ -24597,7 +24597,7 @@
     invoke-virtual {v1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
 
     .line 1393
-    const-string v2, "dev.duo.hookprobe.awake.HOST"
+    const-string v2, "com.lsposed.miduo.awake.HOST"
 
     sget-object v3, Landroid/os/ResultReceiver;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -24624,7 +24624,7 @@
     .line 1399
     iget-object p1, p1, Ldev/duo/workspaceprobe/b$g0;->a:Landroid/os/IBinder;
 
-    const-string v2, "dev.duo.hookprobe.awake.LIFE"
+    const-string v2, "com.lsposed.miduo.awake.LIFE"
 
     invoke-virtual {v1, v2, p1}, Landroid/os/Bundle;->putBinder(Ljava/lang/String;Landroid/os/IBinder;)V
 
@@ -25922,7 +25922,7 @@
     iput-boolean p3, p0, Ldev/duo/workspaceprobe/b;->I1:Z
 
     .line 190
-    const-string p2, "dev.duo.hookprobe"
+    const-string p2, "com.lsposed.miduo"
 
     invoke-virtual {p2, p5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -37508,7 +37508,7 @@
     if-nez v0, :cond_1
 
     .line 50
-    const-string v0, "dev.duo.hookprobe"
+    const-string v0, "com.lsposed.miduo"
 
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -38509,7 +38509,7 @@
 
     if-nez v6, :cond_3
 
-    const-string v6, "dev.duo.hookprobe"
+    const-string v6, "com.lsposed.miduo"
 
     invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -40674,7 +40674,7 @@
 
     move-result-object v1
 
-    const-string v2, "dev.duo.hookprobe"
+    const-string v2, "com.lsposed.miduo"
 
     const/4 v3, 0x0
 
@@ -42108,7 +42108,7 @@
 
     move-result-object v1
 
-    const-string v2, "content://dev.duo.hookprobe.config"
+    const-string v2, "content://com.lsposed.miduo.config"
 
     .line 3
     invoke-static {v2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -44675,7 +44675,7 @@
 
     move-result-object v2
 
-    const-string v3, "content://dev.duo.hookprobe.config"
+    const-string v3, "content://com.lsposed.miduo.config"
 
     .line 3
     invoke-static {v3}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -48582,7 +48582,7 @@
 
     move-result-object v2
 
-    const-string v3, "content://dev.duo.hookprobe.config"
+    const-string v3, "content://com.lsposed.miduo.config"
 
     .line 3
     invoke-static {v3}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -50797,7 +50797,7 @@
 
     move-result-object v4
 
-    const-string v5, "content://dev.duo.hookprobe.config"
+    const-string v5, "content://com.lsposed.miduo.config"
 
     .line 2
     invoke-static {v5}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -51823,7 +51823,7 @@
     move-result-object v0
 
     .line 249
-    const-string v2, "content://dev.duo.hookprobe.config/standbyClock"
+    const-string v2, "content://com.lsposed.miduo.config/standbyClock"
 
     invoke-static {v2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -52155,7 +52155,7 @@
 
     move-result-object v1
 
-    const-string v2, "content://dev.duo.hookprobe.config"
+    const-string v2, "content://com.lsposed.miduo.config"
 
     .line 2
     invoke-static {v2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -57275,7 +57275,7 @@
 
     move-result-object v2
 
-    const-string v3, "content://dev.duo.hookprobe.config"
+    const-string v3, "content://com.lsposed.miduo.config"
 
     .line 23
     invoke-static {v3}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -59303,7 +59303,7 @@
 
     move-result-object v3
 
-    const-string v4, "content://dev.duo.hookprobe.config"
+    const-string v4, "content://com.lsposed.miduo.config"
 
     .line 11
     invoke-static {v4}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;

@@ -26,7 +26,7 @@
     .locals 1
 
     .line 1
-    const-string v0, "content://dev.duo.hookprobe.config/pickState"
+    const-string v0, "content://com.lsposed.miduo.config/pickState"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 

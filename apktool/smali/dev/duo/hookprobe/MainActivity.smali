@@ -1064,7 +1064,7 @@
     .line 9
     new-instance v0, Ljava/util/HashSet;
 
-    const-string v5, "dev.duo.hookprobe"
+    const-string v5, "com.lsposed.miduo"
 
     const-string v6, "dev.duo.workspaceprobe"
 
@@ -18308,7 +18308,7 @@
 
     move-result-object v1
 
-    const-string v2, " dev.duo.hookprobe 10020 allow && cmd appops get --user "
+    const-string v2, " com.lsposed.miduo 10020 allow && cmd appops get --user "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -18318,7 +18318,7 @@
 
     move-result-object v0
 
-    const-string v1, " dev.duo.hookprobe 10020"
+    const-string v1, " com.lsposed.miduo 10020"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -20539,7 +20539,7 @@
 
     .line 33
     :cond_2
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
 
     if-eqz v1, :cond_3
@@ -20557,7 +20557,7 @@
     if-nez p1, :cond_4
 
     .line 34
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
 
     if-eqz p1, :cond_4
@@ -20574,7 +20574,7 @@
     if-nez v0, :cond_5
 
     .line 35
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
 
     if-eqz p1, :cond_6

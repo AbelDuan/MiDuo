@@ -86,11 +86,11 @@
     .line 3
     new-instance v4, Landroid/content/IntentFilter;
 
-    const-string v0, "dev.duo.hookprobe.icons.COMMAND"
+    const-string v0, "com.lsposed.miduo.icons.COMMAND"
 
     invoke-direct {v4, v0}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    const-string v5, "dev.duo.hookprobe.permission.ICONS"
+    const-string v5, "com.lsposed.miduo.permission.ICONS"
 
     const/4 v6, 0x0
 
@@ -220,7 +220,7 @@
 
     move-object/from16 p2, v2
 
-    const-string v2, "content://dev.duo.hookprobe.icons.files/stage/"
+    const-string v2, "content://com.lsposed.miduo.icons.files/stage/"
 
     invoke-virtual {v10, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -706,7 +706,7 @@
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 7
 
-    const-string p1, "dev.duo.hookprobe"
+    const-string p1, "com.lsposed.miduo"
 
     .line 1
     :try_start_0

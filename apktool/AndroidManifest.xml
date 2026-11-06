@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="37" android:compileSdkVersionCodename="17" package="dev.duo.hookprobe" platformBuildVersionCode="37" platformBuildVersionName="17">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="37" android:compileSdkVersionCodename="17" package="com.lsposed.miduo" platformBuildVersionCode="37" platformBuildVersionName="17">
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
     <uses-permission android:name="android.permission.READ_CALENDAR"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
-    <permission android:name="dev.duo.hookprobe.permission.ICONS" android:protectionLevel="signature"/>
-    <uses-permission android:name="dev.duo.hookprobe.permission.ICONS"/>
+    <permission android:name="com.lsposed.miduo.permission.ICONS" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.lsposed.miduo.permission.ICONS"/>
     <application android:allowBackup="false" android:extractNativeLibs="false" android:icon="@drawable/ic_launcher" android:label="MiDuo" android:roundIcon="@drawable/ic_launcher" android:theme="@android:style/Theme.DeviceDefault.DayNight">
         <meta-data android:name="miuiWidgetVersion" android:value="1"/>
         <activity android:exported="true" android:name="dev.duo.hookprobe.MainActivity" android:windowSoftInputMode="adjustResize">
@@ -112,8 +112,8 @@
             <meta-data android:name="miuiWidgetRefreshMinInterval" android:value="21600000"/>
         </receiver>
         <service android:exported="false" android:name="dev.duo.hookprobe.AlbumPageJob" android:permission="android.permission.BIND_JOB_SERVICE" android:process=":widgetProvider"/>
-        <provider android:authorities="dev.duo.hookprobe.icons.files" android:exported="false" android:grantUriPermissions="true" android:name="dev.duo.icons.StageProvider"/>
-        <provider android:authorities="dev.duo.hookprobe.XposedService" android:exported="true" android:name="io.github.libxposed.service.XposedProvider"/>
-        <provider android:authorities="dev.duo.hookprobe.config" android:exported="true" android:name="dev.duo.hookprobe.ConfigProvider"/>
+        <provider android:authorities="com.lsposed.miduo.icons.files" android:exported="false" android:grantUriPermissions="true" android:name="dev.duo.icons.StageProvider"/>
+        <provider android:authorities="com.lsposed.miduo.XposedService" android:exported="true" android:name="io.github.libxposed.service.XposedProvider"/>
+        <provider android:authorities="com.lsposed.miduo.config" android:exported="true" android:name="dev.duo.hookprobe.ConfigProvider"/>
     </application>
 </manifest>

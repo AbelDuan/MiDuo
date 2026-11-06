@@ -12,11 +12,11 @@
 
 
 # static fields
-.field public static final a:Ljava/lang/String; = "dev.duo.hookprobe.awake.HOST"
+.field public static final a:Ljava/lang/String; = "com.lsposed.miduo.awake.HOST"
 
-.field public static final b:Ljava/lang/String; = "dev.duo.hookprobe.awake.STOP"
+.field public static final b:Ljava/lang/String; = "com.lsposed.miduo.awake.STOP"
 
-.field public static final c:Ljava/lang/String; = "dev.duo.hookprobe.awake.LIFE"
+.field public static final c:Ljava/lang/String; = "com.lsposed.miduo.awake.LIFE"
 
 .field public static final d:I = 0x1
 
@@ -1679,7 +1679,7 @@
 
     const-class v1, Landroid/os/ResultReceiver;
 
-    const-string v2, "dev.duo.hookprobe.awake.HOST"
+    const-string v2, "com.lsposed.miduo.awake.HOST"
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
 
@@ -1700,7 +1700,7 @@
 
     const/4 v1, 0x0
 
-    const-string v2, "dev.duo.hookprobe.awake.LIFE"
+    const-string v2, "com.lsposed.miduo.awake.LIFE"
 
     if-nez v0, :cond_0
 
@@ -1955,7 +1955,7 @@
     invoke-virtual {v2, v3}, Landroid/os/Parcel;->setDataPosition(I)V
 
     .line 56
-    const-string v0, "dev.duo.hookprobe.awake.STOP"
+    const-string v0, "com.lsposed.miduo.awake.STOP"
 
     sget-object v3, Landroid/os/ResultReceiver;->CREATOR:Landroid/os/Parcelable$Creator;
 

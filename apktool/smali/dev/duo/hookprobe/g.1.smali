@@ -4,7 +4,7 @@
 
 
 # static fields
-.field private static final a:Ljava/lang/String; = "dev.duo.hookprobe"
+.field private static final a:Ljava/lang/String; = "com.lsposed.miduo"
 
 .field private static final b:I = 0x14
 
@@ -43,7 +43,7 @@
 
     move-result-object p0
 
-    const-string v1, "dev.duo.hookprobe"
+    const-string v1, "com.lsposed.miduo"
 
     invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -409,7 +409,7 @@
 
     move-result-object p1
 
-    const-string v1, "dev.duo.hookprobe"
+    const-string v1, "com.lsposed.miduo"
 
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

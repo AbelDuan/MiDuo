@@ -203,7 +203,7 @@
 
     move-result-object p1
 
-    const-string v0, "dev.duo.hookprobe"
+    const-string v0, "com.lsposed.miduo"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

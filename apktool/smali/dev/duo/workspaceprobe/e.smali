@@ -4,7 +4,7 @@
 
 
 # static fields
-.field private static final a:Ljava/lang/String; = "dev.duo.hookprobe"
+.field private static final a:Ljava/lang/String; = "com.lsposed.miduo"
 
 .field private static final b:Ljava/lang/String; = "com.miui.personalassistant.picker."
 
@@ -177,7 +177,7 @@
     if-eqz v1, :cond_0
 
     .line 268
-    const-string v2, "android.resource://dev.duo.hookprobe/"
+    const-string v2, "android.resource://com.lsposed.miduo/"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
@@ -314,7 +314,7 @@
 
     const-string v10, "property"
 
-    const-string v11, "dev.duo.hookprobe"
+    const-string v11, "com.lsposed.miduo"
 
     if-ge v5, v6, :cond_2
 
@@ -651,7 +651,7 @@
 
     move-result-object p0
 
-    const-string p1, "dev.duo.hookprobe"
+    const-string p1, "com.lsposed.miduo"
 
     invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -727,7 +727,7 @@
 
     move-result-object p0
 
-    const-string v2, "dev.duo.hookprobe"
+    const-string v2, "com.lsposed.miduo"
 
     invoke-virtual {v2, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -846,7 +846,7 @@
 
     move-result-object p1
 
-    const-string v1, "dev.duo.hookprobe"
+    const-string v1, "com.lsposed.miduo"
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1054,7 +1054,7 @@
 
     move-result-object v0
 
-    const-string v1, "dev.duo.hookprobe"
+    const-string v1, "com.lsposed.miduo"
 
     const/4 v2, 0x0
 
@@ -1114,7 +1114,7 @@
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v10, "android.resource://dev.duo.hookprobe/"
+    const-string v10, "android.resource://com.lsposed.miduo/"
 
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

@@ -4,7 +4,7 @@
 
 
 # static fields
-.field static final e:Ljava/lang/String; = "dev.duo.hookprobe.STOP_BUG_CAPTURE"
+.field static final e:Ljava/lang/String; = "com.lsposed.miduo.STOP_BUG_CAPTURE"
 
 .field static volatile f:Z = false
 
@@ -1806,7 +1806,7 @@
 
     move-result-object p1
 
-    const-string p3, "dev.duo.hookprobe.STOP_BUG_CAPTURE"
+    const-string p3, "com.lsposed.miduo.STOP_BUG_CAPTURE"
 
     invoke-virtual {p3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

@@ -895,7 +895,7 @@
 
     invoke-direct {p1, p0, v0}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    const-string v0, "dev.duo.hookprobe.STOP_BUG_CAPTURE"
+    const-string v0, "com.lsposed.miduo.STOP_BUG_CAPTURE"
 
     invoke-virtual {p1, v0}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 

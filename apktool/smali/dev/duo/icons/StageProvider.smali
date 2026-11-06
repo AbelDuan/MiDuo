@@ -125,7 +125,7 @@
 
     move-result-object v1
 
-    const-string v3, "dev.duo.hookprobe.icons.files"
+    const-string v3, "com.lsposed.miduo.icons.files"
 
     invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

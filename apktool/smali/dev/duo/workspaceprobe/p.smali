@@ -12,7 +12,7 @@
 
 
 # static fields
-.field static final g:Ljava/lang/String; = "dev.duo.hookprobe.workbench.v1"
+.field static final g:Ljava/lang/String; = "com.lsposed.miduo.workbench.v1"
 
 .field private static final h:Ljava/lang/String; = "DuoWorkbenchApi"
 
@@ -708,7 +708,7 @@
     :try_start_0
     new-instance v0, Landroid/net/LocalServerSocket;
 
-    const-string v1, "dev.duo.hookprobe.workbench.v1"
+    const-string v1, "com.lsposed.miduo.workbench.v1"
 
     invoke-direct {v0, v1}, Landroid/net/LocalServerSocket;-><init>(Ljava/lang/String;)V
     :try_end_0
@@ -765,7 +765,7 @@
     .line 42
     const-string v0, "DuoWorkbenchApi"
 
-    const-string v1, "Scene API ready dev.duo.hookprobe.workbench.v1"
+    const-string v1, "Scene API ready com.lsposed.miduo.workbench.v1"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
