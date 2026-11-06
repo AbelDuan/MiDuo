@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="album_hint" />
+    <item type="id" name="album_image" />
+    <item type="id" name="album_placeholder" />
+    <item type="id" name="info_image" />
+</resources>

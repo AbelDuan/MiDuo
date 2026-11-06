@@ -1,0 +1,10 @@
+﻿# 构建产物与中间文件
+out/
+*.idsig
+.work/
+
+# 大体积二进制（如需版本化请手动移除本行）
+tools/apktool.jar
+MiDuo-1.0.415.apk
+native/disasm/disasm-full.txt
+native/disasm/readelf.txt

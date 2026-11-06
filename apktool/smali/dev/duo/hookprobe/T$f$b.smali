@@ -1,0 +1,73 @@
+.class final Ldev/duo/hookprobe/T$f$b;
+.super Landroid/telephony/TelephonyCallback;
+.source "SourceFile"
+
+# interfaces
+.implements Landroid/telephony/TelephonyCallback$SignalStrengthsListener;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Ldev/duo/hookprobe/T$f;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x12
+    name = "b"
+.end annotation
+
+
+# instance fields
+.field final synthetic a:Ldev/duo/hookprobe/T$f;
+
+
+# direct methods
+.method private constructor <init>(Ldev/duo/hookprobe/T$f;)V
+    .locals 0
+
+    .line 1
+    iput-object p1, p0, Ldev/duo/hookprobe/T$f$b;->a:Ldev/duo/hookprobe/T$f;
+
+    invoke-direct {p0}, Landroid/telephony/TelephonyCallback;-><init>()V
+
+    return-void
+.end method
+
+.method synthetic constructor <init>(Ldev/duo/hookprobe/T$f;Ldev/duo/hookprobe/T$a;)V
+    .locals 0
+
+    .line 2
+    invoke-direct {p0, p1}, Ldev/duo/hookprobe/T$f$b;-><init>(Ldev/duo/hookprobe/T$f;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onSignalStrengthsChanged(Landroid/telephony/SignalStrength;)V
+    .locals 1
+
+    .line 1
+    iget-object v0, p0, Ldev/duo/hookprobe/T$f$b;->a:Ldev/duo/hookprobe/T$f;
+
+    if-nez p1, :cond_0
+
+    const/4 p1, -0x1
+
+    goto :goto_0
+
+    :cond_0
+    invoke-static {p1}, Ldev/duo/hookprobe/T$f;->a(Landroid/telephony/SignalStrength;)I
+
+    move-result p1
+
+    :goto_0
+    invoke-static {v0, p1}, Ldev/duo/hookprobe/T$f;->a(Ldev/duo/hookprobe/T$f;I)I
+
+    .line 2
+    iget-object p1, p0, Ldev/duo/hookprobe/T$f$b;->a:Ldev/duo/hookprobe/T$f;
+
+    invoke-virtual {p1}, Landroid/view/View;->invalidate()V
+
+    return-void
+.end method

@@ -1,0 +1,1294 @@
+﻿Android
+14206865
+]QR2SE
+__cxa_finalize
+__cxa_atexit
+__register_atfork
+widget_page_startup_entry
+widget_page_move_entry
+widget_page_pin_entry
+widget_page_last_entry
+widget_page_find_entry
+__android_log_print
+__system_property_get
+native_init
+fopen
+fread
+fclose
+getpid
+dl_iterate_phdr
+_exit
+strlen
+strcmp
+pthread_mutex_lock
+pthread_create
+pthread_detach
+pthread_mutex_unlock
+getuid
+snprintf
+__errno
+strerror
+sscanf
+mkdir
+lstat
+close
+unlink
+rmdir
+write
+fsync
+rename
+opendir
+readdir
+readlink
+strncmp
+closedir
+memset
+strstr
+memcpy
+fseek
+ftell
+malloc
+sysconf
+dlsym
+page_controller_entry
+page_position_entry
+page_restore_entry
+memcmp
+edit_state_entry
+thumb_params_entry
+strip_height_entry
+strtod
+fgets
+munmap
+is_deleteable_entry
+can_be_deleted_entry
+strtoll
+minus_scroll_entry
+overlay_alpha_entry
+overlay_close_entry
+mprotect
+clock_gettime
+__system_property_area_serial
+__system_property_wait
+usleep
+syscall
+grid_entry
+occupied_entry
+icon_entry
+cell_rows_entry
+q18_entry
+indicator_entry
+q18_args_entry
+rows_entry
+q18_ctx_entry
+dots_transform_entry
+inner_args_entry
+pair_shift_entry
+pad_dock_entry
+snap_step_entry
+fling_target_entry
+fling_upper_entry
+pair_start_entry
+page_xform_entry
+page_select_entry
+screen_pages_fold_flush_return
+screen_pages_flush_return
+screen_pages_position_return
+screen_pages_init_native
+eventfd
+strtol
+socket
+setsockopt
+listen
+accept4
+pthread_once
+dlopen
+dlerror
+AHardwareBuffer_release
+memmove
+Java_dev_duo_workspaceprobe_WorkspaceHome_nativeWriteBuffer
+AHardwareBuffer_fromHardwareBuffer
+strrchr
+AHardwareBuffer_acquire
+AHardwareBuffer_describe
+getauxval
+memfd_create
+libdl.so
+libc.so
+LIBC_O
+LIBC_R
+liblog.so
+libandroid.so
+libm.so
+UUUUUU
+MbP? L
+DuoNativeMetrics
+GestureStubViewWindow::on_view_metrics_changed
+DuoWorkspace
+MiDuoLayout
+ffac014c9a627e5f2fe51a40c9f7457fe7ac5ac212adf5b0cb7f38d9560c9d58
+launcher4x
+start
+v122 active=1 protection_restored=%d Rust base=%lx site=%lx BL=%08x stub=%lx helper=%lx
+DuoScreenSwitch
+outer_startpop_source
+outer_icon_square
+AParcel_readInt32
+AParcel_readStrongBinder
+dev.duo.hookprobe.AlbumWidgetProvider
+PAGE_INIT inner=%d target=%d overlay=%d
+<unreadable>
+debug.duo.inner_dots_dx_px
+MODE %d
+icon_return_target
+PD_%s native=%.4f applied=%.4f extra=%.4f n=%u
+WIDGET_PAGE startup id=%lld order_changed=%d
+DuoEndpointPage
+debug.duo.master
+bring
+LAYOUT want=%s NOT applied
+(default)
+SWAPPING record not removed errno=%d; kept
+%s.tmp
+screen_switch_protection
+/proc/self/maps
+INSET
+missing %s
+AIBinder_DeathRecipient_setOnUnlinked
+unpark
+LAYOUT resume %s %s -> %s: result=%s%s
+launcher4x5.db
+first_page_lock
+debug.duo.official_right
+Dock executable range mismatch
+OUTER_SOURCE flightCID=%x metaCID=%x sourceCID=%x priorityCID=%x childCID=%x iconCID=%x infoCID=%x container=%lld readyInfo=%d rectCID=%x n=%u
+AIBinder_transact
+dev.duo.hookprobe
+%s/%s
+PAGE_INIT_READY ready=%d
+debug.duo.q18_right_px
+debug.duo.inner_top_px
+debug.duo.inner_common_px
+tap_hit_trace
+CALL kind=%u %s stage=%u landscape=%d n=%u
+RECENT_CAP raw=%lld capped=%lld landscape=%d n=%u
+g=%u n=%u land=%d portrait=%d scene=%d host=%d ready=%d run=%d native=%.4f,%.4f rendered=%.4f,%.4f scale=%.5f,%.5f alpha=%.5f source=%d current=%.4f,%.4f target=%.4f,%.4f targetSA=%.5f,%.5f tx=%.4f,%.4f
+eventfd errno=%d
+pairPx=%.6f current=%lld
+%s/databases
+stock.tmp
+official_dock_constraints_entry
+drop_priority
+debug.duo.outer_official_right
+debug.duo.pd_inset_b_px
+BUILT epoch=%lld frame=%lld texture=%lld members=%d
+receipt eventfd write errno=%d
+AHardwareBuffer_writeToParcel
+%7s %7s %7s
+PAGE_GUARD ready pages=%zu bytes=%zu advice=%d
+ROTATION native page=%d landscape=%d; no handoff jump
+OUTER_POP lr=%lx infoCID=%x container=%lld rectCID=%x bool=%d n=%u
+OUTER_LIST fixed=%d recent=%d flag=%d raw=%lld lr=%lx caller=%lx
+debug.duo.pd_inset_t_px
+debug.duo.pd_height_px
+ro.arch
+ACTIVE '%s' unreadable; unsafe
+STEP_MISMATCH va=%lx; site skipped
+EDIT_STATE_MISMATCH va=%lx; edit flag off
+THUMB_PARAMS_MISMATCH va=%lx; thumbnail strip unchanged
+strip_height
+debug.duo.indicator_down_px
+q18_ctx
+widget
+outer_resetflight_gate
+recent_source_clear
+recent_task_arguments
+debug.duo.pd_inset_px
+AIBinder_associateClass
+AParcel_delete
+AParcel_fromJavaParcel
+%s/files
+%s/miduo-layout
+swapping
+LAYOUT resume refused: database already open; unsafe
+workspace database unreadable or twice
+stock copy failed
+/proc/self/fd/%s
+launcher4x6.db-shm
+debug.duo.hotseat_h_px
+debug.duo.q18_side_px
+outer_icon_layout
+receipt eventfd read errno=%d
+STOCK layout in use; no hooks installed
+stock
+/proc/self/fd
+MOVE %s %s -> %s errno=%d; stopped
+FIRST_PAGE_LOCK ready=%d
+widget-page
+RECENT_RETURN_GUARD phase=%u stage=%u statics=%lx infoRef=%lx infoCID=%x container=%lld tagId=%lld infoId=%lld idValid=%d tagIdRaw=%lx tagUser=%lld infoUser=%lld userValid=%d tagUserRaw=%lx shortcutCID=%x intentCID=%x componentCID=%x componentMatch=%d
+phone_gate
+split_offset
+debug.duo.motion_trace
+DuoWorkbenchHome
+libnativewindow.so
+exynos9810
+active
+launcher4x5.db-shm
+STOCK_COPY created from the 4x6 layout
+debug.duo.inner_shift_px
+STUB_MAPS_FAILED errno=%d
+READY sites=3 native_init=1 frame_caller=18822f0 protection_restored=%d
+AXIS_EXTENTS cross=%.4f main=%.4f (native pair %.4f,%.4f)
+FIX hits=%lu source=%s Display=%ux%u rot=%u forcePortrait=1->0 preservedDisplay=1
+STOCK_COPY %s stock.tmp; not switching
+%s; stock layout restored, no hooks
+STEP_READY va=%lx
+STRIP_HEIGHT_MISMATCH va=%lx; strip unchanged
+debug.duo.q18_gap_dp
+debug.duo.geom_off
+debug.duo.icon_box_px
+debug.duo.inner_step1
+STUB_MMAP_REDIRECT hint=%lx actual=%lx range=%lx-%lx
+DuoSidebar
+DuoDockMotion
+unbring
+leftover
+PAGE_INIT_HOOK_FAILED va=%lx
+page_init
+ready_attach
+outer_startpop_gate
+debug.duo.pd_item_px
+AIBinder_linkToDeath
+launcher4x6.db-wal
+launcher4x6.db-journal
+%lx-%lx
+debug.duo.row_y_px
+debug.duo.dock_slot
+debug.duo.dots_x_px
+debug.duo.dots_y_px
+FOLD_SAMPLE ready=%d minus=%d page=%d progress=%.6f right=%d exact=%d pending=%d serial=%u
+BOUNDS valid=%u rect=%.4f,%.4f,%.4f,%.4f bg=%.4f,%.4f
+outer_drop_mode
+Native socket unavailable errno=%d
+OUTER_LAUNCH originalInfoCID=%x container=%lld callLocalDock=1 n=%u
+ICON_TARGET dx=%.4f dy=%.4f mapped=%.4f,0 currentY=%.4f baseY=%.4f rect=%.4f,%.4f,%.4f,%.4f n=%u
+OUTER_CONTROLLER_PAD_MODE native=0 local=1 count=%d caller=%lx n=%u
+AIBinder_Class_define
+, record kept
+unsafe
+PAGE_GUARD_FAILED; unchanged
+workbench_recents
+DuoDockHit
+OUTER_PROVIDER_BUDGET site=%u raw=%lld applied=%lld n=%u
+debug.duo.pd_sep_px
+debug.duo.pd_inset_r_px
+debug.duo.inner_cell_px
+debug.duo.inner_row_px
+pair_shift
+SKIPPED ret mismatch va=%lx; v105 unchanged
+APPLIED seq=%llu inner=%d page=%llu minus=%.6f right=%d
+recent_cap
+recents_controller_pad_mode
+drag_end_micro_exit
+.AlbumWidgetProvider
+unset
+no saved 4x6 layout
+SWAP %s -> %s not done; %s layout put back
+debug.duo.row_slot
+HOOK_LOST sites=%s since_ready_s=%lld hits=%lu skipped_pages=%lu forwarded_pages=%lu
+STUB_ALLOCATION_FAILED range=%lx-%lx attempts=%u
+special
+insets
+Native frame client authenticated
+inner_portrait
+debug.duo.endpoint_trace
+LAYOUT want=%s active=%s%s; unchanged
+PAGE_INIT_MISMATCH va=%lx
+v122 verified Rust base=%lx SHA256=%s GNU BuildId absent backing=%s
+WIDGET_PAGE hook failed va=%lx
+debug.duo.inner_left_px
+recents_provider_log_budget
+receipt thread error=%d
+AIBinder_prepareTransaction
+AParcel_readInt64
+/proc/self/cmdline
+ENTRY process=%s pid=%d
+index=%d page=%.9f xformPx=%.6f active=%d ready=%d mode=%d inner=%d step=%d current=%lld interpolate=%d editMagPx=%.6f blend=%.9f
+ACTIVE write failed errno=%d; record kept
+native_metrics
+debug.duo.q18_cell_px
+debug.duo.inner_dock_hide
+CONTEXT bits=%x laptop=%lld positions=%d notifier=%lld dims=%d%d%d%d
+recents_provider_budget
+outer
+OUTER_RECENT screenBudget=0 enabled=2
+libhyper_os_flutter.so
+AIBinder_incStrong
+database already open
+a second copy of the layout in use
+widget_page
+debug.duo.dock_h_dp
+debug.duo.inner_dock_h_px
+PD_HEIGHT d2px=%.2f d0px=%.2f valid=%u rect=%.2f,%.2f,%.2f,%.2f bg=%.2f,%.2f
+ALIGN_GUARD fail=%u outer=%d landscape=%d portrait=%d alignCid=%x lbCid=%x closureCid=%x entry=%lx contextCid=%x padCid=%x alignTag=%x targetTag=%x barrierMask=%lx
+delta
+recent_visibility
+LAYOUT unsafe; Home stopped before its database opens
+PAGE_INIT missing native overlay handler
+STOCK_COPY %s errno=%d; not switching
+EDIT_STATE_HOOK_FAILED va=%lx
+overlay_progress
+debug.duo.icon_follow
+debug.duo.inner_dots_window_px
+OUTER_PAD_LAYER show=1
+drag_hit_axis
+debug.duo.pd_inset_l_px
+installed 17 Dart sites + real Rust engine + Launcher Binder input
+com.miui.home
+no workspace database in use
+debug.duo.q18_row_px
+inner
+/data/user_de/0/com.android.systemui
+LAYOUT %s -> %s: result=%s%s
+launcher4x5.db-wal
+STRIP_HEIGHT_HOOK_FAILED va=%lx
+WIDGET_PAGE record unreadable; disabled
+RESTORE_FAILED stubs kept mapped
+debug.duo.dock_recent_max
+debug.duo.pd_dy_px
+AParcel_writeInt32
+receipt death link failed status=%d
+%s %s %s
+SWAPPING '%s' not written errno=%d; stopped at %s
+debug.duo.inner
+WORKBENCH_RECENTS_NOT_READY
+libapp_launcher.so
+debug.duo.row_px
+scroll
+transform
+libbinder_ndk.so
+%s; stock layout not restored, Home stopped
+PD_TRANS stage=%u code=%u dypx=%.2f tx=%.4f ty=%.4f sx=%.4f sy=%.4f align=%.3f,%.3f
+INNER_OFFSET dx=%.4f dy=%.4f local=%.4f axisV=%d
+outer_iconrect_gate
+receipt queue full epoch=%lld
+AHardwareBuffer_readFromParcel
+receipt Binder failed epoch=%lld frame=%lld status=%d
+Binder frame epoch=%lld frame=%lld op=%d result=%d texture=%lld
+NO_HOOK_API
+files/ unavailable
+unreadable
+STUB_MMAP_FAILED hint=%lx errno=%d
+official_dock_height
+official_dock_constraints_tail
+outer_launch_source
+POOL off=%x cid=%x x=%.3f y=%.3f topRight=%d
+AIBinder_decStrong
+saved layout unreadable or twice
+HOOK_FAILED va=%lx; mode remains zero
+EDIT_STATE_READY va=%lx
+official_dock
+READY_PARTIAL not_ready=%s
+WIDGET_PAGE mismatch va=%lx
+debug.duo.workspace
+pad_dock
+debug.duo.foldanim
+PROTECTION_NOT_RESTORED page=%lx
+READY sites=%u installed=%u width=180 height=1100 item=150 innerTop=350 outerTop=394 recentcap=%.0f
+AIBinder_unlinkToDeath
+SystemUI uid stat failed errno=%d
+/data/user_de/%u/com.miui.home
+BUILD_MISMATCH va=%lx; unchanged
+THUMB_PARAMS_READY va=%lx
+READY pid=%d base=%lx mode=0
+STUB_ALLOCATED address=%lx attempts=%u owner=process
+ready_detach
+scale_arguments
+RECENT_KEEP raw=%lld landscape=%d n=%u
+PD_SPECIAL rel=%lx a18=%.3f a20=%.3f a28=%.3f a30=%.3f x0=%x prov=%d
+AIBinder_DeathRecipient_new
+AParcel_writeInt64
+receipt died: retire epoch=%lld
+miduo-layout/ unavailable
+its own directory unreadable
+LAYOUT want=%s active=%s refused: %s
+CORE_NOT_READY
+STEP_GROUP ready=%d
+STRIP_HEIGHT_READY va=%lx
+WIDGET_PAGE_NOT_READY
+v122 identity failed; disabled base=%lx sha=%s
+madvise
+WIDGET_PAGE ready=1 id=%lld
+debug.duo.rows
+debug.duo.edit_thumb_k
+MISMATCH %s va=%lx; whole group disabled
+INSTALL_FAILED %s; group pass-through
+drag_hit_direction
+Binder libraries unavailable: %s
+dev.duo.workspaceprobe.IWorkbenchFrameReceipt
+launcher4x6.db
+STEP_HOOK_FAILED va=%lx; site skipped
+debug.duo.cell_h_px
+debug.duo.q18_top_dp
+index=%d hit=%d main=%.6f cross=%.6f axisV=%d
+align
+libapp.so
+drag_edge_direction
+Native loopback frame server ready uid=%u
+RECENT_RETURN phase=%u mode=%s container=-102 iconId=%lld task=%lld n=%u
+EDIT_STATE editing=%d
+SWAPPING record '%s' active=%s; unsafe
+SYNC_DIR %s errno=%d; stopped
+launcher4x5.db-journal
+THUMB_PARAMS_HOOK_FAILED va=%lx
+OVERLAY_PROGRESS ready=%d
+PAGE_GUARD page=%lx-%lx
+debug.duo.q18_nodock
+debug.duo.inner_dots_dy_px
+drag_edge_axis
+DROP_PRIORITY native=%d applied=1
+OUTER_SQUARE width=%.4f height=%.4f oldTop=%.4f top=%.4f oldBottom=%.4f bottom=%.4f center=%.4f originalInfoCID=%x n=%u
+AIBinder_getCallingUid
+AHB Parcel API unavailable
+ 7@?@
+DuoOfficialDock
+ 7EpD
+T8kmA
+k!i9K
+@ynii8
++yhxJ	
+)!i9	
+3H9In
+THw@9
+TIs@9[?@y
+XC@y!
+9Hc^9
+!_x	A_x
+5H#@9
+@ynii8
+(qm9h
+*q-9)
+	im9?
+W!	*	
+W!	*	
+*	@9J
+`9kim9
+T)`@9?
+@9*d@9
+T(d@9
+B%9XV
+2_1Ik!,
+Ri!}m_
+R*i 8H	
+R(i 8
+^Q_1@1"
+6hF@9h$
+6hF@9
+R?1Hk
+R?1Hk
+R?1Hk
+R?1Hk!
+R?1Hk
+o	@@9
+6hF@9(
+R_1Ik
+^Q?1@1j
+_8kq@
+_8kq@
+_8kq@
+R?1Hk
+R?1Hka
+	@1#d
+)a~9?
+)a~9?
+)a~9?
+)a~9?
+)a~9?
+T	0@y
+hfB9tJ@
+Android (13989888, +pgo, +bolt, +lto, +mlgo, based on r563880c) clang version 21.0.0 (https://android.googlesource.com/toolchain/llvm-project 5e96669f06077099aa41290cdb4c5e6fa0f59349)
+Linker: LLD 21.0.0 (/Volumes/Android/buildbot/src/googleplex-android/llvm-r563880-release/out/llvm-project/llvm 5e96669f06077099aa41290cdb4c5e6fa0f59349)
+Android (13989888, +pgo, -bolt, +lto, -mlgo, based on r563880c) clang version 21.0.0 (https://android.googlesource.com/toolchain/llvm-project 5e96669f06077099aa41290cdb4c5e6fa0f59349)
+.note.android.ident
+.dynsym
+.gnu.version
+.gnu.version_r
+.gnu.hash
+.dynstr
+.rela.dyn
+.relr.dyn
+.rela.plt
+.rodata
+.eh_frame_hdr
+.eh_frame
+.text
+.tdata
+.tbss
+.data.rel.ro
+.fini_array
+.init_array
+.dynamic
+.got.plt
+.relro_padding
+.data
+.comment
+.symtab
+.shstrtab
+.strtab
+crtbegin_so.c
+__on_dlclose
+__on_dlclose_late
+note_android_ident
+note_data
+note_name
+note_end
+ndk_version
+ndk_build_number
+workspace.cpp
+_ZN18duo_native_metricsL5readyE.0
+_ZL4mode
+_ZL8inner_on.0
+_ZN18duo_native_metricsL4baseE
+_ZN18duo_native_metricsL4hitsE
+_ZN18duo_native_metricsL3tagE
+_ZN18duo_native_metricsL11source_textE
+_ZN11widget_pageL4baseE
+_ZL3tag
+_ZL22overlay_progress_ready.0
+_ZL9cell_h_px.0
+_ZL12hotseat_h_px.0
+_ZL11libapp_base
+_ZL20inspect_strip_heightPh
+_ZL19inner_paging_activePhPlS0_b
+_ZL22inspect_can_be_deletedPh
+_ZL14paging_settled.0
+_ZL21inspect_is_deleteablePh
+_ZL18inspect_edit_statePh
+_ZL17indicator_down_px.0
+_ZL12applied_cell.0
+_ZL15inspect_q18_ctxPh
+_ZL20inspect_fling_targetPh
+_ZL11inspect_q18Ph
+_ZL13inspect_innerPh
+_ZL18inspect_page_xformPh
+_ZL14endpoint_tracePhj
+_ZL19inspect_page_selectPh
+_ZL16inspect_q18_argsPh
+_ZL16apply_row_heightPh
+_ZL18apply_side_paddingPh
+_ZL12inspect_rowsPh
+_ZL16inspect_pad_dockPh
+_ZL13inner_left_dp.0
+_ZL21inspect_page_positionPh
+_ZL18page_initial_frame
+_ZL12edit_thumb_k.0
+_ZL12thumb_orig_w
+_ZL12thumb_orig_h
+_ZL11thumb_set_w
+_ZL11thumb_set_h
+_ZL22inspect_inner_portraitPh
+_ZL13inner_applied.0
+_ZL20inner_dots_window_px.0
+_ZL16inner_dots_dx_px.0
+_ZL9dots_x_px.0
+_ZL7edit_on.0
+_ZL14inner_shift_px.0
+_ZL15inner_common_px.0
+_ZL9dots_y_px.0
+_ZL8geom_off.0
+_ZL16inner_dots_dy_px.0
+_ZL15home_half_splitPh
+_ZL11icon_box_px.0
+_ZL11icon_follow.0
+_ZL6row_px.0
+_ZL8row_y_px.0
+_ZL16first_page_ready.0
+_ZZL18inspect_edit_statePhE6logged
+_ZL18page_initial_ready.0
+_ZL10step_ready.0
+_ZL11inner_step1.0
+_ZZL19inspect_page_selectPhENK3$_0clEmi
+_ZL11q18_side_px.0
+_ZL15inner_dock_hide.0
+_ZL13inner_cell_px.0
+_ZL12inner_row_px.0
+_ZL13inner_left_px.0
+_ZL12inner_top_px.0
+_ZL15inner_dock_h_px.0
+_ZL9dock_slot.0
+_ZL9dock_h_dp.0
+_ZL11q18_cell_px.0
+_ZL11rows_wanted.0
+_ZL10q18_row_px.0
+_ZL8row_slot.0
+_ZL12q18_right_px.0
+_ZL10q18_nodock.0
+_ZL10q18_gap_dp.0
+_ZL10q18_top_dp.0
+_ZZL22inspect_inner_portraitPhENK3$_2clEml
+_ZL7started
+_ZN12miduo_layoutL11prepare_forEPKc
+_ZL12install_hook
+_ZL12library_baseP12dl_phdr_infomPv
+_ZL14library_loadedPKcPv
+_ZL18installation_mutex
+_ZL9installed
+_ZL17install_workspacem
+_ZL19configure_workspacev
+_ZL6workerPv
+_ZZL19inner_paging_activePhPlS0_bENK3$_1clEml
+_ZN12miduo_layoutL17durability_failedE
+_ZN12miduo_layoutL6db_dirE
+_ZN12miduo_layoutL5storeE
+_ZN12miduo_layoutL10read_smallEPKcS1_Pcm
+_ZN12miduo_layoutL3tagE
+_ZN12miduo_layoutL18proc_database_openEv
+_ZN12miduo_layoutL16finish_committedEPKcPb
+_ZN12miduo_layoutL4swapEPKcS1_S1_Pb
+_ZN12miduo_layoutL11database_inEPKc
+_ZN12miduo_layoutL5namesE
+_ZN12miduo_layoutL17create_stock_copyEv
+_ZN12miduo_layoutL8sync_dirEPKc
+_ZN12miduo_layoutL8move_allEPKcS1_
+_ZN12miduo_layoutL11write_smallEPKcS1_S1_
+_ZN12miduo_layoutL13remove_recordEPKc
+_ZN18duo_native_metricsL4spanEPK12dl_phdr_infommj
+_ZN18duo_native_metricsL9installedE
+_ZN18duo_native_metricsL8verifiedE
+_ZN18duo_native_metricsL6locateEP12dl_phdr_infomPv
+_ZL10page_guard
+_ZL15guarded_madvisePvmi
+_ZL21guarded_madvise_entry
+_ZN18duo_native_metricsL11library_shaE
+_ZZL17install_workspacemEN3$_08__invokeEl
+_ZN18duo_native_metricsL10stub_ownerE
+_ZL14kernel_madvisePvmi
+_ZL13grid_expected
+_ZL17occupied_expected
+_ZL13icon_expected
+_ZL18cell_rows_expected
+_ZL12q18_expected
+_ZL18indicator_expected
+_ZL17q18_args_expected
+_ZL13rows_expected
+_ZL16q18_ctx_expected
+_ZL23dots_transform_expected
+_ZL19inner_args_expected
+_ZL19pair_shift_expected
+_ZL17pad_dock_expected
+_ZL18snap_step_expected
+_ZL21fling_target_expected
+_ZL20fling_upper_expected
+_ZL19pair_start_expected
+_ZL19page_xform_expected
+_ZL24page_controller_expected
+_ZL22page_position_expected
+_ZL21page_restore_expected
+_ZL19edit_state_expected
+_ZL21thumb_params_expected
+_ZL21strip_height_expected
+_ZL22is_deleteable_expected
+_ZL23can_be_deleted_expected
+_ZL21minus_scroll_expected
+_ZL22overlay_alpha_expected
+_ZL22overlay_close_expected
+_ZN18duo_native_metricsL8expectedE
+_ZZN11widget_pageL7installEmPFiPvS0_PS0_EE5bytes
+home_pages.cpp
+_ZL9switching
+_ZZL13prepare_pagesILb0EEmmmmmENKUlmlE_clEml
+_ZZL13prepare_pagesILb0EEmmmmmE19diagnostic_previous
+_ZZL13prepare_pagesILb0EEmmmmmE19last_physical_inner
+_ZZL13prepare_pagesILb0EEmmmmmE14last_landscape
+_ZL14handoff_anchor
+_ZZL13prepare_pagesILb1EEmmmmmENKUlmlE_clEml
+_ZZL13prepare_pagesILb1EEmmmmmE19diagnostic_previous
+_ZZL13prepare_pagesILb1EEmmmmmE19last_physical_inner
+_ZZL13prepare_pagesILb1EEmmmmmE14last_landscape
+_ZZL13prepare_pagesILb1EEmmmmmE11diag_active
+_ZZL13prepare_pagesILb1EEmmmmmE10diag_ready
+_ZZL13prepare_pagesILb1EEmmmmmE9diag_page
+_ZZL13prepare_pagesILb1EEmmmmmE13diag_progress
+_ZZL13prepare_pagesILb1EEmmmmmE10diag_minus
+_ZZL13prepare_pagesILb1EEmmmmmE10diag_right
+_ZZL13prepare_pagesILb1EEmmmmmE10diag_exact
+_ZZL13prepare_pagesILb1EEmmmmmE12diag_pending
+_ZZL13prepare_pagesILb1EEmmmmmE10diag_count
+_ZN17duo_screen_switchL11rx_restoredE
+_ZN17duo_screen_switchL10stub_ownerE
+_ZN17duo_screen_switchL9page_sizeE
+_ZZN17duo_screen_switch7installEmPFvlEENK3$_0clEm
+official_dock_right.cpp
+_ZN17duo_official_dockL10image_baseE
+_ZN17duo_official_dockL8verifiedE
+_ZZN17duo_official_dock9preflightEmEN3$_08__invokeEP12dl_phdr_infomPv
+_ZN17duo_official_dockL5sitesE
+_ZN19outer_sidebar_frameL4wakeE
+_ZN19outer_sidebar_frameL5serveEPv
+_ZN19outer_sidebar_frameL5mutexE
+_ZN17duo_official_dockL5readyE.0
+_ZN17duo_official_dockL7enabledE.0
+_ZN19outer_sidebar_frameL7editingE
+_ZN19outer_sidebar_frameL6latestE
+_ZN19outer_sidebar_frameL10fold_flagsE
+_ZZN17duo_official_dock15outer_pad_layerEPhE1n
+_ZZ18dock_right_inspectE6misses
+_ZN17duo_official_dockL18dock_drop_priorityERKN22duo_official_dock_axis3CtxE
+_ZN17duo_official_dockL17outer_render_seenE
+_ZN17duo_official_dockL9stage_logEjjb
+_ZN19official_dock_readyL6attachEPhb
+_ZN19official_dock_readyL6detachEPhb
+_ZN17duo_official_dockL14confirmed_poolE.0
+_ZN17duo_official_dockL15can_write_rangeEmm
+_ZN17duo_official_dockL10read_rangeEmPvm
+_ZN17duo_official_dockL11write_rangeEmPKvm
+_ZN17duo_official_dockL8pool_logEjjddb
+_ZN17duo_official_dockL13pool_attemptsE
+_ZZ18dock_right_inspectE1n
+_ZN22official_dock_geometryL17constraints_entryEPhbdd
+_ZN22official_dock_geometryL16constraints_tailEPhb
+_ZZ18dock_right_inspectE16align_diagnostic
+_ZN22official_dock_geometryL12height_writeEPhd
+_ZZ18dock_right_inspectE2pn
+_ZN22official_dock_geometryL24bounds_from_height_frameEPh
+_ZZ18dock_right_inspectE2pn_0
+_ZZ18dock_right_inspectE5count
+_ZZ18dock_right_inspectE4prev
+_ZN17duo_official_dockL15outer_hide_baseE
+_ZN17duo_official_dockL12outer_hide_yE
+_ZN17duo_official_dockL16outer_hide_knownE
+_ZN19outer_sidebar_frameL7publishEbbdibd
+_ZZ18dock_right_inspectE7pd_pool
+_ZZN17duo_official_dockL18dock_drop_priorityERKN22duo_official_dock_axis3CtxEE4logs
+_ZZN17duo_official_dockL9stage_logEjjbE4logs
+_ZZN17duo_official_dockL9stage_logEjjbE5calls
+_ZZN17duo_official_dockL9stage_logEjjbE4last
+_ZN19official_dock_readyL13pending_stateERKN22official_dock_geometry4ViewEmm
+_ZN19official_dock_readyL9list_dataERKN22official_dock_geometry4ViewEmRmRj
+_ZN18miduo_right_anchorL15kPoolCandidatesE
+_ZN22official_dock_geometryL10body_stateERKNS_4ViewE
+_ZN22official_dock_geometryL6scopesE
+_ZN22official_dock_geometryL9pad_stateERKNS_4ViewEm
+_ZL17outer_sidebar_key
+_ZN22official_dock_geometryL5sitesE
+_ZN18miduo_right_anchorL12kBodyAlign16E
+_ZN18miduo_right_anchorL18kFreshTransforms16E
+_ZN19official_dock_readyL15attach_expectedE
+_ZN17duo_official_dockL18ready_detach_bytesE
+_ZN17duo_official_dockL16recent_cap_bytesE
+_ZN17duo_official_dockL16phone_gate_bytesE
+_ZN18miduo_right_anchorL17kScaleArguments16E
+_ZN17duo_official_dockL19drop_priority_bytesE
+_ZN17duo_official_dockL17icon_layout_bytesE
+_ZN17duo_official_dockL19drag_hit_axis_bytesE
+_ZN17duo_official_dockL24drag_hit_direction_bytesE
+_ZN17duo_official_dockL25drag_edge_direction_bytesE
+_ZN17duo_official_dockL20drag_edge_axis_bytesE
+_ZN17duo_official_dockL19tap_hit_trace_bytesE
+_ZN17duo_official_dockL21outer_drop_mode_bytesE
+_ZN17duo_official_dockL25drag_end_micro_exit_bytesE
+workbench_recents.cpp
+_ZN12_GLOBAL__N_17enabledE.0
+_ZN12_GLOBAL__N_111state_mutexE
+_ZN12_GLOBAL__N_17currentE
+_ZN12_GLOBAL__N_113model_matchesERKN22duo_official_dock_axis3CtxEmRKNS_5FrameE
+_ZN12_GLOBAL__N_16framesE
+_ZN12_GLOBAL__N_19dart_baseE
+_ZN12_GLOBAL__N_15eventEllli
+_ZN12_GLOBAL__N_111multi_modelERKN22duo_official_dock_axis3CtxEm
+_ZN12_GLOBAL__N_113cropper_modelERKN22duo_official_dock_axis3CtxEm
+_ZN12_GLOBAL__N_117task_list_matchesERKN22duo_official_dock_axis3CtxEmRKNS_5FrameE
+_ZN12_GLOBAL__N_112receipt_wakeE
+_ZN12_GLOBAL__N_120b_AIBinder_incStrongE
+_ZN12_GLOBAL__N_111queue_eventEllliP8AIBinder
+_ZN12_GLOBAL__N_120b_AIBinder_decStrongE
+_ZN12_GLOBAL__N_18verifiedE
+_ZZN17workbench_recents9preflightEmEN3$_08__invokeEP12dl_phdr_infomPv
+_ZN12_GLOBAL__N_19rust_baseE
+_ZN12_GLOBAL__N_112flutter_baseE
+_ZN12_GLOBAL__N_15sitesE
+_ZZN12_GLOBAL__N_16mappedEmmmiEN3$_08__invokeEP12dl_phdr_infomPv
+_ZN12_GLOBAL__N_111binder_onceE
+_ZN12_GLOBAL__N_111init_binderEv
+_ZN12_GLOBAL__N_112binder_readyE
+_ZN12_GLOBAL__N_122get_thumbnail_originalE
+_ZN12_GLOBAL__N_113get_thumbnailEPvimm
+_ZN12_GLOBAL__N_117launcher_originalE
+_ZN12_GLOBAL__N_117launcher_transactEP8AIBinderjPK7AParcelPS2_
+_ZN12_GLOBAL__N_114serve_receiptsEPv
+_ZN12_GLOBAL__N_124b_AIBinder_getCallingUidE
+_ZN12_GLOBAL__N_123b_AIBinder_Class_defineE
+_ZN12_GLOBAL__N_125b_AIBinder_associateClassE
+_ZN12_GLOBAL__N_129b_AIBinder_prepareTransactionE
+_ZN12_GLOBAL__N_119b_AIBinder_transactE
+_ZN12_GLOBAL__N_129b_AIBinder_DeathRecipient_newE
+_ZN12_GLOBAL__N_139b_AIBinder_DeathRecipient_setOnUnlinkedE
+_ZN12_GLOBAL__N_122b_AIBinder_linkToDeathE
+_ZN12_GLOBAL__N_124b_AIBinder_unlinkToDeathE
+_ZN12_GLOBAL__N_119b_AParcel_readInt32E
+_ZN12_GLOBAL__N_119b_AParcel_readInt64E
+_ZN12_GLOBAL__N_126b_AParcel_readStrongBinderE
+_ZN12_GLOBAL__N_120b_AParcel_writeInt32E
+_ZN12_GLOBAL__N_120b_AParcel_writeInt64E
+_ZN12_GLOBAL__N_116b_AParcel_deleteE
+_ZN12_GLOBAL__N_124b_AParcel_fromJavaParcelE
+_ZN12_GLOBAL__N_111read_bufferE
+_ZN12_GLOBAL__N_112write_bufferE
+_ZN12_GLOBAL__N_114receipt_createEPv
+_ZN12_GLOBAL__N_115receipt_destroyEPv
+_ZN12_GLOBAL__N_114receipt_unusedEP8AIBinderjPK7AParcelPS2_
+_ZN12_GLOBAL__N_113receipt_classE
+_ZN12_GLOBAL__N_112receipt_diedEPv
+_ZN12_GLOBAL__N_113receipt_deathE
+_ZN12_GLOBAL__N_116receipt_unlinkedEPv
+_ZN12_GLOBAL__N_113control_mutexE
+_ZN12_GLOBAL__N_114register_frameERNS_5FrameE
+_ZN12_GLOBAL__N_111clear_frameEll
+_ZN12_GLOBAL__N_113publish_frameEllPKiiiP15AHardwareBufferiiiP8AIBinder
+_ZN12_GLOBAL__N_111event_mutexE
+_ZN12_GLOBAL__N_16eventsE
+_ZN12_GLOBAL__N_111event_countE
+_ZN12_GLOBAL__N_113producer_dropEPv
+_ZN12_GLOBAL__N_113wake_receiptsEv
+_ZN12_GLOBAL__N_110last_frameE
+_ZN12_GLOBAL__N_115image_callbacksE
+_ZN12_GLOBAL__N_114producer_imageEPv
+_ZN12_GLOBAL__N_113producer_cropEPvPiS1_
+_ZN12_GLOBAL__N_110last_epochE
+_ZN12_GLOBAL__N_110rust_entryE
+_ZN12_GLOBAL__N_113upgrade_bytesE
+_ZN12_GLOBAL__N_110drop_bytesE
+_ZN12_GLOBAL__N_114launcher_entryE
+_ZN12_GLOBAL__N_115launcher_defineE
+clear_cache.c
+__clear_cache.ctr_el0
+aarch64.c
+init_have_lse_atomics
+__init_cpu_features_constructor
+__FRAME_END__
+__dso_handle
+__cxa_finalize
+__emutls_unregister_key
+__atexit_handler_wrapper
+atexit
+__cxa_atexit
+pthread_atfork
+__register_atfork
+widget_page_startup_original
+widget_page_startup_entry
+widget_page_inspect
+widget_page_move_original
+widget_page_move_entry
+widget_page_pin_original
+widget_page_pin_entry
+widget_page_last_original
+widget_page_last_entry
+widget_page_find_original
+widget_page_find_entry
+native_metrics_guard_inspect
+__aarch64_ldadd8_relax
+__android_log_print
+_ZN11widget_page5readyE
+_ZN11widget_page5albumI8DartViewEEbRKT_m
+_ZN11widget_page7page_idE
+_ZN11widget_page12screen_indexI8DartViewEEiRKT_mlPm
+_ZN11widget_page12empty_screenI8DartViewEEbRKT_m
+_ZN11widget_page13startup_orderI8DartViewEEbRKT_mlRmRl
+_ZN11widget_page9string_isI8DartViewEEbRKT_mPKc
+inspect_frame
+_ZNK8DartView12inner_screenEm
+_ZN17duo_official_dock13publish_minusEbd
+_ZN17duo_official_dock15publish_overlayEdd
+_ZN17duo_official_dock21publish_overlay_closeEv
+screen_pages_position_frame
+_ZN17duo_screen_switch18rebuild_controllerEv
+_ZNK8DartView9landscapeEv
+_ZN15first_page_lock15first_screen_idI8DartViewEEbRKT_mRl
+__aarch64_swp4_acq_rel
+_ZN17duo_official_dock12publish_editEb
+screen_pages_prepare
+_ZN17duo_screen_switch21cancel_initializationEv
+_ZN17duo_screen_switch14initial_targetEbb
+_ZN17duo_screen_switch12initializingEv
+_ZN17duo_screen_switch15initial_overlayEd
+_ZN17duo_screen_switch11outer_countEv
+__system_property_get
+_ZN17duo_official_dock15outer_pad_layerEPh
+_ZN18duo_inner_portrait7computeEddddRNS_8GeometryE
+native_init
+fopen
+fread
+fclose
+getpid
+__aarch64_swp1_acq_rel
+dl_iterate_phdr
+_exit
+strlen
+strcmp
+pthread_mutex_lock
+pthread_create
+pthread_detach
+pthread_mutex_unlock
+_ZN11widget_page4listI8DartViewEEbRKT_mRmRi
+_ZNK8DartView3refEml
+getuid
+snprintf
+__errno
+strerror
+sscanf
+mkdir
+lstat
+close
+unlink
+rmdir
+write
+fsync
+rename
+opendir
+readdir
+readlink
+strncmp
+closedir
+memset
+strstr
+memcpy
+fseek
+ftell
+malloc
+_ZN17duo_official_dock9preflightEm
+_ZN17workbench_recents9preflightEm
+sysconf
+_ZN11widget_page5sitesE
+_ZN17duo_screen_switch5sitesE
+_ZN17duo_official_dock7protectER13HookPageGuardm
+_ZN17workbench_recents7protectER13HookPageGuard
+dlsym
+_ZN18duo_native_metrics6Sha2565blockEPKh
+page_controller_entry
+page_controller_original
+page_position_entry
+page_position_original
+page_restore_entry
+page_restore_original
+_ZN18duo_native_metrics6Sha2566finishEPc
+memcmp
+edit_state_entry
+edit_state_original
+thumb_params_entry
+thumb_params_original
+strip_height_entry
+strip_height_original
+strtod
+_ZN17duo_official_dock9configureEb
+_ZN17duo_official_dock7installEPFiPvS0_PS0_E
+_ZN17workbench_recents7installEPFiPvS0_PS0_E
+fgets
+munmap
+is_deleteable_entry
+is_deleteable_original
+can_be_deleted_entry
+can_be_deleted_original
+strtoll
+minus_scroll_entry
+minus_scroll_original
+overlay_alpha_entry
+overlay_alpha_original
+overlay_close_entry
+overlay_close_original
+native_metrics_entry
+__clear_cache
+mprotect
+_ZN17duo_screen_switch7installEmPFvlE
+_ZN17duo_screen_switch19protection_restoredEv
+native_metrics_helper
+clock_gettime
+__system_property_area_serial
+__system_property_wait
+usleep
+_ZZN18duo_native_metrics6Sha2565blockEPKhE1k
+_ZN13HookPageGuard6adviseEPvmiPFiS0_miE
+_ZZN13HookPageGuard6adviseEPvmiPFiS0_miEENKUlmmE_clEmm
+syscall
+inner_args_original
+pair_shift_original
+pad_dock_original
+snap_step_original
+fling_target_original
+fling_upper_original
+pair_start_original
+page_xform_original
+page_select_original
+grid_original
+occupied_original
+icon_original
+cell_rows_original
+q18_original
+indicator_original
+q18_args_original
+rows_original
+q18_ctx_original
+dots_transform_original
+grid_entry
+occupied_entry
+icon_entry
+cell_rows_entry
+q18_entry
+indicator_entry
+q18_args_entry
+rows_entry
+q18_ctx_entry
+dots_transform_entry
+inner_args_entry
+pair_shift_entry
+pad_dock_entry
+snap_step_entry
+fling_target_entry
+fling_upper_entry
+pair_start_entry
+page_xform_entry
+page_select_entry
+screen_pages_state
+_ZN15duo_owned_pages5Pages6updateERKN17duo_screen_switch6SampleEi
+screen_pages_prepare_fold
+fold_readiness
+_ZN17duo_official_dock12publish_foldEbbbjb
+screen_pages_fold_flush_return
+screen_pages_flush_return
+screen_pages_position_return
+screen_pages_init_native
+_ZN22duo_official_dock_axis10image_baseE
+eventfd
+_ZNK22duo_official_dock_axis3Ctx9outer_q18Ev
+__aarch64_ldadd4_acq_rel
+_ZNK22duo_official_dock_axis3Ctx3refEml
+dock_right_inspect
+_ZNK22duo_official_dock_axis3Ctx15inner_landscapeEv
+_ZN22duo_official_dock_axis14from_algorithmERKNS_3CtxEmRNS_8IdentityE
+_ZN22duo_official_dock_axis12split_offsetERKNS_3CtxE
+_ZN27official_dock_return_target16recent_lifecycleEPhjRNS_16RecentSourceDiagE
+__aarch64_ldadd4_relax
+_ZNK22duo_official_dock_axis3Ctx14inner_portraitEv
+_ZN27official_dock_return_target12outer_squareEPhb
+_ZN27official_dock_return_target12outer_launchEPhb
+_ZN27official_dock_return_target12outer_sourceEPhb
+_ZN27official_dock_return_target10outer_gateEPhjb
+_ZN27official_dock_return_target5adaptEPh
+_ZN21official_dock_recents8consumerEPh
+_ZN21official_dock_recents6budgetEPhj
+_ZN22duo_official_dock_axis10cap_recentEPh
+_ZN18miduo_right_anchor12findTopRightERKNS_3CtxERNS_8PreparedEb
+_ZN18miduo_right_anchor17scaleArgumentsPreERNS_3CtxE
+_ZN22duo_official_dock_axis7inspectEPhj
+_ZN26official_dock_motion_trace10generationEv
+_ZN26official_dock_motion_trace6sampleERKN18miduo_right_anchor3CtxE
+_ZN18miduo_right_anchor12bodyAlignPreERNS_3CtxEbPj
+_ZN22duo_official_dock_axis22portrait_height_px_nowEv
+_ZN22duo_official_dock_axis18portrait_dy_px_nowEv
+_ZN18miduo_right_anchor14portrait_shiftERNS_3CtxEd
+_ZN18miduo_right_anchor14portrait_traceERKNS_3CtxE
+_ZN18miduo_right_anchor18freshTransformsPreERNS_3CtxEbb
+_ZN26official_dock_motion_trace8renderedERKN18miduo_right_anchor3CtxERKNS_6SampleE
+_ZN26official_dock_motion_trace4emitEjRKNS_6SampleES2_bb
+_ZN22duo_official_dock_axis7prop_orEPKcd
+_ZN22duo_official_dock_axis13from_providerERKNS_3CtxEmRNS_8IdentityE
+_ZN27official_dock_return_target13recent_sourceERKN22duo_official_dock_axis3CtxEmRmRNS_16RecentSourceDiagE
+_ZN27official_dock_return_target7integerERKN22duo_official_dock_axis3CtxEmRl
+_ZN27official_dock_return_target9componentERKN22duo_official_dock_axis3CtxEmm
+_ZZN27official_dock_return_target16recent_lifecycleEPhjRNS_16RecentSourceDiagEE5count
+__aarch64_swp4_relax
+_ZZN27official_dock_return_target12outer_squareEPhbE5count
+_ZZN27official_dock_return_target12outer_launchEPhbE5count
+_ZZN27official_dock_return_target12outer_sourceEPhbE5count
+_ZZN27official_dock_return_target10outer_gateEPhjbE5count
+_ZZN27official_dock_return_target5adaptEPhE5count
+_ZZN21official_dock_recents8consumerEPhE5calls
+_ZN21official_dock_recents5sitesE
+_ZN21official_dock_recents14owned_providerERKN22duo_official_dock_axis3CtxE
+_ZZN21official_dock_recents6budgetEPhjE5calls
+_ZZN22duo_official_dock_axis10cap_recentEPhE1n
+_ZZN22duo_official_dock_axis10cap_recentEPhE7n_outer
+_ZZN22duo_official_dock_axis10cap_recentEPhE6n_port
+_ZZN22duo_official_dock_axis10cap_recentEPhE6n_land
+_ZN18miduo_right_anchor20padFromLayoutBuilderERKNS_3CtxEmRm
+_ZN22duo_official_dock_axis12special_itemERKNS_3CtxE
+_ZN22duo_official_dock_axis11scroll_viewERKNS_3CtxE
+_ZN22duo_official_dock_axis11item_insetsERKNS_3CtxE
+_ZN22duo_official_dock_axis9calculateERKNS_3CtxE
+_ZN22duo_official_dock_axis10main_deltaERKNS_3CtxE
+_ZN22duo_official_dock_axis6widgetERKNS_3CtxE
+_ZNK22official_dock_geometry4View3refEmi
+_ZNK22official_dock_geometry4View7contextEmj
+strtol
+_ZN18miduo_right_anchor15transformsScopeERKNS_3CtxERNS_14TransformScopeE
+_ZZN26official_dock_motion_trace4emitEjRKNS_6SampleES2_bbE8last_gen
+_ZZN26official_dock_motion_trace4emitEjRKNS_6SampleES2_bbE5count
+_ZZN26official_dock_motion_trace4emitEjRKNS_6SampleES2_bbE8previous
+_ZN18miduo_right_anchor10matrixViewERKNS_3CtxEmRNS_10MatrixViewE
+socket
+setsockopt
+listen
+accept4
+_ZN27official_dock_return_target18current_controllerERKN22duo_official_dock_axis3CtxEm
+_ZNK22official_dock_geometry4View2isEmj
+_ZN22duo_official_dock_axis15from_calculatorERKNS_3CtxEmRNS_8IdentityE
+_ZN22duo_official_dock_axis20portrait_item_px_nowEv
+_ZN22duo_official_dock_axis12portrait_logEPKcddd
+_ZZN22duo_official_dock_axis12special_itemERKNS_3CtxEE2pn
+_ZZN22duo_official_dock_axis10main_deltaERKNS_3CtxEE4logs
+_ZN22duo_official_dock_axis17portrait_inset_pxEj
+_ZZN22duo_official_dock_axis12portrait_logEPKcdddE5calls
+_ZZN22duo_official_dock_axis12portrait_logEPKcdddE4last
+__aarch64_swp8_relax
+_ZN22duo_official_dock_axis18portrait_side_propE
+_ZN18miduo_right_anchor11affineScaleERKNS_10MatrixViewE
+_ZN18miduo_right_anchor17affineTranslationERKNS_10MatrixViewE
+dock_right_1_original
+dock_right_2_original
+dock_right_3_original
+dock_right_4_original
+dock_right_5_original
+dock_right_6_original
+dock_right_7_original
+dock_right_8_original
+dock_right_9_original
+dock_right_10_original
+dock_right_12_original
+dock_right_13_original
+dock_right_15_original
+dock_right_16_original
+dock_right_17_original
+dock_right_18_original
+dock_right_19_original
+dock_right_20_original
+dock_right_21_original
+dock_right_22_original
+dock_right_23_original
+dock_right_24_original
+dock_right_25_original
+dock_right_26_original
+dock_right_27_original
+dock_right_28_original
+dock_right_29_original
+dock_right_32_original
+dock_right_41_original
+dock_right_42_original
+dock_right_43_original
+dock_right_44_original
+dock_right_45_original
+dock_right_46_original
+dock_right_47_original
+dock_right_48_original
+dock_right_49_original
+dock_right_50_original
+dock_right_51_original
+dock_right_52_original
+_ZN22duo_official_dock_axis13init_expectedE
+_ZN22duo_official_dock_axis15widget_expectedE
+_ZN22duo_official_dock_axis15scroll_expectedE
+_ZN22duo_official_dock_axis13calc_expectedE
+_ZN22duo_official_dock_axis16special_expectedE
+_ZN22duo_official_dock_axis14delta_expectedE
+_ZN22duo_official_dock_axis15insets_expectedE
+_ZN21official_dock_recents13consumer_siteE
+_ZN27official_dock_return_target8expectedE
+_ZN27official_dock_return_target16outer_gate_bytesE
+_ZN27official_dock_return_target18outer_source_bytesE
+_ZN27official_dock_return_target18outer_launch_bytesE
+_ZN27official_dock_return_target18outer_square_bytesE
+_ZN27official_dock_return_target12recent_bytesE
+_ZN22duo_official_dock_axis18split_offset_bytesE
+dock_right_1_entry
+dock_right_2_entry
+dock_right_3_entry
+dock_right_4_entry
+dock_right_5_entry
+dock_right_6_entry
+dock_right_7_entry
+dock_right_8_entry
+dock_right_9_entry
+dock_right_10_entry
+dock_right_12_entry
+dock_right_13_entry
+dock_right_15_entry
+dock_right_16_entry
+dock_right_17_entry
+dock_right_18_entry
+dock_right_19_entry
+dock_right_20_entry
+dock_right_21_entry
+dock_right_22_entry
+dock_right_23_entry
+dock_right_24_entry
+dock_right_25_entry
+dock_right_26_entry
+dock_right_27_entry
+dock_right_28_entry
+dock_right_29_entry
+dock_right_32_entry
+dock_right_41_entry
+dock_right_42_entry
+dock_right_43_entry
+dock_right_44_entry
+dock_right_45_entry
+dock_right_46_entry
+dock_right_47_entry
+dock_right_48_entry
+dock_right_49_entry
+dock_right_50_entry
+dock_right_51_entry
+dock_right_52_entry
+workbench_inspect
+_ZN27official_dock_return_target11same_stringERKN22duo_official_dock_axis3CtxEmmi
+pthread_once
+dlopen
+dlerror
+__aarch64_ldadd8_rel
+AHardwareBuffer_release
+memmove
+Java_dev_duo_workspaceprobe_WorkspaceHome_nativeWriteBuffer
+AHardwareBuffer_fromHardwareBuffer
+strrchr
+AHardwareBuffer_acquire
+AHardwareBuffer_describe
+wb_original_0
+wb_original_1
+wb_original_2
+wb_original_3
+wb_original_4
+wb_original_5
+wb_original_6
+wb_original_7
+wb_original_8
+wb_original_9
+wb_original_10
+wb_original_11
+wb_original_12
+wb_original_13
+wb_original_14
+wb_original_15
+wb_original_16
+wb_entry_0
+wb_entry_1
+wb_entry_2
+wb_entry_3
+wb_entry_4
+wb_entry_5
+wb_entry_6
+wb_entry_7
+wb_entry_8
+wb_entry_9
+wb_entry_10
+wb_entry_11
+wb_entry_12
+wb_entry_13
+wb_entry_14
+wb_entry_15
+wb_entry_16
+__aarch64_have_lse_atomics
+__init_cpu_features_resolver
+__aarch64_cpu_features
+__init_cpu_features
+getauxval
+memfd_create
+_DYNAMIC
+__CortexA53843419_1C004

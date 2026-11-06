@@ -1,0 +1,122 @@
+Manifest-Version: 1.0
+
+Name: AndroidManifest.xml
+SHA-256-Digest: GSFPTKoapki/CjUdUXTWz1Hm6nwtROKH1nBt3pu5SKM=
+
+Name: META-INF/xposed/java_init.list
+SHA-256-Digest: LoijjznoHfqsLFCnrMV35dgjHIm0XljMKCnKUZxlpdM=
+
+Name: META-INF/xposed/module.prop
+SHA-256-Digest: Xe7O+nHE+zzrIBTOy9k9bzsExiUktFyXCp+8bHVRgHI=
+
+Name: META-INF/xposed/native_init.list
+SHA-256-Digest: oH3+88sxoj5MKxSrTH+8rW90GctYD7sv47Od1l611ys=
+
+Name: META-INF/xposed/scope.list
+SHA-256-Digest: t8xqMagT3Ie35iIUM/Qz62vlE+2fg/pUT6/QgxJvJF4=
+
+Name: assets/analog-cardinal-dark-dial.png
+SHA-256-Digest: xixxmIU4PnahExMuTnblTk8o6z2QfgHvA5TpdjHrxU0=
+
+Name: assets/fold/curve.properties
+SHA-256-Digest: UMvuXu6TdaemGYcL/gczcOAe4Cpa1lRQ6Plsb0Y1U7I=
+
+Name: assets/fold/duo.frag
+SHA-256-Digest: wOYPUD9rcXdHMb9zbg1wIRseMXzVpV77lVfj97Afuhk=
+
+Name: assets/fold/duo.vert
+SHA-256-Digest: ZE5VBQ73rvcqa5KjD6Ym7DhTNd/vTrDEb+hf2GOQW+E=
+
+Name: assets/licenses/Inter-OFL.txt
+SHA-256-Digest: TX2clefX8vDr921eCzRIJrdOkDo0Ao7hirVLtjnkWQY=
+
+Name: assets/native_init
+SHA-256-Digest: oH3+88sxoj5MKxSrTH+8rW90GctYD7sv47Od1l611ys=
+
+Name: assets/sponsor/alipay.png
+SHA-256-Digest: vJnKZMVDrdHeqbUXJnZxH07uwEV0BQJ7f3llbRZ7aIk=
+
+Name: assets/sponsor/contact-qq.png
+SHA-256-Digest: ljN5Q1Jw+L5D82uYADxN8XIeX836jq8aWFrqdE0CHIY=
+
+Name: assets/sponsor/contact-wechat.png
+SHA-256-Digest: mlTg0mUEZWo5plf5RF+FhF0SOoQ7ajMruMR838KivfU=
+
+Name: assets/sponsor/wechat.png
+SHA-256-Digest: AW1D90IzwjDOM3W6PGpIUMRBRoGZ6pVeC8+ykIGx81M=
+
+Name: classes.dex
+SHA-256-Digest: M+BYI8IF5F6sM8VGTpbKj9QuO3ejhZvXLVMTCrV5RyY=
+
+Name: lib/arm64-v8a/libduoworkspace.so
+SHA-256-Digest: ETjy9cFFkZ86ezOPu4PI3Z4WEPwIsARZ0LyTw6uXpB4=
+
+Name: res/drawable-nodpi-v4/album_widget_preview.png
+SHA-256-Digest: x3Y3wshHbARVtv8UrSS9f/CuKMp/fz+LJj4D2Ig6P30=
+
+Name: res/drawable/album_widget_placeholder.xml
+SHA-256-Digest: 7Mt/xLbQJ7kZBDtnlurDeV4oVec3lGd6M/1Nl9N+SHM=
+
+Name: res/drawable/battery_medium_preview.xml
+SHA-256-Digest: w1RAVXdCfd3uCjIKJDt6j3JkuwpXiK8Og1LIPQ/Lpgc=
+
+Name: res/drawable/battery_small_preview.xml
+SHA-256-Digest: jQ7P6Mu0+gjLHMhLXj/Sf7IqLAZhHf6SPIFcgVGaBsk=
+
+Name: res/drawable/calendar_medium_preview.xml
+SHA-256-Digest: cAx2mG9OaFmD76MI32z6AcsTE+MlCCxZ5ri2ngZBIJo=
+
+Name: res/drawable/calendar_small_preview.xml
+SHA-256-Digest: A2Kx9ec5qMsOzSB/bwjCt1E6VVlkm8GTsjOKvPWTJ7g=
+
+Name: res/drawable/ic_launcher.xml
+SHA-256-Digest: wgszPU8nI2cad9ESmMPwVErlCZbDbj7dtjA+e2SZVpg=
+
+Name: res/drawable/ic_launcher_fg.xml
+SHA-256-Digest: DZXcVoNKNsNrYs6sG6VbPyraZUXva23wK8bmX9K6QGk=
+
+Name: res/drawable/ic_launcher_mono.xml
+SHA-256-Digest: juUb/af1sKaSjq6hF2xhvsOr1AlsA8CNDezqmm5G8+Q=
+
+Name: res/drawable/weather_medium_preview.xml
+SHA-256-Digest: LeB58S5UtLvuNsuok1JaPWlflyc7zHqBq4vp9E1gCkk=
+
+Name: res/drawable/weather_small_preview.xml
+SHA-256-Digest: yIpfoEkfJQuysYH7PJjqB2xURcWaWLdMVzfNdnHs+a8=
+
+Name: res/layout/album_widget.xml
+SHA-256-Digest: QOA8KFI+RpJ3OfmwdQ4liB4ggmPkkpK1+cUcGq2Pxss=
+
+Name: res/layout/album_widget_b.xml
+SHA-256-Digest: QOA8KFI+RpJ3OfmwdQ4liB4ggmPkkpK1+cUcGq2Pxss=
+
+Name: res/layout/info_widget.xml
+SHA-256-Digest: YvshUM5Z9LeCsz7wb6dJt8JQDh7Ayx3ZZYYRCFPJUhw=
+
+Name: res/layout/info_widget_b.xml
+SHA-256-Digest: YvshUM5Z9LeCsz7wb6dJt8JQDh7Ayx3ZZYYRCFPJUhw=
+
+Name: res/xml/album_widget_info.xml
+SHA-256-Digest: hCe+ZPXMkSetDt1sLgrv3o9I9ySQrld6D6d8om3G0CY=
+
+Name: res/xml/battery_medium_info.xml
+SHA-256-Digest: i6W6XQMTRwdMMZP2jLmm4i8HDwkeyrJww4MxuISeLD0=
+
+Name: res/xml/battery_small_info.xml
+SHA-256-Digest: E0D8m8+XaxIzzGw1qR5Rrz+68mOE+OEnmS0EE3s3+B0=
+
+Name: res/xml/calendar_medium_info.xml
+SHA-256-Digest: ITqGv3bhMriT1a7ByQYwU/GIn2UJNPbo07E1g5wRWiM=
+
+Name: res/xml/calendar_small_info.xml
+SHA-256-Digest: 9MsQKiMD9a1ki6yTxV7tVaTmgYAkkZhXoTvICxFFvfk=
+
+Name: res/xml/weather_medium_info.xml
+SHA-256-Digest: Vcus+7wevGQGFivKYJzrSEt/BbyIBwr+29Ol7EETidc=
+
+Name: res/xml/weather_small_info.xml
+SHA-256-Digest: aHhIDx2rKZEg77lVuu265WEETRuJWc/WcV5wtLE34BI=
+
+Name: resources.arsc
+SHA-256-Digest: C7r+lUylL5SxLxQ/Mbio955nV2+pL/9uBlzr+q2jAUA=
+
