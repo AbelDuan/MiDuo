@@ -5,11 +5,10 @@ import java.util.Objects;
 /**
  * Decompiled from {@code io.github.libxposed.service.HotReloadResult}.
  *
- * The original class extends {@code java.lang.Record} (it was compiled from a
- * Kotlin/Java record), but Java source cannot extend Record directly, so the
- * record machinery is reproduced by hand here: the canonical constructor,
- * {@code equals}/{@code hashCode}/{@code toString}, and the two accessors
- * behave exactly like the original synthetic implementations.
+ * The original class extends {@code java.lang.Record}, which Java source cannot
+ * do directly. The record machinery is reproduced by hand here so behaviour is
+ * preserved: canonical constructor, equals/hashCode/toString and the accessors
+ * match the original synthetic implementations.
  */
 public final class HotReloadResult {
     private final String message;
