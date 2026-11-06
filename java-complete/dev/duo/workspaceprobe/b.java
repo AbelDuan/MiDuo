@@ -9241,7 +9241,7 @@ public final class b extends XposedModule {
             }
             List<String> a = dev.duo.hookprobe.J.a((List<String>) dev.duo.workspaceprobe.b.this.L3, this.d, this.i);
             Log.w("DuoRail", "Sidebar drag end " + (z_v ? "drop " : "cancel ") + this.d + "->" + this.i);
-            if (!z_v || this.c.getParent() != this.a || dev.duo.workspaceprobe.a.equals(dev.duo.workspaceprobe.b.this.L3)) {
+            if (!z_v || this.c.getParent() != this.a || dev.duo.workspaceprobe.b.this.L3.equals(dev.duo.workspaceprobe.a)) {
                 dev.duo.workspaceprobe.b.this.p1();
             } else {
                 dev.duo.workspaceprobe.b.this.B(2);
