@@ -4724,9 +4724,9 @@ public final class b extends XposedModule {
             }
             Settings.Global.putInt(contentResolver, "airplane_mode_on", r2);
             Intent intent = new Intent("android.intent.action.AIRPLANE_MODE");
-            intent.putExtra("state", (boolean) r2);
+            intent.putExtra("state", (r2 != 0));
             this.i4.sendBroadcastAsUser(intent, Process.myUserHandle());
-            Log.w("DuoRail", "Rail airplane " + ((boolean) r2));
+            Log.w("DuoRail", "Rail airplane " + ((r2 != 0)));
         } catch (Throwable th) {
             a("飞行模式", th);
         }
@@ -5758,13 +5758,13 @@ public final class b extends XposedModule {
                                                     R r4 = this.N6;
                                                     position.setCrop(surfaceControl3, new Rect(0, 0, r4.f, r4.g)).setAlpha(this.N6.b_v, f4).setVisibility(this.N6.b_v, z2).apply();
                                                     transaction2.close();
-                                                    this.l4 = r2 ^ 1;
+                                                    this.l4 = (r2 ^ 1) != 0;
                                                     this.n4 = surfaceControl2;
                                                     this.o4 = c4;
                                                     this.p4 = d3;
                                                     this.q4 = f4;
                                                     this.m4 = z2;
-                                                    this.n3 = r2;
+                                                    this.n3 = r2 != 0;
                                                     U1();
                                                     S1();
                                                     if (r2 == 0) {
@@ -5779,13 +5779,13 @@ public final class b extends XposedModule {
                                                     return;
                                                 }
                                                 transaction2.close();
-                                                this.l4 = r2 ^ 1;
+                                                this.l4 = (r2 ^ 1) != 0;
                                                 this.n4 = surfaceControl2;
                                                 this.o4 = c4;
                                                 this.p4 = d3;
                                                 this.q4 = f4;
                                                 this.m4 = z2;
-                                                this.n3 = r2;
+                                                this.n3 = r2 != 0;
                                                 U1();
                                                 S1();
                                                 if (r2 == 0) {
@@ -12889,9 +12889,9 @@ public final class b extends XposedModule {
             return;
         }
         int u2 = u(i2);
-        boolean z2 = Color.luminance(u2) <= 0.45f ? 1 : 0;
+        boolean z2 = Color.luminance(u2) <= 0.45f ? true : false;
         int i3 = z2 != 0 ? -1 : -13618632;
-        int i4 = !z2;
+        int i4 = z2 ? 0 : 1;
         if (k2.w_v == i4 && k2.x_v == u2) {
             return;
         }
