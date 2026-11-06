@@ -36,11 +36,11 @@ public final class WidgetCenterActivity extends Activity {
     private static final String[][] e = {new String[]{"电池", "2×2 / 4×2"}, new String[]{"日历", "2×2 / 4×2"}, new String[]{"天气", "2×2 / 4×2"}};
     private static final int f = 132;
     private T.d a;
-    private LinearLayout b_fld;
+    private LinearLayout b;
     private boolean c;
-    private final dev.duo.hookprobe.b.d d = new a();
+    private final b.d d = new a();
 
-    class a implements dev.duo.hookprobe.b.d {
+    class a implements b.d {
         a() {
         }
 
@@ -50,7 +50,7 @@ public final class WidgetCenterActivity extends Activity {
         }
 
         @Override // dev.duo.hookprobe.b.d
-        public void a(dev.duo.hookprobe.b.c cVar, Exception exc) {
+        public void a(b.c cVar, Exception exc) {
             dev.duo.hookprobe.WidgetCenterActivity.this.a(cVar, exc);
         }
     }
@@ -76,7 +76,7 @@ public final class WidgetCenterActivity extends Activity {
 
         c(int[] iArr, LinkedHashMap<Integer, Long> linkedHashMap, long j) {
             this.a = iArr;
-            this.b_fld = linkedHashMap;
+            this.b = linkedHashMap;
             this.c = j;
         }
     }
@@ -136,10 +136,10 @@ public final class WidgetCenterActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
         String a2 = dev.duo.hookprobe.b.a();
-        dev.duo.hookprobe.b.c cVar = new dev.duo.hookprobe.b.c();
+        b.c cVar = new b.c();
         try {
             final boolean b2 = dev.duo.hookprobe.b.b(a2);
-            dev.duo.hookprobe.b.a a3 = b2 ? dev.duo.hookprobe.b.a(this, a2) : null;
+            b.a a3 = b2 ? dev.duo.hookprobe.b.a(this, a2) : null;
             long c2 = dev.duo.hookprobe.b.c(a2);
             if (b2 && b(a3, c2)) {
                 return;
@@ -205,9 +205,9 @@ public final class WidgetCenterActivity extends Activity {
         a2.setPadding(a3, this.a.d(), a3, this.a.b());
         a2.addView(a(this, this.a, "小组件", "MiDuo 做的桌面小组件都在这里"), T.a());
         LinearLayout a4 = T.a((Context) this);
-        this.b_fld = a4;
+        this.b = a4;
         T.a(a4, b());
-        this.b_fld.setPadding(a(14.0f), a(14.0f), a(14.0f), a(14.0f));
+        this.b.setPadding(a(14.0f), a(14.0f), a(14.0f), a(14.0f));
         View h = h();
         if (this.a.c >= 600) {
             LinearLayout c2 = T.c(this);
@@ -312,7 +312,7 @@ public final class WidgetCenterActivity extends Activity {
         return a2;
     }
 
-    private boolean b(dev.duo.hookprobe.b.a aVar, long j) {
+    private boolean b(b.a aVar, long j) {
         Integer num;
         if (!aVar.a.isEmpty() || j < 0 || (num = aVar.b.get(Long.valueOf(j))) == null || num.intValue() == 0) {
             return false;
@@ -328,9 +328,9 @@ public final class WidgetCenterActivity extends Activity {
     }
 
     private void b(c cVar, Bitmap[] bitmapArr) {
-        this.b_fld.removeAllViews();
+        this.b.removeAllViews();
         if (cVar.a.length == 0) {
-            this.b_fld.addView(a(0, (Bitmap) null, 0, false), T.a());
+            this.b.addView(a(0, (Bitmap) null, 0, false), T.a());
         }
         int i = 0;
         while (true) {
@@ -357,7 +357,7 @@ public final class WidgetCenterActivity extends Activity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(dev.duo.hookprobe.b.c cVar, Exception exc) {
+    public void a(b.c cVar, Exception exc) {
         Log.w("MiDuoAlbum", "widget page not set\n" + cVar.a(), exc);
         final String a2 = cVar.a();
         runOnUiThread(new Runnable() { // from class: dev.duo.hookprobe.WidgetCenterActivity$$ExternalSyntheticLambda0
@@ -401,7 +401,7 @@ public final class WidgetCenterActivity extends Activity {
         }
     }
 
-    private static boolean a(dev.duo.hookprobe.b.a aVar, long j) {
+    private static boolean a(b.a aVar, long j) {
         if (j < 0 || !aVar.c.contains(Long.valueOf(j))) {
             return false;
         }

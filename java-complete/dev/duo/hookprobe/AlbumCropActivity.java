@@ -123,7 +123,7 @@ public final class AlbumCropActivity extends Activity {
         }
         this.c.addView(this.d, T.a(new LinearLayout.LayoutParams(-1, 0, 1.0f), this, 8.0f));
         TextView a = T.a((Context) this, "完成", true, 44.0f);
-        a.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.AlbumCropActivity$$ExternalSyntheticLambda1
+        dev.duo.hookprobe.a.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.AlbumCropActivity$$ExternalSyntheticLambda1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
                 dev.duo.hookprobe.AlbumCropActivity.this.a(view);
@@ -162,7 +162,7 @@ public final class AlbumCropActivity extends Activity {
         } else {
             final Bitmap d = this.d.d();
             final Context applicationContext = getApplicationContext();
-            k.execute(new Runnable() { // from class: dev.duo.hookprobe.AlbumCropActivity$$ExternalSyntheticLambda5
+            dev.duo.hookprobe.k.execute(new Runnable() { // from class: dev.duo.hookprobe.AlbumCropActivity$$ExternalSyntheticLambda5
                 @Override // java.lang.Runnable
                 public final void run() {
                     dev.duo.hookprobe.AlbumCropActivity.this.a(applicationContext, intExtra, d);
@@ -173,7 +173,7 @@ public final class AlbumCropActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void a(final Context context, final int i2, Bitmap bitmap) {
-        final boolean z = AlbumWidgetProvider.a(context, i2) && dev.duo.hookprobe.c.a(context, i2, bitmap);
+        final boolean z = AlbumWidgetProvider.a(context, i2) && c.a(context, i2, bitmap);
         bitmap.recycle();
         runOnUiThread(new Runnable() { // from class: dev.duo.hookprobe.AlbumCropActivity$$ExternalSyntheticLambda4
             @Override // java.lang.Runnable

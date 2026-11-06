@@ -77,7 +77,7 @@ public final class Engine {
     private long Q;
     private long R;
     private boolean S;
-    private boolean T_fld;
+    private boolean T;
     private int U;
     private dev.duo.fold.b V;
     private boolean W;
@@ -238,7 +238,7 @@ public final class Engine {
                 dev.duo.fold.Engine.this.a(new e() { // from class: dev.duo.fold.Engine$c$$ExternalSyntheticLambda1
                     @Override // dev.duo.fold.Engine.e
                     public final void run() {
-                        dev.duo.fold.Engine.c.b();
+                        Engine.c.b();
                     }
                 });
             }
@@ -1140,7 +1140,7 @@ public final class Engine {
             Bundle bundle = null;
             Bundle bundle2 = null;
             bundle = null;
-            f fVar = new f(bundle);
+            f fVar = new f((Bundle) bundle);
             this.N = fVar;
             fVar.o = w();
             f fVar2 = this.N;
