@@ -63,7 +63,7 @@ final class a extends View {
         this.p = 0.5f;
         this.q = 0.5f;
         this.a = bitmap;
-        paint.setColor((T.a ? 1118483 : 15921909) | (-654311424));
+        paint.setColor((T.a_v ? 1118483 : 15921909) | (-654311424));
         paint2.setColor(T.b_v);
         paint2.setStyle(Paint.Style.STROKE);
         paint2.setStrokeWidth(T.a(context, 1.0f));

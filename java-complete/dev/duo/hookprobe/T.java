@@ -79,7 +79,7 @@ final class T {
     static final int X = 11;
     static final int Y = 12;
     static final int Z = 13;
-    static boolean a = false;
+    static boolean a_v = false;
     static final int a0 = 14;
     static int b_v = 0;
     static final int b0 = 15;
@@ -120,11 +120,11 @@ final class T {
     private static int y;
     private static int z;
 
-    static class a extends ArrayAdapter<String> {
+    static class RowAdapter extends ArrayAdapter<String> {
         final /* synthetic */ Activity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        a(Context context, int i, String[] strArr, Activity activity) {
+        RowAdapter(Context context, int i, String[] strArr, Activity activity) {
             super(context, i, strArr);
             this.a = activity;
         }
@@ -169,7 +169,7 @@ final class T {
             }
             this.a.setStyle(Paint.Style.STROKE);
             this.a.setStrokeWidth(dev.duo.hookprobe.T.a(this.c, 1.0f));
-            this.a.setColor(dev.duo.hookprobe.T.a ? 1090519039 : 603979776);
+            this.a.setColor(dev.duo.hookprobe.T.a_v ? 1090519039 : 603979776);
             rectF.inset(dev.duo.hookprobe.T.a(this.c, 0.5f), dev.duo.hookprobe.T.a(this.c, 0.5f));
             canvas.drawOval(rectF, this.a);
         }
@@ -418,7 +418,7 @@ final class T {
                 }
                 boolean z = i2 == i;
                 linearLayoutArr[i2].setBackground(z ? dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.p, dev.duo.hookprobe.T.a(context, 17.0f)) : null);
-                this.b[i2].setElevation((!z || dev.duo.hookprobe.T.a) ? 0.0f : dev.duo.hookprobe.T.a(context, 1.5f));
+                this.b[i2].setElevation((!z || dev.duo.hookprobe.T.a_v) ? 0.0f : dev.duo.hookprobe.T.a(context, 1.5f));
                 this.b[i2].setSelected(z);
                 i2++;
             }
@@ -528,7 +528,7 @@ final class T {
 
         @Override // android.view.View
         protected void onDraw(Canvas canvas) {
-            int i = T.b_v;
+            int i = dev.duo.hookprobe.T.b_v;
             int i2 = (16777215 & i) | 1291845632;
             this.d.setColor(i);
             Calendar calendar = Calendar.getInstance();
@@ -700,10 +700,10 @@ final class T {
 
     static void a(Activity activity) {
         boolean z2 = (activity.getResources().getConfiguration().uiMode & 48) == 32;
-        a = z2;
+        a_v = z2;
         if (z2) {
             b_v = -657929;
-            c_v = -6776675;
+            c = -6776675;
             d = -7434605;
             e = -10263706;
             f_v = 1031173760;
@@ -731,7 +731,7 @@ final class T {
             B = -14474198;
         } else {
             b_v = -14869217;
-            c_v = -9539981;
+            c = -9539981;
             d = -7434605;
             e = -5329230;
             f_v = 527857280;
@@ -760,7 +760,7 @@ final class T {
         }
         activity.requestWindowFeature(1);
         activity.getWindow().getDecorView().setForceDarkAllowed(false);
-        activity.getWindow().getInsetsController().setSystemBarsAppearance(a ? 0 : 24, 24);
+        activity.getWindow().getInsetsController().setSystemBarsAppearance(a_v ? 0 : 24, 24);
     }
 
     static LinearLayout.LayoutParams c() {
@@ -784,7 +784,7 @@ final class T {
 
         d(Activity activity) {
             this.j = activity;
-            T.a(activity);
+            dev.duo.hookprobe.T.a(activity);
             WindowMetrics currentWindowMetrics = activity.getWindowManager().getCurrentWindowMetrics();
             Rect bounds = currentWindowMetrics.getBounds();
             float f = activity.getResources().getDisplayMetrics().density;
@@ -803,7 +803,7 @@ final class T {
             this.h = insets.bottom;
             FrameLayout frameLayout = new FrameLayout(activity);
             this.a = frameLayout;
-            frameLayout.setBackground(T.b(activity));
+            frameLayout.setBackground(dev.duo.hookprobe.T.b(activity));
             FrameLayout frameLayout2 = new FrameLayout(activity);
             this.b = frameLayout2;
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
@@ -841,7 +841,7 @@ final class T {
         }
 
         int b() {
-            return this.d ? dev.duo.hookprobe.T.g0 : T.a((Context) this.j, 120.0f);
+            return this.d ? dev.duo.hookprobe.T.g0 : dev.duo.hookprobe.T.a((Context) this.j, 120.0f);
         }
 
         int c() {
@@ -855,7 +855,7 @@ final class T {
             if (this.e) {
                 return Math.max(0, Math.round(dev.duo.hookprobe.T.l0) - this.g);
             }
-            return T.a(this.j, this.f ? 8.0f : 18.0f);
+            return dev.duo.hookprobe.T.a(this.j, this.f ? 8.0f : 18.0f);
         }
 
         int e() {
@@ -882,13 +882,13 @@ final class T {
             if (view != null) {
                 this.a.removeView(view);
             }
-            this.m = T.a(this.j, i, this.d ? dev.duo.hookprobe.T.f0 : 0, intConsumer);
+            this.m = dev.duo.hookprobe.T.a(this.j, i, this.d ? dev.duo.hookprobe.T.f0 : 0, intConsumer);
             if (this.d) {
                 layoutParams = new FrameLayout.LayoutParams(dev.duo.hookprobe.T.f0, -2, 8388629);
                 layoutParams.rightMargin = dev.duo.hookprobe.T.g0;
             } else {
                 layoutParams = new FrameLayout.LayoutParams(-2, -2, 81);
-                layoutParams.bottomMargin = this.f ? Math.max(0, 40 - this.h) : T.a((Context) this.j, 16.0f);
+                layoutParams.bottomMargin = this.f ? Math.max(0, 40 - this.h) : dev.duo.hookprobe.T.a((Context) this.j, 16.0f);
             }
             this.a.addView(this.m, layoutParams);
         }
@@ -897,7 +897,7 @@ final class T {
             if (this.d) {
                 return 0;
             }
-            return this.f ? dev.duo.hookprobe.T.g0 : T.a(this.j, Math.max(16.0f, (i - 640) / 2.0f));
+            return this.f ? dev.duo.hookprobe.T.g0 : dev.duo.hookprobe.T.a(this.j, Math.max(16.0f, (i - 640) / 2.0f));
         }
     }
 
@@ -950,8 +950,8 @@ final class T {
         a2.setStroke(Math.max(1, a(context, 1.0f)), j);
         view.setBackground(a2);
         view.setElevation(a(context, 3.0f));
-        view.setOutlineAmbientShadowColor(a ? 1711276032 : 570425344);
-        view.setOutlineSpotShadowColor(a ? 1426063360 : 335544320);
+        view.setOutlineAmbientShadowColor(a_v ? 1711276032 : 570425344);
+        view.setOutlineSpotShadowColor(a_v ? 1426063360 : 335544320);
     }
 
     static TextView a(Context context, float f2, int i2, int i3) {
@@ -990,13 +990,13 @@ final class T {
     }
 
     static TextView a(Context context, String str, boolean z2, float f2) {
-        TextView a2 = a(context, 14.0f, z2 ? o : b, c0);
+        TextView a2 = a(context, 14.0f, z2 ? o : b_v, c0);
         a2.setText(str);
         a2.setGravity(17);
         a2.setSingleLine(true);
         a2.setMinHeight(a(context, f2));
         a2.setPadding(a(context, 14.0f), 0, a(context, 14.0f), 0);
-        a2.setBackground(a(z2 ? n : f, a(context, f2 / 2.0f)));
+        a2.setBackground(a(z2 ? n : f_v, a(context, f2 / 2.0f)));
         a2.setClickable(true);
         a2.setFocusable(true);
         return a2;

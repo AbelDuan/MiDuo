@@ -294,19 +294,19 @@ public final class RailCustomActivity extends Activity {
             RectF rectF = new RectF(f2, f2, width - f2, f - f2);
             this.d.setShader(null);
             this.d.setStyle(Paint.Style.FILL);
-            this.d.setColor(T.a ? 855638016 : 335544320);
+            this.d.setColor(T.a_v ? 855638016 : 335544320);
             RectF rectF2 = new RectF(rectF.left, rectF.top + dev.duo.hookprobe.RailCustomActivity.this.a(1.6f), rectF.right, rectF.bottom + dev.duo.hookprobe.RailCustomActivity.this.a(1.6f));
             float f3 = this.c;
             canvas.drawRoundRect(rectF2, f3, f3, this.d);
             Paint paint = this.d;
-            boolean z = T.a;
+            boolean z = T.a_v;
             paint.setShader(new LinearGradient(0.0f, 0.0f, 0.0f, f, z ? -11908528 : -1, z ? -14474454 : -1578513, Shader.TileMode.CLAMP));
             float f4 = this.c;
             canvas.drawRoundRect(rectF, f4, f4, this.d);
             this.d.setShader(null);
             this.d.setStyle(Paint.Style.STROKE);
             this.d.setStrokeWidth(max);
-            this.d.setColor(T.a ? 1090519039 : 520093696);
+            this.d.setColor(T.a_v ? 1090519039 : 520093696);
             float f5 = this.c;
             canvas.drawRoundRect(rectF, f5, f5, this.d);
             canvas.restore();
@@ -348,7 +348,7 @@ public final class RailCustomActivity extends Activity {
             float width = getWidth();
             float height = getHeight();
             this.a.setStyle(Paint.Style.FILL);
-            this.a.setColor(T.a ? isPressed() ? -10855838 : -231065024 : isPressed() ? -1710614 : -218103809);
+            this.a.setColor(T.a_v ? isPressed() ? -10855838 : -231065024 : isPressed() ? -1710614 : -218103809);
             float f = width * 0.3f;
             canvas.drawRoundRect(0.0f, 0.0f, width, height, f, f, this.a);
             this.a.setStyle(Paint.Style.STROKE);
@@ -1336,11 +1336,11 @@ public final class RailCustomActivity extends Activity {
             this.j.setStyle(Paint.Style.FILL);
             this.j.setPathEffect(null);
             float a = T.a(getContext(), 1.6f);
-            this.j.setColor(T.a ? 855638016 : 268435456);
+            this.j.setColor(T.a_v ? 855638016 : 268435456);
             float f4 = f2 + a;
             float f5 = f3 / 2.0f;
             canvas.drawCircle(f, f4, T.a(getContext(), 1.2f) + f5, this.j);
-            this.j.setColor(T.a ? 1207959552 : 469762048);
+            this.j.setColor(T.a_v ? 1207959552 : 469762048);
             canvas.drawCircle(f, f4, f5, this.j);
         }
 
@@ -1368,7 +1368,7 @@ public final class RailCustomActivity extends Activity {
             if (i == 2) {
                 this.j.setStyle(Paint.Style.STROKE);
                 this.j.setStrokeWidth(Math.max(1, T.a(getContext(), 1.3f)));
-                this.j.setColor(T.a ? 1308622847 : 805306368);
+                this.j.setColor(T.a_v ? 1308622847 : 805306368);
                 this.j.setPathEffect(this.k);
                 canvas.drawCircle(f5, max, Math.max(1.0f, f7), this.j);
                 this.j.setPathEffect(null);
@@ -1952,7 +1952,7 @@ public final class RailCustomActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     public static Drawable b(Context context, int i2) {
         GradientDrawable.Orientation orientation = GradientDrawable.Orientation.TOP_BOTTOM;
-        boolean z = T.a;
+        boolean z = T.a_v;
         GradientDrawable gradientDrawable = new GradientDrawable(orientation, new int[]{z ? -11908528 : -1, z ? -14474454 : -1578513});
         gradientDrawable.setShape(1);
         int max = Math.max(1, Math.round(i2 * 0.018f));
@@ -1960,7 +1960,7 @@ public final class RailCustomActivity extends Activity {
         GradientDrawable gradientDrawable2 = new GradientDrawable();
         gradientDrawable2.setShape(1);
         gradientDrawable2.setColor(0);
-        gradientDrawable2.setStroke(max, T.a ? 1090519039 : 520093696);
+        gradientDrawable2.setStroke(max, T.a_v ? 1090519039 : 520093696);
         return new LayerDrawable(new Drawable[]{insetDrawable, gradientDrawable2});
     }
 

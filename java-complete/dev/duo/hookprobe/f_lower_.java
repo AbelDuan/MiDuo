@@ -348,7 +348,7 @@ final class f {
             this.f = c2;
             c2.setPadding(f.this.a(7.0f), 0, f.this.a(12.0f), 0);
             FrameLayout frameLayout = new FrameLayout(f.this.a);
-            ImageView a6 = T.a(f.this.a, T.a(f.this.a, 6, T.a ? -13882322 : T.b_v, 4.0f, false, 10.0f));
+            ImageView a6 = T.a(f.this.a, T.a(f.this.a, 6, T.a_v ? -13882322 : T.b_v, 4.0f, false, 10.0f));
             this.e = a6;
             frameLayout.addView(a6, new FrameLayout.LayoutParams(f.this.a(10.0f), f.this.a(10.0f), 17));
             c2.addView(frameLayout, T.a(f.this.a, 16.0f, 16.0f));
