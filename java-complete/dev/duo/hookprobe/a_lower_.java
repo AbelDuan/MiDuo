@@ -80,9 +80,9 @@ final class a extends View {
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
-        float[] a = d.a(i, i2, T.a(getContext(), 8.0f), T.a(getContext(), 8.0f), T.a(getContext(), 8.0f));
+        float[] a = dev.duo.hookprobe.d.a(i, i2, (float) T.a(getContext(), 8.0f), (float) T.a(getContext(), 8.0f), (float) T.a(getContext(), 8.0f));
         this.c.set(a[0], a[1], a[2], a[3]);
-        float a2 = d.a(this.c.width(), this.c.height(), this.a.getWidth(), this.a.getHeight());
+        float a2 = dev.duo.hookprobe.d.a((float) this.c.width(), (float) this.c.height(), this.a.getWidth(), this.a.getHeight());
         this.j = a2;
         this.i = a2 * this.o;
         this.k = this.c.centerX() - ((this.a.getWidth() * this.i) * this.p);
@@ -149,11 +149,11 @@ final class a extends View {
         float f = this.k;
         float width = this.a.getWidth() * this.i;
         RectF rectF = this.c;
-        this.k = d.a(f, width, rectF.left, rectF.right);
+        this.k = dev.duo.hookprobe.d.a(f, width, rectF.left, rectF.right);
         float f2 = this.l;
         float height = this.a.getHeight() * this.i;
         RectF rectF2 = this.c;
-        this.l = d.a(f2, height, rectF2.top, rectF2.bottom);
+        this.l = dev.duo.hookprobe.d.a(f2, height, rectF2.top, rectF2.bottom);
         Matrix matrix = this.b;
         float f3 = this.i;
         matrix.setScale(f3, f3);
