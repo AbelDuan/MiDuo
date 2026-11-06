@@ -5792,7 +5792,7 @@ public final class b extends XposedModule {
                                                 }
                                             } catch (Throwable th2) {
                                                 throw th2;
-                                                r2 = "DuoKeyguard";
+                                                // r2 = "DuoKeyguard";  // dead code after throw
                                                 int i6 = this.v3;
                                                 this.v3 = i6 + 1;
                                                 if (i6 >= 3) {
@@ -5802,7 +5802,7 @@ public final class b extends XposedModule {
                                             position.setCrop(surfaceControl3, new Rect(0, 0, r42.f, r42.g)).setAlpha(this.N6.b_v, f4).setVisibility(this.N6.b_v, z2).apply();
                                         } catch (Throwable th3) {
                                             throw th3;
-                                            r2 = "DuoKeyguard";
+                                            // r2 = "DuoKeyguard";  // dead code after throw
 
                                             try {
                                                 transaction2.close();
@@ -5816,7 +5816,7 @@ public final class b extends XposedModule {
                                         SurfaceControl surfaceControl32 = this.N6.b_v;
                                     } catch (Throwable th5) {
                                         throw th5;
-                                        r2 = "DuoKeyguard";
+                                        // r2 = "DuoKeyguard";  // dead code after throw
 
                                         transaction2.close();
                                         throw th;
@@ -5837,7 +5837,7 @@ public final class b extends XposedModule {
             }
         } catch (Throwable th7) {
             throw th7;
-            r2 = "DuoKeyguard";
+            // r2 = "DuoKeyguard";  // dead code after throw
         }
     }
 
