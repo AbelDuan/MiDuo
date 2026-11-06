@@ -3057,14 +3057,14 @@ public final class b extends XposedModule {
 
         ViewTreeObserverOnPreDrawListenerC0037f(View view, Method method) {
             this.a = view;
-            this.b = method;
+            this.b_v = method;
         }
 
         @Override // android.view.ViewTreeObserver.OnPreDrawListener
         public boolean onPreDraw() {
             this.a.getViewTreeObserver().removeOnPreDrawListener(this);
             try {
-                this.b.invoke(this.a, Float.valueOf(1.0f));
+                this.b_v.invoke(this.a, Float.valueOf(1.0f));
                 return true;
             } catch (Throwable th) {
                 Log.e("DuoKeyguard", "Shortcut start position failed", th);
@@ -3474,7 +3474,7 @@ public final class b extends XposedModule {
             boolean z5 = z2 || z3 || z4;
             float f6 = z5 ? 28.0f : g;
             float f7 = z5 ? j_v : h;
-            h0Var.A0.set(49.4f, 97.4f, 146.6f, 194.6f);
+            h0Var.A0_v.set(49.4f, 97.4f, 146.6f, 194.6f);
             int i9 = h0Var.N ? -13318311 : h0Var.M <= 0.2f ? -50384 : h0Var.g0;
             float max = Math.max(0.03f, Math.min(1.0f, h0Var.M));
             if (h0Var.P && h0Var.T) {
@@ -3488,13 +3488,13 @@ public final class b extends XposedModule {
                 i2 = 16777215;
                 i3 = 0;
                 i4 = 1;
-                canvas.drawArc(h0Var.A0, f11, f8, false, h0Var.y0);
+                canvas.drawArc(h0Var.A0_v, f11, f8, false, h0Var.y0);
                 float f12 = degrees + 270.0f;
-                canvas.drawArc(h0Var.A0, f12, f9, false, h0Var.y0);
+                canvas.drawArc(h0Var.A0_v, f12, f9, false, h0Var.y0);
                 h0Var.y0.setColor(i9);
-                canvas.drawArc(h0Var.A0, f11, Math.min(f10, f8), false, h0Var.y0);
+                canvas.drawArc(h0Var.A0_v, f11, Math.min(f10, f8), false, h0Var.y0);
                 if (f10 > f8) {
-                    canvas.drawArc(h0Var.A0, f12, f10 - f8, false, h0Var.y0);
+                    canvas.drawArc(h0Var.A0_v, f12, f10 - f8, false, h0Var.y0);
                 }
                 h0Var.a(canvas, valueOf, o_v, f2, 111.251f);
             } else {
@@ -3504,9 +3504,9 @@ public final class b extends XposedModule {
                 i4 = 1;
                 float f14 = 360.0f - (f13 - f6);
                 h0Var.y0.setColor(i7);
-                canvas.drawArc(h0Var.A0, f13, f14, false, h0Var.y0);
+                canvas.drawArc(h0Var.A0_v, f13, f14, false, h0Var.y0);
                 h0Var.y0.setColor(i9);
-                canvas.drawArc(h0Var.A0, f13, f14 * max, false, h0Var.y0);
+                canvas.drawArc(h0Var.A0_v, f13, f14 * max, false, h0Var.y0);
             }
             if (!z2) {
                 canvas2 = canvas;
@@ -3557,9 +3557,9 @@ public final class b extends XposedModule {
                             float f22 = ((f21 * 2.0f) + 7.8f) * 1.8984374f;
                             h0Var2.z0.setColor(i11 < h0Var2.d0 ? h0Var2.g0 : i7);
                             float f23 = (f21 * 11.295702f) + f20;
-                            h0Var2.A0.set(f23, 154.73282f - f22, f23 + f19, 154.73282f);
+                            h0Var2.A0_v.set(f23, 154.73282f - f22, f23 + f19, 154.73282f);
                             float f24 = 0.3f * f19;
-                            canvas2.drawRoundRect(h0Var2.A0, f24, f24, h0Var2.z0);
+                            canvas2.drawRoundRect(h0Var2.A0_v, f24, f24, h0Var2.z0);
                             i11++;
                         }
                     }
@@ -4057,7 +4057,7 @@ public final class b extends XposedModule {
         final /* synthetic */ Runnable c;
 
         C0047p(h0 h0Var, Runnable runnable) {
-            this.b = h0Var;
+            this.b_v = h0Var;
             this.c = runnable;
         }
 
@@ -4069,7 +4069,7 @@ public final class b extends XposedModule {
         @Override // android.net.ConnectivityManager.NetworkCallback
         public void onCapabilitiesChanged(Network network, NetworkCapabilities networkCapabilities) {
             if (network.equals(this.a)) {
-                this.b.O = networkCapabilities.hasTransport(0);
+                this.b_v.O = networkCapabilities.hasTransport(0);
                 this.c.run();
             }
         }
@@ -4078,7 +4078,7 @@ public final class b extends XposedModule {
         public void onLost(Network network) {
             if (network.equals(this.a)) {
                 this.a = null;
-                this.b.O = false;
+                this.b_v.O = false;
                 this.c.run();
             }
         }
@@ -4303,14 +4303,14 @@ public final class b extends XposedModule {
 
         ServiceConnectionC0057z(Context context, Intent intent) {
             this.a = context;
-            this.b = intent;
+            this.b_v = intent;
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
                 try {
-                    ComponentName startService = this.a.startService(this.b);
+                    ComponentName startService = this.a.startService(this.b_v);
                     if (startService == null) {
                         throw new IllegalStateException("RecorderService unavailable");
                     }
@@ -4613,11 +4613,11 @@ public final class b extends XposedModule {
 
     private void F0() {
         R r2 = this.N6;
-        if (r2 != null && r2.b.isValid() && !this.n3) {
+        if (r2 != null && r2.b_v.isValid() && !this.n3) {
             SurfaceControl.Transaction transaction = new SurfaceControl.Transaction();
             try {
                 R r3 = this.N6;
-                transaction.setPosition(r3.b, c(r3), d(this.N6)).apply();
+                transaction.setPosition(r3.b_v, c(r3), d(this.N6)).apply();
                 transaction.close();
                 this.l4 = false;
             } catch (Throwable th) {
@@ -5057,10 +5057,10 @@ public final class b extends XposedModule {
             return;
         }
         for (K k2 : this.M5.values()) {
-            h0 h0Var = k2.q;
+            h0 h0Var = k2.q_v;
             if (h0Var != null) {
                 h0Var.d(this.W0);
-                k2.q.invalidate();
+                k2.q_v.invalidate();
             }
         }
     }
@@ -6114,7 +6114,7 @@ public final class b extends XposedModule {
             try {
                 SurfaceControl.Transaction transaction = new SurfaceControl.Transaction();
                 try {
-                    transaction.setVisibility(r3.b, false).apply();
+                    transaction.setVisibility(r3.b_v, false).apply();
                     transaction.close();
                 } finally {
                 }
@@ -6206,7 +6206,7 @@ public final class b extends XposedModule {
         this.z1.invalidate();
         for (Q q2 : this.D5) {
             if (q2 != null) {
-                q2.b = i3;
+                q2.b_v = i3;
                 q2.invalidate();
             }
         }
@@ -6325,7 +6325,7 @@ public final class b extends XposedModule {
                 Object obj = arrayList.get(i3);
                 i3++;
                 K k2 = (K) obj;
-                k2.q.invalidate();
+                k2.q_v.invalidate();
                 k2.r_v.invalidate();
                 ArrayList<J> arrayList2 = k2.e;
                 int size2 = arrayList2.size();
@@ -6593,11 +6593,11 @@ public final class b extends XposedModule {
             Object obj = arrayList.get(i2);
             i2++;
             R r3 = (R) obj;
-            if (r3.b.isValid()) {
+            if (r3.b_v.isValid()) {
                 try {
                     SurfaceControl.Transaction transaction = new SurfaceControl.Transaction();
                     try {
-                        transaction.setVisibility(r3.b, false).reparent(r3.b, null).apply();
+                        transaction.setVisibility(r3.b_v, false).reparent(r3.b_v, null).apply();
                         transaction.close();
                     } catch (Throwable th) {
                         try {
@@ -6619,7 +6619,7 @@ public final class b extends XposedModule {
             }
             try {
                 r3.a.release();
-                r3.b.release();
+                r3.b_v.release();
                 i3++;
             } catch (Throwable th5) {
                 this.g4.add(r3);
@@ -6662,7 +6662,7 @@ public final class b extends XposedModule {
         try {
             SurfaceControl.Transaction transaction = new SurfaceControl.Transaction();
             try {
-                transaction.setVisibility(r2.b, false).apply();
+                transaction.setVisibility(r2.b_v, false).apply();
                 transaction.close();
             } finally {
             }
@@ -6891,7 +6891,7 @@ public final class b extends XposedModule {
             this.h3.setLayoutParams(layoutParams2);
             this.y3 = Integer.MIN_VALUE;
         }
-        if (this.n3 && (r2 = this.N6) != null && r2.b.isValid()) {
+        if (this.n3 && (r2 = this.N6) != null && r2.b_v.isValid()) {
             SurfaceControl.Transaction transaction = new SurfaceControl.Transaction();
             try {
                 transaction.setVisibility(this.N6.b_v, false).apply();
@@ -8948,7 +8948,7 @@ public final class b extends XposedModule {
             K k_v = this.r_v;
             int i = x_v;
             if (k_v != null) {
-                ScrollView scrollView = (ScrollView) k_v.j.getParent();
+                ScrollView scrollView = (ScrollView) k_v.j_v.getParent();
                 float G1 = (this.m - (((int[]) dev.duo.workspaceprobe.b.this.P5.get(Integer.valueOf(dev.duo.workspaceprobe.b.this.G1))) == null ? 0 : r7[1])) - dev.duo.workspaceprobe.b.this.G1();
                 if (G1 < 110.0f) {
                     i = -18;
@@ -9082,7 +9082,7 @@ public final class b extends XposedModule {
                 ((e0) this.r_v.j_v.getParent()).a();
             }
             ScrollView scrollView = this.s_v;
-            if ((scrollView instanceof e0) && ((k_v = this.r_v) == null || scrollView != k_v.j.getParent())) {
+            if ((scrollView instanceof e0) && ((k_v = this.r_v) == null || scrollView != k_v.j_v.getParent())) {
                 ((e0) this.s_v).a();
             }
             if (z_v && this.r_v != null && this.t_v >= 0) {
@@ -9395,7 +9395,7 @@ public final class b extends XposedModule {
 
     private void q() {
         i0 i0Var = this.F2.get(this.D2);
-        if (!this.Q2 || this.P2 || !B0() || this.O2 || i0Var == null || !i0Var.b) {
+        if (!this.Q2 || this.P2 || !B0() || this.O2 || i0Var == null || !i0Var.b_v) {
             return;
         }
         final Bundle bundle = new Bundle();
@@ -10181,7 +10181,7 @@ public final class b extends XposedModule {
         if (!v0()) {
             Log.i("DuoSidebar", "Master switch off: native frame connection closed");
             try {
-                o2.b.close();
+                o2.b_v.close();
                 return;
             } catch (IOException e2) {
                 Log.w("DuoSidebar", "Native frame connection not closed", e2);
@@ -10825,10 +10825,10 @@ public final class b extends XposedModule {
             this.h = new ImageView[3];
             this.l_v = -1L;
             this.m = -1L;
-            this.t = -1;
+            this.t_v = -1;
             this.v_v = -1L;
             this.w_v = -1;
-            this.y = -1;
+            this.y_v = -1;
             this.z_v = Float.NaN;
         }
 
@@ -10986,7 +10986,7 @@ public final class b extends XposedModule {
             R[] rArr = {r2, r3};
             for (int i2 = 0; i2 < 2; i2++) {
                 R r4 = rArr[i2];
-                if (!r4.b.isValid()) {
+                if (!r4.b_v.isValid()) {
                     return e("侧栏图层已失效 " + r4.c);
                 }
             }
@@ -11461,7 +11461,7 @@ public final class b extends XposedModule {
         this.s5 = null;
         if (g0Var != null) {
             this.A1.removeCallbacks(g0Var.f);
-            IBinder iBinder = g0Var.b;
+            IBinder iBinder = g0Var.b_v;
             if (iBinder != null) {
                 iBinder.unlinkToDeath(g0Var.g, 0);
             }
@@ -12341,26 +12341,26 @@ public final class b extends XposedModule {
             a(k2, w2, 971.0f, this.R5, 180, c(3), 60.0f);
             w2.setVisibility(4);
             h0 h0Var = new h0(this.i4, false);
-            k2.q = h0Var;
+            k2.q_v = h0Var;
             h0Var.U = true;
             c(h0Var);
             h0 h0Var2 = this.W0;
             if (h0Var2 != null) {
-                k2.q.d(h0Var2);
+                k2.q_v.d(h0Var2);
             }
-            k2.q.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda213
+            k2.q_v.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda213
                 @Override // android.view.View.OnClickListener
                 public final void onClick(View view) {
                     dev.duo.workspaceprobe.b.this.a(k2, view);
                 }
             });
-            k2.q.a(new Consumer() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda214
+            k2.q_v.a(new Consumer() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda214
                 @Override // java.util.function.Consumer
                 public final void accept(Object obj) {
                     dev.duo.workspaceprobe.b.this.b(k2, (View) obj);
                 }
             });
-            a(k2, k2.q, 963.0f, this.I3[1] + T, 205, 420, 0.0f);
+            a(k2, k2.q_v, 963.0f, this.I3[1] + T, 205, 420, 0.0f);
             k2.r_v = new U(this.i4);
             N n2 = new N(50.0f);
             k2.s_v = n2;
@@ -12397,7 +12397,7 @@ public final class b extends XposedModule {
                 }));
                 R r2 = new R("decor_content", k2.c, 963.0f, 0, 205, 1712, 0, 0.0f, 40);
                 k2.b_v = r2;
-                transaction.reparent(r2.b, k2.a).setPosition(k2.b_v.b, 0.0f, 0.0f).setCrop(k2.b_v.b, new Rect(0, 0, 205, 1712)).setLayer(k2.b_v.b, 1).setVisibility(k2.b_v.b, true);
+                transaction.reparent(r2.b_v, k2.a).setPosition(k2.b_v.b, 0.0f, 0.0f).setCrop(k2.b_v.b, new Rect(0, 0, 205, 1712)).setLayer(k2.b_v.b, 1).setVisibility(k2.b_v.b, true);
                 transaction.apply();
                 transaction.close();
                 e(k2);
@@ -12912,8 +12912,8 @@ public final class b extends XposedModule {
             ((N) k2.i.getBackground()).a(i4);
             k2.i.invalidate();
             c0 c0Var = k2.k;
-            boolean z3 = c0Var.b != z2;
-            c0Var.b = z2;
+            boolean z3 = c0Var.b_v != z2;
+            c0Var.b_v = z2;
             c0Var.invalidate();
             if (z3 && this.T3 && dev.duo.hookprobe.J.c(this.S5)) {
                 a(k2);
@@ -14312,7 +14312,7 @@ public final class b extends XposedModule {
         } else {
             if (SystemClock.uptimeMillis() - this.N2 >= 500) {
                 i0 i0Var = this.F2.get(this.D2);
-                if (i0Var == null || !i0Var.b) {
+                if (i0Var == null || !i0Var.b_v) {
                     return;
                 }
                 final int i2 = this.B2;
@@ -15669,7 +15669,7 @@ public final class b extends XposedModule {
                     try {
                         for (R r2 : this.h4) {
                             if (r2 != this.N6 || !this.n3) {
-                                transaction.setVisibility(r2.b, false);
+                                transaction.setVisibility(r2.b_v, false);
                             }
                             r2.a();
                         }
@@ -15711,17 +15711,17 @@ public final class b extends XposedModule {
                 this.l4 = false;
                 for (R r3 : this.h4) {
                     r3.a();
-                    transaction.reparent(r3.b, surfaceControl).setPosition(r3.b, c(r3), d(r3)).setCrop(r3.b, new Rect(0, 0, r3.f, r3.g)).setLayer(r3.b, 1000000).setVisibility(r3.b, true);
-                    float f2 = r3.j;
+                    transaction.reparent(r3.b_v, surfaceControl).setPosition(r3.b_v, c(r3), d(r3)).setCrop(r3.b_v, new Rect(0, 0, r3.f, r3.g)).setLayer(r3.b_v, 1000000).setVisibility(r3.b_v, true);
+                    float f2 = r3.j_v;
                     if (f2 > 0.0f) {
-                        a(transaction, "setCornerRadius", r3.b, Float.valueOf(f2));
+                        a(transaction, "setCornerRadius", r3.b_v, Float.valueOf(f2));
                     }
                     int i2 = r3.i;
                     if (i2 > 0) {
-                        a(transaction, "setBackgroundBlurRadius", r3.b, Integer.valueOf(i2));
+                        a(transaction, "setBackgroundBlurRadius", r3.b_v, Integer.valueOf(i2));
                     }
                     if (this.x5.contains(r3)) {
-                        a(transaction, "setShadowRadius", r3.b, Float.valueOf(8.0f));
+                        a(transaction, "setShadowRadius", r3.b_v, Float.valueOf(8.0f));
                     }
                 }
                 b(transaction, false);
@@ -16164,7 +16164,7 @@ public final class b extends XposedModule {
                 if (childAt.getVisibility() == 0 && (childAt != k2.r_v || this.H3)) {
                     h0 h0Var = k2.q;
                     if (childAt == h0Var) {
-                        if (h0Var.k0) {
+                        if (h0Var.k0_v) {
                             Region c2 = k2.q.c();
                             c2.translate(Math.round(childAt.getX()), Math.round(childAt.getY()));
                             region.op(c2, Region.Op.UNION);
@@ -16247,7 +16247,7 @@ public final class b extends XposedModule {
                 if (!j2) {
                     b(i2, transaction);
                 } else {
-                    k2.t = i2;
+                    k2.t_v = i2;
                     this.M5.put(Integer.valueOf(i2), k2);
                     transaction.reparent(k2.a, l2.b_v).setLayer(k2.a, q0_v);
                     int[] iArr = this.P5.get(Integer.valueOf(i2));
@@ -16335,20 +16335,20 @@ public final class b extends XposedModule {
         }
         boolean z3 = false;
         for (K k2 : this.M5.values()) {
-            k2.q.a(z2 && k2.t == this.G1 && s() && R0());
-            boolean z4 = z2 && d(k2.t);
-            if (k2.y != z4) {
+            k2.q_v.a(z2 && k2.t_v == this.G1 && s() && R0());
+            boolean z4 = z2 && d(k2.t_v);
+            if (k2.y_v != z4) {
                 a(transaction, k2, z4);
                 z3 = true;
             }
             if (z2) {
-                float f2 = this.I6.contains(Integer.valueOf(k2.t)) ? 0.0f : 1.0f;
+                float f2 = this.I6.contains(Integer.valueOf(k2.t_v)) ? 0.0f : 1.0f;
                 if (f2 != k2.z_v) {
                     transaction.setAlpha(k2.a, f2);
                     k2.z_v = f2;
                     z3 = true;
                 }
-                if (k2.t == this.G1 && !this.I1) {
+                if (k2.t_v == this.G1 && !this.I1) {
                     if (k2.v_v != this.H1 && k2.f && (a2 = a(k2.h, G())) >= 0) {
                         k2.u_v = a2;
                         k2.v_v = this.H1;
