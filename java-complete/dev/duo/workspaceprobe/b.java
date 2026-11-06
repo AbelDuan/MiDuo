@@ -596,7 +596,7 @@ public final class b extends XposedModule {
         @Override // java.util.concurrent.ThreadFactory
         public final Thread newThread(Runnable runnable) {
             Thread a2;
-            a2 = b.a(runnable);
+            a2 = dev.duo.workspaceprobe.b.a(runnable);
             return a2;
         }
     });
@@ -604,7 +604,7 @@ public final class b extends XposedModule {
         @Override // java.util.concurrent.ThreadFactory
         public final Thread newThread(Runnable runnable) {
             Thread b2;
-            b2 = b.b(runnable);
+            b2 = dev.duo.workspaceprobe.b.b(runnable);
             return b2;
         }
     });
@@ -762,7 +762,7 @@ public final class b extends XposedModule {
             path.addCircle(68.0f, 68.0f, p, Path.Direction.CW);
             paint2.setColor(33554431);
             paint2.setShadowLayer(7.0f, 0.0f, 2.0f, 335544320);
-            dev.duo.workspaceprobe.n.setBounds(Math.round(10.0f), Math.round(10.0f), Math.round(126.0f), Math.round(126.0f));
+            n.setBounds(Math.round(10.0f), Math.round(10.0f), Math.round(126.0f), Math.round(126.0f));
             paint.setStyle(Paint.Style.STROKE);
             paint.setStrokeWidth(q);
             paint.setStrokeCap(Paint.Cap.ROUND);
@@ -1766,7 +1766,7 @@ public final class b extends XposedModule {
             path.addCircle(68.0f, 68.0f, j, Path.Direction.CW);
             paint.setColor(33554431);
             paint.setShadowLayer(7.0f, 0.0f, 2.0f, 335544320);
-            dev.duo.workspaceprobe.n.setBounds(Math.round(10.0f), Math.round(10.0f), Math.round(126.0f), Math.round(126.0f));
+            n.setBounds(Math.round(10.0f), Math.round(10.0f), Math.round(126.0f), Math.round(126.0f));
             paint2.setStyle(Paint.Style.STROKE);
             paint2.setStrokeWidth(k);
             paint2.setStrokeCap(Paint.Cap.ROUND);
@@ -1942,7 +1942,7 @@ public final class b extends XposedModule {
             this.c = n;
             Paint paint = new Paint(1);
             this.d = paint;
-            dev.duo.workspaceprobe.n.setBounds(Math.round(4.0f), Math.round(4.0f), Math.round(44.0f), Math.round(44.0f));
+            n.setBounds(Math.round(4.0f), Math.round(4.0f), Math.round(44.0f), Math.round(44.0f));
             paint.setStrokeCap(Paint.Cap.ROUND);
             setOnTouchListener(new View.OnTouchListener() { // from class: dev.duo.workspaceprobe.b$S$$ExternalSyntheticLambda0
                 @Override // android.view.View.OnTouchListener
