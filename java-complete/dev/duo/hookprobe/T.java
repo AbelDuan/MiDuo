@@ -634,7 +634,8 @@ final class T {
                     @Override // java.util.function.Function
                     public final Object apply(Object obj) {
                         Object a2;
-                        a2 = dev.duo.hookprobe.T.a((Class<?>) obj);
+                        Class<?> cls2 = obj.getClass();
+                        a2 = dev.duo.hookprobe.T.a(cls2);
                         return a2;
                     }
                 });
@@ -1003,19 +1004,19 @@ final class T {
     }
 
     static void a(TextView textView, boolean z2) {
-        textView.setTextColor(z2 ? o : b);
-        textView.setBackground(a(z2 ? n : f, textView.getMinHeight() / 2.0f));
+        textView.setTextColor(z2 ? o : b_v);
+        textView.setBackground(a(z2 ? n : f_v, textView.getMinHeight() / 2.0f));
     }
 
     static AlertDialog.Builder a(Activity activity, String str) {
-        TextView a2 = a(activity, 20.0f, b, 700);
+        TextView a2 = a(activity, 20.0f, b_v, 700);
         a2.setText(str);
         a2.setPadding(a((Context) activity, 22.0f), a((Context) activity, 22.0f), a((Context) activity, 22.0f), a((Context) activity, 12.0f));
         return new AlertDialog.Builder(activity).setCustomTitle(a2);
     }
 
     static AlertDialog.Builder a(Activity activity, String str, String[] strArr, DialogInterface.OnClickListener onClickListener) {
-        return a(activity, str).setAdapter(new a(activity, ResIds.layout.simple_list_item_1, strArr, activity), onClickListener);
+        return a(activity, str).setAdapter(new RowAdapter(activity, ResIds.layout.simple_list_item_1, strArr, activity), onClickListener);
     }
 
     static void a(AlertDialog alertDialog) {
@@ -1032,8 +1033,8 @@ final class T {
                 button.setAllCaps(false);
                 button.setTextSize(14.0f);
                 button.setTypeface(Typeface.create(Typeface.DEFAULT, c0, false));
-                button.setTextColor(z2 ? o : b);
-                button.setBackground(a(z2 ? n : f, a(context, 18.0f)));
+                button.setTextColor(z2 ? o : b_v);
+                button.setBackground(a(z2 ? n : f_v, a(context, 18.0f)));
                 button.setMinHeight(a(context, 38.0f));
                 button.setPadding(a(context, 14.0f), 0, a(context, 14.0f), 0);
             }
@@ -1047,11 +1048,11 @@ final class T {
 
     static void a(EditText editText) {
         Context context = editText.getContext();
-        editText.setTextColor(b);
+        editText.setTextColor(b_v);
         editText.setHintTextColor(d);
         editText.setTextSize(16.0f);
         editText.setSingleLine(true);
-        editText.setBackground(a(f, a(context, 14.0f)));
+        editText.setBackground(a(f_v, a(context, 14.0f)));
         editText.setPadding(a(context, 14.0f), a(context, 12.0f), a(context, 14.0f), a(context, 12.0f));
     }
 
@@ -1060,7 +1061,7 @@ final class T {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setShape(1);
         gradientDrawable.setColor(l);
-        gradientDrawable.setStroke(Math.max(1, a(context, 0.5f)), a ? 855638016 : 520093696);
+        gradientDrawable.setStroke(Math.max(1, a(context, 0.5f)), a_v ? 855638016 : 520093696);
         gradientDrawable.setSize(a(context, 26.0f), a(context, 26.0f));
         r7.setThumbDrawable(new InsetDrawable((Drawable) gradientDrawable, a(context, 3.0f)));
         GradientDrawable a2 = a(0, a(context, 16.0f));
@@ -1075,13 +1076,13 @@ final class T {
     static void a(SeekBar seekBar) {
         Context context = seekBar.getContext();
         float a2 = a(context, 3.0f);
-        LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{a(a ? 1383495296 : 779515520, a2), new ClipDrawable(a(k, a2), 8388611, 1)});
+        LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{a(a_v ? 1383495296 : 779515520, a2), new ClipDrawable(a(k, a2), 8388611, 1)});
         layerDrawable.setId(0, ResIds.id.background);
         layerDrawable.setId(1, ResIds.id.progress);
         seekBar.setProgressDrawable(layerDrawable);
         seekBar.setMinHeight(a(context, 6.0f));
         seekBar.setMaxHeight(a(context, 6.0f));
-        GradientDrawable a3 = a(a ? -3026474 : -1, a(context, 12.0f));
+        GradientDrawable a3 = a(a_v ? -3026474 : -1, a(context, 12.0f));
         a3.setStroke(Math.max(1, a(context, 0.5f)), 637534208);
         a3.setSize(a(context, 34.0f), a(context, 24.0f));
         seekBar.setThumb(a3);
@@ -1132,7 +1133,7 @@ final class T {
             a5.gravity = 1;
             int i7 = i5;
             int i8 = iArr[i6];
-            int i9 = z5 ? b : c;
+            int i9 = z5 ? b_v : c;
             float f3 = z5 ? 2.2f : f2;
             if (!z5 || i8 == i4) {
                 linearLayout = a4;
@@ -1145,7 +1146,7 @@ final class T {
             LinearLayout linearLayout2 = linearLayout;
             int i10 = i4;
             linearLayout2.addView(a(context, a(context, i8, i9, f4, z2, 22.0f)), a5);
-            TextView a6 = a(context, 11.0f, z5 ? b : c, z5 ? 700 : c0);
+            TextView a6 = a(context, 11.0f, z5 ? b_v : c, z5 ? 700 : c0);
             a6.setText(strArr[i6]);
             a6.setGravity(17);
             LinearLayout.LayoutParams c2 = c();
@@ -1154,7 +1155,7 @@ final class T {
             linearLayout2.addView(a6, c2);
             if (z5) {
                 linearLayout2.setBackground(a(q, a(context, 26.0f)));
-                linearLayout2.setElevation(a ? 0.0f : a(context, 1.5f));
+                linearLayout2.setElevation(a_v ? 0.0f : a(context, 1.5f));
             }
             linearLayout2.setContentDescription(strArr[i6]);
             linearLayout2.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.T$$ExternalSyntheticLambda0

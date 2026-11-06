@@ -109,7 +109,7 @@ public final class MainActivity extends Activity {
     private SeekBar J_fld;
     private Switch J0;
     private Switch K0;
-    private T.e L;
+    private T.e L_fld;
     private TextView L0;
     private TextView M;
     private T.e M0;
@@ -117,7 +117,7 @@ public final class MainActivity extends Activity {
     private int N0;
     private TextView O;
     private f O0;
-    private boolean P;
+    private boolean P_fld;
     private ListView P0;
     private Switch Q;
     private LinearLayout Q0;
@@ -789,9 +789,9 @@ public final class MainActivity extends Activity {
                 dev.duo.hookprobe.MainActivity.this.j(i3);
             }
         });
-        this.L = eVar;
+        this.L_fld = eVar;
         eVar.a(false);
-        u.addView(this.L.a, T.a(T.a(), this, 8.0f));
+        u.addView(this.L_fld.a, T.a(T.a(), this, 8.0f));
         TextView a3 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
         this.M = a3;
         u.addView(a3, T.a(T.a(), this, 12.0f));
@@ -1014,7 +1014,7 @@ public final class MainActivity extends Activity {
     }
 
     private void L() {
-        XposedService c2 = L.c();
+        XposedService c2 = dev.duo.hookprobe.L.c();
         List<String> B = B();
         if (c2 == null || B.isEmpty() || this.c1) {
             return;
@@ -1255,7 +1255,7 @@ public final class MainActivity extends Activity {
         this.H.setProgress(j2 - 1);
         this.G.setText(String.valueOf(j2));
         for (int i2 = 0; i2 < this.K.size(); i2++) {
-            dev.duo.hookprobe.T.a(this.K.get(i2), P.x[i2] == j2);
+            dev.duo.hookprobe.T.a(this.K.get(i2), dev.duo.hookprobe.P.x[i2] == j2);
             this.K.get(i2).setEnabled(!f);
         }
         this.J_fld.setEnabled(!f);
@@ -1263,8 +1263,8 @@ public final class MainActivity extends Activity {
         this.I.setText(String.valueOf(this.p.p()));
         boolean u = this.p.u();
         boolean equals = "black".equals(this.p.k());
-        this.L.a(u ? 2 : equals ? 1 : 0);
-        this.L.a(!f);
+        this.L_fld.a(u ? 2 : equals ? 1 : 0);
+        this.L_fld.a(!f);
         this.M.setText(u ? "浅色模式白色，深色模式黑色；单独设置过的 App 不受影响" : "单独设置过颜色的 App 不受影响");
         this.F.setText(u ? "跟随" : equals ? "黑色" : "白色");
         this.b1 = true;
@@ -1335,8 +1335,8 @@ public final class MainActivity extends Activity {
         this.U.setEnabled(!f && this.p.o());
         this.W.setEnabled(!f);
         this.X.setEnabled(!f);
-        this.N.setEnabled((f || this.P) ? false : true);
-        this.O.setText(this.P ? "正在开启锁屏显示权限…" : "开启时自动允许锁屏显示（需 Root）；权限被关闭后可重新开启");
+        this.N.setEnabled((f || this.P_fld) ? false : true);
+        this.O.setText(this.P_fld ? "正在开启锁屏显示权限…" : "开启时自动允许锁屏显示（需 Root）；权限被关闭后可重新开启");
         this.Y.setEnabled(!f);
         this.c0.setEnabled(!f);
         this.Z.setEnabled((f || e2) ? false : true);
@@ -1656,7 +1656,7 @@ public final class MainActivity extends Activity {
         a3.setText("开合动画（实验性）");
         a2.addView(a3);
         TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
-        String a5 = v.a(this);
+        String a5 = dev.duo.hookprobe.v.a(this);
         this.h1 = a5;
         if (a5 == null) {
             a5 = "切换后要等系统下次启动才用上";
@@ -1770,7 +1770,7 @@ public final class MainActivity extends Activity {
         LinearLayout c2 = dev.duo.hookprobe.T.c(this);
         int i2 = 0;
         while (true) {
-            int[] iArr = P.x;
+            int[] iArr = dev.duo.hookprobe.P.x;
             if (i2 >= iArr.length) {
                 a2.addView(c2);
                 TextView a3 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
@@ -1910,7 +1910,7 @@ public final class MainActivity extends Activity {
             } catch (PackageManager.NameNotFoundException e3) {
             }
         }
-        for (String str3 : P.j) {
+        for (String str3 : dev.duo.hookprobe.P.j) {
             if (!hashSet.contains(str3)) {
                 try {
                     ApplicationInfo applicationInfo3 = packageManager.getApplicationInfo(str3, 0);
@@ -1932,7 +1932,7 @@ public final class MainActivity extends Activity {
             }
         });
         boolean z2 = !i("debug.duo.master").isEmpty();
-        XposedService a2 = L.a(8000L);
+        XposedService a2 = dev.duo.hookprobe.L.a(8000L);
         a aVar = null;
         if (a2 != null) {
             try {
@@ -1941,7 +1941,7 @@ public final class MainActivity extends Activity {
 
                 c0021o = null;
                 c0021o2 = c0021o;
-                valueOf = String.valueOf(th);
+                valueOf = null;
                 HashSet hashSet2 = new HashSet();
                 if (a2 != null) {
                 }
@@ -1960,7 +1960,7 @@ public final class MainActivity extends Activity {
                 iVar.i = new String[]{Build.VERSION.INCREMENTAL, a(packageManager, "com.miui.home"), a(packageManager, "com.miui.personalassistant"), a(packageManager, getPackageName())};
                 if (c0021o2 != null) {
                 }
-                iVar.j = r.a(z);
+                iVar.j = dev.duo.hookprobe.r.a(z);
                 this.m.post(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda65
                     @Override // java.lang.Runnable
                     public final void run() {
@@ -1979,7 +1979,7 @@ public final class MainActivity extends Activity {
             } catch (Throwable th2) {
                 throw th2;
                 c0021o2 = c0021o;
-                valueOf = String.valueOf(th);
+                valueOf = null;
                 HashSet hashSet22 = new HashSet();
                 if (a2 != null) {
                 }
@@ -1999,7 +1999,7 @@ public final class MainActivity extends Activity {
                 if (c0021o2 != null) {
                     z = true;
                 }
-                iVar2.j = r.a(z);
+                iVar2.j = dev.duo.hookprobe.r.a(z);
                 this.m.post(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda65
                     @Override // java.lang.Runnable
                     public final void run() {
@@ -2032,7 +2032,7 @@ public final class MainActivity extends Activity {
         if (c0021o2 != null && c0021o2.e()) {
             z = true;
         }
-        iVar22.j = r.a(z);
+        iVar22.j = dev.duo.hookprobe.r.a(z);
         this.m.post(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda65
             @Override // java.lang.Runnable
             public final void run() {
@@ -2054,7 +2054,7 @@ public final class MainActivity extends Activity {
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        L.d();
+        dev.duo.hookprobe.L.d();
         T.d dVar = new dev.duo.hookprobe.T.d(this);
         this.q = dVar;
         this.t = dVar.e;
@@ -2564,7 +2564,7 @@ public final class MainActivity extends Activity {
         dialog.show();
         dialog.getWindow().setBackgroundDrawable(dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.i, a(24.0f)));
         dialog.getWindow().setLayout(Math.min(getResources().getDisplayMetrics().widthPixels - a(32.0f), a(560.0f)), -2);
-        XposedService c3 = L.c();
+        XposedService c3 = dev.duo.hookprobe.L.c();
         final boolean z = (this.p == null || c3 == null) ? false : true;
         if (!z) {
             j2 = 0;
@@ -3093,7 +3093,7 @@ public final class MainActivity extends Activity {
         if (z) {
             ArrayList arrayList = new ArrayList();
             for (g gVar : this.n) {
-                if (!gVar.d && !P.k.contains(gVar.a) && this.p.m(gVar.a)) {
+                if (!gVar.d && !dev.duo.hookprobe.P.k.contains(gVar.a) && this.p.m(gVar.a)) {
                     arrayList.add(gVar);
                 }
             }
@@ -3299,7 +3299,7 @@ public final class MainActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void f(String str) {
-        this.P = false;
+        this.P_fld = false;
         if (isDestroyed() || isFinishing()) {
             return;
         }
@@ -3341,7 +3341,7 @@ public final class MainActivity extends Activity {
 
     private void p(boolean z) {
         String message;
-        if (this.P) {
+        if (this.P_fld) {
             return;
         }
         if (!z) {
@@ -3355,7 +3355,7 @@ public final class MainActivity extends Activity {
             Toast.makeText(this, message, 0).show();
             return;
         }
-        this.P = true;
+        this.P_fld = true;
         T();
         final o c0021o = this.p;
         c.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda76
@@ -3483,7 +3483,7 @@ public final class MainActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void e(boolean z) {
-        XposedService c2 = L.c();
+        XposedService c2 = dev.duo.hookprobe.L.c();
         if (c2 != null) {
             try {
                 this.Y0 = new HashSet(c2.getScope());
@@ -3808,7 +3808,7 @@ public final class MainActivity extends Activity {
             Iterator it = list.iterator();
             while (it.hasNext()) {
                 g gVar = (g) it.next();
-                if (!gVar.d && !P.k.contains(gVar.a) && c0021o.m(gVar.a)) {
+                if (!gVar.d && !dev.duo.hookprobe.P.k.contains(gVar.a) && c0021o.m(gVar.a)) {
                     arrayList.add(gVar);
                 }
             }
@@ -3871,7 +3871,7 @@ public final class MainActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void d(boolean z) {
-        final r.a a2 = r.a(z);
+        final r.a a2 = dev.duo.hookprobe.r.a(z);
         this.m.post(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda1
             @Override // java.lang.Runnable
             public final void run() {
@@ -4194,7 +4194,7 @@ public final class MainActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void a(o c0021o, boolean z, boolean z2, Set set, String str, String str2, final Dialog dialog, final LinearLayout linearLayout, final boolean z3, final TextView textView, final TextView textView2, final LinearLayout linearLayout2) {
-        final List<r.a> a2 = r.a(this, c0021o, z, z2, set, str, str2);
+        final List<r.a> a2 = dev.duo.hookprobe.r.a(this, c0021o, z, z2, set, str, str2);
         this.m.post(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda66
             @Override // java.lang.Runnable
             public final void run() {
