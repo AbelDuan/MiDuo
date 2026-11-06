@@ -11015,7 +11015,7 @@ public final class b extends XposedModule {
             float f12 = this.I3[2];
             float f13 = S;
             bundle.putFloatArray("innerGeometry", new float[]{2364.0f, 1672.0f, f10, f11, f12 + S + 146.0f, Math.min(this.N6.e, this.z5.e) + 1175.0f + R});
-            ArrayList<? extends Parcelable> arrayList = new ArrayList<>();
+            ArrayList<Parcelable> arrayList = new ArrayList<>();
             bundle.putParcelableArrayList("layers", arrayList);
             try {
                 R[] rArr2 = {this.N6, this.z5};
