@@ -1888,7 +1888,7 @@ public final class b extends XposedModule {
         }
 
         void b() {
-            this.n = true;
+            this.n_v = true;
             try {
                 this.a.release();
             } finally {
@@ -2480,12 +2480,12 @@ public final class b extends XposedModule {
 
         C0034c(int i, ValueAnimator valueAnimator) {
             this.a = i;
-            this.b = valueAnimator;
+            this.b_v = valueAnimator;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            if (dev.duo.workspaceprobe.b.this.m2.get(Integer.valueOf(this.a)) != this.b) {
+            if (dev.duo.workspaceprobe.b.this.m2.get(Integer.valueOf(this.a)) != this.b_v) {
                 return;
             }
             dev.duo.workspaceprobe.b.this.m2.remove(Integer.valueOf(this.a));
