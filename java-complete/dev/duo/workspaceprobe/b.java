@@ -11136,7 +11136,7 @@ public final class b extends XposedModule {
             }
         }
         k2.f = false;
-        int i3 = Color.luminance(k2.t >= 0 ? bVar.u(k2.t) : a) <= 0.45f ? 1 : 0;
+        int i3 = Color.luminance(k2.t_v >= 0 ? bVar.u(k2.t_v) : a) <= 0.45f ? 1 : 0;
         int b2 = b(0);
         int i4 = 0;
         int i5 = -1;
@@ -11193,7 +11193,7 @@ public final class b extends XposedModule {
         }
         k2.d.setVisibility((i5 < 0 || k2.u_v <= 0) ? 4 : 0);
         k2.w_v = -1;
-        if (k2.t >= 0) {
+        if (k2.t_v >= 0) {
             d(k2);
         }
         k2.c.requestLayout();
@@ -12885,7 +12885,7 @@ public final class b extends XposedModule {
     /* JADX WARN: Multi-variable type inference failed */
     /* renamed from: h, reason: merged with bridge method [inline-methods] */
     public void d(K k2) {
-        int i2 = k2.t;
+        int i2 = k2.t_v;
         if (i2 < 0) {
             return;
         }
@@ -12926,7 +12926,7 @@ public final class b extends XposedModule {
             ((N) k2.d.getBackground()).a(i4);
         }
         k2.d.invalidate();
-        h0 h0Var = k2.q;
+        h0 h0Var = k2.q_v;
         if (h0Var != null) {
             h0Var.g0 = i3;
             h0Var.invalidate();
@@ -13387,7 +13387,7 @@ public final class b extends XposedModule {
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void b(K k2, View view) {
         q(view);
-        if (s() && k2.t == this.G1 && R0()) {
+        if (s() && k2.t_v == this.G1 && R0()) {
             z0();
         }
     }
@@ -13499,9 +13499,9 @@ public final class b extends XposedModule {
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void b(K k2) {
         boolean z2;
-        k2.t = -1;
+        k2.t_v = -1;
         k2.v_v = -1L;
-        k2.q.a(false);
+        k2.q_v.a(false);
         synchronized (this.L5) {
             z2 = this.L5.size() < 3;
             if (z2) {
@@ -16096,12 +16096,12 @@ public final class b extends XposedModule {
 
     private static void a(SurfaceControl.Transaction transaction, K k2, boolean z2) {
         transaction.setVisibility(k2.a, z2);
-        k2.y = z2 ? 1 : 0;
+        k2.y_v = z2 ? 1 : 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void a(K k2, View view) {
-        if (s() && k2.t == this.G1 && R0()) {
+        if (s() && k2.t_v == this.G1 && R0()) {
             q(view);
             y0();
         }
@@ -16161,15 +16161,15 @@ public final class b extends XposedModule {
 
     private void a(K k2, Region region) {
         region.setEmpty();
-        if (k2.t == this.G1 && s()) {
+        if (k2.t_v == this.G1 && s()) {
             Rect rect = new Rect();
             for (int i2 = 0; i2 < k2.c.getChildCount(); i2++) {
                 View childAt = k2.c.getChildAt(i2);
                 if (childAt.getVisibility() == 0 && (childAt != k2.r_v || this.H3)) {
-                    h0 h0Var = k2.q;
+                    h0 h0Var = k2.q_v;
                     if (childAt == h0Var) {
                         if (h0Var.k0_v) {
-                            Region c2 = k2.q.c();
+                            Region c2 = k2.q_v.c();
                             c2.translate(Math.round(childAt.getX()), Math.round(childAt.getY()));
                             region.op(c2, Region.Op.UNION);
                         }
@@ -16286,11 +16286,11 @@ public final class b extends XposedModule {
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void a(int i2, L l2, K k2) {
         if (this.N5.get(Integer.valueOf(i2)) == l2 && this.M5.get(Integer.valueOf(i2)) == k2) {
-            k2.q.d(this.W0);
-            k2.q.setY(this.I3[1] + T);
-            c(k2.q);
+            k2.q_v.d(this.W0);
+            k2.q_v.setY(this.I3[1] + T);
+            c(k2.q_v);
             k2.r_v.setVisibility(this.H3 ? 0 : 8);
-            k2.q.invalidate();
+            k2.q_v.invalidate();
             k2.c.requestLayout();
             d(k2);
             P();
