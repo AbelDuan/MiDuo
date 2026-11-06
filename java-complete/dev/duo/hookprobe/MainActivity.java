@@ -471,23 +471,23 @@ public final class MainActivity extends Activity {
             this.c = imageView;
             TextView a = dev.duo.hookprobe.T.a(dev.duo.hookprobe.MainActivity.this, 16.0f, T.b, 600);
             this.d = a;
-            TextView a2 = dev.duo.hookprobe.T.a(dev.duo.hookprobe.MainActivity.this, 12.0f, T.d, J.m);
+            TextView a2 = dev.duo.hookprobe.T.a(dev.duo.hookprobe.MainActivity.this, 12.0f, T.d, dev.duo.hookprobe.J.m);
             this.e = a2;
             TextView a3 = dev.duo.hookprobe.T.a(dev.duo.hookprobe.MainActivity.this, 11.0f, T.b, 600);
             this.f = a3;
             View view = new View(dev.duo.hookprobe.MainActivity.this);
             this.g = view;
-            dev.duo.hookprobe.c.setPadding(dev.duo.hookprobe.MainActivity.this.x, 0, dev.duo.hookprobe.MainActivity.this.x, 0);
-            dev.duo.hookprobe.c.setTag(this);
-            dev.duo.hookprobe.c.addView(c2, dev.duo.hookprobe.T.a());
+            c.setPadding(dev.duo.hookprobe.MainActivity.this.x, 0, dev.duo.hookprobe.MainActivity.this.x, 0);
+            c.setTag(this);
+            c.addView(c2, dev.duo.hookprobe.T.a());
             c2.addView(imageView, dev.duo.hookprobe.T.a(dev.duo.hookprobe.MainActivity.this, 42.0f, 42.0f));
             LinearLayout a4 = dev.duo.hookprobe.T.a((Context) dev.duo.hookprobe.MainActivity.this);
             LinearLayout c3 = dev.duo.hookprobe.T.c(dev.duo.hookprobe.MainActivity.this);
             c3.setPadding(0, dev.duo.hookprobe.MainActivity.this.a(12.0f), dev.duo.hookprobe.MainActivity.this.a(14.0f), dev.duo.hookprobe.MainActivity.this.a(12.0f));
             LinearLayout a5 = dev.duo.hookprobe.T.a((Context) dev.duo.hookprobe.MainActivity.this);
-            dev.duo.hookprobe.a.setSingleLine(true);
+            a.setSingleLine(true);
             TextUtils.TruncateAt truncateAt = TextUtils.TruncateAt.END;
-            dev.duo.hookprobe.a.setEllipsize(truncateAt);
+            a.setEllipsize(truncateAt);
             a5.addView(a);
             a2.setSingleLine(true);
             a2.setEllipsize(truncateAt);
@@ -506,7 +506,7 @@ public final class MainActivity extends Activity {
             view.setBackgroundColor(T.h);
             a4.addView(view, new LinearLayout.LayoutParams(-1, Math.max(1, dev.duo.hookprobe.MainActivity.this.a(0.5f))));
             LinearLayout.LayoutParams b = dev.duo.hookprobe.T.b();
-            dev.duo.hookprobe.b.leftMargin = dev.duo.hookprobe.MainActivity.this.a(12.0f);
+            b.leftMargin = dev.duo.hookprobe.MainActivity.this.a(12.0f);
             c2.addView(a4, b);
         }
     }
@@ -584,7 +584,7 @@ public final class MainActivity extends Activity {
     private int A() {
         int i2 = 0;
         if (this.p != null && this.Z0 == null) {
-            Iterator<String> it = P.o.iterator();
+            Iterator<String> it = dev.duo.hookprobe.P.o.iterator();
             while (it.hasNext()) {
                 if (!this.Y0.contains(it.next())) {
                     i2++;
@@ -620,7 +620,7 @@ public final class MainActivity extends Activity {
         TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
         a3.setText("通知图标");
         a2.addView(a3);
-        TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
+        TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, dev.duo.hookprobe.J.m);
         a4.setText("在时间模块下方显示通知 App 图标，点那一块打开通知中心；关掉后两样都没有");
         a4.setPadding(0, a(3.0f), 0, 0);
         a2.addView(a4);
@@ -655,7 +655,7 @@ public final class MainActivity extends Activity {
         TextView a4 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
         a4.setText("外屏非 Duo 顶栏");
         a3.addView(a4);
-        TextView a5 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
+        TextView a5 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, dev.duo.hookprobe.J.m);
         a5.setText("开启后隐藏未开启 Duo 的 App 原生状态栏；单独设置过的 App 优先");
         a5.setPadding(0, a(3.0f), a(8.0f), 0);
         a3.addView(a5);
@@ -692,7 +692,7 @@ public final class MainActivity extends Activity {
         this.S.setPadding(0, a(12.0f), 0, 0);
         this.T = textViewArr[0];
         this.U = seekBarArr[0];
-        TextView a7 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
+        TextView a7 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, dev.duo.hookprobe.J.m);
         a7.setText("外屏竖屏生效；高度是隐藏状态栏后的顶部留白，单个 App 可单独调整");
         this.S.addView(a7);
         this.S.setVisibility(8);
@@ -708,7 +708,7 @@ public final class MainActivity extends Activity {
         TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
         a3.setText("App 概览");
         a2.addView(a3);
-        TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
+        TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, dev.duo.hookprobe.J.m);
         this.t0 = a4;
         a4.setPadding(0, a(4.0f), 0, 0);
         a2.addView(this.t0);
@@ -750,7 +750,7 @@ public final class MainActivity extends Activity {
         TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
         a3.setText("取色按钮");
         a2.addView(a3);
-        TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
+        TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, dev.duo.hookprobe.J.m);
         a4.setText("取色按钮贴在 App 侧栏搜索键的头顶，在哪个 App 点它就给哪个 App 取色");
         a4.setPadding(0, a(3.0f), 0, 0);
         a2.addView(a4);
@@ -782,7 +782,7 @@ public final class MainActivity extends Activity {
         TextView a2 = dev.duo.hookprobe.T.a(this, 16.0f, T.b, 600);
         a2.setText("外屏侧栏颜色");
         i2.addView(a2);
-        dev.duo.hookprobe.u.addView(i2);
+        u.addView(i2);
         T.e eVar = new dev.duo.hookprobe.T.e(this, new String[]{"白色", "黑色", "跟随系统"}, new int[]{-1, -14869217, 0}, new IntConsumer() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda84
             @Override // java.util.function.IntConsumer
             public final void accept(int i3) {
@@ -791,10 +791,10 @@ public final class MainActivity extends Activity {
         });
         this.L = eVar;
         eVar.a(false);
-        dev.duo.hookprobe.u.addView(this.L.a, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 8.0f));
-        TextView a3 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
+        u.addView(this.L.a, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 8.0f));
+        TextView a3 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, dev.duo.hookprobe.J.m);
         this.M = a3;
-        dev.duo.hookprobe.u.addView(a3, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
+        u.addView(a3, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
         return u;
     }
 
@@ -807,7 +807,7 @@ public final class MainActivity extends Activity {
         TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
         a3.setText("外屏 App 内侧栏自定义");
         a2.addView(a3);
-        TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
+        TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, dev.duo.hookprobe.J.m);
         a4.setText("外屏 App 模式右侧 6 格：拖入返回、主页等动作，自己的 App 或 dock");
         a4.setPadding(0, a(3.0f), 0, 0);
         a2.addView(a4);
@@ -830,7 +830,7 @@ public final class MainActivity extends Activity {
             return;
         }
         if (this.l.compareAndSet(false, true)) {
-            dev.duo.hookprobe.b.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda85
+            b.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda85
                 @Override // java.lang.Runnable
                 public final void run() {
                     dev.duo.hookprobe.MainActivity.this.a(c0021o);
@@ -921,7 +921,7 @@ public final class MainActivity extends Activity {
                     TextView a9 = dev.duo.hookprobe.T.a(this, 20.0f, T.b, 800);
                     a9.setText(hVar.c ? "" : "");
                     a2.addView(a9, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.c(), this, 14.0f));
-                    TextView a10 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
+                    TextView a10 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, dev.duo.hookprobe.J.m);
                     a10.setGravity(17);
                     a10.setLineSpacing(0.0f, 1.3f);
                     a10.setText(hVar.c ? "" : "");
@@ -1114,7 +1114,7 @@ public final class MainActivity extends Activity {
         });
         this.I = textViewArr[0];
         this.J = seekBarArr[0];
-        TextView a3 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
+        TextView a3 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, dev.duo.hookprobe.J.m);
         a3.setText("全局比例只用于已开启 Duo 且未单独设置的 App；未开 Duo 的 App 可在详情页单独缩放，否则保持原样。内屏不受影响（微信内外屏一起缩）");
         a2.addView(a3, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
         return a2;
@@ -1128,7 +1128,7 @@ public final class MainActivity extends Activity {
         TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
         a3.setText("搜索按钮");
         a2.addView(a3);
-        TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
+        TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, dev.duo.hookprobe.J.m);
         a4.setText("在内外屏桌面和应用侧栏显示右下角圆形搜索按钮");
         a4.setPadding(0, a(3.0f), 0, 0);
         a2.addView(a4);
@@ -1204,7 +1204,7 @@ public final class MainActivity extends Activity {
         int size = B().size();
         int A = A();
         boolean z2 = this.p != null && this.V0 && this.Z0 == null && A == 0 && !"未安装".equals(this.X0[2]);
-        boolean z3 = this.X0[1].isEmpty() || dev.duo.hookprobe.h.equals(this.X0[1]);
+        boolean z3 = this.X0[1].isEmpty() || h.equals(this.X0[1]);
         this.r0.setBackground(b((z2 && z3) ? -13326253 : -2543579));
         this.s0.setText(!z2 ? "需要处理" : z3 ? "运行正常" : "版本不对");
         this.z0.setText(this.W0);
@@ -1408,7 +1408,7 @@ public final class MainActivity extends Activity {
         TextView a4 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
         a4.setText("帐篷钟面");
         a3.addView(a4);
-        TextView a5 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
+        TextView a5 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, dev.duo.hookprobe.J.m);
         a5.setText("锁屏摆成帐篷姿势时，在外屏显示常亮钟面");
         a5.setPadding(0, a(3.0f), 0, 0);
         a3.addView(a5);
@@ -1432,7 +1432,7 @@ public final class MainActivity extends Activity {
             }
         });
         a2.addView(c2);
-        TextView a6 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
+        TextView a6 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, dev.duo.hookprobe.J.m);
         this.O = a6;
         a6.setLineSpacing(0.0f, 1.2f);
         this.O.setText("开启时自动允许锁屏显示（需 Root）；权限被关闭后可重新开启");
@@ -1469,12 +1469,12 @@ public final class MainActivity extends Activity {
             }
         });
         i2.addView(this.C);
-        dev.duo.hookprobe.u.addView(i2);
+        u.addView(i2);
         LinearLayout c2 = dev.duo.hookprobe.T.c(this);
         this.D = a(c2, "桌面", 0.0f);
         this.E = a(c2, "外屏比例", 8.0f);
         this.F = a(c2, "侧栏", 8.0f);
-        dev.duo.hookprobe.u.addView(c2, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 14.0f));
+        u.addView(c2, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 14.0f));
         return u;
     }
 
@@ -1490,7 +1490,7 @@ public final class MainActivity extends Activity {
         TextView a4 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
         a4.setText("时钟模块位置");
         a3.addView(a4);
-        TextView a5 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
+        TextView a5 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, dev.duo.hookprobe.J.m);
         a5.setText("时间、电量环和通知图标一起上下移动");
         a5.setPadding(0, a(3.0f), 0, 0);
         a3.addView(a5);
@@ -1572,7 +1572,7 @@ public final class MainActivity extends Activity {
         TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
         a3.setText("小组件");
         a2.addView(a3);
-        TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
+        TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, dev.duo.hookprobe.J.m);
         a4.setText("预览 MiDuo 的桌面小组件，添加到桌面或换照片");
         a4.setPadding(0, a(3.0f), 0, 0);
         a2.addView(a4);
@@ -1602,7 +1602,7 @@ public final class MainActivity extends Activity {
         TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
         a3.setText("工作台");
         a2.addView(a3);
-        TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
+        TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, dev.duo.hookprobe.J.m);
         a4.setText("内屏横放时，在全屏 App 右下角按住再往里拉，进入工作台。关闭后右下角不再响应，正在显示的工作台会退出、当前大窗 App 回到全屏；小米原生分屏不受影响");
         a4.setPadding(0, a(3.0f), 0, 0);
         a2.addView(a4);
@@ -1655,7 +1655,7 @@ public final class MainActivity extends Activity {
         TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
         a3.setText("开合动画（实验性）");
         a2.addView(a3);
-        TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
+        TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, dev.duo.hookprobe.J.m);
         String a5 = v.a(this);
         this.h1 = a5;
         if (a5 == null) {
@@ -1741,7 +1741,7 @@ public final class MainActivity extends Activity {
         TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
         a3.setText("使用说明");
         a2.addView(a3);
-        TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
+        TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, dev.duo.hookprobe.J.m);
         a4.setText("安装要求、注意事项和免责声明");
         a4.setPadding(0, a(3.0f), 0, 0);
         a2.addView(a4);
@@ -1773,7 +1773,7 @@ public final class MainActivity extends Activity {
             int[] iArr = P.x;
             if (i2 >= iArr.length) {
                 a2.addView(c2);
-                TextView a3 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
+                TextView a3 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, dev.duo.hookprobe.J.m);
                 a3.setText("单独设置过的 App 不受影响，App 下次打开时生效");
                 a2.addView(a3, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.a(), this, 12.0f));
                 return a2;
@@ -2089,10 +2089,10 @@ public final class MainActivity extends Activity {
         if (iVar != null) {
             a(iVar);
         } else if (1 != 0) {
-            dev.duo.hookprobe.a.execute(new MainActivity$$ExternalSyntheticLambda13(this));
+            a.execute(new MainActivity$$ExternalSyntheticLambda13(this));
         }
         if (bundle == null && 1 != 0) {
-            dev.duo.hookprobe.a.execute(new MainActivity$$ExternalSyntheticLambda14());
+            a.execute(new MainActivity$$ExternalSyntheticLambda14());
         }
         if (iVar != null || 1 != 0) {
             this.f1 = true;
@@ -2121,7 +2121,7 @@ public final class MainActivity extends Activity {
         if (this.p == null || !this.f1) {
             return;
         }
-        dev.duo.hookprobe.a.execute(new MainActivity$$ExternalSyntheticLambda13(this));
+        a.execute(new MainActivity$$ExternalSyntheticLambda13(this));
     }
 
     @Override // android.app.Activity
@@ -2325,7 +2325,7 @@ public final class MainActivity extends Activity {
         TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
         a3.setText("图标");
         a2.addView(a3);
-        TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
+        TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, dev.duo.hookprobe.J.m);
         a4.setText("从 MTZ 导入图标，或恢复原备份");
         a4.setPadding(0, a(3.0f), 0, 0);
         a2.addView(a4);
@@ -2348,7 +2348,7 @@ public final class MainActivity extends Activity {
         TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
         a3.setText("内屏原生顶栏");
         a2.addView(a3);
-        TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
+        TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, dev.duo.hookprobe.J.m);
         a4.setText("开启后内屏显示小米原厂顶栏（时间、电量、通知），往下拉交给系统；每个 App 可在详情里单独设置");
         a4.setPadding(0, a(3.0f), a(8.0f), 0);
         a2.addView(a4);
@@ -2383,7 +2383,7 @@ public final class MainActivity extends Activity {
         MainActivity mainActivity;
         LinearLayout u = u();
         if (z) {
-            dev.duo.hookprobe.u.setPadding(a(18.0f), 0, a(18.0f), 0);
+            u.setPadding(a(18.0f), 0, a(18.0f), 0);
         }
         LinearLayout i2 = i();
         if (z) {
@@ -2399,7 +2399,7 @@ public final class MainActivity extends Activity {
         TextView a3 = dev.duo.hookprobe.T.a(this, 13.0f, T.d, 500);
         this.s0 = a3;
         i2.addView(a3);
-        dev.duo.hookprobe.u.addView(i2);
+        u.addView(i2);
         this.y0 = dev.duo.hookprobe.T.a((Context) this);
         if (!z) {
             mainActivity = this;
@@ -2452,7 +2452,7 @@ public final class MainActivity extends Activity {
         if (z) {
             mainActivity.y0.addView(new View(this), new LinearLayout.LayoutParams(-1, a(14.0f)));
         }
-        dev.duo.hookprobe.u.addView(mainActivity.y0);
+        u.addView(mainActivity.y0);
         return u;
     }
 
@@ -2464,7 +2464,7 @@ public final class MainActivity extends Activity {
         TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
         a3.setText("5G 新样式");
         a2.addView(a3);
-        TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
+        TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, dev.duo.hookprobe.J.m);
         a4.setText("用流量时圆环中间显示信号格，缺口处写网络类型");
         a4.setPadding(0, a(3.0f), 0, 0);
         a2.addView(a4);
@@ -2579,7 +2579,7 @@ public final class MainActivity extends Activity {
         }
         final Set<String> set = this.Y0;
         final String str2 = this.Z0;
-        final Future<?> submit = dev.duo.hookprobe.c.submit(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda4
+        final Future<?> submit = c.submit(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda4
             @Override // java.lang.Runnable
             public final void run() {
                 dev.duo.hookprobe.MainActivity.this.a(z, str, i2, j2, set, str2, dialog, a5, a4, a6);
@@ -2766,7 +2766,7 @@ public final class MainActivity extends Activity {
         TextView a4 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
         a4.setText("新应用默认开 Duo");
         a3.addView(a4);
-        TextView a5 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
+        TextView a5 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, dev.duo.hookprobe.J.m);
         a5.setText("只影响还没单独设过的应用。打开时会把它们打开；关掉后，已经打开的不变");
         a5.setPadding(0, a(3.0f), a(8.0f), 0);
         a3.addView(a5);
@@ -2944,7 +2944,7 @@ public final class MainActivity extends Activity {
         final Set<String> set = this.Y0;
         final String str = this.Z0;
         final String str2 = this.X0[2];
-        final Future<?> submit = dev.duo.hookprobe.c.submit(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda18
+        final Future<?> submit = c.submit(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda18
             @Override // java.lang.Runnable
             public final void run() {
                 dev.duo.hookprobe.MainActivity.this.a(c0021o, z, z2, set, str, str2, dialog, a5, z3, a4, a6, c2);
@@ -3130,7 +3130,7 @@ public final class MainActivity extends Activity {
         } else {
             Toast.makeText(this, "已保存，系统下次启动时用上", 0).show();
             T();
-            dev.duo.hookprobe.a.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda16
+            a.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda16
                 @Override // java.lang.Runnable
                 public final void run() {
                     dev.duo.hookprobe.MainActivity.this.d(z);
@@ -3217,7 +3217,7 @@ public final class MainActivity extends Activity {
         if (c0021o == null) {
             return;
         }
-        dev.duo.hookprobe.b.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda26
+        b.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda26
             @Override // java.lang.Runnable
             public final void run() {
                 dev.duo.hookprobe.MainActivity.this.a(str, c0021o);
@@ -3281,7 +3281,7 @@ public final class MainActivity extends Activity {
         a4.setText(str2);
         a4.setPadding(a(2.0f), a(8.0f), 0, 0);
         i4.addView(a4);
-        dev.duo.hookprobe.u.addView(i4);
+        u.addView(i4);
         SeekBar seekBar = new SeekBar(this);
         dev.duo.hookprobe.T.a(seekBar);
         seekBar.setMax(i3 - i2);
@@ -3291,7 +3291,7 @@ public final class MainActivity extends Activity {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, a(44.0f));
         layoutParams.leftMargin = -a(17.0f);
         layoutParams.rightMargin = -a(17.0f);
-        dev.duo.hookprobe.u.addView(seekBar, layoutParams);
+        u.addView(seekBar, layoutParams);
         textViewArr[0] = a3;
         seekBarArr[0] = seekBar;
         return u;
@@ -3308,7 +3308,7 @@ public final class MainActivity extends Activity {
     }
 
     private void g(final boolean z) {
-        dev.duo.hookprobe.c.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda21
+        c.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda21
             @Override // java.lang.Runnable
             public final void run() {
                 dev.duo.hookprobe.MainActivity.this.c(z);
@@ -3358,7 +3358,7 @@ public final class MainActivity extends Activity {
         this.P = true;
         T();
         final o c0021o = this.p;
-        dev.duo.hookprobe.c.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda76
+        c.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda76
             @Override // java.lang.Runnable
             public final void run() {
                 dev.duo.hookprobe.MainActivity.this.b(c0021o);
@@ -3526,7 +3526,7 @@ public final class MainActivity extends Activity {
         TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
         a3.setText(str);
         a2.addView(a3);
-        TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
+        TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, dev.duo.hookprobe.J.m);
         a4.setText(str2);
         a4.setPadding(0, a(3.0f), 0, 0);
         a2.addView(a4);
@@ -3839,7 +3839,7 @@ public final class MainActivity extends Activity {
         String[] strArr = iVar.i;
         this.X0 = strArr;
         this.B0.setText(strArr[0]);
-        boolean equals = dev.duo.hookprobe.h.equals(this.X0[1]);
+        boolean equals = h.equals(this.X0[1]);
         boolean equals2 = "未安装".equals(this.X0[2]);
         this.C0.setText(equals ? this.X0[1] : this.X0[1] + " · 需 " + h);
         this.C0.setTextColor(equals ? T.b : -2543579);
@@ -3973,7 +3973,7 @@ public final class MainActivity extends Activity {
             return;
         }
         textView.setEnabled(false);
-        dev.duo.hookprobe.b.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda72
+        b.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda72
             @Override // java.lang.Runnable
             public final void run() {
                 dev.duo.hookprobe.MainActivity.this.a(c0021o, textView);
@@ -3988,7 +3988,7 @@ public final class MainActivity extends Activity {
         if (str2 != null) {
             startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str2)));
         } else {
-            dev.duo.hookprobe.a.execute(new MainActivity$$ExternalSyntheticLambda13(this));
+            a.execute(new MainActivity$$ExternalSyntheticLambda13(this));
         }
     }
 
@@ -4133,7 +4133,7 @@ public final class MainActivity extends Activity {
         R();
         a0();
         final o c0021o = this.p;
-        dev.duo.hookprobe.a.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda56
+        a.execute(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda56
             @Override // java.lang.Runnable
             public final void run() {
                 dev.duo.hookprobe.MainActivity.this.a(z2, c0021o, z, list);
