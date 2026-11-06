@@ -1329,9 +1329,9 @@
     :try_start_f
     const-string v4, "share"
 
-    const/4 v0, 0x0
+    new-instance v0, Lorg/json/JSONObject;
 
-
+    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
 
     invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 
