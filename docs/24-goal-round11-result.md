@@ -139,3 +139,31 @@ lib/libduoworkspace.so  4K 对齐
 - **A**：继续攻 `b.java`——按 smali 逐条修 465 个错误，预计 20+ 轮
 - **B**：接受当前状态——Java 源码 99.2% 可编译，出包走 smali
 - **C**：混合——用 Vineflower 重新反编译这一个类（第 1 轮实测 Vineflower 对超大类的失败率 2.42%，可能优于 jadx 的错误率）
+
+---
+
+## 补充：选项 C（Vineflower 重反编译）已实测不可行
+
+本轮试了 Vineflower 1.12.0 重新反编译 `dev/duo/workspaceprobe/b.class`：
+
+```
+java -jar vineflower-1.12.jar --only="dev.duo.workspaceprobe.b" miduo-dex2jar.jar vf-b
+```
+
+结果：
+- 加载了全部 1326 个类（日志正常）
+- **退出码 0，但输出目录为空**
+- 加 `--file` 显式指定输出文件，同样无输出
+- 加 `--silent` 后 stderr 为空
+
+这与第 1 轮的记录一致：Vineflower 在这 4 个最大类上会 NPE 崩溃（`VarDefinitionHelper`），且崩溃时不报错、静默跳过。
+
+**结论：选项 C 不可行。**
+
+## 三个选项的实测状态
+
+| 选项 | 状态 |
+|---|---|
+| A. 继续攻 b.java（按 smali 逐条修 465 个） | 可行，预计 20+ 轮 |
+| B. 接受当前状态（120/121 文件，出包走 smali） | **可立即交付** |
+| C. Vineflower 重反编译 | **本轮实测不可行**（静默崩溃） |
