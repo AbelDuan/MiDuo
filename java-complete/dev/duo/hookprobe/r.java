@@ -72,14 +72,14 @@ final class r {
         if (a3 == null) {
             a3 = "与适配版本一致";
         }
-        arrayList.add(new a("系统与小米桌面版本", i3, a3));
+        arrayList.add(new r.a("系统与小米桌面版本", i3, a3));
         boolean equals = "未安装".equals(str2);
-        arrayList.add(new a("智能助理", !equals ? 0 : 2, !equals ? str2 + "；不限定版本号" : "未安装，请先安装智能助理"));
+        arrayList.add(new r.a("智能助理", !equals ? 0 : 2, !equals ? str2 + "；不限定版本号" : "未安装，请先安装智能助理"));
         if (c0021o == null) {
-            arrayList.add(new a("LSPosed", 2, "未连接，请在 LSPosed 中启用 MiDuo"));
+            arrayList.add(new r.a("LSPosed", 2, "未连接，请在 LSPosed 中启用 MiDuo"));
             i2 = 0;
         } else if (str != null) {
-            arrayList.add(new a("LSPosed 作用域", 2, "读取失败（" + str + "）"));
+            arrayList.add(new r.a("LSPosed 作用域", 2, "读取失败（" + str + "）"));
             i2 = 0;
         } else {
             ArrayList arrayList2 = new ArrayList();
@@ -102,30 +102,30 @@ final class r {
                 i2 = 0;
                 str3 = "缺少" + String.join("、", arrayList2) + "，可在首页诊断信息里补齐";
             }
-            arrayList.add(new a("LSPosed 作用域", i5, str3));
+            arrayList.add(new r.a("LSPosed 作用域", i5, str3));
         }
         int i6 = (c0021o != null && c0021o.m() && z && z2) ? 1 : i2;
-        arrayList.add(new a("MiDuo 总开关", i6 != 0 ? i2 : 2, i6 != 0 ? "运行中" : c0021o == null ? "未连接 LSPosed" : !z2 ? "试用已结束，购买后可继续使用" : !z ? "需要重启手机一次后才能使用" : "请先在首页打开 MiDuo"));
+        arrayList.add(new r.a("MiDuo 总开关", i6 != 0 ? i2 : 2, i6 != 0 ? "运行中" : c0021o == null ? "未连接 LSPosed" : !z2 ? "试用已结束，购买后可继续使用" : !z ? "需要重启手机一次后才能使用" : "请先在首页打开 MiDuo"));
         if (c0021o != null && c0021o.g()) {
-            arrayList.add(new a("轻折分屏", 1, "打开开合动画后轻折分屏会暂停（两者都靠开合手势，会互相干扰）；关闭开合动画即恢复"));
+            arrayList.add(new r.a("轻折分屏", 1, "打开开合动画后轻折分屏会暂停（两者都靠开合手势，会互相干扰）；关闭开合动画即恢复"));
         }
         try {
             StringBuilder append = new StringBuilder().append("id -u; echo @@; dumpsys display | grep -o 'local:[0-9]*' | sort -u; echo @@; base64 /data/adb/lspd/config/modules_config.db 2>/dev/null; echo @@; test -f /data/adb/lspd/config/modules_config.db-wal && base64 /data/adb/lspd/config/modules_config.db-wal; echo @@; cat ");
             String str7 = j;
             String[] split = b(append.append(str7).append("small_home.xml 2>/dev/null; echo @@; cat ").append(str7).append("home.xml 2>/dev/null; true").toString()).split("@@\n", -1);
             if (!"0".equals(split[i2].trim())) {
-                arrayList.add(new a("Root 权限", 2, "su 返回的不是 root 身份（uid " + split[i2].trim() + "）"));
-                arrayList.add(new a("LSPosed 登记的安装包", 2, i));
-                arrayList.add(new a("内外屏", 2, i));
-                arrayList.add(new a("壁纸", 1, i));
-                arrayList.add(new a("关键接口与传感器数据", 2, i));
+                arrayList.add(new r.a("Root 权限", 2, "su 返回的不是 root 身份（uid " + split[i2].trim() + "）"));
+                arrayList.add(new r.a("LSPosed 登记的安装包", 2, i));
+                arrayList.add(new r.a("内外屏", 2, i));
+                arrayList.add(new r.a("壁纸", 1, i));
+                arrayList.add(new r.a("关键接口与传感器数据", 2, i));
                 return arrayList;
             }
-            arrayList.add(new a("Root 权限", i2, "已允许"));
+            arrayList.add(new r.a("Root 权限", i2, "已允许"));
             String str8 = context.getApplicationInfo().sourceDir;
             if (split[2].trim().isEmpty()) {
                 Throwable ex = null;
-                arrayList.add(new a("LSPosed 登记的安装包", 2, "读不到 LSPosed 配置（/data/adb/lspd/config/modules_config.db）"));
+                arrayList.add(new r.a("LSPosed 登记的安装包", 2, "读不到 LSPosed 配置（/data/adb/lspd/config/modules_config.db）"));
                 str5 = null;
             } else {
                 try {
@@ -139,15 +139,15 @@ final class r {
                 try {
                     if (str8.equals(a2)) {
                         str5 = null;
-                        aVar = new a("LSPosed 登记的安装包", 0, "与当前安装一致");
+                        aVar = new r.a("LSPosed 登记的安装包", 0, "与当前安装一致");
                     } else {
                         str5 = null;
-                        aVar = new a("LSPosed 登记的安装包", 2, a2 == null ? "LSPosed 里没有 MiDuo" : "LSPosed 还没登记刚装的新版本，现在软重启会加载不到 MiDuo；请打开 LSPosed 管理器或稍等后再检查");
+                        aVar = new r.a("LSPosed 登记的安装包", 2, a2 == null ? "LSPosed 里没有 MiDuo" : "LSPosed 还没登记刚装的新版本，现在软重启会加载不到 MiDuo；请打开 LSPosed 管理器或稍等后再检查");
                     }
                     arrayList.add(aVar);
                 } catch (Exception e3) {
                     Throwable th = e3;
-                    arrayList.add(new a("LSPosed 登记的安装包", 2, "读取 LSPosed 配置失败（" + th.getMessage() + "）"));
+                    arrayList.add(new r.a("LSPosed 登记的安装包", 2, "读取 LSPosed 配置失败（" + th.getMessage() + "）"));
                     List asList = Arrays.asList(split[1].split("\n"));
                     contains = asList.contains(f);
                     contains2 = asList.contains(g);
@@ -156,7 +156,7 @@ final class r {
                     if (contains) {
                     }
                     str6 = "没找到" + (!contains ? "外屏" : contains2 ? "内屏" : "内屏和外屏") + "：屏幕编号与适配的手机不同";
-                    arrayList.add(new a("内外屏", r12, str6));
+                    arrayList.add(new r.a("内外屏", r12, str6));
                     a(context, arrayList);
                     arrayList.add(a(split[4], split[5]));
                     return arrayList;
@@ -171,7 +171,7 @@ final class r {
             } else {
                 str6 = "内屏、外屏都已识别";
             }
-            arrayList.add(new a("内外屏", r12, str6));
+            arrayList.add(new r.a("内外屏", r12, str6));
             a(context, arrayList);
             arrayList.add(a(split[4], split[5]));
             return arrayList;
@@ -181,11 +181,11 @@ final class r {
             } else {
                 str4 = "未获得 Root，请在 Root 管理器里允许 MiDuo" + ((e4.getMessage() == null || e4.getMessage().isEmpty()) ? "" : "（" + e4.getMessage() + "）");
             }
-            arrayList.add(new a("Root 权限", 2, str4));
-            arrayList.add(new a("LSPosed 登记的安装包", 2, i));
-            arrayList.add(new a("内外屏", 2, i));
-            arrayList.add(new a("壁纸", 1, i));
-            arrayList.add(new a("关键接口与传感器数据", 2, i));
+            arrayList.add(new r.a("Root 权限", 2, str4));
+            arrayList.add(new r.a("LSPosed 登记的安装包", 2, i));
+            arrayList.add(new r.a("内外屏", 2, i));
+            arrayList.add(new r.a("壁纸", 1, i));
+            arrayList.add(new r.a("关键接口与传感器数据", 2, i));
             return arrayList;
         }
     }
@@ -208,7 +208,7 @@ final class r {
                     JSONArray jSONArray2 = jSONArray.getJSONArray(i2);
                     int i3 = jSONArray2.getInt(1);
                     if (i3 >= 0 && i3 <= 2) {
-                        arrayList.add(new a(jSONArray2.getString(0), i3, jSONArray2.getString(2)));
+                        arrayList.add(new r.a(jSONArray2.getString(0), i3, jSONArray2.getString(2)));
                     } else {
                         throw new IllegalStateException("检测状态无效");
                     }
@@ -223,7 +223,7 @@ final class r {
             if (message == null || message.trim().isEmpty()) {
                 message = "检测未完成或超过8秒";
             }
-            list.add(new a("关键接口与传感器数据", 2, append.append(message).toString()));
+            list.add(new r.a("关键接口与传感器数据", 2, append.append(message).toString()));
         }
     }
 
@@ -231,16 +231,16 @@ final class r {
         String str3;
         try {
             String str4 = null;
-            String a2 = str.trim().isEmpty() ? null : dev.duo.hookprobe.i.a(new ByteArrayInputStream(str.getBytes(StandardCharsets.UTF_8)), 4);
+            String a2 = str.trim().isEmpty() ? null : dev.duo.fold.i.a(new ByteArrayInputStream(str.getBytes(StandardCharsets.UTF_8)), 4);
             if (!str2.trim().isEmpty()) {
-                str4 = dev.duo.hookprobe.i.a(new ByteArrayInputStream(str2.getBytes(StandardCharsets.UTF_8)), 1);
+                str4 = dev.duo.fold.i.a(new ByteArrayInputStream(str2.getBytes(StandardCharsets.UTF_8)), 1);
             }
             if (a2 != null && str4 != null) {
                 String trim = b("test -r " + a(a2) + " && test -r " + a(str4) + " || { echo unreadable; exit 0; }; cmp -s " + a(a2) + " " + a(str4) + " && echo same || echo different").trim();
                 if ("same".equals(trim)) {
-                    return new a("壁纸", 0, "内外屏是同一张静态图片");
+                    return new r.a("壁纸", 0, "内外屏是同一张静态图片");
                 }
-                return new a("壁纸", 1, ("unreadable".equals(trim) ? "读不到壁纸原图" : "内外屏是两张不同的图片") + k + "内外屏换成同一张静态图片即可");
+                return new r.a("壁纸", 1, ("unreadable".equals(trim) ? "读不到壁纸原图" : "内外屏是两张不同的图片") + k + "内外屏换成同一张静态图片即可");
             }
             StringBuilder sb = new StringBuilder();
             if (a2 == null && str4 == null) {
@@ -250,9 +250,9 @@ final class r {
             } else {
                 str3 = "内屏";
             }
-            return new a("壁纸", 1, sb.append(str3).append("不是静态图片壁纸（动态、带特效或模糊）").append(k).append("内外屏换成同一张静态图片即可").toString());
+            return new r.a("壁纸", 1, sb.append(str3).append("不是静态图片壁纸（动态、带特效或模糊）").append(k).append("内外屏换成同一张静态图片即可").toString());
         } catch (Exception e2) {
-            return new a("壁纸", 1, "壁纸检查失败（" + e2.getMessage() + "）");
+            return new r.a("壁纸", 1, "壁纸检查失败（" + e2.getMessage() + "）");
         }
     }
 
@@ -263,18 +263,18 @@ final class r {
     static a a(boolean z) {
         boolean equals = "247".equals(dev.duo.hookprobe.MainActivity.i("debug.duo.foldanim"));
         if (!z) {
-            return new a("开合动画", 0, equals ? "已关闭，系统端许可仍在加载状态" : "已关闭");
+            return new r.a("开合动画", 0, equals ? "已关闭，系统端许可仍在加载状态" : "已关闭");
         }
         if (!equals) {
-            return new a("开合动画", 1, "已打开，系统端许可尚未加载");
+            return new r.a("开合动画", 1, "已打开，系统端许可尚未加载");
         }
         try {
             if (b("pgrep -f '^MiDuoFoldEngine'; true").trim().isEmpty()) {
-                return new a("开合动画", 2, "引擎未运行");
+                return new r.a("开合动画", 2, "引擎未运行");
             }
-            return new a("开合动画", 1, "引擎运行中，实际动画效果尚未确认");
+            return new r.a("开合动画", 1, "引擎运行中，实际动画效果尚未确认");
         } catch (Exception e2) {
-            return new a("开合动画", 2, "无法检查（未获得 Root）");
+            return new r.a("开合动画", 2, "无法检查（未获得 Root）");
         }
     }
 

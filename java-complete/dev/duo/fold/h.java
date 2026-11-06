@@ -137,7 +137,7 @@ final class h {
                 }
             } catch (Throwable th5) {
                 this.e[i] = (SurfaceControl[]) arrayList2.toArray(new SurfaceControl[0]);
-                throw th5;
+                throw new RuntimeException(th5);
             }
         } else {
             throw new IllegalStateException("分层坐标与输入尺寸不符");
@@ -237,7 +237,7 @@ final class h {
             }
         }
         if (e != null) {
-            throw e;
+            throw new RuntimeException(e);
         }
     }
 }
