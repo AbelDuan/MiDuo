@@ -233,7 +233,7 @@ final class r {
             String str4 = null;
             String a2 = str.trim().isEmpty() ? null : i.a(new ByteArrayInputStream(str.getBytes(StandardCharsets.UTF_8)), 4);
             if (!str2.trim().isEmpty()) {
-                str4 = i.a(new ByteArrayInputStream(str2.getBytes(StandardCharsets.UTF_8)), 1);
+                str4 = dev.duo.hookprobe.i.a(new ByteArrayInputStream(str2.getBytes(StandardCharsets.UTF_8)), 1);
             }
             if (a2 != null && str4 != null) {
                 String trim = b("test -r " + a(a2) + " && test -r " + a(str4) + " || { echo unreadable; exit 0; }; cmp -s " + a(a2) + " " + a(str4) + " && echo same || echo different").trim();

@@ -86,7 +86,7 @@ final class Q {
                     Constructor<?> constructor2 = this.l;
                     if (constructor2 != null) {
                         valueAt = constructor2.newInstance(valueAt);
-                        sparseArray.setValueAt(i4, valueAt);
+                        ((android.util.SparseArray) sparseArray).setValueAt(i4, valueAt);
                     }
                     this.g.invoke(valueAt, rect2);
                     this.h.invoke(valueAt, rect);
@@ -95,7 +95,7 @@ final class Q {
             this.g.invoke(obj2, rect2);
             this.i.invoke(obj2, Boolean.TRUE);
             this.h.invoke(obj2, rect);
-            sparseArray.put(this.m, obj2);
+            ((android.util.SparseArray) sparseArray).put(this.m, obj2);
             this.d.invoke(obj, displayCutout2);
             return;
         }
@@ -107,7 +107,7 @@ final class Q {
                 Constructor<?> constructor3 = this.l;
                 if (constructor3 != null) {
                     valueAt2 = constructor3.newInstance(valueAt2);
-                    sparseArray.setValueAt(size, valueAt2);
+                    ((android.util.SparseArray) sparseArray).setValueAt(size, valueAt2);
                 }
                 this.g.invoke(valueAt2, new Rect(0, 0, rect.width(), i));
             } else if (intValue == WindowInsets.Type.displayCutout()) {
@@ -116,7 +116,7 @@ final class Q {
                     Constructor<?> constructor4 = this.l;
                     if (constructor4 != null) {
                         valueAt2 = constructor4.newInstance(valueAt2);
-                        sparseArray.setValueAt(size, valueAt2);
+                        ((android.util.SparseArray) sparseArray).setValueAt(size, valueAt2);
                     }
                     Method method = this.g;
                     int i6 = rect3.left;

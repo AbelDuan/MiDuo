@@ -337,7 +337,7 @@ public final class BugCaptureService extends Service {
                     }
                 }
                 append.append("MiDuo全局设置(").append(treeMap.size()).append(")：");
-                for (Map.Entry entry2 : treeMap.entrySet()) {
+                for (Object entry2 : ((java.util.Map) treeMap).entrySet()) {
                     append.append(((String) entry2.getKey()).substring(8)).append('=').append(entry2.getValue()).append(' ');
                 }
                 append.append('\n');
