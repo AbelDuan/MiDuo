@@ -673,17 +673,6 @@ public final class G extends XposedModule {
             i2 = i4;
             i4 = i3;
             throw th3;
-            i4 = i2;
-            spFinal = sharedPreferences;
-            if ("com.tencent.mm".equals(str)) {
-            }
-            this.f = i3;
-            this.g = i4;
-            Log.i(i, "CONFIG package=" + str + " process=" + this.a + " enabled=" + z2 + " topSafePxInner=" + i3 + " topSafePxOuter=" + i4);
-            if (z2) {
-                e();
-            }
-            return;
         }
         if ("com.tencent.mm".equals(str)) {
             a(classLoader, str, spFinal);
