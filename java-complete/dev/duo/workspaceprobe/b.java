@@ -6954,6 +6954,7 @@ public final class b extends XposedModule {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onPackageLoaded(XposedModuleInterface.PackageLoadedParam packageLoadedParam) {
+        Exception exc = null;
         String str;
         Method method;
         int i2;
@@ -7126,17 +7127,17 @@ public final class b extends XposedModule {
                 k(defaultClassLoader);
                 str = "DuoWallpaper";
             } catch (ReflectiveOperationException e2) {
-                e = e2;
+                exc = e2;
                 str = "DuoWallpaper";
             }
             try {
                 Log.w(str, "Home-only Shell background hooks ready; fix defaults off");
             } catch (ReflectiveOperationException e3) {
-                e = e3;
-                Log.w(str, "Unsupported Shell entry; no wallpaper fix installed", e);
+                exc = e3;
+                Log.w(str, "Unsupported Shell entry; no wallpaper fix installed", exc);
             }
         } catch (ReflectiveOperationException e4) {
-            e = e4;
+            exc = e4;
             str = "DuoWallpaper";
         }
     }
@@ -11078,8 +11079,7 @@ public final class b extends XposedModule {
                             bundle2.putFloat("alpha", f19);
                             bundle2.putFloat("scale", r7 == this.z5 ? (f19 * 0.06f) + 0.94f : 1.0f);
                         } catch (ReflectiveOperationException | RuntimeException e2) {
-                            e = e2;
-                            Exception exc = e;
+                            Exception exc = e2;
                             try {
                                 a(bundle, z2);
                                 throw exc;
