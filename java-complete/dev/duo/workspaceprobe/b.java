@@ -187,7 +187,7 @@ import java.util.function.Predicate;
 import java.util.function.ToIntFunction;
 
 /* loaded from: C:\Users\Abel\.dsh\folk-import\projects\miduo-re\_work\dex\classes.dex */
-public final class b_v extends XposedModule {
+public final class b extends XposedModule {
     private static final int A = 12;
     private static final int A0_v= 10;
     private static final int B = 96;
