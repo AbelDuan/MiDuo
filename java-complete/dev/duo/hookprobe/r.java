@@ -231,7 +231,7 @@ final class r {
         String str3;
         try {
             String str4 = null;
-            String a2 = str.trim().isEmpty() ? null : i.a(new ByteArrayInputStream(str.getBytes(StandardCharsets.UTF_8)), 4);
+            String a2 = str.trim().isEmpty() ? null : dev.duo.hookprobe.i.a(new ByteArrayInputStream(str.getBytes(StandardCharsets.UTF_8)), 4);
             if (!str2.trim().isEmpty()) {
                 str4 = dev.duo.hookprobe.i.a(new ByteArrayInputStream(str2.getBytes(StandardCharsets.UTF_8)), 1);
             }
