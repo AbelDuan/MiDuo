@@ -31,11 +31,11 @@ import java.util.zip.ZipFile;
 
 /* loaded from: C:\Users\Abel\.dsh\folk-import\projects\miduo-re\_work\dex\classes.dex */
 public final class e {
-    public static final long a = 1073741824;
-    public static final long b = 134217728;
-    private static final long c = 134217728;
+    public static final long a_v = 1073741824;
+    public static final long b_v = 134217728;
+    private static final long c_v = 134217728;
     private static final long d = 536870912;
-    private static final int e = 2097152;
+    private static final int e_v = 2097152;
     private static final String f = "res/drawable-xxhdpi/";
 
     static final class a implements Closeable {
