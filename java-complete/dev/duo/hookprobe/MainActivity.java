@@ -3464,7 +3464,7 @@ public final class MainActivity extends Activity {
         FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.l0.getLayoutParams();
         layoutParams2.width = round2;
         layoutParams2.height = round;
-        this.m0.setTranslationX((round2 + this.r2) - i2);
+        this.m0.setTranslationX(round2 - i2);
         this.m0.setAlpha(Math.min(1.0f, f2 * 2.0f));
         this.k0.getLayoutParams().height = round + a2;
         this.k0.requestLayout();

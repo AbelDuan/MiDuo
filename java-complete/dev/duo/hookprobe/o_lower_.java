@@ -275,7 +275,7 @@ final class o {
                     dev.duo.hookprobe.L.p.onSharedPreferenceChanged(this.a, "_global/standbyClock");
                 }
             } catch (RuntimeException e2) {
-                Throwable th = e2;
+                th = e2;
             }
             if (this.a.edit().putBoolean("_global/standbyClock", z).commit()) {
                 return true;
@@ -377,7 +377,7 @@ final class o {
             Map<String, ?> a = m.a(all, map);
             try {
             } catch (RuntimeException e2) {
-                Throwable th = e2;
+                th = e2;
             }
             if (a(all, a)) {
                 return true;

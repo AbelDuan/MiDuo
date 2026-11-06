@@ -165,7 +165,7 @@ final class r {
             List asList2 = Arrays.asList(split[1].split("\n"));
             contains = asList2.contains(f);
             contains2 = asList2.contains(g);
-            int r12 = (contains || !contains2) ? 2 : str5;
+            int r12 = (contains || !contains2) ? 2 : 1;
             if (contains || !contains2) {
                 str6 = "没找到" + (!contains ? "外屏" : contains2 ? "内屏" : "内屏和外屏") + "：屏幕编号与适配的手机不同";
             } else {

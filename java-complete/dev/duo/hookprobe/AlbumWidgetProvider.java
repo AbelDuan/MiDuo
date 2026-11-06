@@ -30,7 +30,7 @@ public final class AlbumWidgetProvider extends AppWidgetProvider {
     private static final long[] e = {800, 1200};
     private static final ExecutorService f = Executors.newSingleThreadExecutor();
 
-    class a implements b.d {
+    static class a implements dev.duo.hookprobe.b.d {
         final /* synthetic */ Handler a;
         final /* synthetic */ Context b;
 
@@ -51,7 +51,7 @@ public final class AlbumWidgetProvider extends AppWidgetProvider {
             handler.post(new Runnable() { // from class: dev.duo.hookprobe.AlbumWidgetProvider$a$$ExternalSyntheticLambda0
                 @Override // java.lang.Runnable
                 public final void run() {
-                    AlbumWidgetProvider.a.a(context, str);
+                    a.a(context, str);
                 }
             });
         }

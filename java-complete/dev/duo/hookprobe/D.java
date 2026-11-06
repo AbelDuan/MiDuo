@@ -91,7 +91,7 @@ final class D {
             Object obj = field.get(configuration);
             Rect rect = (Rect) method.invoke(obj, null);
             Rect rect2 = (Rect) method2.invoke(obj, null);
-            float round = Math.round((DisplayMetrics.DENSITY_DEVICE_STABLE * r7) / 100.0f);
+            float round = Math.round((android.util.DisplayMetrics.DENSITY_DEVICE_STABLE * r7) / 100.0f);
             if (resources != Resources.getSystem() && ((Integer) method3.invoke(field2.get(configuration), null)).intValue() == 0 && ((Integer) method4.invoke(obj, null)).intValue() == 1 && ((Integer) method5.invoke(obj, null)).intValue() == 1 && ((rect.width() == 963 || rect.width() == 1168) && rect.height() == 1712 && rect2.width() == 1168 && rect2.height() == 1712 && configuration.screenWidthDp == Math.round((rect.width() * 160.0f) / round) && configuration.screenHeightDp == Math.round((rect.height() * 160.0f) / round))) {
                 Application application = (Application) method6.invoke(null, null);
                 if (application == null) {

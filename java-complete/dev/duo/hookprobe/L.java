@@ -32,7 +32,7 @@ final class L {
         }
     };
 
-    class a implements XposedServiceHelper.OnServiceListener {
+    static class a implements XposedServiceHelper.OnServiceListener {
         a() {
         }
 

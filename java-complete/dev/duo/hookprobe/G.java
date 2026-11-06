@@ -595,7 +595,7 @@ public final class G extends XposedModule {
         }
         boolean z2 = false;
         int i4 = 126;
-        final SharedPreferences sharedPreferences2 = null;
+        SharedPreferences sharedPreferences2 = null;
         try {
             sharedPreferences2 = getRemotePreferences("duo_top");
             z = sharedPreferences2.getBoolean(P.f(str), P.e(str)) && P.b(sharedPreferences2) && g();
