@@ -23,7 +23,7 @@ final class D {
 
     static void a(XposedModule xposedModule, ClassLoader classLoader, final BooleanSupplier booleanSupplier, final IntSupplier intSupplier) {
         Class<?> cls;
-        final boolean z;
+        boolean z;
         try {
             Class.forName("miuix.autodensity.AutoDensityConfig", false, classLoader);
             try {
@@ -59,7 +59,11 @@ final class D {
                 xposedModule.hook(declaredMethod).intercept(new XposedInterface.Hooker() { // from class: dev.duo.hookprobe.D$$ExternalSyntheticLambda0
                     public final Object intercept(XposedInterface.Chain chain) {
                         Object a;
-                        a = D.a(intSupplier, booleanSupplier, field8, method, method2, method5, field9, method3, method4, method6, z, method8, method7, field, field4, field6, field7, constructor, field2, field3, field5, chain);
+                        try {
+                            a = D.a(intSupplier, booleanSupplier, field8, method, method2, method5, field9, method3, method4, method6, z, method8, method7, field, field4, field6, field7, constructor, field2, field3, field5, chain);
+                        } catch (Throwable th) {
+                            throw new RuntimeException(th);
+                        }
                         return a;
                     }
                 });
