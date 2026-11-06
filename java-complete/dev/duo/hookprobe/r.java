@@ -133,6 +133,7 @@ final class r {
                     str5 = split[3];
                     a2 = a(context, str9, str5);
                 } catch (Exception e2) {
+                    a2 = null;
                     Throwable th = e2;
                     str5 = null;
                 }
