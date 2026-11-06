@@ -29,7 +29,7 @@ import java.util.zip.ZipFile;
 /* loaded from: C:\Users\Abel\.dsh\folk-import\projects\miduo-re\_work\dex\classes.dex */
 final class t {
     private static IBinder a = null;
-    private static int b = 0;
+    private static int b_v = 0;
     private static w c = null;
     private static w d = null;
     private static volatile boolean e = false;
@@ -45,9 +45,9 @@ final class t {
     private static int o = 0;
     private static int p = 0;
     private static int q = 0;
-    private static long r = -1;
-    private static long s = 0;
-    private static long t = 0;
+    private static long r_v = -1;
+    private static long s_v = 0;
+    private static long t_v = 0;
     private static String u = "尚无样本";
     private static final WeakHashMap<View, Boolean> v = new WeakHashMap<>();
     private static float[] w;
@@ -353,7 +353,7 @@ final class t {
 
         b(Handler handler, dev.duo.workspaceprobe.b bVar) {
             this.a = handler;
-            this.b = bVar;
+            this.b_v = bVar;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -414,7 +414,7 @@ final class t {
                 final int readInt2 = parcel.readInt();
                 final boolean z2 = parcel.readInt() != 0;
                 Handler handler = this.a;
-                final dev.duo.workspaceprobe.b bVar = this.b;
+                final dev.duo.workspaceprobe.b bVar = this.b_v;
                 handler.post(new Runnable() { // from class: dev.duo.hookprobe.t$b$$ExternalSyntheticLambda0
                     @Override // java.lang.Runnable
                     public final void run() {
@@ -441,7 +441,7 @@ final class t {
             }
             final CompletableFuture completableFuture = new CompletableFuture();
             Handler handler2 = this.a;
-            final dev.duo.workspaceprobe.b bVar2 = this.b;
+            final dev.duo.workspaceprobe.b bVar2 = this.b_v;
             handler2.post(new Runnable() { // from class: dev.duo.hookprobe.t$b$$ExternalSyntheticLambda1
                 @Override // java.lang.Runnable
                 public final void run() {
@@ -453,7 +453,7 @@ final class t {
                     bundle = (Bundle) completableFuture.get(1L, TimeUnit.SECONDS);
                 } catch (TimeoutException e2) {
                     completableFuture.completeExceptionally(e2);
-                    final dev.duo.workspaceprobe.b bVar3 = this.b;
+                    final dev.duo.workspaceprobe.b bVar3 = this.b_v;
                     completableFuture.thenAccept(new Consumer() { // from class: dev.duo.hookprobe.t$b$$ExternalSyntheticLambda3
                         @Override // java.util.function.Consumer
                         public final void accept(Object obj) {
@@ -467,15 +467,15 @@ final class t {
                 try {
                     parcel2.writeNoException();
                     parcel2.writeBundle(bundle);
-                    this.b.a(bundle, true);
+                    this.b_v.a(bundle, true);
                     return true;
                 } catch (Throwable th) {
-                    this.b.a(bundle, false);
+                    this.b_v.a(bundle, false);
                     throw th;
                 }
             } catch (Exception e3) {
                 completableFuture.completeExceptionally(e3);
-                final dev.duo.workspaceprobe.b bVar4 = this.b;
+                final dev.duo.workspaceprobe.b bVar4 = this.b_v;
                 completableFuture.thenAccept(new Consumer() { // from class: dev.duo.hookprobe.t$b$$ExternalSyntheticLambda2
                     @Override // java.util.function.Consumer
                     public final void accept(Object obj) {
