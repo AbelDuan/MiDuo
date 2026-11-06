@@ -170,7 +170,13 @@ public final class Engine {
             dev.duo.fold.Engine.this.a(new e() { // from class: dev.duo.fold.Engine$a$$ExternalSyntheticLambda0
                 @Override // dev.duo.fold.Engine.e
                 public final void run() {
-                    Engine.a.this.a(sensorEvent);
+                    try {
+                        Engine.a.this.a(sensorEvent);
+                    } catch (Exception ex) {
+                        throw new RuntimeException(ex);
+                    } catch (Throwable th) {
+                        throw new RuntimeException(th);
+                    }
                 }
             });
         }
@@ -190,7 +196,13 @@ public final class Engine {
             dev.duo.fold.Engine.this.a(new e() { // from class: dev.duo.fold.Engine$b$$ExternalSyntheticLambda0
                 @Override // dev.duo.fold.Engine.e
                 public final void run() {
-                    Engine.b.this.a(intent);
+                    try {
+                        Engine.b.this.a(intent);
+                    } catch (Exception ex) {
+                        throw new RuntimeException(ex);
+                    } catch (Throwable th) {
+                        throw new RuntimeException(th);
+                    }
                 }
             });
         }
@@ -226,7 +238,13 @@ public final class Engine {
                 dev.duo.fold.Engine.this.a(new e() { // from class: dev.duo.fold.Engine$c$$ExternalSyntheticLambda0
                     @Override // dev.duo.fold.Engine.e
                     public final void run() {
-                        Engine.c.this.a();
+                        try {
+                            Engine.c.this.a();
+                        } catch (Exception ex) {
+                            throw new RuntimeException(ex);
+                        } catch (Throwable th) {
+                            throw new RuntimeException(th);
+                        }
                     }
                 });
             }
@@ -238,7 +256,7 @@ public final class Engine {
                 dev.duo.fold.Engine.this.a(new e() { // from class: dev.duo.fold.Engine$c$$ExternalSyntheticLambda1
                     @Override // dev.duo.fold.Engine.e
                     public final void run() {
-                        dev.duo.fold.Engine.c.b();
+                        throw new IllegalStateException("默认屏被移除");
                     }
                 });
             }
@@ -377,7 +395,13 @@ public final class Engine {
             @Override // java.lang.reflect.InvocationHandler
             public final Object invoke(Object obj, Method method, Object[] objArr) {
                 Object a3;
-                a3 = Engine.a(dVar, obj, method, objArr);
+                try {
+                    a3 = Engine.a(dVar, obj, method, objArr);
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                } catch (Throwable th) {
+                    throw new RuntimeException(th);
+                }
                 return a3;
             }
         });
@@ -458,7 +482,13 @@ public final class Engine {
         a(new e() { // from class: dev.duo.fold.Engine$$ExternalSyntheticLambda17
             @Override // dev.duo.fold.Engine.e
             public final void run() {
-                dev.duo.fold.Engine.this.b();
+                try {
+                    dev.duo.fold.Engine.this.b();
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                } catch (Throwable th) {
+                    throw new RuntimeException(th);
+                }
             }
         });
     }
@@ -809,7 +839,13 @@ public final class Engine {
         a(new e() { // from class: dev.duo.fold.Engine$$ExternalSyntheticLambda14
             @Override // dev.duo.fold.Engine.e
             public final void run() {
-                dev.duo.fold.Engine.this.f();
+                try {
+                    dev.duo.fold.Engine.this.f();
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                } catch (Throwable th) {
+                    throw new RuntimeException(th);
+                }
             }
         });
     }
@@ -819,7 +855,13 @@ public final class Engine {
         a(new e() { // from class: dev.duo.fold.Engine$$ExternalSyntheticLambda0
             @Override // dev.duo.fold.Engine.e
             public final void run() {
-                dev.duo.fold.Engine.this.d();
+                try {
+                    dev.duo.fold.Engine.this.d();
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                } catch (Throwable th) {
+                    throw new RuntimeException(th);
+                }
             }
         });
     }
@@ -842,7 +884,13 @@ public final class Engine {
         a(new e() { // from class: dev.duo.fold.Engine$$ExternalSyntheticLambda18
             @Override // dev.duo.fold.Engine.e
             public final void run() {
-                dev.duo.fold.Engine.this.o();
+                try {
+                    dev.duo.fold.Engine.this.o();
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                } catch (Throwable th) {
+                    throw new RuntimeException(th);
+                }
             }
         });
     }
@@ -852,7 +900,13 @@ public final class Engine {
         a(new e() { // from class: dev.duo.fold.Engine$$ExternalSyntheticLambda19
             @Override // dev.duo.fold.Engine.e
             public final void run() {
-                dev.duo.fold.Engine.this.y();
+                try {
+                    dev.duo.fold.Engine.this.y();
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                } catch (Throwable th) {
+                    throw new RuntimeException(th);
+                }
             }
         });
     }
@@ -915,7 +969,13 @@ public final class Engine {
         a(new e() { // from class: dev.duo.fold.Engine$$ExternalSyntheticLambda3
             @Override // dev.duo.fold.Engine.e
             public final void run() {
-                dev.duo.fold.Engine.this.a(i2, j, j2);
+                try {
+                    dev.duo.fold.Engine.this.a(i2, j, j2);
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                } catch (Throwable th) {
+                    throw new RuntimeException(th);
+                }
             }
         });
     }
@@ -1140,7 +1200,7 @@ public final class Engine {
             Bundle bundle = null;
             Bundle bundle2 = null;
             bundle = null;
-            f fVar = new f(bundle);
+            f fVar = new f();
             this.N = fVar;
             fVar.o = w();
             f fVar2 = this.N;
@@ -1265,7 +1325,13 @@ public final class Engine {
         a(new e() { // from class: dev.duo.fold.Engine$$ExternalSyntheticLambda1
             @Override // dev.duo.fold.Engine.e
             public final void run() {
-                dev.duo.fold.Engine.this.k();
+                try {
+                    dev.duo.fold.Engine.this.k();
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                } catch (Throwable th) {
+                    throw new RuntimeException(th);
+                }
             }
         });
     }

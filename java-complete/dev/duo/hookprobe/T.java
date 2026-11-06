@@ -380,18 +380,18 @@ final class T {
             this.a = c;
             int a = dev.duo.hookprobe.T.a(context, 3.0f);
             c.setPadding(a, a, a, a);
-            c.setBackground(dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.f, T.a(context, 20.0f)));
+            c.setBackground(dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.f, dev.duo.hookprobe.T.a(context, 20.0f)));
             this.b = new LinearLayout[strArr.length];
             this.c = new TextView[strArr.length];
             for (int i = 0; i < strArr.length; i++) {
-                LinearLayout c2 = T.c(context);
+                LinearLayout c2 = dev.duo.hookprobe.T.c(context);
                 c2.setGravity(17);
                 if (iArr != null) {
-                    LinearLayout.LayoutParams a2 = T.a(context, 13.0f, 13.0f);
-                    a2.rightMargin = T.a(context, 6.0f);
-                    c2.addView(T.a(context, T.b(context, iArr[i])), a2);
+                    LinearLayout.LayoutParams a2 = dev.duo.hookprobe.T.a(context, 13.0f, 13.0f);
+                    a2.rightMargin = dev.duo.hookprobe.T.a(context, 6.0f);
+                    c2.addView(dev.duo.hookprobe.T.a(context, dev.duo.hookprobe.T.b(context, iArr[i])), a2);
                 }
-                TextView a3 = T.a(context, 14.0f, T.b, dev.duo.hookprobe.T.c0);
+                TextView a3 = dev.duo.hookprobe.T.a(context, 14.0f, dev.duo.hookprobe.T.b, dev.duo.hookprobe.T.c0);
                 a3.setText(strArr[i]);
                 a3.setSingleLine(true);
                 c2.addView(a3);
@@ -402,7 +402,7 @@ final class T {
                     }
                 });
                 c2.setContentDescription(strArr[i]);
-                this.a.addView(c2, new LinearLayout.LayoutParams(0, T.a(context, 36.0f), 1.0f));
+                this.a.addView(c2, new LinearLayout.LayoutParams(0, dev.duo.hookprobe.T.a(context, 36.0f), 1.0f));
                 this.b[i] = c2;
                 this.c[i] = a3;
             }
@@ -417,8 +417,8 @@ final class T {
                     return;
                 }
                 boolean z = i2 == i;
-                linearLayoutArr[i2].setBackground(z ? T.a(dev.duo.hookprobe.T.p, T.a(context, 17.0f)) : null);
-                this.b[i2].setElevation((!z || T.a) ? 0.0f : T.a(context, 1.5f));
+                linearLayoutArr[i2].setBackground(z ? dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.p, dev.duo.hookprobe.T.a(context, 17.0f)) : null);
+                this.b[i2].setElevation((!z || dev.duo.hookprobe.T.a) ? 0.0f : dev.duo.hookprobe.T.a(context, 1.5f));
                 this.b[i2].setSelected(z);
                 i2++;
             }
