@@ -12560,7 +12560,7 @@ public final class b extends XposedModule {
             float rawX = motionEvent.getRawX() - this.N4.getRawX();
             float rawY = motionEvent.getRawY() - this.N4.getRawY();
             if (rawY <= ViewConfiguration.get(this.i4).getScaledTouchSlop() || rawY <= Math.abs(rawX) * 1.2f) {
-                if (rawY < (-r5) || Math.abs(rawX) > r5 * 2) {
+                if (rawY < (-ViewConfiguration.get(this.i4).getScaledTouchSlop()) || Math.abs(rawX) > ViewConfiguration.get(this.i4).getScaledTouchSlop() * 2) {
                     this.L4 = false;
                     return;
                 }
@@ -13785,8 +13785,8 @@ public final class b extends XposedModule {
                 if (this.Z5 <= 0) {
                 }
                 boolean a32 = a22 | a(transaction, r32, f62);
-                while (r5 < r4) {
-                }
+                // while (r5 < r4) {  // dead empty loop
+                // }
                 R r52 = this.w5;
                 if (!u2) {
                     f3 = f2;
@@ -16835,7 +16835,7 @@ public final class b extends XposedModule {
             }
             ValueAnimator ofFloat = ValueAnimator.ofFloat(this.L6, z2 ? 1.0f : 0.0f);
             this.M6 = ofFloat;
-            ofFloat.setDuration(Math.round(Math.abs(r6 - r5) * 240.0f) + 20);
+            ofFloat.setDuration(Math.round(Math.abs((z2 ? 1.0f : 0.0f) - this.L6) * 240.0f) + 20);
             this.M6.setInterpolator(new PathInterpolator(0.2f, 0.0f, 0.0f, 1.0f));
             this.M6.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda12
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
