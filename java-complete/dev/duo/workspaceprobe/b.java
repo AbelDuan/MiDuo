@@ -756,7 +756,7 @@ public final class b extends XposedModule {
             Path path = new Path();
             this.i = path;
             this.m = -1;
-            this.n = 1.0f;
+            this.n_v = 1.0f;
             this.b = bVar;
             this.a = str;
             path.addCircle(68.0f, 68.0f, p_v, Path.Direction.CW);
@@ -770,13 +770,13 @@ public final class b extends XposedModule {
             if (str.startsWith("app:")) {
                 c(str.substring(4));
             } else if ("wechat".equals(str) || "alipay".equals(str)) {
-                this.j = dev.duo.hookprobe.N.a(str);
+                this.j_v = dev.duo.hookprobe.N.a(str);
             } else {
                 Drawable a = dev.duo.hookprobe.I.a(context, str);
-                this.j = a;
+                this.j_v = a;
                 if (a != null) {
-                    this.k = true;
-                    this.l = true;
+                    this.k_v = true;
+                    this.l_v = true;
                 } else if ("translate".equals(str)) {
                     c("com.xiaomi.aiasst.vision");
                 } else {
@@ -907,7 +907,7 @@ public final class b extends XposedModule {
 
         private void c(String str) {
             try {
-                this.j = getContext().getPackageManager().getApplicationIcon(str);
+                this.j_v = getContext().getPackageManager().getApplicationIcon(str);
             } catch (Throwable th) {
             }
         }
@@ -919,8 +919,8 @@ public final class b extends XposedModule {
             try {
                 int identifier = getContext().getResources().getIdentifier(str, "drawable", "com.android.systemui");
                 if (identifier != 0) {
-                    this.j = getContext().getDrawable(identifier).mutate();
-                    this.k = true;
+                    this.j_v = getContext().getDrawable(identifier).mutate();
+                    this.k_v = true;
                 }
             } catch (Throwable th) {
             }
@@ -931,7 +931,7 @@ public final class b extends XposedModule {
                 return;
             }
             this.c = str;
-            this.j = null;
+            this.j_v = null;
             if (str != null) {
                 c(str);
             }
@@ -966,25 +966,25 @@ public final class b extends XposedModule {
             canvas.restore();
             this.e.draw(canvas);
             canvas.translate(0.0f, dev.duo.workspaceprobe.b.u0);
-            if (this.j == null) {
+            if (this.j_v == null) {
                 a(canvas, 68.0f);
                 return;
             }
-            int round = "calculator".equals(this.a) ? 70 : this.l ? Math.round(p_v) : ("screenrecord".equals(this.a) || "eyecare".equals(this.a)) ? 72 : 68;
-            if (this.k) {
-                this.j.setTint(a(this.d, this.m));
+            int round = "calculator".equals(this.a) ? 70 : this.l_v ? Math.round(p_v) : ("screenrecord".equals(this.a) || "eyecare".equals(this.a)) ? 72 : 68;
+            if (this.k_v) {
+                this.j_v.setTint(a(this.d, this.m));
             }
-            this.j.setAlpha(Math.round(this.n * 255.0f));
+            this.j_v.setAlpha(Math.round(this.n_v * 255.0f));
             float f = round / 2.0f;
             float f2 = 68.0f - f;
             float f3 = 68.0f + f;
-            this.j.setBounds(Math.round(f2), Math.round(f2), Math.round(f3), Math.round(f3));
-            this.j.draw(canvas);
+            this.j_v.setBounds(Math.round(f2), Math.round(f2), Math.round(f3), Math.round(f3));
+            this.j_v.draw(canvas);
         }
 
         private void b(Canvas canvas, float f) {
             canvas.translate(0.0f, dev.duo.workspaceprobe.b.u0);
-            Drawable drawable = this.j;
+            Drawable drawable = this.j_v;
             if (drawable == null) {
                 this.f.setStyle(Paint.Style.FILL);
                 this.f.setColor((this.m & 16777215) | 520093696);
@@ -994,11 +994,11 @@ public final class b extends XposedModule {
                 a(canvas, f);
                 return;
             }
-            drawable.setAlpha(Math.round(this.n * 255.0f));
+            drawable.setAlpha(Math.round(this.n_v * 255.0f));
             float f4 = f - 48.0f;
             float f5 = 48.0f + f;
-            this.j.setBounds(Math.round(f4), Math.round(f4), Math.round(f5), Math.round(f5));
-            this.j.draw(canvas);
+            this.j_v.setBounds(Math.round(f4), Math.round(f4), Math.round(f5), Math.round(f5));
+            this.j_v.draw(canvas);
             c(canvas, f);
         }
 
@@ -1006,7 +1006,7 @@ public final class b extends XposedModule {
             float f2 = f + 38.0f;
             this.f.setStyle(Paint.Style.FILL);
             this.f.setColor(-218103809);
-            this.f.setAlpha(Math.round(this.n * 242.0f));
+            this.f.setAlpha(Math.round(this.n_v * 242.0f));
             canvas.drawCircle(f2, f2, 16.0f, this.f);
             Paint paint = this.f;
             Paint.Style style = Paint.Style.STROKE;
@@ -1017,7 +1017,7 @@ public final class b extends XposedModule {
             this.f.setStyle(style);
             this.f.setStrokeWidth(2.6f);
             this.f.setColor(-12961220);
-            this.f.setAlpha(Math.round(this.n * 255.0f));
+            this.f.setAlpha(Math.round(this.n_v * 255.0f));
             this.h.reset();
             float f3 = f2 - 8.0f;
             float f4 = f2 - 4.0f;
@@ -1223,7 +1223,7 @@ public final class b extends XposedModule {
 
         private void a(float f, float f2, long j_v) {
             animate().scaleX(f).scaleY(f).setDuration(j_v).start();
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.n, f2);
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.n_v, f2);
             ofFloat.setDuration(j_v);
             ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: dev.duo.workspaceprobe.b$J$$ExternalSyntheticLambda1
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -1236,7 +1236,7 @@ public final class b extends XposedModule {
 
         /* JADX INFO: Access modifiers changed from: private */
         public /* synthetic */ void a(ValueAnimator valueAnimator) {
-            this.n = ((Float) valueAnimator.getAnimatedValue()).floatValue();
+            this.n_v = ((Float) valueAnimator.getAnimatedValue()).floatValue();
             invalidate();
         }
 
@@ -1244,7 +1244,7 @@ public final class b extends XposedModule {
         private void a(Canvas canvas, float f) {
             char c;
             this.f.setColor(a(this.d, this.m));
-            this.f.setAlpha(Math.round(this.n * 255.0f));
+            this.f.setAlpha(Math.round(this.n_v * 255.0f));
             this.f.setStyle(Paint.Style.STROKE);
             this.h.reset();
             String str = this.a;
@@ -1553,7 +1553,7 @@ public final class b extends XposedModule {
 
         L(Object obj, SurfaceControl surfaceControl) {
             this.a = obj;
-            this.b = surfaceControl;
+            this.b_v = surfaceControl;
         }
     }
 
@@ -1597,7 +1597,7 @@ public final class b extends XposedModule {
             float f3 = bounds.right;
             float f4 = bounds.bottom;
             float f5 = this.a;
-            canvas.drawRoundRect(f, f2, f3, f4, f5, f5, this.b);
+            canvas.drawRoundRect(f, f2, f3, f4, f5, f5, this.b_v);
             float f6 = this.a;
             canvas.drawRoundRect(f, f2, f3, f4, f6, f6, this.c);
             float f7 = this.a;
@@ -1629,7 +1629,7 @@ public final class b extends XposedModule {
                 a(f, f2, max, max2, i2 == 2);
                 return;
             }
-            Paint paint = this.b;
+            Paint paint = this.b_v;
             float f3 = f2 + max2;
             Shader.TileMode tileMode = Shader.TileMode.CLAMP;
             paint.setShader(new LinearGradient(0.0f, f2, 0.0f, f3, new int[]{352321535, 117440511, 100663295, 234881023}, new float[]{0.0f, 0.3f, 0.7f, 1.0f}, tileMode));
@@ -1647,7 +1647,7 @@ public final class b extends XposedModule {
         }
 
         N(float f, int i2) {
-            this.b = new Paint(1);
+            this.b_v = new Paint(1);
             this.c = new Paint(1);
             this.d = new Paint(1);
             Paint paint = new Paint(1);
@@ -1665,7 +1665,7 @@ public final class b extends XposedModule {
 
         private void a(float f, float f2, float f3, float f4, boolean z_v) {
             int[] iArr;
-            Paint paint = this.b;
+            Paint paint = this.b_v;
             float f5 = f2 + f4;
             if (z_v) {
                 iArr = new int[]{-1929379841, 1308622847, 1090519039, 1728053247};
@@ -1689,7 +1689,7 @@ public final class b extends XposedModule {
 
         O(long j_v, Socket socket) {
             this.a = j_v;
-            this.b = socket;
+            this.b_v = socket;
         }
     }
 
@@ -1712,26 +1712,26 @@ public final class b extends XposedModule {
         final long p_v;
 
         P(byte[] bArr, long j_v) {
-            this.p = j_v;
+            this.p_v = j_v;
             ByteBuffer order = ByteBuffer.wrap(bArr).order(ByteOrder.LITTLE_ENDIAN);
             if (order.getInt() != 1146442546) {
                 throw new IllegalArgumentException("Native frame protocol");
             }
             this.a = order.getInt();
-            this.b = order.getInt();
+            this.b_v = order.getInt();
             this.c = order.getInt();
             this.d = order.getDouble();
-            this.l = order.getLong();
+            this.l_v = order.getLong();
             this.m = order.getLong();
-            this.n = order.getLong();
-            this.o = order.getLong();
+            this.n_v = order.getLong();
+            this.o_v = order.getLong();
             this.e = order.getDouble();
             this.f = order.getDouble();
             this.i = order.getLong();
             this.g = order.getDouble();
             this.h = order.getDouble();
-            this.j = order.getLong();
-            this.k = order.getLong();
+            this.j_v = order.getLong();
+            this.k_v = order.getLong();
         }
     }
 
@@ -1751,7 +1751,7 @@ public final class b extends XposedModule {
 
         Q(Context context, int i2) {
             super(context);
-            this.b = -1;
+            this.b_v = -1;
             this.c = 1.0f;
             Paint paint = new Paint(1);
             this.d = paint;
@@ -1789,7 +1789,7 @@ public final class b extends XposedModule {
             canvas.restore();
             this.e.draw(canvas);
             canvas.translate(0.0f, dev.duo.workspaceprobe.b.u0);
-            this.f.setColor(this.b);
+            this.f.setColor(this.b_v);
             this.f.setAlpha(Math.round(this.c * 255.0f));
             this.g.reset();
             if (this.a == 0) {
@@ -1884,7 +1884,7 @@ public final class b extends XposedModule {
         }
 
         void a() {
-            this.k = Float.NaN;
+            this.k_v = Float.NaN;
         }
 
         void b() {
@@ -1892,7 +1892,7 @@ public final class b extends XposedModule {
             try {
                 this.a.release();
             } finally {
-                this.b.release();
+                this.b_v.release();
             }
         }
 
@@ -1901,7 +1901,7 @@ public final class b extends XposedModule {
         }
 
         R(String str, View view, float f, int i, int i2, int i3, int i4, float f2, int i5) {
-            this.k = Float.NaN;
+            this.k_v = Float.NaN;
             this.c = str;
             this.d = view;
             SurfaceControlViewHost surfaceControlViewHost = new SurfaceControlViewHost(dev.duo.workspaceprobe.b.this.i4, (android.view.Display) ((DisplayManager) dev.duo.workspaceprobe.b.this.i4.getSystemService(DisplayManager.class)).getDisplay(0), (android.os.IBinder) null);
@@ -1916,13 +1916,13 @@ public final class b extends XposedModule {
             } else {
                 surfaceControlViewHost.setView(view, i2, i3);
             }
-            this.b = surfaceControlViewHost.getSurfacePackage().getSurfaceControl();
+            this.b_v = surfaceControlViewHost.getSurfacePackage().getSurfaceControl();
             this.e = f;
             this.h = i;
             this.f = i2;
             this.g = i3;
             this.i = i4;
-            this.j = f2;
+            this.j_v = f2;
         }
     }
 
@@ -1958,7 +1958,7 @@ public final class b extends XposedModule {
         protected void onDraw(Canvas canvas) {
             this.c.draw(canvas);
             canvas.translate(0.0f, dev.duo.workspaceprobe.b.u0);
-            boolean z_v = this.b;
+            boolean z_v = this.b_v;
             int i = z_v ? -14460213 : this.a;
             if (z_v) {
                 this.d.setStyle(Paint.Style.STROKE);
@@ -2036,7 +2036,7 @@ public final class b extends XposedModule {
 
         V(Context context, boolean z_v) {
             super(context);
-            this.b = new Paint(1);
+            this.b_v = new Paint(1);
             this.a = z_v;
         }
 
@@ -2045,18 +2045,18 @@ public final class b extends XposedModule {
             float min = Math.min(getWidth(), getHeight()) / 2.0f;
             float width = getWidth() / 2.0f;
             float height = getHeight() / 2.0f;
-            this.b.setStyle(Paint.Style.FILL);
-            this.b.setColor(-1);
-            canvas.drawCircle(width, height, min, this.b);
-            this.b.setColor(this.a ? -13335809 : -50384);
-            canvas.drawCircle(width, height, min - 3.0f, this.b);
-            this.b.setColor(-1);
-            this.b.setStrokeWidth(0.2f * min);
-            this.b.setStrokeCap(Paint.Cap.ROUND);
+            this.b_v.setStyle(Paint.Style.FILL);
+            this.b_v.setColor(-1);
+            canvas.drawCircle(width, height, min, this.b_v);
+            this.b_v.setColor(this.a ? -13335809 : -50384);
+            canvas.drawCircle(width, height, min - 3.0f, this.b_v);
+            this.b_v.setColor(-1);
+            this.b_v.setStrokeWidth(0.2f * min);
+            this.b_v.setStrokeCap(Paint.Cap.ROUND);
             float f = min * 0.42f;
-            canvas.drawLine(width - f, height, width + f, height, this.b);
+            canvas.drawLine(width - f, height, width + f, height, this.b_v);
             if (this.a) {
-                canvas.drawLine(width, height - f, width, height + f, this.b);
+                canvas.drawLine(width, height - f, width, height + f, this.b_v);
             }
         }
     }
@@ -2076,16 +2076,16 @@ public final class b extends XposedModule {
             float width = bounds.width() * 0.17f;
             float f = bounds.right - width;
             float f2 = bounds.bottom - width;
-            this.b.setStyle(Paint.Style.FILL);
-            this.b.setColor(-1);
-            canvas.drawCircle(f, f2, width, this.b);
-            this.b.setColor(-13335809);
-            canvas.drawCircle(f, f2, 0.84f * width, this.b);
-            this.b.setColor(-1);
-            this.b.setTextAlign(Paint.Align.CENTER);
-            this.b.setTextSize(width * 1.2f);
-            this.b.setTypeface(Typeface.DEFAULT_BOLD);
-            canvas.drawText("2", f, f2 - ((this.b.descent() + this.b.ascent()) / 2.0f), this.b);
+            this.b_v.setStyle(Paint.Style.FILL);
+            this.b_v.setColor(-1);
+            canvas.drawCircle(f, f2, width, this.b_v);
+            this.b_v.setColor(-13335809);
+            canvas.drawCircle(f, f2, 0.84f * width, this.b_v);
+            this.b_v.setColor(-1);
+            this.b_v.setTextAlign(Paint.Align.CENTER);
+            this.b_v.setTextSize(width * 1.2f);
+            this.b_v.setTypeface(Typeface.DEFAULT_BOLD);
+            canvas.drawText("2", f, f2 - ((this.b_v.descent() + this.b_v.ascent()) / 2.0f), this.b_v);
         }
 
         @Override // android.graphics.drawable.Drawable
@@ -2111,7 +2111,7 @@ public final class b extends XposedModule {
         @Override // android.graphics.drawable.Drawable
         public void setAlpha(int i) {
             this.a.setAlpha(i);
-            this.b.setAlpha(i);
+            this.b_v.setAlpha(i);
         }
 
         @Override // android.graphics.drawable.Drawable
@@ -2129,7 +2129,7 @@ public final class b extends XposedModule {
         Z(Context context, int i, int i2) {
             super(context);
             this.a = new Paint(1);
-            this.b = i;
+            this.b_v = i;
             this.c = i2;
         }
 
@@ -2147,7 +2147,7 @@ public final class b extends XposedModule {
             float min = Math.min(getWidth(), getHeight());
             float f = min / 2.0f;
             this.a.setStyle(Paint.Style.FILL);
-            this.a.setColor(this.b);
+            this.a.setColor(this.b_v);
             canvas.drawCircle(f, f, f, this.a);
             this.a.setStyle(Paint.Style.STROKE);
             this.a.setStrokeWidth(0.04f * min);
@@ -2201,7 +2201,7 @@ public final class b extends XposedModule {
             super(context);
             this.c = new Paint(1);
             this.a = i;
-            this.b = i2;
+            this.b_v = i2;
         }
 
         @Override // android.view.View
@@ -2210,7 +2210,7 @@ public final class b extends XposedModule {
             this.c.setStyle(Paint.Style.STROKE);
             this.c.setStrokeWidth(0.09f * min);
             this.c.setStrokeCap(Paint.Cap.ROUND);
-            this.c.setColor(this.b);
+            this.c.setColor(this.b_v);
             if (this.a == 0) {
                 float f = 0.42f * min;
                 canvas.drawCircle(f, f, 0.28f * min, this.c);
@@ -2288,7 +2288,7 @@ public final class b extends XposedModule {
             boolean bLocal = dev.duo.workspaceprobe.b.b(dev.duo.workspaceprobe.b.this.i4);
             int i4 = bLocal ? -855305 : -14935010;
             a aVar = new a(dev.duo.workspaceprobe.b.this.i4, dev.duo.workspaceprobe.b.this);
-            this.b = aVar;
+            this.b_v = aVar;
             aVar.setOnTouchListener(new View.OnTouchListener() { // from class: dev.duo.workspaceprobe.b$b0$$ExternalSyntheticLambda2
                 @Override // android.view.View.OnTouchListener
                 public final boolean onTouch(View view, MotionEvent motionEvent) {
@@ -2333,7 +2333,7 @@ public final class b extends XposedModule {
             a(bLocal, i4, "小窗打开", true, new Runnable() { // from class: dev.duo.workspaceprobe.b$b0$$ExternalSyntheticLambda4
                 @Override // java.lang.Runnable
                 public final void run() {
-                    dev.duo.workspaceprobe.b.b0.this.b(str);
+                    dev.duo.workspaceprobe.b.b0.this.b_v(str);
                 }
             });
             if (z_v) {
@@ -2356,7 +2356,7 @@ public final class b extends XposedModule {
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(i, 467);
             layoutParams2.leftMargin = i2;
             layoutParams2.topMargin = max;
-            this.b.addView(this.c, layoutParams2);
+            this.b_v.addView(this.c, layoutParams2);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -2386,7 +2386,7 @@ public final class b extends XposedModule {
         /* JADX INFO: Access modifiers changed from: private */
         public /* synthetic */ void c() {
             try {
-                this.a.removeViewImmediate(this.b);
+                this.a.removeViewImmediate(this.b_v);
             } catch (RuntimeException e) {
                 Log.w("DuoRail", "Sidebar menu remove failed", e);
             }
@@ -2412,7 +2412,7 @@ public final class b extends XposedModule {
             layoutParams.setFitInsetsTypes(0);
             layoutParams.setTitle("DuoSidebarMenu");
             try {
-                this.a.addView(this.b, layoutParams);
+                this.a.addView(this.b_v, layoutParams);
                 this.g = true;
                 this.c.setPivotX(this.d);
                 this.c.setPivotY(this.e);
@@ -2435,7 +2435,7 @@ public final class b extends XposedModule {
         /* JADX INFO: Access modifiers changed from: private */
         public void a() {
             if (this.f) {
-                dev.duo.workspaceprobe.b.this.o();
+                dev.duo.workspaceprobe.b.this.o_v();
             } else {
                 dev.duo.workspaceprobe.b.this.p();
             }
@@ -2582,13 +2582,13 @@ public final class b extends XposedModule {
         d0() {
             this.a = (WindowManager) dev.duo.workspaceprobe.b.this.i4.getSystemService(WindowManager.class);
             boolean b_v = b_v.b(dev.duo.workspaceprobe.b.this.i4);
-            this.b = b_v;
+            this.b_v = b_v;
             int i = b_v ? -855305 : -14935010;
             this.c = i;
             int i2 = b_v ? -13882322 : -1776408;
             this.d = i2;
-            this.j = Collections.EMPTY_LIST;
-            this.o = new ArrayList();
+            this.j_v = Collections.EMPTY_LIST;
+            this.o_v = new ArrayList();
             a aVar = new a(dev.duo.workspaceprobe.b.this.i4, dev.duo.workspaceprobe.b.this);
             this.e = aVar;
             aVar.setOnTouchListener(new View.OnTouchListener() { // from class: dev.duo.workspaceprobe.b$d0$$ExternalSyntheticLambda6
@@ -2683,12 +2683,12 @@ public final class b extends XposedModule {
         void d() {
             this.i.a(dev.duo.workspaceprobe.b.this.T3);
             this.g.removeAllViews();
-            this.o.clear();
+            this.o_v.clear();
             String lowerCase = this.h.getText().toString().trim().toLowerCase(Locale.ROOT);
-            this.p = !lowerCase.isEmpty();
+            this.p_v = !lowerCase.isEmpty();
             LinearLayout linearLayout = null;
             int i = 0;
-            for (Object[] objArr : this.j) {
+            for (Object[] objArr : this.j_v) {
                 String str = (String) objArr[0];
                 String str2 = (String) objArr[1];
                 if (!lowerCase.isEmpty()) {
@@ -2702,7 +2702,7 @@ public final class b extends XposedModule {
                     this.g.addView(linearLayout, new LinearLayout.LayoutParams(-1, -2));
                 }
                 View a2 = a(str, str2, (Drawable) objArr[2]);
-                this.o.add(a2);
+                this.o_v.add(a2);
                 linearLayout.addView(a2, new LinearLayout.LayoutParams(0, -2, 1.0f));
                 i++;
             }
@@ -2720,7 +2720,7 @@ public final class b extends XposedModule {
             layoutParams.setTitle("DuoSidebarPanel");
             try {
                 this.a.addView(this.e, layoutParams);
-                this.k = true;
+                this.k_v = true;
                 this.f.setPivotX(735.0f);
                 this.f.setPivotY(Math.max(0, Math.min(v_v, dev.duo.workspaceprobe.b.this.E1() - 305)));
                 this.f.setScaleX(0.6f);
@@ -2755,7 +2755,7 @@ public final class b extends XposedModule {
             if (motionEvent.getActionMasked() != 0) {
                 return true;
             }
-            dev.duo.workspaceprobe.b.this.p();
+            dev.duo.workspaceprobe.b.this.p_v();
             return true;
         }
 
@@ -2769,18 +2769,18 @@ public final class b extends XposedModule {
             if (dev.duo.workspaceprobe.b.this.U3 != this) {
                 return;
             }
-            this.j = list;
+            this.j_v = list;
             d();
         }
 
         void a() {
-            if (this.k) {
-                this.k = false;
+            if (this.k_v) {
+                this.k_v = false;
                 InputMethodManager inputMethodManager = (InputMethodManager) dev.duo.workspaceprobe.b.this.i4.getSystemService(InputMethodManager.class);
                 if (inputMethodManager != null) {
                     inputMethodManager.hideSoftInputFromWindow(this.h.getWindowToken(), 0);
                 }
-                W w2 = this.l;
+                W w2 = this.l_v;
                 if (w2 != null) {
                     w2.c();
                 }
@@ -2788,7 +2788,7 @@ public final class b extends XposedModule {
                 this.f.animate().scaleX(0.6f).scaleY(0.6f).alpha(0.0f).setDuration(160L).setInterpolator(new AccelerateInterpolator()).withEndAction(new Runnable() { // from class: dev.duo.workspaceprobe.b$d0$$ExternalSyntheticLambda4
                     @Override // java.lang.Runnable
                     public final void run() {
-                        dev.duo.workspaceprobe.b.d0.this.b();
+                        dev.duo.workspaceprobe.b.d0.this.b_v();
                     }
                 }).start();
                 Log.w("DuoRail", "Sidebar panel close");
@@ -2821,7 +2821,7 @@ public final class b extends XposedModule {
             textView.setEllipsize(TextUtils.TruncateAt.END);
             textView.setGravity(17);
             textView.setTextSize(0, 30.0f);
-            textView.setTextColor(this.b ? -856493321 : -868467645);
+            textView.setTextColor(this.b_v ? -856493321 : -868467645);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
             layoutParams2.topMargin = 6;
             linearLayout.addView(textView, layoutParams2);
@@ -2857,24 +2857,24 @@ public final class b extends XposedModule {
                 if (z_v) {
                     return;
                 }
-                dev.duo.workspaceprobe.b.this.t(str);
+                dev.duo.workspaceprobe.b.this.t_v(str);
             } else {
-                dev.duo.workspaceprobe.b.this.p();
+                dev.duo.workspaceprobe.b.this.p_v();
                 if (dev.duo.workspaceprobe.b.this.Q3) {
-                    dev.duo.workspaceprobe.b.this.r(str);
+                    dev.duo.workspaceprobe.b.this.r_v(str);
                 } else {
-                    dev.duo.workspaceprobe.b.this.s(str);
+                    dev.duo.workspaceprobe.b.this.s_v(str);
                 }
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public /* synthetic */ boolean a(ImageView imageView, String str, Drawable drawable, View view) {
-            if (this.l != null) {
+            if (this.l_v != null) {
                 return true;
             }
             W w2 = dev.duo.workspaceprobe.b.this.new W(this, view, imageView, str, drawable);
-            this.l = w2;
+            this.l_v = w2;
             w2.f();
             return true;
         }
@@ -2882,8 +2882,8 @@ public final class b extends XposedModule {
         /* JADX INFO: Access modifiers changed from: private */
         public /* synthetic */ boolean a(FrameLayout frameLayout, View view, MotionEvent motionEvent) {
             this.m = motionEvent.getRawX();
-            this.n = motionEvent.getRawY();
-            W w2 = this.l;
+            this.n_v = motionEvent.getRawY();
+            W w2 = this.l_v;
             if (w2 != null && w2.b == view) {
                 w2.a(motionEvent);
                 return false;
@@ -2959,8 +2959,8 @@ public final class b extends XposedModule {
             int i = 0;
             int max = getChildCount() == 0 ? 0 : Math.max(0, getChildAt(0).getHeight() - height);
             float f = 1.0f;
-            float min = this.b ? Math.min(1.0f, scrollY / 20.0f) : 0.0f;
-            float min2 = this.b ? Math.min(1.0f, (max - scrollY) / 20.0f) : 0.0f;
+            float min = this.b_v ? Math.min(1.0f, scrollY / 20.0f) : 0.0f;
+            float min2 = this.b_v ? Math.min(1.0f, (max - scrollY) / 20.0f) : 0.0f;
             if (min <= 0.0f && min2 <= 0.0f) {
                 super.draw(canvas);
                 return;
@@ -3025,8 +3025,8 @@ public final class b extends XposedModule {
                 int max = getChildCount() == 0 ? 0 : Math.max(0, getChildAt(0).getHeight() - getHeight());
                 int round = Math.round(getScrollY() / 150.0f) * dev.duo.workspaceprobe.b.g0;
                 int min = Math.min((max / dev.duo.workspaceprobe.b.g0) * dev.duo.workspaceprobe.b.g0, round);
-                if (!this.b || Math.abs(max - getScrollY()) >= Math.abs(Math.min(max, round) - getScrollY())) {
-                    max = this.b ? Math.min(max, round) : min;
+                if (!this.b_v || Math.abs(max - getScrollY()) >= Math.abs(Math.min(max, round) - getScrollY())) {
+                    max = this.b_v ? Math.min(max, round) : min;
                 }
                 if (max != getScrollY()) {
                     smoothScrollTo(0, max);
@@ -3035,10 +3035,10 @@ public final class b extends XposedModule {
         }
 
         void a(boolean z_v) {
-            if (this.b == z_v) {
+            if (this.b_v == z_v) {
                 return;
             }
-            this.b = z_v;
+            this.b_v = z_v;
             setVerticalFadingEdgeEnabled(!z_v);
             invalidate();
         }
@@ -3085,12 +3085,12 @@ public final class b extends XposedModule {
 
             a(int i, int i2) {
                 this.a = i;
-                this.b = i2;
+                this.b_v = i2;
             }
 
             @Override // android.telephony.TelephonyCallback.SignalStrengthsListener
             public void onSignalStrengthsChanged(SignalStrength signalStrength) {
-                if (this.a >= f0.this.b.length || f0.this.b[this.a] != this.b) {
+                if (this.a >= f0.this.b_v.length || f0.this.b_v[this.a] != this.b_v) {
                     return;
                 }
                 int b_v = signalStrength == null ? -1 : b_v.b(signalStrength);
@@ -3124,7 +3124,7 @@ public final class b extends XposedModule {
                     return ((SubscriptionInfo) obj).getSubscriptionId();
                 }
             }).limit(2L).toArray();
-            if (Arrays.equals(array, this.b)) {
+            if (Arrays.equals(array, this.b_v)) {
                 return;
             }
             for (int i = 0; i < this.c.size(); i++) {
@@ -3132,7 +3132,7 @@ public final class b extends XposedModule {
             }
             this.c.clear();
             this.d.clear();
-            this.b = array;
+            this.b_v = array;
             h0 h0Var = this.a;
             h0Var.d0 = -1;
             h0Var.e0 = -1;
@@ -3246,7 +3246,7 @@ public final class b extends XposedModule {
             dev.duo.workspaceprobe.b.this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$g0$$ExternalSyntheticLambda2
                 @Override // java.lang.Runnable
                 public final void run() {
-                    dev.duo.workspaceprobe.b.g0.this.b();
+                    dev.duo.workspaceprobe.b.g0.this.b_v();
                 }
             });
         }
@@ -3293,7 +3293,7 @@ public final class b extends XposedModule {
             this.c = resultReceiver;
             try {
                 binder.linkToDeath(this.g, 0);
-                this.b = binder;
+                this.b_v = binder;
                 this.e = true;
                 this.c.send(4, null);
                 try {
@@ -3618,35 +3618,35 @@ public final class b extends XposedModule {
         public boolean onTouchEvent(MotionEvent motionEvent) {
             int actionMasked = motionEvent.getActionMasked();
             float y2 = motionEvent.getY();
-            boolean z2 = a() && this.s0 != null && y2 >= ((float) F) && y2 < ((float) this.r0);
-            if (this.n0) {
+            boolean z2 = a() && this.s0_v != null && y2 >= ((float) F) && y2 < ((float) this.r0_v);
+            if (this.n0_v) {
                 if (actionMasked == 2) {
-                    if (Math.hypot(motionEvent.getX() - this.o0, y2 - this.p0) > this.q0) {
-                        this.m0 = false;
+                    if (Math.hypot(motionEvent.getX() - this.o0_v, y2 - this.p0_v) > this.q0_v) {
+                        this.m0_v = false;
                     }
                 } else if (actionMasked == 5) {
-                    this.m0 = false;
+                    this.m0_v = false;
                 } else if (actionMasked == 1 || actionMasked == 3) {
-                    boolean z3 = this.m0 && z2 && actionMasked == 1;
-                    this.m0 = false;
-                    this.n0 = false;
+                    boolean z3 = this.m0_v && z2 && actionMasked == 1;
+                    this.m0_v = false;
+                    this.n0_v = false;
                     if (z3) {
-                        this.s0.accept(this);
+                        this.s0_v.accept(this);
                     }
                 }
                 return true;
             }
             if (!z2 || actionMasked != 0) {
-                if (this.l0 && actionMasked == 0 && y2 >= this.r0) {
+                if (this.l0_v && actionMasked == 0 && y2 >= this.r0_v) {
                     return false;
                 }
                 return super.onTouchEvent(motionEvent);
             }
-            this.m0 = true;
-            this.n0 = true;
-            this.o0 = motionEvent.getX();
-            this.p0 = y2;
-            this.q0 = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+            this.m0_v = true;
+            this.n0_v = true;
+            this.o0_v = motionEvent.getX();
+            this.p0_v = y2;
+            this.q0_v = ViewConfiguration.get(getContext()).getScaledTouchSlop();
             return true;
         }
 
@@ -3665,11 +3665,11 @@ public final class b extends XposedModule {
             Paint paint = new Paint(1);
             this.h0 = paint;
             this.i0 = new Path();
-            this.j0 = new Matrix();
-            this.r0 = H;
+            this.j0_v = new Matrix();
+            this.r0_v = H;
             Rect rect = new Rect();
             this.t0 = rect;
-            this.u0 = new Rect(0, F, C, H);
+            this.u0_v = new Rect(0, F, C, H);
             Paint paint2 = new Paint(1);
             this.v0 = paint2;
             Paint paint3 = new Paint(1);
@@ -3679,8 +3679,8 @@ public final class b extends XposedModule {
             this.y0 = paint4;
             Paint paint5 = new Paint(1);
             this.z0 = paint5;
-            this.A0 = new RectF();
-            this.B0 = new Path();
+            this.A0_v = new RectF();
+            this.B0_v = new Path();
             paint.setShadowLayer(z_v, 0.0f, 1.0f, 637534208);
             float max = Math.max(56.6676f, (h.a("23:59", m, false) / 2.0f) + z_v);
             rect.set((int) Math.floor(b_v - max), (int) Math.floor(28.414405822753906d), (int) Math.ceil(max + b_v), (int) Math.ceil(202.6676025390625d));
@@ -3720,7 +3720,7 @@ public final class b extends XposedModule {
             if ("onComputeInternalInsets".equals(method2.getName())) {
                 method.invoke(objArr[0], 3);
                 Region region = (Region) field.get(objArr[0]);
-                if (this.k0) {
+                if (this.k0_v) {
                     region.set(c());
                     return null;
                 }
@@ -3780,49 +3780,49 @@ public final class b extends XposedModule {
         Region c() {
             Region region = new Region(this.t0);
             if (a()) {
-                region.op(this.u0, Region.Op.UNION);
+                region.op(this.u0_v, Region.Op.UNION);
             }
             return region;
         }
 
         void a(boolean z2) {
-            if (this.k0 == z2) {
+            if (this.k0_v == z2) {
                 return;
             }
-            this.k0 = z2;
+            this.k0_v = z2;
             setEnabled(z2);
             if (!z2) {
-                this.m0 = false;
-                this.n0 = false;
+                this.m0_v = false;
+                this.n0_v = false;
             }
             requestLayout();
         }
 
         void a(boolean z2, int i2) {
-            if (this.l0 == z2 && this.r0 == i2) {
+            if (this.l0_v == z2 && this.r0_v == i2) {
                 return;
             }
-            this.l0 = z2;
-            this.r0 = i2;
-            this.u0.set(0, F, C, i2);
+            this.l0_v = z2;
+            this.r0_v = i2;
+            this.u0_v.set(0, F, C, i2);
             if (!a()) {
-                this.m0 = false;
-                this.n0 = false;
+                this.m0_v = false;
+                this.n0_v = false;
             }
             requestLayout();
         }
 
         void a(Consumer<View> consumer) {
-            this.s0 = consumer;
+            this.s0_v = consumer;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public boolean a() {
-            return this.l0 && this.r0 > F + I;
+            return this.l0_v && this.r0_v > F + I;
         }
 
         private void a(Canvas canvas, String str, float f2, float f3, float f4) {
-            h.a(str, f2, this.S, f3, f4, this.i0, this.j0);
+            h.a(str, f2, this.S, f3, f4, this.i0, this.j0_v);
             canvas.drawPath(this.i0, this.h0);
         }
 
@@ -3847,19 +3847,19 @@ public final class b extends XposedModule {
             while (i3 < 2) {
                 float f5 = (i3 == 0 ? 0.59f : 0.38f) * a;
                 this.y0.setColor(this.b0 >= 2 - i3 ? this.g0 : i2);
-                this.A0.set(f2 - f5, f3 - f5, f2 + f5, f5 + f3);
-                canvas.drawArc(this.A0, 228.0f, 84.0f, false, this.y0);
+                this.A0_v.set(f2 - f5, f3 - f5, f2 + f5, f5 + f3);
+                canvas.drawArc(this.A0_v, 228.0f, 84.0f, false, this.y0);
                 i3++;
             }
             this.y0.setStrokeWidth(f4);
-            this.B0.reset();
-            this.B0.moveTo(f2, f3);
-            this.A0.set(f2 - 8.262f, f3 - 8.262f, f2 + 8.262f, f3 + 8.262f);
-            this.B0.arcTo(this.A0, 228.0f, 84.0f);
-            this.B0.close();
+            this.B0_v.reset();
+            this.B0_v.moveTo(f2, f3);
+            this.A0_v.set(f2 - 8.262f, f3 - 8.262f, f2 + 8.262f, f3 + 8.262f);
+            this.B0_v.arcTo(this.A0_v, 228.0f, 84.0f);
+            this.B0_v.close();
             this.z0.setColor(this.b0 >= 0 ? this.g0 : i2);
             this.z0.setStrokeWidth(2.43f);
-            canvas.drawPath(this.B0, this.z0);
+            canvas.drawPath(this.B0_v, this.z0);
         }
     }
 
@@ -3975,16 +3975,16 @@ public final class b extends XposedModule {
             }
             TelephonyCallback telephonyCallback = this.c;
             if (telephonyCallback != null) {
-                this.b.unregisterTelephonyCallback(telephonyCallback);
+                this.b_v.unregisterTelephonyCallback(telephonyCallback);
                 this.c = null;
             }
             this.a = i;
             this.d.c0 = "";
             dev.duo.workspaceprobe.b.this.m1();
             if (SubscriptionManager.isValidSubscriptionId(i)) {
-                this.b = ((TelephonyManager) dev.duo.workspaceprobe.b.this.i4.getSystemService(TelephonyManager.class)).createForSubscriptionId(i);
+                this.b_v = ((TelephonyManager) dev.duo.workspaceprobe.b.this.i4.getSystemService(TelephonyManager.class)).createForSubscriptionId(i);
                 this.c = new a(i);
-                this.b.registerTelephonyCallback(dev.duo.workspaceprobe.b.this.i4.getMainExecutor(), this.c);
+                this.b_v.registerTelephonyCallback(dev.duo.workspaceprobe.b.this.i4.getMainExecutor(), this.c);
             }
         }
 
@@ -4366,7 +4366,7 @@ public final class b extends XposedModule {
         this.w2 = -1;
         this.x2 = new ConcurrentHashMap();
         this.y2 = "";
-        this.C2 = -1;
+        this.C2_v = -1;
         this.D2 = "";
         this.E2 = "";
         this.F2 = new HashMap();
@@ -4374,7 +4374,7 @@ public final class b extends XposedModule {
         this.H2 = new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda54
             @Override // java.lang.Runnable
             public final void run() {
-                dev.duo.workspaceprobe.b.this.u0();
+                dev.duo.workspaceprobe.b.this.u0_v();
             }
         };
         this.I2 = "";
@@ -4454,7 +4454,7 @@ public final class b extends XposedModule {
         this.e6 = -2;
         this.q6 = new Object();
         this.x6 = new Object();
-        this.D6 = -1;
+        this.D6_v = -1;
         this.H6 = new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda59
             @Override // java.lang.Runnable
             public final void run() {
@@ -4487,7 +4487,7 @@ public final class b extends XposedModule {
     }
 
     private boolean B0() {
-        return !this.I2.isEmpty() && this.I2.equals(this.F1) && this.C2 == this.G1 && !this.I1 && q0() && j(this.G1) && v0() && R0() && !this.M1 && !this.L1 && !this.E6 && !this.N1;
+        return !this.I2.isEmpty() && this.I2.equals(this.F1) && this.C2_v == this.G1 && !this.I1 && q0() && j(this.G1) && v0() && R0() && !this.M1 && !this.L1 && !this.E6 && !this.N1;
     }
 
     private void B1() {
@@ -4898,7 +4898,7 @@ public final class b extends XposedModule {
                 }
                 this.z4 = null;
             }
-            this.B4 = SystemClock.uptimeMillis() + 5000;
+            this.B4_v = SystemClock.uptimeMillis() + 5000;
             Log.w("DuoRail", "Page watch unavailable", th);
         }
     }
@@ -4973,7 +4973,7 @@ public final class b extends XposedModule {
             this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda131
                 @Override // java.lang.Runnable
                 public final void run() {
-                    dev.duo.workspaceprobe.b.this.y();
+                    dev.duo.workspaceprobe.b.this.y_v();
                 }
             });
         } catch (ReflectiveOperationException | RuntimeException e2) {
@@ -5225,7 +5225,7 @@ public final class b extends XposedModule {
         this.Q1.execute(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda104
             @Override // java.lang.Runnable
             public final void run() {
-                dev.duo.workspaceprobe.b.this.j0();
+                dev.duo.workspaceprobe.b.this.j0_v();
             }
         });
     }
@@ -5248,7 +5248,7 @@ public final class b extends XposedModule {
         this.Q1.execute(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda178
             @Override // java.lang.Runnable
             public final void run() {
-                dev.duo.workspaceprobe.b.this.t(i2);
+                dev.duo.workspaceprobe.b.this.t_v(i2);
             }
         });
     }
@@ -5271,7 +5271,7 @@ public final class b extends XposedModule {
         this.Q1.execute(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda66
             @Override // java.lang.Runnable
             public final void run() {
-                dev.duo.workspaceprobe.b.this.k0();
+                dev.duo.workspaceprobe.b.this.k0_v();
             }
         });
     }
@@ -5294,7 +5294,7 @@ public final class b extends XposedModule {
         this.Q1.execute(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda134
             @Override // java.lang.Runnable
             public final void run() {
-                dev.duo.workspaceprobe.b.this.l0();
+                dev.duo.workspaceprobe.b.this.l0_v();
             }
         });
     }
@@ -5341,7 +5341,7 @@ public final class b extends XposedModule {
     }
 
     private void b2() {
-        if (s() && R0() && this.C2 == this.G1 && !this.D2.isEmpty()) {
+        if (s() && R0() && this.C2_v == this.G1 && !this.D2.isEmpty()) {
             if (!this.I2.isEmpty()) {
                 x();
                 return;
@@ -5515,7 +5515,7 @@ public final class b extends XposedModule {
     }
 
     private void g1() {
-        if (q0() && s0() && this.C1) {
+        if (q0() && s0() && this.C1_v) {
             boolean f2 = f();
             if (this.I5.isEmpty() && !this.K1 && f2 != this.H5) {
                 b(f2, G());
@@ -5551,7 +5551,7 @@ public final class b extends XposedModule {
     }
 
     private void h1() {
-        if (t() && q0() && this.C1 && this.I1 && !this.c6 && this.I5.isEmpty() && R0()) {
+        if (t() && q0() && this.C1_v && this.I1 && !this.c6 && this.I5.isEmpty() && R0()) {
             synchronized (this.L5) {
                 if (this.L5.size() >= 3) {
                     return;
@@ -5702,7 +5702,7 @@ public final class b extends XposedModule {
                             }
                             this.p3 = height + i2;
                             r2 = ((this.k3 || this.m3) && !this.l3 && (this.m3 || this.h3.isShown()) && !this.N1) ? 1 : 0;
-                            SurfaceControl surfaceControl2 = (this.C1 && (surfaceControl = this.B1) != null && surfaceControl.isValid()) ? this.B1 : this.D1;
+                            SurfaceControl surfaceControl2 = (this.C1_v && (surfaceControl = this.B1) != null && surfaceControl.isValid()) ? this.B1 : this.D1;
                             if (r2 != 0) {
                                 h0 h0Var3 = this.W0;
                                 if (h0Var3.g0 != -1) {
@@ -5726,7 +5726,7 @@ public final class b extends XposedModule {
                             if (surfaceControl2 != null && surfaceControl2.isValid()) {
                                 boolean z3 = r2 == 0 && u();
                                 Q1();
-                                this.W0.a(r2 == 0 && this.C1 && !z3 && e2());
+                                this.W0.a(r2 == 0 && this.C1_v && !z3 && e2());
                                 float d3 = this.p3 + ((d(this.N6) - this.p3) * this.o3);
                                 float c4 = c(this.N6);
                                 if (r2 == 0) {
@@ -5744,7 +5744,7 @@ public final class b extends XposedModule {
                                     try {
                                         try {
                                             try {
-                                                if (r2 == 0 && (!this.C1 || z3 || this.t6)) {
+                                                if (r2 == 0 && (!this.C1_v || z3 || this.t6)) {
                                                     z2 = false;
                                                     if (r2 != 0 && !this.n3 && this.l4 && surfaceControl2 == this.n4 && c4 == this.o4 && d3 == this.p4 && f4 == this.q4 && z2 == this.m4) {
                                                         U1();
@@ -5950,7 +5950,7 @@ public final class b extends XposedModule {
                 this.A1.post(this.S1);
             }
             K1();
-            if (this.A4 == null && SystemClock.uptimeMillis() >= this.B4) {
+            if (this.A4 == null && SystemClock.uptimeMillis() >= this.B4_v) {
                 L1();
             }
             Display display = ((DisplayManager) this.i4.getSystemService(DisplayManager.class)).getDisplay(0);
@@ -5964,7 +5964,7 @@ public final class b extends XposedModule {
                 this.v2 = i3;
                 this.w2 = point.y;
                 Log.w("DuoRail", "Screen ratio scene real=" + point.x + "x" + point.y);
-                if (this.C1 && q0() && s0()) {
+                if (this.C1_v && q0() && s0()) {
                     SurfaceControl.Transaction transaction = new SurfaceControl.Transaction();
                     try {
                         a(transaction);
@@ -6039,16 +6039,16 @@ public final class b extends XposedModule {
                 }
             }
             l2();
-            if (z7 != this.C1) {
+            if (z7 != this.C1_v) {
                 Log.w("DuoRail", "Visible=" + z7 + " foreground=" + this.F1 + " dx=" + this.a4);
             }
             SurfaceControl surfaceControl3 = this.D1;
             if ((this.I1 || z4) && (h2 = h(0)) != null) {
                 surfaceControl3 = h2;
             }
-            if (this.C1 && (surfaceControl = this.B1) != null && !surfaceControl.isValid()) {
+            if (this.C1_v && (surfaceControl = this.B1) != null && !surfaceControl.isValid()) {
                 Log.w("DuoRail", "Rail parent surface is no longer valid, mounting again " + this.B1);
-                this.C1 = false;
+                this.C1_v = false;
                 this.B1 = null;
             }
             a(surfaceControl3, z7);
@@ -6076,7 +6076,7 @@ public final class b extends XposedModule {
 
     private void j2() {
         boolean B02 = B0();
-        if (!this.I2.isEmpty() && !this.g3 && (this.I1 || this.G1 != this.C2 || !this.I2.equals(this.D2))) {
+        if (!this.I2.isEmpty() && !this.g3 && (this.I1 || this.G1 != this.C2_v || !this.I2.equals(this.D2))) {
             this.g3 = true;
             x();
         }
@@ -6178,10 +6178,10 @@ public final class b extends XposedModule {
             h0Var.g0 = i3;
             h0Var.invalidate();
         }
-        if (this.W0 == null || this.D6 == i3) {
+        if (this.W0 == null || this.D6_v == i3) {
             return;
         }
-        this.D6 = i3;
+        this.D6_v = i3;
         boolean z3 = i3 != -1;
         this.z1.a.setColor(z3 ? -14737372 : i3);
         N n2 = this.y5;
@@ -6258,7 +6258,7 @@ public final class b extends XposedModule {
                 u3.setVisibility(this.H3 ? 0 : 8);
             }
         }
-        if (!this.C1 || this.z5 == null) {
+        if (!this.C1_v || this.z5 == null) {
             return;
         }
         SurfaceControl.Transaction transaction = new SurfaceControl.Transaction();
@@ -6711,10 +6711,10 @@ public final class b extends XposedModule {
     /* JADX INFO: Access modifiers changed from: private */
     public void u0() {
         i0 i0Var = this.F2.get(this.D2);
-        if (i0Var == null || this.Q2 || this.z2 == null || this.C2 != this.G1 || this.I1 || !q0() || !j(this.C2) || !R0()) {
+        if (i0Var == null || this.Q2 || this.z2 == null || this.C2_v != this.G1 || this.I1 || !q0() || !j(this.C2_v) || !R0()) {
             return;
         }
-        final int i2 = this.C2;
+        final int i2 = this.C2_v;
         final int i3 = this.B2;
         final int a2 = a(i2);
         final String str = this.E2;
@@ -6739,7 +6739,7 @@ public final class b extends XposedModule {
             this.k1.execute(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda117
                 @Override // java.lang.Runnable
                 public final void run() {
-                    dev.duo.workspaceprobe.b.this.p(i2);
+                    dev.duo.workspaceprobe.b.this.p_v(i2);
                 }
             });
         }
@@ -7028,7 +7028,7 @@ public final class b extends XposedModule {
                         hook(declaredMethod4).intercept(new XposedInterface.Hooker() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda197
                             public final Object intercept(XposedInterface.Chain chain) {
                                 Object b2;
-                                b2 = dev.duo.workspaceprobe.b.this.b(declaredField, declaredField2, declaredMethod2, chain);
+                                b2 = dev.duo.workspaceprobe.b.this.b_v(declaredField, declaredField2, declaredMethod2, chain);
                                 return b2;
                             }
                         });
@@ -7109,7 +7109,7 @@ public final class b extends XposedModule {
                 hook(declaredMethod4).intercept(new XposedInterface.Hooker() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda197
                     public final Object intercept(XposedInterface.Chain chain) {
                         Object b2;
-                        b2 = dev.duo.workspaceprobe.b.this.b(declaredField, declaredField2, declaredMethod2, chain);
+                        b2 = dev.duo.workspaceprobe.b.this.b_v(declaredField, declaredField2, declaredMethod2, chain);
                         return b2;
                     }
                 });
@@ -7505,7 +7505,7 @@ public final class b extends XposedModule {
         this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda140
             @Override // java.lang.Runnable
             public final void run() {
-                dev.duo.workspaceprobe.b.this.b(a2);
+                dev.duo.workspaceprobe.b.this.b_v(a2);
             }
         });
     }
@@ -7581,7 +7581,7 @@ public final class b extends XposedModule {
                                     this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda148
                                         @Override // java.lang.Runnable
                                         public final void run() {
-                                            dev.duo.workspaceprobe.b.this.r();
+                                            dev.duo.workspaceprobe.b.this.r_v();
                                         }
                                     });
                                 }
@@ -7604,7 +7604,7 @@ public final class b extends XposedModule {
                                 this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda149
                                     @Override // java.lang.Runnable
                                     public final void run() {
-                                        dev.duo.workspaceprobe.b.this.b(j3);
+                                        dev.duo.workspaceprobe.b.this.b_v(j3);
                                     }
                                 });
                                 synchronized (this.x6) {
@@ -7813,7 +7813,7 @@ public final class b extends XposedModule {
                         this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda69
                             @Override // java.lang.Runnable
                             public final void run() {
-                                dev.duo.workspaceprobe.b.this.l(str);
+                                dev.duo.workspaceprobe.b.this.l_v(str);
                             }
                         });
                         return;
@@ -7893,7 +7893,7 @@ public final class b extends XposedModule {
                         this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda69
                             @Override // java.lang.Runnable
                             public final void run() {
-                                dev.duo.workspaceprobe.b.this.l(str);
+                                dev.duo.workspaceprobe.b.this.l_v(str);
                             }
                         });
                     }
@@ -7905,7 +7905,7 @@ public final class b extends XposedModule {
             this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda69
                 @Override // java.lang.Runnable
                 public final void run() {
-                    dev.duo.workspaceprobe.b.this.l(str);
+                    dev.duo.workspaceprobe.b.this.l_v(str);
                 }
             });
         }
@@ -7918,14 +7918,14 @@ public final class b extends XposedModule {
             hook(cls.getDeclaredMethod("onSystemBarAttributesChanged", cls2, cls2, Class.forName("[Lcom.android.internal.view.AppearanceRegion;", false, classLoader), Boolean.TYPE, cls2, cls2, String.class, Class.forName("[Lcom.android.internal.statusbar.LetterboxDetails;", false, classLoader))).intercept(new XposedInterface.Hooker() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda23
                 public final Object intercept(XposedInterface.Chain chain) {
                     Object p2;
-                    p2 = dev.duo.workspaceprobe.b.this.p(chain);
+                    p2 = dev.duo.workspaceprobe.b.this.p_v(chain);
                     return p2;
                 }
             });
             hook(cls.getDeclaredMethod("setWindowState", cls2, cls2, cls2)).intercept(new XposedInterface.Hooker() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda24
                 public final Object intercept(XposedInterface.Chain chain) {
                     Object q2;
-                    q2 = dev.duo.workspaceprobe.b.this.q(chain);
+                    q2 = dev.duo.workspaceprobe.b.this.q_v(chain);
                     return q2;
                 }
             });
@@ -8078,7 +8078,7 @@ public final class b extends XposedModule {
             this.L0.execute(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda119
                 @Override // java.lang.Runnable
                 public final void run() {
-                    dev.duo.workspaceprobe.b.this.o(str);
+                    dev.duo.workspaceprobe.b.this.o_v(str);
                 }
             });
         } catch (RejectedExecutionException e2) {
@@ -8095,7 +8095,7 @@ public final class b extends XposedModule {
         (this.R0 != null ? this.R0 : this.A1).post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda82
             @Override // java.lang.Runnable
             public final void run() {
-                dev.duo.workspaceprobe.b.this.o(i2);
+                dev.duo.workspaceprobe.b.this.o_v(i2);
             }
         });
     }
@@ -8132,7 +8132,7 @@ public final class b extends XposedModule {
             hook(Class.forName("com.android.systemui.statusbar.phone.ConfigurationControllerImpl", false, classLoader).getDeclaredMethod("onConfigurationChanged", Configuration.class)).intercept(new XposedInterface.Hooker() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda37
                 public final Object intercept(XposedInterface.Chain chain) {
                     Object k2;
-                    k2 = dev.duo.workspaceprobe.b.this.k(chain);
+                    k2 = dev.duo.workspaceprobe.b.this.k_v(chain);
                     return k2;
                 }
             });
@@ -8535,7 +8535,7 @@ public final class b extends XposedModule {
             hook(cls.getDeclaredMethod("onDisplayAreaAppeared", cls2, SurfaceControl.class)).intercept(new XposedInterface.Hooker() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda105
                 public final Object intercept(XposedInterface.Chain chain) {
                     Object b2;
-                    b2 = dev.duo.workspaceprobe.b.this.b(field, field2, chain);
+                    b2 = dev.duo.workspaceprobe.b.this.b_v(field, field2, chain);
                     return b2;
                 }
             });
@@ -8582,7 +8582,7 @@ public final class b extends XposedModule {
             hook(cls3.getDeclaredMethod("onTaskAppeared", cls5)).intercept(new XposedInterface.Hooker() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda109
                 public final Object intercept(XposedInterface.Chain chain) {
                     Object b2;
-                    b2 = dev.duo.workspaceprobe.b.this.b(method3, method4, chain);
+                    b2 = dev.duo.workspaceprobe.b.this.b_v(method3, method4, chain);
                     return b2;
                 }
             });
@@ -8738,19 +8738,19 @@ public final class b extends XposedModule {
         W(d0 d0Var, View view, View view2, String str, Drawable drawable) {
             this.f = (WindowManager) dev.duo.workspaceprobe.b.this.i4.getSystemService(WindowManager.class);
             this.a = d0Var;
-            this.b = view;
+            this.b_v = view;
             this.c = view2;
             this.d = str;
             Drawable.ConstantState constantState = drawable.getConstantState();
             this.e = constantState != null ? constantState.newDrawable() : drawable;
             float f = d0Var.m;
-            this.l = f;
+            this.l_v = f;
             this.g = f;
             float f2 = d0Var.n;
             this.m = f2;
             this.h = f2;
             this.i = view2.getAlpha();
-            this.j = d0Var.o.indexOf(view);
+            this.j_v = d0Var.o.indexOf(view);
         }
 
         private K b() {
@@ -8761,7 +8761,7 @@ public final class b extends XposedModule {
                 b bVar = dev.duo.workspaceprobe.b.this;
                 if (bVar.d(bVar.G1)) {
                     float G1 = iArr[1] + dev.duo.workspaceprobe.b.this.G1();
-                    if (this.l >= iArr[0]) {
+                    if (this.l_v >= iArr[0]) {
                         float f = this.m;
                         if (f >= G1 && f <= G1 + dev.duo.workspaceprobe.b.this.D1()) {
                             return k_v;
@@ -8774,7 +8774,7 @@ public final class b extends XposedModule {
 
         private void d() {
             ArrayList arrayList = new ArrayList(this.a.j);
-            arrayList.add(this.k, (Object[]) arrayList.remove(this.j));
+            arrayList.add(this.k_v, (Object[]) arrayList.remove(this.j_v));
             this.a.j = arrayList;
             ArrayList arrayList2 = new ArrayList();
             int size = arrayList.size();
@@ -8784,12 +8784,12 @@ public final class b extends XposedModule {
                 i++;
                 arrayList2.add((String) ((Object[]) obj)[0]);
             }
-            Log.w("DuoRail", "Sidebar panel move " + this.d + " " + this.j + "->" + this.k);
+            Log.w("DuoRail", "Sidebar panel move " + this.d + " " + this.j_v + "->" + this.k_v);
             dev.duo.workspaceprobe.b.this.B(2);
             b bVar = dev.duo.workspaceprobe.b.this;
             bVar.b(dev.duo.hookprobe.J.a(bVar.N3, arrayList2, arrayList2, dev.duo.hookprobe.J.m));
             this.a.d();
-            View view = this.k < this.a.o.size() ? this.a.o.get(this.k) : null;
+            View view = this.k_v < this.a.o.size() ? this.a.o.get(this.k_v) : null;
             final View childAt = view != null ? ((ViewGroup) ((ViewGroup) view).getChildAt(0)).getChildAt(0) : null;
             if (childAt == null) {
                 j();
@@ -8800,30 +8800,30 @@ public final class b extends XposedModule {
             this.a.g.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$W$$ExternalSyntheticLambda3
                 @Override // java.lang.Runnable
                 public final void run() {
-                    dev.duo.workspaceprobe.b.W.this.b(childAt, alpha);
+                    dev.duo.workspaceprobe.b.W.this.b_v(childAt, alpha);
                 }
             });
         }
 
         private void e() {
-            this.o.setX(this.l - 64.0f);
-            this.o.setY(this.m - 64.0f);
+            this.o_v.setX(this.l_v - 64.0f);
+            this.o_v.setY(this.m - 64.0f);
             K b_v = b();
             int a = b_v == null ? -1 : a(b_v);
-            K k_v = this.r;
-            if (b_v != k_v || a != this.t) {
+            K k_v = this.r_v;
+            if (b_v != k_v || a != this.t_v) {
                 if (k_v != null && k_v != b_v) {
                     a(k_v, -1);
                 }
-                this.r = b_v;
-                this.t = a;
+                this.r_v = b_v;
+                this.t_v = a;
                 if (b_v != null) {
                     a(b_v, a);
                 }
             }
             int i = b_v == null ? i() : -1;
-            if (i != this.k) {
-                this.k = i;
+            if (i != this.k_v) {
+                this.k_v = i;
                 a(i);
             }
         }
@@ -8842,14 +8842,14 @@ public final class b extends XposedModule {
         }
 
         private int i() {
-            if (this.j >= 0 && !this.a.p && this.b.isAttachedToWindow() && this.a.o.indexOf(this.b) == this.j) {
+            if (this.j_v >= 0 && !this.a.p && this.b_v.isAttachedToWindow() && this.a.o.indexOf(this.b_v) == this.j_v) {
                 int[] h = h();
-                float f = this.l;
+                float f = this.l_v;
                 if (f >= h[0] && f <= r4 + h[2]) {
                     float f2 = this.m;
                     if (f2 >= h[1] && f2 <= r6 + h[3]) {
                         this.a.g.getLocationOnScreen(new int[2]);
-                        return dev.duo.hookprobe.J.a(this.l - r0_v[0], this.m - r0_v[1], this.a.g.getWidth() / 3.0f, ((View) this.b.getParent()).getHeight(), 3, this.a.o.size());
+                        return dev.duo.hookprobe.J.a(this.l_v - r0_v[0], this.m - r0_v[1], this.a.g.getWidth() / 3.0f, ((View) this.b_v.getParent()).getHeight(), 3, this.a.o.size());
                     }
                 }
             }
@@ -8858,7 +8858,7 @@ public final class b extends XposedModule {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void j() {
-            FrameLayout frameLayout = this.n;
+            FrameLayout frameLayout = this.n_v;
             if (frameLayout == null) {
                 return;
             }
@@ -8867,20 +8867,20 @@ public final class b extends XposedModule {
             } catch (RuntimeException e) {
                 Log.w("DuoRail", "Sidebar carry remove failed", e);
             }
-            this.n = null;
+            this.n_v = null;
         }
 
         void a(MotionEvent motionEvent) {
-            this.l = motionEvent.getRawX();
+            this.l_v = motionEvent.getRawX();
             this.m = motionEvent.getRawY();
             int actionMasked = motionEvent.getActionMasked();
             if (actionMasked == 2) {
-                if (this.p) {
+                if (this.p_v) {
                     e();
                     return;
                 } else {
-                    if (Math.hypot(this.l - this.g, this.m - this.h) > 24.0d) {
-                        dev.duo.workspaceprobe.b.this.o();
+                    if (Math.hypot(this.l_v - this.g, this.m - this.h) > 24.0d) {
+                        dev.duo.workspaceprobe.b.this.o_v();
                         dev.duo.workspaceprobe.b.this.B(2);
                         a();
                         return;
@@ -8889,7 +8889,7 @@ public final class b extends XposedModule {
                 }
             }
             if (actionMasked == 1) {
-                if (this.p) {
+                if (this.p_v) {
                     a(true);
                     return;
                 } else {
@@ -8898,7 +8898,7 @@ public final class b extends XposedModule {
                 }
             }
             if (actionMasked == 3) {
-                if (this.p) {
+                if (this.p_v) {
                     a(false);
                 } else {
                     this.a.l = null;
@@ -8907,14 +8907,14 @@ public final class b extends XposedModule {
         }
 
         void c() {
-            if (this.q) {
+            if (this.q_v) {
                 return;
             }
-            this.q = true;
-            this.p = false;
+            this.q_v = true;
+            this.p_v = false;
             this.a.l = null;
-            this.b.removeCallbacks(this);
-            K k_v = this.r;
+            this.b_v.removeCallbacks(this);
+            K k_v = this.r_v;
             if (k_v != null) {
                 a(k_v, -1);
             }
@@ -8922,7 +8922,7 @@ public final class b extends XposedModule {
         }
 
         void f() {
-            this.b.getParent().requestDisallowInterceptTouchEvent(true);
+            this.b_v.getParent().requestDisallowInterceptTouchEvent(true);
             ((View) this.c.getParent()).animate().scaleX(1.0f).scaleY(1.0f).setDuration(180L).start();
             dev.duo.workspaceprobe.b.this.B(5);
             if (dev.duo.workspaceprobe.b.this.T3) {
@@ -8933,7 +8933,7 @@ public final class b extends XposedModule {
             this.c.getLocationOnScreen(iArr);
             boolean z_v = (iArr[0] + this.c.getWidth()) + 444 <= 939;
             int width = z_v ? iArr[0] + this.c.getWidth() + 24 : Math.max(24, iArr[0] - 444);
-            dev.duo.workspaceprobe.b.this.o();
+            dev.duo.workspaceprobe.b.this.o_v();
             b bVar = dev.duo.workspaceprobe.b.this;
             bVar.V3 = bVar.new b0(this.d, bVar.L3.contains(this.d), width, iArr[1] + (this.c.getHeight() / 2), z_v ? 0.0f : 420, true);
             dev.duo.workspaceprobe.b.this.V3.d();
@@ -8942,10 +8942,10 @@ public final class b extends XposedModule {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.q || !this.p) {
+            if (this.q_v || !this.p_v) {
                 return;
             }
-            K k_v = this.r;
+            K k_v = this.r_v;
             int i = x_v;
             if (k_v != null) {
                 ScrollView scrollView = (ScrollView) k_v.j.getParent();
@@ -8960,11 +8960,11 @@ public final class b extends XposedModule {
                     scrollView.scrollBy(0, i);
                 }
                 if (scrollView.getScrollY() != scrollY) {
-                    this.s = scrollView;
-                    this.t = -2;
+                    this.s_v = scrollView;
+                    this.t_v = -2;
                     e();
                 }
-            } else if (this.k >= 0) {
+            } else if (this.k_v >= 0) {
                 ScrollView scrollView2 = (ScrollView) this.a.g.getParent();
                 float f = this.m - h()[1];
                 if (f < 110.0f) {
@@ -8977,17 +8977,17 @@ public final class b extends XposedModule {
                     scrollView2.scrollBy(0, i);
                 }
                 if (scrollView2.getScrollY() != scrollY2) {
-                    this.k = -2;
+                    this.k_v = -2;
                     e();
                 }
             }
-            this.b.postOnAnimation(this);
+            this.b_v.postOnAnimation(this);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public /* synthetic */ void b(final View view, final float f) {
             view.getLocationOnScreen(new int[2]);
-            this.o.animate().x(r0_v[0]).y(r0_v[1]).scaleX(1.0f).scaleY(1.0f).alpha(1.0f).setDuration(200L).setInterpolator(dev.duo.workspaceprobe.b.J).withEndAction(new Runnable() { // from class: dev.duo.workspaceprobe.b$W$$ExternalSyntheticLambda2
+            this.o_v.animate().x(r0_v[0]).y(r0_v[1]).scaleX(1.0f).scaleY(1.0f).alpha(1.0f).setDuration(200L).setInterpolator(dev.duo.workspaceprobe.b.J).withEndAction(new Runnable() { // from class: dev.duo.workspaceprobe.b$W$$ExternalSyntheticLambda2
                 @Override // java.lang.Runnable
                 public final void run() {
                     dev.duo.workspaceprobe.b.W.this.a(view, f);
@@ -8996,29 +8996,29 @@ public final class b extends XposedModule {
         }
 
         private void a() {
-            this.n = new FrameLayout(dev.duo.workspaceprobe.b.this.i4);
+            this.n_v = new FrameLayout(dev.duo.workspaceprobe.b.this.i4);
             ImageView imageView = new ImageView(dev.duo.workspaceprobe.b.this.i4);
-            this.o = imageView;
+            this.o_v = imageView;
             imageView.setImageDrawable(this.e);
-            this.n.addView(this.o, new FrameLayout.LayoutParams(y_v, y_v));
+            this.n_v.addView(this.o_v, new FrameLayout.LayoutParams(y_v, y_v));
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(-1, -1, 2017, 16777496, -3);
             layoutParams.gravity = 51;
             layoutParams.layoutInDisplayCutoutMode = 3;
             layoutParams.setFitInsetsTypes(0);
             layoutParams.setTitle("DuoSidebarCarry");
             try {
-                this.f.addView(this.n, layoutParams);
-                this.p = true;
+                this.f.addView(this.n_v, layoutParams);
+                this.p_v = true;
                 this.c.setAlpha(0.3f);
-                this.o.setScaleX(1.12f);
-                this.o.setScaleY(1.12f);
-                this.o.setAlpha(0.92f);
+                this.o_v.setScaleX(1.12f);
+                this.o_v.setScaleY(1.12f);
+                this.o_v.setAlpha(0.92f);
                 e();
-                this.b.postOnAnimation(this);
+                this.b_v.postOnAnimation(this);
                 Log.w("DuoRail", "Sidebar carry start " + this.d);
             } catch (RuntimeException e) {
                 Log.w("DuoRail", "Sidebar carry unavailable", e);
-                this.n = null;
+                this.n_v = null;
                 this.a.l = null;
             }
         }
@@ -9032,16 +9032,16 @@ public final class b extends XposedModule {
         }
 
         private void a(int i) {
-            int i2 = this.j;
-            if (i2 < 0 || i2 >= this.a.o.size() || this.a.o.get(this.j) != this.b) {
+            int i2 = this.j_v;
+            if (i2 < 0 || i2 >= this.a.o.size() || this.a.o.get(this.j_v) != this.b_v) {
                 return;
             }
             float width = this.a.g.getWidth() / 3;
-            float height = ((View) this.b.getParent()).getHeight();
+            float height = ((View) this.b_v.getParent()).getHeight();
             int i3 = 0;
             while (i3 < this.a.o.size()) {
                 View view = this.a.o.get(i3);
-                int i4 = this.j;
+                int i4 = this.j_v;
                 if (i3 == i4) {
                     view.animate().alpha(i >= 0 ? 0.0f : 1.0f).setDuration(120L).start();
                 } else {
@@ -9073,28 +9073,28 @@ public final class b extends XposedModule {
         private void a(boolean z_v) {
             int i;
             K k_v;
-            this.q = true;
-            this.p = false;
+            this.q_v = true;
+            this.p_v = false;
             this.a.l = null;
-            this.b.removeCallbacks(this);
-            K k2 = this.r;
+            this.b_v.removeCallbacks(this);
+            K k2 = this.r_v;
             if (k2 != null && (k2.j.getParent() instanceof e0)) {
-                ((e0) this.r.j.getParent()).a();
+                ((e0) this.r_v.j.getParent()).a();
             }
-            ScrollView scrollView = this.s;
-            if ((scrollView instanceof e0) && ((k_v = this.r) == null || scrollView != k_v.j.getParent())) {
-                ((e0) this.s).a();
+            ScrollView scrollView = this.s_v;
+            if ((scrollView instanceof e0) && ((k_v = this.r_v) == null || scrollView != k_v.j.getParent())) {
+                ((e0) this.s_v).a();
             }
-            if (z_v && this.r != null && this.t >= 0) {
+            if (z_v && this.r_v != null && this.t_v >= 0) {
                 ArrayList arrayList = new ArrayList(dev.duo.workspaceprobe.b.this.L3);
                 arrayList.remove(this.d);
-                arrayList.add(Math.min(this.t, arrayList.size()), this.d);
-                Log.w("DuoRail", "Sidebar carry drop " + this.d + " at " + this.t);
+                arrayList.add(Math.min(this.t_v, arrayList.size()), this.d);
+                Log.w("DuoRail", "Sidebar carry drop " + this.d + " at " + this.t_v);
                 dev.duo.workspaceprobe.b.this.B(2);
-                this.o.animate().scaleX(0.9f).scaleY(0.9f).alpha(0.0f).setDuration(160L).withEndAction(new Runnable() { // from class: dev.duo.workspaceprobe.b$W$$ExternalSyntheticLambda0
+                this.o_v.animate().scaleX(0.9f).scaleY(0.9f).alpha(0.0f).setDuration(160L).withEndAction(new Runnable() { // from class: dev.duo.workspaceprobe.b$W$$ExternalSyntheticLambda0
                     @Override // java.lang.Runnable
                     public final void run() {
-                        dev.duo.workspaceprobe.b.W.this.j();
+                        dev.duo.workspaceprobe.b.W.this.j_v();
                     }
                 }).start();
                 this.c.setAlpha(this.i);
@@ -9106,32 +9106,32 @@ public final class b extends XposedModule {
                     return;
                 }
             }
-            if (z_v && (i = this.k) >= 0 && i != this.j && this.a.o.indexOf(this.b) == this.j) {
+            if (z_v && (i = this.k_v) >= 0 && i != this.j_v && this.a.o.indexOf(this.b_v) == this.j_v) {
                 d();
                 return;
             }
-            if (z_v && this.r != null) {
+            if (z_v && this.r_v != null) {
                 Toast.makeText(dev.duo.workspaceprobe.b.this.i4, "最多固定 12 个应用", 0).show();
             }
-            K k3 = this.r;
+            K k3 = this.r_v;
             if (k3 != null) {
                 a(k3, -1);
             }
-            if (this.k >= 0) {
+            if (this.k_v >= 0) {
                 a(-1);
             }
             Log.w("DuoRail", "Sidebar carry " + (z_v ? "back " : "cancel ") + this.d);
             if (!this.c.isAttachedToWindow()) {
-                this.o.animate().alpha(0.0f).setDuration(160L).withEndAction(new Runnable() { // from class: dev.duo.workspaceprobe.b$W$$ExternalSyntheticLambda0
+                this.o_v.animate().alpha(0.0f).setDuration(160L).withEndAction(new Runnable() { // from class: dev.duo.workspaceprobe.b$W$$ExternalSyntheticLambda0
                     @Override // java.lang.Runnable
                     public final void run() {
-                        dev.duo.workspaceprobe.b.W.this.j();
+                        dev.duo.workspaceprobe.b.W.this.j_v();
                     }
                 }).start();
                 return;
             }
             this.c.getLocationOnScreen(new int[2]);
-            this.o.animate().x(r10[0]).y(r10[1]).scaleX(1.0f).scaleY(1.0f).alpha(1.0f).setDuration(220L).setInterpolator(dev.duo.workspaceprobe.b.J).withEndAction(new Runnable() { // from class: dev.duo.workspaceprobe.b$W$$ExternalSyntheticLambda1
+            this.o_v.animate().x(r10[0]).y(r10[1]).scaleX(1.0f).scaleY(1.0f).alpha(1.0f).setDuration(220L).setInterpolator(dev.duo.workspaceprobe.b.J).withEndAction(new Runnable() { // from class: dev.duo.workspaceprobe.b$W$$ExternalSyntheticLambda1
                 @Override // java.lang.Runnable
                 public final void run() {
                     dev.duo.workspaceprobe.b.W.this.g();
@@ -9162,7 +9162,7 @@ public final class b extends XposedModule {
         X(LinearLayout linearLayout, View view, int i, int i2) {
             this.a = linearLayout;
             ScrollView scrollView = (ScrollView) linearLayout.getParent();
-            this.b = scrollView;
+            this.b_v = scrollView;
             this.c = view;
             this.d = i;
             this.e = i2;
@@ -9174,7 +9174,7 @@ public final class b extends XposedModule {
         }
 
         private void b() {
-            this.c.setTranslationY(((this.h - this.g) + this.b.getScrollY()) - this.f);
+            this.c.setTranslationY(((this.h - this.g) + this.b_v.getScrollY()) - this.f);
             int a = dev.duo.hookprobe.J.a(((this.c.getTop() + this.c.getTranslationY()) + 48.0f) - this.a.getPaddingTop(), dev.duo.workspaceprobe.b.g0, this.e);
             if (a == this.i) {
                 return;
@@ -9191,11 +9191,11 @@ public final class b extends XposedModule {
         }
 
         void a() {
-            this.b.requestDisallowInterceptTouchEvent(true);
+            this.b_v.requestDisallowInterceptTouchEvent(true);
             this.c.animate().cancel();
             this.c.setTranslationZ(24.0f);
             this.c.animate().scaleX(1.12f).scaleY(1.12f).alpha(0.85f).setDuration(120L).start();
-            this.b.postOnAnimation(this);
+            this.b_v.postOnAnimation(this);
             Log.w("DuoRail", "Sidebar drag start " + ((String) dev.duo.workspaceprobe.b.this.L3.get(this.d)) + " at " + this.d);
         }
 
@@ -9204,16 +9204,16 @@ public final class b extends XposedModule {
             if (dev.duo.workspaceprobe.b.this.W3 != this) {
                 return;
             }
-            float top = ((this.c.getTop() + this.c.getTranslationY()) - this.b.getScrollY()) + 48.0f;
-            int i = top < 110.0f ? -18 : top > ((float) (this.b.getHeight() + (-110))) ? l_v : 0;
+            float top = ((this.c.getTop() + this.c.getTranslationY()) - this.b_v.getScrollY()) + 48.0f;
+            int i = top < 110.0f ? -18 : top > ((float) (this.b_v.getHeight() + (-110))) ? l_v : 0;
             if (i != 0) {
-                int scrollY = this.b.getScrollY();
-                this.b.scrollBy(0, i);
-                if (this.b.getScrollY() != scrollY) {
+                int scrollY = this.b_v.getScrollY();
+                this.b_v.scrollBy(0, i);
+                if (this.b_v.getScrollY() != scrollY) {
                     b();
                 }
             }
-            this.b.postOnAnimation(this);
+            this.b_v.postOnAnimation(this);
         }
 
         void a(MotionEvent motionEvent) {
@@ -9230,8 +9230,8 @@ public final class b extends XposedModule {
 
         private void a(boolean z_v) {
             dev.duo.workspaceprobe.b.this.W3 = null;
-            this.b.removeCallbacks(this);
-            ScrollView scrollView = this.b;
+            this.b_v.removeCallbacks(this);
+            ScrollView scrollView = this.b_v;
             if (scrollView instanceof e0) {
                 ((e0) scrollView).a();
             }
@@ -9294,7 +9294,7 @@ public final class b extends XposedModule {
             float width = getWidth();
             float height = getHeight();
             this.a.setStyle(Paint.Style.FILL);
-            this.a.setColor(this.b ? 536870911 : 335544320);
+            this.a.setColor(this.b_v ? 536870911 : 335544320);
             float f = width * 0.28f;
             canvas.drawRoundRect(0.0f, 0.0f, width, height, f, f, this.a);
             this.a.setColor(-7434605);
@@ -9386,7 +9386,7 @@ public final class b extends XposedModule {
             this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda141
                 @Override // java.lang.Runnable
                 public final void run() {
-                    dev.duo.workspaceprobe.b.this.l(i2);
+                    dev.duo.workspaceprobe.b.this.l_v(i2);
                 }
             });
         }
@@ -9536,7 +9536,7 @@ public final class b extends XposedModule {
                     hook(declaredMethod3).intercept(new XposedInterface.Hooker() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda171
                         public final Object intercept(XposedInterface.Chain chain) {
                             Object b2;
-                            b2 = dev.duo.workspaceprobe.b.this.b(declaredField6, chain);
+                            b2 = dev.duo.workspaceprobe.b.this.b_v(declaredField6, chain);
                             return b2;
                         }
                     });
@@ -9617,7 +9617,7 @@ public final class b extends XposedModule {
             this.K0.execute(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda64
                 @Override // java.lang.Runnable
                 public final void run() {
-                    dev.duo.workspaceprobe.b.this.b(str, str2);
+                    dev.duo.workspaceprobe.b.this.b_v(str, str2);
                 }
             });
         } catch (RejectedExecutionException e2) {
@@ -9735,7 +9735,7 @@ public final class b extends XposedModule {
         (this.R0 != null ? this.R0 : this.A1).post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda128
             @Override // java.lang.Runnable
             public final void run() {
-                dev.duo.workspaceprobe.b.this.k(i2);
+                dev.duo.workspaceprobe.b.this.k_v(i2);
             }
         });
     }
@@ -9746,7 +9746,7 @@ public final class b extends XposedModule {
         this.F2.remove(str);
         for (ActivityManager.RunningTaskInfo runningTaskInfo : this.G0.values()) {
             ComponentName componentName2 = runningTaskInfo.topActivity;
-            if (componentName2 != null && str.equals(componentName2.getPackageName()) && (!str.equals(this.D2) || runningTaskInfo.taskId != this.C2)) {
+            if (componentName2 != null && str.equals(componentName2.getPackageName()) && (!str.equals(this.D2) || runningTaskInfo.taskId != this.C2_v)) {
                 this.x2.remove(Integer.valueOf(runningTaskInfo.taskId));
                 z(runningTaskInfo.taskId);
             }
@@ -10097,7 +10097,7 @@ public final class b extends XposedModule {
         hook(cls3.getDeclaredMethod("showShutdownUi", Boolean.TYPE, String.class)).intercept(new XposedInterface.Hooker() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda81
             public final Object intercept(XposedInterface.Chain chain) {
                 Object j2;
-                j2 = dev.duo.workspaceprobe.b.this.j(chain);
+                j2 = dev.duo.workspaceprobe.b.this.j_v(chain);
                 return j2;
             }
         });
@@ -10234,7 +10234,7 @@ public final class b extends XposedModule {
         if (z3 != this.t6) {
             this.t6 = z3;
             Log.i("DuoSidebar", "home editing=" + z3);
-            if (this.C1) {
+            if (this.C1_v) {
                 SurfaceControl.Transaction transaction = new SurfaceControl.Transaction();
                 try {
                     a(transaction);
@@ -10285,7 +10285,7 @@ public final class b extends XposedModule {
         } else {
             if (this.b6) {
                 a("official Dock Recents", true, false);
-                if (!this.C1) {
+                if (!this.C1_v) {
                     SurfaceControl.Transaction transaction2 = new SurfaceControl.Transaction();
                     try {
                         a(transaction2);
@@ -10310,7 +10310,7 @@ public final class b extends XposedModule {
         } else if (i3 == 0 && i4 == 2 && this.b6) {
             a("official Dock Home", false, false);
         }
-        if (!this.C1) {
+        if (!this.C1_v) {
         }
         if (i3 == this.e6) {
         }
@@ -10361,7 +10361,7 @@ public final class b extends XposedModule {
         h0Var.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda40
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                dev.duo.workspaceprobe.b.this.l(view);
+                dev.duo.workspaceprobe.b.this.l_v(view);
             }
         });
         h0Var.a(new Consumer() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda41
@@ -10381,14 +10381,14 @@ public final class b extends XposedModule {
         u2.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda42
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                dev.duo.workspaceprobe.b.this.n(view);
+                dev.duo.workspaceprobe.b.this.n_v(view);
             }
         });
         u2.setOnLongClickListener(new View.OnLongClickListener() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda43
             @Override // android.view.View.OnLongClickListener
             public final boolean onLongClick(View view) {
                 boolean o2;
-                o2 = dev.duo.workspaceprobe.b.this.o(view);
+                o2 = dev.duo.workspaceprobe.b.this.o_v(view);
                 return o2;
             }
         });
@@ -10415,7 +10415,7 @@ public final class b extends XposedModule {
         Runnable runnable2 = new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda45
             @Override // java.lang.Runnable
             public final void run() {
-                dev.duo.workspaceprobe.b.this.b(h0Var);
+                dev.duo.workspaceprobe.b.this.b_v(h0Var);
             }
         };
         this.i4.getContentResolver().registerContentObserver(Settings.Global.getUriFor("airplane_mode_on"), false, new C0044m(this.A1, runnable2));
@@ -10529,7 +10529,7 @@ public final class b extends XposedModule {
         this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda187
             @Override // java.lang.Runnable
             public final void run() {
-                dev.duo.workspaceprobe.b.this.n(i2);
+                dev.duo.workspaceprobe.b.this.n_v(i2);
             }
         });
         return proceed;
@@ -10537,21 +10537,21 @@ public final class b extends XposedModule {
 
     private boolean E(int i2) {
         Integer num;
-        if (i2 == this.B2 && q0() && j(this.C2)) {
+        if (i2 == this.B2 && q0() && j(this.C2_v)) {
             i0 i0Var = this.F2.get(this.D2);
-            List<int[]> a2 = i0Var == null ? Collections.EMPTY_LIST : a(i0Var, this.E2, a(this.C2));
+            List<int[]> a2 = i0Var == null ? Collections.EMPTY_LIST : a(i0Var, this.E2, a(this.C2_v));
             if (a2.isEmpty()) {
                 num = null;
             } else {
                 Integer num2 = this.G2.get(this.E2);
-                num = Integer.valueOf(i0Var.f.contains(this.E2) ? a(this.C2) : a2.get(0)[1]);
+                num = Integer.valueOf(i0Var.f.contains(this.E2) ? a(this.C2_v) : a2.get(0)[1]);
                 for (int[] iArr : a2) {
                     if (num2 != null && iArr[1] == num2.intValue()) {
                         num = num2;
                     }
                 }
             }
-            c(this.C2, (num == null || num.intValue() == a(this.C2)) ? 0 : num.intValue());
+            c(this.C2_v, (num == null || num.intValue() == a(this.C2_v)) ? 0 : num.intValue());
             if (num != null) {
                 return true;
             }
@@ -10620,7 +10620,7 @@ public final class b extends XposedModule {
             this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda100
                 @Override // java.lang.Runnable
                 public final void run() {
-                    dev.duo.workspaceprobe.b.this.p(str);
+                    dev.duo.workspaceprobe.b.this.p_v(str);
                 }
             });
         }
@@ -10692,7 +10692,7 @@ public final class b extends XposedModule {
             handler.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda102
                 @Override // java.lang.Runnable
                 public final void run() {
-                    dev.duo.workspaceprobe.b.this.j(str);
+                    dev.duo.workspaceprobe.b.this.j_v(str);
                 }
             });
         }
@@ -10823,13 +10823,13 @@ public final class b extends XposedModule {
         private K() {
             this.e = new ArrayList<>();
             this.h = new ImageView[3];
-            this.l = -1L;
+            this.l_v = -1L;
             this.m = -1L;
             this.t = -1;
-            this.v = -1L;
-            this.w = -1;
+            this.v_v = -1L;
+            this.w_v = -1;
             this.y = -1;
-            this.z = Float.NaN;
+            this.z_v = Float.NaN;
         }
 
         /* synthetic */ K(b bVar, C0042k c0042k) {
@@ -10915,13 +10915,13 @@ public final class b extends XposedModule {
         this.d3 = a("不对，重取", new View.OnClickListener() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda96
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                dev.duo.workspaceprobe.b.this.j(view);
+                dev.duo.workspaceprobe.b.this.j_v(view);
             }
         });
         TextView a2 = a("跳过", new View.OnClickListener() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda97
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                dev.duo.workspaceprobe.b.this.k(view);
+                dev.duo.workspaceprobe.b.this.k_v(view);
             }
         });
         this.e3 = a2;
@@ -11069,7 +11069,7 @@ public final class b extends XposedModule {
                             bundle2.putInt("blur", r7.i);
                             bundle2.putFloat("corner", r7.j);
                             float f19 = 0.0f;
-                            float w02 = (!this.C1 || this.t6 || u()) ? 0.0f : w0();
+                            float w02 = (!this.C1_v || this.t6 || u()) ? 0.0f : w0();
                             if (r7 != this.z5 || !this.G6) {
                                 f19 = w02;
                             }
@@ -11204,7 +11204,7 @@ public final class b extends XposedModule {
         this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda122
             @Override // java.lang.Runnable
             public final void run() {
-                dev.duo.workspaceprobe.b.this.b(thisObject);
+                dev.duo.workspaceprobe.b.this.b_v(thisObject);
             }
         });
         return proceed;
@@ -11229,7 +11229,7 @@ public final class b extends XposedModule {
             this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda138
                 @Override // java.lang.Runnable
                 public final void run() {
-                    dev.duo.workspaceprobe.b.this.n(str);
+                    dev.duo.workspaceprobe.b.this.n_v(str);
                 }
             });
         }
@@ -11254,7 +11254,7 @@ public final class b extends XposedModule {
             hook(cls.getDeclaredMethod("onFinish", IBinder.class, Class.forName("android.window.WindowContainerTransaction", false, classLoader))).intercept(new XposedInterface.Hooker() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda200
                 public final Object intercept(XposedInterface.Chain chain) {
                     Object b2;
-                    b2 = dev.duo.workspaceprobe.b.this.b(chain);
+                    b2 = dev.duo.workspaceprobe.b.this.b_v(chain);
                     return b2;
                 }
             });
@@ -11543,7 +11543,7 @@ public final class b extends XposedModule {
         this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda174
             @Override // java.lang.Runnable
             public final void run() {
-                dev.duo.workspaceprobe.b.this.r(i2);
+                dev.duo.workspaceprobe.b.this.r_v(i2);
             }
         });
     }
@@ -11726,7 +11726,7 @@ public final class b extends XposedModule {
             hook(Class.forName("com.android.wm.shell.recents.RecentsTransitionHandler$1", false, classLoader).getDeclaredMethod("onGestureStateUpdated", Integer.TYPE)).intercept(new XposedInterface.Hooker() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda114
                 public final Object intercept(XposedInterface.Chain chain) {
                     Object l2;
-                    l2 = dev.duo.workspaceprobe.b.this.l(chain);
+                    l2 = dev.duo.workspaceprobe.b.this.l_v(chain);
                     return l2;
                 }
             });
@@ -11773,7 +11773,7 @@ public final class b extends XposedModule {
     }
 
     private void g() {
-        if (this.C1 && this.I1) {
+        if (this.C1_v && this.I1) {
             SurfaceControl.Transaction transaction = new SurfaceControl.Transaction();
             try {
                 if (a(transaction)) {
@@ -11908,7 +11908,7 @@ public final class b extends XposedModule {
         this.Q1.execute(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda203
             @Override // java.lang.Runnable
             public final void run() {
-                dev.duo.workspaceprobe.b.this.q(b2);
+                dev.duo.workspaceprobe.b.this.q_v(b2);
             }
         });
     }
@@ -11935,7 +11935,7 @@ public final class b extends XposedModule {
             this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda146
                 @Override // java.lang.Runnable
                 public final void run() {
-                    dev.duo.workspaceprobe.b.this.k(g2);
+                    dev.duo.workspaceprobe.b.this.k_v(g2);
                 }
             });
         }
@@ -12101,14 +12101,14 @@ public final class b extends XposedModule {
             hook(cls.getDeclaredMethod("onSoScStateChanged", Rect.class, Rect.class, Rect.class, cls2, ActivityManager.RunningTaskInfo.class, ActivityManager.RunningTaskInfo.class, cls3, cls2, cls2)).intercept(new XposedInterface.Hooker() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda0
                 public final Object intercept(XposedInterface.Chain chain) {
                     Object n2;
-                    n2 = dev.duo.workspaceprobe.b.this.n(chain);
+                    n2 = dev.duo.workspaceprobe.b.this.n_v(chain);
                     return n2;
                 }
             });
             hook(cls.getDeclaredMethod("onPreSoScStateChanged", Rect.class, Rect.class, Rect.class, cls2, cls3, cls3, cls2, cls2)).intercept(new XposedInterface.Hooker() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda1
                 public final Object intercept(XposedInterface.Chain chain) {
                     Object o2;
-                    o2 = dev.duo.workspaceprobe.b.this.o(chain);
+                    o2 = dev.duo.workspaceprobe.b.this.o_v(chain);
                     return o2;
                 }
             });
@@ -12357,7 +12357,7 @@ public final class b extends XposedModule {
             k2.q.a(new Consumer() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda214
                 @Override // java.util.function.Consumer
                 public final void accept(Object obj) {
-                    dev.duo.workspaceprobe.b.this.b(k2, (View) obj);
+                    dev.duo.workspaceprobe.b.this.b_v(k2, (View) obj);
                 }
             });
             a(k2, k2.q, 963.0f, this.I3[1] + T, 205, 420, 0.0f);
@@ -12769,13 +12769,13 @@ public final class b extends XposedModule {
     private void d(MotionEvent motionEvent) {
         int actionMasked = motionEvent.getActionMasked();
         if (actionMasked == 0) {
-            this.C4 = !this.I1 && this.C2 == this.G1 && motionEvent.getRawX() < 963.0f && this.Z2 == null && (!this.T2 || this.Y2 == null || motionEvent.getRawX() < ((float) this.W2) || motionEvent.getRawX() >= ((float) (this.W2 + this.Y2.f)) || motionEvent.getRawY() < ((float) this.X2) || motionEvent.getRawY() >= ((float) (this.X2 + this.Y2.g)));
+            this.C4_v = !this.I1 && this.C2_v == this.G1 && motionEvent.getRawX() < 963.0f && this.Z2 == null && (!this.T2 || this.Y2 == null || motionEvent.getRawX() < ((float) this.W2) || motionEvent.getRawX() >= ((float) (this.W2 + this.Y2.f)) || motionEvent.getRawY() < ((float) this.X2) || motionEvent.getRawY() >= ((float) (this.X2 + this.Y2.g)));
         } else if (actionMasked != 1 && actionMasked != 3) {
             return;
         }
-        if (this.C4) {
+        if (this.C4_v) {
             if (actionMasked == 0) {
-                this.D4 = motionEvent.getRawX();
+                this.D4_v = motionEvent.getRawX();
                 this.E4 = motionEvent.getRawY();
                 this.O2 = true;
                 if (this.I2.isEmpty()) {
@@ -12793,7 +12793,7 @@ public final class b extends XposedModule {
             if (!this.I2.isEmpty()) {
                 D0();
             }
-            if (actionMasked != 1 || this.E4 < 1512.0f || Math.abs(motionEvent.getRawX() - this.D4) >= 40.0f || Math.abs(motionEvent.getRawY() - this.E4) >= 40.0f) {
+            if (actionMasked != 1 || this.E4 < 1512.0f || Math.abs(motionEvent.getRawX() - this.D4_v) >= 40.0f || Math.abs(motionEvent.getRawY() - this.E4) >= 40.0f) {
                 return;
             }
             d(300L);
@@ -13427,7 +13427,7 @@ public final class b extends XposedModule {
         this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda137
             @Override // java.lang.Runnable
             public final void run() {
-                dev.duo.workspaceprobe.b.this.b(remove);
+                dev.duo.workspaceprobe.b.this.b_v(remove);
             }
         });
     }
@@ -13527,7 +13527,7 @@ public final class b extends XposedModule {
     }
 
     private boolean e() {
-        return !this.L1 && s0() && this.C1 && f() && F1() > 0.001f && this.d6 == 1 && this.f6 >= 0.999f;
+        return !this.L1 && s0() && this.C1_v && f() && F1() > 0.001f && this.d6 == 1 && this.f6 >= 0.999f;
     }
 
     private void b(ClassLoader classLoader) {
@@ -13575,7 +13575,7 @@ public final class b extends XposedModule {
         Log.w("DuoRail", "IME " + (z2 ? "shown" : "hidden"));
         this.E6 = z2;
         g2();
-        if (this.C1 && q0()) {
+        if (this.C1_v && q0()) {
             SurfaceControl.Transaction transaction = new SurfaceControl.Transaction();
             try {
                 a(transaction);
@@ -13651,7 +13651,7 @@ public final class b extends XposedModule {
             this.b6 = false;
             this.f6 = 0.0f;
             this.t6 = false;
-            if (this.C1) {
+            if (this.C1_v) {
                 SurfaceControl.Transaction transaction = new SurfaceControl.Transaction();
                 try {
                     a(transaction);
@@ -14108,7 +14108,7 @@ public final class b extends XposedModule {
             P();
             return;
         }
-        if (this.C1 && this.I1) {
+        if (this.C1_v && this.I1) {
             SurfaceControl.Transaction transaction = new SurfaceControl.Transaction();
             try {
                 a(transaction);
@@ -14152,7 +14152,7 @@ public final class b extends XposedModule {
         }
         this.y2 = str;
         this.B2++;
-        this.C2 = i2;
+        this.C2_v = i2;
         this.D2 = componentName.getPackageName();
         this.E2 = (this.k2 ? "dark/" : "light/") + componentName.getClassName() + "|";
         this.K2 = "";
@@ -14174,7 +14174,7 @@ public final class b extends XposedModule {
 
     private void b(float f2) {
         this.O6 = Math.max(0.0f, Math.min(1.0f, f2));
-        if (this.C1 && this.I1) {
+        if (this.C1_v && this.I1) {
             SurfaceControl.Transaction transaction = new SurfaceControl.Transaction();
             try {
                 a(transaction);
@@ -14517,7 +14517,7 @@ public final class b extends XposedModule {
                     this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda136
                         @Override // java.lang.Runnable
                         public final void run() {
-                            dev.duo.workspaceprobe.b.R.this.b();
+                            dev.duo.workspaceprobe.b.R.this.b_v();
                         }
                     });
                 } catch (Throwable th) {
@@ -14535,7 +14535,7 @@ public final class b extends XposedModule {
                 handler.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda136
                     @Override // java.lang.Runnable
                     public final void run() {
-                        dev.duo.workspaceprobe.b.R.this.b();
+                        dev.duo.workspaceprobe.b.R.this.b_v();
                     }
                 });
             }
@@ -14545,7 +14545,7 @@ public final class b extends XposedModule {
             handler2.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda136
                 @Override // java.lang.Runnable
                 public final void run() {
-                    dev.duo.workspaceprobe.b.R.this.b();
+                    dev.duo.workspaceprobe.b.R.this.b_v();
                 }
             });
             throw th3;
@@ -15060,7 +15060,7 @@ public final class b extends XposedModule {
                         @Override // android.view.View.OnLongClickListener
                         public final boolean onLongClick(View view) {
                             boolean b2;
-                            b2 = dev.duo.workspaceprobe.b.this.b(k2, next, view);
+                            b2 = dev.duo.workspaceprobe.b.this.b_v(k2, next, view);
                             return b2;
                         }
                     });
@@ -15081,7 +15081,7 @@ public final class b extends XposedModule {
                     frameLayout.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda152
                         @Override // android.view.View.OnClickListener
                         public final void onClick(View view) {
-                            dev.duo.workspaceprobe.b.this.b(next, view);
+                            dev.duo.workspaceprobe.b.this.b_v(next, view);
                         }
                     });
                     frameLayout.setOnLongClickListener(new View.OnLongClickListener() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda153
@@ -15097,7 +15097,7 @@ public final class b extends XposedModule {
                     @Override // android.view.View.OnTouchListener
                     public final boolean onTouch(View view, MotionEvent motionEvent) {
                         boolean b2;
-                        b2 = dev.duo.workspaceprobe.b.this.b(view, motionEvent);
+                        b2 = dev.duo.workspaceprobe.b.this.b_v(view, motionEvent);
                         return b2;
                     }
                 });
@@ -15454,7 +15454,7 @@ public final class b extends XposedModule {
     public /* synthetic */ void a(Runnable[] runnableArr, long j2, boolean z2, Set set) {
         this.f4.remove(runnableArr[0]);
         if (j2 == this.e4 && q0() && b(z2, (Set<String>) set)) {
-            if (this.C1) {
+            if (this.C1_v) {
                 SurfaceControl.Transaction transaction = new SurfaceControl.Transaction();
                 try {
                     a(transaction);
@@ -15664,7 +15664,7 @@ public final class b extends XposedModule {
         SurfaceControl.Transaction transaction;
         try {
             if (!z2) {
-                if (this.C1) {
+                if (this.C1_v) {
                     transaction = new SurfaceControl.Transaction();
                     try {
                         for (R r2 : this.h4) {
@@ -15676,7 +15676,7 @@ public final class b extends XposedModule {
                         transaction.apply();
                         this.l4 = false;
                         transaction.close();
-                        this.C1 = false;
+                        this.C1_v = false;
                         return;
                     } finally {
                     }
@@ -15703,7 +15703,7 @@ public final class b extends XposedModule {
                 z3 = false;
             }
             o0();
-            if (surfaceControl == this.B1 && this.C1 && !z3) {
+            if (surfaceControl == this.B1 && this.C1_v && !z3) {
                 return;
             }
             transaction = new SurfaceControl.Transaction();
@@ -15728,7 +15728,7 @@ public final class b extends XposedModule {
                 transaction.apply();
                 transaction.close();
                 this.B1 = surfaceControl;
-                this.C1 = true;
+                this.C1_v = true;
                 Log.w("DuoRail", "Rail attached to " + surfaceControl);
                 return;
             } finally {
@@ -15851,7 +15851,7 @@ public final class b extends XposedModule {
             this.A1.postDelayed(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda85
                 @Override // java.lang.Runnable
                 public final void run() {
-                    dev.duo.workspaceprobe.b.this.s(i2);
+                    dev.duo.workspaceprobe.b.this.s_v(i2);
                 }
             }, j2);
         }
@@ -15882,7 +15882,7 @@ public final class b extends XposedModule {
             this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda68
                 @Override // java.lang.Runnable
                 public final void run() {
-                    dev.duo.workspaceprobe.b.this.q(intValue);
+                    dev.duo.workspaceprobe.b.this.q_v(intValue);
                 }
             });
         }
@@ -16019,7 +16019,7 @@ public final class b extends XposedModule {
                 imageView.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda218
                     @Override // android.view.View.OnClickListener
                     public final void onClick(View view) {
-                        dev.duo.workspaceprobe.b.this.b(launchIntentForPackage, view);
+                        dev.duo.workspaceprobe.b.this.b_v(launchIntentForPackage, view);
                     }
                 });
                 a(t02, imageView, i2);
@@ -16571,7 +16571,7 @@ public final class b extends XposedModule {
                             this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda26
                                 @Override // java.lang.Runnable
                                 public final void run() {
-                                    dev.duo.workspaceprobe.b.this.b(i4, z2);
+                                    dev.duo.workspaceprobe.b.this.b_v(i4, z2);
                                 }
                             });
                         }
@@ -16803,7 +16803,7 @@ public final class b extends XposedModule {
         if ((!z3 || (this.J6 && j2 - this.K6 >= 150)) && z2 != this.J6) {
             this.J6 = z2;
             if (q0() && s0()) {
-                if (this.C1) {
+                if (this.C1_v) {
                     SurfaceControl.Transaction transaction = new SurfaceControl.Transaction();
                     try {
                         a(transaction);
@@ -16836,7 +16836,7 @@ public final class b extends XposedModule {
             this.M6.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda12
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public final void onAnimationUpdate(ValueAnimator valueAnimator2) {
-                    dev.duo.workspaceprobe.b.this.b(valueAnimator2);
+                    dev.duo.workspaceprobe.b.this.b_v(valueAnimator2);
                 }
             });
             this.M6.start();
