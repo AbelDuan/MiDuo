@@ -7282,8 +7282,8 @@ public final class b extends XposedModule {
                         i2++;
                     }
                 } catch (PackageManager.NameNotFoundException | ReflectiveOperationException | RuntimeException e3) {
-                    e = e3;
-                    Log.w("DuoRail", "Sidebar dual apps failed", e);
+                    // e = e3; (removed: e is a Field)
+                    Log.w("DuoRail", "Sidebar dual apps failed", e3);
                     ArrayList arrayList = new ArrayList(linkedHashMap.values());
                     final Collator collator = Collator.getInstance(Locale.CHINA);
                     Collections.sort(arrayList, new Comparator() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda9
@@ -7308,7 +7308,7 @@ public final class b extends XposedModule {
                 }
             }
         } catch (PackageManager.NameNotFoundException | ReflectiveOperationException | RuntimeException e4) {
-            e = e4;
+            // e = e4; (removed: e is a Field)
             i2 = 0;
         }
         ArrayList arrayList4 = new ArrayList(linkedHashMap.values());
