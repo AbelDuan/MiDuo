@@ -275,7 +275,7 @@ final class o {
                     dev.duo.hookprobe.L.p.onSharedPreferenceChanged(this.a, "_global/standbyClock");
                 }
             } catch (RuntimeException e2) {
-                ex = e2;
+                Throwable th = e2;
             }
             if (this.a.edit().putBoolean("_global/standbyClock", z).commit()) {
                 return true;
@@ -294,10 +294,10 @@ final class o {
                 if (e == null) {
                     return false;
                 }
-                throw new IllegalStateException("帐篷钟面保存失败，原状态已恢复", ex);
+                throw new IllegalStateException("帐篷钟面保存失败，原状态已恢复", th);
             } catch (RuntimeException e3) {
                 if (e != null) {
-                    e3.addSuppressed(ex);
+                    e3.addSuppressed(th);
                 }
                 throw new IllegalStateException("帐篷钟面状态未确认，请检查 LSPosed", e3);
             }
@@ -377,7 +377,7 @@ final class o {
             Map<String, ?> a = m.a(all, map);
             try {
             } catch (RuntimeException e2) {
-                ex = e2;
+                Throwable th = e2;
             }
             if (a(all, a)) {
                 return true;
@@ -390,10 +390,10 @@ final class o {
                 if (e == null) {
                     return false;
                 }
-                throw new IllegalStateException("导入失败，原配色已恢复", ex);
+                throw new IllegalStateException("导入失败，原配色已恢复", th);
             } catch (RuntimeException e3) {
                 if (e != null) {
-                    e3.addSuppressed(ex);
+                    e3.addSuppressed(th);
                 }
                 throw e3;
             }

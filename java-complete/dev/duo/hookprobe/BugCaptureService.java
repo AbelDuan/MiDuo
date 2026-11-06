@@ -140,7 +140,7 @@ public final class BugCaptureService extends Service {
             return 2;
         }
         ((NotificationManager) getSystemService(NotificationManager.class)).createNotificationChannel(new NotificationChannel("bug_capture", "Bug 抓取", 2));
-        startForeground(g, new Notification.Builder(this, "bug_capture").setSmallIcon(R.drawable.ic_menu_info_details).setContentTitle("MiDuo 正在抓取问题日志").setContentText("请复现问题，完成后点结束；最多 2 分钟").setContentIntent(PendingIntent.getActivity(this, 0, new Intent(this, (Class<?>) dev.duo.hookprobe.BugCaptureActivity.class), 67108864)).setOngoing(true).addAction(new Notification.Action.Builder((Icon) null, "结束抓取", PendingIntent.getService(this, 0, new Intent(this, (Class<?>) dev.duo.hookprobe.BugCaptureService.class).setAction(e), 67108864)).build()).build(), 2048);
+        startForeground(g, new Notification.Builder(this, "bug_capture").setSmallIcon(ResIds.drawable.ic_menu_info_details).setContentTitle("MiDuo 正在抓取问题日志").setContentText("请复现问题，完成后点结束；最多 2 分钟").setContentIntent(PendingIntent.getActivity(this, 0, new Intent(this, (Class<?>) dev.duo.hookprobe.BugCaptureActivity.class), 67108864)).setOngoing(true).addAction(new Notification.Action.Builder((Icon) null, "结束抓取", PendingIntent.getService(this, 0, new Intent(this, (Class<?>) dev.duo.hookprobe.BugCaptureService.class).setAction(e), 67108864)).build()).build(), 2048);
         f = true;
         a(this).edit().putBoolean("capturing", true).apply();
         b("等待 Root 授权…");

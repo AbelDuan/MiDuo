@@ -126,10 +126,10 @@ final class h {
                     }
                 }
             } catch (ReflectiveOperationException e3) {
-                ex = e3;
+                Throwable th = e3;
                 c0015h2 = c0015h;
             } catch (RuntimeException e4) {
-                ex = e4;
+                Throwable th = e4;
                 c0015h2 = c0015h;
             }
         }

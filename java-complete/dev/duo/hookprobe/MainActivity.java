@@ -3042,7 +3042,7 @@ public final class MainActivity extends Activity {
         this.P0 = cVar;
         cVar.setId(1002);
         this.P0.setDivider(null);
-        this.P0.setSelector(R.color.transparent);
+        this.P0.setSelector(ResIds.color.transparent);
         this.P0.setClipToPadding(false);
         this.P0.setVerticalScrollBarEnabled(false);
         this.P0.setPadding(0, a(18.0f), 0, this.q.b());
