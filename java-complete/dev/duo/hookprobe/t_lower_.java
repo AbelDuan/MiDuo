@@ -53,7 +53,7 @@ final class t {
     private static float[] w;
 
     /* renamed from: dev.duo.hookprobe.t$a */
-    class a implements DisplayManager.DisplayListener {
+    static class a implements DisplayManager.DisplayListener {
         final /* synthetic */ dev.duo.workspaceprobe.b a;
 
         a(dev.duo.workspaceprobe.b bVar) {
@@ -84,7 +84,7 @@ final class t {
     }
 
     /* renamed from: dev.duo.hookprobe.t$c */
-    class c implements View.OnAttachStateChangeListener {
+    static class c implements View.OnAttachStateChangeListener {
         final /* synthetic */ dev.duo.workspaceprobe.b a;
 
         c(dev.duo.workspaceprobe.b bVar) {
@@ -105,7 +105,7 @@ final class t {
     }
 
     /* renamed from: dev.duo.hookprobe.t$d */
-    class d implements Choreographer.FrameCallback {
+    static class d implements Choreographer.FrameCallback {
         final /* synthetic */ boolean[] a;
 
         d(boolean[] zArr) {
@@ -128,7 +128,7 @@ final class t {
     }
 
     /* renamed from: dev.duo.hookprobe.t$e */
-    class e implements Choreographer.FrameCallback {
+    static class e implements Choreographer.FrameCallback {
         final /* synthetic */ boolean[] a;
 
         e(boolean[] zArr) {
@@ -199,13 +199,13 @@ final class t {
         bVar.C6 = new Runnable() { // from class: dev.duo.hookprobe.t$$ExternalSyntheticLambda0
             @Override // java.lang.Runnable
             public final void run() {
-                t.c(dev.duo.workspaceprobe.b.this);
+                t.c(bVar);
             }
         };
         bVar.B6 = new Consumer() { // from class: dev.duo.hookprobe.t$$ExternalSyntheticLambda1
             @Override // java.util.function.Consumer
             public final void accept(Object obj) {
-                t.d(dev.duo.workspaceprobe.b.this, (View) obj);
+                t.d(bVar, (View) obj);
             }
         };
         final boolean[] zArr = {false};
@@ -215,7 +215,7 @@ final class t {
         bVar.A6 = new Consumer() { // from class: dev.duo.hookprobe.t$$ExternalSyntheticLambda2
             @Override // java.util.function.Consumer
             public final void accept(Object obj) {
-                t.a(dev.duo.workspaceprobe.b.this, zArr2, eVar, zArr, dVar, (long[]) obj);
+                t.a(bVar, zArr2, eVar, zArr, dVar, (long[]) obj);
             }
         };
     }
@@ -347,7 +347,7 @@ final class t {
     }
 
     /* renamed from: dev.duo.hookprobe.t$b */
-    class b extends Binder {
+    static class b extends Binder {
         final /* synthetic */ Handler a;
         final /* synthetic */ dev.duo.workspaceprobe.b b;
 
