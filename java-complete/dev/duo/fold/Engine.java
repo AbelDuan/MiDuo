@@ -77,7 +77,7 @@ public final class Engine {
     private long Q;
     private long R;
     private boolean S;
-    private boolean T;
+    private boolean T_fld;
     private int U;
     private dev.duo.fold.b V;
     private boolean W;

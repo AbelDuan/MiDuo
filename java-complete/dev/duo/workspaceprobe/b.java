@@ -3372,7 +3372,7 @@ public final class b extends XposedModule {
         boolean Q;
         boolean R;
         boolean S;
-        boolean T;
+        boolean T_fld;
         boolean U;
         boolean V;
         float W;
