@@ -321,11 +321,11 @@ final class f {
             }
             LinearLayout c = T.c(f.this.a);
             c.addView(T.a(f.this.a, T.a(f.this.a, i, T.d, 1.8f, false, 20.0f)), T.a(f.this.a, 20.0f, 20.0f));
-            TextView a3 = T.a(f.this.a, z2 ? 14.0f : 15.0f, T.b, 600);
+            TextView a3 = T.a(f.this.a, z2 ? 14.0f : 15.0f, T.b_v, 600);
             a3.setText(str);
             a3.setPadding(f.this.a(z2 ? 12.0f : 10.0f), 0, 0, 0);
             c.addView(a3, T.b());
-            TextView a4 = T.a(f.this.a, 22.0f, T.b, 800);
+            TextView a4 = T.a(f.this.a, 22.0f, T.b_v, 800);
             this.c = a4;
             a4.setFontFeatureSettings("tnum");
             c.addView(a4);
@@ -348,7 +348,7 @@ final class f {
             this.f = c2;
             c2.setPadding(f.this.a(7.0f), 0, f.this.a(12.0f), 0);
             FrameLayout frameLayout = new FrameLayout(f.this.a);
-            ImageView a6 = T.a(f.this.a, T.a(f.this.a, 6, T.a ? -13882322 : T.b, 4.0f, false, 10.0f));
+            ImageView a6 = T.a(f.this.a, T.a(f.this.a, 6, T.a ? -13882322 : T.b_v, 4.0f, false, 10.0f));
             this.e = a6;
             frameLayout.addView(a6, new FrameLayout.LayoutParams(f.this.a(10.0f), f.this.a(10.0f), 17));
             c2.addView(frameLayout, T.a(f.this.a, 16.0f, 16.0f));
@@ -393,7 +393,7 @@ final class f {
             this.b.setEnabled(!g);
             T.a(this.b, g ? T.x : T.k);
             this.c.setText(String.valueOf(c()));
-            this.c.setTextColor(g ? T.e : T.b);
+            this.c.setTextColor(g ? T.e : T.b_v);
             this.d.setText(e());
             this.d.setTextColor(g ? T.o : T.c);
             GradientDrawable a2 = T.a(g ? T.n : 0, f.this.a(16.0f));
@@ -447,7 +447,7 @@ final class f {
         T.a(r0);
         this.g.setContentDescription("Duo 适配");
         this.g.setEnabled(false);
-        TextView a3 = T.a(activity, z ? 13.0f : 14.0f, T.b, 600);
+        TextView a3 = T.a(activity, z ? 13.0f : 14.0f, T.b_v, 600);
         a3.setText("恢复默认");
         a3.setGravity(17);
         a3.setPadding(a(z ? 14.0f : 16.0f), 0, a(z ? 14.0f : 16.0f), 0);
@@ -509,7 +509,7 @@ final class f {
         T.a(a2, 24.0f);
         a2.setPadding(a(16.0f), a(14.0f), a(16.0f), a(14.0f));
         LinearLayout c2 = T.c(this.a);
-        TextView a3 = T.a(this.a, 14.0f, T.b, 600);
+        TextView a3 = T.a(this.a, 14.0f, T.b_v, 600);
         a3.setText("隐藏外屏原生状态栏");
         c2.addView(a3, T.b());
         Switch r2 = new Switch(this.a);
@@ -594,7 +594,7 @@ final class f {
             str = "跟随全局 · 当前" + (this.f.n(this.c) ? "隐藏" : "原生显示");
         }
         textView.setText(str);
-        this.o.setTextColor((i || !this.f.d(this.c)) ? T.d : T.b);
+        this.o.setTextColor((i || !this.f.d(this.c)) ? T.d : T.b_v);
     }
 
     private void j() {
@@ -683,7 +683,7 @@ final class f {
         LinearLayout a2 = T.a((Context) this.a);
         T.a(a2, 24.0f);
         a2.setPadding(a(16.0f), a(14.0f), a(16.0f), a(14.0f));
-        TextView a3 = T.a(this.a, 14.0f, T.b, 600);
+        TextView a3 = T.a(this.a, 14.0f, T.b_v, 600);
         a3.setText("内屏原生顶栏");
         this.l = a3;
         a2.addView(a3);
@@ -878,7 +878,7 @@ final class f {
             T.a(frameLayout, 21.0f);
             frameLayout.setContentDescription("返回");
             Activity activity = this.a;
-            frameLayout.addView(T.a(activity, T.a(activity, 3, T.b, 2.6f, false, 18.0f)), new FrameLayout.LayoutParams(a(18.0f), a(18.0f), 17));
+            frameLayout.addView(T.a(activity, T.a(activity, 3, T.b_v, 2.6f, false, 18.0f)), new FrameLayout.LayoutParams(a(18.0f), a(18.0f), 17));
             frameLayout.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda13
                 @Override // android.view.View.OnClickListener
                 public final void onClick(View view) {
@@ -894,7 +894,7 @@ final class f {
         LinearLayout.LayoutParams a2 = T.a(T.a(this.a, 80.0f, 80.0f), this.a, 6.0f);
         a2.gravity = 1;
         linearLayout.addView(imageView, a2);
-        TextView a3 = T.a(this.a, 24.0f, T.b, 800);
+        TextView a3 = T.a(this.a, 24.0f, T.b_v, 800);
         a3.setText(str);
         a3.setGravity(17);
         linearLayout.addView(a3, T.a(T.a(), this.a, 12.0f));
@@ -902,7 +902,7 @@ final class f {
         a4.setPadding(a(18.0f), 0, a(14.0f), 0);
         LinearLayout c3 = T.c(this.a);
         c3.setMinimumHeight(a(58.0f));
-        TextView a5 = T.a(this.a, 16.0f, T.b, 600);
+        TextView a5 = T.a(this.a, 16.0f, T.b_v, 600);
         a5.setText("Duo 适配");
         c3.addView(a5, T.b());
         c3.addView(this.g);
@@ -1051,7 +1051,7 @@ final class f {
         LinearLayout a2 = T.a((Context) this.a);
         a2.setPadding(a(20.0f), a(8.0f), a(20.0f), a(4.0f));
         int i = 600;
-        TextView a3 = T.a(this.a, 15.0f, T.b, 600);
+        TextView a3 = T.a(this.a, 15.0f, T.b_v, 600);
         a3.setGravity(17);
         a3.setText("背景预览  ·  时间 / 搜索");
         int i2 = -1;
@@ -1061,7 +1061,7 @@ final class f {
         int i3 = 1;
         editText.setSingleLine(true);
         editText.setHint("#RRGGBB，例如 #F3F3F3");
-        editText.setTextColor(T.b);
+        editText.setTextColor(T.b_v);
         editText.setTextSize(16.0f);
         editText.setInputType(4097);
         a2.addView(editText, T.a(T.a(), this.a, 8.0f));
@@ -1122,7 +1122,7 @@ final class f {
         int i11 = 0;
         while (i11 < length) {
             final int i12 = iArr[i11];
-            TextView a5 = T.a(this.a, f, T.b, 600);
+            TextView a5 = T.a(this.a, f, T.b_v, 600);
             a5.setContentDescription(b(i12));
             GradientDrawable a6 = T.a(i12, a(10.0f));
             a6.setStroke(Math.max(i8, a(f2)), T.h);
@@ -1214,7 +1214,7 @@ final class f {
         c2.addView(imageView, T.a(this.a, 52.0f, 52.0f));
         LinearLayout a2 = T.a((Context) this.a);
         a2.setPadding(a(14.0f), 0, a(14.0f), 0);
-        TextView a3 = T.a(this.a, 20.0f, T.b, 800);
+        TextView a3 = T.a(this.a, 20.0f, T.b_v, 800);
         a3.setText(str);
         a3.setSingleLine(true);
         a3.setEllipsize(TextUtils.TruncateAt.END);
@@ -1224,7 +1224,7 @@ final class f {
         a4.setPadding(0, a(4.0f), 0, 0);
         a2.addView(a4);
         c2.addView(a2, T.b());
-        textView.setBackground(T.a(T.f, a(17.0f)));
+        textView.setBackground(T.a(T.f_v, a(17.0f)));
         c2.addView(textView, new LinearLayout.LayoutParams(-2, a(34.0f)));
         LinearLayout.LayoutParams c3 = T.c();
         c3.leftMargin = a(14.0f);
@@ -1262,7 +1262,7 @@ final class f {
         this.v = T.a(this.a, 12.0f, T.d, 500);
         LinearLayout a8 = T.a((Context) this.a);
         a8.setPadding(0, a(4.0f), 0, a(8.0f));
-        TextView a9 = T.a(this.a, 14.0f, T.b, 600);
+        TextView a9 = T.a(this.a, 14.0f, T.b_v, 600);
         a9.setText("配色");
         a8.addView(a9);
         a8.addView(a(), T.a(T.a(), this.a, 10.0f));
@@ -1275,7 +1275,7 @@ final class f {
         a2.setPadding(a(18.0f), a(6.0f), a(18.0f), a(6.0f));
         LinearLayout c2 = T.c(this.a);
         c2.setMinimumHeight(a(58.0f));
-        TextView a3 = T.a(this.a, 15.0f, T.b, 600);
+        TextView a3 = T.a(this.a, 15.0f, T.b_v, 600);
         a3.setText("画幅切换");
         c2.addView(a3, T.b());
         Activity activity = this.a;
@@ -1706,7 +1706,7 @@ final class f {
         LinearLayout c2 = T.c(this.a);
         c2.setGravity(16);
         c2.setMinimumHeight(a(58.0f));
-        TextView a3 = T.a(this.a, 15.0f, T.b, 600);
+        TextView a3 = T.a(this.a, 15.0f, T.b_v, 600);
         a3.setText(str);
         c2.addView(a3);
         textView.setGravity(8388613);

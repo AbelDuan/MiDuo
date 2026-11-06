@@ -80,7 +80,7 @@ final class h {
             Log.i(k, "READY SurfaceView layout; short-video containers required");
         } catch (ReflectiveOperationException | RuntimeException e) {
             c0015h.g = true;
-            Log.w(k, "not installed: required layout feature unavailable", e);
+            Log.w(k, "not installed: required layout feature unavailable", ex);
         }
     }
 
@@ -116,7 +116,7 @@ final class h {
                     if (objArr == null) {
                     }
                 } catch (RuntimeException e2) {
-                    e = e2;
+                    ex = e2;
                     Throwable th2 = e;
                     i = c0015h2.j + 1;
                     c0015h2.j = i;
@@ -126,10 +126,10 @@ final class h {
                     }
                 }
             } catch (ReflectiveOperationException e3) {
-                e = e3;
+                ex = e3;
                 c0015h2 = c0015h;
             } catch (RuntimeException e4) {
-                e = e4;
+                ex = e4;
                 c0015h2 = c0015h;
             }
         }

@@ -64,7 +64,7 @@ final class a extends View {
         this.q = 0.5f;
         this.a = bitmap;
         paint.setColor((T.a ? 1118483 : 15921909) | (-654311424));
-        paint2.setColor(T.b);
+        paint2.setColor(T.b_v);
         paint2.setStyle(Paint.Style.STROKE);
         paint2.setStrokeWidth(T.a(context, 1.0f));
         this.h = new ScaleGestureDetector(context, new C0000a());

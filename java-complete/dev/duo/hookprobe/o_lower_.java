@@ -274,12 +274,12 @@ final class o {
                     dev.duo.hookprobe.L.p.onSharedPreferenceChanged(this.a, "_global/standbyClock");
                 }
             } catch (RuntimeException e2) {
-                e = e2;
+                ex = e2;
             }
             if (this.a.edit().putBoolean("_global/standbyClock", z).commit()) {
                 return true;
             }
-            e = null;
+            ex = null;
             try {
                 SharedPreferences.Editor edit = this.a.edit();
                 if (contains) {
@@ -293,10 +293,10 @@ final class o {
                 if (e == null) {
                     return false;
                 }
-                throw new IllegalStateException("帐篷钟面保存失败，原状态已恢复", e);
+                throw new IllegalStateException("帐篷钟面保存失败，原状态已恢复", ex);
             } catch (RuntimeException e3) {
                 if (e != null) {
-                    e3.addSuppressed(e);
+                    e3.addSuppressed(ex);
                 }
                 throw new IllegalStateException("帐篷钟面状态未确认，请检查 LSPosed", e3);
             }
@@ -376,12 +376,12 @@ final class o {
             Map<String, ?> a = m.a(all, map);
             try {
             } catch (RuntimeException e2) {
-                e = e2;
+                ex = e2;
             }
             if (a(all, a)) {
                 return true;
             }
-            e = null;
+            ex = null;
             try {
                 if (!a(a, all)) {
                     throw new IllegalStateException("导入保存失败，原配色的恢复也未获确认，请停止取色并检查 LSPosed");
@@ -389,10 +389,10 @@ final class o {
                 if (e == null) {
                     return false;
                 }
-                throw new IllegalStateException("导入失败，原配色已恢复", e);
+                throw new IllegalStateException("导入失败，原配色已恢复", ex);
             } catch (RuntimeException e3) {
                 if (e != null) {
-                    e3.addSuppressed(e);
+                    e3.addSuppressed(ex);
                 }
                 throw e3;
             }

@@ -270,9 +270,9 @@ public final class WidgetCenterActivity extends Activity {
         int a2 = T.a((Context) activity, 4.0f);
         c2.setPadding(a2, 0, dVar.c() + a2, 0);
         FrameLayout frameLayout = new FrameLayout(activity);
-        frameLayout.setBackground(T.a(T.f, T.a((Context) activity, 20.0f)));
+        frameLayout.setBackground(T.a(T.f_v, T.a((Context) activity, 20.0f)));
         int a3 = T.a((Context) activity, 18.0f);
-        frameLayout.addView(T.a(activity, T.a(activity, 3, T.b, 2.4f, false, 18.0f)), new FrameLayout.LayoutParams(a3, a3, 17));
+        frameLayout.addView(T.a(activity, T.a(activity, 3, T.b_v, 2.4f, false, 18.0f)), new FrameLayout.LayoutParams(a3, a3, 17));
         frameLayout.setContentDescription("返回");
         frameLayout.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.WidgetCenterActivity$$ExternalSyntheticLambda11
             @Override // android.view.View.OnClickListener
@@ -283,7 +283,7 @@ public final class WidgetCenterActivity extends Activity {
         c2.addView(frameLayout, T.a(activity, 40.0f, 40.0f));
         LinearLayout a4 = T.a((Context) activity);
         a4.setPadding(T.a((Context) activity, 12.0f), 0, 0, 0);
-        TextView a5 = T.a(activity, 22.0f, T.b, 800);
+        TextView a5 = T.a(activity, 22.0f, T.b_v, 800);
         a5.setText(str);
         a5.setLetterSpacing(-0.01f);
         a4.addView(a5);
@@ -490,7 +490,7 @@ public final class WidgetCenterActivity extends Activity {
         c2.addView(a(bitmap), new LinearLayout.LayoutParams(a(132.0f), a2));
         LinearLayout a3 = T.a((Context) this);
         a3.setPadding(a(14.0f), a(4.0f), 0, 0);
-        TextView a4 = T.a(this, 17.0f, T.b, 700);
+        TextView a4 = T.a(this, 17.0f, T.b_v, 700);
         a4.setText("相册");
         a3.addView(a4);
         TextView a5 = T.a(this, 12.0f, T.d, J.m);
@@ -583,7 +583,7 @@ public final class WidgetCenterActivity extends Activity {
         c2.addView(a2, T.a(this, 38.0f, 38.0f));
         LinearLayout a3 = T.a((Context) this);
         a3.setPadding(a(12.0f), 0, a(8.0f), 0);
-        TextView a4 = T.a(this, 15.0f, T.b, 600);
+        TextView a4 = T.a(this, 15.0f, T.b_v, 600);
         a4.setText(str);
         a3.addView(a4);
         TextView a5 = T.a(this, 12.0f, T.d, J.m);

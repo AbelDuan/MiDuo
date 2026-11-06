@@ -29,7 +29,7 @@ final class O {
         T.a(a, 24.0f);
         int a2 = T.a((Context) activity, 18.0f);
         a.setPadding(a2, a2, a2, a2);
-        TextView a3 = T.a(activity, 16.0f, T.b, 700);
+        TextView a3 = T.a(activity, 16.0f, T.b_v, 700);
         a3.setText("赞助作者");
         a.addView(a3);
         TextView a4 = T.a(activity, 13.0f, T.d, J.m);
@@ -64,7 +64,7 @@ final class O {
         T.a(a, 24.0f);
         int a2 = T.a((Context) activity, 18.0f);
         a.setPadding(a2, a2, a2, a2);
-        TextView a3 = T.a(activity, 16.0f, T.b, 700);
+        TextView a3 = T.a(activity, 16.0f, T.b_v, 700);
         a3.setText("联系作者");
         a.addView(a3);
         TextView a4 = T.a(activity, 13.0f, T.d, J.m);
@@ -124,7 +124,7 @@ final class O {
         int a3 = T.a((Context) activity, 22.0f);
         a2.setPadding(a3, a3, a3, T.a((Context) activity, 18.0f));
         a2.setGravity(1);
-        TextView a4 = T.a(activity, 20.0f, T.b, 800);
+        TextView a4 = T.a(activity, 20.0f, T.b_v, 800);
         a4.setText(str);
         a2.addView(a4);
         ImageView imageView = new ImageView(activity);

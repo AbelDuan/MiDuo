@@ -81,7 +81,7 @@ final class T {
     static final int Z = 13;
     static boolean a = false;
     static final int a0 = 14;
-    static int b = 0;
+    static int b_v = 0;
     static final int b0 = 15;
     static int c = 0;
     static final int c0 = 600;
@@ -89,7 +89,7 @@ final class T {
     static final int d0 = 840;
     static int e = 0;
     static final int e0 = 640;
-    static int f = 0;
+    static int f_v = 0;
     static final int f0 = 172;
     static int g = 0;
     static final int g0 = 20;
@@ -131,7 +131,7 @@ final class T {
 
         @Override // android.widget.ArrayAdapter, android.widget.Adapter
         public View getView(int i, View view, ViewGroup viewGroup) {
-            TextView a = dev.duo.hookprobe.T.a(this.a, 14.0f, dev.duo.hookprobe.T.b, 500);
+            TextView a = dev.duo.hookprobe.T.a(this.a, 14.0f, dev.duo.hookprobe.T.b_v, 500);
             a.setText((CharSequence) getItem(i));
             a.setMinHeight(dev.duo.hookprobe.T.a((Context) this.a, 56.0f));
             a.setGravity(16);
@@ -380,7 +380,7 @@ final class T {
             this.a = c;
             int a = dev.duo.hookprobe.T.a(context, 3.0f);
             c.setPadding(a, a, a, a);
-            c.setBackground(dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.f, dev.duo.hookprobe.T.a(context, 20.0f)));
+            c.setBackground(dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.f_v, dev.duo.hookprobe.T.a(context, 20.0f)));
             this.b = new LinearLayout[strArr.length];
             this.c = new TextView[strArr.length];
             for (int i = 0; i < strArr.length; i++) {
@@ -391,7 +391,7 @@ final class T {
                     a2.rightMargin = dev.duo.hookprobe.T.a(context, 6.0f);
                     c2.addView(dev.duo.hookprobe.T.a(context, dev.duo.hookprobe.T.b(context, iArr[i])), a2);
                 }
-                TextView a3 = dev.duo.hookprobe.T.a(context, 14.0f, dev.duo.hookprobe.T.b, dev.duo.hookprobe.T.c0);
+                TextView a3 = dev.duo.hookprobe.T.a(context, 14.0f, dev.duo.hookprobe.T.b_v, dev.duo.hookprobe.T.c0);
                 a3.setText(strArr[i]);
                 a3.setSingleLine(true);
                 c2.addView(a3);
@@ -528,7 +528,7 @@ final class T {
 
         @Override // android.view.View
         protected void onDraw(Canvas canvas) {
-            int i = T.b;
+            int i = T.b_v;
             int i2 = (16777215 & i) | 1291845632;
             this.d.setColor(i);
             Calendar calendar = Calendar.getInstance();
@@ -702,11 +702,11 @@ final class T {
         boolean z2 = (activity.getResources().getConfiguration().uiMode & 48) == 32;
         a = z2;
         if (z2) {
-            b = -657929;
-            c = -6776675;
+            b_v = -657929;
+            c_v = -6776675;
             d = -7434605;
             e = -10263706;
-            f = 1031173760;
+            f_v = 1031173760;
             g = 779515520;
             h = 352321535;
             i = -14013906;
@@ -730,11 +730,11 @@ final class T {
             A = -14539993;
             B = -14474198;
         } else {
-            b = -14869217;
-            c = -9539981;
+            b_v = -14869217;
+            c_v = -9539981;
             d = -7434605;
             e = -5329230;
-            f = 527857280;
+            f_v = 527857280;
             g = 343307904;
             h = 389823555;
             i = -197379;

@@ -158,7 +158,7 @@ public final class InfoWidgetActivity extends Activity {
         int intExtra = getIntent().getIntExtra("type", -1);
         for (int i = 0; i < 3; i++) {
             if (intExtra < 0 || intExtra >= 6 || intExtra / 2 == i) {
-                TextView a2 = T.a(this, 18.0f, T.b, 700);
+                TextView a2 = T.a(this, 18.0f, T.b_v, 700);
                 a2.setText(strArr[i]);
                 a2.setPadding(0, b(12), 0, b(8));
                 this.a.addView(a2);

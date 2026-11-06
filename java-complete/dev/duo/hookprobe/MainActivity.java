@@ -393,12 +393,12 @@ public final class MainActivity extends Activity {
             jVar.e.setText(dev.duo.hookprobe.MainActivity.this.p == null ? gVar.a : a(gVar.a, z3));
             boolean z4 = dev.duo.hookprobe.MainActivity.this.p != null && dev.duo.hookprobe.MainActivity.this.b(gVar.a);
             jVar.f.setText(!z3 ? "关" : z4 ? "单独" : "开");
-            GradientDrawable a3 = dev.duo.hookprobe.T.a((!z3 || z4) ? 0 : T.f, dev.duo.hookprobe.MainActivity.this.a(11.0f));
+            GradientDrawable a3 = dev.duo.hookprobe.T.a((!z3 || z4) ? 0 : T.f_v, dev.duo.hookprobe.MainActivity.this.a(11.0f));
             if (!z3 || z4) {
-                a3.setStroke(Math.max(1, dev.duo.hookprobe.MainActivity.this.a(1.0f)), z3 ? (T.b & 16777215) | (-1946157056) : 1198945920);
+                a3.setStroke(Math.max(1, dev.duo.hookprobe.MainActivity.this.a(1.0f)), z3 ? (T.b_v & 16777215) | (-1946157056) : 1198945920);
             }
             jVar.f.setBackground(a3);
-            jVar.f.setTextColor(z3 ? T.b : T.e);
+            jVar.f.setTextColor(z3 ? T.b_v : T.e);
             jVar.f.setVisibility(dev.duo.hookprobe.MainActivity.this.p == null ? 8 : 0);
             return jVar.a;
         }
@@ -469,11 +469,11 @@ public final class MainActivity extends Activity {
             this.b = c2;
             ImageView imageView = new ImageView(dev.duo.hookprobe.MainActivity.this);
             this.c = imageView;
-            TextView a = dev.duo.hookprobe.T.a(dev.duo.hookprobe.MainActivity.this, 16.0f, T.b, 600);
+            TextView a = dev.duo.hookprobe.T.a(dev.duo.hookprobe.MainActivity.this, 16.0f, T.b_v, 600);
             this.d = a;
             TextView a2 = dev.duo.hookprobe.T.a(dev.duo.hookprobe.MainActivity.this, 12.0f, T.d, J.m);
             this.e = a2;
-            TextView a3 = dev.duo.hookprobe.T.a(dev.duo.hookprobe.MainActivity.this, 11.0f, T.b, 600);
+            TextView a3 = dev.duo.hookprobe.T.a(dev.duo.hookprobe.MainActivity.this, 11.0f, T.b_v, 600);
             this.f = a3;
             View view = new View(dev.duo.hookprobe.MainActivity.this);
             this.g = view;
@@ -534,7 +534,7 @@ public final class MainActivity extends Activity {
             this.a.setStrokeCap(Paint.Cap.ROUND);
             this.a.setColor(695629440);
             canvas.drawOval(rectF, this.a);
-            this.a.setColor(T.b);
+            this.a.setColor(T.b_v);
             float f2 = this.b;
             if (f2 > 0.0f) {
                 canvas2 = canvas;
@@ -617,7 +617,7 @@ public final class MainActivity extends Activity {
         dev.duo.hookprobe.T.a(c2, this.q.e ? 26.0f : 28.0f);
         c2.setPadding(a(18.0f), 0, a(16.0f), 0);
         LinearLayout a2 = dev.duo.hookprobe.T.a((Context) this);
-        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
+        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b_v, 600);
         a3.setText("通知图标");
         a2.addView(a3);
         TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
@@ -652,7 +652,7 @@ public final class MainActivity extends Activity {
         a2.setPadding(a(18.0f), a(12.0f), a(16.0f), a(12.0f));
         LinearLayout c2 = dev.duo.hookprobe.T.c(this);
         LinearLayout a3 = dev.duo.hookprobe.T.a((Context) this);
-        TextView a4 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
+        TextView a4 = dev.duo.hookprobe.T.a(this, 15.0f, T.b_v, 600);
         a4.setText("外屏非 Duo 顶栏");
         a3.addView(a4);
         TextView a5 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
@@ -705,7 +705,7 @@ public final class MainActivity extends Activity {
         dev.duo.hookprobe.T.a(c2, 26.0f);
         c2.setPadding(a(20.0f), 0, a(12.0f), 0);
         LinearLayout a2 = dev.duo.hookprobe.T.a((Context) this);
-        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
+        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b_v, 600);
         a3.setText("App 概览");
         a2.addView(a3);
         TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
@@ -747,7 +747,7 @@ public final class MainActivity extends Activity {
         c2.setPadding(a(18.0f), 0, a(16.0f), 0);
         c2.setMinimumHeight(a(76.0f));
         LinearLayout a2 = dev.duo.hookprobe.T.a((Context) this);
-        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
+        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b_v, 600);
         a3.setText("取色按钮");
         a2.addView(a3);
         TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
@@ -779,7 +779,7 @@ public final class MainActivity extends Activity {
     private LinearLayout H() {
         LinearLayout u = u();
         LinearLayout i2 = i();
-        TextView a2 = dev.duo.hookprobe.T.a(this, 16.0f, T.b, 600);
+        TextView a2 = dev.duo.hookprobe.T.a(this, 16.0f, T.b_v, 600);
         a2.setText("外屏侧栏颜色");
         i2.addView(a2);
         u.addView(i2);
@@ -804,7 +804,7 @@ public final class MainActivity extends Activity {
         c2.setPadding(a(18.0f), 0, a(16.0f), 0);
         c2.setMinimumHeight(a(76.0f));
         LinearLayout a2 = dev.duo.hookprobe.T.a((Context) this);
-        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
+        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b_v, 600);
         a3.setText("外屏 App 内侧栏自定义");
         a2.addView(a3);
         TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
@@ -866,7 +866,7 @@ public final class MainActivity extends Activity {
                     i2 = 17;
                     frameLayout.addView(dev.duo.hookprobe.T.a(this, dev.duo.hookprobe.T.a(this, 6, T.v, 2.6f, false, 30.0f)), new FrameLayout.LayoutParams(a(30.0f), a(30.0f), 17));
                     a2.addView(frameLayout, dev.duo.hookprobe.T.a(this, 64.0f, 64.0f));
-                    TextView a3 = dev.duo.hookprobe.T.a(this, 22.0f, T.b, 800);
+                    TextView a3 = dev.duo.hookprobe.T.a(this, 22.0f, T.b_v, 800);
                     a3.setText("已买断，永久使用");
                     a2.addView(a3, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.c(), this, 16.0f));
                     TextView a4 = dev.duo.hookprobe.T.a(this, 13.0f, T.d, J.m);
@@ -882,7 +882,7 @@ public final class MainActivity extends Activity {
                         LinearLayout c2 = dev.duo.hookprobe.T.c(this);
                         c2.setBackground(dev.duo.hookprobe.T.a(T.g, a(16.0f)));
                         c2.setPadding(a(14.0f), a(8.0f), a(6.0f), a(8.0f));
-                        TextView a7 = dev.duo.hookprobe.T.a(this, 16.0f, T.b, 700);
+                        TextView a7 = dev.duo.hookprobe.T.a(this, 16.0f, T.b_v, 700);
                         a7.setText(hVar.d);
                         a7.setSingleLine(true);
                         a7.setEllipsize(TextUtils.TruncateAt.END);
@@ -918,7 +918,7 @@ public final class MainActivity extends Activity {
                     i2 = 17;
                     f3 = 10.0f;
                     a2.addView(new k(this, hVar.f, hVar.e), dev.duo.hookprobe.T.a(this, 140.0f, 140.0f));
-                    TextView a9 = dev.duo.hookprobe.T.a(this, 20.0f, T.b, 800);
+                    TextView a9 = dev.duo.hookprobe.T.a(this, 20.0f, T.b_v, 800);
                     a9.setText(hVar.c ? "" : "");
                     a2.addView(a9, dev.duo.hookprobe.T.a(dev.duo.hookprobe.T.c(), this, 14.0f));
                     TextView a10 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
@@ -931,10 +931,10 @@ public final class MainActivity extends Activity {
                     a11.setPadding(a(18.0f), a(18.0f), a(18.0f), a(18.0f));
                     LinearLayout c3 = dev.duo.hookprobe.T.c(this);
                     c3.setGravity(80);
-                    TextView a12 = dev.duo.hookprobe.T.a(this, 17.0f, T.b, 700);
+                    TextView a12 = dev.duo.hookprobe.T.a(this, 17.0f, T.b_v, 700);
                     a12.setText("");
                     c3.addView(a12, dev.duo.hookprobe.T.b());
-                    TextView a13 = dev.duo.hookprobe.T.a(this, 24.0f, T.b, 800);
+                    TextView a13 = dev.duo.hookprobe.T.a(this, 24.0f, T.b_v, 800);
                     a13.setText("¥49.9");
                     c3.addView(a13);
                     a11.addView(c3);
@@ -956,8 +956,8 @@ public final class MainActivity extends Activity {
                 dev.duo.hookprobe.T.a(c4, 25.0f);
                 c4.setGravity(i2);
                 float f5 = f4;
-                c4.addView(dev.duo.hookprobe.T.a(this, dev.duo.hookprobe.T.a(this, 2, T.b, 2.2f, false, 17.0f)), dev.duo.hookprobe.T.a(this, 17.0f, 17.0f));
-                TextView a16 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
+                c4.addView(dev.duo.hookprobe.T.a(this, dev.duo.hookprobe.T.a(this, 2, T.b_v, 2.2f, false, 17.0f)), dev.duo.hookprobe.T.a(this, 17.0f, 17.0f));
+                TextView a16 = dev.duo.hookprobe.T.a(this, 15.0f, T.b_v, 600);
                 a16.setText("");
                 a16.setPadding(a(8.0f), 0, 0, 0);
                 c4.addView(a16);
@@ -990,8 +990,8 @@ public final class MainActivity extends Activity {
         dev.duo.hookprobe.T.a(c42, 25.0f);
         c42.setGravity(i2);
         float f52 = f4;
-        c42.addView(dev.duo.hookprobe.T.a(this, dev.duo.hookprobe.T.a(this, 2, T.b, 2.2f, false, 17.0f)), dev.duo.hookprobe.T.a(this, 17.0f, 17.0f));
-        TextView a162 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
+        c42.addView(dev.duo.hookprobe.T.a(this, dev.duo.hookprobe.T.a(this, 2, T.b_v, 2.2f, false, 17.0f)), dev.duo.hookprobe.T.a(this, 17.0f, 17.0f));
+        TextView a162 = dev.duo.hookprobe.T.a(this, 15.0f, T.b_v, 600);
         a162.setText("");
         a162.setPadding(a(8.0f), 0, 0, 0);
         c42.addView(a162);
@@ -1125,7 +1125,7 @@ public final class MainActivity extends Activity {
         dev.duo.hookprobe.T.a(c2, this.q.e ? 26.0f : 28.0f);
         c2.setPadding(a(18.0f), 0, a(16.0f), 0);
         LinearLayout a2 = dev.duo.hookprobe.T.a((Context) this);
-        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
+        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b_v, 600);
         a3.setText("搜索按钮");
         a2.addView(a3);
         TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
@@ -1405,7 +1405,7 @@ public final class MainActivity extends Activity {
         LinearLayout c2 = dev.duo.hookprobe.T.c(this);
         c2.setMinimumHeight(a(76.0f));
         LinearLayout a3 = dev.duo.hookprobe.T.a((Context) this);
-        TextView a4 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
+        TextView a4 = dev.duo.hookprobe.T.a(this, 15.0f, T.b_v, 600);
         a4.setText("帐篷钟面");
         a3.addView(a4);
         TextView a5 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
@@ -1449,7 +1449,7 @@ public final class MainActivity extends Activity {
         i2.addView(this.z, dev.duo.hookprobe.T.a(this, 44.0f, 44.0f));
         LinearLayout a2 = dev.duo.hookprobe.T.a((Context) this);
         a2.setPadding(a(12.0f), 0, a(8.0f), 0);
-        TextView a3 = dev.duo.hookprobe.T.a(this, 18.0f, T.b, 700);
+        TextView a3 = dev.duo.hookprobe.T.a(this, 18.0f, T.b_v, 700);
         this.A = a3;
         a2.addView(a3);
         TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.c, J.m);
@@ -1487,7 +1487,7 @@ public final class MainActivity extends Activity {
         c2.setGravity(16);
         c2.setMinimumHeight(a(64.0f));
         LinearLayout a3 = dev.duo.hookprobe.T.a((Context) this);
-        TextView a4 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
+        TextView a4 = dev.duo.hookprobe.T.a(this, 15.0f, T.b_v, 600);
         a4.setText("时钟模块位置");
         a3.addView(a4);
         TextView a5 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
@@ -1569,7 +1569,7 @@ public final class MainActivity extends Activity {
         c2.setPadding(a(18.0f), 0, a(16.0f), 0);
         c2.setMinimumHeight(a(76.0f));
         LinearLayout a2 = dev.duo.hookprobe.T.a((Context) this);
-        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
+        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b_v, 600);
         a3.setText("小组件");
         a2.addView(a3);
         TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
@@ -1599,7 +1599,7 @@ public final class MainActivity extends Activity {
         c2.setPadding(a(18.0f), 0, a(16.0f), 0);
         c2.setMinimumHeight(a(76.0f));
         LinearLayout a2 = dev.duo.hookprobe.T.a((Context) this);
-        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
+        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b_v, 600);
         a3.setText("工作台");
         a2.addView(a3);
         TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
@@ -1652,7 +1652,7 @@ public final class MainActivity extends Activity {
         c2.setPadding(a(18.0f), 0, a(16.0f), 0);
         c2.setMinimumHeight(a(76.0f));
         LinearLayout a2 = dev.duo.hookprobe.T.a((Context) this);
-        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
+        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b_v, 600);
         a3.setText("开合动画（实验性）");
         a2.addView(a3);
         TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
@@ -1738,7 +1738,7 @@ public final class MainActivity extends Activity {
         dev.duo.hookprobe.T.a(c2, this.q.e ? 26.0f : 28.0f);
         c2.setPadding(a(18.0f), 0, a(16.0f), 0);
         LinearLayout a2 = dev.duo.hookprobe.T.a((Context) this);
-        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
+        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b_v, 600);
         a3.setText("使用说明");
         a2.addView(a3);
         TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
@@ -2144,7 +2144,7 @@ public final class MainActivity extends Activity {
         TextView a2 = dev.duo.hookprobe.T.a(this, 13.0f, T.d, J.m);
         a2.setText(str);
         c2.addView(a2);
-        TextView a3 = dev.duo.hookprobe.T.a(this, 13.0f, T.b, 500);
+        TextView a3 = dev.duo.hookprobe.T.a(this, 13.0f, T.b_v, 500);
         a3.setGravity(8388613);
         a3.setPadding(a(16.0f), 0, 0, 0);
         c2.addView(a3, dev.duo.hookprobe.T.b());
@@ -2178,7 +2178,7 @@ public final class MainActivity extends Activity {
             FrameLayout frameLayout = new FrameLayout(this);
             dev.duo.hookprobe.T.a(frameLayout, 14.0f);
             mainActivity = this;
-            frameLayout.addView(dev.duo.hookprobe.T.a(this, dev.duo.hookprobe.T.a(mainActivity, 10, T.b, 0.0f, true, 26.0f)), new FrameLayout.LayoutParams(a(26.0f), a(26.0f), 17));
+            frameLayout.addView(dev.duo.hookprobe.T.a(this, dev.duo.hookprobe.T.a(mainActivity, 10, T.b_v, 0.0f, true, 26.0f)), new FrameLayout.LayoutParams(a(26.0f), a(26.0f), 17));
             c2.addView(frameLayout, dev.duo.hookprobe.T.a(this, 46.0f, 46.0f));
         }
         TextView g2 = g("MiDuo");
@@ -2239,7 +2239,7 @@ public final class MainActivity extends Activity {
     }
 
     private TextView g(String str) {
-        TextView a2 = dev.duo.hookprobe.T.a(this, 32.0f, T.b, 800);
+        TextView a2 = dev.duo.hookprobe.T.a(this, 32.0f, T.b_v, 800);
         a2.setText(str);
         a2.setLetterSpacing(-0.02f);
         return a2;
@@ -2322,7 +2322,7 @@ public final class MainActivity extends Activity {
         dev.duo.hookprobe.T.a(c2, this.q.e ? 26.0f : 28.0f);
         c2.setPadding(a(18.0f), 0, a(16.0f), 0);
         LinearLayout a2 = dev.duo.hookprobe.T.a((Context) this);
-        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
+        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b_v, 600);
         a3.setText("图标");
         a2.addView(a3);
         TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
@@ -2345,7 +2345,7 @@ public final class MainActivity extends Activity {
         dev.duo.hookprobe.T.a(c2, this.q.e ? 26.0f : 28.0f);
         c2.setPadding(a(18.0f), a(12.0f), a(16.0f), a(12.0f));
         LinearLayout a2 = dev.duo.hookprobe.T.a((Context) this);
-        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
+        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b_v, 600);
         a3.setText("内屏原生顶栏");
         a2.addView(a3);
         TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
@@ -2392,7 +2392,7 @@ public final class MainActivity extends Activity {
         View view = new View(this);
         this.r0 = view;
         i2.addView(view, dev.duo.hookprobe.T.a(this, 7.0f, 7.0f));
-        TextView a2 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
+        TextView a2 = dev.duo.hookprobe.T.a(this, 15.0f, T.b_v, 600);
         a2.setText("诊断信息");
         a2.setPadding(a(10.0f), 0, 0, 0);
         i2.addView(a2, dev.duo.hookprobe.T.b());
@@ -2461,7 +2461,7 @@ public final class MainActivity extends Activity {
         dev.duo.hookprobe.T.a(c2, this.q.e ? 26.0f : 28.0f);
         c2.setPadding(a(18.0f), 0, a(16.0f), 0);
         LinearLayout a2 = dev.duo.hookprobe.T.a((Context) this);
-        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
+        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b_v, 600);
         a3.setText("5G 新样式");
         a2.addView(a3);
         TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
@@ -2537,7 +2537,7 @@ public final class MainActivity extends Activity {
         LinearLayout a2 = dev.duo.hookprobe.T.a((Context) this);
         a2.setPadding(a(22.0f), a(22.0f), a(22.0f), a(18.0f));
         scrollView.addView(a2);
-        TextView a3 = dev.duo.hookprobe.T.a(this, 20.0f, T.b, 700);
+        TextView a3 = dev.duo.hookprobe.T.a(this, 20.0f, T.b_v, 700);
         a3.setText("打开前检查");
         a2.addView(a3);
         final TextView a4 = dev.duo.hookprobe.T.a(this, 13.0f, T.c, J.m);
@@ -2670,7 +2670,7 @@ public final class MainActivity extends Activity {
         a2.setPadding(a(18.0f), a(6.0f), a(18.0f), a(6.0f));
         LinearLayout c2 = dev.duo.hookprobe.T.c(this);
         c2.setMinimumHeight(a(76.0f));
-        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
+        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b_v, 600);
         a3.setText("颜色配置");
         c2.addView(a3, dev.duo.hookprobe.T.b());
         final ImageView a4 = dev.duo.hookprobe.T.a(this, dev.duo.hookprobe.T.a(this, 5, T.d, 3.0f, false, 12.0f));
@@ -2763,7 +2763,7 @@ public final class MainActivity extends Activity {
         a2.setPadding(a(18.0f), a(12.0f), a(16.0f), a(12.0f));
         LinearLayout c2 = dev.duo.hookprobe.T.c(this);
         LinearLayout a3 = dev.duo.hookprobe.T.a((Context) this);
-        TextView a4 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
+        TextView a4 = dev.duo.hookprobe.T.a(this, 15.0f, T.b_v, 600);
         a4.setText("新应用默认开 Duo");
         a3.addView(a4);
         TextView a5 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
@@ -2910,7 +2910,7 @@ public final class MainActivity extends Activity {
         LinearLayout a2 = dev.duo.hookprobe.T.a((Context) this);
         a2.setPadding(a(22.0f), a(22.0f), a(22.0f), a(18.0f));
         scrollView.addView(a2);
-        TextView a3 = dev.duo.hookprobe.T.a(this, 20.0f, T.b, 700);
+        TextView a3 = dev.duo.hookprobe.T.a(this, 20.0f, T.b_v, 700);
         a3.setText("开合动画检查");
         a2.addView(a3);
         final TextView a4 = dev.duo.hookprobe.T.a(this, 13.0f, T.c, J.m);
@@ -2986,7 +2986,7 @@ public final class MainActivity extends Activity {
         editText.setId(1004);
         this.I0.setHint("搜索 App 名称或包名");
         this.I0.setHintTextColor(T.d);
-        this.I0.setTextColor(T.b);
+        this.I0.setTextColor(T.b_v);
         this.I0.setTextSize(15.0f);
         this.I0.setSingleLine(true);
         a aVar = null;
@@ -2999,7 +2999,7 @@ public final class MainActivity extends Activity {
         a3.setPadding(a(18.0f), 0, a(14.0f), 0);
         LinearLayout c3 = dev.duo.hookprobe.T.c(this);
         c3.setMinimumHeight(a(58.0f));
-        TextView a4 = dev.duo.hookprobe.T.a(this, 16.0f, T.b, 600);
+        TextView a4 = dev.duo.hookprobe.T.a(this, 16.0f, T.b_v, 600);
         a4.setText("全部 App 开启 Duo");
         c3.addView(a4, dev.duo.hookprobe.T.b());
         Switch r13 = new Switch(this);
@@ -3271,10 +3271,10 @@ public final class MainActivity extends Activity {
     private LinearLayout a(String str, String str2, int i2, int i3, TextView[] textViewArr, SeekBar[] seekBarArr, IntConsumer intConsumer) {
         LinearLayout u = u();
         LinearLayout i4 = i();
-        TextView a2 = dev.duo.hookprobe.T.a(this, 16.0f, T.b, 600);
+        TextView a2 = dev.duo.hookprobe.T.a(this, 16.0f, T.b_v, 600);
         a2.setText(str);
         i4.addView(a2, dev.duo.hookprobe.T.b());
-        TextView a3 = dev.duo.hookprobe.T.a(this, 26.0f, T.b, 800);
+        TextView a3 = dev.duo.hookprobe.T.a(this, 26.0f, T.b_v, 800);
         a3.setFontFeatureSettings("tnum");
         i4.addView(a3);
         TextView a4 = dev.duo.hookprobe.T.a(this, 14.0f, T.c, 600);
@@ -3523,7 +3523,7 @@ public final class MainActivity extends Activity {
         dev.duo.hookprobe.T.a(c2, this.q.e ? 26.0f : 28.0f);
         c2.setPadding(a(18.0f), 0, a(16.0f), 0);
         LinearLayout a2 = dev.duo.hookprobe.T.a((Context) this);
-        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 600);
+        TextView a3 = dev.duo.hookprobe.T.a(this, 15.0f, T.b_v, 600);
         a3.setText(str);
         a2.addView(a3);
         TextView a4 = dev.duo.hookprobe.T.a(this, 12.0f, T.d, J.m);
@@ -3623,7 +3623,7 @@ public final class MainActivity extends Activity {
         TextView a3 = dev.duo.hookprobe.T.a(this, 11.0f, T.c, J.m);
         a3.setText(str);
         a2.addView(a3);
-        TextView a4 = dev.duo.hookprobe.T.a(this, 15.0f, T.b, 700);
+        TextView a4 = dev.duo.hookprobe.T.a(this, 15.0f, T.b_v, 700);
         a4.setPadding(0, a(4.0f), 0, 0);
         a2.addView(a4);
         LinearLayout.LayoutParams b2 = dev.duo.hookprobe.T.b();
@@ -3644,7 +3644,7 @@ public final class MainActivity extends Activity {
 
     private void c(r.a aVar) {
         this.F0.setText(aVar.b);
-        this.F0.setTextColor(a(aVar.c, T.b));
+        this.F0.setTextColor(a(aVar.c, T.b_v));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -3842,9 +3842,9 @@ public final class MainActivity extends Activity {
         boolean equals = h.equals(this.X0[1]);
         boolean equals2 = "未安装".equals(this.X0[2]);
         this.C0.setText(equals ? this.X0[1] : this.X0[1] + " · 需 " + h);
-        this.C0.setTextColor(equals ? T.b : -2543579);
+        this.C0.setTextColor(equals ? T.b_v : -2543579);
         this.D0.setText(this.X0[2]);
-        this.D0.setTextColor(equals2 ? -2543579 : T.b);
+        this.D0.setTextColor(equals2 ? -2543579 : T.b_v);
         this.G0.setText("小米桌面的版本与 MiDuo 适配的版本不同，桌面相关功能可能出错。请用下方 Bug 抓取导出报告，再到“授权”页联系作者。");
         this.G0.setVisibility(equals ? 8 : 0);
         this.E0.setText(this.X0[3]);
@@ -3951,7 +3951,7 @@ public final class MainActivity extends Activity {
             a2.rightMargin = a(6.0f);
             mainActivity.y.addView(frameLayout, a2);
         }
-        TextView a3 = dev.duo.hookprobe.T.a(this, 13.0f, T.b, 600);
+        TextView a3 = dev.duo.hookprobe.T.a(this, 13.0f, T.b_v, 600);
         if (hVar == null || hVar.a) {
             str = "";
         } else if (hVar.b) {
@@ -4113,7 +4113,7 @@ public final class MainActivity extends Activity {
         a2.rightMargin = a(12.0f);
         c2.addView(view, a2);
         LinearLayout a3 = dev.duo.hookprobe.T.a((Context) this);
-        TextView a4 = dev.duo.hookprobe.T.a(this, 14.0f, z ? -2543579 : T.b, 500);
+        TextView a4 = dev.duo.hookprobe.T.a(this, 14.0f, z ? -2543579 : T.b_v, 500);
         a4.setText(aVar.a);
         a3.addView(a4);
         TextView a5 = dev.duo.hookprobe.T.a(this, 12.0f, z ? -2543579 : T.d, J.m);
@@ -4266,7 +4266,7 @@ public final class MainActivity extends Activity {
         a2.rightMargin = a(12.0f);
         c2.addView(view, a2);
         LinearLayout a3 = dev.duo.hookprobe.T.a((Context) this);
-        TextView a4 = dev.duo.hookprobe.T.a(this, 14.0f, T.b, 500);
+        TextView a4 = dev.duo.hookprobe.T.a(this, 14.0f, T.b_v, 500);
         a4.setText(aVar.a);
         a3.addView(a4);
         TextView a5 = dev.duo.hookprobe.T.a(this, 12.0f, aVar.c == 2 ? -2543579 : T.d, J.m);

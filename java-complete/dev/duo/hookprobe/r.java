@@ -132,7 +132,7 @@ final class r {
                     str5 = split[3];
                     a2 = a(context, str9, str5);
                 } catch (Exception e2) {
-                    e = e2;
+                    ex = e2;
                     str5 = null;
                 }
                 try {
@@ -145,8 +145,8 @@ final class r {
                     }
                     arrayList.add(aVar);
                 } catch (Exception e3) {
-                    e = e3;
-                    arrayList.add(new a("LSPosed 登记的安装包", 2, "读取 LSPosed 配置失败（" + e.getMessage() + "）"));
+                    ex = e3;
+                    arrayList.add(new a("LSPosed 登记的安装包", 2, "读取 LSPosed 配置失败（" + ex.getMessage() + "）"));
                     List asList = Arrays.asList(split[1].split("\n"));
                     contains = asList.contains(f);
                     contains2 = asList.contains(g);

@@ -98,14 +98,14 @@ public final class BugCaptureActivity extends Activity {
             }
         });
         a.addView(a2, T.a());
-        TextView a3 = T.a(this, 24.0f, T.b, 600);
+        TextView a3 = T.a(this, 24.0f, T.b_v, 600);
         a3.setText("Bug 抓取模式");
         a.addView(a3, T.a(T.a(), this, 20.0f));
         TextView a4 = T.a(this, 14.0f, T.c, J.m);
         a4.setText("1. 点开始并允许 Root 读取日志。\n2. 去出问题的 App 复现。冷启动问题请在打开 App 前开始抓取。\n3. 出问题后立即点通知里的结束，再回来导出。\n\n最多抓取 2 分钟、16 MiB，自动停止；默认关闭，不自动上传。\n\n报告包含：开头和结尾各一份状态快照（各进程载入的 MiDuo 版本、窗口与任务、图层、小组件、权限、内存、崩溃记录）、MiDuo 全部模块日志、所有警告与错误日志、设备与应用版本。不截屏，不读聊天和照片内容。可能含正在使用的 App 名称，分享前请检查。应用私有目录最多保留最近 3 份报告。\n\n“常驻轻量记录”默认关闭：打开后后台只留 MiDuo 相关日志的最近约 8 MiB，抓取报告会一并附上，用来抓两分钟复现不出来的偶发问题；关闭即删除。重启手机后需打开一次 MiDuo 才会恢复。");
         a4.setLineSpacing(0.0f, 1.2f);
         a.addView(a4, T.a(T.a(), this, 16.0f));
-        TextView a5 = T.a(this, 14.0f, T.b, 500);
+        TextView a5 = T.a(this, 14.0f, T.b_v, 500);
         this.a = a5;
         a.addView(a5, T.a(T.a(), this, 20.0f));
         this.b = T.a((Context) this, "开始抓取", true, 48.0f);

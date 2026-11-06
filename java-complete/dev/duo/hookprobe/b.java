@@ -462,7 +462,7 @@ final class b {
         } catch (InterruptedException e2) {
             z = true;
         } catch (Exception e3) {
-            e = e3;
+            ex = e3;
             z = true;
         }
         try {
@@ -470,9 +470,9 @@ final class b {
             Thread.currentThread().interrupt();
             return z;
         } catch (Exception e5) {
-            e = e5;
-            cVar.a("Root 可用", e);
-            dVar.a(cVar, e);
+            ex = e5;
+            cVar.a("Root 可用", ex);
+            dVar.a(cVar, ex);
             return z;
         }
         if (!"0".equals(trim)) {

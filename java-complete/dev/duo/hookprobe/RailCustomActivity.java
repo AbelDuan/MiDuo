@@ -142,7 +142,7 @@ public final class RailCustomActivity extends Activity {
             c.setMinimumHeight(dev.duo.hookprobe.RailCustomActivity.this.a(56.0f));
             c.setPadding(dev.duo.hookprobe.RailCustomActivity.this.a(8.0f), dev.duo.hookprobe.RailCustomActivity.this.a(8.0f), dev.duo.hookprobe.RailCustomActivity.this.a(8.0f), dev.duo.hookprobe.RailCustomActivity.this.a(8.0f));
             c.addView(T.a(dev.duo.hookprobe.RailCustomActivity.this, fVar.c), T.a(dev.duo.hookprobe.RailCustomActivity.this, 30.0f, 30.0f));
-            TextView a = T.a(dev.duo.hookprobe.RailCustomActivity.this, 15.0f, T.b, 500);
+            TextView a = T.a(dev.duo.hookprobe.RailCustomActivity.this, 15.0f, T.b_v, 500);
             a.setText(fVar.b);
             a.setSingleLine(true);
             a.setEllipsize(TextUtils.TruncateAt.END);
@@ -354,7 +354,7 @@ public final class RailCustomActivity extends Activity {
             this.a.setStyle(Paint.Style.STROKE);
             this.a.setStrokeCap(Paint.Cap.ROUND);
             this.a.setStrokeWidth(0.08f * width);
-            this.a.setColor(T.b);
+            this.a.setColor(T.b_v);
             if (this.b) {
                 float f2 = width * 0.25f;
                 float f3 = height * 0.25f;
@@ -741,7 +741,7 @@ public final class RailCustomActivity extends Activity {
         TextView a2 = T.a(this, 13.0f, T.c, 600);
         a2.setText("小窗侧边栏应用（" + this.q.size() + " / 12）");
         c2.addView(a2, T.b());
-        final TextView a3 = T.a(this, 13.0f, T.b, 600);
+        final TextView a3 = T.a(this, 13.0f, T.b_v, 600);
         a3.setText(this.r ? "小窗" : "全屏");
         c2.addView(a3);
         Switch r2 = new Switch(this);
@@ -763,7 +763,7 @@ public final class RailCustomActivity extends Activity {
     private View x() {
         LinearLayout c2 = T.c(this);
         c2.setPadding(a(10.0f), a(4.0f), a(8.0f), a(4.0f));
-        TextView a2 = T.a(this, 13.0f, T.b, 500);
+        TextView a2 = T.a(this, 13.0f, T.b_v, 500);
         a2.setText("四方块放到列表最后");
         c2.addView(a2, T.b());
         Switch r1 = new Switch(this);
@@ -1062,7 +1062,7 @@ public final class RailCustomActivity extends Activity {
                     z = true;
                 } else {
                     z = true;
-                    frameLayout.addView(new g(this, 1, a(999.0f), a(this, T.b, 16.0f), null, -1, null, T.b, null), new FrameLayout.LayoutParams(-1, -1));
+                    frameLayout.addView(new g(this, 1, a(999.0f), a(this, T.b_v, 16.0f), null, -1, null, T.b_v, null), new FrameLayout.LayoutParams(-1, -1));
                 }
                 frameLayout.setContentDescription((i2 + 1) + " Dock");
                 str5 = str7;
@@ -1071,7 +1071,7 @@ public final class RailCustomActivity extends Activity {
                 z = true;
                 if ("-".equals(str7)) {
                     str2 = "-";
-                    frameLayout.addView(new g(this, 2, this.I, null, null, -1, null, T.b, null), new FrameLayout.LayoutParams(-1, -1));
+                    frameLayout.addView(new g(this, 2, this.I, null, null, -1, null, T.b_v, null), new FrameLayout.LayoutParams(-1, -1));
                     frameLayout.setContentDescription((i2 + 1) + " 空格");
                     str5 = str7;
                 } else {
@@ -1092,7 +1092,7 @@ public final class RailCustomActivity extends Activity {
                         str4 = str9;
                     }
                     str5 = str7;
-                    frameLayout.addView(new g(this, 3, i9, h2, str4, i4, null, T.b, str5), new FrameLayout.LayoutParams(-1, -1));
+                    frameLayout.addView(new g(this, 3, i9, h2, str4, i4, null, T.b_v, str5), new FrameLayout.LayoutParams(-1, -1));
                     frameLayout.setContentDescription((i2 + 1) + " " + str3);
                 }
             }
@@ -1102,7 +1102,7 @@ public final class RailCustomActivity extends Activity {
             frameLayout2.addView(new e(i2 - e2, d2, a(26.0f)), new FrameLayout.LayoutParams(-1, -1));
             if (i2 == (d2 / 2) + e2) {
                 int a3 = a(999.0f);
-                int i10 = T.b;
+                int i10 = T.b_v;
                 i5 = e2;
                 str = J.c;
                 frameLayout = frameLayout2;
@@ -1148,7 +1148,7 @@ public final class RailCustomActivity extends Activity {
         }
         View view = new View(this);
         GradientDrawable a4 = T.a(0, a(10.0f));
-        a4.setStroke(a(2.0f), T.b);
+        a4.setStroke(a(2.0f), T.b_v);
         view.setBackground(a4);
         view.setVisibility(8);
         frameLayout.addView(view, new FrameLayout.LayoutParams(i3, i3));
@@ -1586,8 +1586,8 @@ public final class RailCustomActivity extends Activity {
         LinearLayout c2 = T.c(this);
         c2.setPadding(a(4.0f), 0, a(4.0f), 0);
         FrameLayout frameLayout = new FrameLayout(this);
-        frameLayout.setBackground(T.a(T.f, a(20.0f)));
-        frameLayout.addView(T.a(this, T.a(this, 3, T.b, 2.4f, false, 18.0f)), new FrameLayout.LayoutParams(a(18.0f), a(18.0f), 17));
+        frameLayout.setBackground(T.a(T.f_v, a(20.0f)));
+        frameLayout.addView(T.a(this, T.a(this, 3, T.b_v, 2.4f, false, 18.0f)), new FrameLayout.LayoutParams(a(18.0f), a(18.0f), 17));
         frameLayout.setContentDescription("返回");
         frameLayout.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.RailCustomActivity$$ExternalSyntheticLambda22
             @Override // android.view.View.OnClickListener
@@ -1598,7 +1598,7 @@ public final class RailCustomActivity extends Activity {
         c2.addView(frameLayout, T.a(this, d, d));
         LinearLayout a2 = T.a((Context) this);
         a2.setPadding(a(12.0f), 0, 0, 0);
-        TextView a3 = T.a(this, 22.0f, T.b, 800);
+        TextView a3 = T.a(this, 22.0f, T.b_v, 800);
         a3.setText("外屏 App 内侧栏自定义");
         a3.setLetterSpacing(-0.01f);
         a2.addView(a3);
@@ -1638,14 +1638,14 @@ public final class RailCustomActivity extends Activity {
                 if (!"wechat".equals(str) && !"alipay".equals(str)) {
                     Drawable a4 = I.a(this, str);
                     if (a4 != null) {
-                        a4.setTint(T.b);
+                        a4.setTint(T.b_v);
                         a3 = a4;
                     } else if ("huanji".equals(str)) {
                         a3 = a(this, "com.miui.huanji");
                     } else if ("calculator".equals(str)) {
                         a3 = a(this, "com.miui.calculator");
                     } else {
-                        a3 = "translate".equals(str) ? a(this, "com.xiaomi.aiasst.vision") : a(i[a2], T.b);
+                        a3 = "translate".equals(str) ? a(this, "com.xiaomi.aiasst.vision") : a(i[a2], T.b_v);
                     }
                 } else {
                     a3 = N.a(str);
@@ -1878,7 +1878,7 @@ public final class RailCustomActivity extends Activity {
             i2++;
         }
         arrayList.add(new d(null, "选择 App", "+", null, -1, true));
-        arrayList.add(new d(J.f, "Dock", null, a(this, T.b, 26.0f), -1, false));
+        arrayList.add(new d(J.f, "Dock", null, a(this, T.b_v, 26.0f), -1, false));
         arrayList.add(new d(J.c, "小窗侧边栏", "窗", null, -1, false));
         for (String str2 : this.m) {
             f fVar = this.o.get(str2.substring(4));
@@ -1894,7 +1894,7 @@ public final class RailCustomActivity extends Activity {
         a2.setGravity(1);
         String str = dVar.a;
         boolean z = str != null && b(str);
-        g gVar = new g(this, 0, this.I, dVar.d, dVar.c, dVar.e, dVar.b, T.b, dVar.a);
+        g gVar = new g(this, 0, this.I, dVar.d, dVar.c, dVar.e, dVar.b, T.b_v, dVar.a);
         if (z) {
             gVar.setAlpha(0.45f);
         }
@@ -2353,7 +2353,7 @@ public final class RailCustomActivity extends Activity {
     }
 
     private View a(Drawable drawable, String str, String str2) {
-        return new g(this, str != null ? 2 : 0, this.I, drawable, str, -1, str2, T.b, drawable == null ? null : "app:");
+        return new g(this, str != null ? 2 : 0, this.I, drawable, str, -1, str2, T.b_v, drawable == null ? null : "app:");
     }
 
     private void a(final String str, final boolean z) {
