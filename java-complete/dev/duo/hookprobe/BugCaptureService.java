@@ -167,46 +167,17 @@ public final class BugCaptureService extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        final String str;
-        BufferedOutputStream bufferedOutputStream;
+        String msg = null;
         String str2 = "bug-" + new SimpleDateFormat("yyyyMMdd-HHmmss-SSS", Locale.ROOT).format(new Date()) + ".txt";
         File file = new File(getFilesDir(), str2);
         f();
+        BufferedOutputStream bufferedOutputStream = null;
         try {
             bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
-        } catch (IOException | RuntimeException e2) {
-            str = "抓取失败：" + e2.getMessage();
-            Log.e("DuoBugCapture", str, e2);
-        }
-        try {
             a(this).edit().putString("file", str2).apply();
             bufferedOutputStream.write(c().getBytes(StandardCharsets.UTF_8));
             bufferedOutputStream.flush();
-            try {
-                try {
-                } catch (IOException e3) {
-                    String str3 = this.c == null ? "抓取失败：" + e3.getMessage() : this.c;
-                    Log.w("DuoBugCapture", "抓取结束：" + str3, e3);
-                    b();
-                    Process process = this.b;
-                    if (process != null) {
-                        try {
-                            if (!process.waitFor(h, TimeUnit.MILLISECONDS)) {
-                                process.destroyForcibly();
-                                Log.w("DuoBugCapture", "Root 包装进程未及时退出；日志子进程有独立超时");
-                            }
-                        } catch (InterruptedException e4) {
-                            Thread.currentThread().interrupt();
-                            process.destroyForcibly();
-                            Log.w("DuoBugCapture", "等待日志退出被中断", e4);
-                        }
-                        this.b = null;
-                    }
-                    str = str3;
-                }
-                if (this.c != null) {
-                    throw new IOException(this.c);
-                }
+            if (this.c == null) {
                 this.b = new ProcessBuilder("su", "-c", j.a()).redirectErrorStream(true).start();
                 if (this.c != null) {
                     b();
@@ -214,72 +185,60 @@ public final class BugCaptureService extends Service {
                 BufferedInputStream bufferedInputStream = new BufferedInputStream(this.b.getInputStream());
                 try {
                     dev.duo.hookprobe.j.a(bufferedInputStream);
-                    b("抓取中：请去复现，完成后结束抓取");
-                    if (dev.duo.hookprobe.j.a(bufferedInputStream, bufferedOutputStream, 16773120)) {
-                        this.c = "日志已达到 16 MiB 上限";
+                    b("\u6293\u53d6\u4e2d\uff1a\u8bf7\u53bb\u5906\u73b0\uff0c\u5b8c\u621b\u540e\u7edb\u675b\u6293\u53d6");
+                    if (dev.duo.hookprobe.j.a(bufferedInputStream, bufferedOutputStream, 16773120L)) {
+                        this.c = "\u65e5\u5f75\u5df2\u6254\u5230 16 MiB \u4ee1\u9651";
                     }
                     if (this.c == null) {
-                        throw new IOException("日志进程提前退出，请查看报告末尾的错误");
+                        throw new IOException("\u4ea4\u5b8c\u540e\u65e5\u5f75\u6ca1\u6709\u8bc6\u5225\u5236");
                     }
-                    str = this.c;
+                    msg = this.c;
                     bufferedInputStream.close();
                     b();
-                    Process process2 = this.b;
-                    if (process2 != null) {
-                        try {
-                            if (!process2.waitFor(h, TimeUnit.MILLISECONDS)) {
-                                process2.destroyForcibly();
-                                Log.w("DuoBugCapture", "Root 包装进程未及时退出；日志子进程有独立超时");
-                            }
-                        } catch (InterruptedException e5) {
-                            Thread.currentThread().interrupt();
-                            process2.destroyForcibly();
-                            Log.w("DuoBugCapture", "等待日志退出被中断", e5);
-                        }
-                        this.b = null;
-                    }
-                    byte[] bytes = ("\n\n停止请求时间=" + (this.d == 0 ? "自动限量/错误" : new Date(this.d)) + "\n结束时间=" + new Date() + "\n结果=" + str + "\n").getBytes(StandardCharsets.UTF_8);
-                    bufferedOutputStream.write(bytes, 0, Math.min(bytes.length, WorkspaceProtocol.MAX_PAYLOAD));
-                    bufferedOutputStream.close();
-                    this.a.post(new Runnable() { // from class: dev.duo.hookprobe.BugCaptureService$$ExternalSyntheticLambda0
-                        @Override // java.lang.Runnable
-                        public final void run() {
-                            dev.duo.hookprobe.BugCaptureService.this.a(str);
-                        }
-                    });
-                } catch (Throwable th) {
+                } finally {
                     try {
                         bufferedInputStream.close();
-                    } catch (Throwable th2) {
-                        th.addSuppressed(th2);
-                    }
-                    throw th;
-                }
-            } catch (Throwable th3) {
-                b();
-                Process process3 = this.b;
-                if (process3 != null) {
-                    try {
-                        if (!process3.waitFor(h, TimeUnit.MILLISECONDS)) {
-                            process3.destroyForcibly();
-                            Log.w("DuoBugCapture", "Root 包装进程未及时退出；日志子进程有独立超时");
+                    } catch (Throwable th) {
+                        if (th != null) {
+                            throw new RuntimeException(th);
                         }
-                    } catch (InterruptedException e6) {
-                        Thread.currentThread().interrupt();
-                        process3.destroyForcibly();
-                        Log.w("DuoBugCapture", "等待日志退出被中断", e6);
                     }
-                    this.b = null;
                 }
-                throw th3;
             }
-        } catch (Throwable th4) {
-            try {
-                bufferedOutputStream.close();
-            } catch (Throwable th5) {
-                th4.addSuppressed(th5);
+        } catch (IOException e3) {
+            msg = this.c == null ? "\u6293\u53d6\u4e5b\u4f10\uff1a" + e3.getMessage() : this.c;
+            Log.w("DuoBugCapture", "\u6293\u53d6\u4e5b\u4f10\uff1a" + msg, e3);
+            b();
+        } catch (InterruptedException e4) {
+            Thread.currentThread().interrupt();
+            msg = "\u7b49\u5f75\u65e5\u5f75\u9005\u51f5\u4f10\u4e6b\u4f10";
+            Log.w("DuoBugCapture", msg, e4);
+        } finally {
+            if (bufferedOutputStream != null) {
+                try {
+                    bufferedOutputStream.close();
+                } catch (IOException e6) {
+                    Log.w("DuoBugCapture", "\u5f75\u5f75\u6587\u6d75\u73b3\u5b8d\u6bca\u4ea4\u65b9", e6);
+                }
             }
-            throw th4;
+            Process process3 = this.b;
+            if (process3 != null) {
+                try {
+                    if (!process3.waitFor(h, TimeUnit.MILLISECONDS)) {
+                        process3.destroyForcibly();
+                        Log.w("DuoBugCapture", "Root \u4ea4\u5b8c\u540e\u4e5b\u5f75\u6d75\u73b3\u6d75\u6d75\u73b3");
+                    }
+                } catch (InterruptedException e7) {
+                    Thread.currentThread().interrupt();
+                    process3.destroyForcibly();
+                    Log.w("DuoBugCapture", "\u65e5\u5f75\u9005\u51f5\u4f10\u4e6b\u4f10", e7);
+                }
+                this.b = null;
+            }
+            b();
+        }
+        if (msg != null) {
+            b(msg);
         }
     }
 
