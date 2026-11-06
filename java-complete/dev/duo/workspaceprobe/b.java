@@ -1904,7 +1904,7 @@ public final class b extends XposedModule {
             this.k = Float.NaN;
             this.c = str;
             this.d = view;
-            SurfaceControlViewHost surfaceControlViewHost = new SurfaceControlViewHost(dev.duo.workspaceprobe.b.this.i4, (android.view.Display) ((DisplayManager) dev.duo.workspaceprobe.b.this.i4.getSystemService(DisplayManager.class)).getDisplay(0), null);
+            SurfaceControlViewHost surfaceControlViewHost = new SurfaceControlViewHost(dev.duo.workspaceprobe.b.this.i4, (android.view.Display) ((DisplayManager) dev.duo.workspaceprobe.b.this.i4.getSystemService(DisplayManager.class)).getDisplay(0), (android.os.IBinder) null);
             this.a = surfaceControlViewHost;
             if (i5 != 0) {
                 try {
