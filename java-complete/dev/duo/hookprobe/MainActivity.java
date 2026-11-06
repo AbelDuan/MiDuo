@@ -1230,12 +1230,9 @@ public final class MainActivity extends Activity {
             mainActivity = this;
         } else {
             mainActivity = this;
-            mainActivity.u.addView(new f(mainActivity, str, this.w, null, true, 0, this.q.d(), 0, this.q.b(), new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda90
-                @Override // java.lang.Runnable
-                public final void run() {
-                    dev.duo.hookprobe.MainActivity.this.o();
-                }
-            }).e, new FrameLayout.LayoutParams(-1, -1));
+            f fVar0 = new f();
+            mainActivity.O0 = fVar0;
+            mainActivity.u.setAdapter(fVar0);
         }
         f fVar = mainActivity.O0;
         if (fVar != null) {
