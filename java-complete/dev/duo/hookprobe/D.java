@@ -34,6 +34,7 @@ final class D {
                     cls = Class.forName("miuix.autodensity.g", false, classLoader);
                     z = false;
                 }
+                    final boolean zFinal = z;
                 Class<?> cls2 = Class.forName(z ? "miuix.view.DisplayConfig" : "miuix.view.e", false, classLoader);
                 final Constructor<?> constructor = cls2.getConstructor(Configuration.class);
                 final Field field = cls2.getField(z ? "densityDpi" : "d");
@@ -60,7 +61,7 @@ final class D {
                     public final Object intercept(XposedInterface.Chain chain) {
                         Object a;
                         try {
-                            a = D.a(intSupplier, booleanSupplier, field8, method, method2, method5, field9, method3, method4, method6, z, method8, method7, field, field4, field6, field7, constructor, field2, field3, field5, chain);
+                            a = D.a(intSupplier, booleanSupplier, field8, method, method2, method5, field9, method3, method4, method6, zFinal, method8, method7, field, field4, field6, field7, constructor, field2, field3, field5, chain);
                         } catch (Throwable th) {
                             throw new RuntimeException(th);
                         }
