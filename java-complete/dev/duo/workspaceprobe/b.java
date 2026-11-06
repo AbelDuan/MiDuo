@@ -8848,9 +8848,9 @@ public final class b extends XposedModule {
             if (this.j_v >= 0 && !this.a.p_v && this.b_v.isAttachedToWindow() && this.a.o_v.indexOf(this.b_v) == this.j_v) {
                 int[] h = h();
                 float f = this.l_v;
-                if (f >= h[0] && f <= r4 + h[2]) {
+                if (f >= h[0] && f <= h[0] + h[2]) {
                     float f2 = this.m;
-                    if (f2 >= h[1] && f2 <= r6 + h[3]) {
+                    if (f2 >= h[1] && f2 <= h[1] + h[3]) {
                         int[] r0 = new int[2];
                         this.a.g.getLocationOnScreen(r0);
                         return dev.duo.hookprobe.J.a(this.l_v - r0[0], this.m - r0[1], this.a.g.getWidth() / 3.0f, ((View) this.b_v.getParent()).getHeight(), 3, this.a.o_v.size());
@@ -16341,7 +16341,7 @@ public final class b extends XposedModule {
         for (K k2 : this.M5.values()) {
             k2.q_v.a(z2 && k2.t_v == this.G1 && s() && R0());
             boolean z4 = z2 && d(k2.t_v);
-            if (k2.y_v != z4) {
+            if (k2.y_v != (z4 ? 1 : 0)) {
                 a(transaction, k2, z4);
                 z3 = true;
             }
