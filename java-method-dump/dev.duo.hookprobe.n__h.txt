@@ -1,0 +1,19 @@
+// class=dev.duo.hookprobe.n method=h mode=java fell=False
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void h() {
+        long jClearCallingIdentity = Binder.clearCallingIdentity();
+        try {
+            Object objInvoke = Class.forName("android.app.ActivityThread").getMethod("currentActivityThread", null).invoke(null, null);
+            Context context = (Context) objInvoke.getClass().getMethod("getSystemContext", null).invoke(objInvoke, null);
+            ActivityManager.class.getMethod("forceStopPackage", String.class).invoke((ActivityManager) context.getSystemService(ActivityManager.class), "com.miui.home");
+            Context.class.getMethod("startActivityAsUser", Intent.class, UserHandle.class).invoke(context, new Intent("android.intent.action.MAIN").addCategory("android.intent.category.HOME").addFlags(268435456), UserHandle.class.getField("CURRENT").get(null));
+            Log.i(a, "HOME reopened for the master switch");
+            Binder.restoreCallingIdentity(jClearCallingIdentity);
+        } catch (Throwable th) {
+            try {
+                Log.e(a, "HOME reopen failed; the desktop switches at its next start", th);
+            } finally {
+                Binder.restoreCallingIdentity(jClearCallingIdentity);
+            }
+        }
+    }

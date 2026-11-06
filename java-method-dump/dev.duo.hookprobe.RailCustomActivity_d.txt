@@ -1,0 +1,7 @@
+// class=dev.duo.hookprobe.RailCustomActivity method=d mode=java fell_back=False
+    private void d() {
+        if (this.H) {
+            this.H = false;
+            r();
+        }
+    }

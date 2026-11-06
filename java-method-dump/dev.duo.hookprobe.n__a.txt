@@ -1,0 +1,21 @@
+// class=dev.duo.hookprobe.n method=a mode=java fell=False
+    /* JADX INFO: Access modifiers changed from: private */
+    public static /* synthetic */ Object a(XposedInterface.Chain chain) throws Throwable {
+        long jLongValue = ((Long) chain.getArg(0)).longValue();
+        if (jLongValue != b && jLongValue != c && jLongValue != d && jLongValue != e) {
+            return chain.proceed();
+        }
+        String str = ((ApplicationInfo) chain.getThisObject()).packageName;
+        boolean z2 = jLongValue != e && Boolean.TRUE.equals(s.get());
+        if (!a(str) && !z2) {
+            return chain.proceed();
+        }
+        boolean z3 = jLongValue != d;
+        if (a("compat:" + jLongValue, 1)) {
+            Log.i(a, "COMPAT " + jLongValue + "=" + z3 + " first pkg=" + str);
+        }
+        if (z2 && !a(str) && a("host:" + str, 3)) {
+            Log.i(a, "HOST compat " + jLongValue + "=" + z3 + " pkg=" + str);
+        }
+        return Boolean.valueOf(z3);
+    }

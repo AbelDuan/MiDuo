@@ -1,0 +1,2 @@
+// class=dev.duo.hookprobe.G method=a mode=java fell=False
+// method exists but has no decompiled body (native/abstract)

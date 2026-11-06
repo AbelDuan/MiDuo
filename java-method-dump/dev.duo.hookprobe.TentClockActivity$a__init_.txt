@@ -1,0 +1,4 @@
+// class=dev.duo.hookprobe.TentClockActivity$a method=<init> mode=java fell_back=False
+    class a implements SensorEventListener {
+        a() {
+        }

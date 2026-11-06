@@ -1,0 +1,4 @@
+// class=dev.duo.hookprobe.A method=a mode=java fell=False
+    private static int a(String str) {
+        return Integer.parseInt(str.replace("℃", "").replace("°", "").trim());
+    }

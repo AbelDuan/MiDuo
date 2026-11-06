@@ -1,0 +1,25 @@
+// class=dev.duo.hookprobe.u method=d mode=java fell=False
+    private boolean d() {
+        IBinder iBinder = this.w;
+        if (iBinder == null || !iBinder.isBinderAlive()) {
+            return false;
+        }
+        Parcel parcelObtain = Parcel.obtain();
+        Parcel parcelObtain2 = Parcel.obtain();
+        try {
+            parcelObtain.writeInterfaceToken("dev.duo.foldanim1.LAYERS");
+            if (!iBinder.transact(3, parcelObtain, parcelObtain2, 0)) {
+                return false;
+            }
+            parcelObtain2.readException();
+            return parcelObtain2.readInt() == 1;
+        } catch (Exception e) {
+            Log.e("MiDuoFold", "观察状态查询失败", e);
+            return false;
+        } finally {
+            parcelObtain.recycle();
+            parcelObtain2.recycle();
+        }
+        parcelObtain.recycle();
+        parcelObtain2.recycle();
+    }

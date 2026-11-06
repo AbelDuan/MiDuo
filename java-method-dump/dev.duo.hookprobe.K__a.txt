@@ -1,0 +1,49 @@
+// class=dev.duo.hookprobe.K method=a mode=java fell=False
+    /* JADX INFO: Access modifiers changed from: private */
+    public static /* synthetic */ Object a(Field field, Field field2, Field field3, Field field4, Field field5, Field field6, Field field7, Field field8, Field field9, Field field10, Field field11, Method method, XposedInterface.Chain chain) throws Throwable {
+        Object obj;
+        Object obj2;
+        ActivityInfo activityInfo;
+        if (chain.getArg(0) != null) {
+            return chain.proceed();
+        }
+        Configuration configuration = null;
+        try {
+            Object obj3 = field.get(chain.getThisObject());
+            if (obj3 == null) {
+                obj = null;
+            } else {
+                obj = field2.get(obj3);
+            }
+            if (obj == null) {
+                obj2 = null;
+            } else {
+                obj2 = field3.get(obj3);
+            }
+            if (obj2 == null) {
+                activityInfo = null;
+            } else {
+                activityInfo = (ActivityInfo) field4.get(obj3);
+            }
+            if (activityInfo != null && n.g() && n.a(activityInfo.packageName)) {
+                Configuration configuration2 = (Configuration) field5.get(obj2);
+                if (a(field6.getInt(obj), field7.getInt(obj), field8.getInt(obj), ((Configuration) field5.get(obj)).orientation, ((Configuration) field5.get(obj3)).orientation, field9.getInt(obj3), configuration2.orientation, field10.getInt(field11.get(configuration2))) && ((Boolean) method.invoke(null, "debug.duo.outer_orientation", Boolean.TRUE)).booleanValue()) {
+                    try {
+                        if (a("outer:" + activityInfo.packageName, 3)) {
+                            Log.i(a, "OUTER stale landscape -> task portrait pkg=" + activityInfo.packageName + " requested=" + field9.getInt(obj3));
+                        }
+                        configuration = configuration2;
+                    } catch (Throwable th) {
+                        th = th;
+                        configuration = configuration2;
+                        if (a("outerError", 3)) {
+                            Log.e(a, "outer orientation skipped, native answer kept", th);
+                        }
+                    }
+                }
+            }
+        } catch (Throwable th2) {
+            th = th2;
+        }
+        return configuration == null ? chain.proceed() : chain.proceed(new Object[]{configuration});
+    }

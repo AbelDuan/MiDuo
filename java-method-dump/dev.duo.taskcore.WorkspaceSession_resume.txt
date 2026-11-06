@@ -1,0 +1,60 @@
+// class=dev.duo.taskcore.WorkspaceSession method=resume mode=java fell_back=False
+    private void resume(String str, Object obj) {
+        if (this.state != State.PAUSED || this.closing || busy() || this.locked || this.interruption || this.displayMismatch) {
+            return;
+        }
+        this.userLeft = false;
+        int i = -1;
+        this.interstitialTask = -1;
+        note("resume: " + str);
+        this.interruptionReturned = false;
+        if (this.detachedForInterruption) {
+            this.detachedForInterruption = false;
+            while (i < this.slots.length) {
+                TaskBinding taskBinding = i < 0 ? this.main : this.slots[i];
+                if (taskBinding != null && taskBinding.lease != TaskBinding.Lease.OBSERVED) {
+                    TaskBinding taskBinding2 = null;
+                    try {
+                        TaskBinding taskBindingPrepare = prepare(taskBinding.origin.taskId);
+                        try {
+                            if (taskBindingPrepare.origin.tokenBinder == taskBinding.origin.tokenBinder && taskBindingPrepare.origin.userId == taskBinding.origin.userId && taskBindingPrepare.origin.displayId == taskBinding.origin.displayId) {
+                                taskBinding2 = taskBindingPrepare;
+                            } else if (!drop(taskBindingPrepare)) {
+                                return;
+                            }
+                        } catch (Refused e) {
+                            e = e;
+                            taskBinding2 = taskBindingPrepare;
+                            note("interrupted member unavailable: " + e.getMessage());
+                        }
+                    } catch (Refused e2) {
+                        e = e2;
+                    }
+                    if (i < 0) {
+                        this.main = taskBinding2;
+                    } else {
+                        this.slots[i] = taskBinding2;
+                    }
+                    if (taskBinding2 != null) {
+                        Rect rect = taskBinding2.physical;
+                        Geometry geometry = this.platform.geometry();
+                        rect.set(i < 0 ? geometry.logical : geometry.slots[i]);
+                        this.attachQueue.add(taskBinding2);
+                    }
+                }
+                i++;
+            }
+            set(State.ATTACHING);
+            attachNext();
+            return;
+        }
+        set(State.TRANSITIONING);
+        this.resuming = true;
+        final int iBegin = begin();
+        this.platform.bringToFront(this.main, (TaskBinding[]) this.slots.clone(), obj, new Done() { // from class: dev.duo.taskcore.WorkspaceSession$$ExternalSyntheticLambda6
+            @Override // dev.duo.taskcore.WorkspaceSession.Done
+            public final void done(boolean z, String str2) {
+                this.f$0.m213lambda$resume$13$devduotaskcoreWorkspaceSession(iBegin, z, str2);
+            }
+        });
+    }

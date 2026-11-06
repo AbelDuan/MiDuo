@@ -1,0 +1,29 @@
+// class=dev.duo.hookprobe.r method=a mode=java fell=False
+    private static a a(String str, String str2) {
+        String str3;
+        try {
+            String strA = null;
+            String strA2 = str.trim().isEmpty() ? null : dev.duo.fold.i.a(new ByteArrayInputStream(str.getBytes(StandardCharsets.UTF_8)), 4);
+            if (!str2.trim().isEmpty()) {
+                strA = dev.duo.fold.i.a(new ByteArrayInputStream(str2.getBytes(StandardCharsets.UTF_8)), 1);
+            }
+            if (strA2 != null && strA != null) {
+                String strTrim = b("test -r " + a(strA2) + " && test -r " + a(strA) + " || { echo unreadable; exit 0; }; cmp -s " + a(strA2) + " " + a(strA) + " && echo same || echo different").trim();
+                if ("same".equals(strTrim)) {
+                    return new a("壁纸", 0, "内外屏是同一张静态图片");
+                }
+                return new a("壁纸", 1, ("unreadable".equals(strTrim) ? "读不到壁纸原图" : "内外屏是两张不同的图片") + k + "内外屏换成同一张静态图片即可");
+            }
+            StringBuilder sb = new StringBuilder();
+            if (strA2 == null && strA == null) {
+                str3 = "内外屏";
+            } else if (strA2 == null) {
+                str3 = "外屏";
+            } else {
+                str3 = "内屏";
+            }
+            return new a("壁纸", 1, sb.append(str3).append("不是静态图片壁纸（动态、带特效或模糊）").append(k).append("内外屏换成同一张静态图片即可").toString());
+        } catch (Exception e2) {
+            return new a("壁纸", 1, "壁纸检查失败（" + e2.getMessage() + "）");
+        }
+    }

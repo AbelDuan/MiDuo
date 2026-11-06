@@ -1,0 +1,142 @@
+    private String dispatch(int i, long j, IBinder iBinder, int i2, int i3, Parcel parcel, Parcel parcel2) throws ReflectiveOperationException {
+        synchronized (this.globalLock) {
+            Object objProcessLocked = processLocked(i2, i3);
+            if (objProcessLocked == null) {
+                return "caller " + i2 + "/" + i3 + " is not the current SystemUI main process";
+            }
+            Session session = this.session;
+            int size = 0;
+            switch (i) {
+                case 1:
+                    parcel.readInt();
+                    int i4 = parcel.readInt();
+                    if (iBinder == null) {
+                        return "no owner binder";
+                    }
+                    if (i4 != 0) {
+                        return "display " + i4 + " not supported";
+                    }
+                    if (!this.unrestored.isEmpty()) {
+                        return "unrestored tasks from an earlier session " + this.unrestored;
+                    }
+                    if (this.pendingRestore != null) {
+                        return "previous session restore pending";
+                    }
+                    if (session != null && !session.dead && session.owner.pingBinder()) {
+                        return "session " + session.epoch + " still open";
+                    }
+                    if (session != null) {
+                        this.session = null;
+                        restoreOrDefer(session);
+                        if (!this.unrestored.isEmpty() || this.pendingRestore != null) {
+                            return "previous session not restored";
+                        }
+                    }
+                    Session session2 = new Session(j, iBinder, i2, i3, objProcessLocked);
+                    try {
+                        iBinder.linkToDeath(session2, 0);
+                        this.session = session2;
+                        postSource(session2, callEvent(session2, this.lastCallState, true));
+                        return null;
+                    } catch (RemoteException e) {
+                        return "owner already dead";
+                    }
+                case WorkspaceProtocol.QUERY /* 6 */:
+                    parcel2.writeLong(session == null ? 0L : session.epoch);
+                    parcel2.writeInt(session == null ? 0 : session.saved.size());
+                    if (session != null) {
+                        size = session.revision;
+                    }
+                    parcel2.writeInt(size);
+                    parcel2.writeString(this.unrestored + (this.pendingRestore == null ? "" : " pending=" + this.pendingRestore.saved.keySet()));
+                    return null;
+                default:
+                    if (session != null && session.epoch == j && !session.dead) {
+                        if (session.owner == iBinder && session.pid == i3 && session.process == objProcessLocked) {
+                            switch (i) {
+                                case 2:
+                                    int i5 = parcel.readInt();
+                                    IBinder strongBinder = parcel.readStrongBinder();
+                                    parcel.readInt();
+                                    parcel.readInt();
+                                    Object objLiveTaskLocked = liveTaskLocked(i5, strongBinder);
+                                    if (objLiveTaskLocked == null) {
+                                        return "task " + i5 + " not a live current-user default-display task with this token";
+                                    }
+                                    Saved saved = session.saved.get(Integer.valueOf(i5));
+                                    if (saved != null && saved.token == strongBinder) {
+                                        return "task " + i5 + " still leased in session " + j;
+                                    }
+                                    Rect rect = (Rect) this.getRequestedBounds.invoke(objLiveTaskLocked, new Object[0]);
+                                    Saved saved2 = new Saved(i5, this.taskUser.getInt(objLiveTaskLocked), ((Integer) this.getDisplayId.invoke(objLiveTaskLocked, new Object[0])).intValue(), objLiveTaskLocked, this.getParent.invoke(objLiveTaskLocked, new Object[0]), strongBinder, new TaskBinding.Snapshot(((Integer) this.getRequestedMode.invoke(objLiveTaskLocked, new Object[0])).intValue(), (rect == null || rect.isEmpty()) ? null : new Rect(rect), this.trimmable.getBoolean(objLiveTaskLocked), this.focusableRaw.getBoolean(objLiveTaskLocked), (this.forceHidden.getInt(objLiveTaskLocked) & 2) != 0, ((Set) this.interceptBackSet.get(this.tocField.get(this.atm))).contains(Integer.valueOf(i5))));
+                                    session.saved.put(Integer.valueOf(i5), saved2);
+                                    saved2.snapshot.write(parcel2);
+                                    return null;
+                                case 3:
+                                    int i6 = parcel.readInt();
+                                    if (i6 <= session.revision) {
+                                        return "stale revision " + i6 + " <= " + session.revision;
+                                    }
+                                    session.revision = i6;
+                                    return null;
+                                case 4:
+                                    session.returning = true;
+                                    return null;
+                                case 5:
+                                    session.owner.unlinkToDeath(session, 0);
+                                    this.session = null;
+                                    return null;
+                                case WorkspaceProtocol.QUERY /* 6 */:
+                                case 7:
+                                default:
+                                    return "unknown op " + i;
+                                case WorkspaceProtocol.RELEASE_TASK /* 8 */:
+                                    return WorkspaceProtocol.withdraw(session.saved, parcel, new Function() { // from class: dev.duo.taskcore.WorkspaceWm$$ExternalSyntheticLambda15
+                                        @Override // java.util.function.Function
+                                        public final Object apply(Object obj) {
+                                            return ((WorkspaceWm.Saved) obj).token;
+                                        }
+                                    });
+                                case WorkspaceProtocol.REGISTER_SOURCE /* 9 */:
+                                    IBinder strongBinder2 = parcel.readStrongBinder();
+                                    IBinder strongBinder3 = parcel.readStrongBinder();
+                                    IBinder strongBinder4 = parcel.readStrongBinder();
+                                    int i7 = parcel.readInt();
+                                    if (strongBinder2 != null && strongBinder3 != null && (i7 == 1 || i7 == 2)) {
+                                        if (!session.returning && !session.registeredSources.containsKey(strongBinder2) && !session.fsis.containsKey(strongBinder2)) {
+                                            session.registeredSources.put(strongBinder2, new Source(session, strongBinder2, strongBinder3, strongBinder4, i7));
+                                            return null;
+                                        }
+                                        return "source/session already in use";
+                                    }
+                                    return "invalid source registration";
+                                case WorkspaceProtocol.CANCEL_SOURCE /* 10 */:
+                                    session.registeredSources.remove(parcel.readStrongBinder());
+                                    return null;
+                                case WorkspaceProtocol.LOOKUP_SOURCE /* 11 */:
+                                    Map<IBinder, WorkspaceProtocol.SourceEvent> map = session.transitionSources.get(parcel.readStrongBinder());
+                                    if (map != null) {
+                                        size = map.size();
+                                    }
+                                    parcel2.writeInt(size);
+                                    if (map != null) {
+                                        Iterator<WorkspaceProtocol.SourceEvent> it = map.values().iterator();
+                                        while (it.hasNext()) {
+                                            it.next().write(parcel2);
+                                        }
+                                    }
+                                    return null;
+                                case 12:
+                                    if (!session.fsis.isEmpty()) {
+                                        session.fsiLeftByUser = true;
+                                    }
+                                    return null;
+                            }
+                        }
+                        return "owner/process mismatch";
+                    }
+                    return "no session " + j;
+            }
+            throw th;
+        }
+    }

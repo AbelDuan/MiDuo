@@ -1,0 +1,66 @@
+// class=dev.duo.fold.Preflight method=a mode=java fell_back=False
+    static JSONArray a() {
+        try {
+            Class<?> cls = Class.forName("android.os.ServiceManager");
+            String[] strArr = {"display", "device_state", "window", "activity_task"};
+            for (int i = 0; i < 4; i++) {
+                String str = strArr[i];
+                IBinder iBinder = (IBinder) cls.getMethod("getService", String.class).invoke(null, str);
+                if (iBinder == null || !iBinder.pingBinder()) {
+                    throw new IllegalStateException(str + " 服务不可用");
+                }
+            }
+            String[] strArr2 = {"android.hardware.display.IDisplayManager", "android.hardware.devicestate.IDeviceStateManager", WorkspaceProtocol.INTERFACE, "android.app.IActivityTaskManager"};
+            for (int i2 = 0; i2 < 4; i2++) {
+                Class.forName(strArr2[i2] + "$Stub").getMethod("asInterface", IBinder.class);
+            }
+            Class<?> returnType = Class.forName("android.hardware.display.IDisplayManager").getMethod("getDisplayInfo", Integer.TYPE).getReturnType();
+            String[] strArr3 = {"uniqueId", "logicalWidth", "logicalHeight", "rotation"};
+            for (int i3 = 0; i3 < 4; i3++) {
+                returnType.getField(strArr3[i3]);
+            }
+            Class<?> returnType2 = Class.forName("android.hardware.devicestate.IDeviceStateManager").getMethod("getDeviceStateInfo", null).getReturnType();
+            String[] strArr4 = {"baseState", "currentState"};
+            for (int i4 = 0; i4 < 2; i4++) {
+                returnType2.getField(strArr4[i4]).getType().getMethod("getIdentifier", null);
+            }
+            Class<?> cls2 = Class.forName("android.hardware.devicestate.DeviceStateManagerGlobal");
+            Class<?> cls3 = Class.forName("android.hardware.devicestate.DeviceStateRequest");
+            cls2.getMethod("getInstance", null);
+            cls2.getMethod("cancelStateRequest", null);
+            cls2.getMethod("requestState", cls3, Executor.class, Class.forName("android.hardware.devicestate.DeviceStateRequest$Callback"));
+            Class cls4 = Integer.TYPE;
+            cls3.getMethod("newBuilder", cls4).getReturnType().getMethod("build", null);
+            Class<?> cls5 = Class.forName(WorkspaceProtocol.INTERFACE);
+            cls5.getMethod("isKeyguardLocked", null);
+            cls5.getMethod("mirrorWallpaperSurface", cls4);
+            cls5.getMethod("mirrorDisplay", cls4, SurfaceControl.class);
+            Class<?> cls6 = Class.forName("android.app.IActivityTaskManager");
+            Class cls7 = Boolean.TYPE;
+            cls6.getMethod("getTasks", cls4, cls7, cls7, cls4);
+            Class<?> cls8 = Class.forName("android.app.ITaskStackListener");
+            cls6.getMethod("registerTaskStackListener", cls8);
+            cls6.getMethod("unregisterTaskStackListener", cls8);
+            Class<?> type = ActivityManager.RunningTaskInfo.class.getField("configuration").getType().getField("windowConfiguration").getType();
+            type.getMethod("getWindowingMode", null);
+            type.getMethod("getActivityType", null);
+            ActivityManager.class.getMethod("getCurrentUser", null);
+            Class.forName("android.app.IWallpaperManager").getMethod("getWallpaperIdForUser", cls4, cls4);
+            Class.forName("dev.duo.fold.Surfaces", true, Preflight.class.getClassLoader());
+            SurfaceControl.Builder.class.getDeclaredMethod("setBLASTLayer", null);
+            SurfaceControl.Builder.class.getDeclaredMethod("setSecure", cls7);
+            SurfaceControl.Transaction.class.getMethod("addTransactionCommittedListener", Executor.class, Class.forName("android.view.SurfaceControl$TransactionCommittedListener"));
+            Class<?> cls9 = Class.forName("android.graphics.BLASTBufferQueue");
+            cls9.getDeclaredConstructor(String.class, SurfaceControl.class, cls4, cls4, cls4, Float.TYPE);
+            cls9.getDeclaredMethod("createSurface", null);
+            cls9.getDeclaredMethod("syncNextTransaction", Consumer.class);
+            cls9.getDeclaredMethod("destroy", null);
+            return a(e[0], 0, "关键接口存在，系统服务可访问；未启动动画或切换屏幕");
+        } catch (Exception | LinkageError e2) {
+            e = e2;
+            if (e.getCause() != null) {
+                e = e.getCause();
+            }
+            return a(e[0], 2, "关键接口不可用：" + e);
+        }
+    }

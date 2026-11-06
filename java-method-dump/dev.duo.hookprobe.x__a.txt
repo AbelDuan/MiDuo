@@ -1,0 +1,4 @@
+// class=dev.duo.hookprobe.x method=a mode=java fell=False
+    static long a(long j2) {
+        return Math.max(e, Math.min(f, j2));
+    }

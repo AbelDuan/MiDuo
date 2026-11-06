@@ -1,0 +1,10 @@
+// class=dev.duo.icons.b method=a mode=java fell_back=False
+    static synchronized void a(Application application) {
+        if (d != null) {
+            return;
+        }
+        b bVar = new b(application);
+        d = bVar;
+        application.registerReceiver(bVar, new IntentFilter(g.d), g.e, null, 2);
+        Log.i("DuoIcons", "图标桥已注册，仅主题壁纸作用域");
+    }

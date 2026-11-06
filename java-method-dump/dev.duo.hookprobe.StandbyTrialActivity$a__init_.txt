@@ -1,0 +1,4 @@
+// class=dev.duo.hookprobe.StandbyTrialActivity$a method=<init> mode=java fell_back=False
+    class a implements Runnable {
+        a() {
+        }

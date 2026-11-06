@@ -1,0 +1,154 @@
+// class=dev.duo.taskcore.WorkspaceShell method=playPending mode=java fell_back=False
+    private boolean playPending(IBinder iBinder, Object obj, SurfaceControl.Transaction transaction, SurfaceControl.Transaction transaction2, Object obj2, Pending pending, boolean[] zArr) throws ReflectiveOperationException {
+        Rect rect;
+        Iterator<TaskBinding> it;
+        Rect rect2 = this.geometry.logical;
+        ArrayList arrayList = new ArrayList();
+        HashSet hashSet = new HashSet();
+        int i = 0;
+        Iterator it2 = ((List) this.infoChanges.invoke(obj, new Object[0])).iterator();
+        while (it2.hasNext()) {
+            Object next = it2.next();
+            ActivityManager.RunningTaskInfo runningTaskInfo = (ActivityManager.RunningTaskInfo) this.changeTask.invoke(next, new Object[i]);
+            SurfaceControl surfaceControl = (SurfaceControl) this.changeLeash.invoke(next, new Object[i]);
+            if (runningTaskInfo != null) {
+                Object obj3 = this.infoToken.get(runningTaskInfo);
+                Iterator<TaskBinding> it3 = pending.members.iterator();
+                TaskBinding taskBinding = null;
+                while (it3.hasNext()) {
+                    TaskBinding next2 = it3.next();
+                    Iterator it4 = it2;
+                    if (next2.origin.taskId == runningTaskInfo.taskId && obj3 != null) {
+                        it = it3;
+                        if (this.tokenAsBinder.invoke(obj3, new Object[0]) == next2.origin.tokenBinder && this.infoUser.getInt(runningTaskInfo) == next2.origin.userId && this.infoDisplay.getInt(runningTaskInfo) == next2.origin.displayId) {
+                            taskBinding = next2;
+                        }
+                    } else {
+                        it = it3;
+                    }
+                    it2 = it4;
+                    it3 = it;
+                }
+                Iterator it5 = it2;
+                if (taskBinding == null) {
+                    it2 = it5;
+                    i = 0;
+                } else if (released(taskBinding)) {
+                    hashSet.add(taskBinding);
+                    it2 = it5;
+                    i = 0;
+                } else if (surfaceControl == null || !surfaceControl.isValid()) {
+                    arrayList.add(taskBinding + " has no valid leash in the transition");
+                    it2 = it5;
+                    rect2 = rect2;
+                    i = 0;
+                } else if (!pending.giveBack) {
+                    int iIntValue = ((Integer) this.infoMode.invoke(runningTaskInfo, new Object[0])).intValue();
+                    Rect rect3 = (Rect) this.wcBounds.invoke(this.cfgWindow.get(this.taskConfig.get(runningTaskInfo)), new Object[0]);
+                    if (iIntValue != 6 || !rect2.equals(rect3)) {
+                        arrayList.add(taskBinding + " WM not applied: mode " + iIntValue + " bounds " + rect3);
+                        it2 = it5;
+                        i = 0;
+                    } else {
+                        SurfaceControl surfaceControl2 = (SurfaceControl) this.tvcSurface.get(taskBinding.controller);
+                        if (surfaceControl2 == null || !surfaceControl2.isValid()) {
+                            arrayList.add(taskBinding + " TaskView surface gone");
+                            it2 = it5;
+                            i = 0;
+                        } else {
+                            transaction.reparent(surfaceControl, surfaceControl2).setPosition(surfaceControl, 0.0f, 0.0f).setVisibility(surfaceControl, true);
+                            Tx.windowCrop(transaction, surfaceControl, rect2.width(), rect2.height());
+                            transaction2.reparent(surfaceControl, surfaceControl2).setPosition(surfaceControl, 0.0f, 0.0f);
+                            Tx.windowCrop(transaction2, surfaceControl, rect2.width(), rect2.height());
+                            this.live.add(taskBinding);
+                            this.hiddenUntilAttached.remove(Integer.valueOf(taskBinding.origin.taskId));
+                            if (taskBinding.origin.taskId == this.adoptTask) {
+                                this.adoptTask = -1;
+                            }
+                            rect = rect2;
+                            hashSet.add(taskBinding);
+                            it2 = it5;
+                            rect2 = rect;
+                            i = 0;
+                        }
+                    }
+                } else {
+                    SurfaceControl surfaceControl3 = this.displayArea;
+                    if (surfaceControl3 == null || !surfaceControl3.isValid()) {
+                        arrayList.add(taskBinding + " task display area gone");
+                        it2 = it5;
+                        rect2 = rect2;
+                        i = 0;
+                    } else {
+                        Point point = (Point) this.infoPosition.get(runningTaskInfo);
+                        SurfaceControl.Transaction[] transactionArr = {transaction, transaction2};
+                        int i2 = 0;
+                        while (i2 < 2) {
+                            SurfaceControl.Transaction transaction3 = transactionArr[i2];
+                            transaction3.reparent(surfaceControl, surfaceControl3).setScale(surfaceControl, 1.0f, 1.0f).setPosition(surfaceControl, point.x, point.y).setCrop(surfaceControl, null).setAlpha(surfaceControl, 1.0f);
+                            Tx.windowCrop(transaction3, surfaceControl, null);
+                            i2++;
+                            rect2 = rect2;
+                            surfaceControl3 = surfaceControl3;
+                        }
+                        rect = rect2;
+                        transaction.setVisibility(surfaceControl, true);
+                        hashSet.add(taskBinding);
+                        it2 = it5;
+                        rect2 = rect;
+                        i = 0;
+                    }
+                }
+            }
+        }
+        for (TaskBinding taskBinding2 : pending.members) {
+            if (!hashSet.contains(taskBinding2) && !released(taskBinding2)) {
+                ActivityManager.RunningTaskInfo runningTaskInfo2 = (ActivityManager.RunningTaskInfo) this.getRunningTaskInfo.invoke(this.organizer, Integer.valueOf(taskBinding2.origin.taskId));
+                boolean z = runningTaskInfo2 != null && this.tokenAsBinder.invoke(this.infoToken.get(runningTaskInfo2), new Object[0]) == taskBinding2.origin.tokenBinder;
+                if (z && pending.giveBack && taskBinding2.controller != null && returnedByWm(taskBinding2, runningTaskInfo2)) {
+                    if (!restoreLeash(transaction, taskBinding2, runningTaskInfo2)) {
+                        arrayList.add(taskBinding2 + " returned by WM but its leash could not be restored");
+                    }
+                } else if (z && !pending.giveBack && placeIfApplied(transaction, taskBinding2, runningTaskInfo2)) {
+                    Log.i(TAG, taskBinding2 + " applied outside our transition: leash placed into its card");
+                } else if (z) {
+                    arrayList.add(taskBinding2 + " not moved by the transition");
+                } else if (pending.giveBack) {
+                    Log.i(TAG, taskBinding2 + " vanished before return: nothing to give back");
+                } else {
+                    arrayList.add(taskBinding2 + " vanished before attach");
+                }
+            }
+        }
+        if (pending.remoteHandler != null) {
+            try {
+                if (arrayList.isEmpty()) {
+                    boolean zPlayRestoreRemote = playRestoreRemote(iBinder, obj, transaction, transaction2, obj2, pending);
+                    zArr[0] = true;
+                    return zPlayRestoreRemote;
+                }
+                this.oneShotConsumed.invoke(pending.remoteHandler, iBinder, true, transaction2);
+            } catch (ReflectiveOperationException | RuntimeException e) {
+                Log.e(TAG, "group restore remote failed", e);
+                if (pending.remoteFinished) {
+                    pending.finalResult(false, "remote finish failed: " + e);
+                    return true;
+                }
+                arrayList.add("remote restore: " + e);
+                this.remoteRestores.remove(iBinder);
+                this.oneShotConsumed.invoke(pending.remoteHandler, iBinder, true, transaction2);
+                GroupMotion groupMotion = this.groupMotion;
+                if (groupMotion != null && groupMotion.token == iBinder) {
+                    groupMotion.finishing = true;
+                    groupMotion.returning = false;
+                    finishGroupSurface(transaction2);
+                }
+                closeRemoteInfo(pending);
+            }
+        }
+        transaction.apply();
+        zArr[0] = true;
+        this.finishCallback.invoke(obj2, null);
+        pending.finalResult(arrayList.isEmpty(), arrayList.isEmpty() ? pending.giveBack ? "returned" : "attached" : String.join("; ", arrayList));
+        return true;
+    }

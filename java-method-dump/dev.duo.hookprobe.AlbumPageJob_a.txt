@@ -1,0 +1,11 @@
+// class=dev.duo.hookprobe.AlbumPageJob method=a mode=java fell_back=False
+    static void a(Context context, int[] iArr) {
+        PersistableBundle persistableBundle = new PersistableBundle();
+        persistableBundle.putIntArray(d, iArr);
+        int iSchedule = ((JobScheduler) context.getSystemService(JobScheduler.class)).schedule(new JobInfo.Builder(c, new ComponentName(context, (Class<?>) AlbumPageJob.class)).setExpedited(true).setExtras(persistableBundle).build());
+        if (iSchedule == 1) {
+            Log.i(b, "widget page job scheduled ids=" + Arrays.toString(iArr));
+        } else {
+            Log.w(b, "widget page job not scheduled (result " + iSchedule + "), left to the MiDuo page");
+        }
+    }

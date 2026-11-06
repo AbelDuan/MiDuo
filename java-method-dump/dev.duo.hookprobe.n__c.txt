@@ -1,0 +1,11 @@
+// class=dev.duo.hookprobe.n method=c mode=java fell=False
+    /* JADX INFO: Access modifiers changed from: private */
+    public static /* synthetic */ Object c(XposedInterface.Chain chain) throws Throwable {
+        if (!Boolean.TRUE.equals(r.get()) || ((Boolean) chain.getArg(0)).booleanValue()) {
+            return chain.proceed();
+        }
+        if (a("position", 1)) {
+            Log.i(a, "POSITION left for a Duo app");
+        }
+        return Float.valueOf(0.0f);
+    }

@@ -1,0 +1,134 @@
+// class=dev.duo.hookprobe.u method=a mode=java fell=False
+    private Bundle a(int i, int i2, ArrayList<SurfaceControl> arrayList) throws Exception {
+        final u uVar = this;
+        ArrayList<SurfaceControl> arrayList2 = arrayList;
+        IBinder iBinder = uVar.w;
+        if (iBinder != null && iBinder.isBinderAlive()) {
+            Parcel parcelObtain = Parcel.obtain();
+            Parcel parcelObtain2 = Parcel.obtain();
+            try {
+                parcelObtain.writeInterfaceToken("dev.duo.foldanim1.LAYERS");
+                if (iBinder.transact(1, parcelObtain, parcelObtain2, 0)) {
+                    parcelObtain2.readException();
+                    Bundle bundle = parcelObtain2.readBundle(SurfaceControl.class.getClassLoader());
+                    parcelObtain.recycle();
+                    parcelObtain2.recycle();
+                    if (!bundle.containsKey("unavailable")) {
+                        ArrayList parcelableArrayList = bundle.getParcelableArrayList("layers");
+                        int size = parcelableArrayList.size();
+                        int i3 = 0;
+                        while (i3 < size) {
+                            Object obj = parcelableArrayList.get(i3);
+                            i3++;
+                            arrayList2.add((SurfaceControl) ((Bundle) obj).getParcelable("mirror"));
+                        }
+                        Bundle bundle2 = new Bundle();
+                        bundle2.putInt("protocol", 1);
+                        bundle2.putBundle(J.c, bundle);
+                        Object objInvoke = Class.forName("android.os.ServiceManager").getMethod("getService", String.class).invoke(null, "window");
+                        ClassLoader classLoader = objInvoke.getClass().getClassLoader();
+                        Class<?> cls = Class.forName("com.android.server.wm.WindowContainer", false, classLoader);
+                        Class<?> cls2 = Class.forName("com.android.server.wm.WindowState", false, classLoader);
+                        final Method methodA = a(cls2, "isVisible", (Class<?>[]) new Class[0]);
+                        final Method methodA2 = a(cls2, "getDisplayId", (Class<?>[]) new Class[0]);
+                        Method methodA3 = a(cls, "getWindow", (Class<?>[]) new Class[]{Predicate.class});
+                        synchronized (a(objInvoke.getClass(), "mGlobalLock").get(objInvoke)) {
+                            Object obj2 = a(objInvoke.getClass(), "mRoot").get(objInvoke);
+                            String[] strArr = {"home", "wallpaper"};
+                            int i4 = 0;
+                            while (i4 < 2) {
+                                final String str = strArr[i4];
+                                String[] strArr2 = strArr;
+                                Object objInvoke2 = methodA3.invoke(obj2, new Predicate() { // from class: dev.duo.hookprobe.u$$ExternalSyntheticLambda1
+                                    @Override // java.util.function.Predicate
+                                    public final boolean test(Object obj3) {
+                                        return this.f$0.a(methodA2, methodA, str, obj3);
+                                    }
+                                });
+                                if (objInvoke2 != null) {
+                                    Object obj3 = obj2;
+                                    Method method = methodA;
+                                    Method method2 = methodA2;
+                                    Object objInvoke3 = uVar.j.invoke(uVar.l.get(objInvoke2), null);
+                                    if (objInvoke3.getClass().getField("logicalWidth").getInt(objInvoke3) == i && objInvoke3.getClass().getField("logicalHeight").getInt(objInvoke3) == i2) {
+                                        Method method3 = methodA3;
+                                        bundle2.putString("displayUniqueId", (String) objInvoke3.getClass().getField("uniqueId").get(objInvoke3));
+                                        bundle2.putInt("rotation", objInvoke3.getClass().getField("rotation").getInt(objInvoke3));
+                                        WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) uVar.m.get(objInvoke2);
+                                        if ((layoutParams.flags & 8192) == 0) {
+                                            Bundle bundle3 = new Bundle();
+                                            if (str.equals("home")) {
+                                                SurfaceControl surfaceControl = (SurfaceControl) SurfaceControl.class.getDeclaredMethod("mirrorSurface", SurfaceControl.class).invoke(null, (SurfaceControl) a(cls, "getSurfaceControl", (Class<?>[]) new Class[0]).invoke(objInvoke2, null));
+                                                arrayList2.add(surfaceControl);
+                                                bundle3.putParcelable("mirror", surfaceControl);
+                                            }
+                                            Class<?> cls3 = cls;
+                                            bundle3.putParcelable("frame", new Rect((Rect) a(cls2, "getFrame", (Class<?>[]) new Class[0]).invoke(objInvoke2, null)));
+                                            float[] fArr = new float[9];
+                                            Matrix matrix = new Matrix();
+                                            a(cls2, "getTransformationMatrix", (Class<?>[]) new Class[]{float[].class, Matrix.class}).invoke(objInvoke2, fArr, matrix);
+                                            matrix.getValues(fArr);
+                                            bundle3.putFloatArray("matrix", fArr);
+                                            bundle3.putInt("width", ((Integer) a(cls2, "getSurfaceWidth", (Class<?>[]) new Class[0]).invoke(objInvoke2, null)).intValue());
+                                            bundle3.putInt("height", ((Integer) a(cls2, "getSurfaceHeight", (Class<?>[]) new Class[0]).invoke(objInvoke2, null)).intValue());
+                                            bundle3.putString("package", layoutParams.packageName);
+                                            if (str.equals("wallpaper")) {
+                                                String[] strArr3 = {"mWallpaperX", "mWallpaperY", "mWallpaperXStep", "mWallpaperYStep", "mWallpaperScale", "mWallpaperZoomOut"};
+                                                float[] fArr2 = new float[6];
+                                                for (int i5 = 0; i5 < 6; i5++) {
+                                                    fArr2[i5] = a(cls2, strArr3[i5]).getFloat(objInvoke2);
+                                                }
+                                                bundle3.putFloatArray("offsets", fArr2);
+                                                bundle3.putIntArray("displayOffset", new int[]{a(cls2, "mWallpaperDisplayOffsetX").getInt(objInvoke2), a(cls2, "mWallpaperDisplayOffsetY").getInt(objInvoke2)});
+                                            }
+                                            bundle2.putBundle(str, bundle3);
+                                            i4++;
+                                            uVar = this;
+                                            arrayList2 = arrayList;
+                                            strArr = strArr2;
+                                            obj2 = obj3;
+                                            methodA = method;
+                                            methodA2 = method2;
+                                            methodA3 = method3;
+                                            cls = cls3;
+                                        } else {
+                                            throw new a("桌面分层不导出安全窗口");
+                                        }
+                                    } else {
+                                        throw new a("取层期间显示尺寸改变");
+                                    }
+                                } else {
+                                    throw new a("可见窗口不存在 " + str);
+                                }
+                            }
+                            bundle2.putInt("user", a(objInvoke.getClass(), "mCurrentUserId").getInt(objInvoke));
+                        }
+                        Object objInvoke4 = Class.forName("android.os.ServiceManager").getMethod("getService", String.class).invoke(null, "wallpaper");
+                        Class<?> cls4 = Class.forName("android.app.IWallpaperManager");
+                        Object objInvoke5 = Class.forName("android.app.IWallpaperManager$Stub").getMethod("asInterface", IBinder.class).invoke(null, objInvoke4);
+                        int i6 = bundle2.getInt("user");
+                        Class cls5 = Integer.TYPE;
+                        Method method4 = cls4.getMethod("getWallpaperIdForUser", cls5, cls5);
+                        int iIntValue = ((Integer) method4.invoke(objInvoke5, 1, Integer.valueOf(i6))).intValue();
+                        List list = (List) cls4.getMethod("getBitmapCrops", List.class, cls5, Boolean.TYPE, cls5).invoke(objInvoke5, Arrays.asList(new Point(1168, 1712), new Point(2364, 1672)), 1, Boolean.TRUE, Integer.valueOf(i6));
+                        if (iIntValue == ((Integer) method4.invoke(objInvoke5, 1, Integer.valueOf(i6))).intValue()) {
+                            bundle2.putInt("wallpaperId", iIntValue);
+                            bundle2.putFloat("wallpaperDim", ((Float) cls4.getMethod("getWallpaperDimAmount", null).invoke(objInvoke5, null)).floatValue());
+                            bundle2.putParcelableArrayList("bitmapCrops", list == null ? null : new ArrayList<>(list));
+                            bundle2.putInt("width", i);
+                            bundle2.putInt("height", i2);
+                            return bundle2;
+                        }
+                        throw new a("取层期间壁纸已更换");
+                    }
+                    throw new a(bundle.getString("unavailable"));
+                }
+                throw new IllegalStateException("侧栏取层未处理");
+            } catch (Throwable th) {
+                parcelObtain.recycle();
+                parcelObtain2.recycle();
+                throw th;
+            }
+        }
+        throw new a("侧栏取层接口未就绪");
+    }

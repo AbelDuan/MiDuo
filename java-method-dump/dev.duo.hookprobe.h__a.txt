@@ -1,0 +1,49 @@
+// class=dev.duo.hookprobe.h method=a mode=java fell=False
+    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Code duplicated, block: B:19:0x0053  */
+    /* JADX WARN: Code duplicated, block: B:20:0x005b A[DONT_INVERT] */
+    /* JADX WARN: Code duplicated, block: B:21:0x005d  */
+    public static /* synthetic */ Object a(h hVar, XposedInterface.Chain chain) throws Throwable {
+        h hVar2;
+        Throwable th;
+        int i;
+        Object[] objArrA = null;
+        if (!hVar.g) {
+            try {
+                hVar2 = hVar;
+                try {
+                    objArrA = hVar2.a((SurfaceView) chain.getThisObject(), ((Integer) chain.getArg(0)).intValue(), ((Integer) chain.getArg(1)).intValue(), ((Integer) chain.getArg(2)).intValue(), ((Integer) chain.getArg(3)).intValue());
+                    hVar2.j = 0;
+                } catch (ReflectiveOperationException e) {
+                    e = e;
+                    th = e;
+                    i = hVar2.j + 1;
+                    hVar2.j = i;
+                    if (i >= 3) {
+                        hVar2.g = true;
+                        Log.e(k, "disabled after 3 layout inspection failures", th);
+                    } else if (i == 1) {
+                        Log.w(k, "layout inspection failed, will retry", th);
+                    }
+                } catch (RuntimeException e2) {
+                    e = e2;
+                    th = e;
+                    i = hVar2.j + 1;
+                    hVar2.j = i;
+                    if (i >= 3) {
+                        hVar2.g = true;
+                        Log.e(k, "disabled after 3 layout inspection failures", th);
+                    } else if (i == 1) {
+                        Log.w(k, "layout inspection failed, will retry", th);
+                    }
+                }
+            } catch (ReflectiveOperationException e3) {
+                e = e3;
+                hVar2 = hVar;
+            } catch (RuntimeException e4) {
+                e = e4;
+                hVar2 = hVar;
+            }
+        }
+        return objArrA == null ? chain.proceed() : chain.proceed(objArrA);
+    }

@@ -1,0 +1,74 @@
+// class=dev.duo.fold.Engine method=f mode=java fell_back=False
+    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Code duplicated, block: B:43:0x00ad  */
+    public void f() throws Exception {
+        dev.duo.fold.a aVar;
+        Bundle bundleA;
+        f fVar = this.N;
+        if (fVar == null || (aVar = fVar.l) == null || fVar.t != aVar.a) {
+            return;
+        }
+        Object objI = i();
+        int iD = d(objI);
+        int iA = a(objI);
+        float[] fArrA = this.N.s >= 0 ? b : this.m.a(iD, iA);
+        if (fArrA == null) {
+            this.N.w = "坐标未到";
+            return;
+        }
+        f fVar2 = this.N;
+        fVar2.t = -1L;
+        fVar2.e = fVar2.a.a(iD, iA, this.j, new Engine$$ExternalSyntheticLambda4(this), this.N.h != null);
+        f fVar3 = this.N;
+        g.a aVar2 = fVar3.e;
+        aVar2.m = fArrA;
+        aVar2.l = fVar3.s >= 0;
+        aVar2.g = fVar3.l.f ? (7 - c(objI)) % 4 : 0;
+        f fVar4 = this.N;
+        if (fVar4.h == null) {
+            this.M.a(2, fVar4.e, fVar4.p);
+        } else {
+            if (fVar4.l.f) {
+                if (iD == 2364 && iA == 1672) {
+                    bundleA = this.M.a(2, iD, iA);
+                } else {
+                    bundleA = null;
+                }
+            } else if (iD == 1168 && iA == 1712) {
+                bundleA = this.M.a(2, iD, iA);
+            } else {
+                bundleA = null;
+            }
+            if (bundleA == null || bundleA.containsKey("unavailable")) {
+                c("目标屏不能分层，交还原生 原因=" + (bundleA == null ? "屏幕方向/尺寸" : bundleA.getString("unavailable")));
+                j();
+                return;
+            }
+            if (a(bundleA, true)) {
+                c("分层会话内容已改变（换壁纸/编辑/负一屏），交还原生");
+                j();
+                return;
+            }
+            String strA = a(bundleA, this.N.h);
+            if (strA != null) {
+                this.N.w = "分层条件未到（" + strA + "）";
+                f fVar5 = this.N;
+                long j = fVar5.u;
+                long j2 = fVar5.l.a;
+                if (j != j2) {
+                    fVar5.u = j2;
+                    c("目标桌面仍在过渡（" + strA + "），稍后重取");
+                }
+                f fVar6 = this.N;
+                fVar6.a.a(fVar6.e);
+                this.N.e = null;
+                this.M.a(2);
+                f fVar7 = this.N;
+                fVar7.t = fVar7.l.a;
+                this.j.postDelayed(this.d0, 100L);
+                return;
+            }
+            this.M.a(2, this.N.e, bundleA);
+        }
+        this.N.w = "已建输入但无 buffer";
+    }

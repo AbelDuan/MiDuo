@@ -1,0 +1,20 @@
+// class=dev.duo.hookprobe.b method=a mode=java fell=False
+    static long a(a aVar, Set<Long> set) {
+        Integer num;
+        if (set.isEmpty()) {
+            return -1L;
+        }
+        ArrayList<Long> arrayList = aVar.c;
+        int size = arrayList.size();
+        int i = 0;
+        while (i < size) {
+            Long l = arrayList.get(i);
+            i++;
+            Long l2 = l;
+            long jLongValue = l2.longValue();
+            if (!set.contains(l2) && ((num = aVar.b.get(l2)) == null || num.intValue() == 0)) {
+                return jLongValue;
+            }
+        }
+        return -1L;
+    }

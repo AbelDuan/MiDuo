@@ -1,0 +1,60 @@
+// class=dev.duo.icons.e method=a mode=java fell_back=False
+    public static int a(File file, c cVar) throws Exception {
+        if (file.length() <= 134217728) {
+            HashSet hashSet = new HashSet();
+            ZipFile zipFile = new ZipFile(file);
+            try {
+                Enumeration<? extends ZipEntry> enumerationEntries = zipFile.entries();
+                long length = 0;
+                while (enumerationEntries.hasMoreElements()) {
+                    ZipEntry zipEntryNextElement = enumerationEntries.nextElement();
+                    b(zipEntryNextElement.getName());
+                    String strA = a(zipEntryNextElement.getName());
+                    if (strA != null && zipEntryNextElement.getName().equals(f + strA) && !zipEntryNextElement.isDirectory() && hashSet.add(strA) && hashSet.size() <= 6000) {
+                        InputStream inputStream = zipFile.getInputStream(zipEntryNextElement);
+                        try {
+                            byte[] bArrA = a(inputStream, 2097152L);
+                            length += (long) bArrA.length;
+                            if (length > 134217728) {
+                                throw new IOException("图标展开过大");
+                            }
+                            if (a(bArrA) != bArrA.length) {
+                                throw new IOException("PNG 结束错误");
+                            }
+                            if (cVar != null) {
+                                cVar.a(bArrA);
+                            }
+                            if (inputStream != null) {
+                                inputStream.close();
+                            }
+                        } catch (Throwable th) {
+                            if (inputStream != null) {
+                                try {
+                                    inputStream.close();
+                                } catch (Throwable th2) {
+                                    th.addSuppressed(th2);
+                                }
+                            }
+                            throw th;
+                        }
+                        try {
+                            zipFile.close();
+                        } catch (Throwable th3) {
+                            th.addSuppressed(th3);
+                        }
+                        throw th;
+                    }
+                    throw new IOException("只接受过滤后的应用 PNG");
+                }
+                zipFile.close();
+                if (hashSet.isEmpty()) {
+                    throw new IOException("图标包为空");
+                }
+                return hashSet.size();
+            } catch (Throwable th4) {
+                zipFile.close();
+                throw th4;
+            }
+        }
+        throw new IOException("图标包过大");
+    }

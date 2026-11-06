@@ -1,0 +1,192 @@
+// class=dev.duo.hookprobe.MainActivity method=z mode=java fell_back=False
+    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Code duplicated, block: B:74:0x0197  */
+    /* JADX WARN: Code duplicated, block: B:75:0x01af  */
+    /* JADX WARN: Code duplicated, block: B:77:0x01bc  */
+    /* JADX WARN: Code duplicated, block: B:78:0x01bf  */
+    /* JADX WARN: Code duplicated, block: B:94:0x0173 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    public void z() {
+        o oVar;
+        final o oVar2;
+        String strValueOf;
+        HashSet hashSet;
+        String strValueOf2;
+        String str;
+        String string;
+        PackageManager packageManager = getPackageManager();
+        final ArrayList arrayList = new ArrayList();
+        HashSet hashSet2 = new HashSet();
+        Iterator<String> it = d.iterator();
+        boolean z = false;
+        int i2 = 0;
+        while (it.hasNext()) {
+            try {
+                packageManager.getApplicationInfo(it.next(), 0);
+                i2++;
+            } catch (PackageManager.NameNotFoundException e2) {
+            }
+        }
+        for (PackageInfo packageInfo : packageManager.getInstalledPackages(1)) {
+            String str2 = packageInfo.packageName;
+            if (!d.contains(str2)) {
+                ApplicationInfo applicationInfo = packageInfo.applicationInfo;
+                if (applicationInfo.enabled && packageInfo.activities != null && !"system".equals(applicationInfo.processName)) {
+                    for (ActivityInfo activityInfo : packageInfo.activities) {
+                        if (activityInfo.enabled && !"system".equals(activityInfo.processName) && !"com.android.systemui".equals(activityInfo.processName)) {
+                            g gVar = new g();
+                            gVar.a = str2;
+                            gVar.b = String.valueOf(packageInfo.applicationInfo.loadLabel(packageManager));
+                            gVar.c = packageInfo.applicationInfo.loadIcon(packageManager);
+                            arrayList.add(gVar);
+                            hashSet2.add(str2);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        final Collator collator = Collator.getInstance(Locale.CHINA);
+        Collections.sort(arrayList, new Comparator() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda63
+            @Override // java.util.Comparator
+            public final int compare(Object obj, Object obj2) {
+                return MainActivity.a(collator, (MainActivity.g) obj, (MainActivity.g) obj2);
+            }
+        });
+        for (String str3 : P.i) {
+            try {
+                ApplicationInfo applicationInfo2 = packageManager.getApplicationInfo(str3, 0);
+                g gVar2 = new g();
+                gVar2.a = str3;
+                gVar2.b = String.valueOf(applicationInfo2.loadLabel(packageManager));
+                gVar2.c = applicationInfo2.loadIcon(packageManager);
+                gVar2.d = true;
+                gVar2.e = h(str3);
+                arrayList.add(gVar2);
+                hashSet2.add(str3);
+            } catch (PackageManager.NameNotFoundException e3) {
+            }
+        }
+        for (String str4 : P.j) {
+            if (!hashSet2.contains(str4)) {
+                try {
+                    ApplicationInfo applicationInfo3 = packageManager.getApplicationInfo(str4, 0);
+                    g gVar3 = new g();
+                    gVar3.a = str4;
+                    gVar3.b = String.valueOf(applicationInfo3.loadLabel(packageManager));
+                    gVar3.c = applicationInfo3.loadIcon(packageManager);
+                    arrayList.add(gVar3);
+                } catch (PackageManager.NameNotFoundException e4) {
+                }
+            }
+        }
+        Collections.sort(arrayList, new Comparator() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda64
+            @Override // java.util.Comparator
+            public final int compare(Object obj, Object obj2) {
+                return MainActivity.b(collator, (MainActivity.g) obj, (MainActivity.g) obj2);
+            }
+        });
+        boolean z2 = !i("debug.duo.master").isEmpty();
+        XposedService xposedServiceA = L.a(8000L);
+        a aVar = null;
+        if (xposedServiceA != null) {
+            try {
+                oVar = new o(xposedServiceA);
+            } catch (Throwable th) {
+                th = th;
+                oVar = null;
+                oVar2 = oVar;
+                strValueOf = String.valueOf(th);
+                hashSet = new HashSet();
+                if (xposedServiceA != null) {
+                    try {
+                        hashSet.addAll(xposedServiceA.getScope());
+                    } catch (Throwable th2) {
+                        strValueOf2 = String.valueOf(th2);
+                    }
+                }
+                strValueOf2 = null;
+                final i iVar = new i(aVar);
+                iVar.a = arrayList;
+                iVar.b = oVar2;
+                iVar.c = null;
+                iVar.d = hashSet;
+                iVar.e = strValueOf2;
+                iVar.f = z2;
+                iVar.h = i2;
+                if (oVar2 != null) {
+                    string = "已连接 · " + xposedServiceA.getFrameworkVersion();
+                } else {
+                    StringBuilder sbAppend = new StringBuilder().append("未连接");
+                    if (strValueOf == null) {
+                        str = "：请在 LSPosed 中启用 MiDuo";
+                    } else {
+                        str = "（" + strValueOf + "）";
+                    }
+                    string = sbAppend.append(str).toString();
+                }
+                iVar.g = string;
+                iVar.i = new String[]{Build.VERSION.INCREMENTAL, a(packageManager, "com.miui.home"), a(packageManager, "com.miui.personalassistant"), a(packageManager, getPackageName())};
+                if (oVar2 != null) {
+                    z = true;
+                }
+                iVar.j = r.a(z);
+                this.m.post(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda65
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        this.f$0.a(iVar, oVar2, arrayList);
+                    }
+                });
+            }
+        } else {
+            oVar = null;
+        }
+        if (oVar != null) {
+            try {
+                if (!oVar.b()) {
+                    Log.e("MiDuo", "通知中心固定配置写入失败");
+                }
+            } catch (Throwable th3) {
+                th = th3;
+                oVar2 = oVar;
+                strValueOf = String.valueOf(th);
+            }
+        }
+        oVar2 = oVar;
+        strValueOf = null;
+        hashSet = new HashSet();
+        if (xposedServiceA != null) {
+            hashSet.addAll(xposedServiceA.getScope());
+        }
+        strValueOf2 = null;
+        final i iVar2 = new i(aVar);
+        iVar2.a = arrayList;
+        iVar2.b = oVar2;
+        iVar2.c = null;
+        iVar2.d = hashSet;
+        iVar2.e = strValueOf2;
+        iVar2.f = z2;
+        iVar2.h = i2;
+        if (oVar2 != null) {
+            string = "已连接 · " + xposedServiceA.getFrameworkVersion();
+        } else {
+            StringBuilder sbAppend2 = new StringBuilder().append("未连接");
+            if (strValueOf == null) {
+                str = "：请在 LSPosed 中启用 MiDuo";
+            } else {
+                str = "（" + strValueOf + "）";
+            }
+            string = sbAppend2.append(str).toString();
+        }
+        iVar2.g = string;
+        iVar2.i = new String[]{Build.VERSION.INCREMENTAL, a(packageManager, "com.miui.home"), a(packageManager, "com.miui.personalassistant"), a(packageManager, getPackageName())};
+        if (oVar2 != null && oVar2.e()) {
+            z = true;
+        }
+        iVar2.j = r.a(z);
+        this.m.post(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda65
+            @Override // java.lang.Runnable
+            public final void run() {
+                this.f$0.a(iVar2, oVar2, arrayList);
+            }
+        });
+    }

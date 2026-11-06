@@ -1,0 +1,14 @@
+// class=dev.duo.icons.d method=a mode=java fell_back=False
+    public static String a(Path path) throws Exception {
+        if (Files.isSymbolicLink(path)) {
+            throw new IOException("图标路径不能是符号链接");
+        }
+        LinkOption linkOption = LinkOption.NOFOLLOW_LINKS;
+        if (!Files.exists(path, linkOption)) {
+            return d;
+        }
+        if (!Files.isRegularFile(path, linkOption) || Files.size(path) > e.b) {
+            throw new IOException("现有图标文件不可备份");
+        }
+        return e.a(path.toFile());
+    }

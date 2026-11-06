@@ -1,0 +1,66 @@
+        /* JADX WARN: Code duplicated, block: B:34:0x005d A[DONT_INVERT] */
+        /* JADX WARN: Code duplicated, block: B:35:0x005f A[Catch: all -> 0x00ae, TryCatch #0 {, blocks: (B:4:0x0003, B:6:0x000a, B:11:0x0012, B:13:0x001a, B:17:0x0030, B:20:0x0038, B:24:0x003f, B:26:0x0044, B:30:0x004f, B:35:0x005f, B:37:0x0067, B:40:0x0072, B:41:0x007a, B:42:0x007f, B:44:0x0081, B:47:0x0087, B:49:0x008d, B:51:0x0093, B:56:0x00a2, B:58:0x00a4, B:59:0x00a7, B:60:0x00ac), top: B:65:0x0003 }] */
+        /* JADX WARN: Code duplicated, block: B:41:0x007a A[Catch: all -> 0x00ae, EDGE_INSN: B:41:0x007a->B:73:? BREAK  A[LOOP:0: B:9:0x000d->B:44:0x0081], TryCatch #0 {, blocks: (B:4:0x0003, B:6:0x000a, B:11:0x0012, B:13:0x001a, B:17:0x0030, B:20:0x0038, B:24:0x003f, B:26:0x0044, B:30:0x004f, B:35:0x005f, B:37:0x0067, B:40:0x0072, B:41:0x007a, B:42:0x007f, B:44:0x0081, B:47:0x0087, B:49:0x008d, B:51:0x0093, B:56:0x00a2, B:58:0x00a4, B:59:0x00a7, B:60:0x00ac), top: B:65:0x0003 }] */
+        @Override // android.hardware.SensorEventListener
+        public void onSensorChanged(SensorEvent sensorEvent) {
+            float f;
+            synchronized (this.a) {
+                if (this.b[0]) {
+                    int i = 0;
+                    while (i < 3) {
+                        if (sensorEvent.sensor == this.c[i]) {
+                            long j = sensorEvent.timestamp / 1000000;
+                            long jElapsedRealtime = SystemClock.elapsedRealtime();
+                            long[] jArr = this.d;
+                            if (j > jArr[i] && j <= jElapsedRealtime && jElapsedRealtime - j < 1000) {
+                                jArr[i] = j;
+                                int i2 = i == 1 ? 3 : 0;
+                                float[] fArr = sensorEvent.values;
+                                if (fArr.length > i2 && Float.isFinite(fArr[i2])) {
+                                    if (i != 0) {
+                                        if (i == 2) {
+                                            f = sensorEvent.values[i2];
+                                            if (f >= 0.0f) {
+                                            }
+                                            this.e[i] = true;
+                                            break;
+                                        }
+                                        int[] iArr = this.f;
+                                        iArr[i] = iArr[i] + 1;
+                                        break;
+                                    }
+                                    float f2 = sensorEvent.values[i2];
+                                    if (f2 >= 0.0f && f2 <= 180.0f) {
+                                        if (i == 2) {
+                                            f = sensorEvent.values[i2];
+                                            if (f >= 0.0f || f > sensorEvent.sensor.getMaximumRange()) {
+                                                this.e[i] = true;
+                                                break;
+                                            }
+                                        }
+                                        int[] iArr2 = this.f;
+                                        iArr2[i] = iArr2[i] + 1;
+                                        break;
+                                    }
+                                    this.e[i] = true;
+                                    break;
+                                }
+                                this.e[i] = true;
+                                break;
+                            }
+                            return;
+                        }
+                        i++;
+                    }
+                    for (int i3 = 0; i3 < 3; i3++) {
+                        Sensor sensor = this.c[i3];
+                        if (sensor != null && !this.e[i3]) {
+                            if (this.f[i3] < (sensor.getReportingMode() == 0 ? 2 : 1)) {
+                                return;
+                            }
+                        }
+                    }
+                    this.g.countDown();
+                }
+            }
+        }
