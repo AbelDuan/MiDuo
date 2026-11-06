@@ -3086,12 +3086,12 @@
 
     if-eqz v2, :cond_8
 
-    const-string v2, "\u514d\u8d39\u8bd5\u7528\u4e2d"
+    const-string v2, ""
 
     goto :goto_5
 
     :cond_8
-    const-string v2, "\u8bd5\u7528\u5df2\u7ed3\u675f"
+    const-string v2, ""
 
     :goto_5
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
@@ -3131,13 +3131,13 @@
 
     if-eqz v2, :cond_9
 
-    const-string v2, "\u53ea\u7b97\u4eae\u5c4f\u4e14 MiDuo \u5f00\u7740\u7684\u65f6\u95f4\u3002\u7528\u5b8c\u540e\u5728\u4e0b\u6b21\u7184\u5c4f\u65f6\u505c\u7528\uff0c\u684c\u9762\u3001\u4fa7\u680f\u3001\u5916\u5c4f\u6bd4\u4f8b\u6062\u590d\u5c0f\u7c73\u539f\u88c5\u3002"
+    const-string v2, ""
 
     goto :goto_6
 
     .line 76
     :cond_9
-    const-string v2, "MiDuo \u5df2\u505c\u7528\uff0c\u684c\u9762\u3001\u4fa7\u680f\u3001\u5916\u5c4f\u6bd4\u4f8b\u4e3a\u5c0f\u7c73\u539f\u88c5\uff1b\u8d2d\u4e70\u540e\u53ef\u7ee7\u7eed\u4f7f\u7528\u3002"
+    const-string v2, ""
 
     .line 77
     :goto_6
@@ -3205,7 +3205,7 @@
     move-result-object v4
 
     .line 86
-    const-string v5, "\u6c38\u4e45\u4e70\u65ad"
+    const-string v5, ""
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -3224,7 +3224,7 @@
     move-result-object v4
 
     .line 89
-    const-string v5, "\u00a549.9"
+    const-string v5, ""
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -3242,7 +3242,7 @@
     move-result-object v2
 
     .line 93
-    const-string v4, "\u4e00\u6b21\u4ed8\u8d39\uff0c\u8fd9\u53f0\u624b\u673a\u6c38\u4e45\u4f7f\u7528\uff1b\u6bcf\u5e74\u53ef\u6362\u673a 2 \u6b21\u3002"
+    const-string v4, ""
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -3258,7 +3258,7 @@
     invoke-virtual {v1, v2, v4}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 95
-    const-string v2, "\u7acb\u5373\u8d2d\u4e70"
+    const-string v2, ""
 
     const/high16 v4, 0x42480000    # 50.0f
 
@@ -3336,12 +3336,12 @@
     if-nez v6, :cond_b
 
     .line 102
-    const-string v2, "\u6b63\u5728\u8bfb\u53d6\u6388\u6743\u2026"
+    const-string v2, ""
 
     goto :goto_8
 
     :cond_b
-    const-string v2, "\u7cfb\u7edf\u6846\u67b6\u8fd8\u6ca1\u52a0\u8f7d MiDuo\uff0c\u6682\u65f6\u4e0d\u80fd\u8bd5\u7528\u548c\u8d2d\u4e70\u3002LSPosed \u91cc\u542f\u7528 MiDuo \u540e\uff0c\u7cfb\u7edf\u6846\u67b6\u8981\u5230\u624b\u673a\u4e0b\u6b21\u5f00\u673a\u624d\u52a0\u8f7d"
+    const-string v2, ""
 
     :goto_8
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
@@ -3406,7 +3406,7 @@
     move-result-object v1
 
     .line 191
-    const-string v2, "\u8f93\u5165\u6388\u6743\u7801"
+    const-string v2, ""
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -3469,7 +3469,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "\u5728\u53e6\u4e00\u53f0\u624b\u673a\u4e70\u8fc7\u7684\uff0c\u8f93\u5165\u6388\u6743\u7801\u5373\u53ef\u5728\u8fd9\u53f0\u624b\u673a\u4f7f\u7528\uff1b\u662f\u5426\u5df2\u6388\u6743\u4ee5\u672c\u9875\u548c\u9996\u9875\u663e\u793a\u4e3a\u51c6\u3002"
+    const-string v4, ""
 
     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3777,146 +3777,15 @@
 .end method
 
 .method private M()Landroid/view/View;
-    .locals 7
+    .locals 2
 
-    .line 1
-    invoke-static {p0}, Ldev/duo/hookprobe/T;->c(Landroid/content/Context;)Landroid/widget/LinearLayout;
+    new-instance v0, Landroid/widget/LinearLayout;
 
-    move-result-object v0
+    invoke-direct {v0, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 2
-    iget-object v1, p0, Ldev/duo/hookprobe/MainActivity;->q:Ldev/duo/hookprobe/T$d;
+    const/16 v1, 0x8
 
-    iget-boolean v1, v1, Ldev/duo/hookprobe/T$d;->e:Z
-
-    if-eqz v1, :cond_0
-
-    const/high16 v1, 0x41d00000    # 26.0f
-
-    goto :goto_0
-
-    :cond_0
-    const/high16 v1, 0x41e00000    # 28.0f
-
-    :goto_0
-    invoke-static {v0, v1}, Ldev/duo/hookprobe/T;->a(Landroid/view/View;F)V
-
-    .line 3
-    const/high16 v1, 0x41900000    # 18.0f
-
-    invoke-direct {p0, v1}, Ldev/duo/hookprobe/MainActivity;->a(F)I
-
-    move-result v1
-
-    const/high16 v2, 0x41800000    # 16.0f
-
-    invoke-direct {p0, v2}, Ldev/duo/hookprobe/MainActivity;->a(F)I
-
-    move-result v2
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v0, v1, v3, v2, v3}, Landroid/view/View;->setPadding(IIII)V
-
-    .line 4
-    invoke-static {p0}, Ldev/duo/hookprobe/T;->a(Landroid/content/Context;)Landroid/widget/LinearLayout;
-
-    move-result-object v1
-
-    .line 5
-    sget v2, Ldev/duo/hookprobe/T;->b:I
-
-    const/high16 v4, 0x41700000    # 15.0f
-
-    const/16 v5, 0x258
-
-    invoke-static {p0, v4, v2, v5}, Ldev/duo/hookprobe/T;->a(Landroid/content/Context;FII)Landroid/widget/TextView;
-
-    move-result-object v2
-
-    .line 6
-    const-string v4, "\u65cb\u8f6c\u5efa\u8bae\u6309\u94ae"
-
-    invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 7
-    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
-
-    .line 8
-    sget v2, Ldev/duo/hookprobe/T;->d:I
-
-    const/high16 v5, 0x41400000    # 12.0f
-
-    const/16 v6, 0x190
-
-    invoke-static {p0, v5, v2, v6}, Ldev/duo/hookprobe/T;->a(Landroid/content/Context;FII)Landroid/widget/TextView;
-
-    move-result-object v2
-
-    .line 9
-    const-string v5, "\u5173\u95ed\u81ea\u52a8\u65cb\u8f6c\u65f6\uff0c\u8f6c\u52a8\u624b\u673a\u53ef\u70b9\u6309\u94ae\u65cb\u8f6c\u5c4f\u5e55"
-
-    invoke-virtual {v2, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 10
-    const/high16 v5, 0x40400000    # 3.0f
-
-    invoke-direct {p0, v5}, Ldev/duo/hookprobe/MainActivity;->a(F)I
-
-    move-result v5
-
-    invoke-virtual {v2, v3, v5, v3, v3}, Landroid/widget/TextView;->setPadding(IIII)V
-
-    .line 11
-    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
-
-    .line 12
-    invoke-static {}, Ldev/duo/hookprobe/T;->b()Landroid/widget/LinearLayout$LayoutParams;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 13
-    new-instance v1, Landroid/widget/Switch;
-
-    invoke-direct {v1, p0}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
-
-    iput-object v1, p0, Ldev/duo/hookprobe/MainActivity;->Q:Landroid/widget/Switch;
-
-    .line 14
-    invoke-static {v1}, Ldev/duo/hookprobe/T;->a(Landroid/widget/Switch;)V
-
-    .line 15
-    iget-object v1, p0, Ldev/duo/hookprobe/MainActivity;->Q:Landroid/widget/Switch;
-
-    invoke-virtual {v1, v4}, Landroid/widget/Switch;->setContentDescription(Ljava/lang/CharSequence;)V
-
-    .line 16
-    iget-object v1, p0, Ldev/duo/hookprobe/MainActivity;->Q:Landroid/widget/Switch;
-
-    invoke-virtual {v1, v3}, Landroid/widget/Switch;->setEnabled(Z)V
-
-    .line 17
-    iget-object v1, p0, Ldev/duo/hookprobe/MainActivity;->Q:Landroid/widget/Switch;
-
-    new-instance v2, Ldev/duo/hookprobe/MainActivity$$ExternalSyntheticLambda31;
-
-    invoke-direct {v2, p0}, Ldev/duo/hookprobe/MainActivity$$ExternalSyntheticLambda31;-><init>(Ldev/duo/hookprobe/MainActivity;)V
-
-    invoke-virtual {v1, v2}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
-
-    .line 20
-    iget-object v1, p0, Ldev/duo/hookprobe/MainActivity;->Q:Landroid/widget/Switch;
-
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
-
-    .line 21
-    new-instance v1, Ldev/duo/hookprobe/MainActivity$$ExternalSyntheticLambda32;
-
-    invoke-direct {v1, p0}, Ldev/duo/hookprobe/MainActivity$$ExternalSyntheticLambda32;-><init>(Ldev/duo/hookprobe/MainActivity;)V
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     return-object v0
 .end method
@@ -9354,14 +9223,14 @@
     goto :goto_4
 
     :cond_6
-    const-string v2, "\u8bd5\u7528\u5df2\u7ed3\u675f"
+    const-string v2, ""
 
     goto :goto_4
 
     .line 208
     :cond_7
     :goto_3
-    const-string v2, "\u6388\u6743"
+    const-string v2, ""
 
     :goto_4
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
@@ -11952,14 +11821,14 @@
     invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     .line 65
-    const-string v2, "\u8f93\u5165\u6388\u6743\u7801"
+    const-string v2, ""
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
     .line 66
-    const-string v2, "\u5728\u53e6\u4e00\u53f0\u624b\u673a\u4e70\u8fc7\u7684\uff0c\u8f93\u5165\u6388\u6743\u7801\u5373\u53ef\u5728\u8fd9\u53f0\u624b\u673a\u4f7f\u7528\u3002"
+    const-string v2, ""
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
@@ -14038,66 +13907,15 @@
 .end method
 
 .method private f()Landroid/view/View;
-    .locals 5
+    .locals 2
 
-    .line 22
-    invoke-static {p0}, Ldev/duo/hookprobe/T;->a(Landroid/content/Context;)Landroid/widget/LinearLayout;
+    new-instance v0, Landroid/widget/LinearLayout;
 
-    move-result-object v0
+    invoke-direct {v0, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 23
-    const-string v1, "\u6388\u6743"
+    const/16 v1, 0x8
 
-    invoke-direct {p0, v1}, Ldev/duo/hookprobe/MainActivity;->g(Ljava/lang/String;)Landroid/widget/TextView;
-
-    move-result-object v1
-
-    .line 24
-    const/high16 v2, 0x40c00000    # 6.0f
-
-    invoke-direct {p0, v2}, Ldev/duo/hookprobe/MainActivity;->a(F)I
-
-    move-result v2
-
-    const/high16 v3, 0x41200000    # 10.0f
-
-    invoke-direct {p0, v3}, Ldev/duo/hookprobe/MainActivity;->a(F)I
-
-    move-result v3
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v1, v2, v4, v4, v3}, Landroid/widget/TextView;->setPadding(IIII)V
-
-    .line 25
-    new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
-
-    const/high16 v3, 0x42600000    # 56.0f
-
-    invoke-direct {p0, v3}, Ldev/duo/hookprobe/MainActivity;->a(F)I
-
-    move-result v3
-
-    const/4 v4, -0x1
-
-    invoke-direct {v2, v4, v3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
-
-    invoke-virtual {v0, v1, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 26
-    invoke-static {p0}, Ldev/duo/hookprobe/T;->a(Landroid/content/Context;)Landroid/widget/LinearLayout;
-
-    move-result-object v1
-
-    iput-object v1, p0, Ldev/duo/hookprobe/MainActivity;->Q0:Landroid/widget/LinearLayout;
-
-    .line 27
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
-
-    .line 28
-    invoke-direct {p0, v0}, Ldev/duo/hookprobe/MainActivity;->a(Landroid/widget/LinearLayout;)Landroid/widget/ScrollView;
-
-    move-result-object v0
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     return-object v0
 .end method
@@ -15714,12 +15532,12 @@
     if-eqz p1, :cond_1
 
     .line 42
-    const-string p1, "\u5df2\u5f00\u542f\u8f7b\u6298\u5206\u5c4f"
+    const-string p1, ""
 
     goto :goto_0
 
     :cond_1
-    const-string p1, "\u5df2\u5173\u95ed\u8f7b\u6298\u5206\u5c4f"
+    const-string p1, ""
 
     :goto_0
     invoke-static {p0, p1, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
@@ -17330,12 +17148,12 @@
     if-eqz p1, :cond_1
 
     .line 44
-    const-string p1, "\u5df2\u5f00\u542f\u65cb\u8f6c\u5efa\u8bae\u6309\u94ae"
+    const-string p1, ""
 
     goto :goto_0
 
     :cond_1
-    const-string p1, "\u5df2\u5173\u95ed\u65cb\u8f6c\u5efa\u8bae\u6309\u94ae"
+    const-string p1, ""
 
     :goto_0
     invoke-static {p0, p1, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
@@ -17883,333 +17701,17 @@
 .end method
 
 .method private q()Landroid/view/View;
-    .locals 14
+    .locals 2
 
-    .line 1
-    invoke-static {p0}, Ldev/duo/hookprobe/T;->a(Landroid/content/Context;)Landroid/widget/LinearLayout;
+    new-instance v0, Landroid/widget/LinearLayout;
 
-    move-result-object v6
+    invoke-direct {v0, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 2
-    iget-object v1, p0, Ldev/duo/hookprobe/MainActivity;->q:Ldev/duo/hookprobe/T$d;
+    const/16 v1, 0x8
 
-    iget-boolean v1, v1, Ldev/duo/hookprobe/T$d;->e:Z
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    if-eqz v1, :cond_0
-
-    const/high16 v1, 0x41d00000    # 26.0f
-
-    goto :goto_0
-
-    :cond_0
-    const/high16 v1, 0x41e00000    # 28.0f
-
-    :goto_0
-    invoke-static {v6, v1}, Ldev/duo/hookprobe/T;->a(Landroid/view/View;F)V
-
-    .line 3
-    const/high16 v1, 0x41900000    # 18.0f
-
-    invoke-direct {p0, v1}, Ldev/duo/hookprobe/MainActivity;->a(F)I
-
-    move-result v1
-
-    const/high16 v7, 0x41800000    # 16.0f
-
-    invoke-direct {p0, v7}, Ldev/duo/hookprobe/MainActivity;->a(F)I
-
-    move-result v2
-
-    const/4 v8, 0x0
-
-    invoke-virtual {v6, v1, v8, v2, v8}, Landroid/view/View;->setPadding(IIII)V
-
-    .line 4
-    invoke-static {p0}, Ldev/duo/hookprobe/T;->c(Landroid/content/Context;)Landroid/widget/LinearLayout;
-
-    move-result-object v9
-
-    .line 5
-    const/16 v1, 0x10
-
-    invoke-virtual {v9, v1}, Landroid/widget/LinearLayout;->setGravity(I)V
-
-    .line 6
-    const/high16 v1, 0x42980000    # 76.0f
-
-    invoke-direct {p0, v1}, Ldev/duo/hookprobe/MainActivity;->a(F)I
-
-    move-result v1
-
-    invoke-virtual {v9, v1}, Landroid/view/View;->setMinimumHeight(I)V
-
-    .line 7
-    invoke-static {p0}, Ldev/duo/hookprobe/T;->a(Landroid/content/Context;)Landroid/widget/LinearLayout;
-
-    move-result-object v1
-
-    .line 8
-    sget v2, Ldev/duo/hookprobe/T;->b:I
-
-    const/high16 v3, 0x41700000    # 15.0f
-
-    const/16 v10, 0x258
-
-    invoke-static {p0, v3, v2, v10}, Ldev/duo/hookprobe/T;->a(Landroid/content/Context;FII)Landroid/widget/TextView;
-
-    move-result-object v2
-
-    .line 9
-    const-string v3, "\u8f7b\u6298\u5206\u5c4f"
-
-    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 10
-    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
-
-    .line 11
-    sget v2, Ldev/duo/hookprobe/T;->d:I
-
-    const/high16 v11, 0x41400000    # 12.0f
-
-    const/16 v12, 0x190
-
-    invoke-static {p0, v11, v2, v12}, Ldev/duo/hookprobe/T;->a(Landroid/content/Context;FII)Landroid/widget/TextView;
-
-    move-result-object v2
-
-    iput-object v2, p0, Ldev/duo/hookprobe/MainActivity;->g1:Landroid/widget/TextView;
-
-    .line 13
-    const-string v4, "\u5168\u5c4f App \u8f7b\u6298\u653e\u5e73\u8fdb\u5165\u53cc\u5206\u5c4f\uff0c\u53cc\u5206\u5c4f\u518d\u8f7b\u6298\u653e\u5e73\uff0c\u539f\u6709\u5206\u5c4f\u6536\u5230\u5de6\u8fb9\u3001\u684c\u9762\u9009\u7b2c\u4e09\u4e2a App \u8fdb\u5165\u4e09\u5206\u5c4f\uff1b\u5173\u95ed\u540e\u5168\u90e8\u6062\u590d\u5c0f\u7c73\u539f\u751f"
-
-    invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 14
-    const/high16 v4, 0x40400000    # 3.0f
-
-    invoke-direct {p0, v4}, Ldev/duo/hookprobe/MainActivity;->a(F)I
-
-    move-result v4
-
-    invoke-virtual {v2, v8, v4, v8, v8}, Landroid/widget/TextView;->setPadding(IIII)V
-
-    .line 15
-    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
-
-    .line 16
-    invoke-static {}, Ldev/duo/hookprobe/T;->b()Landroid/widget/LinearLayout$LayoutParams;
-
-    move-result-object v2
-
-    invoke-virtual {v9, v1, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 17
-    new-instance v1, Landroid/widget/Switch;
-
-    invoke-direct {v1, p0}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
-
-    iput-object v1, p0, Ldev/duo/hookprobe/MainActivity;->Z:Landroid/widget/Switch;
-
-    .line 18
-    invoke-static {v1}, Ldev/duo/hookprobe/T;->a(Landroid/widget/Switch;)V
-
-    .line 19
-    iget-object v1, p0, Ldev/duo/hookprobe/MainActivity;->Z:Landroid/widget/Switch;
-
-    invoke-virtual {v1, v3}, Landroid/widget/Switch;->setContentDescription(Ljava/lang/CharSequence;)V
-
-    .line 20
-    iget-object v1, p0, Ldev/duo/hookprobe/MainActivity;->Z:Landroid/widget/Switch;
-
-    invoke-virtual {v1, v8}, Landroid/widget/Switch;->setEnabled(Z)V
-
-    .line 21
-    iget-object v1, p0, Ldev/duo/hookprobe/MainActivity;->Z:Landroid/widget/Switch;
-
-    new-instance v2, Ldev/duo/hookprobe/MainActivity$$ExternalSyntheticLambda6;
-
-    invoke-direct {v2, p0}, Ldev/duo/hookprobe/MainActivity$$ExternalSyntheticLambda6;-><init>(Ldev/duo/hookprobe/MainActivity;)V
-
-    invoke-virtual {v1, v2}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
-
-    .line 24
-    iget-object v1, p0, Ldev/duo/hookprobe/MainActivity;->Z:Landroid/widget/Switch;
-
-    invoke-virtual {v9, v1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
-
-    .line 25
-    sget v2, Ldev/duo/hookprobe/T;->e:I
-
-    const/4 v4, 0x0
-
-    const/high16 v5, 0x41600000    # 14.0f
-
-    const/4 v1, 0x5
-
-    const v3, 0x40266666    # 2.6f
-
-    move-object v0, p0
-
-    invoke-static/range {v0 .. v5}, Ldev/duo/hookprobe/T;->a(Landroid/content/Context;IIFZF)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v1
-
-    invoke-static {p0, v1}, Ldev/duo/hookprobe/T;->a(Landroid/content/Context;Landroid/graphics/drawable/Drawable;)Landroid/widget/ImageView;
-
-    move-result-object v1
-
-    .line 26
-    const/high16 v2, 0x41600000    # 14.0f
-
-    invoke-static {p0, v2, v2}, Ldev/duo/hookprobe/T;->a(Landroid/content/Context;FF)Landroid/widget/LinearLayout$LayoutParams;
-
-    move-result-object v2
-
-    .line 27
-    const/high16 v3, 0x41200000    # 10.0f
-
-    invoke-direct {p0, v3}, Ldev/duo/hookprobe/MainActivity;->a(F)I
-
-    move-result v4
-
-    iput v4, v2, Landroid/widget/LinearLayout$LayoutParams;->leftMargin:I
-
-    .line 28
-    invoke-virtual {v9, v1, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 29
-    invoke-virtual {v6, v9}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
-
-    .line 30
-    invoke-static {p0}, Ldev/duo/hookprobe/T;->a(Landroid/content/Context;)Landroid/widget/LinearLayout;
-
-    move-result-object v2
-
-    .line 31
-    sget v4, Ldev/duo/hookprobe/T;->c:I
-
-    const/high16 v5, 0x41500000    # 13.0f
-
-    invoke-static {p0, v5, v4, v10}, Ldev/duo/hookprobe/T;->a(Landroid/content/Context;FII)Landroid/widget/TextView;
-
-    move-result-object v4
-
-    .line 32
-    const-string v5, "\u8f7b\u6298\u7075\u654f\u5ea6"
-
-    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 33
-    invoke-static {}, Ldev/duo/hookprobe/T;->a()Landroid/widget/LinearLayout$LayoutParams;
-
-    move-result-object v5
-
-    const/high16 v10, 0x40000000    # 2.0f
-
-    invoke-static {v5, p0, v10}, Ldev/duo/hookprobe/T;->a(Landroid/widget/LinearLayout$LayoutParams;Landroid/content/Context;F)Landroid/widget/LinearLayout$LayoutParams;
-
-    move-result-object v5
-
-    invoke-virtual {v2, v4, v5}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 34
-    new-instance v4, Ldev/duo/hookprobe/T$e;
-
-    const-string v5, "\u6807\u51c6"
-
-    const-string v10, "\u7a33\u5b9a"
-
-    const-string v13, "\u7075\u654f"
-
-    filled-new-array {v13, v5, v10}, [Ljava/lang/String;
-
-    move-result-object v5
-
-    new-instance v10, Ldev/duo/hookprobe/MainActivity$$ExternalSyntheticLambda7;
-
-    invoke-direct {v10, p0}, Ldev/duo/hookprobe/MainActivity$$ExternalSyntheticLambda7;-><init>(Ldev/duo/hookprobe/MainActivity;)V
-
-    const/4 v13, 0x0
-
-    invoke-direct {v4, p0, v5, v13, v10}, Ldev/duo/hookprobe/T$e;-><init>(Landroid/content/Context;[Ljava/lang/String;[ILjava/util/function/IntConsumer;)V
-
-    iput-object v4, p0, Ldev/duo/hookprobe/MainActivity;->f0:Ldev/duo/hookprobe/T$e;
-
-    .line 35
-    invoke-virtual {v4, v8}, Ldev/duo/hookprobe/T$e;->a(Z)V
-
-    .line 36
-    iget-object v4, p0, Ldev/duo/hookprobe/MainActivity;->f0:Ldev/duo/hookprobe/T$e;
-
-    iget-object v4, v4, Ldev/duo/hookprobe/T$e;->a:Landroid/widget/LinearLayout;
-
-    invoke-static {}, Ldev/duo/hookprobe/T;->a()Landroid/widget/LinearLayout$LayoutParams;
-
-    move-result-object v5
-
-    invoke-static {v5, p0, v3}, Ldev/duo/hookprobe/T;->a(Landroid/widget/LinearLayout$LayoutParams;Landroid/content/Context;F)Landroid/widget/LinearLayout$LayoutParams;
-
-    move-result-object v5
-
-    invoke-virtual {v2, v4, v5}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 37
-    sget v4, Ldev/duo/hookprobe/T;->d:I
-
-    invoke-static {p0, v11, v4, v12}, Ldev/duo/hookprobe/T;->a(Landroid/content/Context;FII)Landroid/widget/TextView;
-
-    move-result-object v4
-
-    .line 38
-    const-string v5, "\u7075\u654f\uff1a\u8f7b\u8f7b\u4e00\u6298\u5c31\u89e6\u53d1\uff1b\u7a33\u5b9a\uff1a\u8981\u6298\u5f97\u66f4\u6df1\u3001\u66f4\u5feb\uff0c\u4e0d\u5bb9\u6613\u8bef\u89e6\u3002\u5bb9\u6613\u8bef\u89e6\u5c31\u9009\u7a33\u5b9a\uff0c\u4e0d\u597d\u89e6\u53d1\u5c31\u9009\u7075\u654f"
-
-    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 39
-    invoke-static {}, Ldev/duo/hookprobe/T;->a()Landroid/widget/LinearLayout$LayoutParams;
-
-    move-result-object v5
-
-    invoke-static {v5, p0, v3}, Ldev/duo/hookprobe/T;->a(Landroid/widget/LinearLayout$LayoutParams;Landroid/content/Context;F)Landroid/widget/LinearLayout$LayoutParams;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v4, v3}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 40
-    new-instance v3, Landroid/view/View;
-
-    invoke-direct {v3, p0}, Landroid/view/View;-><init>(Landroid/content/Context;)V
-
-    new-instance v4, Landroid/widget/LinearLayout$LayoutParams;
-
-    invoke-direct {p0, v7}, Ldev/duo/hookprobe/MainActivity;->a(F)I
-
-    move-result v0
-
-    const/4 v5, -0x1
-
-    invoke-direct {v4, v5, v0}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
-
-    invoke-virtual {v2, v3, v4}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 41
-    const/16 v0, 0x8
-
-    invoke-virtual {v2, v0}, Landroid/view/View;->setVisibility(I)V
-
-    .line 42
-    invoke-virtual {v6, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
-
-    .line 43
-    new-instance v0, Ldev/duo/hookprobe/MainActivity$$ExternalSyntheticLambda8;
-
-    invoke-direct {v0, v2, v1}, Ldev/duo/hookprobe/MainActivity$$ExternalSyntheticLambda8;-><init>(Landroid/widget/LinearLayout;Landroid/widget/ImageView;)V
-
-    invoke-virtual {v9, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    return-object v6
+    return-object v0
 .end method
 
 .method private synthetic q(Landroid/view/View;)V
@@ -19370,160 +18872,15 @@
 .end method
 
 .method private x()Landroid/view/View;
-    .locals 9
+    .locals 2
 
-    .line 2
-    invoke-static {p0}, Ldev/duo/hookprobe/T;->c(Landroid/content/Context;)Landroid/widget/LinearLayout;
+    new-instance v0, Landroid/widget/LinearLayout;
 
-    move-result-object v0
+    invoke-direct {v0, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 3
-    iget-object v1, p0, Ldev/duo/hookprobe/MainActivity;->q:Ldev/duo/hookprobe/T$d;
+    const/16 v1, 0x8
 
-    iget-boolean v1, v1, Ldev/duo/hookprobe/T$d;->e:Z
-
-    if-eqz v1, :cond_0
-
-    const/high16 v1, 0x41d00000    # 26.0f
-
-    goto :goto_0
-
-    :cond_0
-    const/high16 v1, 0x41e00000    # 28.0f
-
-    :goto_0
-    invoke-static {v0, v1}, Ldev/duo/hookprobe/T;->a(Landroid/view/View;F)V
-
-    .line 4
-    const/high16 v1, 0x41900000    # 18.0f
-
-    invoke-direct {p0, v1}, Ldev/duo/hookprobe/MainActivity;->a(F)I
-
-    move-result v1
-
-    const/high16 v2, 0x41800000    # 16.0f
-
-    invoke-direct {p0, v2}, Ldev/duo/hookprobe/MainActivity;->a(F)I
-
-    move-result v2
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v0, v1, v3, v2, v3}, Landroid/view/View;->setPadding(IIII)V
-
-    .line 5
-    const/high16 v1, 0x42980000    # 76.0f
-
-    invoke-direct {p0, v1}, Ldev/duo/hookprobe/MainActivity;->a(F)I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setMinimumHeight(I)V
-
-    .line 6
-    invoke-static {p0}, Ldev/duo/hookprobe/T;->a(Landroid/content/Context;)Landroid/widget/LinearLayout;
-
-    move-result-object v1
-
-    .line 7
-    sget v2, Ldev/duo/hookprobe/T;->b:I
-
-    const/high16 v4, 0x41700000    # 15.0f
-
-    const/16 v5, 0x258
-
-    invoke-static {p0, v4, v2, v5}, Ldev/duo/hookprobe/T;->a(Landroid/content/Context;FII)Landroid/widget/TextView;
-
-    move-result-object v2
-
-    .line 8
-    const-string v4, "iOS \u98ce\u683c\u901a\u77e5\u4e2d\u5fc3"
-
-    invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 9
-    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
-
-    .line 10
-    sget v2, Ldev/duo/hookprobe/T;->d:I
-
-    const/high16 v4, 0x41400000    # 12.0f
-
-    const/16 v5, 0x190
-
-    invoke-static {p0, v4, v2, v5}, Ldev/duo/hookprobe/T;->a(Landroid/content/Context;FII)Landroid/widget/TextView;
-
-    move-result-object v2
-
-    .line 11
-    const-string v4, "\u4e0b\u62c9\u901a\u77e5\u65f6\u7684\u5706\u89d2\u9762\u677f\u3001\u6a2a\u6761\u3001\u6e05\u9664\u6309\u94ae\u548c\u5e95\u90e8\u504f\u79fb"
-
-    invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 12
-    const/high16 v4, 0x40400000    # 3.0f
-
-    invoke-direct {p0, v4}, Ldev/duo/hookprobe/MainActivity;->a(F)I
-
-    move-result v4
-
-    invoke-virtual {v2, v3, v4, v3, v3}, Landroid/widget/TextView;->setPadding(IIII)V
-
-    .line 13
-    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
-
-    .line 14
-    invoke-static {}, Ldev/duo/hookprobe/T;->b()Landroid/widget/LinearLayout$LayoutParams;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 15
-    const/high16 v1, 0x41600000    # 14.0f
-
-    invoke-static {p0, v1, v1}, Ldev/duo/hookprobe/T;->a(Landroid/content/Context;FF)Landroid/widget/LinearLayout$LayoutParams;
-
-    move-result-object v1
-
-    .line 16
-    const/high16 v2, 0x41000000    # 8.0f
-
-    invoke-direct {p0, v2}, Ldev/duo/hookprobe/MainActivity;->a(F)I
-
-    move-result v2
-
-    iput v2, v1, Landroid/widget/LinearLayout$LayoutParams;->leftMargin:I
-
-    .line 17
-    sget v5, Ldev/duo/hookprobe/T;->d:I
-
-    const/4 v7, 0x0
-
-    const/high16 v8, 0x41600000    # 14.0f
-
-    const/4 v4, 0x4
-
-    const/high16 v6, 0x40400000    # 3.0f
-
-    move-object v3, p0
-
-    invoke-static/range {v3 .. v8}, Ldev/duo/hookprobe/T;->a(Landroid/content/Context;IIFZF)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v2
-
-    invoke-static {p0, v2}, Ldev/duo/hookprobe/T;->a(Landroid/content/Context;Landroid/graphics/drawable/Drawable;)Landroid/widget/ImageView;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2, v1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 18
-    new-instance v1, Ldev/duo/hookprobe/MainActivity$$ExternalSyntheticLambda44;
-
-    invoke-direct {v1, p0}, Ldev/duo/hookprobe/MainActivity$$ExternalSyntheticLambda44;-><init>(Ldev/duo/hookprobe/MainActivity;)V
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     return-object v0
 .end method
