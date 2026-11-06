@@ -1275,13 +1275,13 @@
 
     const/16 v10, 0x66
 
-    if-ne v2, v10, :cond_4
+    if-lt v2, v10, :cond_4
 
     const-wide/16 v12, 0x1ee8
 
     cmp-long v10, v3, v12
 
-    if-nez v10, :cond_4
+    if-ltz v10, :cond_4
 
     if-eqz v1, :cond_4
 

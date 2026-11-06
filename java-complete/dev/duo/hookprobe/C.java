@@ -69,7 +69,7 @@ final class C {
         }
         arrayList.add(aVar);
         arrayList.add(new a("智能助理", "未安装".equals(a4) ? 2 : 0, a4 + "；组件接口在运行时核对，不限定版本号"));
-        boolean z2 = z && i2 == 102 && j == 7912 && str != null && str.contains(f);
+        boolean z2 = z && i2 >= 102 && j >= 7912 && str != null && str.contains(f);
         if (!z) {
             arrayList.add(new a("LSPosed", 2, "未连接，请在 LSPosed 中启用 MiDuo"));
         } else if (z2) {

@@ -7386,7 +7386,7 @@
 
     const-string p3, "\u77e5\u9053\u4e86"
 
-    if-lez v2, :cond_4
+    goto :cond_4
 
     .line 290
     new-instance p1, Ljava/lang/StringBuilder;
@@ -8104,7 +8104,7 @@
     move v2, v0
 
     :goto_1
-    iput-boolean v2, p0, Ldev/duo/hookprobe/MainActivity;->U0:Z
+    iput-boolean v0, p0, Ldev/duo/hookprobe/MainActivity;->U0:Z
 
     .line 190
     iget-object v2, p0, Ldev/duo/hookprobe/MainActivity;->y:Landroid/widget/LinearLayout;
