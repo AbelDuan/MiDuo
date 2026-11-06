@@ -1514,7 +1514,7 @@ final class f {
     private View a(List<String> list, String[] strArr) {
         LinearLayout a2 = T.a((Context) this.a);
         a2.setPadding(a(20.0f), 0, a(20.0f), 0);
-        final int i = 0;
+        int i = 0;
         while (i < strArr.length) {
             final TextView a3 = T.a((Context) this.a, strArr[i] + " · 修改备注", false, 44.0f);
             a3.setSingleLine(false);

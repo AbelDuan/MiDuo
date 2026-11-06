@@ -51,7 +51,7 @@ public final class AlbumWidgetProvider extends AppWidgetProvider {
             handler.post(new Runnable() { // from class: dev.duo.hookprobe.AlbumWidgetProvider$a$$ExternalSyntheticLambda0
                 @Override // java.lang.Runnable
                 public final void run() {
-                    a.a(context, str);
+                    a(context, str);
                 }
             });
         }

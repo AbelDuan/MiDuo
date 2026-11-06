@@ -472,7 +472,7 @@ final class b {
         } catch (Exception e5) {
             Throwable th = e5;
             cVar.a("Root 可用", th);
-            dVar.a(cVar, th);
+            dVar.a(cVar, (Exception) th);
             return z;
         }
         if (!"0".equals(trim)) {
