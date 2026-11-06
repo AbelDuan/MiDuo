@@ -259,10 +259,11 @@ public final class MainActivity extends Activity {
                 View view = (View) dev.duo.hookprobe.MainActivity.this.I0.getParent();
                 top = Math.max(Math.min(top, (i2 - getPaddingBottom()) - view.getBottom()), getPaddingTop() - view.getTop());
             }
+            final int topFinal = top;
             post(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$c$$ExternalSyntheticLambda0
                 @Override // java.lang.Runnable
                 public final void run() {
-                    MainActivity.c.this.a(firstVisiblePosition, top);
+                    MainActivity.c.this.a(firstVisiblePosition, topFinal);
                 }
             });
         }
@@ -1232,7 +1233,7 @@ public final class MainActivity extends Activity {
             mainActivity = this;
             f fVar0 = new f();
             mainActivity.O0 = fVar0;
-            mainActivity.u.setAdapter(fVar0);
+            mainActivity.P0.setAdapter(fVar0);
         }
         f fVar = mainActivity.O0;
         if (fVar != null) {
@@ -1842,7 +1843,7 @@ public final class MainActivity extends Activity {
     */
     public void z() {
         o c0021o;
-        final o c0021o2;
+        o c0021o2;
         String valueOf;
         String valueOf2;
         PackageManager packageManager = getPackageManager();
@@ -1958,10 +1959,11 @@ public final class MainActivity extends Activity {
                 if (c0021o2 != null) {
                 }
                 iVar.j = dev.duo.hookprobe.r.a(z);
+                final o c0021o2F = c0021o2;
                 this.m.post(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda65
                     @Override // java.lang.Runnable
                     public final void run() {
-                        dev.duo.hookprobe.MainActivity.this.a(iVar, c0021o2, arrayList);
+                        dev.duo.hookprobe.MainActivity.this.a(iVar, c0021o2F, arrayList);
                     }
                 });
             }
@@ -1975,34 +1977,6 @@ public final class MainActivity extends Activity {
                 }
             } catch (Throwable th2) {
                 throw th2;
-                c0021o2 = c0021o;
-                valueOf = null;
-                HashSet hashSet22 = new HashSet();
-                if (a2 != null) {
-                }
-                valueOf2 = null;
-                final i iVar2 = new i(aVar);
-                iVar2.a = arrayList;
-                iVar2.b = c0021o2;
-                iVar2.c = null;
-                iVar2.d = hashSet22;
-                iVar2.e = valueOf2;
-                iVar2.f = z2;
-                iVar2.h = i2;
-                if (c0021o2 != null) {
-                }
-                iVar2.g = c0021o2 != null ? "已连接 · " + a2.getFrameworkVersion() : "未连接" + (valueOf == null ? "：请在 LSPosed 中启用 MiDuo" : "（" + valueOf + "）");
-                iVar2.i = new String[]{Build.VERSION.INCREMENTAL, a(packageManager, "com.miui.home"), a(packageManager, "com.miui.personalassistant"), a(packageManager, getPackageName())};
-                if (c0021o2 != null) {
-                    z = true;
-                }
-                iVar2.j = dev.duo.hookprobe.r.a(z);
-                this.m.post(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda65
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        dev.duo.hookprobe.MainActivity.this.a(iVar2, c0021o2, arrayList);
-                    }
-                });
             }
         }
         c0021o2 = c0021o;
@@ -2030,10 +2004,11 @@ public final class MainActivity extends Activity {
             z = true;
         }
         iVar22.j = dev.duo.hookprobe.r.a(z);
+        final o c0021o2F = c0021o2;
         this.m.post(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda65
             @Override // java.lang.Runnable
             public final void run() {
-                dev.duo.hookprobe.MainActivity.this.a(iVar22, c0021o2, arrayList);
+                dev.duo.hookprobe.MainActivity.this.a(iVar22, c0021o2F, arrayList);
             }
         });
     }
@@ -3670,7 +3645,7 @@ public final class MainActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void b(o c0021o) {
-        final String str;
+        String str;
         try {
             try {
                 r();
@@ -3689,10 +3664,11 @@ public final class MainActivity extends Activity {
             Log.e("DuoStandby", "Lockscreen permission request failed", e4);
             str = "未能开启帐篷钟面，请检查 Root 授权或锁屏显示权限";
         }
+        final String strF = str;
         this.m.post(new Runnable() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda74
             @Override // java.lang.Runnable
             public final void run() {
-                dev.duo.hookprobe.MainActivity.this.f(str);
+                dev.duo.hookprobe.MainActivity.this.f(strF);
             }
         });
     }
