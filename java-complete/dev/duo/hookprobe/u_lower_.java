@@ -116,7 +116,7 @@ final class u {
             obtain2.readException();
             return obtain2.readInt() == 1;
         } catch (Exception e) {
-            Log.e("MiDuoFold", "观察状态查询失败", e);
+            Log.e("MiDuoFold", "观察状态查询失败", exc);
             return false;
         } finally {
             obtain.recycle();
@@ -178,9 +178,9 @@ final class u {
         } catch (Exception e) {
             if (this.x.isBinderAlive()) {
                 this.O = e;
-                Log.e("MiDuoFold", "目标内容通知失败", e);
+                Log.e("MiDuoFold", "目标内容通知失败", exc);
             } else {
-                Log.w("MiDuoFold", "目标内容通知时引擎已退出", e);
+                Log.w("MiDuoFold", "目标内容通知时引擎已退出", exc);
             }
         } finally {
             obtain.recycle();
@@ -368,7 +368,7 @@ final class u {
     }
 
     private Bundle a(int i, int i2, ArrayList<SurfaceControl> arrayList) throws Exception {
-        final u c0025u = this;
+        u c0025u= this;
         ArrayList<SurfaceControl> arrayList2 = arrayList;
         IBinder iBinder = c0025u.w;
         if (iBinder != null && iBinder.isBinderAlive()) {
@@ -397,15 +397,15 @@ final class u {
                         ClassLoader classLoader = invoke.getClass().getClassLoader();
                         Class<?> cls = Class.forName("com.android.server.wm.WindowContainer", false, classLoader);
                         Class<?> cls2 = Class.forName("com.android.server.wm.WindowState", false, classLoader);
-                        final Method a2 = a(cls2, "isVisible", (Class<?>[]) new Class[0]);
-                        final Method a3 = a(cls2, "getDisplayId", (Class<?>[]) new Class[0]);
+                        Method a2= a(cls2, "isVisible", (Class<?>[]) new Class[0]);
+                        Method a3= a(cls2, "getDisplayId", (Class<?>[]) new Class[0]);
                         Method a4 = a(cls, "getWindow", (Class<?>[]) new Class[]{Predicate.class});
                         synchronized (a(invoke.getClass(), "mGlobalLock").get(invoke)) {
                             Object obj2 = a(invoke.getClass(), "mRoot").get(invoke);
                             String[] strArr = {"home", "wallpaper"};
                             int i4 = 0;
                             while (i4 < 2) {
-                                final String str = strArr[i4];
+                                String str= strArr[i4];
                                 String[] strArr2 = strArr;
                                 Object invoke2 = a4.invoke(obj2, new Predicate() { // from class: dev.duo.hookprobe.u$$ExternalSyntheticLambda1
                                     @Override // java.util.function.Predicate
@@ -453,7 +453,7 @@ final class u {
                                             }
                                             bundle.putBundle(str, bundle2);
                                             i4++;
-                                            c0025u = this;
+                                            // c0025u = this;  // final
                                             arrayList2 = arrayList;
                                             strArr = strArr2;
                                             obj2 = obj3;
@@ -516,22 +516,22 @@ final class u {
                 this.u.remove(iBinder);
                 Map<Integer, IBinder> map = this.t.get(iBinder);
                 if (this.x != iBinder) {
-                    c0025u = this;
+                    // c0025u = this;  // final
                     iBinder2 = iBinder;
                 } else {
                     this.x = null;
                     try {
-                        c0025u = this;
+                        // c0025u = this;  // final
                         iBinder2 = iBinder;
                     } catch (Exception e) {
                         e = e;
-                        c0025u = this;
+                        // c0025u = this;  // final
                         iBinder2 = iBinder;
                     }
                     try {
                         c0025u.a(iBinder2, this.y, false, this.A, this.B, this.H);
                     } catch (Exception e2) {
-                        e = e2;
+                        Exception exc = e2;
                         Exception exc = e;
                         c0025u.O = exc;
                         Log.e("MiDuoFold", "结束目标订阅失败", exc);
@@ -621,8 +621,8 @@ final class u {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public /* synthetic */ Object a(Handler handler, XposedInterface.Chain chain) throws Throwable {
-        final IBinder iBinder;
-        final long j;
+        IBinder iBinder;
+        long j;
         String str;
         int i;
         int i2;

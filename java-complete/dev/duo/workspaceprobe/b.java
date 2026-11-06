@@ -9483,7 +9483,7 @@ public final class b extends XposedModule {
             for (int i3 = 0; i3 < 4; i3++) {
                 fieldArr[i3].setAccessible(true);
             }
-            final Object valueOf = Enum.valueOf(cls3, "MULTIPLE_SURFACES");
+            final Object valueOf = Enum.valueOf((Class) cls3, "MULTIPLE_SURFACES");
             Class cls8 = Boolean.TYPE;
             Method declaredMethod = cls4.getDeclaredMethod("createLetterboxSurface", cls6, SurfaceControl.Transaction.class, SurfaceControl.class, cls7, cls8, Rect.class);
             try {
