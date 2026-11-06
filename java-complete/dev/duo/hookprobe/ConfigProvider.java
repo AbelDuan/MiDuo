@@ -115,11 +115,7 @@ public final class ConfigProvider extends ContentProvider {
                                     } catch (PackageManager.NameNotFoundException e) {
                                         Log.w("MiDuoTones", "page colours shared without App version: " + str2);
                                     }
-                                    try {
                                         a8.putString("share", new JSONObject().toString());
-                                    } catch (JSONException e2) {
-                                        Log.w("MiDuoTones", "page colours not shared: " + e2);
-                                    }
                                 }
                                 return a8;
                             }
@@ -146,7 +142,7 @@ public final class ConfigProvider extends ContentProvider {
     */
     public Bundle call(String str, String str2, Bundle bundle) {
         boolean z;
-        Bundle bundle2;
+        Bundle bundle2 = new Bundle();
         XposedService a2;
         char c;
         boolean a3;
@@ -481,10 +477,6 @@ public final class ConfigProvider extends ContentProvider {
                                             return a(bundle2, "copyFrom must be a package name");
                                         }
                                         return a(bundle2, "copyFrom cannot be combined with light/dark");
-                                        if (!a3) {
-                                            return a(bundle2, "palette save failed or source has no palette");
-                                        }
-                                        bundle2.putString("palette", dev.duo.hookprobe.P.i(sharedPreferences, str2));
                                     }
                                 }
                                 return a(bundle2, "--arg must be a package name");
@@ -510,7 +502,7 @@ public final class ConfigProvider extends ContentProvider {
         z = false;
         if (callingUid == 0) {
         }
-        bundle2 = new Bundle();
+        return bundle2;
     }
 
     @Override // android.content.ContentProvider
