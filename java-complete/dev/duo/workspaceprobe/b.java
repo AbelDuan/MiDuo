@@ -6809,7 +6809,7 @@ public final class b extends XposedModule {
 
     private void y0() {
         try {
-            Object systemService = this.i4.getSystemService((Class<Object>) StatusBarManager.class);
+            Object systemService = this.i4.getSystemService((Class) StatusBarManager.class);
             systemService.getClass().getMethod("expandSettingsPanel", null).invoke(systemService, null);
         } catch (ReflectiveOperationException e2) {
             Log.w("DuoRail", "Control centre unavailable", e2);
@@ -6857,7 +6857,7 @@ public final class b extends XposedModule {
 
     private void z0() {
         try {
-            Object systemService = this.i4.getSystemService((Class<Object>) StatusBarManager.class);
+            Object systemService = this.i4.getSystemService((Class) StatusBarManager.class);
             systemService.getClass().getMethod("expandNotificationsPanel", null).invoke(systemService, null);
         } catch (ReflectiveOperationException e2) {
             Log.w("DuoRail", "Message centre unavailable", e2);
@@ -11103,7 +11103,7 @@ public final class b extends XposedModule {
                 }
                 return bundle;
             } catch (ReflectiveOperationException | RuntimeException e4) {
-                e = e4;
+                // e = e4;  // e is a Field
                 z2 = z3;
             }
         } else {
@@ -11604,7 +11604,7 @@ public final class b extends XposedModule {
         ArrayList arrayList = new ArrayList(list);
         final HashMap hashMap = new HashMap();
         try {
-            for (Map.Entry entry : ((Map) Class.forName("android.util.MiuiMultiWindowUtils").getMethod("readFreeformTimestamps", Context.class).invoke(null, this.i4)).entrySet()) {
+            for (Map.Entry entry : (Set<Map.Entry>) ((Map) Class.forName("android.util.MiuiMultiWindowUtils").getMethod("readFreeformTimestamps", Context.class).invoke(null, this.i4)).entrySet()) {
                 long j2 = 0;
                 if (entry.getValue() instanceof Iterable) {
                     for (Object obj : (Iterable) entry.getValue()) {
