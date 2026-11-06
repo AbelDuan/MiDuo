@@ -51,7 +51,7 @@ public final class g extends XposedModule {
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ Object b(XposedInterface.Chain chain) throws Throwable {
         Object proceed = chain.proceed();
-        if (dev.duo.workspaceprobe.d.equals(chain.getArg(1)) && this.a.add(chain.getThisObject().getClass())) {
+        if (chain.getArg(1).equals(dev.duo.workspaceprobe.d) && this.a.add(chain.getThisObject().getClass())) {
             a(chain.getThisObject().getClass());
         }
         return proceed;

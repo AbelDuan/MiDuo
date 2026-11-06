@@ -6756,7 +6756,7 @@ public final class b extends XposedModule {
             executorService.execute(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda22
                 @Override // java.lang.Runnable
                 public final void run() {
-                    dev.duo.workspaceprobe.b.a(dev.duo.workspaceprobe.b.this);
+                    dev.duo.workspaceprobe.b.this.m(str);
                 }
             });
         } catch (RejectedExecutionException e2) {
