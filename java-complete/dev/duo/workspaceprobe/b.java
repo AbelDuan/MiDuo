@@ -4579,7 +4579,7 @@ public final class b extends XposedModule {
             r3.a.relayout(r3.f, i2);
             SurfaceControl.Transaction transaction = new SurfaceControl.Transaction();
             try {
-                transaction.setCrop(this.Y2.b, new Rect(0, 0, this.Y2.f, i2)).apply();
+                transaction.setCrop(this.Y2.b_v, new Rect(0, 0, this.Y2.f, i2)).apply();
                 transaction.close();
                 if (this.T2 && this.Z2 == null) {
                     a(this.Y2, this.W2, this.X2, 2001);
@@ -5081,7 +5081,7 @@ public final class b extends XposedModule {
             i2 = (this.a4 == 0 ? Z : 0) + 416;
         }
         this.W0.a(this.G3 && !this.b4, i2 - round);
-        int max = this.W0.a() ? Math.max(h0.D, this.W0.r0) : h0.D;
+        int max = this.W0.a() ? Math.max(h0.D, this.W0.r0_v) : h0.D;
         if (this.N6.g == max) {
             return;
         }
@@ -5090,7 +5090,7 @@ public final class b extends XposedModule {
             this.N6.g = max;
             SurfaceControl.Transaction transaction = new SurfaceControl.Transaction();
             try {
-                transaction.setCrop(this.N6.b, new Rect(0, 0, this.N6.f, max)).apply();
+                transaction.setCrop(this.N6.b_v, new Rect(0, 0, this.N6.f, max)).apply();
                 transaction.close();
             } finally {
             }
@@ -5753,10 +5753,10 @@ public final class b extends XposedModule {
                                                     }
                                                     transaction = new SurfaceControl.Transaction();
                                                     transaction2 = transaction;
-                                                    SurfaceControl.Transaction position = transaction.reparent(this.N6.b, surfaceControl2).setLayer(this.N6.b, 1000000).setPosition(this.N6.b, c4, d3);
-                                                    SurfaceControl surfaceControl3 = this.N6.b;
+                                                    SurfaceControl.Transaction position = transaction.reparent(this.N6.b_v, surfaceControl2).setLayer(this.N6.b_v, 1000000).setPosition(this.N6.b_v, c4, d3);
+                                                    SurfaceControl surfaceControl3 = this.N6.b_v;
                                                     R r4 = this.N6;
-                                                    position.setCrop(surfaceControl3, new Rect(0, 0, r4.f, r4.g)).setAlpha(this.N6.b, f4).setVisibility(this.N6.b, z2).apply();
+                                                    position.setCrop(surfaceControl3, new Rect(0, 0, r4.f, r4.g)).setAlpha(this.N6.b_v, f4).setVisibility(this.N6.b_v, z2).apply();
                                                     transaction2.close();
                                                     this.l4 = r2 ^ 1;
                                                     this.n4 = surfaceControl2;
@@ -5799,7 +5799,7 @@ public final class b extends XposedModule {
                                                 }
                                             }
                                             R r42 = this.N6;
-                                            position.setCrop(surfaceControl3, new Rect(0, 0, r42.f, r42.g)).setAlpha(this.N6.b, f4).setVisibility(this.N6.b, z2).apply();
+                                            position.setCrop(surfaceControl3, new Rect(0, 0, r42.f, r42.g)).setAlpha(this.N6.b_v, f4).setVisibility(this.N6.b_v, z2).apply();
                                         } catch (Throwable th3) {
                                             throw th3;
                                             r2 = "DuoKeyguard";
@@ -5812,8 +5812,8 @@ public final class b extends XposedModule {
                                                 throw th;
                                             }
                                         }
-                                        SurfaceControl.Transaction position2 = transaction.reparent(this.N6.b, surfaceControl2).setLayer(this.N6.b, 1000000).setPosition(this.N6.b, c4, d3);
-                                        SurfaceControl surfaceControl32 = this.N6.b;
+                                        SurfaceControl.Transaction position2 = transaction.reparent(this.N6.b_v, surfaceControl2).setLayer(this.N6.b_v, 1000000).setPosition(this.N6.b_v, c4, d3);
+                                        SurfaceControl surfaceControl32 = this.N6.b_v;
                                     } catch (Throwable th5) {
                                         throw th5;
                                         r2 = "DuoKeyguard";
@@ -6191,7 +6191,7 @@ public final class b extends XposedModule {
         if (this.z5 != null) {
             SurfaceControl.Transaction transaction = new SurfaceControl.Transaction();
             try {
-                a(transaction, "setShadowRadius", this.z5.b, Float.valueOf(z3 ? 0.0f : 8.0f));
+                a(transaction, "setShadowRadius", this.z5.b_v, Float.valueOf(z3 ? 0.0f : 8.0f));
                 transaction.apply();
                 transaction.close();
             } catch (Throwable th) {
@@ -6894,7 +6894,7 @@ public final class b extends XposedModule {
         if (this.n3 && (r2 = this.N6) != null && r2.b.isValid()) {
             SurfaceControl.Transaction transaction = new SurfaceControl.Transaction();
             try {
-                transaction.setVisibility(this.N6.b, false).apply();
+                transaction.setVisibility(this.N6.b_v, false).apply();
                 transaction.close();
             } catch (Throwable th) {
                 try {
@@ -8773,9 +8773,9 @@ public final class b extends XposedModule {
         }
 
         private void d() {
-            ArrayList arrayList = new ArrayList(this.a.j);
+            ArrayList arrayList = new ArrayList(this.a.j_v);
             arrayList.add(this.k_v, (Object[]) arrayList.remove(this.j_v));
-            this.a.j = arrayList;
+            this.a.j_v = arrayList;
             ArrayList arrayList2 = new ArrayList();
             int size = arrayList.size();
             int i = 0;
@@ -8789,7 +8789,7 @@ public final class b extends XposedModule {
             b bVar = dev.duo.workspaceprobe.b.this;
             bVar.b(dev.duo.hookprobe.J.a(bVar.N3, arrayList2, arrayList2, dev.duo.hookprobe.J.m));
             this.a.d();
-            View view = this.k_v < this.a.o.size() ? this.a.o.get(this.k_v) : null;
+            View view = this.k_v < this.a.o_v.size() ? this.a.o_v.get(this.k_v) : null;
             final View childAt = view != null ? ((ViewGroup) ((ViewGroup) view).getChildAt(0)).getChildAt(0) : null;
             if (childAt == null) {
                 j();
@@ -8842,14 +8842,14 @@ public final class b extends XposedModule {
         }
 
         private int i() {
-            if (this.j_v >= 0 && !this.a.p && this.b_v.isAttachedToWindow() && this.a.o.indexOf(this.b_v) == this.j_v) {
+            if (this.j_v >= 0 && !this.a.p_v && this.b_v.isAttachedToWindow() && this.a.o_v.indexOf(this.b_v) == this.j_v) {
                 int[] h = h();
                 float f = this.l_v;
                 if (f >= h[0] && f <= r4 + h[2]) {
                     float f2 = this.m;
                     if (f2 >= h[1] && f2 <= r6 + h[3]) {
                         this.a.g.getLocationOnScreen(new int[2]);
-                        return dev.duo.hookprobe.J.a(this.l_v - r0_v[0], this.m - r0_v[1], this.a.g.getWidth() / 3.0f, ((View) this.b_v.getParent()).getHeight(), 3, this.a.o.size());
+                        return dev.duo.hookprobe.J.a(this.l_v - r0_v[0], this.m - r0_v[1], this.a.g.getWidth() / 3.0f, ((View) this.b_v.getParent()).getHeight(), 3, this.a.o_v.size());
                     }
                 }
             }
@@ -8893,7 +8893,7 @@ public final class b extends XposedModule {
                     a(true);
                     return;
                 } else {
-                    this.a.l = null;
+                    this.a.l_v = null;
                     return;
                 }
             }
@@ -8901,7 +8901,7 @@ public final class b extends XposedModule {
                 if (this.p_v) {
                     a(false);
                 } else {
-                    this.a.l = null;
+                    this.a.l_v = null;
                 }
             }
         }
@@ -8912,7 +8912,7 @@ public final class b extends XposedModule {
             }
             this.q_v = true;
             this.p_v = false;
-            this.a.l = null;
+            this.a.l_v = null;
             this.b_v.removeCallbacks(this);
             K k_v = this.r_v;
             if (k_v != null) {
@@ -9019,7 +9019,7 @@ public final class b extends XposedModule {
             } catch (RuntimeException e) {
                 Log.w("DuoRail", "Sidebar carry unavailable", e);
                 this.n_v = null;
-                this.a.l = null;
+                this.a.l_v = null;
             }
         }
 
@@ -9033,14 +9033,14 @@ public final class b extends XposedModule {
 
         private void a(int i) {
             int i2 = this.j_v;
-            if (i2 < 0 || i2 >= this.a.o.size() || this.a.o.get(this.j_v) != this.b_v) {
+            if (i2 < 0 || i2 >= this.a.o_v.size() || this.a.o_v.get(this.j_v) != this.b_v) {
                 return;
             }
             float width = this.a.g.getWidth() / 3;
             float height = ((View) this.b_v.getParent()).getHeight();
             int i3 = 0;
-            while (i3 < this.a.o.size()) {
-                View view = this.a.o.get(i3);
+            while (i3 < this.a.o_v.size()) {
+                View view = this.a.o_v.get(i3);
                 int i4 = this.j_v;
                 if (i3 == i4) {
                     view.animate().alpha(i >= 0 ? 0.0f : 1.0f).setDuration(120L).start();
@@ -9075,11 +9075,11 @@ public final class b extends XposedModule {
             K k_v;
             this.q_v = true;
             this.p_v = false;
-            this.a.l = null;
+            this.a.l_v = null;
             this.b_v.removeCallbacks(this);
             K k2 = this.r_v;
             if (k2 != null && (k2.j_v.getParent() instanceof e0)) {
-                ((e0) this.r_v.j.getParent()).a();
+                ((e0) this.r_v.j_v.getParent()).a();
             }
             ScrollView scrollView = this.s_v;
             if ((scrollView instanceof e0) && ((k_v = this.r_v) == null || scrollView != k_v.j.getParent())) {
@@ -9106,7 +9106,7 @@ public final class b extends XposedModule {
                     return;
                 }
             }
-            if (z_v && (i = this.k_v) >= 0 && i != this.j_v && this.a.o.indexOf(this.b_v) == this.j_v) {
+            if (z_v && (i = this.k_v) >= 0 && i != this.j_v && this.a.o_v.indexOf(this.b_v) == this.j_v) {
                 d();
                 return;
             }
@@ -11492,7 +11492,7 @@ public final class b extends XposedModule {
             r1();
             SurfaceControl.Transaction transaction = new SurfaceControl.Transaction();
             try {
-                transaction.setVisibility(this.Y2.b, false).apply();
+                transaction.setVisibility(this.Y2.b_v, false).apply();
                 transaction.close();
                 this.A1.postDelayed(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda206
                     @Override // java.lang.Runnable
@@ -13739,7 +13739,7 @@ public final class b extends XposedModule {
             float f5 = w02 * f4;
             boolean z5 = f5 > 0.001f;
             if (!this.l4 || f5 != this.q4 || z5 != this.m4) {
-                transaction.setAlpha(this.N6.b, f5).setVisibility(this.N6.b, z5);
+                transaction.setAlpha(this.N6.b_v, f5).setVisibility(this.N6.b_v, z5);
                 if (f5 != this.q4 || z5 != this.m4) {
                     this.l4 = false;
                 }
@@ -13752,8 +13752,8 @@ public final class b extends XposedModule {
                     return z3;
                 }
                 boolean z6 = (this.b4 || this.a4 == Q) || (this.v2 == 1168 && this.w2 == 1712);
-                if (!Float.isNaN(this.t5.k)) {
-                    if ((this.t5.k > 0.0f) != z6) {
+                if (!Float.isNaN(this.t5.k_v)) {
+                    if ((this.t5.k_v > 0.0f) != z6) {
                         z4 = z3;
                         float f6 = (!z6 ? 0.0f : this.F5) * w02;
                         f2 = this.G5 * w02;
@@ -13773,8 +13773,8 @@ public final class b extends XposedModule {
                         return a(transaction, t()) | a3 | a(transaction, r5, f3);
                     }
                 }
-                transaction.setVisibility(this.t5.b, !z6);
-                this.t5.k = z6 ? 0.0f : 1.0f;
+                transaction.setVisibility(this.t5.b_v, !z6);
+                this.t5.k_v = z6 ? 0.0f : 1.0f;
                 float f62 = (!z6 ? 0.0f : this.F5) * w02;
                 f2 = this.G5 * w02;
                 boolean a22 = a(transaction, this.u5, f62) | z4;
