@@ -6755,7 +6755,7 @@ public final class b extends XposedModule {
             executorService.execute(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda22
                 @Override // java.lang.Runnable
                 public final void run() {
-                    dev.duo.workspaceprobe.b.a(dev.duo.workspaceprobe.b.O.this);
+                    dev.duo.workspaceprobe.b.a(dev.duo.workspaceprobe.b.this);
                 }
             });
         } catch (RejectedExecutionException e2) {
@@ -13409,7 +13409,7 @@ public final class b extends XposedModule {
             this.R0.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda211
                 @Override // java.lang.Runnable
                 public final void run() {
-                    dev.duo.workspaceprobe.b.L.this.c = false;
+                    dev.duo.workspaceprobe.b.this.c = false;
                 }
             });
             Log.w("DuoRail", "App rail decor late build failed task=" + i2, th);
@@ -14519,7 +14519,7 @@ public final class b extends XposedModule {
                     this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda136
                         @Override // java.lang.Runnable
                         public final void run() {
-                            dev.duo.workspaceprobe.b.R.this.b();
+                            dev.duo.workspaceprobe.b.this.b();
                         }
                     });
                 } catch (Throwable th) {
@@ -14537,7 +14537,7 @@ public final class b extends XposedModule {
                 handler.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda136
                     @Override // java.lang.Runnable
                     public final void run() {
-                        dev.duo.workspaceprobe.b.R.this.b();
+                        dev.duo.workspaceprobe.b.this.b();
                     }
                 });
             }
@@ -14547,7 +14547,7 @@ public final class b extends XposedModule {
             handler2.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda136
                 @Override // java.lang.Runnable
                 public final void run() {
-                    dev.duo.workspaceprobe.b.R.this.b();
+                    dev.duo.workspaceprobe.b.this.b();
                 }
             });
             throw th3;
