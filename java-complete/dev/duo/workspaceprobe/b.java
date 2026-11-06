@@ -3531,12 +3531,13 @@ public final class b extends XposedModule {
                     }
                     h0Var2.z0.setStrokeWidth(0.0f);
                     if (!z4) {
+                        float[] r5Arr = {1.0f, 0.985f, 0.94f, 0.86f, 0.75f, 0.62f, 0.48f, 0.35f, 0.23f, 0.13f, 0.06f, 0.015f, 0.0f};
                         int i10 = i3;
                         while (true) {
-                            if (i10 >= dev.duo.workspaceprobe.k.length) {
+                            if (i10 >= r5Arr.length) {
                                 break;
                             }
-                            double radians = Math.toRadians(r5[i10]);
+                            double radians = Math.toRadians(r5Arr[i10]);
                             h0Var2.z0.setColor(i10 < h0Var2.d0 ? h0Var2.g0 : i5);
                             canvas2.drawCircle(f3 + (((float) Math.cos(radians)) * a), c + (((float) Math.sin(radians)) * a), l_v, h0Var2.z0);
                             i10++;
