@@ -13349,7 +13349,7 @@ public final class b extends XposedModule {
             }
             int i2 = this.g2;
             this.g2 = i2 + 1;
-            long a2 = a.a(i2);
+            long a2 = dev.duo.workspaceprobe.a.a(i2);
             this.f2 = SystemClock.uptimeMillis() + a2;
             Log.w("DuoRail", "Duo config unknown pkg=" + str + " known=" + (b2 != null) + " retryMs=" + a2);
             this.A1.postDelayed(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda86
@@ -13472,7 +13472,7 @@ public final class b extends XposedModule {
             try {
                 bundle.putBoolean("railNight", this.k2);
                 Bundle call = context.getContentResolver().call(Uri.parse("content://com.lsposed.miduo.config"), "railEnabled", str, bundle);
-                a.b a2 = a.a(call != null, call != null && call.containsKey("enabled"), call != null && call.getBoolean("enabled", false) && v0(), call != null && Color.luminance(call.getInt("railBackground", a)) <= 0.45f, call == null ? a : call.getInt("railBackground", a), call != null && call.getBoolean("railCustomBackground", false), call != null && call.getBoolean("innerNativeBar", false), call == null ? 0 : call.getInt("hiddenTop", 0), call != null && call.containsKey("error"));
+                dev.duo.workspaceprobe.a.b a2 = dev.duo.workspaceprobe.a.a(call != null, call != null && call.containsKey("enabled"), call != null && call.getBoolean("enabled", false) && v0(), call != null && Color.luminance(call.getInt("railBackground", a)) <= 0.45f, call == null ? a : call.getInt("railBackground", a), call != null && call.getBoolean("railCustomBackground", false), call != null && call.getBoolean("innerNativeBar", false), call == null ? 0 : call.getInt("hiddenTop", 0), call != null && call.containsKey("error"));
                 if (str2 != null) {
                     StringBuilder append = new StringBuilder().append("Duo config read pkg=").append(str).append(" reason=").append(str2).append(" thread=").append(Thread.currentThread().getName()).append(" ms=").append(SystemClock.uptimeMillis() - uptimeMillis);
                     if (a2 == null) {
