@@ -15303,7 +15303,8 @@ public final class b extends XposedModule {
             Rect rect = imageView == this.i3 ? this.s3 : imageView == this.j3 ? this.t3 : null;
             if (rect != null && this.z5 != null) {
                 View view = (View) method.invoke(chain.getThisObject(), null);
-                view.getLocationOnScreen(new int[2]);
+                int[] r6 = new int[2];
+                view.getLocationOnScreen(r6);
                 float max = Math.max(Math.max(132, Math.round(this.i4.getResources().getDisplayMetrics().density * 48.0f)) + 18.0f, Math.max(this.s3.height(), this.t3.height()) * 2.0f);
                 float c2 = c(this.z5);
                 float f2 = c2 + (r10.f / 2.0f);
