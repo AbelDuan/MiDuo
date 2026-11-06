@@ -965,7 +965,7 @@ public final class b extends XposedModule {
             canvas.drawCircle(68.0f, 68.0f, 57.0f, this.g);
             canvas.restore();
             this.e.draw(canvas);
-            canvas.translate(0.0f, dev.duo.workspaceprobe.b.u0);
+            canvas.translate(0.0f, dev.duo.workspaceprobe.b.u0_v);
             if (this.j_v == null) {
                 a(canvas, 68.0f);
                 return;
@@ -983,7 +983,7 @@ public final class b extends XposedModule {
         }
 
         private void b(Canvas canvas, float f) {
-            canvas.translate(0.0f, dev.duo.workspaceprobe.b.u0);
+            canvas.translate(0.0f, dev.duo.workspaceprobe.b.u0_v);
             Drawable drawable = this.j_v;
             if (drawable == null) {
                 this.f.setStyle(Paint.Style.FILL);
@@ -1210,7 +1210,7 @@ public final class b extends XposedModule {
                     return "ic_qs_flashlight_disabled";
                 case '\f':
                     return "ic_qs_battery_saver_off";
-                case dev.duo.workspaceprobe.b.C0 /* 13 */:
+                case dev.duo.workspaceprobe.b.C0_v /* 13 */:
                     return "ic_qs_hotspot_disabled";
                 case 14:
                     return "qs_location_icon_off";
@@ -1490,7 +1490,7 @@ public final class b extends XposedModule {
                     float f28 = f + 7.0f;
                     canvas.drawLine(f28, f26, f28, f27, this.f);
                     break;
-                case dev.duo.workspaceprobe.b.C0 /* 13 */:
+                case dev.duo.workspaceprobe.b.C0_v /* 13 */:
                     this.f.setStyle(Paint.Style.FILL);
                     this.h.setFillType(Path.FillType.EVEN_ODD);
                     canvas.save();
@@ -1520,7 +1520,7 @@ public final class b extends XposedModule {
                     canvas.drawRoundRect(f - 22.0f, f - 18.0f, f + 22.0f, f + 18.0f, 7.0f, 7.0f, this.f);
                     canvas.drawLine(f - 10.0f, f, f + 10.0f, f, this.f);
                     break;
-                case dev.duo.workspaceprobe.b.w /* 16 */:
+                case dev.duo.workspaceprobe.b.w_v /* 16 */:
                     canvas.drawCircle(f, f - 5.0f, 10.0f, this.f);
                     this.f.setStyle(Paint.Style.FILL);
                     float f37 = f + 2.0f;
@@ -1788,7 +1788,7 @@ public final class b extends XposedModule {
             canvas.drawCircle(68.0f, 68.0f, 57.0f, this.d);
             canvas.restore();
             this.e.draw(canvas);
-            canvas.translate(0.0f, dev.duo.workspaceprobe.b.u0);
+            canvas.translate(0.0f, dev.duo.workspaceprobe.b.u0_v);
             this.f.setColor(this.b_v);
             this.f.setAlpha(Math.round(this.c * 255.0f));
             this.g.reset();
@@ -1957,7 +1957,7 @@ public final class b extends XposedModule {
         @Override // android.view.View
         protected void onDraw(Canvas canvas) {
             this.c.draw(canvas);
-            canvas.translate(0.0f, dev.duo.workspaceprobe.b.u0);
+            canvas.translate(0.0f, dev.duo.workspaceprobe.b.u0_v);
             boolean z_v = this.b_v;
             int i = z_v ? -14460213 : this.a;
             if (z_v) {
@@ -1999,7 +1999,7 @@ public final class b extends XposedModule {
 
         @Override // android.widget.ImageView, android.view.View
         protected void onDraw(Canvas canvas) {
-            canvas.translate(0.0f, dev.duo.workspaceprobe.b.u0);
+            canvas.translate(0.0f, dev.duo.workspaceprobe.b.u0_v);
             super.onDraw(canvas);
         }
     }
@@ -2019,7 +2019,7 @@ public final class b extends XposedModule {
 
         @Override // android.view.View
         protected void onDraw(Canvas canvas) {
-            canvas.translate(0.0f, dev.duo.workspaceprobe.b.u0);
+            canvas.translate(0.0f, dev.duo.workspaceprobe.b.u0_v);
             float width = getWidth() / 116.0f;
             canvas.translate(getWidth() / 2.0f, getHeight() / 2.0f);
             canvas.scale(width, width);
@@ -2305,7 +2305,7 @@ public final class b extends XposedModule {
             linearLayout.setClipToOutline(true);
             linearLayout.setClickable(true);
             LinearLayout linearLayout2 = new LinearLayout(dev.duo.workspaceprobe.b.this.i4);
-            linearLayout2.setGravity(dev.duo.workspaceprobe.b.w);
+            linearLayout2.setGravity(dev.duo.workspaceprobe.b.w_v);
             linearLayout2.setPadding(36, 0, 36, 0);
             ImageView imageView = new ImageView(dev.duo.workspaceprobe.b.this.i4);
             TextView textView = new TextView(dev.duo.workspaceprobe.b.this.i4);
@@ -2333,7 +2333,7 @@ public final class b extends XposedModule {
             a(bLocal, i4, "小窗打开", true, new Runnable() { // from class: dev.duo.workspaceprobe.b$b0$$ExternalSyntheticLambda4
                 @Override // java.lang.Runnable
                 public final void run() {
-                    dev.duo.workspaceprobe.b.b0.this.b_v(str);
+                    dev.duo.workspaceprobe.b.b0.this.b(str);
                 }
             });
             if (z_v) {
@@ -2435,7 +2435,7 @@ public final class b extends XposedModule {
         /* JADX INFO: Access modifiers changed from: private */
         public void a() {
             if (this.f) {
-                dev.duo.workspaceprobe.b.this.o_v();
+                dev.duo.workspaceprobe.b.this.o();
             } else {
                 dev.duo.workspaceprobe.b.this.p();
             }
@@ -2447,7 +2447,7 @@ public final class b extends XposedModule {
             this.c.addView(view, new LinearLayout.LayoutParams(-1, 1));
             TextView textView = new TextView(dev.duo.workspaceprobe.b.this.i4);
             textView.setText(str);
-            textView.setGravity(dev.duo.workspaceprobe.b.w);
+            textView.setGravity(dev.duo.workspaceprobe.b.w_v);
             textView.setPadding(dev.duo.workspaceprobe.b.Z, 0, dev.duo.workspaceprobe.b.Z, 0);
             textView.setTextSize(0, 38.0f);
             textView.setTextColor(i2);
@@ -2608,7 +2608,7 @@ public final class b extends XposedModule {
             linearLayout.setOrientation(1);
             linearLayout.setPadding(w_v, w_v, w_v, 0);
             LinearLayout linearLayout2 = new LinearLayout(dev.duo.workspaceprobe.b.this.i4);
-            linearLayout2.setGravity(dev.duo.workspaceprobe.b.w);
+            linearLayout2.setGravity(dev.duo.workspaceprobe.b.w_v);
             EditText editText = new EditText(dev.duo.workspaceprobe.b.this.i4);
             this.h = editText;
             editText.setHint("搜索应用");
@@ -2624,7 +2624,7 @@ public final class b extends XposedModule {
             frameLayout2.addView(editText, new FrameLayout.LayoutParams(-1, -1));
             a0 a0Var = new a0(dev.duo.workspaceprobe.b.this.i4, 0, b_v ? -5329230 : -12829629);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(w_v, w_v);
-            layoutParams.gravity = dev.duo.workspaceprobe.b.w;
+            layoutParams.gravity = dev.duo.workspaceprobe.b.w_v;
             layoutParams.leftMargin = 38;
             frameLayout2.addView(a0Var, layoutParams);
             linearLayout2.addView(frameLayout2, new LinearLayout.LayoutParams(0, 112, 1.0f));
@@ -2804,8 +2804,8 @@ public final class b extends XposedModule {
             final ImageView imageView = new ImageView(dev.duo.workspaceprobe.b.this.i4);
             imageView.setImageDrawable(drawable);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(y_v, y_v);
-            layoutParams.topMargin = dev.duo.workspaceprobe.b.w;
-            layoutParams.rightMargin = dev.duo.workspaceprobe.b.w;
+            layoutParams.topMargin = dev.duo.workspaceprobe.b.w_v;
+            layoutParams.rightMargin = dev.duo.workspaceprobe.b.w_v;
             frameLayout.addView(imageView, layoutParams);
             final boolean contains = dev.duo.workspaceprobe.b.this.L3.contains(str);
             if (dev.duo.workspaceprobe.b.this.T3 && !contains) {
@@ -3447,7 +3447,7 @@ public final class b extends XposedModule {
             float f3;
             int i5;
             float f4;
-            canvas.translate(0.0f, dev.duo.workspaceprobe.b.u0);
+            canvas.translate(0.0f, dev.duo.workspaceprobe.b.u0_v);
             float f5 = this.S ? 6.804f : d;
             int i6 = this.g0;
             int i7 = (i6 & 16777215) | 1291845632;
@@ -8880,7 +8880,7 @@ public final class b extends XposedModule {
                     return;
                 } else {
                     if (Math.hypot(this.l_v - this.g, this.m - this.h) > 24.0d) {
-                        dev.duo.workspaceprobe.b.this.o_v();
+                        dev.duo.workspaceprobe.b.this.o();
                         dev.duo.workspaceprobe.b.this.B(2);
                         a();
                         return;
@@ -8933,7 +8933,7 @@ public final class b extends XposedModule {
             this.c.getLocationOnScreen(iArr);
             boolean z_v = (iArr[0] + this.c.getWidth()) + 444 <= 939;
             int width = z_v ? iArr[0] + this.c.getWidth() + 24 : Math.max(24, iArr[0] - 444);
-            dev.duo.workspaceprobe.b.this.o_v();
+            dev.duo.workspaceprobe.b.this.o();
             b bVar = dev.duo.workspaceprobe.b.this;
             bVar.V3 = bVar.new b0(this.d, bVar.L3.contains(this.d), width, iArr[1] + (this.c.getHeight() / 2), z_v ? 0.0f : 420, true);
             dev.duo.workspaceprobe.b.this.V3.d();
