@@ -38,19 +38,19 @@ public final class WidgetCenterActivity extends Activity {
     private T.d a;
     private LinearLayout b_fld;
     private boolean c;
-    private final dev.duo.hookprobe.b.d d = new a();
+    private final b.d d = new a();
 
-    class a implements dev.duo.hookprobe.b.d {
+    class a implements b.d {
         a() {
         }
 
-        @Override // dev.duo.hookprobe.b.d
+        @Override // b.d
         public void a(String str) {
             dev.duo.hookprobe.WidgetCenterActivity.this.c(str);
         }
 
-        @Override // dev.duo.hookprobe.b.d
-        public void a(dev.duo.hookprobe.b.c cVar, Exception exc) {
+        @Override // b.d
+        public void a(b.c cVar, Exception exc) {
             dev.duo.hookprobe.WidgetCenterActivity.this.a(cVar, exc);
         }
     }
@@ -88,7 +88,7 @@ public final class WidgetCenterActivity extends Activity {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: c, reason: merged with bridge method [inline-methods] */
     public void a(int i) {
-        if (dev.duo.hookprobe.b.a(this, i, this.d)) {
+        if (b.a(this, i, this.d)) {
             return;
         }
         g();
@@ -113,8 +113,8 @@ public final class WidgetCenterActivity extends Activity {
     }
 
     private c f() throws Exception {
-        String a2 = dev.duo.hookprobe.b.a();
-        LinkedHashMap<Integer, Long> linkedHashMap = dev.duo.hookprobe.b.a(this, a2).a;
+        String a2 = b.a();
+        LinkedHashMap<Integer, Long> linkedHashMap = b.a(this, a2).a;
         int size = linkedHashMap.size();
         int[] iArr = new int[size];
         Iterator<Integer> it = linkedHashMap.keySet().iterator();
@@ -130,17 +130,17 @@ public final class WidgetCenterActivity extends Activity {
                 iArr[0] = intExtra;
             }
         }
-        return new c(iArr, linkedHashMap, dev.duo.hookprobe.b.b(a2) ? dev.duo.hookprobe.b.c(a2) : -1L);
+        return new c(iArr, linkedHashMap, b.b(a2) ? b.c(a2) : -1L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        String a2 = dev.duo.hookprobe.b.a();
-        dev.duo.hookprobe.b.c cVar = new dev.duo.hookprobe.b.c();
+        String a2 = b.a();
+        b.c cVar = new b.c();
         try {
-            final boolean b2 = dev.duo.hookprobe.b.b(a2);
-            dev.duo.hookprobe.b.a a3 = b2 ? dev.duo.hookprobe.b.a(this, a2) : null;
-            long c2 = dev.duo.hookprobe.b.c(a2);
+            final boolean b2 = b.b(a2);
+            b.a a3 = b2 ? b.a(this, a2) : null;
+            long c2 = b.c(a2);
             if (b2 && b(a3, c2)) {
                 return;
             }
@@ -156,7 +156,7 @@ public final class WidgetCenterActivity extends Activity {
             cVar.a("读取桌面数据", (String) null);
             final boolean a4 = a();
             if (a4 && b2) {
-                dev.duo.hookprobe.b.a(this, a3.c);
+                b.a(this, a3.c);
             }
             runOnUiThread(new Runnable() { // from class: dev.duo.hookprobe.WidgetCenterActivity$$ExternalSyntheticLambda5
                 @Override // java.lang.Runnable
@@ -312,7 +312,7 @@ public final class WidgetCenterActivity extends Activity {
         return a2;
     }
 
-    private boolean b(dev.duo.hookprobe.b.a aVar, long j) {
+    private boolean b(b.a aVar, long j) {
         Integer num;
         if (!aVar.a.isEmpty() || j < 0 || (num = aVar.b.get(Long.valueOf(j))) == null || num.intValue() == 0) {
             return false;
@@ -357,7 +357,7 @@ public final class WidgetCenterActivity extends Activity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(dev.duo.hookprobe.b.c cVar, Exception exc) {
+    public void a(b.c cVar, Exception exc) {
         Log.w("MiDuoAlbum", "widget page not set\n" + cVar.a(), exc);
         final String a2 = cVar.a();
         runOnUiThread(new Runnable() { // from class: dev.duo.hookprobe.WidgetCenterActivity$$ExternalSyntheticLambda0
@@ -401,7 +401,7 @@ public final class WidgetCenterActivity extends Activity {
         }
     }
 
-    private static boolean a(dev.duo.hookprobe.b.a aVar, long j) {
+    private static boolean a(b.a aVar, long j) {
         if (j < 0 || !aVar.c.contains(Long.valueOf(j))) {
             return false;
         }
@@ -475,7 +475,7 @@ public final class WidgetCenterActivity extends Activity {
     }
 
     private void a(c cVar) {
-        if (dev.duo.hookprobe.b.b(this) && cVar.a.length != 0 && dev.duo.hookprobe.b.a(this) && cVar.b.get(Integer.valueOf(cVar.a[0])).longValue() != cVar.c) {
+        if (b.b(this) && cVar.a.length != 0 && b.a(this) && cVar.b.get(Integer.valueOf(cVar.a[0])).longValue() != cVar.c) {
             c("相册已放好，正在设为桌面第 1 页，桌面会重开一次");
             a(cVar.a[0]);
         }

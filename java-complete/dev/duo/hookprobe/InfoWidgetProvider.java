@@ -81,11 +81,11 @@ public class InfoWidgetProvider extends AppWidgetProvider {
     @Override // android.appwidget.AppWidgetProvider, android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
-        if (dev.duo.hookprobe.a.equals(action)) {
+        if (a.equals(action)) {
             if ("com.android.systemui".equals(getSentFromPackage())) {
                 b(context);
             }
-        } else if (dev.duo.hookprobe.b.equals(action)) {
+        } else if (b.equals(action)) {
             if (context.getPackageName().equals(getSentFromPackage())) {
                 b(context);
             }
@@ -115,7 +115,7 @@ public class InfoWidgetProvider extends AppWidgetProvider {
     private void a(Context context, final int i) {
         final Context applicationContext = context.getApplicationContext();
         final BroadcastReceiver.PendingResult goAsync = goAsync();
-        dev.duo.hookprobe.f.execute(new Runnable() { // from class: dev.duo.hookprobe.InfoWidgetProvider$$ExternalSyntheticLambda0
+        f.execute(new Runnable() { // from class: dev.duo.hookprobe.InfoWidgetProvider$$ExternalSyntheticLambda0
             @Override // java.lang.Runnable
             public final void run() {
                 InfoWidgetProvider.a(applicationContext, i, goAsync);
@@ -137,7 +137,7 @@ public class InfoWidgetProvider extends AppWidgetProvider {
         String str3 = "miduo_info_layout_b";
         try {
             AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-            int[][] iArr = new int[dev.duo.hookprobe.c.length][];
+            int[][] iArr = new int[c.length][];
             boolean z = false;
             int i3 = 0;
             while (true) {
@@ -167,7 +167,7 @@ public class InfoWidgetProvider extends AppWidgetProvider {
                 bundleArr[2] = A.a(a(context, "weather"));
             }
             int i5 = 0;
-            while (i5 < dev.duo.hookprobe.c.length) {
+            while (i5 < c.length) {
                 if (i2 >= 0 && i5 != i2) {
                     str = str3;
                 } else if (iArr[i5].length == 0) {

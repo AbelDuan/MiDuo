@@ -84,11 +84,11 @@ public final class P {
     }
 
     static String a(String str) {
-        return dev.duo.hookprobe.r.equals(str) ? g : f;
+        return r.equals(str) ? g : f;
     }
 
     static String b(String str) {
-        return b + (dev.duo.hookprobe.r.equals(str) ? "/innerHideTop" : "/outerHideTop");
+        return b + (r.equals(str) ? "/innerHideTop" : "/outerHideTop");
     }
 
     static boolean c(String str) {
@@ -114,11 +114,11 @@ public final class P {
     }
 
     static String g(String str) {
-        return dev.duo.hookprobe.r.equals(str) ? v : w;
+        return r.equals(str) ? v : w;
     }
 
     static boolean h(String str) {
-        if (str.endsWith("/topSafePx") || str.endsWith("/topSafePxInner") || str.endsWith("/topSafePxOuter") || dev.duo.hookprobe.u.equals(str) || dev.duo.hookprobe.v.equals(str) || dev.duo.hookprobe.w.equals(str)) {
+        if (str.endsWith("/topSafePx") || str.endsWith("/topSafePxInner") || str.endsWith("/topSafePxOuter") || u.equals(str) || v.equals(str) || w.equals(str)) {
             return true;
         }
         return y;
@@ -151,7 +151,7 @@ public final class P {
     }
 
     static boolean n(String str) {
-        if (dev.duo.hookprobe.d.equals(str) || dev.duo.hookprobe.e.equals(str) || str.endsWith("/outerHideTop")) {
+        if (d.equals(str) || e.equals(str) || str.endsWith("/outerHideTop")) {
             return true;
         }
         return y;
@@ -243,7 +243,7 @@ public final class P {
     }
 
     public static boolean e(String str) {
-        return dev.duo.hookprobe.j.contains(str);
+        return j.contains(str);
     }
 
     static String f(String str) {
@@ -293,7 +293,7 @@ public final class P {
             return 0;
         }
         boolean f2 = f(sharedPreferences, str);
-        if (dev.duo.hookprobe.b.equals(str) && sharedPreferences.getBoolean(b(r), y)) {
+        if (b.equals(str) && sharedPreferences.getBoolean(b(r), y)) {
             i2 = 2;
         }
         return (f2 ? 1 : 0) | i2;
@@ -311,7 +311,7 @@ public final class P {
     }
 
     static String a(String str, String str2) {
-        return str + "/topSafePx" + (dev.duo.hookprobe.r.equals(str2) ? "Inner" : "Outer");
+        return str + "/topSafePx" + (r.equals(str2) ? "Inner" : "Outer");
     }
 
     public static boolean b(SharedPreferences sharedPreferences) {

@@ -411,7 +411,7 @@ final class u {
                                     @Override // java.util.function.Predicate
                                     public final boolean test(Object obj3) {
                                         boolean a5;
-                                        a5 = dev.duo.hookprobe.u.this.a(a3, a2, str, obj3);
+                                        a5 = u.this.a(a3, a2, str, obj3);
                                         return a5;
                                     }
                                 });
@@ -606,7 +606,7 @@ final class u {
         list.add(xposedModule.hook(this.i).intercept(new XposedInterface.Hooker() { // from class: dev.duo.hookprobe.u$$ExternalSyntheticLambda2
             public final Object intercept(XposedInterface.Chain chain) {
                 Object a2;
-                a2 = dev.duo.hookprobe.u.this.a(handler, chain);
+                a2 = u.this.a(handler, chain);
                 return a2;
             }
         }));
@@ -659,7 +659,7 @@ final class u {
                         transaction.addTransactionCommittedListener(new g$b$$ExternalSyntheticLambda1(handler), new SurfaceControl.TransactionCommittedListener() { // from class: dev.duo.hookprobe.u$$ExternalSyntheticLambda0
                             @Override // android.view.SurfaceControl.TransactionCommittedListener
                             public final void onTransactionCommitted() {
-                                dev.duo.hookprobe.u.this.b(iBinder, j);
+                                u.this.b(iBinder, j);
                             }
                         });
                     }
@@ -820,11 +820,11 @@ final class u {
                     a(iBinder, readInt, arrayList);
                     synchronized (this) {
                         if (readInt == 2) {
-                            this.J = "分层条件未到: " + dev.duo.hookprobe.e.getMessage();
+                            this.J = "分层条件未到: " + e.getMessage();
                         }
                         Bundle bundle = new Bundle();
                         bundle.putInt("protocol", 1);
-                        bundle.putString("unavailable", dev.duo.hookprobe.e.getMessage());
+                        bundle.putString("unavailable", e.getMessage());
                         parcel2.writeNoException();
                         parcel2.writeBundle(bundle);
                         return;

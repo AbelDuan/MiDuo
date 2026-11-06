@@ -269,7 +269,7 @@ final class x {
 
     /* JADX WARN: Code restructure failed: missing block: B:16:0x002d, code lost:
     
-        if (r7 < (r1 * dev.duo.hookprobe.x.g)) goto L17;
+        if (r7 < (r1 * x.g)) goto L17;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

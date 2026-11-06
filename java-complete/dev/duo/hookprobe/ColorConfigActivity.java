@@ -75,7 +75,7 @@ public final class ColorConfigActivity extends Activity {
                 throw th;
             }
         } catch (IOException | RuntimeException e) {
-            b("导出失败：" + dev.duo.hookprobe.e.getMessage());
+            b("导出失败：" + e.getMessage());
         }
     }
 
@@ -105,7 +105,7 @@ public final class ColorConfigActivity extends Activity {
                 throw th;
             }
         } catch (IOException | RuntimeException e) {
-            b("导入失败：" + dev.duo.hookprobe.e.getMessage());
+            b("导入失败：" + e.getMessage());
         }
     }
 
@@ -318,7 +318,7 @@ public final class ColorConfigActivity extends Activity {
             }
             throw new IOException("LSPosed 配置服务未连接");
         } catch (IOException | RuntimeException e) {
-            b("导入失败：" + dev.duo.hookprobe.e.getMessage());
+            b("导入失败：" + e.getMessage());
         }
     }
 

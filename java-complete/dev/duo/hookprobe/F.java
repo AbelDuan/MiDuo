@@ -34,7 +34,7 @@ public final class F {
             bundle = new Bundle();
             bundle.putString("package", b);
             bundle.putLong("token", c);
-            bundle.putBoolean("active", dev.duo.hookprobe.b.equals(str));
+            bundle.putBoolean("active", b.equals(str));
         }
         return bundle;
     }

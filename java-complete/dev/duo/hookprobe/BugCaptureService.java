@@ -128,7 +128,7 @@ public final class BugCaptureService extends Service {
 
     @Override // android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
-        if (intent == null || dev.duo.hookprobe.e.equals(intent.getAction())) {
+        if (intent == null || e.equals(intent.getAction())) {
             if (f) {
                 c("用户结束复现");
             } else {

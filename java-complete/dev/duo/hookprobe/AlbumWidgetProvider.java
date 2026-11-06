@@ -44,7 +44,7 @@ public final class AlbumWidgetProvider extends AppWidgetProvider {
             Toast.makeText(context, str, 1).show();
         }
 
-        @Override // dev.duo.hookprobe.b.d
+        @Override // b.d
         public void a(final String str) {
             Handler handler = this.a;
             final Context context = this.b;
@@ -56,7 +56,7 @@ public final class AlbumWidgetProvider extends AppWidgetProvider {
             });
         }
 
-        @Override // dev.duo.hookprobe.b.d
+        @Override // b.d
         public void a(b.c cVar, Exception exc) {
             Log.w(AlbumWidgetProvider.b, "widget page not set (provider process)\n" + cVar.a(), exc);
             a("没能自动设为第 1 页，请打开 MiDuo 的小组件页点「设为第 1 页」");
@@ -92,7 +92,7 @@ public final class AlbumWidgetProvider extends AppWidgetProvider {
             }
             return;
         }
-        if (!dev.duo.hookprobe.a.equals(intent.getAction())) {
+        if (!a.equals(intent.getAction())) {
             super.onReceive(context, intent);
             return;
         }
@@ -126,7 +126,7 @@ public final class AlbumWidgetProvider extends AppWidgetProvider {
         }
         final Context applicationContext = context.getApplicationContext();
         final BroadcastReceiver.PendingResult goAsync = goAsync();
-        dev.duo.hookprobe.f.execute(new Runnable() { // from class: dev.duo.hookprobe.AlbumWidgetProvider$$ExternalSyntheticLambda0
+        f.execute(new Runnable() { // from class: dev.duo.hookprobe.AlbumWidgetProvider$$ExternalSyntheticLambda0
             @Override // java.lang.Runnable
             public final void run() {
                 AlbumWidgetProvider.a(z, iArr, applicationContext, appWidgetManager, goAsync);

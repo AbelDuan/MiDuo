@@ -118,7 +118,7 @@ public final class G extends XposedModule {
     /* JADX INFO: Access modifiers changed from: private */
     public static /* synthetic */ Object d(XposedInterface.Chain chain) throws Throwable {
         View view = (View) chain.getThisObject();
-        dev.duo.hookprobe.s.add(view);
+        s.add(view);
         view.setTransitionAlpha((t || !g()) ? 1.0f : 0.0f);
         return chain.proceed();
     }
@@ -223,8 +223,8 @@ public final class G extends XposedModule {
                     Class<?> cls4 = Class.forName("com.android.systemui.statusbar.phone.PhoneStatusBarView", false, packageLoadedParam.getDefaultClassLoader());
                     n = cls3.getDeclaredMethod("refreshStatusBarHeight", null);
                     o = cls4.getDeclaredMethod("updateStatusBarHeight", null);
-                    dev.duo.hookprobe.n.setAccessible(true);
-                    dev.duo.hookprobe.o.setAccessible(true);
+                    n.setAccessible(true);
+                    o.setAccessible(true);
                     Method[] methodArr = {n, cls3.getDeclaredMethod("getBarLayoutParamsForRotation", cls2), cls3.getDeclaredMethod("apply", Class.forName(cls3.getName() + "$State", false, packageLoadedParam.getDefaultClassLoader())), o};
                     for (int i2 = 0; i2 < 4; i2++) {
                         final Method method = methodArr[i2];
@@ -362,7 +362,7 @@ public final class G extends XposedModule {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static /* synthetic */ Object b(XposedInterface.Chain chain) throws Throwable {
-        if (g() && !l && Boolean.TRUE.equals(dev.duo.hookprobe.m.get())) {
+        if (g() && !l && Boolean.TRUE.equals(m.get())) {
             return 0;
         }
         return chain.proceed();
@@ -395,7 +395,7 @@ public final class G extends XposedModule {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static /* synthetic */ Object a(XposedInterface.Chain chain) throws Throwable {
-        if (g() && !l && Boolean.TRUE.equals(dev.duo.hookprobe.m.get())) {
+        if (g() && !l && Boolean.TRUE.equals(m.get())) {
             return 0;
         }
         return chain.proceed();
@@ -408,10 +408,10 @@ public final class G extends XposedModule {
         l = z;
         try {
             if (p != null) {
-                dev.duo.hookprobe.n.invoke(p, null);
+                n.invoke(p, null);
             }
             if (q != null) {
-                dev.duo.hookprobe.o.invoke(q, null);
+                o.invoke(q, null);
             }
             boolean z2 = true;
             StringBuilder append = new StringBuilder().append("STATUS_FOREGROUND ").append(z ? "shown" : "hidden").append(" window=").append(p != null).append(" view=");
@@ -444,9 +444,9 @@ public final class G extends XposedModule {
             return proceed;
         } catch (Throwable th) {
             if (bool == null) {
-                dev.duo.hookprobe.m.remove();
+                m.remove();
             } else {
-                dev.duo.hookprobe.m.set(bool);
+                m.set(bool);
             }
             throw th;
         }
@@ -473,7 +473,7 @@ public final class G extends XposedModule {
     public static void a(boolean z) {
         t = z;
         boolean z2 = z || !g();
-        Iterator<View> it = dev.duo.hookprobe.s.iterator();
+        Iterator<View> it = s.iterator();
         while (it.hasNext()) {
             it.next().setTransitionAlpha(z2 ? 1.0f : 0.0f);
         }
@@ -488,7 +488,7 @@ public final class G extends XposedModule {
         final int i2 = u + 1;
         u = i2;
         r = !z3;
-        final View rootView = q == null ? null : dev.duo.hookprobe.q.getRootView();
+        final View rootView = q == null ? null : q.getRootView();
         if (!z3) {
             b(z4);
             a(rootView, 1.0f);
@@ -553,7 +553,7 @@ public final class G extends XposedModule {
             z = true;
         }
         Object proceed = chain.proceed();
-        if (z && dev.duo.hookprobe.v.add(view)) {
+        if (z && v.add(view)) {
             view.addOnLayoutChangeListener(onLayoutChangeListener);
         }
         return proceed;

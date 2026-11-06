@@ -139,20 +139,20 @@ public final class RailCustomActivity extends Activity {
         public View getView(int i, View view, ViewGroup viewGroup) {
             f fVar = (f) this.a.get(i);
             LinearLayout c = T.c(dev.duo.hookprobe.RailCustomActivity.this);
-            dev.duo.hookprobe.c.setMinimumHeight(dev.duo.hookprobe.RailCustomActivity.this.a(56.0f));
-            dev.duo.hookprobe.c.setPadding(dev.duo.hookprobe.RailCustomActivity.this.a(8.0f), dev.duo.hookprobe.RailCustomActivity.this.a(8.0f), dev.duo.hookprobe.RailCustomActivity.this.a(8.0f), dev.duo.hookprobe.RailCustomActivity.this.a(8.0f));
-            dev.duo.hookprobe.c.addView(T.a(dev.duo.hookprobe.RailCustomActivity.this, fVar.c), T.a(dev.duo.hookprobe.RailCustomActivity.this, 30.0f, 30.0f));
+            c.setMinimumHeight(dev.duo.hookprobe.RailCustomActivity.this.a(56.0f));
+            c.setPadding(dev.duo.hookprobe.RailCustomActivity.this.a(8.0f), dev.duo.hookprobe.RailCustomActivity.this.a(8.0f), dev.duo.hookprobe.RailCustomActivity.this.a(8.0f), dev.duo.hookprobe.RailCustomActivity.this.a(8.0f));
+            c.addView(T.a(dev.duo.hookprobe.RailCustomActivity.this, fVar.c), T.a(dev.duo.hookprobe.RailCustomActivity.this, 30.0f, 30.0f));
             TextView a = T.a(dev.duo.hookprobe.RailCustomActivity.this, 15.0f, T.b, 500);
-            dev.duo.hookprobe.a.setText(fVar.b);
-            dev.duo.hookprobe.a.setSingleLine(true);
-            dev.duo.hookprobe.a.setEllipsize(TextUtils.TruncateAt.END);
+            a.setText(fVar.b);
+            a.setSingleLine(true);
+            a.setEllipsize(TextUtils.TruncateAt.END);
             LinearLayout.LayoutParams b = T.b();
-            dev.duo.hookprobe.b.leftMargin = dev.duo.hookprobe.RailCustomActivity.this.a(12.0f);
-            dev.duo.hookprobe.c.addView(a, b);
+            b.leftMargin = dev.duo.hookprobe.RailCustomActivity.this.a(12.0f);
+            c.addView(a, b);
             if (this.b.test(fVar.a)) {
                 TextView a2 = T.a(dev.duo.hookprobe.RailCustomActivity.this, 12.0f, -13326253, 600);
                 a2.setText("已添加");
-                dev.duo.hookprobe.c.addView(a2);
+                c.addView(a2);
             }
             return c;
         }
@@ -1394,7 +1394,7 @@ public final class RailCustomActivity extends Activity {
                     Drawable b = RailCustomActivity.b(getContext(), max2);
                     this.l = b;
                     this.m = max2;
-                    dev.duo.hookprobe.b.setBounds(0, 0, max2, max2);
+                    b.setBounds(0, 0, max2, max2);
                 }
                 canvas.save();
                 float f10 = f9 / 2.0f;

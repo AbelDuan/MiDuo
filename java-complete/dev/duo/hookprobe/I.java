@@ -20,7 +20,7 @@ public final class I {
     }
 
     public static boolean a(String str) {
-        return dev.duo.hookprobe.d.contains(str);
+        return d.contains(str);
     }
 
     private static Drawable b(Context context, String str, String str2) {

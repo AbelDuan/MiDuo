@@ -41,7 +41,7 @@ public final class RootCompatCleanup {
                 throw new IllegalStateException("platform_compat unavailable");
             }
             Class.forName("com.android.internal.compat.IPlatformCompat").getMethod("removeAllOverridesOnReleaseBuilds", cls).invoke(Class.forName("com.android.internal.compat.IPlatformCompat$Stub").getMethod("asInterface", IBinder.class).invoke(null, iBinder), newInstance2);
-            System.out.println("cleanup count=" + linkedHashMap.size() + " rules=" + dev.duo.hookprobe.a.size() + " elapsedMs=" + (SystemClock.elapsedRealtime() - elapsedRealtime));
+            System.out.println("cleanup count=" + linkedHashMap.size() + " rules=" + a.size() + " elapsedMs=" + (SystemClock.elapsedRealtime() - elapsedRealtime));
         } catch (Throwable th) {
             th = th;
             while ((th instanceof InvocationTargetException) && th.getCause() != null) {

@@ -32,7 +32,7 @@ final class c {
 
     static Bitmap c(Context context, int i) {
         File d = d(context, i);
-        if (!dev.duo.hookprobe.d.exists()) {
+        if (!d.exists()) {
             if (!b(context).exists()) {
                 return null;
             }
@@ -43,7 +43,7 @@ final class c {
                 return null;
             }
         }
-        return BitmapFactory.decodeFile(dev.duo.hookprobe.d.getPath());
+        return BitmapFactory.decodeFile(d.getPath());
     }
 
     private static File d(Context context, int i) {
@@ -52,12 +52,12 @@ final class c {
 
     static Bitmap e(Context context, int i) {
         File d = d(context, i).exists() ? d(context, i) : b(context);
-        if (!dev.duo.hookprobe.d.exists()) {
+        if (!d.exists()) {
             return null;
         }
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inSampleSize = 2;
-        return BitmapFactory.decodeFile(dev.duo.hookprobe.d.getPath(), options);
+        return BitmapFactory.decodeFile(d.getPath(), options);
     }
 
     private static void a(File file, File file2) throws IOException {

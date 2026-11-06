@@ -40,7 +40,7 @@ public final class J {
     }
 
     public static boolean b(String str) {
-        return str != null && str.startsWith("app:") && dev.duo.hookprobe.j.matcher(str.substring(4)).matches();
+        return str != null && str.startsWith("app:") && j.matcher(str.substring(4)).matches();
     }
 
     public static boolean c(String[] strArr) {
@@ -55,7 +55,7 @@ public final class J {
         }
         while (true) {
             int i3 = e2 + i2;
-            if (i3 >= strArr.length || !dev.duo.hookprobe.c.equals(strArr[i3])) {
+            if (i3 >= strArr.length || !c.equals(strArr[i3])) {
                 break;
             }
             i2++;
@@ -68,7 +68,7 @@ public final class J {
             return -1;
         }
         for (int i2 = 0; i2 < strArr.length; i2++) {
-            if (dev.duo.hookprobe.c.equals(strArr[i2])) {
+            if (c.equals(strArr[i2])) {
                 return i2;
             }
         }
@@ -81,7 +81,7 @@ public final class J {
         }
         int i2 = 0;
         for (String str : strArr) {
-            if (str != null && !dev.duo.hookprobe.e.equals(str) && !dev.duo.hookprobe.c.equals(str)) {
+            if (str != null && !e.equals(str) && !c.equals(str)) {
                 i2++;
             }
         }
@@ -102,11 +102,11 @@ public final class J {
     }
 
     public static boolean i(String str) {
-        return a(str) || dev.duo.hookprobe.f.equals(str) || b(str);
+        return a(str) || f.equals(str) || b(str);
     }
 
     public static String[] a() {
-        return dev.duo.hookprobe.g.split(",");
+        return g.split(",");
     }
 
     public static String[] c(String[] strArr, int i2) {
@@ -126,7 +126,7 @@ public final class J {
             i4 = 0;
             for (int i6 = 0; i6 < strArr.length; i6++) {
                 String str = strArr[i6];
-                if (str != null && !dev.duo.hookprobe.e.equals(str) && !dev.duo.hookprobe.c.equals(str)) {
+                if (str != null && !e.equals(str) && !c.equals(str)) {
                     if (e2 < 0 || i6 <= e2) {
                         strArr2[i3] = str;
                         i3++;
@@ -174,7 +174,7 @@ public final class J {
         if (str != null) {
             for (String str2 : str.split(",")) {
                 String trim = str2.trim();
-                if (dev.duo.hookprobe.l.matcher(trim).matches()) {
+                if (l.matcher(trim).matches()) {
                     String a2 = a(g(trim), h(trim));
                     if (arrayList.size() < 400 && !arrayList.contains(a2)) {
                         arrayList.add(a2);
@@ -190,7 +190,7 @@ public final class J {
         if (str != null) {
             for (String str2 : str.split(",")) {
                 String trim = str2.trim();
-                if (dev.duo.hookprobe.l.matcher(trim).matches()) {
+                if (l.matcher(trim).matches()) {
                     String a2 = a(g(trim), h(trim));
                     if (arrayList.size() < 12 && !arrayList.contains(a2)) {
                         arrayList.add(a2);
@@ -213,7 +213,7 @@ public final class J {
             int d2 = d(strArr);
             for (int i3 = 0; i3 < e2 && i3 < strArr.length; i3++) {
                 String str = strArr[i3];
-                if (str != null && !dev.duo.hookprobe.e.equals(str)) {
+                if (str != null && !e.equals(str)) {
                     strArr2[i3] = str;
                 }
             }
@@ -224,8 +224,8 @@ public final class J {
             int i6 = i5;
             while (i5 < strArr.length && i6 < 7) {
                 String str2 = strArr[i5];
-                if (str2 != null && !dev.duo.hookprobe.e.equals(str2) && !dev.duo.hookprobe.c.equals(str2)) {
-                    if (dev.duo.hookprobe.f.equals(str2)) {
+                if (str2 != null && !e.equals(str2) && !c.equals(str2)) {
+                    if (f.equals(str2)) {
                         int i7 = i6 + 3;
                         if (i7 > 7) {
                             break;
@@ -234,7 +234,7 @@ public final class J {
                         strArr2[i6 + 1] = f;
                         strArr2[i6 + 2] = f;
                         int i8 = i5 + 2;
-                        if (i8 < strArr.length && dev.duo.hookprobe.f.equals(strArr[i5 + 1]) && dev.duo.hookprobe.f.equals(strArr[i8])) {
+                        if (i8 < strArr.length && f.equals(strArr[i5 + 1]) && f.equals(strArr[i8])) {
                             i5 = i8;
                             i6 = i7;
                         } else {
@@ -272,7 +272,7 @@ public final class J {
                 break;
             }
             String str = strArr[i5];
-            if (str != null && !dev.duo.hookprobe.e.equals(str) && !dev.duo.hookprobe.c.equals(str)) {
+            if (str != null && !e.equals(str) && !c.equals(str)) {
                 i2 = i5 + 1;
                 break;
             }
@@ -341,8 +341,8 @@ public final class J {
                     if (i4 == 0 || i9 < i5 || i9 >= i5 + i4) {
                         String str2 = split[i9];
                         String trim = str2 == null ? "" : str2.trim();
-                        if (!trim.isEmpty() && !dev.duo.hookprobe.e.equals(trim) && !dev.duo.hookprobe.c.equals(trim)) {
-                            if (dev.duo.hookprobe.f.equals(trim)) {
+                        if (!trim.isEmpty() && !e.equals(trim) && !c.equals(trim)) {
+                            if (f.equals(trim)) {
                                 if (i8 == 0) {
                                     i7 = i9;
                                 } else if (i9 != i7 + i8) {
@@ -372,7 +372,7 @@ public final class J {
                 return strArr;
             }
             String str3 = split[i3];
-            if (dev.duo.hookprobe.c.equals(str3 != null ? str3.trim() : "")) {
+            if (c.equals(str3 != null ? str3.trim() : "")) {
                 if (i5 < 0) {
                     i5 = i3;
                 } else if (i3 != i2 + 1) {
@@ -401,8 +401,8 @@ public final class J {
         int i3 = 0;
         while (i2 < strArr.length && i3 < 7) {
             String str = strArr[i2];
-            if (str != null && !dev.duo.hookprobe.e.equals(str)) {
-                if (dev.duo.hookprobe.f.equals(str)) {
+            if (str != null && !e.equals(str)) {
+                if (f.equals(str)) {
                     int i4 = i3 + 3;
                     if (i4 > 7) {
                         break;
@@ -411,7 +411,7 @@ public final class J {
                     strArr2[i3 + 1] = f;
                     strArr2[i3 + 2] = f;
                     int i5 = i2 + 2;
-                    if (i5 < strArr.length && dev.duo.hookprobe.f.equals(strArr[i2 + 1]) && dev.duo.hookprobe.f.equals(strArr[i5])) {
+                    if (i5 < strArr.length && f.equals(strArr[i2 + 1]) && f.equals(strArr[i5])) {
                         i2 = i5;
                         i3 = i4;
                     } else {
@@ -435,14 +435,14 @@ public final class J {
         int i5 = i2;
         while (i5 < i4) {
             String str = i5 < strArr.length ? strArr[i5] : null;
-            if (str != null && !dev.duo.hookprobe.e.equals(str) && !dev.duo.hookprobe.c.equals(str)) {
+            if (str != null && !e.equals(str) && !c.equals(str)) {
                 return null;
             }
             i5++;
         }
         String[] strArr2 = (String[]) Arrays.copyOf(strArr, 7);
         for (int i6 = 0; i6 < 7; i6++) {
-            if (dev.duo.hookprobe.c.equals(strArr2[i6])) {
+            if (c.equals(strArr2[i6])) {
                 strArr2[i6] = e;
             }
         }
@@ -466,7 +466,7 @@ public final class J {
                 break;
             }
             String str = strArr[i4];
-            if (str != null && !dev.duo.hookprobe.e.equals(str) && !dev.duo.hookprobe.c.equals(str)) {
+            if (str != null && !e.equals(str) && !c.equals(str)) {
                 i2 = i4;
                 break;
             }

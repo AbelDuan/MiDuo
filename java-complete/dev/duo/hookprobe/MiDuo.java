@@ -74,7 +74,7 @@ public final class MiDuo extends XposedModule {
             }
         });
         this.a.onModuleLoaded(moduleLoadedParam);
-        if (!moduleLoadedParam.isSystemServer() && dev.duo.hookprobe.h.contains(moduleLoadedParam.getProcessName())) {
+        if (!moduleLoadedParam.isSystemServer() && h.contains(moduleLoadedParam.getProcessName())) {
             dev.duo.workspaceprobe.b bVar = new dev.duo.workspaceprobe.b();
             this.b = bVar;
             bVar.attachFramework(this, new Runnable() { // from class: dev.duo.hookprobe.MiDuo$$ExternalSyntheticLambda3

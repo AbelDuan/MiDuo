@@ -28,14 +28,14 @@ final class O {
         LinearLayout a = T.a((Context) activity);
         T.a(a, 24.0f);
         int a2 = T.a((Context) activity, 18.0f);
-        dev.duo.hookprobe.a.setPadding(a2, a2, a2, a2);
+        a.setPadding(a2, a2, a2, a2);
         TextView a3 = T.a(activity, 16.0f, T.b, 700);
         a3.setText("赞助作者");
-        dev.duo.hookprobe.a.addView(a3);
+        a.addView(a3);
         TextView a4 = T.a(activity, 13.0f, T.d, J.m);
         a4.setText("赞助后请联系作者，备注“MiDuo”，即可获得授权码。");
         a4.setLineSpacing(0.0f, 1.3f);
-        dev.duo.hookprobe.a.addView(a4, T.a(T.a(), activity, 8.0f));
+        a.addView(a4, T.a(T.a(), activity, 8.0f));
         LinearLayout c = T.c(activity);
         TextView a5 = T.a((Context) activity, "微信", false, 44.0f);
         a5.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.O$$ExternalSyntheticLambda0
@@ -44,7 +44,7 @@ final class O {
                 O.a(activity, "微信赞助", "微信", "wechat.png", "MiDuo-赞助-微信.png");
             }
         });
-        dev.duo.hookprobe.c.addView(a5, new LinearLayout.LayoutParams(0, T.a((Context) activity, 44.0f), 1.0f));
+        c.addView(a5, new LinearLayout.LayoutParams(0, T.a((Context) activity, 44.0f), 1.0f));
         TextView a6 = T.a((Context) activity, "支付宝", false, 44.0f);
         a6.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.O$$ExternalSyntheticLambda1
             @Override // android.view.View.OnClickListener
@@ -54,8 +54,8 @@ final class O {
         });
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, T.a((Context) activity, 44.0f), 1.0f);
         layoutParams.leftMargin = T.a((Context) activity, 10.0f);
-        dev.duo.hookprobe.c.addView(a6, layoutParams);
-        dev.duo.hookprobe.a.addView(c, T.a(T.a(), activity, 14.0f));
+        c.addView(a6, layoutParams);
+        a.addView(c, T.a(T.a(), activity, 14.0f));
         return a;
     }
 
@@ -63,14 +63,14 @@ final class O {
         LinearLayout a = T.a((Context) activity);
         T.a(a, 24.0f);
         int a2 = T.a((Context) activity, 18.0f);
-        dev.duo.hookprobe.a.setPadding(a2, a2, a2, a2);
+        a.setPadding(a2, a2, a2, a2);
         TextView a3 = T.a(activity, 16.0f, T.b, 700);
         a3.setText("联系作者");
-        dev.duo.hookprobe.a.addView(a3);
+        a.addView(a3);
         TextView a4 = T.a(activity, 13.0f, T.d, J.m);
         a4.setText("赞助后领取授权码、反馈问题或版本适配，都可以加作者。");
         a4.setLineSpacing(0.0f, 1.3f);
-        dev.duo.hookprobe.a.addView(a4, T.a(T.a(), activity, 8.0f));
+        a.addView(a4, T.a(T.a(), activity, 8.0f));
         LinearLayout c = T.c(activity);
         TextView a5 = T.a((Context) activity, "微信", false, 44.0f);
         a5.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.O$$ExternalSyntheticLambda2
@@ -79,7 +79,7 @@ final class O {
                 O.a(activity, "添加微信", "微信", "contact-wechat.png", "MiDuo-作者-微信.png");
             }
         });
-        dev.duo.hookprobe.c.addView(a5, new LinearLayout.LayoutParams(0, T.a((Context) activity, 44.0f), 1.0f));
+        c.addView(a5, new LinearLayout.LayoutParams(0, T.a((Context) activity, 44.0f), 1.0f));
         TextView a6 = T.a((Context) activity, "QQ", false, 44.0f);
         a6.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.O$$ExternalSyntheticLambda3
             @Override // android.view.View.OnClickListener
@@ -89,8 +89,8 @@ final class O {
         });
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, T.a((Context) activity, 44.0f), 1.0f);
         layoutParams.leftMargin = T.a((Context) activity, 10.0f);
-        dev.duo.hookprobe.c.addView(a6, layoutParams);
-        dev.duo.hookprobe.a.addView(c, T.a(T.a(), activity, 14.0f));
+        c.addView(a6, layoutParams);
+        a.addView(c, T.a(T.a(), activity, 14.0f));
         return a;
     }
 
@@ -147,7 +147,7 @@ final class O {
                 dialog.dismiss();
             }
         });
-        dev.duo.hookprobe.c.addView(a6, new LinearLayout.LayoutParams(0, T.a((Context) activity, 44.0f), 1.0f));
+        c.addView(a6, new LinearLayout.LayoutParams(0, T.a((Context) activity, 44.0f), 1.0f));
         TextView a7 = T.a((Context) activity, "保存到相册", true, 44.0f);
         a7.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.O$$ExternalSyntheticLambda5
             @Override // android.view.View.OnClickListener
@@ -157,7 +157,7 @@ final class O {
         });
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, T.a((Context) activity, 44.0f), 2.0f);
         layoutParams.leftMargin = T.a((Context) activity, 10.0f);
-        dev.duo.hookprobe.c.addView(a7, layoutParams);
+        c.addView(a7, layoutParams);
         a2.addView(c, T.a(T.a(), activity, 16.0f));
         dialog.setContentView(a2);
         Window window = dialog.getWindow();

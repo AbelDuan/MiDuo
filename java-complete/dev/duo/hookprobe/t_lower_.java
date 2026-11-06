@@ -173,7 +173,7 @@ final class t {
             } catch (Exception e2) {
                 Log.e("MiDuoFold", "观察停止撤销失败", e2);
             }
-            if (!dev.duo.hookprobe.a.transact(13693511, obtain, obtain2, 0)) {
+            if (!a.transact(13693511, obtain, obtain2, 0)) {
                 throw new IllegalStateException("观察停止撤销未处理");
             }
             obtain2.readException();
@@ -261,7 +261,7 @@ final class t {
             b(0, SystemClock.uptimeMillis());
             return;
         }
-        Iterator<View> it = dev.duo.hookprobe.v.keySet().iterator();
+        Iterator<View> it = v.keySet().iterator();
         while (it.hasNext()) {
             b(bVar, it.next());
         }
@@ -317,7 +317,7 @@ final class t {
     private static void a(Parcel parcel, String str) {
         Parcel obtain = Parcel.obtain();
         try {
-            if (dev.duo.hookprobe.a.transact(13693511, parcel, obtain, 0)) {
+            if (a.transact(13693511, parcel, obtain, 0)) {
                 obtain.readException();
                 return;
             }
@@ -362,19 +362,19 @@ final class t {
                 return;
             }
             if (!z) {
-                if (t.h == iBinder && dev.duo.hookprobe.t.i == j) {
-                    Log.i("MiDuoFold", "TARGET_WAIT_END gen=" + j + " samples=" + t.o + " paintChanges=" + dev.duo.hookprobe.t.p + " rejected=" + t.q + " last=" + t.u + " flags=0x" + Long.toHexString(t.s) + " at=" + t.t + " panelSince=" + t.j + " gate=" + t.c.a());
+                if (t.h == iBinder && t.i == j) {
+                    Log.i("MiDuoFold", "TARGET_WAIT_END gen=" + j + " samples=" + t.o + " paintChanges=" + t.p + " rejected=" + t.q + " last=" + t.u + " flags=0x" + Long.toHexString(t.s) + " at=" + t.t + " panelSince=" + t.j + " gate=" + t.c.a());
                     IBinder unused = t.h = null;
                     return;
                 }
                 return;
             }
             IBinder unused2 = t.h = iBinder;
-            long unused3 = dev.duo.hookprobe.t.i = j;
+            long unused3 = t.i = j;
             int unused4 = t.k = i;
             int unused5 = t.l = i2;
             boolean unused6 = t.m = z2;
-            int unused7 = t.o = dev.duo.hookprobe.t.p = t.q = 0;
+            int unused7 = t.o = t.p = t.q = 0;
             long unused8 = t.r = -1L;
             long unused9 = t.s = t.t = 0L;
             String unused10 = t.u = "尚无样本";
@@ -551,7 +551,7 @@ final class t {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static /* synthetic */ void d(final dev.duo.workspaceprobe.b bVar, final View view) {
-        if (dev.duo.hookprobe.v.put(view, Boolean.TRUE) != null) {
+        if (v.put(view, Boolean.TRUE) != null) {
             return;
         }
         view.getViewTreeObserver().addOnDrawListener(new ViewTreeObserver.OnDrawListener() { // from class: dev.duo.hookprobe.t$$ExternalSyntheticLambda4

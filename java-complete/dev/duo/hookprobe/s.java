@@ -89,7 +89,7 @@ public final class s extends XposedModule {
     private final Runnable i0 = new Runnable() { // from class: dev.duo.hookprobe.s$$ExternalSyntheticLambda1
         @Override // java.lang.Runnable
         public final void run() {
-            dev.duo.hookprobe.s.this.c();
+            s.this.c();
         }
     };
 
@@ -282,14 +282,14 @@ public final class s extends XposedModule {
             list.add(hook.setExceptionMode(exceptionMode).intercept(new XposedInterface.Hooker() { // from class: dev.duo.hookprobe.s$$ExternalSyntheticLambda3
                 public final Object intercept(XposedInterface.Chain chain) {
                     Object a2;
-                    a2 = dev.duo.hookprobe.s.this.a(chain);
+                    a2 = s.this.a(chain);
                     return a2;
                 }
             }));
             XposedInterface.Hooker hooker = new XposedInterface.Hooker() { // from class: dev.duo.hookprobe.s$$ExternalSyntheticLambda4
                 public final Object intercept(XposedInterface.Chain chain) {
                     Object b2;
-                    b2 = dev.duo.hookprobe.s.this.b(chain);
+                    b2 = s.this.b(chain);
                     return b2;
                 }
             };
@@ -298,14 +298,14 @@ public final class s extends XposedModule {
             this.k.add(hook(a(this.v, "configureDisplayLocked", (Class<?>[]) new Class[]{SurfaceControl.Transaction.class, this.w, Boolean.TYPE, Executor.class})).setExceptionMode(exceptionMode).intercept(new XposedInterface.Hooker() { // from class: dev.duo.hookprobe.s$$ExternalSyntheticLambda5
                 public final Object intercept(XposedInterface.Chain chain) {
                     Object c2;
-                    c2 = dev.duo.hookprobe.s.this.c(chain);
+                    c2 = s.this.c(chain);
                     return c2;
                 }
             }));
             this.k.add(hook(a(Class.forName("android.hardware.display.IDisplayManager$Stub"), "onTransact", (Class<?>[]) new Class[]{cls14, Parcel.class, Parcel.class, cls14})).setExceptionMode(XposedInterface.ExceptionMode.PASSTHROUGH).intercept(new XposedInterface.Hooker() { // from class: dev.duo.hookprobe.s$$ExternalSyntheticLambda6
                 public final Object intercept(XposedInterface.Chain chain) {
                     Object a2;
-                    a2 = dev.duo.hookprobe.s.this.a(cls7, chain);
+                    a2 = s.this.a(cls7, chain);
                     return a2;
                 }
             }));
@@ -356,7 +356,7 @@ public final class s extends XposedModule {
             IBinder.DeathRecipient deathRecipient = new IBinder.DeathRecipient() { // from class: dev.duo.hookprobe.s$$ExternalSyntheticLambda0
                 @Override // android.os.IBinder.DeathRecipient
                 public final void binderDied() {
-                    dev.duo.hookprobe.s.this.a(iBinder);
+                    s.this.a(iBinder);
                 }
             };
             try {
@@ -655,7 +655,7 @@ public final class s extends XposedModule {
                                 this.r.post(new Runnable() { // from class: dev.duo.hookprobe.s$$ExternalSyntheticLambda2
                                     @Override // java.lang.Runnable
                                     public final void run() {
-                                        dev.duo.hookprobe.s.this.a(a3, str, z, obj3, obj4, iBinder4, str2, iBinder);
+                                        s.this.a(a3, str, z, obj3, obj4, iBinder4, str2, iBinder);
                                     }
                                 });
                             }

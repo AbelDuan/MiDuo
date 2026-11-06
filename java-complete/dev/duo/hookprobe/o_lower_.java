@@ -113,7 +113,7 @@ final class o {
 
     boolean s(String str) {
         boolean commit;
-        synchronized (dev.duo.hookprobe.o.class) {
+        synchronized (o.class) {
             String str2 = str + h;
             long j = this.a.getLong(str2 + "_revision", 0L) + 1;
             SharedPreferences.Editor edit = this.a.edit();
@@ -153,7 +153,7 @@ final class o {
 
     boolean z() {
         boolean z;
-        synchronized (dev.duo.hookprobe.o.class) {
+        synchronized (o.class) {
             z = this.a.getBoolean("_global/standbyClock", false);
         }
         return z;
@@ -224,7 +224,7 @@ final class o {
 
     Bundle q(String str) {
         Bundle bundle;
-        synchronized (dev.duo.hookprobe.o.class) {
+        synchronized (o.class) {
             String str2 = str + h;
             bundle = new Bundle();
             bundle.putLong("revision", this.a.getLong(str2 + "_revision", 0L));
@@ -263,7 +263,7 @@ final class o {
     }
 
     boolean r(boolean z) {
-        synchronized (dev.duo.hookprobe.o.class) {
+        synchronized (o.class) {
             boolean contains = this.a.contains("_global/standbyClock");
             boolean z2 = this.a.getBoolean("_global/standbyClock", false);
             i = true;
@@ -371,7 +371,7 @@ final class o {
     }
 
     boolean a(Map<String, String> map) {
-        synchronized (dev.duo.hookprobe.o.class) {
+        synchronized (o.class) {
             Map<String, ?> all = this.a.getAll();
             Map<String, ?> a = m.a(all, map);
             try {
@@ -466,7 +466,7 @@ final class o {
         SharedPreferences.Editor edit = this.a.edit();
         boolean z = false;
         for (String str : all.keySet()) {
-            if (str.startsWith("ios_notification_") && !dev.duo.hookprobe.g.contains(str) && !hashSet.contains(str)) {
+            if (str.startsWith("ios_notification_") && !g.contains(str) && !hashSet.contains(str)) {
                 edit.remove(str);
                 z = true;
             }
@@ -561,7 +561,7 @@ final class o {
     */
     Bundle a(String str, String str2, boolean z, int i2, int i3, long j, boolean z2) {
         boolean commit;
-        synchronized (dev.duo.hookprobe.o.class) {
+        synchronized (o.class) {
             String str3 = str + h;
             Bundle bundle = new Bundle();
             if (this.a.getLong(str3 + "_revision", 0L) != j) {
@@ -650,7 +650,7 @@ final class o {
 
     boolean a(String str, boolean z, int i2, Integer num) {
         boolean commit;
-        synchronized (dev.duo.hookprobe.o.class) {
+        synchronized (o.class) {
             String str2 = str + h;
             String str3 = z ? "dark/" : "light/";
             StringBuilder append = new StringBuilder().append(str3);
@@ -685,7 +685,7 @@ final class o {
         String format2;
         String sb;
         boolean commit;
-        synchronized (dev.duo.hookprobe.o.class) {
+        synchronized (o.class) {
             Map<String, ?> all = this.a.getAll();
             String str2 = (String) all.get(P.s(str));
             String str3 = null;
@@ -752,7 +752,7 @@ final class o {
     }
 
     boolean a(String str, String str2) {
-        synchronized (dev.duo.hookprobe.o.class) {
+        synchronized (o.class) {
             if (dev.duo.hookprobe.P.i(this.a, str2) == null) {
                 return false;
             }

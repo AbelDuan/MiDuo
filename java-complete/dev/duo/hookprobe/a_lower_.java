@@ -39,12 +39,12 @@ final class a extends View {
 
         @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
         public boolean onScale(ScaleGestureDetector scaleGestureDetector) {
-            float max = Math.max(dev.duo.hookprobe.a.this.j, Math.min(dev.duo.hookprobe.a.this.j * 6.0f, dev.duo.hookprobe.a.this.i * scaleGestureDetector.getScaleFactor()));
-            float f = max / dev.duo.hookprobe.a.this.i;
-            dev.duo.hookprobe.a.this.k = scaleGestureDetector.getFocusX() - ((scaleGestureDetector.getFocusX() - dev.duo.hookprobe.a.this.k) * f);
-            dev.duo.hookprobe.a.this.l = scaleGestureDetector.getFocusY() - ((scaleGestureDetector.getFocusY() - dev.duo.hookprobe.a.this.l) * f);
-            dev.duo.hookprobe.a.this.i = max;
-            dev.duo.hookprobe.a.this.a();
+            float max = Math.max(a.this.j, Math.min(a.this.j * 6.0f, a.this.i * scaleGestureDetector.getScaleFactor()));
+            float f = max / a.this.i;
+            a.this.k = scaleGestureDetector.getFocusX() - ((scaleGestureDetector.getFocusX() - a.this.k) * f);
+            a.this.l = scaleGestureDetector.getFocusY() - ((scaleGestureDetector.getFocusY() - a.this.l) * f);
+            a.this.i = max;
+            a.this.a();
             return true;
         }
     }

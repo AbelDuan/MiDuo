@@ -295,12 +295,12 @@ final class n {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static /* synthetic */ boolean b(Map map, String str) {
-        return ((Integer) map.getOrDefault(str, 100)).equals(dev.duo.hookprobe.k.getOrDefault(str, 100));
+        return ((Integer) map.getOrDefault(str, 100)).equals(k.getOrDefault(str, 100));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static /* synthetic */ Object c(XposedInterface.Chain chain) throws Throwable {
-        if (!Boolean.TRUE.equals(dev.duo.hookprobe.r.get()) || ((Boolean) chain.getArg(0)).booleanValue()) {
+        if (!Boolean.TRUE.equals(r.get()) || ((Boolean) chain.getArg(0)).booleanValue()) {
             return chain.proceed();
         }
         if (a("position", 1)) {
@@ -458,7 +458,7 @@ final class n {
         boolean c2;
         HashSet hashSet;
         HashSet hashSet2;
-        synchronized (dev.duo.hookprobe.n.class) {
+        synchronized (n.class) {
             Map<String, int[]> map2 = g;
             final Map<String, Integer> map3 = k;
             c2 = c(map, str);
@@ -478,7 +478,7 @@ final class n {
                 }
             }
             hashSet2 = new HashSet(map3.keySet());
-            hashSet2.addAll(dev.duo.hookprobe.k.keySet());
+            hashSet2.addAll(k.keySet());
             hashSet2.removeIf(new Predicate() { // from class: dev.duo.hookprobe.n$$ExternalSyntheticLambda8
                 @Override // java.util.function.Predicate
                 public final boolean test(Object obj) {
@@ -540,7 +540,7 @@ final class n {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void f() {
-        dev.duo.hookprobe.n.set(false);
+        n.set(false);
         long clearCallingIdentity = Binder.clearCallingIdentity();
         try {
             ContentProviderClient acquireUnstableContentProviderClient = i().getContentResolver().acquireUnstableContentProviderClient("com.lsposed.miduo.config");
@@ -594,7 +594,7 @@ final class n {
         boolean z2;
         Boolean bool;
         String valueOf;
-        synchronized (dev.duo.hookprobe.n.class) {
+        synchronized (n.class) {
             boolean z3 = false;
             if (map != null) {
                 m = map;
@@ -627,12 +627,12 @@ final class n {
                     g = P.a(map, (Set<String>) set);
                     h = !z4 ? map : Collections.EMPTY_MAP;
                     k = !z4 ? P.b(map, (Set<String>) set) : Collections.EMPTY_MAP;
-                    Integer num = dev.duo.hookprobe.k.get(y);
+                    Integer num = k.get(y);
                     valueOf = num != null ? "" : String.valueOf(num);
                     if (!valueOf.equals(j) && a("debug.duo.scale.wx", valueOf)) {
                         j = valueOf;
                     }
-                    Log.i(a, "CONFIG duoApps=" + dev.duo.hookprobe.g.size() + " enabled=" + hashSet.size() + " master=" + z4 + (map2 != null ? "" : " before=" + map2.size()) + " reason=" + str);
+                    Log.i(a, "CONFIG duoApps=" + g.size() + " enabled=" + hashSet.size() + " master=" + z4 + (map2 != null ? "" : " before=" + map2.size()) + " reason=" + str);
                     return z3;
                 }
                 z2 = true;
@@ -650,13 +650,13 @@ final class n {
                 g = P.a(map, (Set<String>) set);
                 h = !z4 ? map : Collections.EMPTY_MAP;
                 k = !z4 ? P.b(map, (Set<String>) set) : Collections.EMPTY_MAP;
-                Integer num2 = dev.duo.hookprobe.k.get(y);
+                Integer num2 = k.get(y);
                 if (num2 != null) {
                 }
                 if (!valueOf.equals(j)) {
                     j = valueOf;
                 }
-                Log.i(a, "CONFIG duoApps=" + dev.duo.hookprobe.g.size() + " enabled=" + hashSet.size() + " master=" + z4 + (map22 != null ? "" : " before=" + map22.size()) + " reason=" + str);
+                Log.i(a, "CONFIG duoApps=" + g.size() + " enabled=" + hashSet.size() + " master=" + z4 + (map22 != null ? "" : " before=" + map22.size()) + " reason=" + str);
                 return z3;
             }
         }
@@ -669,7 +669,7 @@ final class n {
             if (substring.startsWith("com.tencent.mm.")) {
                 substring = substring.substring(14);
             }
-            if (substring.startsWith(z) && dev.duo.hookprobe.x.contains(substring.substring(20))) {
+            if (substring.startsWith(z) && x.contains(substring.substring(20))) {
                 return true;
             }
         }
@@ -737,8 +737,8 @@ final class n {
                 SharedPreferences remotePreferences = xposedModule.getRemotePreferences("duo_top");
                 remotePreferences.registerOnSharedPreferenceChangeListener(o);
                 c(remotePreferences.getAll(), "initial attempt=" + i2);
-                HashSet hashSet = new HashSet(dev.duo.hookprobe.g.keySet());
-                hashSet.addAll(dev.duo.hookprobe.k.keySet());
+                HashSet hashSet = new HashSet(g.keySet());
+                hashSet.addAll(k.keySet());
                 a(hashSet, "config ready");
                 j();
                 return;
@@ -764,8 +764,8 @@ final class n {
         Object proceed = chain.proceed();
         try {
             Object thisObject = chain.getThisObject();
-            Integer num = dev.duo.hookprobe.k.get((String) dev.duo.hookprobe.t.get(thisObject));
-            if (num != null && num.intValue() < 100 && (obj = field.get(thisObject)) != null && field2.getInt(obj) == 0 && E.a(field3.getInt(obj), field4.getInt(obj)) && (invoke = dev.duo.hookprobe.v.invoke(thisObject, null)) != null && ((Integer) method.invoke(invoke, null)).intValue() == 1 && ((Integer) method2.invoke(invoke, null)).intValue() == 1) {
+            Integer num = k.get((String) t.get(thisObject));
+            if (num != null && num.intValue() < 100 && (obj = field.get(thisObject)) != null && field2.getInt(obj) == 0 && E.a(field3.getInt(obj), field4.getInt(obj)) && (invoke = v.invoke(thisObject, null)) != null && ((Integer) method.invoke(invoke, null)).intValue() == 1 && ((Integer) method2.invoke(invoke, null)).intValue() == 1) {
                 if (method3.invoke(thisObject, null) == null && !((Boolean) method4.invoke(thisObject, null)).booleanValue() && !((Boolean) method5.invoke(thisObject, null)).booleanValue()) {
                     Configuration configuration = (Configuration) chain.getArg(0);
                     Configuration configuration2 = (Configuration) method6.invoke(thisObject, null);
@@ -803,7 +803,7 @@ final class n {
                     }
                 }
                 if (a("densityUnsupported", 3)) {
-                    Log.w(a, "OUTER_DENSITY unsupported size-compat page " + dev.duo.hookprobe.t.get(thisObject));
+                    Log.w(a, "OUTER_DENSITY unsupported size-compat page " + t.get(thisObject));
                     return proceed;
                 }
             }
@@ -853,7 +853,7 @@ final class n {
     /* JADX INFO: Access modifiers changed from: private */
     public static synchronized ScheduledExecutorService e() {
         ScheduledExecutorService scheduledExecutorService;
-        synchronized (dev.duo.hookprobe.n.class) {
+        synchronized (n.class) {
             if (q == null) {
                 q = Executors.newSingleThreadScheduledExecutor(new ThreadFactory() { // from class: dev.duo.hookprobe.n$$ExternalSyntheticLambda7
                     @Override // java.util.concurrent.ThreadFactory
@@ -879,7 +879,7 @@ final class n {
             if (invoke2 != null && field.getInt(invoke2) == 0) {
                 Object obj = field2.get(invoke2);
                 Object obj2 = obj == null ? null : field3.get(obj);
-                if (obj2 != null && array[1] == method2.invoke(obj, null) && ((a((String) dev.duo.hookprobe.t.get(obj2)) || a(obj2)) && (invoke = dev.duo.hookprobe.v.invoke(obj2, null)) != null && ((Integer) method3.invoke(invoke, null)).intValue() == 1 && new Rect(0, 0, 1168, 1712).equals(method4.invoke(invoke, null)) && new Rect(0, 0, 963, 1712).equals(method4.invoke(obj2, null)) && (surfaceControl = (SurfaceControl) method2.invoke(invoke, null)) != null && surfaceControl.isValid())) {
+                if (obj2 != null && array[1] == method2.invoke(obj, null) && ((a((String) t.get(obj2)) || a(obj2)) && (invoke = v.invoke(obj2, null)) != null && ((Integer) method3.invoke(invoke, null)).intValue() == 1 && new Rect(0, 0, 1168, 1712).equals(method4.invoke(invoke, null)) && new Rect(0, 0, 963, 1712).equals(method4.invoke(obj2, null)) && (surfaceControl = (SurfaceControl) method2.invoke(invoke, null)) != null && surfaceControl.isValid())) {
                     array[1] = surfaceControl;
                     array[2] = 2001;
                     if (a("imeLayer", 3)) {
@@ -936,7 +936,7 @@ final class n {
             return chain.proceed();
         }
         String str = ((ApplicationInfo) chain.getThisObject()).packageName;
-        boolean z2 = longValue != e && Boolean.TRUE.equals(dev.duo.hookprobe.s.get());
+        boolean z2 = longValue != e && Boolean.TRUE.equals(s.get());
         if (!a(str) && !z2) {
             return chain.proceed();
         }
@@ -996,9 +996,9 @@ final class n {
             return proceed2;
         } catch (Throwable th3) {
             if (bool == null) {
-                dev.duo.hookprobe.r.remove();
+                r.remove();
             } else {
-                dev.duo.hookprobe.r.set(bool);
+                r.set(bool);
             }
             throw th3;
         }
@@ -1028,9 +1028,9 @@ final class n {
             return proceed;
         } catch (Throwable th2) {
             if (bool == null) {
-                dev.duo.hookprobe.s.remove();
+                s.remove();
             } else {
-                dev.duo.hookprobe.s.set(bool);
+                s.set(bool);
             }
             throw th2;
         }
@@ -1042,7 +1042,7 @@ final class n {
         if (Boolean.TRUE.equals(proceed)) {
             try {
                 Object obj = field.get(field2.get(chain.getThisObject()));
-                if (a((String) dev.duo.hookprobe.t.get(obj)) || a(obj)) {
+                if (a((String) t.get(obj)) || a(obj)) {
                     Rect rect = (Rect) method.invoke(obj, null);
                     if (rect.left == 0 && rect.top == 0 && rect.right == 963 && rect.bottom == 1712) {
                         return Boolean.FALSE;
@@ -1060,12 +1060,12 @@ final class n {
     private static boolean a(Object obj) {
         if (obj != null && v != null) {
             try {
-                String str = (String) dev.duo.hookprobe.t.get(obj);
+                String str = (String) t.get(obj);
                 if (!dev.duo.hookprobe.P.i.contains(str) && !a(str)) {
                     ComponentName componentName = null;
-                    Object invoke = dev.duo.hookprobe.v.invoke(obj, null);
+                    Object invoke = v.invoke(obj, null);
                     if (invoke != null) {
-                        componentName = (ComponentName) dev.duo.hookprobe.u.get(invoke);
+                        componentName = (ComponentName) u.get(invoke);
                     }
                     if (componentName != null && !componentName.getPackageName().equals(str)) {
                         if (a(componentName.getPackageName())) {

@@ -30,7 +30,7 @@ final class j {
             }
         }
         String trim = new String(byteArrayOutputStream.toByteArray(), StandardCharsets.UTF_8).trim();
-        if (!dev.duo.hookprobe.c.equals(trim)) {
+        if (!c.equals(trim)) {
             throw new IOException("Root 未就绪：" + trim);
         }
     }

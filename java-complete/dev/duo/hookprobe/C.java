@@ -52,13 +52,13 @@ final class C {
         ArrayList arrayList = new ArrayList();
         String str3 = Build.MODEL;
         String str4 = Build.DEVICE;
-        arrayList.add(dev.duo.hookprobe.d.equals(str4) ? new a("机型", 0, "小米 18 Fold（" + str3 + "）") : new a("机型", 2, "这台是 " + Build.MANUFACTURER + " " + str3 + "（" + str4 + "），MiDuo 只适配小米 18 Fold"));
+        arrayList.add(d.equals(str4) ? new a("机型", 0, "小米 18 Fold（" + str3 + "）") : new a("机型", 2, "这台是 " + Build.MANUFACTURER + " " + str3 + "（" + str4 + "），MiDuo 只适配小米 18 Fold"));
         a a2 = a();
         arrayList.add(a2);
         String a3 = a(context, "com.miui.home");
         String a4 = a(context, "com.miui.personalassistant");
         String str5 = "没读到版本";
-        if (dev.duo.hookprobe.e.equals(a3)) {
+        if (e.equals(a3)) {
             aVar = new a("小米桌面", 0, a3);
         } else {
             StringBuilder sb = new StringBuilder();

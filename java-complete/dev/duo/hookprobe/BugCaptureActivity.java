@@ -89,7 +89,7 @@ public final class BugCaptureActivity extends Activity {
         L.a(this);
         T.d dVar = new T.d(this);
         LinearLayout a = T.a((Context) this);
-        dev.duo.hookprobe.a.setPadding(T.a((Context) this, 20.0f), T.a((Context) this, 20.0f), T.a((Context) this, 20.0f), T.a((Context) this, 28.0f));
+        a.setPadding(T.a((Context) this, 20.0f), T.a((Context) this, 20.0f), T.a((Context) this, 20.0f), T.a((Context) this, 28.0f));
         TextView a2 = T.a((Context) this, "返回", false, 44.0f);
         a2.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.BugCaptureActivity$$ExternalSyntheticLambda3
             @Override // android.view.View.OnClickListener
@@ -97,17 +97,17 @@ public final class BugCaptureActivity extends Activity {
                 dev.duo.hookprobe.BugCaptureActivity.this.a(view);
             }
         });
-        dev.duo.hookprobe.a.addView(a2, T.a());
+        a.addView(a2, T.a());
         TextView a3 = T.a(this, 24.0f, T.b, 600);
         a3.setText("Bug 抓取模式");
-        dev.duo.hookprobe.a.addView(a3, T.a(T.a(), this, 20.0f));
+        a.addView(a3, T.a(T.a(), this, 20.0f));
         TextView a4 = T.a(this, 14.0f, T.c, J.m);
         a4.setText("1. 点开始并允许 Root 读取日志。\n2. 去出问题的 App 复现。冷启动问题请在打开 App 前开始抓取。\n3. 出问题后立即点通知里的结束，再回来导出。\n\n最多抓取 2 分钟、16 MiB，自动停止；默认关闭，不自动上传。\n\n报告包含：开头和结尾各一份状态快照（各进程载入的 MiDuo 版本、窗口与任务、图层、小组件、权限、内存、崩溃记录）、MiDuo 全部模块日志、所有警告与错误日志、设备与应用版本。不截屏，不读聊天和照片内容。可能含正在使用的 App 名称，分享前请检查。应用私有目录最多保留最近 3 份报告。\n\n“常驻轻量记录”默认关闭：打开后后台只留 MiDuo 相关日志的最近约 8 MiB，抓取报告会一并附上，用来抓两分钟复现不出来的偶发问题；关闭即删除。重启手机后需打开一次 MiDuo 才会恢复。");
         a4.setLineSpacing(0.0f, 1.2f);
-        dev.duo.hookprobe.a.addView(a4, T.a(T.a(), this, 16.0f));
+        a.addView(a4, T.a(T.a(), this, 16.0f));
         TextView a5 = T.a(this, 14.0f, T.b, 500);
         this.a = a5;
-        dev.duo.hookprobe.a.addView(a5, T.a(T.a(), this, 20.0f));
+        a.addView(a5, T.a(T.a(), this, 20.0f));
         this.b = T.a((Context) this, "开始抓取", true, 48.0f);
         this.c = T.a((Context) this, "结束抓取", false, 48.0f);
         this.d = T.a((Context) this, "导出最近一次报告", false, 48.0f);
@@ -115,7 +115,7 @@ public final class BugCaptureActivity extends Activity {
         this.e = a6;
         TextView[] textViewArr = {this.b, this.c, this.d, a6};
         for (int i = 0; i < 4; i++) {
-            dev.duo.hookprobe.a.addView(textViewArr[i], T.a(T.a(), this, 12.0f));
+            a.addView(textViewArr[i], T.a(T.a(), this, 12.0f));
         }
         this.e.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.BugCaptureActivity$$ExternalSyntheticLambda4
             @Override // android.view.View.OnClickListener
@@ -198,7 +198,7 @@ public final class BugCaptureActivity extends Activity {
             startForegroundService(new Intent(this, (Class<?>) dev.duo.hookprobe.BugCaptureService.class));
             this.b.setEnabled(false);
         } catch (RuntimeException e) {
-            Toast.makeText(this, "无法开始抓取：" + dev.duo.hookprobe.e.getMessage(), 1).show();
+            Toast.makeText(this, "无法开始抓取：" + e.getMessage(), 1).show();
         }
     }
 
@@ -210,13 +210,13 @@ public final class BugCaptureActivity extends Activity {
     private void d() {
         String string;
         SharedPreferences a = BugCaptureService.a(this);
-        String string2 = dev.duo.hookprobe.a.getString("file", null);
+        String string2 = a.getString("file", null);
         boolean z = BugCaptureService.f;
         boolean z2 = false;
-        if (!z && dev.duo.hookprobe.a.getBoolean("capturing", false)) {
+        if (!z && a.getBoolean("capturing", false)) {
             string = "上次抓取被中断，可导出已保存的部分";
         } else {
-            string = dev.duo.hookprobe.a.getString("status", "尚未抓取");
+            string = a.getString("status", "尚未抓取");
         }
         this.a.setText((z ? "进行中\n" : "已停止\n") + string + ((z || string2 == null) ? "" : "\n报告：" + string2));
         this.b.setEnabled(!z);
@@ -259,7 +259,7 @@ public final class BugCaptureActivity extends Activity {
             byteArrayOutputStream = new ByteArrayOutputStream();
             inputStream = start.getInputStream();
         } catch (IOException | InterruptedException | RuntimeException e) {
-            String str3 = "常驻记录操作失败：" + dev.duo.hookprobe.e.getMessage();
+            String str3 = "常驻记录操作失败：" + e.getMessage();
             if (e instanceof InterruptedException) {
                 Thread.currentThread().interrupt();
             }
@@ -310,7 +310,7 @@ public final class BugCaptureActivity extends Activity {
         try {
             fileInputStream = new FileInputStream(file);
         } catch (IOException | RuntimeException e) {
-            str = "导出失败：" + dev.duo.hookprobe.e.getMessage();
+            str = "导出失败：" + e.getMessage();
         }
         try {
             OutputStream openOutputStream = context.getContentResolver().openOutputStream(uri, "wt");

@@ -99,7 +99,7 @@ final class q {
     }
 
     static synchronized Bundle a(Context context, int i) {
-        synchronized (dev.duo.hookprobe.q.class) {
+        synchronized (q.class) {
             try {
                 if (i == context.getPackageManager().getApplicationInfo("com.android.systemui", 0).uid) {
                     Bundle bundle = new Bundle();

@@ -85,7 +85,7 @@ final class m {
             for (Map.Entry entry : hashMap.entrySet()) {
                 String str5 = (String) entry.getKey();
                 String str6 = (String) entry.getValue();
-                if (!dev.duo.hookprobe.a.equals(str5)) {
+                if (!a.equals(str5)) {
                     int indexOf = str5.indexOf(47);
                     if (indexOf < 0 || !a2.contains(str5.substring(0, indexOf))) {
                         throw new IOException("文件包含未知的配置项");
@@ -202,7 +202,7 @@ final class m {
                 }
             }
             Long l = (Long) map.get(next + c + "_revision");
-            hashMap.put(next + c + "_revision", Long.valueOf((l == null ? 0L : dev.duo.hookprobe.l.longValue()) + 1));
+            hashMap.put(next + c + "_revision", Long.valueOf((l == null ? 0L : l.longValue()) + 1));
             String str2 = map2.get(next + "/railColor");
             if (!"follow".equals(str2)) {
                 hashMap.put(next + "/railColor", str2);

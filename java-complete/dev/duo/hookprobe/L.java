@@ -88,44 +88,44 @@ final class L {
     /* JADX INFO: Access modifiers changed from: private */
     public static /* synthetic */ void a(SharedPreferences sharedPreferences, String str) {
         if (str == null || str.endsWith("/enabled") || P.h(str) || P.j(str) || "_global/master".equals(str) || "_global/licenseToken".equals(str) || P.r(str) || P.u(str) || P.c(str) || P.n(str)) {
-            dev.duo.hookprobe.c.getContentResolver().notifyChange(d, null);
+            c.getContentResolver().notifyChange(d, null);
             String o2 = P.o(str);
-            dev.duo.hookprobe.c.getContentResolver().notifyChange(o2 == null ? e : dev.duo.hookprobe.e.buildUpon().appendPath(o2).build(), null);
+            c.getContentResolver().notifyChange(o2 == null ? e : e.buildUpon().appendPath(o2).build(), null);
         }
         if (str == null || "_global/rotationSuggest".equals(str) || "_global/rotationPortraitRight".equals(str) || "_global/rotationLandscapeRight".equals(str)) {
-            dev.duo.hookprobe.c.getContentResolver().notifyChange(f, null);
+            c.getContentResolver().notifyChange(f, null);
         }
-        if (!dev.duo.hookprobe.o.i && (str == null || "_global/standbyClock".equals(str) || "_global/master".equals(str))) {
-            dev.duo.hookprobe.c.getContentResolver().notifyChange(g, null);
+        if (!o.i && (str == null || "_global/standbyClock".equals(str) || "_global/master".equals(str))) {
+            c.getContentResolver().notifyChange(g, null);
         }
         if (str == null || "_global/notificationIcons".equals(str)) {
-            dev.duo.hookprobe.c.getContentResolver().notifyChange(h, null);
+            c.getContentResolver().notifyChange(h, null);
         }
         if (str == null || "_global/searchButton".equals(str)) {
-            dev.duo.hookprobe.c.getContentResolver().notifyChange(i, null);
+            c.getContentResolver().notifyChange(i, null);
         }
         if (str == null || "_global/pickButton".equals(str)) {
-            dev.duo.hookprobe.c.getContentResolver().notifyChange(j, null);
+            c.getContentResolver().notifyChange(j, null);
         }
         if (str == null || "_global/foldSplit".equals(str) || "_global/foldNudge".equals(str)) {
-            dev.duo.hookprobe.c.getContentResolver().notifyChange(k, null);
+            c.getContentResolver().notifyChange(k, null);
         }
         if (str == null || "_global/workbench".equals(str)) {
-            dev.duo.hookprobe.c.getContentResolver().notifyChange(l, null);
+            c.getContentResolver().notifyChange(l, null);
         }
         if (str == null || "_global/cellularStyle".equals(str) || "_global/statusThin".equals(str) || "_global/percentTop".equals(str) || str.startsWith("_global/statusDy/")) {
-            dev.duo.hookprobe.c.getContentResolver().notifyChange(m, null);
+            c.getContentResolver().notifyChange(m, null);
         }
         if (str == null || "_global/railCustom".equals(str) || "_global/railSidebarApps".equals(str) || "_global/railSidebarFreeform".equals(str) || "_global/railSidebarKeyEnd".equals(str)) {
-            dev.duo.hookprobe.c.getContentResolver().notifyChange(n, null);
+            c.getContentResolver().notifyChange(n, null);
         }
         if (str == null || str.startsWith("ios_notification_")) {
-            dev.duo.hookprobe.c.getContentResolver().notifyChange(o, null);
+            c.getContentResolver().notifyChange(o, null);
         }
         if (str == null || !str.endsWith("/pageColors/_revision")) {
             return;
         }
-        dev.duo.hookprobe.c.getContentResolver().notifyChange(Uri.parse("content://com.lsposed.miduo.config/pageTones/" + str.substring(0, str.length() - 21)), null);
+        c.getContentResolver().notifyChange(Uri.parse("content://com.lsposed.miduo.config/pageTones/" + str.substring(0, str.length() - 21)), null);
     }
 
     static synchronized void a(Context context) {

@@ -29,7 +29,7 @@ final class h {
     private final SharedPreferences.OnSharedPreferenceChangeListener e = new SharedPreferences.OnSharedPreferenceChangeListener() { // from class: dev.duo.hookprobe.h$$ExternalSyntheticLambda2
         @Override // android.content.SharedPreferences.OnSharedPreferenceChangeListener
         public final void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String str) {
-            dev.duo.hookprobe.h.this.a(sharedPreferences, str);
+            h.this.a(sharedPreferences, str);
         }
     };
     private Method f;
@@ -49,7 +49,7 @@ final class h {
             this.c.post(new Runnable() { // from class: dev.duo.hookprobe.h$$ExternalSyntheticLambda0
                 @Override // java.lang.Runnable
                 public final void run() {
-                    dev.duo.hookprobe.h.this.a();
+                    h.this.a();
                 }
             });
         }
@@ -72,7 +72,7 @@ final class h {
             xposedModule.hook(SurfaceView.class.getDeclaredMethod("setFrame", cls, cls, cls, cls)).intercept(new XposedInterface.Hooker() { // from class: dev.duo.hookprobe.h$$ExternalSyntheticLambda1
                 public final Object intercept(XposedInterface.Chain chain) {
                     Object a;
-                    a = h.a(dev.duo.hookprobe.h.this, chain);
+                    a = h.a(h.this, chain);
                     return a;
                 }
             });

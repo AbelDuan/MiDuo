@@ -200,7 +200,7 @@ final class U {
         synchronized (map) {
             int i4 = e;
             if (i2 != i4) {
-                dev.duo.hookprobe.c.add(Integer.valueOf(a(i4)));
+                c.add(Integer.valueOf(a(i4)));
                 e = i2;
             }
             int a2 = a(i2);
@@ -213,7 +213,7 @@ final class U {
                 if (num != null) {
                     return num.intValue();
                 }
-                if (dev.duo.hookprobe.c.contains(Integer.valueOf(i)) && !dev.duo.hookprobe.d.contains(Integer.valueOf(i))) {
+                if (c.contains(Integer.valueOf(i)) && !d.contains(Integer.valueOf(i))) {
                     i3 = i5;
                 }
                 return i3;
@@ -221,11 +221,11 @@ final class U {
             if (i == a2) {
                 return 0;
             }
-            if (dev.duo.hookprobe.c.contains(Integer.valueOf(i)) && !dev.duo.hookprobe.d.contains(Integer.valueOf(i))) {
+            if (c.contains(Integer.valueOf(i)) && !d.contains(Integer.valueOf(i))) {
                 return a2;
             }
             int intValue = num == null ? i : num.intValue();
-            dev.duo.hookprobe.d.add(Integer.valueOf(intValue));
+            d.add(Integer.valueOf(intValue));
             int round = Math.round((i2 * intValue) / 100.0f);
             if (round == i) {
                 return 0;
@@ -266,7 +266,7 @@ final class U {
     }
 
     private static void a(Context context) {
-        int asInt = dev.duo.hookprobe.f.getAsInt();
+        int asInt = f.getAsInt();
         Resources system = Resources.getSystem();
         Resources resources = context.getResources();
         Resources resources2 = null;

@@ -123,7 +123,7 @@ public final class InfoWidgetActivity extends Activity {
         }
         this.b.clear();
         TextView a = T.a(this, 14.0f, T.c, J.m);
-        dev.duo.hookprobe.a.setText("正在读取组件数据…");
+        a.setText("正在读取组件数据…");
         this.a.addView(a);
         MainActivity.a.execute(new Runnable() { // from class: dev.duo.hookprobe.InfoWidgetActivity$$ExternalSyntheticLambda0
             @Override // java.lang.Runnable
@@ -147,7 +147,7 @@ public final class InfoWidgetActivity extends Activity {
     private void b(Bundle[] bundleArr) {
         this.a.removeAllViews();
         TextView a = T.a((Context) this, "返回小组件", false, 40.0f);
-        dev.duo.hookprobe.a.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.InfoWidgetActivity$$ExternalSyntheticLambda4
+        a.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.InfoWidgetActivity$$ExternalSyntheticLambda4
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
                 dev.duo.hookprobe.InfoWidgetActivity.this.a(view);
@@ -163,7 +163,7 @@ public final class InfoWidgetActivity extends Activity {
                 a2.setPadding(0, b(12), 0, b(8));
                 this.a.addView(a2);
                 LinearLayout c = T.c(this);
-                dev.duo.hookprobe.c.setGravity(16);
+                c.setGravity(16);
                 LinearLayout c2 = T.c(this);
                 int i2 = 0;
                 while (i2 < 2) {
@@ -179,7 +179,7 @@ public final class InfoWidgetActivity extends Activity {
                     if (i2 == 1) {
                         layoutParams.leftMargin = b(10);
                     }
-                    dev.duo.hookprobe.c.addView(imageView, layoutParams);
+                    c.addView(imageView, layoutParams);
                     TextView a4 = T.a((Context) this, i2 == 1 ? "添加 4×2" : "添加 2×2", false, 40.0f);
                     a4.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.InfoWidgetActivity$$ExternalSyntheticLambda5
                         @Override // android.view.View.OnClickListener

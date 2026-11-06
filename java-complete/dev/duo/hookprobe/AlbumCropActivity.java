@@ -173,7 +173,7 @@ public final class AlbumCropActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void a(final Context context, final int i2, Bitmap bitmap) {
-        final boolean z = AlbumWidgetProvider.a(context, i2) && dev.duo.hookprobe.c.a(context, i2, bitmap);
+        final boolean z = AlbumWidgetProvider.a(context, i2) && c.a(context, i2, bitmap);
         bitmap.recycle();
         runOnUiThread(new Runnable() { // from class: dev.duo.hookprobe.AlbumCropActivity$$ExternalSyntheticLambda4
             @Override // java.lang.Runnable

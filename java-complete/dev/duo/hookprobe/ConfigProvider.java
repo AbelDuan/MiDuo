@@ -71,7 +71,7 @@ public final class ConfigProvider extends ContentProvider {
                 throw new IllegalArgumentException("invalid package");
             }
             synchronized (dev.duo.hookprobe.F.class) {
-                synchronized (dev.duo.hookprobe.o.class) {
+                synchronized (o.class) {
                     Bundle bundle2 = new Bundle();
                     Bundle a4 = F.a(str2);
                     if (bundle != null && a4.getBoolean("active") && a4.getLong("token") == bundle.getLong("token")) {

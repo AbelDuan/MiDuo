@@ -1694,7 +1694,7 @@ public final class MainActivity extends Activity {
 
     private void r() throws IOException, InterruptedException {
         int myUid = Process.myUid() / 100000;
-        Process start = new ProcessBuilder("su", "-c", "cmd appops set --user " + myUid + " com.lsposed.miduo 10020 allow && cmd appops get --user " + myUid + " com.lsposed.miduo 10020").redirectErrorStream(true).start();
+        java.lang.Process start = new ProcessBuilder("su", "-c", "cmd appops set --user " + myUid + " com.lsposed.miduo 10020 allow && cmd appops get --user " + myUid + " com.lsposed.miduo 10020").redirectErrorStream(true).start();
         try {
             if (!start.waitFor(30L, TimeUnit.SECONDS)) {
                 start.destroyForcibly();
@@ -2744,7 +2744,7 @@ public final class MainActivity extends Activity {
 
     static String i(String str) {
         try {
-            Process start = new ProcessBuilder("getprop", str).start();
+            java.lang.Process start = new ProcessBuilder("getprop", str).start();
             byte[] bArr = new byte[16];
             int read = start.getInputStream().read(bArr);
             start.waitFor();

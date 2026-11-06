@@ -95,7 +95,7 @@ final class f {
             String trim = charSequence.toString().trim();
             if (trim.matches("#?[0-9a-fA-F]{6}")) {
                 this.a[0] = dev.duo.hookprobe.P.p(trim).intValue();
-                this.b.setBackground(T.a(this.a[0], dev.duo.hookprobe.f.this.a(14.0f)));
+                this.b.setBackground(T.a(this.a[0], f.this.a(14.0f)));
                 this.b.setTextColor(Color.luminance(this.a[0]) > 0.45f ? -13618632 : -1);
                 for (int i4 = 0; i4 < 3; i4++) {
                     this.c[i4].setProgress((this.a[0] >> (16 - (i4 * 8))) & 255);
@@ -145,61 +145,61 @@ final class f {
 
         @Override // io.github.libxposed.service.XposedService.OnScopeEventListener
         public void onScopeRequestApproved(List<String> list) {
-            dev.duo.hookprobe.f.this.h("LSPosed 已批准作用域，该 App 下次打开时生效");
-            f c0012f = dev.duo.hookprobe.f.this;
+            f.this.h("LSPosed 已批准作用域，该 App 下次打开时生效");
+            f c0012f = f.this;
             c0012f.a(this.a, c0012f.f);
         }
 
         @Override // io.github.libxposed.service.XposedService.OnScopeEventListener
         public void onScopeRequestFailed(String str) {
-            dev.duo.hookprobe.f.this.c("LSPosed 作用域请求失败：" + str);
+            f.this.c("LSPosed 作用域请求失败：" + str);
         }
     }
 
     /* renamed from: dev.duo.hookprobe.f$d */
     private final class d extends AbstractC0002f {
         d(LinearLayout linearLayout, boolean z) {
-            super(linearLayout, "com.tencent.mm".equals(dev.duo.hookprobe.f.this.c) ? "内屏和外屏" : "外屏（合上时）", "%", 12, 60, 100, false, z);
+            super(linearLayout, "com.tencent.mm".equals(f.this.c) ? "内屏和外屏" : "外屏（合上时）", "%", 12, 60, 100, false, z);
         }
 
         private String j() {
-            return "com.tencent.mm".equals(dev.duo.hookprobe.f.this.c) ? "微信" : "外屏";
+            return "com.tencent.mm".equals(f.this.c) ? "微信" : "外屏";
         }
 
-        @Override // dev.duo.hookprobe.f.AbstractC0002f
+        @Override // f.AbstractC0002f
         void a(int i) {
-            if (!dev.duo.hookprobe.f.this.f.b(dev.duo.hookprobe.f.this.c, i)) {
-                dev.duo.hookprobe.f.this.c("保存失败");
+            if (!f.this.f.b(f.this.c, i)) {
+                f.this.c("保存失败");
             } else {
                 h();
-                dev.duo.hookprobe.f.this.h(j() + "缩放已设为 " + P.b(i) + "%");
+                f.this.h(j() + "缩放已设为 " + P.b(i) + "%");
             }
         }
 
-        @Override // dev.duo.hookprobe.f.AbstractC0002f
+        @Override // f.AbstractC0002f
         boolean b() {
-            return dev.duo.hookprobe.f.this.f.g(dev.duo.hookprobe.f.this.c);
+            return f.this.f.g(f.this.c);
         }
 
-        @Override // dev.duo.hookprobe.f.AbstractC0002f
+        @Override // f.AbstractC0002f
         int c() {
-            return dev.duo.hookprobe.f.this.f.o(dev.duo.hookprobe.f.this.c);
+            return f.this.f.o(f.this.c);
         }
 
-        @Override // dev.duo.hookprobe.f.AbstractC0002f
+        @Override // f.AbstractC0002f
         boolean d() {
-            return dev.duo.hookprobe.f.this.f.e(dev.duo.hookprobe.f.this.c);
+            return f.this.f.e(f.this.c);
         }
 
-        @Override // dev.duo.hookprobe.f.AbstractC0002f
+        @Override // f.AbstractC0002f
         String e() {
-            return dev.duo.hookprobe.f.this.f.i(dev.duo.hookprobe.f.this.c) ? "跟随全局 " + dev.duo.hookprobe.f.this.f.p() + "%" : "原始大小 100%";
+            return f.this.f.i(f.this.c) ? "跟随全局 " + f.this.f.p() + "%" : "原始大小 100%";
         }
 
-        @Override // dev.duo.hookprobe.f.AbstractC0002f
+        @Override // f.AbstractC0002f
         void f() {
             h();
-            dev.duo.hookprobe.f.this.h(j() + "缩放已恢复：" + e());
+            f.this.h(j() + "缩放已恢复：" + e());
         }
     }
 
@@ -213,55 +213,55 @@ final class f {
         }
 
         private int j() {
-            return (!"outer".equals(this.i) || dev.duo.hookprobe.f.this.f.i(dev.duo.hookprobe.f.this.c)) ? dev.duo.hookprobe.f.this.f.j(this.i) : dev.duo.hookprobe.f.this.f.q();
+            return (!"outer".equals(this.i) || f.this.f.i(f.this.c)) ? f.this.f.j(this.i) : f.this.f.q();
         }
 
         private String k() {
             return "inner".equals(this.i) ? "内屏" : "外屏";
         }
 
-        @Override // dev.duo.hookprobe.f.AbstractC0002f
+        @Override // f.AbstractC0002f
         void a(int i) {
             try {
-                int a = dev.duo.hookprobe.f.this.f.a(dev.duo.hookprobe.f.this.c, this.i, i);
+                int a = f.this.f.a(f.this.c, this.i, i);
                 h();
-                dev.duo.hookprobe.f.this.a(k() + "已设为 " + a + "px", this.i);
+                f.this.a(k() + "已设为 " + a + "px", this.i);
             } catch (Throwable th) {
-                dev.duo.hookprobe.f.this.c("保存失败：" + th);
+                f.this.c("保存失败：" + th);
             }
         }
 
-        @Override // dev.duo.hookprobe.f.AbstractC0002f
+        @Override // f.AbstractC0002f
         boolean b() {
-            return dev.duo.hookprobe.f.this.f.c(dev.duo.hookprobe.f.this.c, this.i);
+            return f.this.f.c(f.this.c, this.i);
         }
 
-        @Override // dev.duo.hookprobe.f.AbstractC0002f
+        @Override // f.AbstractC0002f
         int c() {
-            return (!"outer".equals(this.i) || dev.duo.hookprobe.f.this.f.i(dev.duo.hookprobe.f.this.c)) ? dev.duo.hookprobe.f.this.f.e(dev.duo.hookprobe.f.this.c, this.i) : P.e(dev.duo.hookprobe.f.this.f.a, dev.duo.hookprobe.f.this.c);
+            return (!"outer".equals(this.i) || f.this.f.i(f.this.c)) ? f.this.f.e(f.this.c, this.i) : P.e(f.this.f.a, f.this.c);
         }
 
-        @Override // dev.duo.hookprobe.f.AbstractC0002f
+        @Override // f.AbstractC0002f
         boolean d() {
-            return dev.duo.hookprobe.f.this.f.b(dev.duo.hookprobe.f.this.c, this.i);
+            return f.this.f.b(f.this.c, this.i);
         }
 
-        @Override // dev.duo.hookprobe.f.AbstractC0002f
+        @Override // f.AbstractC0002f
         String e() {
             return "跟随全局 " + j() + "px";
         }
 
-        @Override // dev.duo.hookprobe.f.AbstractC0002f
+        @Override // f.AbstractC0002f
         void f() {
-            dev.duo.hookprobe.f.this.h.h();
-            dev.duo.hookprobe.f.this.i.h();
-            dev.duo.hookprobe.f.this.a(k() + "已跟随全局 " + j() + "px", this.i);
+            f.this.h.h();
+            f.this.i.h();
+            f.this.a(k() + "已跟随全局 " + j() + "px", this.i);
         }
 
-        @Override // dev.duo.hookprobe.f.AbstractC0002f
+        @Override // f.AbstractC0002f
         void h() {
             super.h();
-            boolean z = !"outer".equals(this.i) || dev.duo.hookprobe.f.this.f.i(dev.duo.hookprobe.f.this.c) ? !(!("com.ss.android.ugc.aweme".equals(dev.duo.hookprobe.f.this.c) && !dev.duo.hookprobe.f.this.f.i(dev.duo.hookprobe.f.this.c) && "inner".equals(this.i)) ? "inner".equals(this.i) && dev.duo.hookprobe.f.this.f.k(dev.duo.hookprobe.f.this.c) : !dev.duo.hookprobe.f.this.f.b("inner")) : !dev.duo.hookprobe.f.this.f.n(dev.duo.hookprobe.f.this.c);
+            boolean z = !"outer".equals(this.i) || f.this.f.i(f.this.c) ? !(!("com.ss.android.ugc.aweme".equals(f.this.c) && !f.this.f.i(f.this.c) && "inner".equals(this.i)) ? "inner".equals(this.i) && f.this.f.k(f.this.c) : !f.this.f.b("inner")) : !f.this.f.n(f.this.c);
             this.f.setEnabled(!z);
             this.f.setAlpha(z ? 0.45f : 1.0f);
             if (z) {
@@ -309,60 +309,60 @@ final class f {
 
         AbstractC0002f(LinearLayout linearLayout, String str, String str2, int i, int i2, int i3, boolean z, boolean z2) {
             this.a = i2;
-            LinearLayout a2 = T.a((Context) dev.duo.hookprobe.f.this.a);
+            LinearLayout a2 = T.a((Context) f.this.a);
             this.g = a2;
             if (!z2) {
-                a2.setPadding(0, dev.duo.hookprobe.f.this.a(14.0f), 0, dev.duo.hookprobe.f.this.a(14.0f));
+                a2.setPadding(0, f.this.a(14.0f), 0, f.this.a(14.0f));
             }
             if (z) {
-                View view = new View(dev.duo.hookprobe.f.this.a);
+                View view = new View(f.this.a);
                 view.setBackgroundColor(T.h);
-                linearLayout.addView(view, new LinearLayout.LayoutParams(-1, Math.max(1, dev.duo.hookprobe.f.this.a(0.5f))));
+                linearLayout.addView(view, new LinearLayout.LayoutParams(-1, Math.max(1, f.this.a(0.5f))));
             }
-            LinearLayout c = T.c(dev.duo.hookprobe.f.this.a);
-            dev.duo.hookprobe.c.addView(T.a(dev.duo.hookprobe.f.this.a, T.a(dev.duo.hookprobe.f.this.a, i, T.d, 1.8f, false, 20.0f)), T.a(dev.duo.hookprobe.f.this.a, 20.0f, 20.0f));
-            TextView a3 = T.a(dev.duo.hookprobe.f.this.a, z2 ? 14.0f : 15.0f, T.b, 600);
+            LinearLayout c = T.c(f.this.a);
+            c.addView(T.a(f.this.a, T.a(f.this.a, i, T.d, 1.8f, false, 20.0f)), T.a(f.this.a, 20.0f, 20.0f));
+            TextView a3 = T.a(f.this.a, z2 ? 14.0f : 15.0f, T.b, 600);
             a3.setText(str);
-            a3.setPadding(dev.duo.hookprobe.f.this.a(z2 ? 12.0f : 10.0f), 0, 0, 0);
-            dev.duo.hookprobe.c.addView(a3, T.b());
-            TextView a4 = T.a(dev.duo.hookprobe.f.this.a, 22.0f, T.b, 800);
+            a3.setPadding(f.this.a(z2 ? 12.0f : 10.0f), 0, 0, 0);
+            c.addView(a3, T.b());
+            TextView a4 = T.a(f.this.a, 22.0f, T.b, 800);
             this.c = a4;
             a4.setFontFeatureSettings("tnum");
-            dev.duo.hookprobe.c.addView(a4);
-            TextView a5 = T.a(dev.duo.hookprobe.f.this.a, 13.0f, T.d, 600);
+            c.addView(a4);
+            TextView a5 = T.a(f.this.a, 13.0f, T.d, 600);
             a5.setText(str2);
-            a5.setPadding(dev.duo.hookprobe.f.this.a(2.0f), dev.duo.hookprobe.f.this.a(6.0f), 0, 0);
-            dev.duo.hookprobe.c.addView(a5);
+            a5.setPadding(f.this.a(2.0f), f.this.a(6.0f), 0, 0);
+            c.addView(a5);
             a2.addView(c);
-            SeekBar seekBar = new SeekBar(dev.duo.hookprobe.f.this.a);
+            SeekBar seekBar = new SeekBar(f.this.a);
             this.b = seekBar;
             T.a(seekBar);
             seekBar.setMax(i3 - i2);
             seekBar.setEnabled(false);
             seekBar.setContentDescription(str);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, dev.duo.hookprobe.f.this.a(44.0f));
-            layoutParams.leftMargin = -dev.duo.hookprobe.f.this.a(17.0f);
-            layoutParams.rightMargin = -dev.duo.hookprobe.f.this.a(17.0f);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, f.this.a(44.0f));
+            layoutParams.leftMargin = -f.this.a(17.0f);
+            layoutParams.rightMargin = -f.this.a(17.0f);
             a2.addView(seekBar, layoutParams);
-            LinearLayout c2 = T.c(dev.duo.hookprobe.f.this.a);
+            LinearLayout c2 = T.c(f.this.a);
             this.f = c2;
-            c2.setPadding(dev.duo.hookprobe.f.this.a(7.0f), 0, dev.duo.hookprobe.f.this.a(12.0f), 0);
-            FrameLayout frameLayout = new FrameLayout(dev.duo.hookprobe.f.this.a);
-            ImageView a6 = T.a(dev.duo.hookprobe.f.this.a, T.a(dev.duo.hookprobe.f.this.a, 6, T.a ? -13882322 : T.b, 4.0f, false, 10.0f));
+            c2.setPadding(f.this.a(7.0f), 0, f.this.a(12.0f), 0);
+            FrameLayout frameLayout = new FrameLayout(f.this.a);
+            ImageView a6 = T.a(f.this.a, T.a(f.this.a, 6, T.a ? -13882322 : T.b, 4.0f, false, 10.0f));
             this.e = a6;
-            frameLayout.addView(a6, new FrameLayout.LayoutParams(dev.duo.hookprobe.f.this.a(10.0f), dev.duo.hookprobe.f.this.a(10.0f), 17));
-            c2.addView(frameLayout, T.a(dev.duo.hookprobe.f.this.a, 16.0f, 16.0f));
-            TextView a7 = T.a(dev.duo.hookprobe.f.this.a, 12.0f, T.c, 600);
+            frameLayout.addView(a6, new FrameLayout.LayoutParams(f.this.a(10.0f), f.this.a(10.0f), 17));
+            c2.addView(frameLayout, T.a(f.this.a, 16.0f, 16.0f));
+            TextView a7 = T.a(f.this.a, 12.0f, T.c, 600);
             this.d = a7;
-            a7.setPadding(dev.duo.hookprobe.f.this.a(6.0f), 0, 0, 0);
+            a7.setPadding(f.this.a(6.0f), 0, 0, 0);
             c2.addView(a7);
             c2.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.f$f$$ExternalSyntheticLambda0
                 @Override // android.view.View.OnClickListener
                 public final void onClick(View view2) {
-                    dev.duo.hookprobe.f.AbstractC0002f.this.a(view2);
+                    f.AbstractC0002f.this.a(view2);
                 }
             });
-            a2.addView(c2, new LinearLayout.LayoutParams(-2, dev.duo.hookprobe.f.this.a(32.0f)));
+            a2.addView(c2, new LinearLayout.LayoutParams(-2, f.this.a(32.0f)));
             linearLayout.addView(a2);
         }
 
@@ -396,24 +396,24 @@ final class f {
             this.c.setTextColor(g ? T.e : T.b);
             this.d.setText(e());
             this.d.setTextColor(g ? T.o : T.c);
-            GradientDrawable a2 = T.a(g ? T.n : 0, dev.duo.hookprobe.f.this.a(16.0f));
+            GradientDrawable a2 = T.a(g ? T.n : 0, f.this.a(16.0f));
             if (!g) {
-                a2.setStroke(Math.max(1, dev.duo.hookprobe.f.this.a(1.0f)), 1299609216);
+                a2.setStroke(Math.max(1, f.this.a(1.0f)), 1299609216);
             }
             this.f.setBackground(a2);
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(1);
             gradientDrawable.setColor(g ? T.o : 0);
             if (!g) {
-                gradientDrawable.setStroke(Math.max(1, dev.duo.hookprobe.f.this.a(1.5f)), 1937143424);
+                gradientDrawable.setStroke(Math.max(1, f.this.a(1.5f)), 1937143424);
             }
             ((View) this.e.getParent()).setBackground(gradientDrawable);
             this.e.setVisibility(g ? 0 : 4);
-            dev.duo.hookprobe.f.this.l();
+            f.this.l();
         }
 
         void i() {
-            if (dev.duo.hookprobe.f.this.f == null) {
+            if (f.this.f == null) {
                 return;
             }
             if (g()) {
@@ -421,7 +421,7 @@ final class f {
             } else if (b()) {
                 f();
             } else {
-                dev.duo.hookprobe.f.this.c("写入失败");
+                f.this.c("写入失败");
             }
         }
 
@@ -454,7 +454,7 @@ final class f {
         a3.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda28
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                dev.duo.hookprobe.f.this.e(view);
+                f.this.e(view);
             }
         });
         ImageView imageView = new ImageView(activity);
@@ -491,14 +491,14 @@ final class f {
         c2.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda29
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                dev.duo.hookprobe.f.this.a(a6, view);
+                f.this.a(a6, view);
             }
         });
         a2.addView(a4);
         MainActivity.a.execute(new Runnable() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda30
             @Override // java.lang.Runnable
             public final void run() {
-                dev.duo.hookprobe.f.this.d();
+                f.this.d();
             }
         });
     }
@@ -520,14 +520,14 @@ final class f {
         this.n.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda5
             @Override // android.widget.CompoundButton.OnCheckedChangeListener
             public final void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-                dev.duo.hookprobe.f.this.b(compoundButton, z);
+                f.this.b(compoundButton, z);
             }
         });
         c2.addView(this.n);
         c2.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda6
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                dev.duo.hookprobe.f.this.f(view);
+                f.this.f(view);
             }
         });
         a2.addView(c2);
@@ -537,7 +537,7 @@ final class f {
         this.o.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda7
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                dev.duo.hookprobe.f.this.g(view);
+                f.this.g(view);
             }
         });
         a2.addView(this.o);
@@ -690,7 +690,7 @@ final class f {
         T.e eVar = new T.e(this.a, new String[]{"跟随全局", "显示原生顶栏", "隐藏"}, null, new IntConsumer() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda36
             @Override // java.util.function.IntConsumer
             public final void accept(int i) {
-                dev.duo.hookprobe.f.this.c(i);
+                f.this.c(i);
             }
         });
         this.z = eVar;
@@ -756,7 +756,7 @@ final class f {
         a2.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda0
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                dev.duo.hookprobe.f.this.a(z, view);
+                f.this.a(z, view);
             }
         });
         return a2;
@@ -768,8 +768,8 @@ final class f {
             return;
         }
         final Bundle q = c0021o.q(this.c);
-        final Bundle bundle = dev.duo.hookprobe.q.getBundle("groups");
-        final Bundle bundle2 = dev.duo.hookprobe.q.getBundle("colors");
+        final Bundle bundle = q.getBundle("groups");
+        final Bundle bundle2 = q.getBundle("colors");
         final ArrayList arrayList = new ArrayList(bundle.keySet());
         Collections.sort(arrayList);
         if (arrayList.isEmpty()) {
@@ -793,12 +793,12 @@ final class f {
         T.a(T.a(this.a, "已保存的页面颜色", strArr, new DialogInterface.OnClickListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda11
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface, int i4) {
-                dev.duo.hookprobe.f.this.a(arrayList, bundle, bundle2, q, dialogInterface, i4);
+                f.this.a(arrayList, bundle, bundle2, q, dialogInterface, i4);
             }
         }).setNeutralButton("清除全部页面记录", new DialogInterface.OnClickListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda12
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface, int i4) {
-                dev.duo.hookprobe.f.this.b(dialogInterface, i4);
+                f.this.b(dialogInterface, i4);
             }
         }).setNegativeButton("关闭", (DialogInterface.OnClickListener) null).create());
     }
@@ -827,7 +827,7 @@ final class f {
         MainActivity.a.execute(new Runnable() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda10
             @Override // java.lang.Runnable
             public final void run() {
-                dev.duo.hookprobe.f.this.c(z);
+                f.this.c(z);
             }
         });
     }
@@ -865,7 +865,7 @@ final class f {
         this.b.post(new Runnable() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda8
             @Override // java.lang.Runnable
             public final void run() {
-                dev.duo.hookprobe.f.this.f(str);
+                f.this.f(str);
             }
         });
     }
@@ -934,7 +934,7 @@ final class f {
         T.e eVar = new T.e(this.a, new String[]{"原生显示", "隐藏"}, null, new IntConsumer() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda31
             @Override // java.util.function.IntConsumer
             public final void accept(int i) {
-                dev.duo.hookprobe.f.this.b(str, i);
+                f.this.b(str, i);
             }
         });
         eVar.a(false);
@@ -948,7 +948,7 @@ final class f {
         this.b.post(new Runnable() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda19
             @Override // java.lang.Runnable
             public final void run() {
-                dev.duo.hookprobe.f.this.a(c0021o);
+                f.this.a(c0021o);
             }
         });
         a(a2, c0021o);
@@ -996,7 +996,7 @@ final class f {
         T.a(T.a(this.a, "清除页面记录？").setMessage("只清除这个 App 保存的页面颜色和关联，保留 App 默认色。").setPositiveButton("清除", new DialogInterface.OnClickListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda20
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface2, int i2) {
-                dev.duo.hookprobe.f.this.a(dialogInterface2, i2);
+                f.this.a(dialogInterface2, i2);
             }
         }).setNegativeButton("取消", (DialogInterface.OnClickListener) null).create());
     }
@@ -1147,13 +1147,13 @@ final class f {
         final AlertDialog create = T.a(this.a, (z ? "深色" : "浅色") + "模式背景").setView(a2).setNegativeButton("取消", (DialogInterface.OnClickListener) null).setNeutralButton("此模式恢复默认", new DialogInterface.OnClickListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda33
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface, int i13) {
-                dev.duo.hookprobe.f.this.a(z, dialogInterface, i13);
+                f.this.a(z, dialogInterface, i13);
             }
         }).setPositiveButton("保存", (DialogInterface.OnClickListener) null).create();
         create.setOnShowListener(new DialogInterface.OnShowListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda34
             @Override // android.content.DialogInterface.OnShowListener
             public final void onShow(DialogInterface dialogInterface) {
-                dev.duo.hookprobe.f.this.a(create, editText, z, dialogInterface);
+                f.this.a(create, editText, z, dialogInterface);
             }
         });
         T.a(create);
@@ -1202,7 +1202,7 @@ final class f {
         this.b.post(new Runnable() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda16
             @Override // java.lang.Runnable
             public final void run() {
-                dev.duo.hookprobe.f.this.e(str);
+                f.this.e(str);
             }
         });
     }
@@ -1339,7 +1339,7 @@ final class f {
         T.a(T.a(this.a, "复制其他 App 的深浅配色", strArr, new DialogInterface.OnClickListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda3
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface, int i2) {
-                dev.duo.hookprobe.f.this.a(arrayList, dialogInterface, i2);
+                f.this.a(arrayList, dialogInterface, i2);
             }
         }).setNegativeButton("取消", (DialogInterface.OnClickListener) null).create());
     }
@@ -1355,7 +1355,7 @@ final class f {
         T.e eVar = new T.e(this.a, new String[]{"裁切拉满", "完整显示"}, null, new IntConsumer() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda17
             @Override // java.util.function.IntConsumer
             public final void accept(int i) {
-                dev.duo.hookprobe.f.this.a(str, i);
+                f.this.a(str, i);
             }
         });
         eVar.a(false);
@@ -1389,7 +1389,7 @@ final class f {
         this.G.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda21
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                dev.duo.hookprobe.f.this.a(view);
+                f.this.a(view);
             }
         });
         a2.addView(this.G, T.a(T.a(), this.a, 8.0f));
@@ -1397,7 +1397,7 @@ final class f {
         a4.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda22
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                dev.duo.hookprobe.f.this.b(view);
+                f.this.b(view);
             }
         });
         a2.addView(a4, T.a(T.a(), this.a, 8.0f));
@@ -1405,7 +1405,7 @@ final class f {
         a5.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda23
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                dev.duo.hookprobe.f.this.c(view);
+                f.this.c(view);
             }
         });
         a2.addView(a5, T.a(T.a(), this.a, 8.0f));
@@ -1413,7 +1413,7 @@ final class f {
         a6.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda24
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                dev.duo.hookprobe.f.this.d(view);
+                f.this.d(view);
             }
         });
         a2.addView(a6, T.a(T.a(), this.a, 8.0f));
@@ -1423,7 +1423,7 @@ final class f {
         T.e eVar = new T.e(this.a, new String[]{"跟随全局", "白色", "黑色"}, new int[]{-5329230, -1, -14869217}, new IntConsumer() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda25
             @Override // java.util.function.IntConsumer
             public final void accept(int i) {
-                dev.duo.hookprobe.f.this.d(i);
+                f.this.d(i);
             }
         });
         this.y = eVar;
@@ -1478,12 +1478,12 @@ final class f {
         T.a(T.a(this.a, b(i2)).setMessage(sb.toString()).setView(a(arrayList2, strArr)).setPositiveButton("修改颜色", new DialogInterface.OnClickListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda1
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface2, int i6) {
-                dev.duo.hookprobe.f.this.a(startsWith, i2, z, dialogInterface2, i6);
+                f.this.a(startsWith, i2, z, dialogInterface2, i6);
             }
         }).setNeutralButton("删除这组记录", new DialogInterface.OnClickListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda2
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface2, int i6) {
-                dev.duo.hookprobe.f.this.a(startsWith, i2, dialogInterface2, i6);
+                f.this.a(startsWith, i2, dialogInterface2, i6);
             }
         }).setNegativeButton("取消", (DialogInterface.OnClickListener) null).create());
     }
@@ -1523,7 +1523,7 @@ final class f {
             a3.setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda27
                 @Override // android.view.View.OnClickListener
                 public final void onClick(View view) {
-                    dev.duo.hookprobe.f.this.a(strArr2, i, list2, a3, view);
+                    f.this.a(strArr2, i, list2, a3, view);
                 }
             });
             a2.addView(a3, T.a(T.a(), this.a, 8.0f));
@@ -1544,7 +1544,7 @@ final class f {
         T.a(T.a(this.a, "给页面加备注").setView(T.b(editText)).setPositiveButton("保存", new DialogInterface.OnClickListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda9
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface, int i2) {
-                dev.duo.hookprobe.f.this.a(editText, list, i, strArr, textView, dialogInterface, i2);
+                f.this.a(editText, list, i, strArr, textView, dialogInterface, i2);
             }
         }).setNegativeButton("取消", (DialogInterface.OnClickListener) null).create());
     }
@@ -1574,7 +1574,7 @@ final class f {
         create.setOnShowListener(new DialogInterface.OnShowListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda4
             @Override // android.content.DialogInterface.OnShowListener
             public final void onShow(DialogInterface dialogInterface) {
-                dev.duo.hookprobe.f.this.a(create, editText, z2, z, i, dialogInterface);
+                f.this.a(create, editText, z2, z, i, dialogInterface);
             }
         });
         T.a(create);
@@ -1585,7 +1585,7 @@ final class f {
         alertDialog.getButton(-1).setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda26
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                dev.duo.hookprobe.f.this.a(editText, z, z2, i, alertDialog, view);
+                f.this.a(editText, z, z2, i, alertDialog, view);
             }
         });
     }
@@ -1648,7 +1648,7 @@ final class f {
         alertDialog.getButton(-1).setOnClickListener(new View.OnClickListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda18
             @Override // android.view.View.OnClickListener
             public final void onClick(View view) {
-                dev.duo.hookprobe.f.this.a(editText, z, alertDialog, view);
+                f.this.a(editText, z, alertDialog, view);
             }
         });
     }
@@ -1761,7 +1761,7 @@ final class f {
         this.g.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda14
             @Override // android.widget.CompoundButton.OnCheckedChangeListener
             public final void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-                dev.duo.hookprobe.f.this.a(compoundButton, z);
+                f.this.a(compoundButton, z);
             }
         });
         this.z.a(this.f.l(this.c));
@@ -1834,7 +1834,7 @@ final class f {
         this.b.post(new Runnable() { // from class: dev.duo.hookprobe.f$$ExternalSyntheticLambda37
             @Override // java.lang.Runnable
             public final void run() {
-                dev.duo.hookprobe.f.this.a(sb);
+                f.this.a(sb);
             }
         });
     }

@@ -504,7 +504,7 @@ final class b {
             if (l == null) {
                 l = a2.a.values().iterator().next();
             }
-            longValue = dev.duo.hookprobe.l.longValue();
+            longValue = l.longValue();
         }
         z = true;
         cVar.a("相册所在页", "第 " + longValue + " 页");
