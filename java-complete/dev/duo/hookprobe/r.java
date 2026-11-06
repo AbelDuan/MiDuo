@@ -156,7 +156,7 @@ final class r {
                     if (contains) {
                     }
                     str6 = "没找到" + (!contains ? "外屏" : contains2 ? "内屏" : "内屏和外屏") + "：屏幕编号与适配的手机不同";
-                    arrayList.add(new r.a("内外屏", r12, str6));
+                    arrayList.add(new r.a("内外屏", 2, str6));
                     a(context, arrayList);
                     arrayList.add(a(split[4], split[5]));
                     return arrayList;

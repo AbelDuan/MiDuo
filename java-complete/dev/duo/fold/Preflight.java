@@ -115,7 +115,7 @@ public final class Preflight {
         return new JSONArray().put(str).put(i).put(str2);
     }
 
-    public static void main(String[] strArr) {
+    public static void main(String[] strArr) throws Exception {
         JSONArray jSONArray = new JSONArray();
         try {
         } catch (Exception | LinkageError e2) {
