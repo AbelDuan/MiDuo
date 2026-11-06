@@ -1904,7 +1904,7 @@ public final class b extends XposedModule {
             this.k = Float.NaN;
             this.c = str;
             this.d = view;
-            SurfaceControlViewHost surfaceControlViewHost = new SurfaceControlViewHost(dev.duo.workspaceprobe.b.this.i4, ((DisplayManager) dev.duo.workspaceprobe.b.this.i4.getSystemService(DisplayManager.class)).getDisplay(0), null);
+            SurfaceControlViewHost surfaceControlViewHost = new SurfaceControlViewHost(dev.duo.workspaceprobe.b.this.i4, (android.view.Display) ((DisplayManager) dev.duo.workspaceprobe.b.this.i4.getSystemService(DisplayManager.class)).getDisplay(0), null);
             this.a = surfaceControlViewHost;
             if (i5 != 0) {
                 try {
@@ -2285,8 +2285,8 @@ public final class b extends XposedModule {
             this.a = (WindowManager) dev.duo.workspaceprobe.b.this.i4.getSystemService(WindowManager.class);
             this.d = f;
             this.f = z2;
-            boolean b = b.b(dev.duo.workspaceprobe.b.this.i4);
-            int i4 = b ? -855305 : -14935010;
+            boolean bLocal = dev.duo.workspaceprobe.b.b(dev.duo.workspaceprobe.b.this.i4);
+            int i4 = bLocal ? -855305 : -14935010;
             a aVar = new a(dev.duo.workspaceprobe.b.this.i4, dev.duo.workspaceprobe.b.this);
             this.b = aVar;
             aVar.setOnTouchListener(new View.OnTouchListener() { // from class: dev.duo.workspaceprobe.b$b0$$ExternalSyntheticLambda2
@@ -2300,7 +2300,7 @@ public final class b extends XposedModule {
             LinearLayout linearLayout = new LinearLayout(dev.duo.workspaceprobe.b.this.i4);
             this.c = linearLayout;
             linearLayout.setOrientation(1);
-            linearLayout.setBackground(b.b(b ? -148100050 : -134217729, 40.0f));
+            linearLayout.setBackground(dev.duo.workspaceprobe.b.b(bLocal ? -148100050 : -134217729, 40.0f));
             linearLayout.setElevation(24.0f);
             linearLayout.setClipToOutline(true);
             linearLayout.setClickable(true);
@@ -2324,27 +2324,27 @@ public final class b extends XposedModule {
             layoutParams.leftMargin = 24;
             linearLayout2.addView(textView, layoutParams);
             this.c.addView(linearLayout2, new LinearLayout.LayoutParams(-1, k));
-            a(b, i4, "全屏打开", true, new Runnable() { // from class: dev.duo.workspaceprobe.b$b0$$ExternalSyntheticLambda3
+            a(bLocal, i4, "全屏打开", true, new Runnable() { // from class: dev.duo.workspaceprobe.b$b0$$ExternalSyntheticLambda3
                 @Override // java.lang.Runnable
                 public final void run() {
                     dev.duo.workspaceprobe.b.b0.this.a(str);
                 }
             });
-            a(b, i4, "小窗打开", true, new Runnable() { // from class: dev.duo.workspaceprobe.b$b0$$ExternalSyntheticLambda4
+            a(bLocal, i4, "小窗打开", true, new Runnable() { // from class: dev.duo.workspaceprobe.b$b0$$ExternalSyntheticLambda4
                 @Override // java.lang.Runnable
                 public final void run() {
                     dev.duo.workspaceprobe.b.b0.this.b(str);
                 }
             });
             if (z) {
-                a(b, -50384, "从侧栏移除", false, new Runnable() { // from class: dev.duo.workspaceprobe.b$b0$$ExternalSyntheticLambda5
+                a(bLocal, -50384, "从侧栏移除", false, new Runnable() { // from class: dev.duo.workspaceprobe.b$b0$$ExternalSyntheticLambda5
                     @Override // java.lang.Runnable
                     public final void run() {
                         dev.duo.workspaceprobe.b.b0.this.c(str);
                     }
                 });
             } else {
-                a(b, i4, "固定到侧栏", false, new Runnable() { // from class: dev.duo.workspaceprobe.b$b0$$ExternalSyntheticLambda6
+                a(bLocal, i4, "固定到侧栏", false, new Runnable() { // from class: dev.duo.workspaceprobe.b$b0$$ExternalSyntheticLambda6
                     @Override // java.lang.Runnable
                     public final void run() {
                         dev.duo.workspaceprobe.b.b0.this.d(str);
