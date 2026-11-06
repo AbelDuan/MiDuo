@@ -450,7 +450,7 @@ final class b {
     }
 
     static boolean a(Context context, int i, d dVar, C0001b c0001b) {
-        boolean z;
+        boolean z = true;
         String trim;
         String str;
         long longValue;
@@ -459,74 +459,65 @@ final class b {
         c cVar = new c();
         try {
             trim = M.a("id -u").trim();
-        } catch (InterruptedException e2) {
-            z = true;
-        } catch (Exception e3) {
-            Throwable th = e3;
-            z = true;
-        }
-        try {
+            if (!"0".equals(trim)) {
+                throw new IllegalStateException("\u6ca1\u62ff\u5230 Root\uff0cuid=" + trim);
+            }
+            cVar.a("Root \u53ef\u7528", (String) null);
+            String trim2 = M.a("cat " + str3 + "/active 2>/dev/null || echo duo").trim();
+            if (!"duo".equals(trim2)) {
+                dVar.a("\u8bf7\u5148\u6253\u5f00 MiDuo \u603b\u5f00\u5173");
+                return z;
+            }
+            cVar.a("MiDuo \u603b\u5f00\u5173", trim2);
+            a a2 = a(context, str2);
+            cVar.a("\u684c\u9762\u6570\u636e\u5e93\u53ef\u8bfb", "\u684c\u9762\u4e0a\u6709 " + a2.a.size() + " \u4e2a\u76f8\u518c");
+            long c2 = c(str2);
+            if (c2 < 0) {
+                str = "\u8fd8\u6ca1\u6709\u8bb0\u5f55";
+            } else {
+                str = "\u8bb0\u5f55\u9875 " + c2;
+            }
+            cVar.a("\u5c0f\u7ec4\u4ef6\u9875\u8bb0\u5f55\u53ef\u8bfb", str);
+            if (a2.a.isEmpty()) {
+                return false;
+            }
+            Long l = a2.a.get(Integer.valueOf(i));
+            if (c0001b != null) {
+                longValue = c0001b.d;
+            } else {
+                if (l == null) {
+                    l = a2.a.values().iterator().next();
+                }
+                longValue = l.longValue();
+            }
+            cVar.a("\u5c0f\u7ec4\u4ef6\u9875", "\u7b2c " + longValue + " \u9875");
+            if (longValue == c2) {
+                Log.i("MiDuoAlbum", "widget page already set to screen " + longValue);
+                dVar.a("\u5df2\u662f\u7b2c 1 \u9875\uff0c\u65e0\u9700\u4fee\u6b63");
+                return true;
+            }
+            cVar.a("\u5c0f\u7ec4\u4ef6\u76ee\u5f55\u53ef\u5199", M.a("d=" + str3 + "; f=" + (str2 + "/files") + "; if [ -d $d ]; then echo \u53ef\u5199; else mkdir -p $d && echo \u5df2\u5efa\u7acb; fi").trim());
+            M.a("d=" + str3 + "; printf '%d' " + longValue + " > $d/widget-page.tmp && chown $(stat -c %u:%g $d) $d/widget-page.tmp && mv $d/widget-page.tmp $d/widget-page");
+            cVar.a("\u9875\u7801\u5df2\u5199\u5165", (String) null);
+            if (c0001b == null) {
+                M.a("am force-stop com.miui.home && am start -a android.intent.action.MAIN -c android.intent.category.HOME");
+            } else {
+                String str4 = str2 + "/databases";
+                String str5 = c0001b.b;
+                String str6 = context.getFilesDir().getAbsolutePath() + "/album-fix-backup";
+                M.a("cur=$(" + a(str2, str5) + "); [ \"$cur\" = '" + c0001b.c + "' ] || { echo '\u5907\u4efd\u4e0d\u5339\u914d\uff0c\u5df2\u4e2d\u6b62' >&2; exit 1; }; " + "cp " + str4 + "/" + str5 + " " + str6);
+                cVar.a("\u5df2\u5907\u4efd", "\u5df2\u5c06\u6570\u636e\u5e93\u5907\u4efd\u5230 MiDuo \u7684 album-fix-backup");
+            }
+            Log.i("MiDuoAlbum", "widget page set to screen " + longValue + "\n" + cVar.a());
+            dVar.a("\u5df2\u4fee\u6b63\u7b2c 1 \u9875\uff0c\u8bf7\u91cd\u5f00\u684c\u9762\u9a8c\u8bc1");
+            return z;
         } catch (InterruptedException e4) {
             Thread.currentThread().interrupt();
             return z;
         } catch (Exception e5) {
-            Throwable th = e5;
-            cVar.a("Root 可用", th);
-            dVar.a(cVar, (Exception) th);
+            cVar.a("Root \u5931\u8d25", e5);
+            dVar.a(cVar, e5);
             return z;
         }
-        if (!"0".equals(trim)) {
-            throw new IllegalStateException("没有拿到 Root，uid=" + trim);
-        }
-        cVar.a("Root 可用", (String) null);
-        String trim2 = M.a("cat " + str3 + "/active 2>/dev/null || echo duo").trim();
-        if (!"duo".equals(trim2)) {
-            dVar.a("请先打开 MiDuo 总开关");
-            return true;
-        }
-        cVar.a("MiDuo 总开关", trim2);
-        a a2 = a(context, str2);
-        cVar.a("桌面数据库可读", "桌面上有 " + a2.a.size() + " 个相册");
-        long c2 = c(str2);
-        if (c2 < 0) {
-            str = "还没有记录";
-        } else {
-            str = "记录页 " + c2;
-        }
-        cVar.a("小组件页记录可读", str);
-        if (a2.a.isEmpty()) {
-            return false;
-        }
-        Long l = a2.a.get(Integer.valueOf(i));
-        if (c0001b != null) {
-            longValue = c0001b.d;
-        } else {
-            if (l == null) {
-                l = a2.a.values().iterator().next();
-            }
-            longValue = l.longValue();
-        }
-        z = true;
-        cVar.a("相册所在页", "第 " + longValue + " 页");
-        if (longValue == c2) {
-            Log.i("MiDuoAlbum", "widget page already set to screen " + longValue);
-            dVar.a("已经是桌面第 1 页，不用重复设置");
-            return true;
-        }
-        cVar.a("桌面布局文件夹", M.a("d=" + str3 + "; f=" + (str2 + "/files") + "; if [ -d $d ]; then echo 已有; else mkdir -m 700 $d && chown $(stat -c %u:%g $f) $d && chcon $(stat -c %C $f) $d && echo 已新建; fi").trim());
-        M.a("d=" + str3 + "; printf '%d' " + longValue + " > $d/widget-page.tmp && chown $(stat -c %u:%g $d) $d/widget-page.tmp && chmod 600 $d/widget-page.tmp && chcon $(stat -c %C $d) $d/widget-page.tmp && mv -f $d/widget-page.tmp $d/widget-page");
-        cVar.a("写入小组件页记录", (String) null);
-        if (c0001b == null) {
-            M.a("am force-stop com.miui.home && am start -a android.intent.action.MAIN -c android.intent.category.HOME");
-        } else {
-            String str4 = str2 + "/databases";
-            String str5 = c0001b.b;
-            String str6 = context.getFilesDir().getAbsolutePath() + "/album-fix-backup";
-            M.a("cur=$(" + a(str2, str5) + "); [ \"$cur\" = '" + c0001b.c + "' ] || { echo '桌面库在这期间被改写，没有替换' >&2; exit 9; }; rm -rf " + str6 + "; mkdir -p " + str6 + " && cp " + str4 + "/" + str5 + "* " + str6 + "/ || exit 8; am force-stop com.miui.home; cat " + c0001b.a.getAbsolutePath() + " > " + str4 + "/" + str5 + " && rm -f " + str4 + "/" + str5 + "-wal " + str4 + "/" + str5 + "-shm && sync; am start -a android.intent.action.MAIN -c android.intent.category.HOME");
-            cVar.a("关开桌面", "已换上修正后的桌面库，旧库备份在 MiDuo 的 album-fix-backup");
-        }
-        Log.i("MiDuoAlbum", "widget page set to screen " + longValue + "\n" + cVar.a());
-        dVar.a("已设为桌面第 1 页，桌面重开后在第 1 页");
-        return z;
     }
 }
