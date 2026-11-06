@@ -229,7 +229,7 @@ public final class b extends XposedModule {
     private static final int f0 = 120;
     private static Field g = null;
     private static final int g0 = 150;
-    private static Method h = null;
+    private static Method h_v = null;
     private static final int h0_v = 30;
     private static Method i = null;
     private static final int i0 = 424;
@@ -3345,7 +3345,7 @@ public final class b extends XposedModule {
         private static final float e = 6.804f;
         private static final float f = 6.804f;
         private static final float g = 31.0f;
-        private static final float h = 149.0f;
+        private static final float h_v = 149.0f;
         private static final float i = 28.0f;
         private static final float j_v = 152.0f;
         private static final float l_v = 5.1029997f;
@@ -3473,7 +3473,7 @@ public final class b extends XposedModule {
             boolean z4 = (!h0Var.f0 || z2 || z3) ? false : true;
             boolean z5 = z2 || z3 || z4;
             float f6 = z5 ? 28.0f : g;
-            float f7 = z5 ? j_v : h;
+            float f7 = z5 ? j_v : h_v;
             h0Var.A0_v.set(49.4f, 97.4f, 146.6f, 194.6f);
             int i9 = h0Var.N ? -13318311 : h0Var.M <= 0.2f ? -50384 : h0Var.g0;
             float max = Math.max(0.03f, Math.min(1.0f, h0Var.M));
@@ -8704,8 +8704,9 @@ public final class b extends XposedModule {
         if (this.i4 == null || this.N6 == null || this.z5 == null) {
             return null;
         }
-        ((DisplayManager) this.i4.getSystemService(DisplayManager.class)).getDisplay(0).getRealSize(new Point());
-        return new float[]{r0_v.x, r0_v.y, c(this.N6) + 98.0f, ((this.k3 && this.a4 == 0 && !this.b4) ? this.z5.h : d(this.z5)) + (this.z5.g / 2.0f), (this.k3 ? this.p3 : d(this.N6)) + 146.0f, Math.min(c(this.N6), c(this.z5))};
+        Point r0 = new Point();
+        ((DisplayManager) this.i4.getSystemService(DisplayManager.class)).getDisplay(0).getRealSize(r0);
+        return new float[]{r0.x, r0.y, c(this.N6) + 98.0f, ((this.k3 && this.a4 == 0 && !this.b4) ? this.z5.h : d(this.z5)) + (this.z5.g / 2.0f), (this.k3 ? this.p3 : d(this.N6)) + 146.0f, Math.min(c(this.N6), c(this.z5))};
     }
 
     /* JADX INFO: Access modifiers changed from: private */
