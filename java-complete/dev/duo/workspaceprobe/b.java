@@ -14519,7 +14519,7 @@ public final class b extends XposedModule {
                     this.A1.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda136
                         @Override // java.lang.Runnable
                         public final void run() {
-                            dev.duo.workspaceprobe.b.this.b();
+                            r2.b();
                         }
                     });
                 } catch (Throwable th) {
@@ -14537,7 +14537,7 @@ public final class b extends XposedModule {
                 handler.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda136
                     @Override // java.lang.Runnable
                     public final void run() {
-                        dev.duo.workspaceprobe.b.this.b();
+                        r2.b();
                     }
                 });
             }
@@ -14547,7 +14547,7 @@ public final class b extends XposedModule {
             handler2.post(new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda136
                 @Override // java.lang.Runnable
                 public final void run() {
-                    dev.duo.workspaceprobe.b.this.b();
+                    r2.b();
                 }
             });
             throw th3;
