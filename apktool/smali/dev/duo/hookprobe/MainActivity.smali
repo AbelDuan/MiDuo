@@ -7647,10 +7647,10 @@
     .line 394
     invoke-virtual {p3, v0}, Landroid/view/View;->setVisibility(I)V
 
-    if-nez p4, :cond_5
+    goto :cond_5
 
     .line 396
-    const-string p1, "MiDuo \u603b\u5f00\u5173\u6ca1\u6709\u8fd0\u884c\uff0c\u6682\u65f6\u4e0d\u80fd\u6253\u5f00\u5f00\u5408\u52a8\u753b\u3002"
+    const-string p1, "MiDuo \u603b\u5f00\u5173\u6ca1\u6709\u8fd0\u884c\uff0c\u5f00\u5408\u52a8\u753b\u4ecd\u4f1a\u4fdd\u5b58\uff0c\u4f46\u8981\u7b49\u603b\u5f00\u5173\u6253\u5f00\u540e\u624d\u4f1a\u751f\u6548\u3002"
 
     invoke-virtual {p5, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
