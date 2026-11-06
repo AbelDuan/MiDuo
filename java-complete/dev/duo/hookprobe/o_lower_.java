@@ -264,7 +264,7 @@ final class o {
 
     boolean r(boolean z) {
         synchronized (o.class) {
-            Throwable ex = null;
+            Throwable th = null;
             boolean contains = this.a.contains("_global/standbyClock");
             boolean z2 = this.a.getBoolean("_global/standbyClock", false);
             i = true;
@@ -280,7 +280,7 @@ final class o {
             if (this.a.edit().putBoolean("_global/standbyClock", z).commit()) {
                 return true;
             }
-            ex = null;
+            th = null;
             try {
                 SharedPreferences.Editor edit = this.a.edit();
                 if (contains) {
@@ -382,7 +382,7 @@ final class o {
             if (a(all, a)) {
                 return true;
             }
-            ex = null;
+            th = null;
             try {
                 if (!a(a, all)) {
                     throw new IllegalStateException("导入保存失败，原配色的恢复也未获确认，请停止取色并检查 LSPosed");

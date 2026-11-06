@@ -289,7 +289,7 @@ public final class G extends XposedModule {
 
     public void onSystemServerStarting(XposedModuleInterface.SystemServerStartingParam systemServerStartingParam) {
         K.a(this, systemServerStartingParam.getClassLoader());
-        n.a(this, systemServerStartingParam.getClassLoader());
+        dev.duo.hookprobe.n.a(this, systemServerStartingParam.getClassLoader());
     }
 
     private int b(String str) {

@@ -2630,7 +2630,7 @@ public final class MainActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public /* synthetic */ void m(View view) {
-        startActivity(new Intent(this, (Class<?>) IosNcActivity.class));
+        // IosNcActivity removed in slim build
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -3112,7 +3112,7 @@ public final class MainActivity extends Activity {
         }
         ValueAnimator ofFloat = ValueAnimator.ofFloat(this.p0, this.i1);
         this.q0 = ofFloat;
-        ofFloat.setDuration(Math.max(1, Math.round(Math.abs(this.i1 - r6) * 460.0f)));
+        ofFloat.setDuration(Math.max(1, Math.round(Math.abs(this.i1 - this.i1) * 460.0f)));
         this.q0.setInterpolator(new PathInterpolator(0.2f, 0.0f, 0.0f, 1.0f));
         this.q0.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: dev.duo.hookprobe.MainActivity$$ExternalSyntheticLambda75
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -3464,7 +3464,7 @@ public final class MainActivity extends Activity {
         FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.l0.getLayoutParams();
         layoutParams2.width = round2;
         layoutParams2.height = round;
-        this.m0.setTranslationX((round2 + r2) - i2);
+        this.m0.setTranslationX((round2 + this.r2) - i2);
         this.m0.setAlpha(Math.min(1.0f, f2 * 2.0f));
         this.k0.getLayoutParams().height = round + a2;
         this.k0.requestLayout();

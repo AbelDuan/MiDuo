@@ -116,8 +116,8 @@ final class h {
                     if (objArr == null) {
                     }
                 } catch (RuntimeException e2) {
-                    th = e2;
-                    Throwable th2 = e;
+                    Throwable th = e2;
+                    Throwable th2 = th;
                     i = c0015h2.j + 1;
                     c0015h2.j = i;
                     if (i < 3) {

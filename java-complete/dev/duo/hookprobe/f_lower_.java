@@ -122,7 +122,7 @@ final class f {
                 EditText editText = this.a;
                 int i2 = this.b[0];
                 int i3 = this.c;
-                editText.setText(f.b((i << i3) | (i2 & (~(255 << i3)))));
+                editText.setText(String.valueOf(f.b((i << i3) | (i2 & (~(255 << i3))))));
             }
         }
 

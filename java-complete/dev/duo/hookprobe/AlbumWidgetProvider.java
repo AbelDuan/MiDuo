@@ -174,7 +174,7 @@ public final class AlbumWidgetProvider extends AppWidgetProvider {
             appWidgetManager.updateAppWidgetOptions(i, appWidgetOptions);
         }
         Bitmap c2 = dev.duo.hookprobe.c.c(context, i);
-        if (c2 == null && c.b(context, i)) {
+        if (c2 == null && dev.duo.hookprobe.c.b(context, i)) {
             Log.w(b, "cannot decode photo for widget " + i);
             return;
         }
@@ -185,7 +185,7 @@ public final class AlbumWidgetProvider extends AppWidgetProvider {
         if (c2 == null) {
             bitmap = null;
         } else {
-            bitmap = e.a(c2);
+            bitmap = dev.duo.hookprobe.e.a(c2);
             c2.recycle();
             remoteViews.setImageViewBitmap(H.c.b, bitmap);
             remoteViews.setViewVisibility(H.c.c, 8);

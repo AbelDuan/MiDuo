@@ -65,7 +65,7 @@ public final class AlbumPageJob extends JobService {
     public /* synthetic */ void a(Context context, int[] iArr, JobParameters jobParameters) {
         boolean z;
         try {
-            b.a(context, iArr, AlbumWidgetProvider.a(context));
+            dev.duo.hookprobe.b.a(context, iArr, AlbumWidgetProvider.a(context));
             jobFinished(jobParameters, false);
         } catch (InterruptedException e) {
             try {
