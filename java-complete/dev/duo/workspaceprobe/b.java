@@ -15445,10 +15445,10 @@ public final class b extends XposedModule {
             Runnable runnable = new Runnable() { // from class: dev.duo.workspaceprobe.b$$ExternalSyntheticLambda183
                 @Override // java.lang.Runnable
                 public final void run() {
-                    dev.duo.workspaceprobe.b.this.a(r2, j2, z2, set);
+                    dev.duo.workspaceprobe.b.this.a(runnableArr, j2, z2, set);
                 }
-            };
             final Runnable[] runnableArr = {runnable};
+            };
             this.f4.add(runnable);
             this.A1.post(runnableArr[0]);
         }
