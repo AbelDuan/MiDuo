@@ -81,9 +81,6 @@ public final class AlbumPageJob extends JobService {
             }
         } catch (Throwable th2) {
             throw th2;
-            z = false;
-            if (z) {
-            }
         }
     }
 }
