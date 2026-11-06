@@ -39,7 +39,8 @@ miduo-src/
    ├─ 05-rebuild-verification.md      # 重建完整性校验（dex 逐项对比）
    ├─ 06-decompile-gaps.md            # 55 处反编译失败点索引
    ├─ 07-java-tree-compile-status.md  # java/ 编译状态与可编译化路径
-   └─ 08-rebuild-impact.md           # ★ 修改重编译的影响面分析
+   ├─ 08-rebuild-impact.md           # ★ 修改重编译的影响面分析
+   └─ 09-feature-removal.md          # ★ 功能精简变更与回滚指引
 ```
 
 **改代码有两条路，各自对应一套工程：**

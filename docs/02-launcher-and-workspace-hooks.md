@@ -1,5 +1,11 @@
 # 02 · 桌面 Hook 与工作台/双屏 UI（MiDuo 1.0.415）
 
+
+> ⚠️ **本文档基于基线版本（git `ed62199`，MiDuo 1.0.415 完整版）撰写。**
+> 本次精简（git `c202f95`）已移除 4 块功能，因此文中提及的下列类/文件在当前工作树中**已不存在**：
+> `btm/m/os4/systemuihook/*`、`IosNcActivity`、`C0147f`、`C0043B`、`C0107i`、`C0114p`、`C0083S`、`C0123y`。
+> 需要查看这些源码时，请先 `git checkout ed62199 -- <路径>` 从基线恢复。变更明细见 `09-feature-removal.md`。
+
 > 分析对象：`MiDuo-1.0.415.apk`（包名 `dev.duo.hookprobe`，libxposed 模块，入口 `dev.duo.hookprobe.MiDuo`）
 > 证据来源：jadx 源码 `jadx-out/sources/`、apktool 产物 `apktool-out/`
 > 标注约定：**事实**＝源码可直接读出；**[推断]**＝基于命名/数值/日志的合理推断，未经运行验证。

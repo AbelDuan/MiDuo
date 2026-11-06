@@ -1,5 +1,11 @@
 # 01 路 模块宿主应用本体与配置/持久化体系
 
+
+> ⚠️ **本文档基于基线版本（git `ed62199`，MiDuo 1.0.415 完整版）撰写。**
+> 本次精简（git `c202f95`）已移除 4 块功能，因此文中提及的下列类/文件在当前工作树中**已不存在**：
+> `btm/m/os4/systemuihook/*`、`IosNcActivity`、`C0147f`、`C0043B`、`C0107i`、`C0114p`、`C0083S`、`C0123y`。
+> 需要查看这些源码时，请先 `git checkout ed62199 -- <路径>` 从基线恢复。变更明细见 `09-feature-removal.md`。
+
 分析对象：`dev.duo.hookprobe`（MiDuo 1.0.415，libxposed 模块，入口 `dev.duo.hookprobe.MiDuo`）。
 来源根：jadx 输出 `jadx-out/sources`，apktool 输出 `apktool-out`。行号均按 jadx 产物。
 约定：每条结论后标来源；无法由代码直接证实者标 **[推断]**；找不到实现者写「未定位」。
