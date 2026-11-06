@@ -389,7 +389,7 @@
     iget-object v0, v1, Ldev/duo/hookprobe/o;->a:Landroid/content/SharedPreferences;
 
     .line 119
-    const-class v1, Ldev/duo/hookprobe/B;
+    const-class v1, Ljava/lang/Object;
 
     monitor-enter v1
     :try_end_0
@@ -454,7 +454,7 @@
 
     .line 125
     :try_start_2
-    invoke-static {p2}, Ldev/duo/hookprobe/B;->b(I)V
+    nop
 
     .line 126
     :cond_2
@@ -1329,9 +1329,9 @@
     :try_start_f
     const-string v4, "share"
 
-    invoke-static {v1, v2, v0}, Ldev/duo/hookprobe/B;->a(Ldev/duo/hookprobe/o;Ljava/lang/String;Ljava/lang/String;)Lorg/json/JSONObject;
+    const/4 v0, 0x0
 
-    move-result-object v0
+
 
     invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 

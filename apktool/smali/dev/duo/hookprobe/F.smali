@@ -224,7 +224,7 @@
     .locals 0
 
     .line 12
-    invoke-static {p0, p1}, Ldev/duo/hookprobe/B;->c(Ljava/lang/String;Ljava/lang/String;)V
+    nop
 
     return-void
 .end method

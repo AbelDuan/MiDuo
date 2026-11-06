@@ -22,7 +22,6 @@
         <activity android:exported="false" android:name="dev.duo.hookprobe.BugCaptureActivity"/>
         <service android:exported="false" android:foregroundServiceType="shortService" android:name="dev.duo.hookprobe.BugCaptureService"/>
         <activity android:exported="true" android:name="dev.duo.hookprobe.RailCustomActivity"/>
-        <activity android:exported="false" android:name="dev.duo.hookprobe.IosNcActivity"/>
         <activity android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize" android:exported="false" android:name="dev.duo.icons.MainActivity" android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar"/>
         <activity android:exported="true" android:name="dev.duo.hookprobe.InfoWidgetActivity"/>
         <receiver android:exported="true" android:name="dev.duo.hookprobe.InfoWidgetProvider">

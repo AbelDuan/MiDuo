@@ -3346,7 +3346,7 @@
     move-result-object v4
 
     .line 45
-    invoke-static {v4}, Ldev/duo/hookprobe/p;->a(Landroid/content/SharedPreferences;)V
+    nop
 
     .line 46
     sget-object v5, Ldev/duo/hookprobe/n;->o:Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;
@@ -4179,9 +4179,8 @@
 
     check-cast v4, Ljava/lang/String;
 
-    invoke-static {v4, v3}, Ldev/duo/hookprobe/p;->a(Ljava/lang/String;Z)Z
+    const/4 v0, 0x1
 
-    move-result v4
 
     const/4 v5, 0x1
 

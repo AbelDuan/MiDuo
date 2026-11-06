@@ -195,7 +195,7 @@
 
     invoke-direct {v1, p1}, Ldev/duo/hookprobe/o;-><init>(Lio/github/libxposed/service/XposedService;)V
 
-    invoke-static {v0, v1}, Ldev/duo/hookprobe/y;->a(Landroid/content/Context;Ldev/duo/hookprobe/o;)V
+    nop
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 

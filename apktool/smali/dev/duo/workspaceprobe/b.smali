@@ -7783,8 +7783,6 @@
     .line 25
     iget-object v3, p0, Ldev/duo/workspaceprobe/b;->i4:Landroid/content/Context;
 
-    invoke-static {v3}, Ldev/duo/workspaceprobe/f;->a(Landroid/content/Context;)V
-
     .line 27
     const/4 v3, 0x0
 
@@ -7971,42 +7969,8 @@
     invoke-direct {p0}, Ldev/duo/workspaceprobe/b;->O1()V
 
     .line 75
-    :try_start_5
-    iget-object v4, p0, Ldev/duo/workspaceprobe/b;->i4:Landroid/content/Context;
-
-    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v4
-
-    const-string v5, "content://dev.duo.hookprobe.config/foldSplit"
-
-    .line 76
-    invoke-static {v5}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v5
-
-    new-instance v6, Ldev/duo/workspaceprobe/b$G;
-
-    iget-object v7, p0, Ldev/duo/workspaceprobe/b;->A1:Landroid/os/Handler;
-
-    invoke-direct {v6, p0, v7}, Ldev/duo/workspaceprobe/b$G;-><init>(Ldev/duo/workspaceprobe/b;Landroid/os/Handler;)V
-
-    .line 77
-    invoke-virtual {v4, v5, v3, v6}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
-    :try_end_5
-    .catch Ljava/lang/RuntimeException; {:try_start_5 .. :try_end_5} :catch_4
-
     goto :goto_5
 
-    :catch_4
-    move-exception v4
-
-    .line 82
-    const-string v5, "DuoFoldSplit"
-
-    invoke-static {v5, v0, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 83
     :goto_5
     invoke-direct {p0}, Ldev/duo/workspaceprobe/b;->R1()V
 
@@ -20093,7 +20057,9 @@
 
     .line 758
     :cond_1
-    iput-boolean p2, p0, Ldev/duo/workspaceprobe/b;->r1:Z
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Ldev/duo/workspaceprobe/b;->r1:Z
 
     .line 759
     new-instance p1, Ljava/lang/StringBuilder;
@@ -43392,156 +43358,8 @@
 .method private synthetic g0()V
     .locals 6
 
-    const-string v0, "on"
-
-    const-string v1, "DuoFoldSplit"
-
-    .line 2
-    :try_start_0
-    iget-object v2, p0, Ldev/duo/workspaceprobe/b;->i4:Landroid/content/Context;
-
-    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v2
-
-    const-string v3, "content://dev.duo.hookprobe.config"
-
-    .line 3
-    invoke-static {v3}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v3
-
-    const-string v4, "foldSplit"
-
-    .line 4
-    const/4 v5, 0x0
-
-    invoke-virtual {v2, v3, v4, v5, v5}, Landroid/content/ContentResolver;->call(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_2
-
-    .line 6
-    invoke-virtual {v2, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    goto :goto_1
-
-    .line 11
-    :cond_0
-    const-string v3, "247"
-
-    const-string v4, "debug.duo.foldanim"
-
-    const-string v5, "0"
-
-    invoke-direct {p0, v4, v5}, Ldev/duo/workspaceprobe/b;->c(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    .line 12
-    invoke-virtual {v2, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v0
-
-    const/4 v4, 0x1
-
-    if-eqz v0, :cond_1
-
-    if-nez v3, :cond_1
-
-    move v0, v4
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    .line 13
-    :goto_0
-    const-string v5, "nudge"
-
-    invoke-virtual {v2, v5, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
-
-    move-result v2
-
-    .line 14
-    iget-object v4, p0, Ldev/duo/workspaceprobe/b;->A1:Landroid/os/Handler;
-
-    new-instance v5, Ldev/duo/workspaceprobe/b$$ExternalSyntheticLambda176;
-
-    invoke-direct {v5, p0, v2, v0, v3}, Ldev/duo/workspaceprobe/b$$ExternalSyntheticLambda176;-><init>(Ldev/duo/workspaceprobe/b;IZZ)V
-
-    invoke-virtual {v4, v5}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
     return-void
 
-    .line 15
-    :cond_2
-    :goto_1
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Switch read failed: "
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    if-nez v2, :cond_3
-
-    const-string v2, "no response"
-
-    goto :goto_2
-
-    .line 16
-    :cond_3
-    const-string v3, "error"
-
-    const-string v4, "no on value"
-
-    invoke-virtual {v2, v3, v4}, Landroid/os/Bundle;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 15
-    :goto_2
-    nop
-
-    .line 16
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
-
-    return-void
-
-    .line 14
-    :catch_0
-    move-exception v0
-
-    .line 36
-    const-string v2, "Switch read failed"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    return-void
 .end method
 
 .method static synthetic g0(Ldev/duo/workspaceprobe/b;)Z
@@ -44494,8 +44312,6 @@
     invoke-direct {p0, p1}, Ldev/duo/workspaceprobe/b;->o(Ljava/lang/ClassLoader;)V
 
     .line 37
-    invoke-static {p0, p1}, Ldev/duo/workspaceprobe/f;->a(Lio/github/libxposed/api/XposedModule;Ljava/lang/ClassLoader;)V
-
     .line 38
     invoke-direct {p0, p1}, Ldev/duo/workspaceprobe/b;->c(Ljava/lang/ClassLoader;)V
 
@@ -64739,32 +64555,11 @@
     .catch Ljava/lang/ReflectiveOperationException; {:try_start_0 .. :try_end_0} :catch_2
 
     .line 14
-    :try_start_1
-    const-string v0, "duo_top"
-
-    .line 15
-    invoke-virtual {v1, v0}, Lio/github/libxposed/api/XposedModule;->getRemotePreferences(Ljava/lang/String;)Landroid/content/SharedPreferences;
-
-    move-result-object v0
-
-    .line 16
-    invoke-static {v1, v6, v0}, Lbtm/m/os4/systemuihook/hypermusiccover/b;->a(Lio/github/libxposed/api/XposedInterface;Ljava/lang/ClassLoader;Landroid/content/SharedPreferences;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
     goto :goto_0
 
-    :catchall_0
-    move-exception v0
-
-    .line 19
-    :try_start_2
-    const-string v7, "iOS notification center not installed"
-
-    invoke-static {v4, v7, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 21
     :goto_0
+
+    :try_start_2
     const-string v0, "android.window.TransitionInfo$Change"
 
     const/4 v7, 0x0

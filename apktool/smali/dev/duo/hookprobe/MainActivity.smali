@@ -9822,164 +9822,7 @@
 .end method
 
 .method private synthetic a(Ldev/duo/hookprobe/o;Landroid/widget/TextView;)V
-    .locals 6
-
-    const-string v0, "error"
-
-    const-string v1, "license"
-
-    .line 217
-    const/4 v2, 0x0
-
-    :try_start_0
-    invoke-static {}, Ldev/duo/hookprobe/B;->a()Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 218
-    invoke-static {v3}, Ldev/duo/hookprobe/B;->a(Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v4
-
-    .line 219
-    invoke-virtual {v4, v1}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_0
-
-    .line 220
-    iget-object p1, p1, Ldev/duo/hookprobe/o;->a:Landroid/content/SharedPreferences;
-
-    invoke-virtual {v4, v1}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v0
-
-    invoke-static {p1, v3, v0}, Ldev/duo/hookprobe/B;->a(Landroid/content/SharedPreferences;Ljava/lang/String;Lorg/json/JSONObject;)V
-
-    .line 221
-    const-string p1, "\u8fd9\u53f0\u624b\u673a\u5df2\u7ecf\u4e70\u8fc7\uff0c\u6388\u6743\u5df2\u6062\u590d"
-
-    goto :goto_0
-
-    .line 222
-    :cond_0
-    invoke-virtual {v4, v0}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_1
-
-    .line 223
-    new-instance p1, Ljava/lang/StringBuilder;
-
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "\u4e0b\u5355\u5931\u8d25\uff1a"
-
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object p1
-
-    const-string v1, "message"
-
-    invoke-virtual {v4, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v4, v1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    goto :goto_0
-
-    .line 225
-    :cond_1
-    const-string p1, "billing"
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, p1, v0}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object p1
-
-    invoke-interface {p1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object p1
-
-    const-string v0, "order"
-
-    const-string v1, "order_id"
-
-    invoke-virtual {v4, v1}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-interface {p1, v0, v1}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
-
-    move-result-object p1
-
-    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
-
-    .line 226
-    const-string p1, "pay_url"
-
-    invoke-virtual {v4, p1}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 227
-    const-string p1, "\u5df2\u6253\u5f00\u4ed8\u6b3e\u9875\u9762\uff0c\u4ed8\u6b3e\u540e\u56de\u5230 MiDuo \u5373\u53ef"
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 221
-    :goto_0
-    goto :goto_1
-
-    :catchall_0
-    move-exception p1
-
-    .line 230
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "\u8fde\u4e0d\u4e0a\u6388\u6743\u670d\u52a1\u5668\uff1a"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    .line 233
-    :goto_1
-    iget-object v0, p0, Ldev/duo/hookprobe/MainActivity;->m:Landroid/os/Handler;
-
-    new-instance v1, Ldev/duo/hookprobe/MainActivity$$ExternalSyntheticLambda24;
-
-    invoke-direct {v1, p0, p2, p1, v2}, Ldev/duo/hookprobe/MainActivity$$ExternalSyntheticLambda24;-><init>(Ldev/duo/hookprobe/MainActivity;Landroid/widget/TextView;Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    .locals 0
 
     return-void
 .end method
@@ -10071,166 +9914,7 @@
 .end method
 
 .method private synthetic a(Ljava/lang/String;Ldev/duo/hookprobe/o;)V
-    .locals 3
-
-    .line 239
-    :try_start_0
-    invoke-static {}, Ldev/duo/hookprobe/B;->a()Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 240
-    invoke-static {v0, p1}, Ldev/duo/hookprobe/B;->b(Ljava/lang/String;Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object p1
-
-    .line 241
-    const-string v1, "error"
-
-    const-string v2, ""
-
-    invoke-virtual {p1, v1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 242
-    invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    .line 243
-    iget-object p2, p2, Ldev/duo/hookprobe/o;->a:Landroid/content/SharedPreferences;
-
-    const-string v1, "license"
-
-    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object p1
-
-    invoke-static {p2, v0, p1}, Ldev/duo/hookprobe/B;->a(Landroid/content/SharedPreferences;Ljava/lang/String;Lorg/json/JSONObject;)V
-
-    .line 244
-    const-string p1, "\u6388\u6743\u5df2\u6062\u590d"
-
-    goto :goto_0
-
-    .line 245
-    :cond_0
-    const-string p2, "license_not_found"
-
-    invoke-virtual {p2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p2
-
-    if-eqz p2, :cond_1
-
-    .line 246
-    const-string p1, "\u6388\u6743\u7801\u4e0d\u5bf9\uff0c\u8bf7\u68c0\u67e5\u540e\u518d\u8bd5"
-
-    goto :goto_0
-
-    .line 247
-    :cond_1
-    const-string p2, "license_revoked"
-
-    invoke-virtual {p2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p2
-
-    if-eqz p2, :cond_2
-
-    .line 248
-    const-string p1, "\u8fd9\u4e2a\u6388\u6743\u7801\u5df2\u5931\u6548"
-
-    goto :goto_0
-
-    .line 249
-    :cond_2
-    const-string p2, "rate_limited"
-
-    invoke-virtual {p2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p2
-
-    if-eqz p2, :cond_3
-
-    .line 250
-    const-string p1, "\u5c1d\u8bd5\u6b21\u6570\u592a\u591a\uff0c\u8bf7\u4e00\u5c0f\u65f6\u540e\u518d\u8bd5"
-
-    goto :goto_0
-
-    .line 252
-    :cond_3
-    new-instance p2, Ljava/lang/StringBuilder;
-
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v0, "\u6062\u590d\u5931\u8d25\uff1a"
-
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object p2
-
-    const-string v0, "message"
-
-    invoke-virtual {p1, v0, v1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 244
-    :goto_0
-    goto :goto_1
-
-    :catchall_0
-    move-exception p1
-
-    .line 255
-    new-instance p2, Ljava/lang/StringBuilder;
-
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v0, "\u8fde\u4e0d\u4e0a\u6388\u6743\u670d\u52a1\u5668\uff1a"
-
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object p2
-
-    invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    .line 258
-    :goto_1
-    iget-object p2, p0, Ldev/duo/hookprobe/MainActivity;->m:Landroid/os/Handler;
-
-    new-instance v0, Ldev/duo/hookprobe/MainActivity$$ExternalSyntheticLambda2;
-
-    invoke-direct {v0, p0, p1}, Ldev/duo/hookprobe/MainActivity$$ExternalSyntheticLambda2;-><init>(Ldev/duo/hookprobe/MainActivity;Ljava/lang/String;)V
-
-    invoke-virtual {p2, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    .line 259
-    invoke-direct {p0}, Ldev/duo/hookprobe/MainActivity;->z()V
+    .locals 0
 
     return-void
 .end method
@@ -12193,260 +11877,11 @@
 .end method
 
 .method private c(Ldev/duo/hookprobe/o;)Ldev/duo/hookprobe/MainActivity$h;
-    .locals 12
+    .locals 1
 
-    .line 27
-    const-string v0, "key"
+    const/4 v0, 0x0
 
-    const-string v1, "order"
-
-    new-instance v2, Ldev/duo/hookprobe/MainActivity$h;
-
-    invoke-direct {v2}, Ldev/duo/hookprobe/MainActivity$h;-><init>()V
-
-    .line 28
-    invoke-static {}, Ldev/duo/hookprobe/B;->a()Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 29
-    invoke-virtual {v3}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v4
-
-    const/4 v5, 0x1
-
-    if-eqz v4, :cond_0
-
-    .line 30
-    iput-boolean v5, v2, Ldev/duo/hookprobe/MainActivity$h;->a:Z
-
-    return-object v2
-
-    .line 33
-    :cond_0
-    const-string v4, "billing"
-
-    const/4 v6, 0x0
-
-    invoke-virtual {p0, v4, v6}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object v4
-
-    .line 34
-    iget-object p1, p1, Ldev/duo/hookprobe/o;->a:Landroid/content/SharedPreferences;
-
-    .line 36
-    const/4 v7, 0x0
-
-    :try_start_0
-    invoke-interface {v4, v1, v7}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v8
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    const-string v9, "license"
-
-    if-eqz v8, :cond_2
-
-    .line 38
-    :try_start_1
-    invoke-static {v8, v3}, Ldev/duo/hookprobe/B;->a(Ljava/lang/String;Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v8
-
-    .line 39
-    const-string v10, "paid"
-
-    const-string v11, "status"
-
-    invoke-virtual {v8, v11}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v10
-
-    if-eqz v10, :cond_1
-
-    .line 40
-    invoke-virtual {v8, v9}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v8
-
-    invoke-static {p1, v3, v8}, Ldev/duo/hookprobe/B;->a(Landroid/content/SharedPreferences;Ljava/lang/String;Lorg/json/JSONObject;)V
-
-    .line 41
-    invoke-interface {v4}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v8
-
-    invoke-interface {v8, v1}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->apply()V
-
-    goto :goto_0
-
-    .line 42
-    :cond_1
-    const-string v10, "error"
-
-    invoke-virtual {v8, v10}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_2
-
-    .line 43
-    invoke-interface {v4}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v8
-
-    invoke-interface {v8, v1}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->apply()V
-
-    .line 46
-    :cond_2
-    :goto_0
-    invoke-static {p1, v3}, Ldev/duo/hookprobe/B;->a(Landroid/content/SharedPreferences;Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v9}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v1
-
-    .line 47
-    const-string v8, "active"
-
-    const-string v9, "state"
-
-    invoke-virtual {v1, v9}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_3
-
-    .line 48
-    invoke-interface {v4}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v8
-
-    const-string v9, "license_key"
-
-    invoke-virtual {v1, v9}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-interface {v8, v0, v1}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->apply()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto :goto_1
-
-    .line 41
-    :catchall_0
-    move-exception v1
-
-    .line 50
-    const-string v8, "MiDuoLicense"
-
-    const-string v9, "server sync failed"
-
-    invoke-static {v8, v9, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 51
-    const-string v1, "\u672a\u8fde\u4e0a\u6388\u6743\u670d\u52a1\u5668\uff0c\u663e\u793a\u7684\u662f\u672c\u673a\u8bb0\u5f55"
-
-    iput-object v1, v2, Ldev/duo/hookprobe/MainActivity$h;->g:Ljava/lang/String;
-
-    .line 53
-    :cond_3
-    :goto_1
-    const-string v1, "_global/trialUsedSec"
-
-    invoke-interface {p1, v1, v6}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
-
-    move-result v1
-
-    const/16 v8, 0x708
-
-    invoke-static {v8, v1}, Ljava/lang/Math;->min(II)I
-
-    move-result v1
-
-    .line 54
-    const-string v9, "_global/licenseToken"
-
-    invoke-interface {p1, v9, v7}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {p1, v3}, Ldev/duo/hookprobe/i;->a(Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_4
-
-    .line 55
-    iput-boolean v5, v2, Ldev/duo/hookprobe/MainActivity$h;->b:Z
-
-    .line 56
-    invoke-interface {v4, v0, v7}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p1
-
-    iput-object p1, v2, Ldev/duo/hookprobe/MainActivity$h;->d:Ljava/lang/String;
-
-    goto :goto_3
-
-    :cond_4
-    if-ge v1, v8, :cond_5
-
-    goto :goto_2
-
-    :cond_5
-    move v5, v6
-
-    .line 58
-    :goto_2
-    iput-boolean v5, v2, Ldev/duo/hookprobe/MainActivity$h;->c:Z
-
-    rsub-int p1, v1, 0x708
-
-    rsub-int v0, v1, 0x743
-
-    .line 59
-    div-int/lit8 v0, v0, 0x3c
-
-    iput v0, v2, Ldev/duo/hookprobe/MainActivity$h;->e:I
-
-    int-to-float p1, p1
-
-    const/high16 v0, 0x44e10000    # 1800.0f
-
-    div-float/2addr p1, v0
-
-    .line 60
-    iput p1, v2, Ldev/duo/hookprobe/MainActivity$h;->f:F
-
-    :goto_3
-    return-object v2
+    return-object v0
 .end method
 
 .method private static c(I)Ljava/lang/String;
@@ -16202,9 +15637,6 @@
 
 .method private synthetic j(Landroid/view/View;)V
     .locals 0
-
-    .line 24
-    invoke-static {p0}, Ldev/duo/hookprobe/y;->a(Landroid/app/Activity;)V
 
     return-void
 .end method
@@ -21107,9 +20539,8 @@
 
     .line 33
     :cond_2
-    invoke-static {p0}, Ldev/duo/hookprobe/y;->a(Landroid/content/Context;)Z
+    const/4 v0, 0x1
 
-    move-result v1
 
     if-eqz v1, :cond_3
 
@@ -21126,9 +20557,8 @@
     if-nez p1, :cond_4
 
     .line 34
-    invoke-static {p0}, Ldev/duo/hookprobe/y;->a(Landroid/content/Context;)Z
+    const/4 v0, 0x1
 
-    move-result p1
 
     if-eqz p1, :cond_4
 
@@ -21144,9 +20574,8 @@
     if-nez v0, :cond_5
 
     .line 35
-    invoke-static {p0}, Ldev/duo/hookprobe/y;->a(Landroid/content/Context;)Z
+    const/4 v0, 0x1
 
-    move-result p1
 
     if-eqz p1, :cond_6
 
@@ -21163,7 +20592,7 @@
 
     .line 37
     :cond_7
-    invoke-static {p0}, Ldev/duo/hookprobe/y;->b(Landroid/app/Activity;)V
+    nop
 
     return-void
 .end method
