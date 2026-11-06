@@ -27,9 +27,9 @@ import java.util.zip.ZipFile;
 
 /* renamed from: dev.duo.hookprobe.t, reason: case insensitive filesystem */
 /* loaded from: C:\Users\Abel\.dsh\folk-import\projects\miduo-re\_work\dex\classes.dex */
-final class t {
+final class t_v {
     private static IBinder a = null;
-    private static int b = 0;
+    private static int b_v= 0;
     private static w c = null;
     private static w d = null;
     private static volatile boolean e = false;
@@ -45,10 +45,10 @@ final class t {
     private static int o = 0;
     private static int p = 0;
     private static int q = 0;
-    private static long r = -1;
-    private static long s = 0;
-    private static long t = 0;
-    private static String u = "尚无样本";
+    private static long r_v= -1;
+    private static long s_v= 0;
+    private static long t_v= 0;
+    private static String u = ;
     private static final WeakHashMap<View, Boolean> v = new WeakHashMap<>();
     private static float[] w;
 
@@ -66,14 +66,14 @@ final class t {
 
         @Override // android.hardware.display.DisplayManager.DisplayListener
         public void onDisplayChanged(int i) {
-            if (i != 0 || t.e) {
+            if (i != 0 || t_v.e) {
                 return;
             }
-            t.d(this.a);
-            if (t.m) {
-                Iterator it = t.v.keySet().iterator();
+            t_v.d(this.a);
+            if (t_v.m) {
+                Iterator it = t_v.v.keySet().iterator();
                 while (it.hasNext()) {
-                    t.b(this.a, (View) it.next());
+                    t_v.b(this.a, (View) it.next());
                 }
             }
         }
@@ -93,13 +93,13 @@ final class t {
 
         @Override // android.view.View.OnAttachStateChangeListener
         public void onViewAttachedToWindow(View view) {
-            t.b(this.a, view);
+            t_v.b(this.a, view);
         }
 
         @Override // android.view.View.OnAttachStateChangeListener
         public void onViewDetachedFromWindow(View view) {
-            if (t.m) {
-                t.b(0, SystemClock.uptimeMillis());
+            if (t_v.m) {
+                t_v.b(0, SystemClock.uptimeMillis());
             }
         }
     }
@@ -114,14 +114,14 @@ final class t {
 
         @Override // android.view.Choreographer.FrameCallback
         public void doFrame(long j) {
-            if (t.e) {
+            if (t_v.e) {
                 return;
             }
-            if (t.c.b()) {
+            if (t_v.c.b()) {
                 this.a[0] = true;
-                t.b(8, t.c.i, t.c.h);
+                t_v.b(8, t_v.c.i, t_v.c.h);
             }
-            if (t.c.d()) {
+            if (t_v.c.d()) {
                 Choreographer.getInstance().postFrameCallback(this);
             }
         }
@@ -137,14 +137,14 @@ final class t {
 
         @Override // android.view.Choreographer.FrameCallback
         public void doFrame(long j) {
-            if (t.e) {
+            if (t_v.e) {
                 return;
             }
-            if (t.d.b()) {
+            if (t_v.d.b()) {
                 this.a[0] = true;
-                t.b(15, t.d.i, t.d.h);
+                t_v.b(15, t_v.d.i, t_v.d.h);
             }
-            if (t.d.d()) {
+            if (t_v.d.d()) {
                 Choreographer.getInstance().postFrameCallback(this);
             }
         }
@@ -162,7 +162,7 @@ final class t {
         Parcel obtain2 = Parcel.obtain();
         try {
             try {
-                obtain.writeInterfaceToken("dev.duo.foldanim1.CONTROL");
+                obtain.writeInterfaceToken();
                 obtain.writeInt(f ? 14 : 9);
                 if (f) {
                     obtain.writeStrongBinder(null);
@@ -171,10 +171,10 @@ final class t {
                     obtain.writeLong(SystemClock.uptimeMillis());
                 }
             } catch (Exception e2) {
-                Log.e("MiDuoFold", "观察停止撤销失败", e2);
+                Log.e(, , e2);
             }
             if (!a.transact(13693511, obtain, obtain2, 0)) {
-                throw new IllegalStateException("观察停止撤销未处理");
+                throw new IllegalStateException();
             }
             obtain2.readException();
             obtain.recycle();
@@ -191,21 +191,21 @@ final class t {
         f = true;
         b bVar2 = new b(new Handler(Looper.getMainLooper()), bVar);
         Parcel obtain = Parcel.obtain();
-        obtain.writeInterfaceToken("dev.duo.foldanim1.CONTROL");
+        obtain.writeInterfaceToken();
         obtain.writeInt(14);
         obtain.writeStrongBinder(bVar2);
-        a(obtain, "侧栏取层接口");
+        a(obtain, );
         d(bVar);
         bVar.C6 = new Runnable() { // from class: dev.duo.hookprobe.t$$ExternalSyntheticLambda0
             @Override // java.lang.Runnable
             public final void run() {
-                t.c(dev.duo.workspaceprobe.b.this);
+                t_v.c(dev.duo.workspaceprobe.b.this);
             }
         };
         bVar.B6 = new Consumer() { // from class: dev.duo.hookprobe.t$$ExternalSyntheticLambda1
             @Override // java.util.function.Consumer
             public final void accept(Object obj) {
-                t.d(dev.duo.workspaceprobe.b.this, (View) obj);
+                t_v.d(dev.duo.workspaceprobe.b.this, (View) obj);
             }
         };
         final boolean[] zArr = {false};
@@ -215,7 +215,7 @@ final class t {
         bVar.A6 = new Consumer() { // from class: dev.duo.hookprobe.t$$ExternalSyntheticLambda2
             @Override // java.util.function.Consumer
             public final void accept(Object obj) {
-                t.a(dev.duo.workspaceprobe.b.this, zArr2, eVar, zArr, dVar, (long[]) obj);
+                t_v.a(dev.duo.workspaceprobe.b.this, zArr2, eVar, zArr, dVar, (long[]) obj);
             }
         };
     }
@@ -224,21 +224,21 @@ final class t {
         Properties properties = new Properties();
         ZipFile zipFile = new ZipFile(str);
         try {
-            InputStream inputStream = zipFile.getInputStream(zipFile.getEntry("assets/fold/curve.properties"));
+            InputStream inputStream = zipFile.getInputStream(zipFile.getEntry());
             try {
                 properties.load(inputStream);
                 if (inputStream != null) {
                     inputStream.close();
                 }
                 zipFile.close();
-                int parseInt = Integer.parseInt(properties.getProperty("quiet_frames"));
-                b = parseInt;
+                int parseInt = Integer.parseInt(properties.getProperty());
+                b_v = parseInt;
                 c = new w(parseInt);
-                d = new w(b, 192);
-                IBinder iBinder = (IBinder) Class.forName("android.os.ServiceManager").getMethod("getService", String.class).invoke(null, "display");
+                d = new w(b_v, 192);
+                IBinder iBinder = (IBinder) Class.forName().getMethod(, String.class).invoke(null, );
                 a = iBinder;
                 if (iBinder == null) {
-                    throw new IllegalStateException("display 服务不可用");
+                    throw new IllegalStateException();
                 }
             } finally {
             }
@@ -278,7 +278,7 @@ final class t {
                 bVar.B().registerDisplayListener(new a(bVar), new Handler(Looper.getMainLooper()));
                 g = true;
             }
-            String str = (String) dev.duo.hookprobe.A.getClass().getMethod("getUniqueId", null).invoke(A, null);
+            String str = (String) dev.duo.hookprobe.A.getClass().getMethod(, null).invoke(A, null);
             if (!str.equals(n)) {
                 if (n != null) {
                     j = SystemClock.uptimeMillis();
@@ -292,7 +292,7 @@ final class t {
             return true;
         } catch (Exception e2) {
             o();
-            Log.e("MiDuoFold", "读取当前屏身份失败", e2);
+            Log.e(, , e2);
             return false;
         }
     }
@@ -321,10 +321,10 @@ final class t {
                 obtain.readException();
                 return;
             }
-            throw new IllegalStateException("就绪接收端不可用");
+            throw new IllegalStateException();
         } catch (Exception e2) {
             o();
-            Log.e("MiDuoFold", str + "发送失败，本进程停止就绪观察", e2);
+            Log.e(, str + , e2);
         } finally {
             parcel.recycle();
             obtain.recycle();
@@ -337,19 +337,19 @@ final class t {
             return;
         }
         Parcel obtain = Parcel.obtain();
-        obtain.writeInterfaceToken("dev.duo.foldanim1.CONTROL");
+        obtain.writeInterfaceToken();
         obtain.writeInt(18);
         obtain.writeStrongBinder(h);
         obtain.writeLong(i);
         obtain.writeInt(i2);
         obtain.writeLong(j2);
-        a(obtain, "本代目标内容");
+        a(obtain, );
     }
 
     /* renamed from: dev.duo.hookprobe.t$b */
-    class b extends Binder {
+    class b_v extends Binder {
         final /* synthetic */ Handler a;
-        final /* synthetic */ dev.duo.workspaceprobe.b b;
+        final /* synthetic */ dev.duo.workspaceprobe.b b_v;
 
         b(Handler handler, dev.duo.workspaceprobe.b bVar) {
             this.a = handler;
@@ -358,34 +358,34 @@ final class t {
 
         /* JADX INFO: Access modifiers changed from: private */
         public static /* synthetic */ void a(boolean z, IBinder iBinder, long j, int i, int i2, boolean z2, dev.duo.workspaceprobe.b bVar) {
-            if (t.e) {
+            if (t_v.e) {
                 return;
             }
             if (!z) {
-                if (t.h == iBinder && t.i == j) {
-                    Log.i("MiDuoFold", "TARGET_WAIT_END gen=" + j + " samples=" + t.o + " paintChanges=" + t.p + " rejected=" + t.q + " last=" + t.u + " flags=0x" + Long.toHexString(t.s) + " at=" + t.t + " panelSince=" + t.j + " gate=" + t.c.a());
-                    IBinder unused = t.h = null;
+                if (t_v.h == iBinder && t_v.i == j) {
+                    Log.i(,  + j +  + t.o +  + t_v.p +  + t.q +  + t_v.u +  + Long.toHexString(t.s) +  + t_v.t +  + t.j +  + t_v.c.a());
+                    IBinder unused = t_v.h = null;
                     return;
                 }
                 return;
             }
-            IBinder unused2 = t.h = iBinder;
-            long unused3 = t.i = j;
-            int unused4 = t.k = i;
-            int unused5 = t.l = i2;
-            boolean unused6 = t.m = z2;
-            int unused7 = t.o = t.p = t.q = 0;
-            long unused8 = t.r = -1L;
-            long unused9 = t.s = t.t = 0L;
-            String unused10 = t.u = "尚无样本";
+            IBinder unused2 = t_v.h = iBinder;
+            long unused3 = t_v.i = j;
+            int unused4 = t_v.k = i;
+            int unused5 = t_v.l = i2;
+            boolean unused6 = t_v.m = z2;
+            int unused7 = t_v.o = t_v.p = t_v.q = 0;
+            long unused8 = t_v.r = -1L;
+            long unused9 = t_v.s = t_v.t = 0L;
+            String unused10 = t_v.u = ;
             if (!z2) {
                 bVar.A6.accept(bVar.z());
-                t.b(t.c.e() ? t.c.i : 0, t.c.h);
+                t_v.b(t_v.c.e() ? t_v.c.i : 0, t_v.c.h);
             } else {
-                t.b(0, SystemClock.uptimeMillis());
-                Iterator it = t.v.keySet().iterator();
+                t_v.b(0, SystemClock.uptimeMillis());
+                Iterator it = t_v.v.keySet().iterator();
                 while (it.hasNext()) {
-                    t.b(bVar, (View) it.next());
+                    t_v.b(bVar, (View) it.next());
                 }
             }
         }
@@ -394,18 +394,18 @@ final class t {
         protected boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
             Bundle bundle;
             if (i == 3) {
-                parcel.enforceInterface("dev.duo.foldanim1.LAYERS");
+                parcel.enforceInterface();
                 if (Binder.getCallingUid() != 1000 || parcel2 == null) {
-                    throw new SecurityException("系统观察状态专用");
+                    throw new SecurityException();
                 }
                 parcel2.writeNoException();
-                parcel2.writeInt(!t.e ? 1 : 0);
+                parcel2.writeInt(!t_v.e ? 1 : 0);
                 return true;
             }
             if (i == 2) {
-                parcel.enforceInterface("dev.duo.foldanim1.LAYERS");
+                parcel.enforceInterface();
                 if (Binder.getCallingUid() != 1000) {
-                    throw new SecurityException("系统就绪订阅专用");
+                    throw new SecurityException();
                 }
                 final IBinder readStrongBinder = parcel.readStrongBinder();
                 final long readLong = parcel.readLong();
@@ -418,7 +418,7 @@ final class t {
                 handler.post(new Runnable() { // from class: dev.duo.hookprobe.t$b$$ExternalSyntheticLambda0
                     @Override // java.lang.Runnable
                     public final void run() {
-                        t.b.a(z, readStrongBinder, readLong, readInt, readInt2, z2, bVar);
+                        t_v.b.a(z, readStrongBinder, readLong, readInt, readInt2, z2, bVar);
                     }
                 });
                 return true;
@@ -427,17 +427,17 @@ final class t {
                 return false;
             }
             if (parcel2 == null) {
-                throw new SecurityException("只读取层需要同步回复");
+                throw new SecurityException();
             }
             try {
-                parcel.enforceInterface("dev.duo.foldanim1.LAYERS");
+                parcel.enforceInterface();
             } catch (Exception e) {
                 parcel2.setDataPosition(0);
                 parcel2.setDataSize(0);
-                parcel2.writeException(new IllegalStateException("侧栏只读导出失败", e));
+                parcel2.writeException(new IllegalStateException(, e));
             }
             if (Binder.getCallingUid() != 1000) {
-                throw new SecurityException("系统只读取层专用");
+                throw new SecurityException();
             }
             final CompletableFuture completableFuture = new CompletableFuture();
             Handler handler2 = this.a;
@@ -445,7 +445,7 @@ final class t {
             handler2.post(new Runnable() { // from class: dev.duo.hookprobe.t$b$$ExternalSyntheticLambda1
                 @Override // java.lang.Runnable
                 public final void run() {
-                    t.b.a(completableFuture, bVar2);
+                    t_v.b.a(completableFuture, bVar2);
                 }
             });
             try {
@@ -457,11 +457,11 @@ final class t {
                     completableFuture.thenAccept(new Consumer() { // from class: dev.duo.hookprobe.t$b$$ExternalSyntheticLambda3
                         @Override // java.util.function.Consumer
                         public final void accept(Object obj) {
-                            t.a(dev.duo.workspaceprobe.b.this, (Bundle) obj);
+                            t_v.a(dev.duo.workspaceprobe.b.this, (Bundle) obj);
                         }
                     });
                     Bundle bundle2 = new Bundle();
-                    bundle2.putString("unavailable", "SystemUI 主线程 1 秒未响应");
+                    bundle2.putString(, );
                     bundle = bundle2;
                 }
                 try {
@@ -479,7 +479,7 @@ final class t {
                 completableFuture.thenAccept(new Consumer() { // from class: dev.duo.hookprobe.t$b$$ExternalSyntheticLambda2
                     @Override // java.util.function.Consumer
                     public final void accept(Object obj) {
-                        t.a(dev.duo.workspaceprobe.b.this, (Bundle) obj);
+                        t_v.a(dev.duo.workspaceprobe.b.this, (Bundle) obj);
                     }
                 });
                 throw e3;
@@ -496,7 +496,7 @@ final class t {
                 if (completableFuture.complete(E)) {
                     return;
                 }
-                t.b(bVar, E);
+                t_v.b(bVar, E);
             } catch (Exception e) {
                 completableFuture.completeExceptionally(e);
             }
@@ -514,7 +514,7 @@ final class t {
             view.getViewTreeObserver().registerFrameCommitCallback(new Runnable() { // from class: dev.duo.hookprobe.t$$ExternalSyntheticLambda3
                 @Override // java.lang.Runnable
                 public final void run() {
-                    t.a(iBinder, j2, view, bVar);
+                    t_v.a(iBinder, j2, view, bVar);
                 }
             });
             view.invalidate();
@@ -526,27 +526,27 @@ final class t {
     private static long[] a(dev.duo.workspaceprobe.b bVar, long[] jArr) {
         String str;
         if (!d(bVar)) {
-            str = "显示不可读";
+            str = ;
         } else if (jArr[1] < j) {
-            str = "绘制早于切屏观察";
+            str = ;
         } else {
-            str = (((jArr[0] & 16) > 0L ? 1 : ((jArr[0] & 16) == 0L ? 0 : -1)) != 0) != "local:4639175402683733248".equals(n) ? "物理屏不匹配" : "接收";
+            str = (((jArr[0] & 16) > 0L ? 1 : ((jArr[0] & 16) == 0L ? 0 : -1)) != 0) != .equals(n) ?  : ;
         }
         if (h != null && !m) {
             o++;
             long j2 = (jArr[0] >>> 8) & 16777215;
-            if (j2 != r) {
+            if (j2 != r_v) {
                 p++;
-                r = j2;
+                r_v = j2;
             }
-            if (!"接收".equals(str)) {
+            if (!.equals(str)) {
                 q++;
             }
             u = str;
-            s = jArr[0] & 255;
-            t = jArr[1];
+            s_v = jArr[0] & 255;
+            t_v = jArr[1];
         }
-        return "接收".equals(str) ? jArr : new long[]{0, 0, 0, 0};
+        return .equals(str) ? jArr : new long[]{0, 0, 0, 0};
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -557,14 +557,14 @@ final class t {
         view.getViewTreeObserver().addOnDrawListener(new ViewTreeObserver.OnDrawListener() { // from class: dev.duo.hookprobe.t$$ExternalSyntheticLambda4
             @Override // android.view.ViewTreeObserver.OnDrawListener
             public final void onDraw() {
-                t.c(dev.duo.workspaceprobe.b.this, view);
+                t_v.c(dev.duo.workspaceprobe.b.this, view);
             }
         });
         view.addOnAttachStateChangeListener(new c(bVar));
         view.addOnLayoutChangeListener(new View.OnLayoutChangeListener() { // from class: dev.duo.hookprobe.t$$ExternalSyntheticLambda5
             @Override // android.view.View.OnLayoutChangeListener
             public final void onLayoutChange(View view2, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
-                t.a(dev.duo.workspaceprobe.b.this, view2, i2, i3, i4, i5, i6, i7, i8, i9);
+                t_v.a(dev.duo.workspaceprobe.b.this, view2, i2, i3, i4, i5, i6, i7, i8, i9);
             }
         });
         b(bVar, view);
@@ -577,7 +577,7 @@ final class t {
             int height = view.getHeight();
             int i2 = k;
             int i3 = 0;
-            boolean z = ((width == i2 && height == l) || (height == i2 && width == l)) && d(bVar) && (i2 == 2364 || l == 2364) == "local:4639175402683733248".equals(n);
+            boolean z = ((width == i2 && height == l) || (height == i2 && width == l)) && d(bVar) && (i2 == 2364 || l == 2364) == .equals(n);
             if (bVar.D() && view.isAttachedToWindow() && view.isShown() && z) {
                 i3 = (k == 2364 || l == 2364) ? 17 : 1;
             }
@@ -598,11 +598,11 @@ final class t {
             b(i3, j2);
         } else {
             Parcel obtain = Parcel.obtain();
-            obtain.writeInterfaceToken("dev.duo.foldanim1.CONTROL");
+            obtain.writeInterfaceToken();
             obtain.writeInt(i2);
             obtain.writeInt(i3);
             obtain.writeLong(j2);
-            a(obtain, "就绪信号");
+            a(obtain, );
         }
     }
 
@@ -613,10 +613,10 @@ final class t {
         }
         w = C;
         Parcel obtain = Parcel.obtain();
-        obtain.writeInterfaceToken("dev.duo.foldanim1.CONTROL");
+        obtain.writeInterfaceToken();
         obtain.writeInt(11);
         obtain.writeFloatArray(C);
-        a(obtain, "侧栏坐标");
+        a(obtain, );
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -666,7 +666,7 @@ final class t {
         try {
             bVar.a(bundle, false);
         } catch (Exception e2) {
-            Log.e("MiDuoFold", "未移交镜像清理失败，保留到下次取层收尾", e2);
+            Log.e(, , e2);
         }
     }
 }
