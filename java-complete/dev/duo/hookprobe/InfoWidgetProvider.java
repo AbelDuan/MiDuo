@@ -47,7 +47,7 @@ public class InfoWidgetProvider extends AppWidgetProvider {
     public static final class WeatherSmall extends InfoWidgetProvider {
     }
 
-    class a extends BroadcastReceiver {
+    static class a extends BroadcastReceiver {
         final /* synthetic */ Bundle[] a;
         final /* synthetic */ CountDownLatch b;
 
