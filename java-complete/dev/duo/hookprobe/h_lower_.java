@@ -72,7 +72,7 @@ final class h {
             xposedModule.hook(SurfaceView.class.getDeclaredMethod("setFrame", cls, cls, cls, cls)).intercept(new XposedInterface.Hooker() { // from class: dev.duo.hookprobe.h$$ExternalSyntheticLambda1
                 public final Object intercept(XposedInterface.Chain chain) {
                     Object a;
-                    a = h.this.a(chain);
+                    a = dev.duo.hookprobe.h.a(h.this, chain);
                     return a;
                 }
             });

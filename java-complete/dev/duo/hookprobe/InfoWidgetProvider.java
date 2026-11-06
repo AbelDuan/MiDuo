@@ -229,7 +229,7 @@ public class InfoWidgetProvider extends AppWidgetProvider {
         Bundle bundle;
         CountDownLatch countDownLatch = new CountDownLatch(1);
         Bundle[] bundleArr = new Bundle[1];
-        context.sendOrderedBroadcast(new Intent("com.lsposed.miduo.INFO_WIDGET_REQUEST").setPackage("com.android.systemui").putExtra("kind", str), (String) null, BroadcastOptions.makeBasic().setShareIdentityEnabled(true).toBundle(), new a(bundleArr, countDownLatch), new Handler(Looper.getMainLooper()), 0, (String) null, (Bundle) null);
+        context.sendOrderedBroadcast(new Intent("com.lsposed.miduo.INFO_WIDGET_REQUEST").setPackage("com.android.systemui").putExtra("kind", str), (String) null, BroadcastOptions.makeBasic().setShareIdentityEnabled(true).toBundle(), new InfoWidgetProvider.a(bundleArr, countDownLatch), new Handler(Looper.getMainLooper()), 0, (String) null, (Bundle) null);
         if (countDownLatch.await(3L, TimeUnit.SECONDS) && (bundle = bundleArr[0]) != null) {
             return bundle;
         }

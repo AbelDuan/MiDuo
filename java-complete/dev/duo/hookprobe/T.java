@@ -635,7 +635,7 @@ final class T {
                     public final Object apply(Object obj) {
                         Object a2;
                         Class<?> cls2 = obj.getClass();
-                        a2 = dev.duo.hookprobe.T.a((Class) cls2);
+                        a2 = (Object) dev.duo.hookprobe.T.a(cls2);
                         return a2;
                     }
                 });
