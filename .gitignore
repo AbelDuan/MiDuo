@@ -8,3 +8,5 @@ tools/apktool.jar
 MiDuo-1.0.415.apk
 native/disasm/disasm-full.txt
 native/disasm/readelf.txt
+
+.build/

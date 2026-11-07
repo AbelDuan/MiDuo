@@ -80,6 +80,41 @@ Write-Host "[2/5] apktool b 打包" -ForegroundColor Cyan
 & $Java -jar $ApkTool b -o $Unsigned $WorkDir
 if ($LASTEXITCODE -ne 0) { throw "apktool 打包失败" }
 
+# ★ 必须做：apktool 2.11.x 输出 dex\n041（header_size=120），
+#   但 Android 运行时只认 dex\n039（header_size=112）。
+#   不改写会报 "Header size is 112 but 120 was expected"，
+#   DexPathList 整个加载失败 → 所有类 ClassNotFoundException → 启动即闪退。
+Write-Host "[2.5/5] 修正 dex 版本号 041 -> 039" -ForegroundColor Cyan
+$DexFixPy = @'
+import sys, zipfile, shutil, struct, zlib, os
+apk = sys.argv[1]
+tmp = apk + ".dextmp"
+fixed = 0
+with zipfile.ZipFile(apk, "r") as zin, zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as zout:
+    for item in zin.infolist():
+        data = zin.read(item.filename)
+        if item.filename.startswith("classes") and item.filename.endswith(".dex"):
+            if data[:4] == b"dex\n" and data[4:8] == b"041\x00":
+                d = bytearray(data)
+                d[4:8] = b"039\x00"
+                struct.pack_into("<I", d, 36, 112)          # header_size
+                struct.pack_into("<I", d, 8, 0)             # clear checksum
+                struct.pack_into("<I", d, 8, zlib.adler32(bytes(d[12:])) & 0xffffffff)
+                data = bytes(d)
+                fixed += 1
+        zi = zipfile.ZipInfo(item.filename, date_time=item.date_time)
+        zi.compress_type = item.compress_type
+        zi.external_attr = item.external_attr
+        zout.writestr(zi, data)
+shutil.move(tmp, apk)
+print("dex fixed: " + str(fixed))
+'@
+$DexFixPy | Out-File -FilePath "$env:TEMP\miduo_dexfix.py" -Encoding utf8
+$py = Get-Command python -ErrorAction SilentlyContinue
+if (-not $py) { throw "未找到 python，dex 修正必需（否则装机会闪退）" }
+& $py.Source "$env:TEMP\miduo_dexfix.py" $Unsigned
+if ($LASTEXITCODE -ne 0) { throw "dex 修正失败" }
+
 # ★ 必须做：本 APK 的 AndroidManifest 是 extractNativeLibs="false"，
 #   libduoworkspace.so 必须 4K/16K 页对齐，否则 System.loadLibrary 直接失败，
 #   所有 native 功能（工作台、Dock、布局劫持、折叠动画采样）全部静默失效。
