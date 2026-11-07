@@ -64355,7 +64355,7 @@
 .end method
 
 .method public onModuleLoaded(Lio/github/libxposed/api/XposedModuleInterface$ModuleLoadedParam;)V
-    .locals 1
+    .locals 5
 
     .line 1
     invoke-interface {p1}, Lio/github/libxposed/api/XposedModuleInterface$ModuleLoadedParam;->getProcessName()Ljava/lang/String;
@@ -64365,6 +64365,29 @@
     iput-object p1, p0, Ldev/duo/workspaceprobe/b;->E0:Ljava/lang/String;
 
     .line 2
+    const-string v0, "DuoRail"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "onModuleLoaded process="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 3
     const-string v0, "com.miui.home"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -64373,9 +64396,31 @@
 
     if-eqz p1, :cond_0
 
+    .line 4
+    :try_start_0
     const-string p1, "duoworkspace"
 
     invoke-static {p1}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    const-string p1, "DuoRail"
+
+    const-string v0, "loadLibrary duoworkspace OK"
+
+    invoke-static {p1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    goto :cond_0
+
+    .line 5
+    :catchall_0
+    move-exception p1
+
+    const-string v0, "DuoRail"
+
+    const-string v1, "loadLibrary duoworkspace FAILED"
+
+    invoke-static {v0, v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :cond_0
     return-void
