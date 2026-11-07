@@ -120,9 +120,51 @@ logcat -d -s DuoOfficialDock:V | tail -5
 `debug.duo.inner_dock_hide` 是 **debug 属性**（`debug.*` 前缀），
 设备彻底重启后清空，需要重新 `setprop`。
 
-**待办**：找一个开机自动设置的方案（KSU 模块 `post-fs-data.sh` 或 MiDuo App 内对应开关）。
+**已解决**：创建了开机脚本 `/data/adb/service.d/miduo-dock.sh`：
+
+```sh
+#!/system/bin/sh
+setprop debug.duo.inner_dock_hide 1
+```
 
 其他三项（文件名、active、prefs）都是文件，持久有效。
+
+## 重要：`debug.duo.master` 必须保持 0（或空）
+
+**dock 侧移完全不依赖 `master`。** 实测：
+
+| master | 右侧 dock | 桌面渲染 |
+|---|---|---|
+| `0` | ✅ 正常 | ✅ 壁纸/图标完全正常 |
+| `1` | ✅ 正常 | ❌ **壁纸消失、时间跑到右上角、底部出现搜索图标** |
+
+`master=1` 会激活 Java 层的 `DuoRail`（日志 `DuoRail: Mode transition finished ms=546`），
+而 Java rail 在本机上会污染桌面渲染。
+
+**所以：不要为了"让 MiDuo 显示运行中"去设 master=1。**
+
+代价是 App 首页的开关会显示为「关闭」（toggle 读 `debug.duo.master`），
+但右侧 dock 照常工作。这是原版 App 的 UI 不一致问题（标签读 prefs、toggle 读属性），
+不是配置错误。
+
+## 验证：最终成功状态
+
+```
+右侧竖直 dock（6 格）：电话 / 微信 / 浏览器 / 相机 / MiDuo / 支付宝
+底部 dock：已隐藏
+桌面：5 行图标完整，壁纸正常
+```
+
+日志佐证：
+
+```
+I/DuoOfficialDock: INNER_OFFSET dx=0.0000 dy=0.0000 local=0.0000 axisV=1
+I/DuoOfficialDock: CALL kind=13 transform stage=1 landscape=0 n=240
+I/DuoOfficialDock: CALL kind=23 scale_arguments stage=1 landscape=0 n=240
+```
+
+`axisV=1` = 垂直 dock 轴 = 侧边 dock。
+
 
 ## 备份位置（回滚用）
 
