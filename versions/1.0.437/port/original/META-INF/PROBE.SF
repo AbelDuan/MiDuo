@@ -1,0 +1,125 @@
+Signature-Version: 1.0
+Created-By: 1.0 (Android)
+SHA-256-Digest-Manifest: /bFSKPRivRLxqcenzbYtVHfvb0/sLeoEOfdj0TNxAQQ=
+X-Android-APK-Signed: 2, 3
+
+Name: AndroidManifest.xml
+SHA-256-Digest: iHaXsvL4N+A2ufuFWwmjLHTEK/gusICEQctuzdeIweY=
+
+Name: META-INF/xposed/java_init.list
+SHA-256-Digest: biFpddasWkzcjXGwX0oWtoJfBWpDt2CwCN9WjORzUuk=
+
+Name: META-INF/xposed/module.prop
+SHA-256-Digest: 48n7+4q8iVhFS5z0tVCc/o3Rc5vBpS2DXAkFw5J3EuI=
+
+Name: META-INF/xposed/native_init.list
+SHA-256-Digest: jPr7rsuufpkcRdCUMl0UpvNB9XWwp6jePHWfZOnv5PQ=
+
+Name: META-INF/xposed/scope.list
+SHA-256-Digest: mGakgMwaqph1maRXK/NxXl30O61BFtt8u1TwJt8A2Hs=
+
+Name: assets/analog-cardinal-dark-dial.png
+SHA-256-Digest: hEKfwHJ3ab39IZ/XREj/PZ2O42INPfTYGwkzTJS4E88=
+
+Name: assets/fold/curve.properties
+SHA-256-Digest: 69kZJqEXEy5FDC9koss87zCVSEMwOOKDjvZ94QyQv5c=
+
+Name: assets/fold/duo.frag
+SHA-256-Digest: HfOgIwrb/GQpnZCLxDzk6aA8yMgv4xyxbjpaUPqCnu0=
+
+Name: assets/fold/duo.vert
+SHA-256-Digest: yI71iktk3LGKpBhc+CCj56M3mxJbSa+43Qf1uvajVTs=
+
+Name: assets/licenses/Inter-OFL.txt
+SHA-256-Digest: hgZ94U2Vyf2IUBhhZIMuHZ/1UlYRHlfQys2SZQ6IUGY=
+
+Name: assets/licenses/libxposed-service-Apache-2.0.txt
+SHA-256-Digest: 9jvWqjLmkoNRbCTTjTFgt33UWyYtqDyzWtD6w94/r7U=
+
+Name: assets/native_init
+SHA-256-Digest: KVnGnbB/wYSLRVt6GZE0zKMmkRwK15bKMwWDE9ubQ/4=
+
+Name: assets/sponsor/alipay.png
+SHA-256-Digest: 3zdf/tvXEFdzAkRPu7ah/j6+thF0n4kkUSRwDRgn5O8=
+
+Name: assets/sponsor/contact-wechat.png
+SHA-256-Digest: xENO65sC43Lrt1AZxdKrvVHTpHgVdevrpaeLq4Wxo8U=
+
+Name: assets/sponsor/wechat.png
+SHA-256-Digest: iUZSyLCRK4MVQJNn2q9z96LNTvwpq5NJ1pEkOECH22k=
+
+Name: classes.dex
+SHA-256-Digest: qZB+vIQI4yPLP/d/Bn+QKQisDWhSWN/hDRLxLCHXGA4=
+
+Name: lib/arm64-v8a/libduoworkspace.so
+SHA-256-Digest: XdghbgwKyAXxNA8YikcOP5s6O0PjgULvslbOIrSWMY8=
+
+Name: res/drawable-nodpi-v4/album_widget_preview.png
+SHA-256-Digest: 5RAiNhnjoaKYPCZ5JgzvjsQBBSQyBgyhRw9LPWbnu+M=
+
+Name: res/drawable/album_widget_placeholder.xml
+SHA-256-Digest: wn66E4vki7h1fgZb5sg5BWllX7g7UpOKvqoVnI435ls=
+
+Name: res/drawable/battery_medium_preview.xml
+SHA-256-Digest: oHZBVGu1dL5If37VWVoxX5u0PZtfnFlmX8EMKgd/MVc=
+
+Name: res/drawable/battery_small_preview.xml
+SHA-256-Digest: gALM7EykYxAeu6xD+DTZH0iLzx07NOloD9ZXWdBVjKA=
+
+Name: res/drawable/calendar_medium_preview.xml
+SHA-256-Digest: rGmpQuxK0eez1SvWf1wgmBaqa2ErLfOq3Uojhe0GrEA=
+
+Name: res/drawable/calendar_small_preview.xml
+SHA-256-Digest: MtvXbDUFqSMfDF60c9VCtir4lLjc0ZMDlEUM90nZ6to=
+
+Name: res/drawable/ic_launcher.xml
+SHA-256-Digest: 3WNvcqtlBoCMZ6XeTwkAoi9JAi7FapJW8s1USBUAeQM=
+
+Name: res/drawable/ic_launcher_fg.xml
+SHA-256-Digest: sO/DwaEFQcZMGtJ+Z9Af9EbLxAeolKc7AZ7rUFg6aCM=
+
+Name: res/drawable/ic_launcher_mono.xml
+SHA-256-Digest: iNxriDrbL7iebyfk4uDx37XVKh2wQwnZXO52J/6JKQU=
+
+Name: res/drawable/weather_medium_preview.xml
+SHA-256-Digest: I/UgVTvXVJs1L5Up+9esZjVEF/x+AsqRQWZZ7Z7l9VU=
+
+Name: res/drawable/weather_small_preview.xml
+SHA-256-Digest: EIIrzztzqmbPljKWaSMtKBFiGYXmJcRu0UgQ0gvEVKk=
+
+Name: res/layout/album_widget.xml
+SHA-256-Digest: WMYwjHqxMkKd8Y+P8R+Xpjc8x5zfMoUyp2jVhJm0EZs=
+
+Name: res/layout/album_widget_b.xml
+SHA-256-Digest: O+vGRZItN85TgCnk5NKWzKNN6UPSv/HqeVUQlI7DmyY=
+
+Name: res/layout/info_widget.xml
+SHA-256-Digest: E469wBPTg5l+9jOQ3WGcRoOh44RFx5ORsYKCkJhaKyI=
+
+Name: res/layout/info_widget_b.xml
+SHA-256-Digest: Jlz3mweAADJR+l864Npbx14QAo9VQIElkhgtSTCXUjs=
+
+Name: res/xml/album_widget_info.xml
+SHA-256-Digest: VgbUG/vSC2AVrlLnzOkyduZUvX0oIYWZjFDLxoZfiSw=
+
+Name: res/xml/battery_medium_info.xml
+SHA-256-Digest: KCa9JNFWCqPfDDQoDqMOrdU/cbNfbh7Lc/xi++NJqW4=
+
+Name: res/xml/battery_small_info.xml
+SHA-256-Digest: m8HQzlBgwx/lcxjhDv5trZc7WWFpInOKUgEH9a4XrvE=
+
+Name: res/xml/calendar_medium_info.xml
+SHA-256-Digest: rXgp+Rc3I7Gs1uucd1UorJTyZyByI5UFQZS5oTLdtrs=
+
+Name: res/xml/calendar_small_info.xml
+SHA-256-Digest: nZ4Z8tKIF2+CXT2wQuFK8nRvLQQrbMHHSiONZ6TxU8U=
+
+Name: res/xml/weather_medium_info.xml
+SHA-256-Digest: RjAUKVyDvKzeFbbgOLQYxWr6G2BLa2k4heApyNlw9nM=
+
+Name: res/xml/weather_small_info.xml
+SHA-256-Digest: ar3GOdqtSaRI6lFaWN6MSg4GEClc0xVQjdUZ2AgDWoQ=
+
+Name: resources.arsc
+SHA-256-Digest: oEKBrobihFkfuCJLO2ILS12ubsbaGlp0h1plolJOmYA=
+

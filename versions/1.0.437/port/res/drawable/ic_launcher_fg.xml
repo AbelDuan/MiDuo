@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="108.0dip" android:width="108.0dip" android:viewportWidth="108.0" android:viewportHeight="108.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 应用区：左侧大圆角方块 -->
+    <path android:fillColor="@color/ic_launcher_ink" android:pathData="M24,30 H68 A7,7 0 0 1 75,37 V71 A7,7 0 0 1 68,78 H24 A7,7 0 0 1 17,71 V37 A7,7 0 0 1 24,30 Z" />
+    <!-- 侧边 dock：右侧竖向胶囊 -->
+    <path android:fillColor="@color/ic_launcher_ink" android:pathData="M85,34 H89 A5,5 0 0 1 94,39 V69 A5,5 0 0 1 89,74 H85 A5,5 0 0 1 80,69 V39 A5,5 0 0 1 85,34 Z" />
+    <!-- 应用区内三行小方块（浅色，代表图标网格） -->
+    <path android:fillColor="@color/ic_launcher_bg" android:pathData="M28,40 H40 A4,4 0 0 1 44,44 V56 A4,4 0 0 1 40,60 H28 A4,4 0 0 1 24,56 V44 A4,4 0 0 1 28,40 Z" />
+    <path android:fillColor="@color/ic_launcher_bg" android:pathData="M52,40 H64 A4,4 0 0 1 68,44 V56 A4,4 0 0 1 64,60 H52 A4,4 0 0 1 48,56 V44 A4,4 0 0 1 52,40 Z" />
+</vector>

@@ -2,18 +2,10 @@
 out/
 *.idsig
 .work/
-
-# 大体积二进制（如需版本化请手动移除本行）
-tools/apktool.jar
-MiDuo-1.0.415.apk
-native/disasm/disasm-full.txt
-native/disasm/readelf.txt
-
 .build/
 
-# DuoPort 构建产物
+# 构建产物（DuoPort）
 versions/1.0.437/out/
-*.idsig
 
-# 中间迁移工程（由 rebuild + 改包名生成，duoport 已取代）
-versions/1.0.437/port/
+# 大体积工具链（apktool 官方可下载，不入库）
+tools/apktool.jar
