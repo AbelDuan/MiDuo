@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="album_widget_description">从小米相册选一张照片，铺满一整页</string>
+    <string name="album_widget_hint">点一下设置照片</string>
+    <string name="album_widget_label">相册 4x6</string>
+    <string name="battery_medium_label">电池 4×2</string>
+    <string name="battery_small_label">电池 2×2</string>
+    <string name="calendar_medium_label">日历 4×2</string>
+    <string name="calendar_small_label">日历 2×2</string>
+    <string name="info_widget_description">MiDuo 电池、日历和天气</string>
+    <string name="weather_medium_label">天气 4×2</string>
+    <string name="weather_small_label">天气 2×2</string>
+</resources>

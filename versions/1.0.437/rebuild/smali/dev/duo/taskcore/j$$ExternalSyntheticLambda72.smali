@@ -1,0 +1,54 @@
+.class public final synthetic Ldev/duo/taskcore/j$$ExternalSyntheticLambda72;
+.super Ljava/lang/Object;
+.source "D8$$SyntheticClass"
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# instance fields
+.field public final synthetic f$0:Ldev/duo/taskcore/WorkspaceShell;
+
+.field public final synthetic f$1:Ldev/duo/taskcore/WorkspaceShell$Pending;
+
+.field public final synthetic f$2:Ljava/lang/String;
+
+.field public final synthetic f$3:J
+
+
+# direct methods
+.method public synthetic constructor <init>(Ldev/duo/taskcore/WorkspaceShell;Ldev/duo/taskcore/WorkspaceShell$Pending;Ljava/lang/String;J)V
+    .locals 0
+
+    .line 0
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Ldev/duo/taskcore/j$$ExternalSyntheticLambda72;->f$0:Ldev/duo/taskcore/WorkspaceShell;
+
+    iput-object p2, p0, Ldev/duo/taskcore/j$$ExternalSyntheticLambda72;->f$1:Ldev/duo/taskcore/WorkspaceShell$Pending;
+
+    iput-object p3, p0, Ldev/duo/taskcore/j$$ExternalSyntheticLambda72;->f$2:Ljava/lang/String;
+
+    iput-wide p4, p0, Ldev/duo/taskcore/j$$ExternalSyntheticLambda72;->f$3:J
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final run()V
+    .locals 5
+
+    .line 0
+    iget-object v0, p0, Ldev/duo/taskcore/j$$ExternalSyntheticLambda72;->f$0:Ldev/duo/taskcore/WorkspaceShell;
+
+    iget-object v1, p0, Ldev/duo/taskcore/j$$ExternalSyntheticLambda72;->f$1:Ldev/duo/taskcore/WorkspaceShell$Pending;
+
+    iget-object v2, p0, Ldev/duo/taskcore/j$$ExternalSyntheticLambda72;->f$2:Ljava/lang/String;
+
+    iget-wide v3, p0, Ldev/duo/taskcore/j$$ExternalSyntheticLambda72;->f$3:J
+
+    invoke-static {v0, v1, v2, v3, v4}, Ldev/duo/taskcore/WorkspaceShell;->$r8$lambda$lE8BaIg3GnPx23ys6whKgMM7im4(Ldev/duo/taskcore/WorkspaceShell;Ldev/duo/taskcore/WorkspaceShell$Pending;Ljava/lang/String;J)V
+
+    return-void
+.end method

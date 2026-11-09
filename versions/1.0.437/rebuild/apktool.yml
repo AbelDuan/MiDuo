@@ -1,0 +1,28 @@
+version: 2.11.1
+apkFileName: MiDuo-1.0.437.apk
+isFrameworkApk: false
+usesFramework:
+  ids:
+  - 1
+  tag: null
+sdkInfo:
+  minSdkVersion: 35
+  targetSdkVersion: 37
+packageInfo:
+  forcedPackageId: 127
+  renameManifestPackage: null
+versionInfo:
+  versionCode: 437
+  versionName: 1.0.437
+sharedLibrary: false
+sparseResources: false
+compactEntries: false
+doNotCompress:
+- arsc
+- dex
+- png
+- so
+- META-INF/xposed/java_init.list
+- META-INF/xposed/module.prop
+- META-INF/xposed/native_init.list
+- META-INF/xposed/scope.list

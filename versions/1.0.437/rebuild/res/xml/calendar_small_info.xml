@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider android:description="@string/calendar_small_label" android:updatePeriodMillis="1800000" android:initialLayout="@layout/info_widget" android:previewImage="@drawable/calendar_small_preview" android:resizeMode="none" android:widgetCategory="home_screen" android:targetCellWidth="2" android:targetCellHeight="2"
+  xmlns:android="http://schemas.android.com/apk/res/android" />
