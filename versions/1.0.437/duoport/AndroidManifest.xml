@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="37" android:compileSdkVersionCodename="17" package="com.lsposed.duoport" platformBuildVersionCode="37" platformBuildVersionName="17">
+    <uses-sdk android:minSdkVersion="35" android:targetSdkVersion="37"/>
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <application android:allowBackup="false" android:extractNativeLibs="false" android:icon="@drawable/ic_launcher" android:label="DuoPort" android:roundIcon="@drawable/ic_launcher" android:theme="@android:style/Theme.DeviceDefault.DayNight">
+
+        <activity android:exported="true" android:name="dev.duo.port.SettingsActivity" android:label="DuoPort" android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|uiMode|density" android:excludeFromRecents="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <meta-data android:name="xposedmodule" android:value="true"/>
+            <meta-data android:name="xposeddescription" android:value="Duo 桌面/锁屏布局移植模块"/>
+            <meta-data android:name="xposedminversion" android:value="102"/>
+        </activity>
+
+        <provider android:authorities="com.lsposed.duoport.config" android:exported="true" android:name="dev.duo.hookprobe.ConfigProvider"/>
+
+        <provider android:authorities="com.lsposed.duoport.XposedService" android:exported="true" android:name="io.github.libxposed.service.XposedProvider"/>
+
+    </application>
+</manifest>
