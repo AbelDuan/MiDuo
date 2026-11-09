@@ -4,6 +4,8 @@
 
 - 归档位置：`versions/1.0.437/`（smali + jadx Java + 映射表 + 原始 APK）
 - 归档说明：`versions/1.0.437/README.md`
+- **可读可编译工程**：`versions/1.0.437/rebuild/` —— taskcore 已还原真实类名，可直接改代码编译
+- 还原说明：`versions/1.0.437/rebuild/README.md`
 
 ## 一、版本与混淆差异
 
@@ -225,11 +227,43 @@ java -jar tools\apktool.jar d -f -o _work\dec437 versions\1.0.437\MiDuo-1.0.437.
 _work\jadx\bin\jadx.bat -d _work\jadx437 --no-res --no-imports versions\1.0.437\MiDuo-1.0.437.apk
 
 # 2. 查映射
-cat versions\1.0.437\taskcore-map.json
+cat versions\1.0.437\taskcore-map-lexicographic.json   # 437 混淆名 -> 415 真实名
+cat versions\1.0.437\workspaceprobe-map.json
 
 # 3. 对比 rail/dock（同名，可直接 diff）
 diff _work\orig_dec\smali\dev\duo\workspaceprobe\b.smali `
      versions\1.0.437\smali\dev\duo\workspaceprobe\b.smali
+
+# 4. 直接改 437（用已还原类名的工程）
+java -jar tools\apktool.jar b versions\1.0.437\rebuild -o out\MiDuo-437-deobf.apk
 ```
 
 对比时注意：**415 工程内的 smali 已改包名为 `com.lsposed.miduo`**，与原始 `dev.duo.hookprobe` 不同。先过滤包名常量再比功能差异。
+
+## 七、taskcore 类名还原（rebuild 工程）
+
+`versions/1.0.437/rebuild/` 是可直接改代码编译的工程，`taskcore` 45 个类已还原真实名。
+
+**还原原理**：415 与 437 的 taskcore 都是 45 个类，R8 按**字典序**分配短名，排序后序号 1:1 对齐。对齐后逐项验证父子关系（`.super` / 内部类归属），**45 个类全部一致**。
+
+完整映射见 `versions/1.0.437/taskcore-map-lexicographic.json`：
+
+```
+a        → Frames              g        → WorkspaceHost
+a$a      → Frames$Driver       g$h      → WorkspaceHost$OverlayView
+a$b      → Frames$Scheduler    g$h$a    → WorkspaceHost$OverlayView$1
+b        → Geometry            h        → WorkspaceProtocol
+c        → SystemGate          i        → WorkspaceSession
+d        → TaskBinding         j        → WorkspaceShell
+e        → Tx                  k        → WorkspaceWm
+f        → VirtualFocus
+```
+
+**方法名/字段名保持混淆**（已论证不可靠）：
+
+- WorkspaceHost 90 个方法匹配测试，强匹配 0 个，最高分 68
+- 437 多出 28 个方法，R8 内联/重排使方法体特征变形
+- `access$XXX` 合成访问器 40+ 个，方法体几乎相同，无法区分
+- 错配风险大于收益，故不做
+
+实际影响有限：类名还原后看方法体逻辑即可判断用途。
